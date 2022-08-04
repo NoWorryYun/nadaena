@@ -11,6 +11,6 @@ public class MyController {
 	public String layer() {
 		System.out.println("login");
 		
-		return "my/my-review";
+		return "my/my-review"; 
 	} 
 }
