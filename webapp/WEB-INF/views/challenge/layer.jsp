@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -51,66 +52,15 @@
 
 
 <body>
-	<header>
-		<div class="header-box">
-			<div class="header-top">
-				<div class="row">
-					<div id="logbox" class="col-2">
-						<h1>나대나</h1>
-						<a href="#"> <img class="logo-img"
-							src="../../assets/img/logo.png">
-						</a>
-					</div>
-					<form id="searchbox" class="col-8 text-center" action=""
-						method="get">
-						<input id="text-search" type="text" class="">
-						<button id="btn-search" type="submit">
-							<i class="fa fa-search"></i>
-						</button>
-					</form>
-					<div id="userbox" class="col-2 text-end">
-						<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a> <a
-							id="btn-join" class="btn btn-light btn-sm" href="#">회원가입</a>
-					</div>
-				</div>
-				<!-- //row -->
-
-			</div>
-			<!-- //header-top -->
-
-			<nav id="navbox" class="row">
-				<ul class="nav col-10">
-					<li class="nav-item"><a id="text-cate" href="#"
-						class="btn dropdown-toggle" data-bs-toggle="dropdown"
-						aria-expanded="false">전체카테고리</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">구분1</a></li>
-							<li><a class="dropdown-item" href="#">구분2</a></li>
-							<li><a class="dropdown-item" href="#">구분3</a></li>
-							<li><a class="dropdown-item" href="#">구분4</a></li>
-						</ul></li>
-					<li class="nav-item"><a href="#">챌린지</a></li>
-					<li class="nav-item"><a href="#">이벤트</a></li>
-					<li class="nav-item"><a href="#">포인트몰</a></li>
-				</ul>
-
-				<div id="btnbox" class="col-2">
-					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right"
-						href="#">챌린지 개설하기</a>
-				</div>
-			</nav>
-			<!-- nav -->
-		</div>
-		<!-- //header-box -->
-
-	</header>
-
+	<!-- header -->
+	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+	<!-- /header -->
 
 	<main>
 		<div class="main-box">
 			<div class="row">
 
-				<div id="content" class="col-10">
+				<div id="content" class="col-9">
 
 					<div id="read-main">
 						<div>
@@ -1254,7 +1204,7 @@
 					</div>
 				</div>
 
-				<div id="rside" class="col-2">
+				<div id="rside" class="col-3">
 					<div id="challenge-recommand">
 						<div>
 							<p>현재 인기의 챌린지</p>
@@ -1329,19 +1279,9 @@
 
 
 
-	<footer>
-		<div class="footer-box text-center">
-			<p class="footer-title">나대나 팀프로젝트 컴퍼니</p>
-
-			<p class="footer-content">
-				회사명 : (주)글로벌 아이티(IT) 인재개발원 사업자등록번호 : 119-99-54433 대표자명 : 정우성<br>
-				서울시 관악구 남부순환로 1820,에그엘로우14층 전화번호 : 02-1234-5678 팩스번호 : 02-9876-5432<br>
-			<p>
-			<p class="footer-copyright">Copyright 2022 (주)글로벌아이티정보기술. ALL
-				RIGHTS RESERVED.</p>
-		</div>
-	</footer>
-
+	<!-- footer -->
+	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+	<!-- /footer -->
 
 </body>
 

@@ -26,6 +26,6 @@ public class mainController {
 	public String layer() {
 		System.out.println("layer");
 		
-		return "layer";
+		return "challenge/layer";
 	}
 }
