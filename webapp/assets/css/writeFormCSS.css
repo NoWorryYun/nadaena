@@ -1,0 +1,141 @@
+table {
+  border-style: none;
+}
+
+#write-wrap {
+  padding-left: 260px;
+  padding-right: 260px;
+  padding-top: 20px;
+}
+
+#write-main-wrap {
+  border-left: 1px solid #9f9f9f;
+  max-width: 860px;
+  width: 860px;
+  min-width: 860px;
+}
+
+#write-wrap-content {
+  width: 600px;
+  float: left;
+}
+
+.write-header {
+  font-weight: bold;
+  border-bottom: 1px solid #9f9f9f;
+  padding-bottom: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Jost", sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#table-writeform {
+  border-style: none;
+  border-color: rgb(255,255,255);
+  border-bottom-style: none;
+}
+
+.table-none {
+  border-style: none !important;
+}
+
+.write-table-label {
+  border-style: none;
+  width: 120px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.write-table-label {
+  border-style: none;
+  width: 120px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.write-table-content {
+  border-style: none;
+  font-size: 12px;
+  height: auto;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+#calculator ul {
+  padding-left: 15px;
+}
+
+address, dl, fieldset, figure, ol, p, pre, ul {
+  margin: 0 0 10px 0;
+}
+
+#calculator {
+  padding: 10px 10px;
+  float: right;
+  border: solid 3px #ff9999;
+  width: 240px;
+  height: auto;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0px 0px 0px 600px;
+  position: fixed;
+}
+
+.font-12 a {
+  font-size: 12px;
+}
+
+.bold-underline {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.type-center {
+  text-align: center;
+}
+
+.typebox-size {
+  height: 27px;
+  width: 350px;
+}
+
+.upload-size td {
+  width: 70px;
+}
+
+#image-cell {
+  padding-top: 25px;
+}
+
+#write-main {
+}
+
+#visual-radio {
+  font-size: 12px;
+}
+
+.category-letter td {
+  width: 100px;
+}
+
+#number-of-times-detail {
+  line-height: 3;
+}
+
+#list-picture {
+  line-height: 5;
+}
+
+.challenge-title {
+}
+

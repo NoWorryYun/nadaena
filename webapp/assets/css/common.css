@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/******************************************/
+/**** 공통 *********************************/
+/******************************************/
+h1 {display: none;}
+h2 {font-size: 22px; font-weight: bold;}
+h3 {font-size: 18px; font-weight: bold; color: #595959; margin: 5px 0px 0px 0px;}
+
+
+/******************************************/
+/**** 레이아웃(100% 1113px)******************/
+/******************************************/
+/* 해더 */
+header {width: 100%; border-bottom: 1px solid #c0c0c0;}
+header>.header-box {width: 1113px; margin: 0 auto;}
+header>.header-box>.header-top {height: 74px;}
+
+
+/* 메인 */
+main {width: 100%;}
+main>.main-box {width: 1113px; margin: 0 auto; padding: 20px 0px 20px 0px;}
+main>.main-box #aside {padding-right: 0px;}
+main>.main-box #rside {padding-left: 0px;}
+
+
+/* 푸터 */
+footer {width: 100%; border-top: 1px solid #c0c0c0;}
+footer>.footer-box {width: 1113px; margin: 0 auto; padding: 20px 20px 10px 20px;}
+
+
+/******************************************/
+/**** 해더상세*****************************/
+/******************************************/
+/* 해더상단 > 로고영역 */
+#logbox .logo-img {
+  	height: 30px;
+  	margin-top: 20px;
+}
+
+/* 해더상단 > 검색영역 */
+#searchbox {position: relative;}
+
+/* 해더상단 > 검색영역 > 키워드입력창 */
+#searchbox #text-search{
+	width: 500px;
+	height: 40px;
+	margin-top: 15px;
+	padding: 0px 15px 3px 15px;
+	border-radius: 20px 20px 20px 20px;
+	border: 1px solid #c0c0c0; 
+	font-size: 25px;
+}
+
+/* 해더상단 > 검색영역 > 키워드입력창 포커스일때*/
+#searchbox #text-search:focus {outline: none;}
+
+
+/* 해더상단 > 검색영역 > 검색버튼*/
+#searchbox #btn-search {
+	position:absolute;
+	width: 50px;
+	height: 40px;
+	top: 15px;
+	left: 568px;
+	border-radius: 0px 20px 20px 0px;
+	border: 0px solid #ff0080;
+	background-color: transparent; 
+}
+
+
+/* 해더상단 > 유저버튼영역 */
+#userbox #btn-login, #userbox #btn-join {
+	margin: 22px 0px 0px 5px;
+	font-size: 15px;
+	background-color: #F1F1F1;
+}
+
+
+
+/* 해더하단(네비영역)*/
+#navbox {
+	height: 48px;
+  	margin: 0px;
+}
+
+#navbox ul {
+	margin: 10px 0px 0px 0px;
+}
+
+
+/* 해더하단(네비영역) > 리스트 */
+#navbox .nav .nav-item a {
+	margin: 0px 70px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+	vertical-align: initial;
+	box-shadow: initial;
+}
+
+
+#navbox .nav .nav-item .dropdown-menu a{
+	padding: 5px 5px 5px 5px;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+
+/* 해더하단(버튼영역) > 버튼*/
+#navbox #btnbox {
+	padding: 0px 0px 0px 0px;
+}
+#navbox #btnbox #btn-makeChallenge { 
+	margin: 0px 0px 0px 0px;
+	font-size: 16px;
+	background-color: #FF4B2B;
+}
+
+
+/******************************************/
+/**** 푸터상세*****************************/
+/******************************************/
+.footer-box .footer-title {
+	margin: 0px 0px 10px 0px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #303441;
+}
+
+.footer-box .footer-content {
+	font-size: 12px;
+	color: #303441;
+}
+
+.footer-box .footer-copyright {
+	font-size: 12px;
+	color: #707896;
+}

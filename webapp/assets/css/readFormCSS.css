@@ -1,0 +1,387 @@
+#read-wrap {
+  padding-right: 260px;
+  padding-top: 20px;
+  width: 1113px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#main {
+  padding: 148px 400px 0px 400px;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
+  display: block;
+}
+
+#read-main {
+  width: 860px;
+  float: left;
+}
+
+#read-header {
+  font-weight: bold;
+  padding-bottom: 5px;
+  text-align: center;
+  background-color: #ff9999;
+  color: #ffffff;
+}
+
+.i-float {
+  float: right;
+}
+
+#read-tab {
+  width: 860px;
+}
+
+address, dl, fieldset, figure, ol, p, pre, ul {
+  margin: 0 0 10px 0;
+}
+
+.read-tab {
+  width: 215px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.float-l {
+  float: left;
+}
+
+#enter-challenge-cell {
+  border-style: none;
+  border-top: solid 1px #9f9f9f;
+  width: auto;
+  font-size: 12px;
+  font-weight: bold;
+  height: 20px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+#intro-detail {
+  border: solid 1px #9f9f9f;
+  padding: 15px 25px 15px 25px;
+  width: auto;
+}
+
+.calender-size {
+  width: 860px;
+  height: 350px;
+  z-index: -1;
+}
+
+.table-certify-form {
+  border-style: none;
+  border-color: rgb(255,255,255);
+  border-bottom-style: none;
+}
+
+.certify-label {
+  border-bottom-width: 3px !important;
+  width: auto;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.certify-label-none {
+  border: none;
+}
+
+#certify-main {
+  margin-top: 15px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+#certify-all-mine {
+  margin-top: 7px;
+  float: right;
+  font-size: 10px;
+}
+
+.simple-slider {
+  width: 180px;
+  display: inline-block;
+  height: 160px;
+}
+
+.certify-board {
+  width: 860px;
+}
+
+.certify-board-header {
+  width: 860px;
+  border-bottom: 1px solid #9f9f9f;
+  margin-bottom: 20px;
+}
+
+.certify-list-info {
+  margin-bottom: 30px;
+}
+
+#certify-all-mine li a {
+  font-size: 12px;
+}
+
+.certify-header {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.report {
+  float: right;
+  font-size: 9px;
+  color: red;
+  margin: 0;
+}
+
+.upload-date {
+  text-align: left;
+  font-size: 10px;
+}
+
+.review-uploader {
+  text-align: left;
+  font-size: 12px;
+}
+
+.nickname {
+  text-align: left;
+  font-size: 11px;
+}
+
+.paging-box {
+  display: flex;
+  justify-content: center;
+}
+
+.recommand-size {
+  width: 240px !important;
+  height: 160px !important;
+}
+
+.search-container.search-board {
+  padding: 0px;
+  float: right;
+  height: 20px;
+}
+
+.search-container {
+  display: inline-block;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 2px;
+  padding-right: 160px;
+}
+
+.search-input.board-search-box {
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
+  border-right: none;
+  width: 200px;
+}
+
+#read-board-main {
+  margin-top: 25px;
+}
+
+#read-board {
+  padding-top: 20px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.board-category-size {
+  width: 130px;
+}
+
+.board-title-size {
+  width: 372px;
+}
+
+.board-writer-size {
+  width: 132px;
+}
+
+.board-hit-size {
+  width: 88px;
+}
+
+.board-upload-size {
+  width: 140px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+#afterComment-wrap {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.img-size {
+  width: 180px;
+  height: 160px;
+}
+
+.review-comment {
+  text-align: left;
+  font-size: 11px;
+}
+
+.certify-graph-box {
+  width: 420px;
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.certify-img-size {
+  width: 180px;
+  height: 160px;
+}
+
+span {
+  font-size: 12px;
+}
+
+button {
+  border-radius: 5px;
+  border: 2px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+}
+
+.progress-bar .progress-goal {
+  width: 90%;
+  height: 15px;
+  padding: 0;
+  background-color: #000000;
+}
+
+#challenge-recommand {
+  padding-top: 10px;
+  float: right;
+  width: 240px;
+  height: auto;
+  font-size: 12px;
+  font-weight: 700;
+  position: absolute;
+}
+
+#challenge-bar {
+  padding: 10px 10px;
+  float: right;
+  border: solid 15px #ff9999;
+  width: 240px;
+  height: auto;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0px 0px 0px 873px;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.progress-bar .progress-mine {
+  width: 82%;
+  height: 15px;
+  padding: 0;
+  border-radius: 10px;
+  text-align: right;
+  background-color: #5afd;
+  color: #ffffff;
+  line-height: 15px;
+  font-size: 9px;
+}
+
+.progress-bar .progress-all {
+  width: 72%;
+  height: 15px;
+  padding: 0;
+  text-align: right;
+  background-color: #2ECC71;
+  color: #ffffff;
+  line-height: 15px;
+  border-radius: 10px;
+  font-size: 9px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  background-color: #dedede;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.make-challenge.certify {
+  line-height: 2px;
+  padding: 15px 19px;
+  width: auto;
+  float: none;
+  margin: 0px;
+}
+
+.font-12 a {
+  font-size: 12px;
+}
+
+.bold-underline {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.type-center {
+  text-align: center;
+}
+
+.typebox-size {
+  height: 27px;
+  width: 350px;
+}
+
+.upload-size td {
+  width: 70px;
+}
+
+#image-cell {
+  padding-top: 25px;
+}
+
+#tab-1 {
+  padding: 10px;
+}
+
+.write-title-shape {
+  width: 100%;
+  border: 1px solid #9f9f9f;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
