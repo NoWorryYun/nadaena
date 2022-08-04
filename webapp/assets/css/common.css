@@ -61,7 +61,7 @@ footer>.footer-box {width: 1113px; margin: 0 auto; padding: 20px 20px 10px 20px;
 	width: 50px;
 	height: 40px;
 	top: 15px;
-	left: 568px;
+	left: 530px;
 	border-radius: 0px 20px 20px 0px;
 	border: 0px solid #ff0080;
 	background-color: transparent; 
@@ -69,12 +69,40 @@ footer>.footer-box {width: 1113px; margin: 0 auto; padding: 20px 20px 10px 20px;
 
 
 /* 해더상단 > 유저버튼영역 */
+#userbox #nickName {
+	margin: 25px 0px 0px 45px;
+	font-size: 15px;
+}
+
+
+/* 해더상단 > 유저버튼영역  로그인전*/
 #userbox #btn-login, #userbox #btn-join {
 	margin: 22px 0px 0px 5px;
 	font-size: 15px;
 	background-color: #F1F1F1;
 }
 
+/* 해더상단 > 유저버튼영역  로그인후*/
+#userbox #btn-user {
+	margin: 22px 0px 0px 5px;
+	padding: 0px 0px 0px 0px ;
+}
+
+#userbox #btn-user #lv-user {
+	font-size: 14px;
+	padding: 4px 7px 7px 7px;
+}
+
+#userbox #btn-user #txt-nick {
+	font-size: 14px;
+}
+
+
+#userbox #btn-user-list {
+	width: 212px;
+	padding: 4px 0px 4px 0px; 
+	font-size: 14px;
+}
 
 
 /* 해더하단(네비영역)*/
@@ -100,11 +128,14 @@ footer>.footer-box {width: 1113px; margin: 0 auto; padding: 20px 20px 10px 20px;
 	box-shadow: initial;
 }
 
+#navbox .nav .nav-item #text-cate-list {
+	inset: 10px auto auto 0px !important;
+}
 
 #navbox .nav .nav-item .dropdown-menu a{
 	padding: 5px 5px 5px 5px;
 	text-decoration: none;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: normal;
 }
 
