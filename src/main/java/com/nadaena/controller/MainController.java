@@ -5,22 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class mainController {
-	
-	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
-	public String test() {
-		System.out.println("testController");
-		
-		
-		return "main/test";
-	}
-	
-	@RequestMapping(value="/header", method = {RequestMethod.GET, RequestMethod.POST})
-	public String header() {
-		System.out.println("header");
-		
-		return "aside/header";
-	}
+public class MainController {
 	
 	@RequestMapping(value="/layer", method = {RequestMethod.GET, RequestMethod.POST})
 	public String layer() {

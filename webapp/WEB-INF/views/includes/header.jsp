@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <header>
 	<div class="header-box">
@@ -7,20 +6,18 @@
 			<div class="row">
 				<div id="logbox" class="col-2">
 					<h1>나대나</h1>
-					<a href="#"> <img class="logo-img"
-						src="../../assets/img/logo.png">
+					<a href="#"> <img class="logo-img" src="${pageContext.request.contextPath}/assets/img/logo.png">
 					</a>
 				</div>
-				<form id="searchbox" class="col-8 text-center" action=""
-					method="get">
+				<form id="searchbox" class="col-8 text-center" action="" method="get">
 					<input id="text-search" type="text" class="">
 					<button id="btn-search" type="submit">
 						<i class="fa fa-search"></i>
 					</button>
 				</form>
 				<div id="userbox" class="col-2 text-end">
-					<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a> <a
-						id="btn-join" class="btn btn-light btn-sm" href="#">회원가입</a>
+					<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a>
+					<a id="btn-join" class="btn btn-light btn-sm" href="#">회원가입</a>
 				</div>
 			</div>
 			<!-- //row -->
@@ -30,9 +27,7 @@
 
 		<nav id="navbox" class="row">
 			<ul class="nav col-10">
-				<li class="nav-item"><a id="text-cate" href="#"
-					class="btn dropdown-toggle" data-bs-toggle="dropdown"
-					aria-expanded="false">전체카테고리</a>
+				<li class="nav-item"><a id="text-cate" href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">전체카테고리</a>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="#">구분1</a></li>
 						<li><a class="dropdown-item" href="#">구분2</a></li>

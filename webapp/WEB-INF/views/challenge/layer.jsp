@@ -6,46 +6,30 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>검색결과</title>
 
 <!-- css -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/fonts/font-awesome.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/common.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css">
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/Dropdown-Login-with-Social-Logins-bootstrap-social.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/readFormCSS.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/Simple-Slider-Simple-Slider.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/icon-star-empty.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/readFormCSS.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Simple-Slider-Simple-Slider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/icon-star-empty.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 
 
 
 <!-- js -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
 
 </head>
 
@@ -65,33 +49,23 @@
 					<div id="read-main">
 						<div>
 							<h2 id="read-header">
-								<i class="fa fa-star fa-star-o i-float"></i>매일 10페이지 책 읽기<i
-									class="fa fa-star i-float"></i><br>2022-08-06~2022-08-27<br>
+								<i class="fa fa-star fa-star-o i-float"></i>매일 10페이지 책 읽기<i class="fa fa-star i-float"></i><br>2022-08-06~2022-08-27<br>
 							</h2>
 						</div>
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item" role="presentation"><a
-										class="nav-link read-tab" role="tab" data-bs-toggle="tab"
-										href="#tab-1">소개글</a></li>
-									<li class="nav-item" role="presentation"><a
-										class="nav-link active read-tab" role="tab"
-										data-bs-toggle="tab" href="#tab-2">인증하기</a></li>
-									<li class="nav-item" role="presentation"><a
-										class="nav-link read-tab" role="tab" data-bs-toggle="tab"
-										href="#tab-3">커뮤니티</a></li>
-									<li class="nav-item" role="presentation"><a
-										class="nav-link read-tab" role="tab" data-bs-toggle="tab"
-										href="#tab-4">후기글</a></li>
+									<li class="nav-item" role="presentation"><a class="nav-link read-tab" role="tab" data-bs-toggle="tab" href="#tab-1">소개글</a></li>
+									<li class="nav-item" role="presentation"><a class="nav-link active read-tab" role="tab" data-bs-toggle="tab" href="#tab-2">인증하기</a></li>
+									<li class="nav-item" role="presentation"><a class="nav-link read-tab" role="tab" data-bs-toggle="tab" href="#tab-3">커뮤니티</a></li>
+									<li class="nav-item" role="presentation"><a class="nav-link read-tab" role="tab" data-bs-toggle="tab" href="#tab-4">후기글</a></li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane" role="tabpanel" id="tab-1">
 										<div id="introduce-wrap">
 											<div>
 												<div class="float-l">
-													<img class="picture-size"
-														src="assets/img/bg-navbar-dropdown-themes.png">
+													<img class="picture-size" src="assets/img/bg-navbar-dropdown-themes.png">
 													<div>
 														<div>
 															<p class="font-12 fw-bold">카테고리 : 독서</p>
@@ -108,8 +82,7 @@
 													<div class="table-responsive" id="table-writeform"
 														style="border-style: none; border-color: rgb(255, 255, 255); border-top-color: rgb(33,; border-right-color: 37,; border-bottom-style: none; border-bottom-color: 41); border-left-color: 37,;">
 														<table class="table">
-															<thead
-																style="border-style: none; border-color: var(- -bs-table-hover-bg); border-bottom-style: none; border-bottom-color: rgb(255, 255, 255);">
+															<thead style="border-style: none; border-color: var(- -bs-table-hover-bg); border-bottom-style: none; border-bottom-color: rgb(255, 255, 255);">
 																<tr style="border-style: none;"></tr>
 															</thead>
 															<tbody style="border-style: none;">
@@ -167,9 +140,7 @@
 																	</select>&nbsp;원</td>
 																</tr>
 																<tr style="border-style: none;">
-																	<td id="enter-challenge-cell" class="type-center"
-																		colspan="2"><button class="font-12" type="submit">챌린지
-																			참여하기</button></td>
+																	<td id="enter-challenge-cell" class="type-center" colspan="2"><button class="font-12" type="submit">챌린지 참여하기</button></td>
 																</tr>
 															</tbody>
 														</table>
@@ -178,8 +149,7 @@
 											</div>
 											<div id="intro-detail">
 												<p class="bold-underline">소개글</p>
-												<p class="font-12">매일 책 10페이지씩 읽고 인증하시면 됩니다. 인증은 오전 9시부터
-													10시까지만 가능하며 책의 표지와 첫페이지와 끝페이지를 찍어서 올리시면 됩니다. 블라블라~</p>
+												<p class="font-12">매일 책 10페이지씩 읽고 인증하시면 됩니다. 인증은 오전 9시부터 10시까지만 가능하며 책의 표지와 첫페이지와 끝페이지를 찍어서 올리시면 됩니다. 블라블라~</p>
 											</div>
 										</div>
 									</div>
@@ -216,43 +186,30 @@
 													<p class="font-20 text-center bold-underline">인증업로드</p>
 													<div class="table-responsive table-certify-form">
 														<table class="table">
-															<thead
-																style="border-style: none; border-color: var(- -bs-table-hover-bg); border-bottom-style: none; border-bottom-color: rgb(255, 255, 255);">
+															<thead style="border-style: none; border-color: var(- -bs-table-hover-bg); border-bottom-style: none; border-bottom-color: rgb(255, 255, 255);">
 																<tr style="border-style: none;"></tr>
 															</thead>
 															<tbody class="table-none">
 																<tr>
-																	<td class="certify-label certify-label-none" colspan=""><span
-																		style="font-weight: normal !important;">책읽기 시작한
-																			페이지 업로드(09:00)~(10:00)</span><br></td>
+																	<td class="certify-label certify-label-none" colspan=""><span style="font-weight: normal !important;">책읽기 시작한 페이지 업로드(09:00)~(10:00)</span><br></td>
 																</tr>
 																<tr style="border-style: none; height: 20px;">
-																	<td class="certify-label" colspan=""><input
-																		type="file"></td>
+																	<td class="certify-label" colspan=""><input type="file"></td>
 																</tr>
 																<tr style="border-style: none; height: 20px;">
-																	<td class="certify-label certify-label-none" colspan=""><span
-																		style="font-weight: normal !important;">책읽기 마지막
-																			페이지 업로드(09:00)~(10:00)</span><br></td>
+																	<td class="certify-label certify-label-none" colspan=""><span style="font-weight: normal !important;">책읽기 마지막 페이지 업로드(09:00)~(10:00)</span><br></td>
 																</tr>
 																<tr style="border-style: none; height: 20px;">
-																	<td class="certify-label" colspan=""><input
-																		type="file"><br></td>
+																	<td class="certify-label" colspan=""><input type="file"><br></td>
 																</tr>
 																<tr style="border-style: none; height: 20px;">
-																	<td class="certify-label certify-label-none" colspan=""><span
-																		style="font-weight: normal !important;">책 표지 사진
-																			업로드(09:00)~(10:00)</span><br></td>
+																	<td class="certify-label certify-label-none" colspan=""><span style="font-weight: normal !important;">책 표지 사진 업로드(09:00)~(10:00)</span><br></td>
 																</tr>
 																<tr style="border-style: none; height: 20px;">
-																	<td class="certify-label certify-label-none" colspan=""><input
-																		type="file"></td>
+																	<td class="certify-label certify-label-none" colspan=""><input type="file"></td>
 																</tr>
 																<tr>
-																	<td
-																		class="certify-label certify-label-none text-center"
-																		colspan=""><button class="make-challenge certify"
-																			type="submit">인증하기</button></td>
+																	<td class="certify-label certify-label-none text-center" colspan=""><button class="make-challenge certify" type="submit">인증하기</button></td>
 																</tr>
 															</tbody>
 														</table>
@@ -274,16 +231,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -306,16 +260,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -338,16 +289,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -370,16 +318,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -402,16 +347,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -434,16 +376,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -466,16 +405,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -498,16 +434,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -530,16 +463,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -562,16 +492,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -594,16 +521,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -626,16 +550,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -658,16 +579,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -690,16 +608,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -722,16 +637,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -754,16 +666,13 @@
 																<div class="swiper-container">
 																	<div class="swiper-wrapper">
 																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size"
-																				src="assets/img/bg-navbar-dropdown-themes.png"></a>
+																			<a href="#"><img class="certify-img-size" src="assets/img/bg-navbar-dropdown-themes.png"></a>
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																		<div class="swiper-slide">
-																			<img class="certify-img-size"
-																				src="assets/img/즐겨찾기%20별2.png">
+																			<img class="certify-img-size" src="assets/img/즐겨찾기%20별2.png">
 																		</div>
 																	</div>
 																	<div class="swiper-pagination"></div>
@@ -785,16 +694,13 @@
 													<div class="paging-box">
 														<nav>
 															<ul class="pagination pagination-sm">
-																<li class="page-item"><a class="page-link"
-																	aria-label="Previous" href="#"><span
-																		aria-hidden="true">«</span></a></li>
+																<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
 																<li class="page-item"><a class="page-link" href="#">1</a></li>
 																<li class="page-item"><a class="page-link" href="#">2</a></li>
 																<li class="page-item"><a class="page-link" href="#">3</a></li>
 																<li class="page-item"><a class="page-link" href="#">4</a></li>
 																<li class="page-item"><a class="page-link" href="#">5</a></li>
-																<li class="page-item"><a class="page-link"
-																	aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+																<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
 															</ul>
 														</nav>
 													</div>
@@ -818,11 +724,8 @@
 															</optgroup>
 														</select>
 														<div class="search-container search-board">
-															<input class="search-input board-search-box" type="text"
-																name="search-bar" placeholder="검색어를 입력하세요" />
-															<button
-																class="btn btn-light search-btn board-search-button"
-																type="button">
+															<input class="search-input board-search-box" type="text" name="search-bar" placeholder="검색어를 입력하세요" />
+															<button class="btn btn-light search-btn board-search-button" type="button">
 																<i class="fa fa-search"></i>
 															</button>
 														</div>
@@ -917,16 +820,13 @@
 													<div class="paging-box">
 														<nav>
 															<ul class="pagination pagination-sm">
-																<li class="page-item"><a class="page-link"
-																	aria-label="Previous" href="#"><span
-																		aria-hidden="true">«</span></a></li>
+																<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
 																<li class="page-item"><a class="page-link" href="#">1</a></li>
 																<li class="page-item"><a class="page-link" href="#">2</a></li>
 																<li class="page-item"><a class="page-link" href="#">3</a></li>
 																<li class="page-item"><a class="page-link" href="#">4</a></li>
 																<li class="page-item"><a class="page-link" href="#">5</a></li>
-																<li class="page-item"><a class="page-link"
-																	aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+																<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
 															</ul>
 														</nav>
 													</div>
@@ -940,8 +840,7 @@
 												<ul class="list-inline">
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -955,8 +854,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -970,8 +868,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -985,8 +882,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1000,8 +896,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1015,8 +910,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1030,8 +924,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1045,8 +938,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1060,8 +952,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1075,8 +966,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1090,8 +980,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1105,8 +994,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1120,8 +1008,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1135,8 +1022,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1150,8 +1036,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1165,8 +1050,7 @@
 													</li>
 													<li class="list-inline-item">
 														<div class="img-size">
-															<a href="#"><img class="img-size"
-																src="assets/img/즐겨찾기%20별2.png"></a>
+															<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
 														</div>
 														<div class="certify-list-info">
 															<div>
@@ -1182,16 +1066,13 @@
 												<div class="paging-box">
 													<nav>
 														<ul class="pagination pagination-sm">
-															<li class="page-item"><a class="page-link"
-																aria-label="Previous" href="#"><span
-																	aria-hidden="true">«</span></a></li>
+															<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
 															<li class="page-item"><a class="page-link" href="#">1</a></li>
 															<li class="page-item"><a class="page-link" href="#">2</a></li>
 															<li class="page-item"><a class="page-link" href="#">3</a></li>
 															<li class="page-item"><a class="page-link" href="#">4</a></li>
 															<li class="page-item"><a class="page-link" href="#">5</a></li>
-															<li class="page-item"><a class="page-link"
-																aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+															<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
 														</ul>
 													</nav>
 												</div>
@@ -1211,10 +1092,8 @@
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
 									<div class="simple-slider" style="width: 240px; height: 160px;">
-										<div class="swiper-container"
-											style="width: 240px; height: 160px;">
-											<div class="swiper-wrapper"
-												style="width: 240px; height: 160px;">
+										<div class="swiper-container" style="width: 240px; height: 160px;">
+											<div class="swiper-wrapper" style="width: 240px; height: 160px;">
 												<div class="recommand-size swiper-slide"></div>
 												<div class="recommand-size swiper-slide"></div>
 												<div class="recommand-size swiper-slide"></div>
@@ -1232,10 +1111,8 @@
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
 									<div class="simple-slider" style="width: 240px; height: 160px;">
-										<div class="swiper-container"
-											style="width: 240px; height: 160px;">
-											<div class="swiper-wrapper"
-												style="width: 240px; height: 160px;">
+										<div class="swiper-container" style="width: 240px; height: 160px;">
+											<div class="swiper-wrapper" style="width: 240px; height: 160px;">
 												<div class="recommand-size swiper-slide"></div>
 												<div class="recommand-size swiper-slide"></div>
 												<div class="recommand-size swiper-slide"></div>
@@ -1253,10 +1130,8 @@
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
 									<div class="simple-slider" style="width: 240px; height: 160px;">
-										<div class="swiper-container"
-											style="width: 240px; height: 160px;">
-											<div class="swiper-wrapper"
-												style="width: 240px; height: 160px;">
+										<div class="swiper-container" style="width: 240px; height: 160px;">
+											<div class="swiper-wrapper" style="width: 240px; height: 160px;">
 												<div class="recommand-size swiper-slide"></div>
 												<div class="recommand-size swiper-slide"></div>
 												<div class="recommand-size swiper-slide"></div>
