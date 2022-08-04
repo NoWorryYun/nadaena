@@ -1,0 +1,268 @@
+.clearfix:before {
+  display: block;
+  content: "";
+  line-height: 0;
+}
+
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+  line-height: 0;
+}
+
+#clear {
+  clear: both;
+}
+
+#aside > ul > li {
+  /*margin-left: 0px;*/
+  width: 190px;
+  height: 35px;
+  /*border: solid 1px;*/
+  border-bottom: solid 1px;
+  padding: 5px 0px 5px 0px;
+  margin: 3px 0px 0px 0px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#aside {
+  width: 240px;
+  height: 650px;
+  /*background: var(--bs-teal);*/
+  margin-left: 0px;
+  float: left;
+  padding: 0px 10px 0px 10px;
+}
+
+#aside-header {
+  width: 190px;
+  height: 30px;
+  /*background: blue;*/
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#info {
+  width: 190px;
+  height: 180px;
+  background: #808080;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+#simpleinfo {
+  width: 70px;
+  height: 90px;
+  /*background: grey;*/
+  margin-left: 10px;
+  text-align: left;
+  float: left;
+  /*margin-left: 10px;*/
+}
+
+#main {
+  width: 860px;
+  height: 820px;
+  /*background: var(--bs-cyan);*/
+  float: right;
+  /*margin-right: 10px;*/
+}
+
+#simpleinfo > ul > li {
+  width: 80px;
+  font-size: 13px;
+  /*border: solid 1px;*/
+  list-style-type: none;
+  padding: 0px 0px 6px 0px;
+  margin: 0px 0px 8px 0px;
+}
+
+#simpleinfo > ul {
+  /*margin: 0px 30px 0px 0px;*/
+  padding: 0px 20px 0px 0px;
+  /*text-align: justify;*/
+  border-style: none;
+}
+
+
+
+
+.clearfix {
+  zoom: 1;
+}
+
+#clear {
+  clear: both;
+}
+
+#aside > ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#main-header {
+  width: 860px;
+  height: 30px;
+  /*background: yellow;*/
+  margin: 20px 10px 20px 0px;
+  border-bottom: solid 2px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.ch {
+  width: 860px;
+  height: 30px;
+  /*background: #ff00ff;*/
+}
+
+.challenges {
+  width: 860px;
+  height: 220px;
+  /*background: var(--bs-blue);*/
+}
+
+.images {
+  /*height: 200px;*/
+}
+
+.image {
+  width: 200px;
+}
+
+.imges {
+  width: 260px;
+  height: 200px;
+  float: left;
+  margin: 10px;
+  background: darkgreen;
+}
+
+.ch > ul {
+  float: right;
+  list-style-type: none;
+  margin: 2px 35px 2px 0px;
+  /*padding: 0px;*/
+}
+
+.ch > ul > li {
+  border: 1px solid;
+  float: left;
+  padding: 0px 8px 0px 8px;
+  /*margin: 0px 2px;*/
+  border-style: none;
+  border-right: 1px solid;
+}
+
+#wrap {
+  width: 1920px;
+  height: 1100px;
+  /*background: var(--bs-gray-700);*/
+  min-height: 0px;
+  padding-right: 400px;
+  padding-left: 400px;
+}
+
+#header {
+  width: 1120px;
+  height: 65px;
+  background: var(--bs-blue);
+}
+
+#nav {
+  width: 1120px;
+  height: 83px;
+  background: var(--bs-indigo);
+}
+
+#contents {
+  width: 1120px;
+  height: 675px;
+  /*background: var(--bs-red);*/
+  /*margin-top: 25px;*/
+  padding-top: 25px;
+}
+
+#id {
+  width: 100px;
+  height: 30px;
+  background: orange;
+}
+
+#nickname {
+  width: 130px;
+  height: 30px;
+  /*background: purple;*/
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px 0px 0px 30px;
+}
+
+#level {
+  width: 50px;
+  height: 25px;
+  background: orange;
+  text-align: center;
+  margin-left: 70px;
+  font-weight: bold;
+  color: white;
+  padding-top: 0px;
+  margin-bottom: 7px;
+}
+
+#sum {
+  width: 170px;
+  height: 110px;
+  background: var(--bs-gray-400);
+  padding-top: 15px;
+  margin: 0px 10px 0px 10px;
+}
+
+#simpleinfo2 > ul > li {
+  width: 80px;
+  font-size: 13px;
+  /*border: solid 1px;*/
+  list-style-type: none;
+  padding: 0px 0px 3px 0px;
+  margin: 0px 0px 11px 0px;
+  /*float: left;*/
+  font-size: 13px;
+  font-weight: bold;
+  border-style: none;
+}
+
+#simpleinfo2 > ul {
+  margin: 0px 30px 0px 0px;
+  padding: 0px 20px 0px 0px;
+  /*float: left;*/
+}
+
+#simpleinfo2 {
+  width: 70px;
+  height: 90px;
+  /*background: grey;*/
+  margin-right: 20px;
+  text-align: right;
+  /*padding: 6px 5px 5px 6px;*/
+  /*margin-top: 8px;*/
+  float: right;
+}
+
+#last {
+  border-style: none;
+}
+

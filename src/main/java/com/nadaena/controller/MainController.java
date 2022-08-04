@@ -16,4 +16,11 @@ public class MainController {
 		
 		return "challenge/layer";
 	}
+	
+	@RequestMapping(value="/main", method = {RequestMethod.GET, RequestMethod.POST})
+	public String main() {
+		System.out.println("main");
+		
+		return "main/mainTitle";
+	}
 }
