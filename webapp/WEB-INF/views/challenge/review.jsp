@@ -4,7 +4,7 @@
 		<ul class="list-inline">
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -18,7 +18,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -32,7 +32,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -46,7 +46,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -60,7 +60,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -74,7 +74,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -88,7 +88,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -102,7 +102,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -116,7 +116,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -130,7 +130,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -144,7 +144,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -158,7 +158,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -172,7 +172,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -186,7 +186,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -200,7 +200,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>
@@ -214,7 +214,7 @@
 			</li>
 			<li class="list-inline-item">
 				<div class="img-size">
-					<a href="#"><img class="img-size" src="assets/img/즐겨찾기%20별2.png"></a>
+					<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 				</div>
 				<div class="certify-list-info">
 					<div>

@@ -5,12 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class UserController {
-
-	@RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
-	public String layer() {
-		System.out.println("login");
+public class SaerchController {
+	
+	
+	@RequestMapping(value="/search", method = {RequestMethod.GET, RequestMethod.POST})
+	public String saerch() {
+		System.out.println("search");
 		
-		return "user/loginForm";
-	} 
+		return "search/searchForm";
+	}
+	
+
 }
