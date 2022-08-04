@@ -36,9 +36,14 @@
 
 
 <body>
+
+
+
 	<!-- header -->
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	<!-- /header -->
+
+
 
 	<main>
 		<div class="main-box">
@@ -62,16 +67,32 @@
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane" role="tabpanel" id="tab-1">
+									
+										<!-- main_intro -->
 										<c:import url="/WEB-INF/views/challenge/intro.jsp"></c:import>
+										<!-- /main_intro -->
+									
 									</div>
 									<div class="tab-pane active" role="tabpanel" id="tab-2">
+									
+										<!-- main_certify -->
 										<c:import url="/WEB-INF/views/challenge/certify.jsp"></c:import>
+										<!-- /main_certify -->
+									
 									</div>
 									<div class="tab-pane" role="tabpanel" id="tab-3">
+									
+										<!-- main_community -->
 										<c:import url="/WEB-INF/views/challenge/community.jsp"></c:import>
+										<!-- /main_community -->
+									
 									</div>
 									<div class="tab-pane" role="tabpanel" id="tab-4">
+									
+										<!-- main_review -->
 										<c:import url="/WEB-INF/views/challenge/review.jsp"></c:import>
+										<!-- /main_review -->
+									
 									</div>
 								</div>
 							</div>
@@ -140,9 +161,7 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
 	</main>
 
@@ -151,6 +170,8 @@
 	<!-- footer -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- /footer -->
+
+
 
 </body>
 
