@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 	
-	@RequestMapping(value="/layer", method = {RequestMethod.GET, RequestMethod.POST})
-	public String layer() {
-		System.out.println("layer");
+	@RequestMapping(value="/challenge/main", method = {RequestMethod.GET, RequestMethod.POST})
+	public String challenge() {
+		System.out.println("challnege/main");
 		
-		return "challenge/layer";
+		return "challenge/main";
 	}
 }
