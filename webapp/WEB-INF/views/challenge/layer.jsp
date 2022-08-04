@@ -55,10 +55,10 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item" role="presentation"><a class="nav-link read-tab" role="tab" data-bs-toggle="tab" href="#tab-1">소개글</a></li>
-									<li class="nav-item" role="presentation"><a class="nav-link active read-tab" role="tab" data-bs-toggle="tab" href="#tab-2">인증하기</a></li>
-									<li class="nav-item" role="presentation"><a class="nav-link read-tab" role="tab" data-bs-toggle="tab" href="#tab-3">커뮤니티</a></li>
-									<li class="nav-item" role="presentation"><a class="nav-link read-tab" role="tab" data-bs-toggle="tab" href="#tab-4">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-1">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-2">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-4">후기글</a></li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane" role="tabpanel" id="tab-1">
@@ -163,8 +163,8 @@
 															<p style="font-size: 9px;">Fullcalender 사용해서 달력 연동하기</p>
 														</div>
 													</div>
-													<div class="text-center">
-														<div class="certify-graph-box">
+													<div class="text-center certify-graph-box">
+														<div class="certify-graph">
 															<p class="font-14">전체 챌린지 달성률</p>
 															<div class="progress-bar">
 																<div class="progress-all">
@@ -172,7 +172,7 @@
 																</div>
 															</div>
 														</div>
-														<div class="certify-graph-box">
+														<div class="certify-graph">
 															<p class="font-14">나의 챌린지 달성률</p>
 															<div class="progress-bar">
 																<div class="progress-mine">
