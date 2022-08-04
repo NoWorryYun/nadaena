@@ -1,1 +1,118 @@
 @charset "UTF-8";
+
+.review-header{
+	height: 26px;
+	font-size: 18px;
+	margin: 15px 0px 15px 0px;
+}
+
+.top-select{
+	float: right;
+	height: 26px;
+	font-size:16px;
+}
+
+table{
+	width:923.5px;
+	text-align: center;
+	border-spacing:0px;
+}
+
+thead tr {
+	height: 55px;
+	font-weight:bold;
+	background-color: #ebe9eb;
+}
+
+tr{
+	height:120px;
+}
+
+td{
+	padding:0px;
+	border-bottom: 1px solid grey;
+}
+
+img{
+	width:140px;
+	height:105px;
+}
+
+.review-table a {
+	text-decoration: none;
+	color:var(--bs-body-color);
+	text-align:left;
+}
+.review-table .cTitle a {
+	float: left;
+}
+
+.cNum{
+	width:50px;
+}
+
+.cThumb{
+	width:150px;
+}
+
+.cTitle{
+	
+}
+.cChallenge{
+	width:220px;
+}
+
+.cDate{
+	width:100px;
+}
+
+.cView{
+	width:70px;
+}
+
+.bottom-select{
+	height:32px;	
+}
+
+.review-input{
+	width: 230px;
+	height:32px;
+}
+
+.review-button {
+	width: 60px;
+	border: 1px solid;
+	font-size:15px;
+	height:32px;
+	padding:0px 3px 0px 3px;
+}
+
+
+/* 페이징 */
+.paging {
+  width: 310px;
+  height: 30px;
+  margin: 10px 0px 0px 258px;
+}
+
+.paging > ul {
+  list-style: none;
+  margin: 10px 5px 10px 68px;
+}
+
+
+.paging > ul > li {
+  float: left;
+  margin: 0px 5px 0px 5px;
+}
+
+.search-form{
+	padding:0px 0px 0px 282px;
+	margin: 20px 0px 0px 0px;
+	height: 36px;
+}
+
+
+
+
+
