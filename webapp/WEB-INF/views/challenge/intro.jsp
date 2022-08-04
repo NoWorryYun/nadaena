@@ -2,7 +2,7 @@
 <div id="introduce-wrap">
 	<div>
 		<div class="float-l">
-			<img class="picture-size" src="assets/img/bg-navbar-dropdown-themes.png">
+			<img class="picture-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png">
 			<div>
 				<div>
 					<p class="font-12 fw-bold">카테고리 : 독서</p>
@@ -64,7 +64,7 @@
 						<tr style="border-style: none; height: 20px;">
 							<td class="write-table-label">참가비용</td>
 							<td class="font-12 table-none"><select>
-									<option value="10,000" selected="">10,000</option>
+									<option value="10,000" selected="selected">10,000</option>
 									<option value="20,000">20,000</option>
 									<option value="30,000">30,000</option>
 									<option value="40,000">40,000</option>

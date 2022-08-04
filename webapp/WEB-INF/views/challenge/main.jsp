@@ -67,32 +67,32 @@
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane" role="tabpanel" id="tab-1">
-									
+
 										<!-- main_intro -->
 										<c:import url="/WEB-INF/views/challenge/intro.jsp"></c:import>
 										<!-- /main_intro -->
-									
+
 									</div>
 									<div class="tab-pane active" role="tabpanel" id="tab-2">
-									
+
 										<!-- main_certify -->
 										<c:import url="/WEB-INF/views/challenge/certify.jsp"></c:import>
 										<!-- /main_certify -->
-									
+
 									</div>
 									<div class="tab-pane" role="tabpanel" id="tab-3">
-									
+
 										<!-- main_community -->
 										<c:import url="/WEB-INF/views/challenge/community.jsp"></c:import>
 										<!-- /main_community -->
-									
+
 									</div>
 									<div class="tab-pane" role="tabpanel" id="tab-4">
-									
+
 										<!-- main_review -->
 										<c:import url="/WEB-INF/views/challenge/review.jsp"></c:import>
 										<!-- /main_review -->
-									
+
 									</div>
 								</div>
 							</div>
@@ -106,12 +106,16 @@
 							<p>현재 인기의 챌린지</p>
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
-									<div class="simple-slider" style="width: 240px; height: 160px;">
-										<div class="swiper-container" style="width: 240px; height: 160px;">
-											<div class="swiper-wrapper" style="width: 240px; height: 160px;">
-												<div class="recommand-size swiper-slide"></div>
-												<div class="recommand-size swiper-slide"></div>
-												<div class="recommand-size swiper-slide"></div>
+									<div class="simple-slider">
+										<div class="swiper-container">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide"></div>
+												<div class="swiper-slide">
+													<a href="#">
+														<img src="${pageContext.request.contextPath}/assets/img/logo.png">
+													</a>
+												</div>
+												<div class="swiper-slide"></div>
 											</div>
 											<div class="swiper-pagination"></div>
 											<div class="swiper-button-prev"></div>
@@ -125,12 +129,16 @@
 							<p>같은 태그의 챌린지</p>
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
-									<div class="simple-slider" style="width: 240px; height: 160px;">
-										<div class="swiper-container" style="width: 240px; height: 160px;">
-											<div class="swiper-wrapper" style="width: 240px; height: 160px;">
-												<div class="recommand-size swiper-slide"></div>
-												<div class="recommand-size swiper-slide"></div>
-												<div class="recommand-size swiper-slide"></div>
+									<div class=" simple-slider">
+										<div class=" swiper-container">
+											<div class=" swiper-wrapper">
+												<div class=" swiper-slide"></div>
+												<div class=" swiper-slide">
+													<a href="#">
+														<img src="${pageContext.request.contextPath}/assets/img/logo.png">
+													</a>
+												</div>
+												<div class=" swiper-slide"></div>
 											</div>
 											<div class="swiper-pagination"></div>
 											<div class="swiper-button-prev"></div>
@@ -144,12 +152,16 @@
 							<p>챌린지</p>
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
-									<div class="simple-slider" style="width: 240px; height: 160px;">
-										<div class="swiper-container" style="width: 240px; height: 160px;">
-											<div class="swiper-wrapper" style="width: 240px; height: 160px;">
-												<div class="recommand-size swiper-slide"></div>
-												<div class="recommand-size swiper-slide"></div>
-												<div class="recommand-size swiper-slide"></div>
+									<div class=" simple-slider">
+										<div class=" swiper-container">
+											<div class=" swiper-wrapper">
+												<div class=" swiper-slide">
+													<a href="#">
+														<img src="${pageContext.request.contextPath}/assets/img/logo.png">
+													</a>
+												</div>
+												<div class=" swiper-slide"></div>
+												<div class=" swiper-slide"></div>
 											</div>
 											<div class="swiper-pagination"></div>
 											<div class="swiper-button-prev"></div>
