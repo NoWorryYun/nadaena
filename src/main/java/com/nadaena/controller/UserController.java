@@ -11,6 +11,6 @@ public class UserController {
 	public String layer() {
 		System.out.println("login");
 		
-		return "user/loging";
-	}
+		return "user/logingss";
+	} 
 }
