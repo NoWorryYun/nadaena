@@ -16,4 +16,11 @@ public class ChallengeController {
 		
 		return "challenge/main";
 	}
+	
+	@RequestMapping(value="/", method = {RequestMethod.GET, RequestMethod.POST})
+	public String makeChallenge() {
+		System.out.println("challenge/makeChallenge");
+		
+		return "challenge/makechallenge";
+	}
 }

@@ -379,3 +379,50 @@ button {
 	font-size: 14px;
 	border-radius: 5px;
 }
+
+.modal-body {
+  text-align: center;
+  padding: 0;
+}
+
+.modal-body div p {
+  text-align: left;
+}
+
+.modal-image-box {
+  background-color: #efefef;
+  width: 100%;
+  max-width: 700px;
+  max-height: 800px;
+}
+
+.modal-upload-date {
+  float: right;
+  font-size: 12px;
+  text-align: left;
+}
+
+.modal-nickname {
+  float: left;
+  font-size: 12px;
+  text-align: left;
+}
+
+.modal-image img {
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.review-text {
+  padding: 10px;
+}
+
+.review-text-header {
+  border-bottom: 1px solid;
+}
+
+.modal-nicname-box {
+  padding: 10px;
+}
+
+
