@@ -40,7 +40,8 @@
 			<div id="content" class="col-10">
 				<h3>나의 후기</h3>
 				<div class="review-header">
-					전체 20 <select class="top-select">
+					전체 20 
+					<select class="top-select">
 						<option value="">최신순</option>
 						<option value="">조회순</option>
 					</select>
