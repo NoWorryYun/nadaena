@@ -51,25 +51,9 @@ input[type=button] {
   color: white;
 }
 
-.text-center {
-  margin: 50px 50px 50px 50px;
-}
-
-.btn-join {
-  padding: .75rem 1rem;
-  margin: 135px;
-  height: 100%;
-  width: 10%;
-}
-
-ul {
-  list-style-type: none;
-  text-align: center;
-}
-
 li {
   display: inline-block;
-  margin: 20px;
+  /*margin: 20px;*/
 }
 
 input[type="checkbox"][id^="cb"] {
@@ -78,14 +62,14 @@ input[type="checkbox"][id^="cb"] {
 
 label {
   border: 1px solid #fff;
-  padding: 10px;
+  /*padding: 10px;*/
+  margin-right: 300px;
   display: block;
   position: relative;
-  margin: 10px;
+  margin: 50px;
+  /*margin-top: -50px;*/
   cursor: pointer;
-  -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -132,26 +116,16 @@ label img {
   z-index: -1;
 }
 
-.bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
-  background-size: cover;
-}
-
 form.user .form-control-user {
   font-size: .8rem;
   border-radius: 0.3rem;
   padding: 1rem;
 }
 
-a:visited {
-  text-decoration: none;
-  color: #858796;
-}
-
 .istp {
   font-weight: 600;
   font-size: 20px;
+  text-align: center;
 }
 
 .addbtn {
@@ -159,21 +133,21 @@ a:visited {
   border-radius: 0.3rem;
 }
 
-.container {
-  padding: 100px;
-}
-
-.aa {
+.hobby-check {
   text-align: center;
-  padding: 100px;
+  padding: 25px;
 }
 
-.bb {
-  margin-top: -120px;
+.membership-btn {
+  background-color: #ff4b2b;
+  border: none;
+  color: white;
+  height: 50px;
+  border-radius: 5px;
 }
 
-.cc {
-  margin: 100px;
-  padding: 400px;
+.hobby-head {
+  font-weight: bold;
+  font-size: 30px;
 }
 
