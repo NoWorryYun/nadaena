@@ -44,7 +44,7 @@
 		<nav id="navbox" class="row">
 			<ul class="nav col-10">
 				<li class="nav-item">
-					<a id="text-cate" href="#" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+					<a id="text-cate" href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 						전체카테고리
 					</a>
 					<ul id="text-cate-list" class="dropdown-menu">
