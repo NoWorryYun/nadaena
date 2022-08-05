@@ -12,31 +12,32 @@
 	font-size:16px;
 }
 
-table{
+.review-table{
 	width:923.5px;
 	text-align: center;
 	border-spacing:0px;
 }
 
-thead tr {
+.review-table thead tr {
 	height: 55px;
 	font-weight:bold;
 	background-color: #ebe9eb;
 }
+
 #review-tr:hover {
 	background-color: #f1f1f1;
 }
 
-tr{
+.review-table tr{
 	height:120px;
 }
 
-td{
+.review-table td{
 	padding:0px;
 	border-bottom: 1px solid #f1f1f1;
 }
 
-img{
+.review-table img{
 	width:140px;
 	height:105px;
 }
