@@ -8,9 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 
 	@RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
-	public String layer() {
+	public String loginForm() {
 		System.out.println("login");
 		
 		return "user/loginForm";
+	} 
+	
+	@RequestMapping(value="/join", method = {RequestMethod.GET, RequestMethod.POST})
+	public String joinForm() {
+		System.out.println("join");
+		
+		return "user/joinForm";
 	} 
 }
