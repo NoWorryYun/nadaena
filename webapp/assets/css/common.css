@@ -3,15 +3,19 @@
 /**** 공통 *********************************/
 /******************************************/
 h1 {display: none;}
-h2 {font-size: 22px; font-weight: bold;}
+h2 {font-size: 22px; font-weight: bold; padding-bottom: 20px; margin-bottom:20px; border-bottom: 2px solid #000000; }
 h3 {font-size: 18px; font-weight: bold; color: #595959; margin: 5px 0px 0px 0px;}
 
+/* 드롭다운 상자 관련 */
 .dropdown-item.active, .dropdown-item:active {
     color: #ffffff;
     text-decoration: none;
     background-color: #FF4B2B
 }
 
+/* 왼쪽메뉴 관련 */
+#aside .list-group-item {border: none;}
+#aside .list-group-item a {text-decoration: none !important; color: #000000; font-size: 14px;}
 
 
 
@@ -20,9 +24,11 @@ h3 {font-size: 18px; font-weight: bold; color: #595959; margin: 5px 0px 0px 0px;
 /******************************************/
 /* 해더 */
 header {
-	width: 100%; border-bottom: 1px solid #c0c0c0; 
+	width: 100%; 
+	border-bottom: 1px solid #c0c0c0; 
 	position: fixed; top: 0; left: 0;
-	background-color: #ffffff;	
+	background-color: #ffffff;
+	z-index: 9999999;
 }
 header>.header-box {width: 1113px; margin: 0 auto;}
 header>.header-box>.header-top {height: 74px;}
@@ -182,3 +188,10 @@ footer>.footer-box {width: 1113px; margin: 0 auto; padding: 20px 20px 10px 20px;
 	font-size: 12px;
 	color: #707896;
 }
+
+
+/******************************************/
+/**** aside*****************************/
+/******************************************/
+
+
