@@ -26,15 +26,16 @@
 	<!-- header -->
 	<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 	<!-- //header -->
-
+	
+	
 
 <main>
+	
 	<div class="main-box">
 		<div class="row">
-			<div id="aside" class="col-2">
-				<h2>마이페이지</h2>
-				<div>왼쪽메뉴 등등</div>
-			</div>
+			<!-- aside -->
+			<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
+			<!-- aside -->
 
 			<div id="content" class="col-10">
 				<h3>나의 후기</h3>
@@ -56,7 +57,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">10</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">3주간 06시 기상 챌린지 후기</a></td>
@@ -64,7 +65,7 @@
 							<td class="cDate">2022.08.04</td>
 							<td class="cView">38555</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">9</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -72,7 +73,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">8</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -80,7 +81,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">7</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -88,7 +89,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">6</td>
 							<td class="cThumb"><a href=""><img></a></td>
 							<td class="cTitle"><a>제목</a></td>
@@ -96,7 +97,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">5</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -104,7 +105,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">4</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -112,7 +113,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">3</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -120,7 +121,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">2</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
@@ -128,7 +129,7 @@
 							<td class="cDate">작성일</td>
 							<td class="cView">조회수</td>
 						</tr>
-						<tr>
+						<tr id="review-tr">
 							<td class="cNum">1</td>
 							<td class="cThumb"><a href="#"><img></a></td>
 							<td class="cTitle"><a href="#">제목</a></td>
