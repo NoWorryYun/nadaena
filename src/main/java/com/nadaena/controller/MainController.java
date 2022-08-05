@@ -9,13 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
-	
-	@RequestMapping(value="/challenge/main", method = {RequestMethod.GET, RequestMethod.POST})
-	public String challenge() {
-		System.out.println("challnege/main");
-		
-		return "challenge/main";
-	}
+
 	
 	@RequestMapping(value="/main", method = {RequestMethod.GET, RequestMethod.POST})
 	public String main() {
