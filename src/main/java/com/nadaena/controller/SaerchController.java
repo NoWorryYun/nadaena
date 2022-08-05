@@ -15,5 +15,18 @@ public class SaerchController {
 		return "search/searchForm";
 	}
 	
+	@RequestMapping(value="/searchmain", method = {RequestMethod.GET, RequestMethod.POST})
+	public String searchmain() {
+		System.out.println("searchmain");
+		
+		return "search/searchMain";
+	}
+	
+	@RequestMapping(value="/searchtest", method = {RequestMethod.GET, RequestMethod.POST})
+	public String searchtest() {
+		System.out.println("searchtest");
+		
+		return "search/test";
+	}
 
 }
