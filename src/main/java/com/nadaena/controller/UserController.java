@@ -20,4 +20,10 @@ public class UserController {
 		
 		return "user/joinForm";
 	} 
+	@RequestMapping(value="/modify", method = {RequestMethod.GET, RequestMethod.POST})
+	public String modifyForm() {
+		System.out.println("modify");
+		
+		return "user/modifyForm";
+	} 
 }
