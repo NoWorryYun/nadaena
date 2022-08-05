@@ -52,11 +52,16 @@
 				<div id="content" class="col-9">
 
 					<div id="read-main">
-						<div>
-							<h2 id="read-header">
-								<i class="fa fa-star fa-star-o i-float"></i>매일 10페이지 책 읽기<i class="fa fa-star i-float"></i><br>2022-08-06~2022-08-27<br>
+						<div id="read-header-box">
+							<h2 class="read-header">
+								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
 							</h2>
+							
+							<i class="fa fa-star fa-2x i-float"></i>
+							
+							<i class="fa fa-star fa-star-o fa-2x i-float"></i>
 						</div>
+						
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
@@ -183,8 +188,8 @@
 
 
 
-
-	<!-- 리뷰 모달창 -->
+<!-- 
+	//리뷰 모달창 
 	<div id="review-modal" class="modal fade show" role="dialog" tabindex="-1" style="display: block;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -218,7 +223,7 @@
 			</div>
 		</div>
 	</div>
-
+ -->
 
 
 

@@ -8,12 +8,18 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 	display: block;
 }
 
-#read-header {
+#read-header-box {
 	font-weight: bold;
-	padding-bottom: 5px;
 	text-align: center;
 	background-color: #ff9999;
 	color: #ffffff;
+}
+
+.read-header {
+	display : inline-block;
+	padding : 0;
+	margin : 10px;
+	border : none;
 }
 
 .i-float {
