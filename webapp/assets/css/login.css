@@ -34,12 +34,10 @@ form.user .btn-user {
 
 a:link {
   text-decoration: none;
-  color: black;
 }
 
 a:visited {
   text-decoration: none;
-  color: #858796;
 }
 
 a:active {
@@ -101,13 +99,17 @@ form.user .form-control-user {
 
 .container {
   /* padding: 50%; */
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .login-img {
   width: 580px;
-  height: 465px;
+  height: 497px;
   margin-top: 100px;
 }
+.login-head {
+  margin-left: -35px;
+}
+
 
 
 

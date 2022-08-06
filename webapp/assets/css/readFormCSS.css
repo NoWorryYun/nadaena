@@ -8,12 +8,18 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 	display: block;
 }
 
-#read-header {
+#read-header-box {
 	font-weight: bold;
-	padding-bottom: 5px;
 	text-align: center;
 	background-color: #ff9999;
 	color: #ffffff;
+}
+
+.read-header {
+	display : inline-block;
+	padding : 0;
+	margin : 10px;
+	border : none;
 }
 
 .i-float {
@@ -370,14 +376,14 @@ button {
 }
 
 #tab-1 {
-	padding: 10px;
+  padding: 10px;
 }
 
 .write-title-shape {
-	width: 100%;
-	border: 1px solid #9f9f9f;
-	font-size: 14px;
-	border-radius: 5px;
+  width: 100%;
+  border: 1px solid #9f9f9f;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 .modal-body {
@@ -425,4 +431,84 @@ button {
   padding: 10px;
 }
 
+#board-read-box {
+  padding-top: 20px;
+}
+
+table .board-read-label {
+  width: 17%;
+  border-bottom: 3px solid #ffffff;
+  font-size: 13px;
+  background: #eeeeee;
+}
+
+.table-top-bottom {
+  border-top: solid 1px #9f9f9f;
+  border-bottom: solid 1px #9f9f9f;
+}
+
+.border-content {
+  padding-left: 7px;
+}
+
+table .board-read-cell10 {
+  width: 10%;
+  border: none;
+  font-size: 13px;
+  background-color: #eeeeee;
+}
+
+table .board-read-cell {
+  width: auto;
+  border: none;
+  font-size: 13px;
+}
+
+.board-content-box {
+  margin-bottom: 55px;
+}
+
+.board-read-comment-textbox {
+  width: 80%;
+  display: inline-block;
+}
+
+.comment-text {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid #afafaf;
+}
+
+.button-area {
+  margin: 0;
+  padding: 0;
+  width: 19%;
+  display: inline-block;
+  text-align: center;
+}
+
+.board-read-comment-box {
+  margin: 0;
+  padding: 0;
+}
+
+table .border-white-underline {
+  border-bottom: 1px solid #ffffff;
+}
+
+.comment-button:hover, .comment-button:active {
+  border-color: #ff4b2b;
+  background-color: #ff4b2b;
+}
+
+.comment-button {
+  margin-bottom: 6px;
+  padding: 0;
+  font-size: 14px;
+  width: 80%;
+  height: 60px;
+  border-color: #ff4b2b;
+  background-color: #ff4b2b;
+}
 

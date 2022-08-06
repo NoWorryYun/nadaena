@@ -62,11 +62,11 @@ input[type="checkbox"][id^="cb"] {
 
 label {
   border: 1px solid #fff;
-  /*padding: 10px;*/
-  margin-right: 300px;
+  padding: 1px;
+  /*margin-right: 300px;*/
   display: block;
   position: relative;
-  margin: 50px;
+  margin: 20px;
   /*margin-top: -50px;*/
   cursor: pointer;
   -webkit-user-select: none;
@@ -147,7 +147,13 @@ form.user .form-control-user {
 }
 
 .hobby-head {
-  font-weight: bold;
-  font-size: 30px;
+  /*font-weight: bold;*/
+  font-size: 22px;
+  margin-left: 30px;
+}
+
+.container {
+  padding-left: 330px;
+  padding-right: 300px;
 }
 

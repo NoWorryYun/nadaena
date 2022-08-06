@@ -17,10 +17,17 @@ public class ChallengeController {
 		return "challenge/main";
 	}
 	
-	@RequestMapping(value="/", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/challenge/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String makeChallenge() {
 		System.out.println("challenge/makeChallenge");
 		
 		return "challenge/makechallenge";
+	}
+
+	@RequestMapping(value="/challenge/board", method = {RequestMethod.GET, RequestMethod.POST})
+	public String readBoard() {
+		System.out.println("challenge/makeChallenge");
+		
+		return "challenge/readboard";
 	}
 }
