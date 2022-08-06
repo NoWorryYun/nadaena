@@ -120,7 +120,7 @@
 .challenge-images{
 	margin: 20px 0px 0px 0px;
 	padding: 20px 0px 0px 0px;
-	height: 445px;
+	height: 457px;
 	background-color: #eef4f7;
 }
 
@@ -146,24 +146,26 @@
 	font-weight: bold;
 	color: black;
 	text-align: center;
-	width: 280px
+	width: 280px;
+	
 }
 
 .challenge-box button {
 	float: right;
 	width: 150px;
 	height: 30px;
-	margin: 12px 0px 12px 0px;
+	margin: 10px 0px 0px 0px;
 }
 
 .challenge-info {
 	background-color: white;
 	text-align: center;
 	color: #7d8285;
+	padding: 10px 0px 0px 0px;
+	height: 190px;
 }
-
-.challenge-info .last-p {
-	margin-bottom:0px;
+.challenge-info p{
+	margin-bottom: 12px;
 }
 
 /* 페이징 */
