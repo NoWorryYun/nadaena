@@ -44,7 +44,7 @@
 				<div class="challenge-header">진행중 챌린지</div>
 				<div class="challenge-images">
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -55,7 +55,7 @@
 						<!-- <button>리워드 받기</button> -->
 					</div>	
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -66,7 +66,7 @@
 						<button>리워드 받기</button>
 					</div>
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -87,7 +87,7 @@
 				</div>
 				<div class="challenge-images">
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -97,7 +97,7 @@
 						</div>
 					</div>	
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -107,7 +107,7 @@
 						</div>
 					</div>
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
