@@ -169,11 +169,81 @@
 }
 
 /* 마이 포인트 */
+.mypoint-header{
+	margin: 50px 0px 0px 0px;
+	height: 50px;
+	padding: 10px 0px 10px 0px;
+	font-size: 20px;
+}
 
+.mypoint-header2{
+	margin: 20px 0px 0px 0px;
+	height: 50px;
+	padding: 10px 0px 10px 0px;
+	font-size: 20px;
+}
 
+.mypoint{
+	height: 70px;
+	background: var(--bs-warning);
+	margin: 20px 0px 0px 0px;
+}
 
+.mypoint2 {
+	height: 24px;
+	color: var(--bs-gray-900);
+	font-size: 21px;
+	font-weight: bold;
+	text-align: left;
+	width: 500px;
+	margin: 0px 0px 0px 50px;
+	padding: 18px 0px 0px 0px;
+}
+.mypoint-buttons {
+	margin: 20px 0px 0px 286px;
+}
+.mypoint-button1, .mypoint-button2, .mypoint-button3{
+	height: 38px;
+}
+.mypoint-button1, .mypoint-button2 {
+	width: 90px;
+}
+.mypoint-button3 {
+	width: 127px;
+}
+.mypoint-number {
+	color: red;
+}
 
+.mypoint-table {
+	margin: 20px 0px 25px 0px;
+	width: 923.5px;
+	height: 450px;
+	text-align: center;
+}
+.mypoint-table-header {
+	height: 50px;
+	background-color: cornsilk;
+	border-bottom: 1px solid;
+}
+.mypoint-table-body {
 
+}
+.mypoint-table tr {
+	border-bottom: 1px solid #6c757d;
+}
+.mypoint-table .column4 {
+	font-weight: bold;
+	color: green;
+}
+.mypoint-table .column5 {
+	font-weight: bold;
+	color: red;
+}
+.mypoint-table .column6 {
+	font-weight: bold;
+	color: grey;
+}
 /* 페이징 */
 .paging {
   width: 310px;

@@ -20,4 +20,11 @@ public class MyController {
 		
 		return "my/my-challenge"; 
 	} 
+	
+	@RequestMapping(value="/my-point", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mypoint() {
+		System.out.println("mychallenge");
+		
+		return "my/my-point"; 
+	} 
 }
