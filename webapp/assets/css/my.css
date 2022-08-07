@@ -272,29 +272,112 @@
 	height: 36px;
 }
 
+/* 구매목록 */
+
+.buylist {
+	padding: 15px 25px 15px 25px;
+	border: 1px solid grey;
+	border-radius: 12px;
+	height: 310px;
+	background-color:white;
+	margin: 45px 0px 0px 0px;
+}
+
+.buylist-header {
+	padding: 0px 0px 7px 0px;
+	height: 50px;
+}
+
+.buylist-body {
+	padding:0px 15px 0px 15px;
+	height: 211px;
+	border: solid 1px grey;
+	border-radius: 12px;
+}
+
+.delivery2 {
+	color: green;
+}
+
+.orderdate {
+	font-size: 24px;
+	font-weight: bold;
+	float: left;
+	background-color: white;
+	
+}
+
+.product {
+	font-size: 19px;
+	color: blue;
+	float: right;
+	background-color: white;
+}
+
+.buylist-info {
+	width: 629px;
+	border-right: 1px solid;
+	height: 210px;
+	float: left;
+}
+
+.buylist-info img {
+	width: 110px;
+	height: 135px;
+}
+
+
+.buylist-buttons {
+	float:right;
+}
+
+.buylist-buttons button {
+	margin: 12px 0px 0px 0px;
+	color: blue;
+	border-color: blue;
+	border-radius: 12px;
+	width: 195px;
+	height: 45px;
+	display: block;
+}
 
 
 
+.delivery1 {
+	font-size: 22px;
+	font-weight: bold;
+	background-color: white;
+	width: 628px;
+	height: 40px;
+	float: left;
+	margin: 15px 0px 0px 0px;
+}
 
+.buylist-inside {
+	float: left;
+	height: 135px;
+}
 
+.buylist-imagebox {
+	float: left;
+	height: 135px;
+}
 
+.buylist-text {
+	margin: 0px 0px 0px 15px;
+	padding: 20px 0px 0px 15px;
+	font-size: 18px;
+	float: left;
+	width: 493px;
+	height: 135px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.buttons-box {
+	width: 210px;
+	height: 210px;
+	float:right;
+	margin: 15px 0px 0px 0px;
+}
 
 
 

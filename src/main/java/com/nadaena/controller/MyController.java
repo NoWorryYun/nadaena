@@ -30,8 +30,22 @@ public class MyController {
 	
 	@RequestMapping(value="/my-event", method = {RequestMethod.GET, RequestMethod.POST})
 	public String myevent() {
-		System.out.println("mychallenge");
+		System.out.println("myevent");
 		
 		return "my/my-event"; 
+	} 
+	
+	@RequestMapping(value="/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mybuylist() {
+		System.out.println("mybuylist");
+		
+		return "my/my-buylist"; 
+	} 
+	
+	@RequestMapping(value="/my-bookmark", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mybookmark() {
+		System.out.println("mybookmark");
+		
+		return "my/my-bookmark"; 
 	} 
 }
