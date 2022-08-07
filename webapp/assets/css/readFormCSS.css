@@ -8,6 +8,12 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 	display: block;
 }
 
+textarea {
+	margin: 0;
+	width: 100%;
+	height: 200px !important;
+}
+
 #read-header-box {
 	font-weight: bold;
 	text-align: center;
@@ -16,10 +22,28 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 }
 
 .read-header {
-	display : inline-block;
-	padding : 0;
-	margin : 10px;
-	border : none;
+	display: inline-block;
+	padding: 0;
+	margin: 10px;
+	border: none;
+}
+
+.select-width {
+	width: 70px;
+	font-size: 14px;
+}
+
+.write-title-shape {
+	margin-bottom: 10px;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #9f9f9f;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.text-right {
+	text-align: right;
 }
 
 .i-float {
@@ -43,6 +67,9 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 
 .float-l {
 	float: left;
+}
+
+.board-write-box{
 }
 
 #enter-challenge-cell {
@@ -69,8 +96,8 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 .table-certify {
-	padding : 10px;
-	border : 1px solid #9f9f9f;
+	padding: 10px;
+	border: 1px solid #9f9f9f;
 	border-radius: 15px;
 }
 
@@ -119,12 +146,11 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 .certify-upload-header {
-	font-size : 20px;
+	font-size: 20px;
 	text-align: center;
 	font-weight: 900;
-	margin : 20px 0px;
+	margin: 20px 0px;
 }
-
 
 .certify-board-header {
 	width: auto;
@@ -141,6 +167,7 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 .certify-header {
+	font-size : 20px;
 	display: inline-block;
 	font-weight: bold;
 }
@@ -150,6 +177,14 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	font-size: 9px;
 	color: red;
 	margin: 0;
+}
+
+.report2 {
+	margin: 0;
+	float: right;
+	font-size: 9px;
+	color: red;
+	padding: 2px;
 }
 
 .upload-date {
@@ -264,11 +299,10 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-
 .certify-graph {
-	font-size : 9px;
-	font-weight:900;
-	padding : 5px;
+	font-size: 9px;
+	font-weight: 900;
+	padding: 5px;
 	width: 48%;
 	display: inline-block;
 	border: 1px solid #333333;
@@ -287,8 +321,6 @@ button {
 	background-color: #000000;
 }
 
-
-
 /* 챌린지 추천 틀 */
 #challenge-recommand {
 	padding-top: 10px;
@@ -304,7 +336,6 @@ button {
 	width: 240px !important;
 	height: 180px !important;
 }
-
 
 .progress-bar {
 	width: 100%;
@@ -339,13 +370,47 @@ button {
 	background-color: #2ECC71;
 }
 
-
 .make-challenge.certify {
 	line-height: 2px;
 	padding: 15px 19px;
 	width: auto;
 	float: none;
 	margin: 0px;
+}
+
+#write-board-regist .make-challenge {
+	line-height: 2px;
+	padding: 15px 19px;
+	width: auto;
+	float: none;
+	margin: 0px;
+	border-radius: 5px;
+	border: 2px solid #ff4b2b;
+	background-color: #ff4b2b;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+
+#write-board-regist .return-challenge {
+	line-height: 2px;
+	padding: 7px 19px;
+	width: auto;
+	float: none;
+	margin: 0px;
+	border-radius: 5px;
+	border: 2px solid #eeeeee;
+	background-color: #eeeeee;
+	color: black;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
 }
 
 .font-12 a {
@@ -376,139 +441,172 @@ button {
 }
 
 #tab-1 {
-  padding: 10px;
+	padding: 10px;
 }
 
 .write-title-shape {
-  width: 100%;
-  border: 1px solid #9f9f9f;
-  font-size: 14px;
-  border-radius: 5px;
+	width: 100%;
+	border: 1px solid #9f9f9f;
+	font-size: 14px;
+	border-radius: 5px;
 }
 
 .modal-body {
-  text-align: center;
-  padding: 0;
+	text-align: center;
+	padding: 0;
 }
 
 .modal-body div p {
-  text-align: left;
+	text-align: left;
 }
 
 .modal-image-box {
-  background-color: #efefef;
-  width: 100%;
-  max-width: 700px;
-  max-height: 800px;
+	background-color: #efefef;
+	width: 100%;
+	max-width: 700px;
+	max-height: 800px;
 }
 
 .modal-upload-date {
-  float: right;
-  font-size: 12px;
-  text-align: left;
+	float: right;
+	font-size: 12px;
+	text-align: left;
 }
 
 .modal-nickname {
-  float: left;
-  font-size: 12px;
-  text-align: left;
+	float: left;
+	font-size: 12px;
+	text-align: left;
 }
 
 .modal-image img {
-  width: 100%;
-  padding: 0px 10px;
+	width: 100%;
+	padding: 0px 10px;
 }
 
 .review-text {
-  padding: 10px;
+	padding: 10px;
 }
 
 .review-text-header {
-  border-bottom: 1px solid;
+	border-bottom: 1px solid;
 }
 
 .modal-nicname-box {
-  padding: 10px;
+	padding: 10px;
 }
 
 #board-read-box {
-  padding-top: 20px;
+	padding-top: 20px;
+}
+
+#board-write-box{
+	padding-top:20px;
+	
+}
+
+.line-height25{
+	line-height: 2.5;
 }
 
 table .board-read-label {
-  width: 17%;
-  border-bottom: 3px solid #ffffff;
-  font-size: 13px;
-  background: #eeeeee;
+	width: 17%;
+	border-bottom: 3px solid #ffffff;
+	font-size: 13px;
+	background: #eeeeee;
 }
 
 .table-top-bottom {
-  border-top: solid 1px #9f9f9f;
-  border-bottom: solid 1px #9f9f9f;
+	border-top: solid 1px #9f9f9f;
+	border-bottom: solid 1px #9f9f9f;
 }
 
 .border-content {
-  padding-left: 7px;
+	padding-left: 7px;
 }
 
 table .board-read-cell10 {
-  width: 10%;
-  border: none;
-  font-size: 13px;
-  background-color: #eeeeee;
+	width: 10%;
+	border: none;
+	font-size: 13px;
+	background-color: #eeeeee;
 }
 
 table .board-read-cell {
-  width: auto;
-  border: none;
-  font-size: 13px;
+	width: auto;
+	border: none;
+	font-size: 13px;
 }
 
 .board-content-box {
-  margin-bottom: 55px;
+	margin-bottom: 55px;
 }
 
 .board-read-comment-textbox {
-  width: 80%;
-  display: inline-block;
+	width: 85%;
+	display: inline-block;
 }
 
 .comment-text {
-  width: 100%;
-  height: 60px;
-  border-radius: 10px;
-  border: 1px solid #afafaf;
+	width: 100%;
+	height: 60px;
+	border-radius: 10px;
+	border: 1px solid #afafaf;
 }
 
 .button-area {
-  margin: 0;
-  padding: 0;
-  width: 19%;
-  display: inline-block;
-  text-align: center;
+	float:right;
+	margin: 0;
+	padding: 0;
+	width: 14%;
+	text-align: right;
 }
 
 .board-read-comment-box {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 table .border-white-underline {
-  border-bottom: 1px solid #ffffff;
+	border-bottom: 1px solid #ffffff;
 }
 
 .comment-button:hover, .comment-button:active {
-  border-color: #ff4b2b;
-  background-color: #ff4b2b;
+	border-color: #ff4b2b;
+	background-color: #ff4b2b;
 }
 
 .comment-button {
-  margin-bottom: 6px;
-  padding: 0;
-  font-size: 14px;
-  width: 80%;
-  height: 60px;
-  border-color: #ff4b2b;
-  background-color: #ff4b2b;
+	margin-bottom: 6px;
+	padding: 0;
+	font-size: 14px;
+	width: 80%;
+	height: 60px;
+	border-color: #ff4b2b;
+	background-color: #ff4b2b;
 }
 
+.board-password {
+	width: 100%;
+}
+
+table .write-board-label {
+	width: 20%;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #ff8f42;
+}
+
+.write-board-content-text {
+	padding: 8px 0px 0px 0px;
+	width: 30%;
+	font-size: 14px;
+	height: auto;
+}
+
+.write-board-content {
+	width: 30%;
+	font-size: 14px;
+	height: auto;
+}

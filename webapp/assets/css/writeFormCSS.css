@@ -88,24 +88,20 @@ table .write-table-label {
 	font-size: 12px;
 }
 
-#calculator ul {
-	padding-left: 15px;
-}
-
 address, dl, fieldset, figure, ol, p, pre, ul {
 	margin: 0 0 10px 0;
 }
 
 #calculator {
 	padding: 10px 10px;
-	float: right;
-	border: solid 3px #ff9999;
-	width: 240px;
+	border: solid 3px #ff8f42;
 	height: auto;
 	font-size: 12px;
 	font-weight: 700;
-	margin: 0px 0px 0px 600px;
-	position: fixed;
+}
+
+#calculator ul {
+	padding-left: 15px;
 }
 
 .font-12 a {

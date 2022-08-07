@@ -104,6 +104,9 @@
 								</tr>
 							</tbody>
 						</table>
+						<div id="write-board-regist" class="text-right i-float">
+							<input type="button" class="make-challenge certify" value="글쓰기">
+						</div>
 					</div>
 				</div>
 			</div>

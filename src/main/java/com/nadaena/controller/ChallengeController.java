@@ -30,4 +30,11 @@ public class ChallengeController {
 		
 		return "challenge/readboard";
 	}
+	
+	@RequestMapping(value="/challenge/writeboard", method = {RequestMethod.GET, RequestMethod.POST})
+	public String writeBoard() {
+		System.out.println("challenge/makeChallenge");
+		
+		return "challenge/writeboard";
+	}
 }
