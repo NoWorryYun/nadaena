@@ -26,4 +26,10 @@ public class UserController {
 		
 		return "user/modifyForm";
 	} 
+	@RequestMapping(value="/test123", method = {RequestMethod.GET, RequestMethod.POST})
+	public String test() {
+		System.out.println("test");
+		
+		return "user/test123";
+	} 
 }
