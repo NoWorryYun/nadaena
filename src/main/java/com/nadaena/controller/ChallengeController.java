@@ -37,4 +37,12 @@ public class ChallengeController {
 		
 		return "challenge/writeboard";
 	}
+	
+	/* 테스트 */
+	@RequestMapping(value="challenge/read")
+	public String read() {
+		
+		return "challenge/read";
+	}
+	
 }

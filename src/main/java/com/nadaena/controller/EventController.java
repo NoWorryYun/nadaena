@@ -13,4 +13,21 @@ public class EventController {
 		return "event/main";
 	}
 
+
+	@RequestMapping(value="event/read")
+	public String read() {
+		System.out.println(" eventCtrl > read");
+		
+		return "event/read";
+		
+	}
+
+	@RequestMapping(value="event/uploadForm")
+	public String uploadForm() {
+		System.out.println(" eventCtrl > uploadForm");
+		
+		return "event/uploadForm";
+		
+	}
+	
 }
