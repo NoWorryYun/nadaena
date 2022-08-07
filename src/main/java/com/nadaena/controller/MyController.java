@@ -41,4 +41,11 @@ public class MyController {
 		
 		return "my/my-buylist"; 
 	} 
+	
+	@RequestMapping(value="/my-bookmark", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mybookmark() {
+		System.out.println("mybookmark");
+		
+		return "my/my-bookmark"; 
+	} 
 }
