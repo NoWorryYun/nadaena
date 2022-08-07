@@ -135,13 +135,14 @@ form.user .form-control-user {
 
 .hobby-check {
   text-align: center;
-  padding: 25px;
+ /*  padding: 25px; */
 }
 
 .membership-btn {
   background-color: #ff4b2b;
   border: none;
   color: white;
+  width: 40%;
   height: 50px;
   border-radius: 5px;
 }
