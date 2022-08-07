@@ -58,7 +58,7 @@
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
-						<button>상세내용보기</button>
+						<button>리워드 받기</button>
 					</div>	
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
@@ -69,7 +69,7 @@
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
-						<button>상세내용보기</button>
+						<button>리워드 받기</button>
 					</div>
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
@@ -80,7 +80,7 @@
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
-						<button>상세내용보기</button>
+						<button>리워드 받기</button>
 					</div>
 				</div>
 				
@@ -94,7 +94,7 @@
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
-						<button>상세내용보기</button>
+						<button>리워드 받기</button>
 					</div>	
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
@@ -105,7 +105,7 @@
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
-						<button>상세내용보기</button>
+						<button>리워드 받기</button>
 					</div>
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
@@ -116,7 +116,7 @@
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
-						<button>상세내용보기</button>
+						<button>리워드 받기</button>
 					</div>
 				</div>
 			</div>
