@@ -27,4 +27,11 @@ public class MyController {
 		
 		return "my/my-point"; 
 	} 
+	
+	@RequestMapping(value="/my-event", method = {RequestMethod.GET, RequestMethod.POST})
+	public String myevent() {
+		System.out.println("mychallenge");
+		
+		return "my/my-event"; 
+	} 
 }

@@ -31,90 +31,92 @@
 <main>
 	<div class="main-box">
 		<div class="row">
-			<div id="aside" class="col-2">
-				<h2>마이페이지</h2>
-				<div>
-					왼쪽메뉴 등등
-				</div>
-			</div>
+		
+			<!-- header -->
+			<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
+			<!-- //header -->
+		
 			
 			<div id="content" class="col-10">
-				<h3>나의 챌린지</h3>
+				<h3>나의 이벤트</h3>
 				
-				<div class="challenge-header">참가중 챌린지</div>
-				<div class="challenge-images">
-					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-						<!-- <button>리워드 받기</button> -->
-					</div>	
-					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-						<button>리워드 받기</button>
-					</div>
-					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-						<button>리워드 받기</button>
-					</div>
-				</div>
 				<div class="challenge-header">
-					완료된 챌린지
+					참가중 이벤트
 					<ul>
-						<li><a href="#">전체</a></li>
-						<li><a href="#">성공</a></li>
-						<li class="last-list"><a href="#">실패</a></li>
+						<li><a href="#">참가중</a></li>
+						<li><a href="#">미참가</a></li>
+						<li class="last-list"><a href="#">종료된</a></li>
 					</ul>
 				</div>
 				<div class="challenge-images">
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
-							<h4>마라톤</h4>
+							<h4>이벤트</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 							<p>참여 인원 : 15</p>
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
+						<button>상세내용보기</button>
 					</div>	
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
-							<h4>마라톤</h4>
+							<h4>이벤트</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 							<p>참여 인원 : 15</p>
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
+						<button>상세내용보기</button>
 					</div>
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
-							<h4>마라톤</h4>
+							<h4>이벤트</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 							<p>참여 인원 : 15</p>
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
+						<button>상세내용보기</button>
+					</div>
+				</div>
+				
+				<div class="challenge-images">
+					<div class="challenge-box">
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-info">
+							<h4>이벤트</h4>
+							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+							<p>참여 인원 : 15</p>
+							<p>최소 도전비용 : 20000원</p>
+							<p class="last-p">기대 성공금액 : 2~3%</p>
+						</div>
+						<button>상세내용보기</button>
+					</div>	
+					<div class="challenge-box">
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-info">
+							<h4>이벤트</h4>
+							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+							<p>참여 인원 : 15</p>
+							<p>최소 도전비용 : 20000원</p>
+							<p class="last-p">기대 성공금액 : 2~3%</p>
+						</div>
+						<button>상세내용보기</button>
+					</div>
+					<div class="challenge-box">
+						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-info">
+							<h4>이벤트</h4>
+							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+							<p>참여 인원 : 15</p>
+							<p>최소 도전비용 : 20000원</p>
+							<p class="last-p">기대 성공금액 : 2~3%</p>
+						</div>
+						<button>상세내용보기</button>
 					</div>
 				</div>
 			</div>
@@ -130,6 +132,8 @@
 				</ul>
 				<div class="clear"></div>
 			</div>
+			</div>
+			
 		</div>
 		
 	</div>
