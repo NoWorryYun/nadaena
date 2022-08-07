@@ -1,0 +1,108 @@
+#contents_wrap1 { width: 100%; }
+
+.contents_1 { width: 1200px; margin: 0 auto; }
+
+.home_btn ul { float: left; }
+.home_btn ul li { float: left; }
+.home_btn ul li a { font-size: 12px; font-weight: 300; }
+.next_l { padding: 2px 5px; font-size: 12px; }
+
+
+
+#contents_wrap2 { width: 100%; padding-bottom: 100px; 
+    
+}
+.contents_2 { width: 1200px; margin: 0 auto; 
+    margin-top: 100px; overflow: auto;
+    
+}
+
+.product_img { float: left; width: 50%; box-sizing: border-box; }
+.product_img img{ width: 600px; height: 600px;}
+.ex { float: left;  padding-left: 50px; width: 50%;  
+    box-sizing: border-box;
+    
+}
+.ex .title {
+    font-size: 22px;
+    color: #111;
+    font-weight: 300;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.price_list { padding-top: 50px; padding-right: 100px; }
+.price_list li { padding-bottom: 15px; }
+.price_list li strike { float: right; }
+.price_list li span { float: right; }
+
+.option { padding-top: 50px; padding-right: 100px; }
+.option #select { float: right; margin-top: -18px; 
+    font-size: 14px;
+    padding: 2px 12px;
+}
+
+.count { padding-top: 30px; border-bottom: 1px solid #ccc; 
+    padding-bottom: 50px; padding-right: 100px;
+}
+.count form { float: right; clear: both; margin-top: -25px;
+}
+.count form input { border: 1px solid #111; 
+    padding: 2px 10px;
+}
+.count form input[type=text] { width: 72px; }
+.count form input[type=button] { background-color: #efefef; 
+    font-size: 16px;
+}
+
+.sum { padding-top: 50px; padding-right: 100px; }
+.sum span { float: right;  font-size: 20px; font-weight: 300; 
+    color: #111;
+}
+
+.button { clear: both; padding-top: 70px; }
+.button p {
+    float: left;
+    border: 1px solid #ccc;
+    width: 23%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px 0px;
+    margin-right: 10px;
+    
+}
+.button p a { font-size: 15px; font-weight: 500; }
+.button p.buy { width: 36%; 
+    background-color: #111;
+    padding: 0;
+}
+.buy a {
+    color: #efefef;
+    display: block;
+    padding: 15px 0px;
+
+}
+.buy a:hover{ 
+    background-color: #ffffff;
+    color: #111;
+    border: 1px solid #111;
+    transition: all 0.5s;
+}
+
+
+/* 정보 */
+
+#contents_wrap4 { width: 100%; }
+.sub_nav { width: 1200px; margin: 0 auto;  
+    border-top: 1px solid #ccc 
+}
+
+.tab_menu { width: 100%;  }
+.tab_menu li { float: left; width: 25%; 
+    text-align: center; padding-top: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.notice_list { padding: 100px 0; text-align: center; margin-top: 100px; }

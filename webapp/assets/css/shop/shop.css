@@ -1,0 +1,107 @@
+
+#banner { width: 100%; margin: 0; 
+    overflow: hidden;
+}
+
+#contents_wrap1 { width: 100%; }
+.contents_1 { width: 1200px; margin: 0 auto; }
+
+.home_btn ul { float: left; }
+.home_btn ul li { float: left; }
+.home_btn ul li a { font-size: 12px; font-weight: 300; }
+.next_l { padding: 2px 5px; font-size: 12px; }
+
+.living_title { padding: 50px 0; 
+    text-align: center;
+    font-size: 36px;
+    color: #111;
+    
+}
+
+.living_sub {text-align: center;
+    border-bottom: 1px solid #ccc;
+    
+}
+.living_sub li { display: inline-block; padding: 15px 40px; 
+    
+}
+.living_sub li a { text-align: center; 
+    color: #555;
+    font-weight: 300;
+    font-size: 15px;
+}
+.living_sub li.active a { color: #000; font-weight: 400; }
+
+.search_list { float: right; padding-top: 30px; }
+.search_list li { float: left; }
+.search_list li a {
+    font-size: 13px;
+    font-weight: 300;
+    padding: 0 5px;
+    color: #ccc;
+}
+
+.search_list li.active a {
+    color: #000;
+}
+
+
+.contents_2 { width: 1200px; margin: 0 auto; padding-top: 120px;
+    
+}
+
+
+
+.box_1 { float: left; margin-right: 21px; padding-bottom: 80px;}
+.box_2 { float: left; padding-bottom: 80px;  }
+.scale { width: 386px; height: 286px; overflow: hidden;
+    transform: scale(1); margin-bottom: 30px; }
+.scale img { position: relative; 
+	width: 386px; height: 296px;
+}
+.scale img:hover { transform: scale(1.1); 
+    transition: all 0.5s;
+}
+.img_t { position: absolute; 
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: #fff;
+    padding: 10px 8px;
+    box-shadow: 2px 2px 2px #555;
+    font-size: 14px;
+}
+
+.b_name {  font-size: 14px; 
+    font-weight: 400; color: #555
+}
+
+.price {  font-size: 15px; padding-top: 15px; }
+.unsale {  font-size: 13px; color: #999;}
+.sale { float: left; font-weight: 500; color: #111; }
+
+.close { padding-top: 5px; float: right; cursor: pointer; font-size: 12px;}
+.close span { font-size: 10px; }
+
+.box_3 { float: left;  margin-right: 21px; }
+
+.box_4 { float: left; }
+
+
+ul.list_style {
+    text-align: center;
+    clear: both;
+}
+ul.list_style li { display: inline-block; 
+    margin: 50px 3px 0 3px;
+}
+ul.list_style li a { 
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 1px solid #555;
+}
+ul.list_style li a:hover {
+    background-color: #555;
+    color: #fff;
+    transition: 0.5s;
+}
