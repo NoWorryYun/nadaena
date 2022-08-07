@@ -43,7 +43,6 @@
 		<div class="main-box">
 			<div class="row">
 				<div id="aside" class="col-2">
-					<h2>마이페이지</h2>
 					<div>
 						<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 					</div>
