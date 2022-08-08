@@ -97,8 +97,7 @@
 													</div>
 													<div class="border-content">
 														<p>
-															<span>난 너를 믿었던만큼 난 내 친구도 믿었기에</span><br> <span>난 아무런 부담없이 널 내 친구에게 소개시켜 줬고</span><br> <span>그런 만남이 있은 후부터 우리는 자주 함께 만나며</span><br> <span>즐거운
-																시간을 보내며 함께 어울렸던 것뿐인데</span><br>
+															<span>난 너를 믿었던만큼 난 내 친구도 믿었기에</span><br> <span>난 아무런 부담없이 널 내 친구에게 소개시켜 줬고</span><br> <span>그런 만남이 있은 후부터 우리는 자주 함께 만나며</span><br> <span>즐거운 시간을 보내며 함께 어울렸던 것뿐인데</span><br>
 														</p>
 													</div>
 												</div>

@@ -42,7 +42,7 @@
 	<main>
 		<div class="main-box">
 			<div class="row">
-					<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
+				<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
 					<div id="write-wrap-content">
@@ -78,18 +78,13 @@
 														<option value="13">2주일</option>
 														<option value="14">3주일</option>
 												</select></td>
-											</tr>
-											<tr class="border-white-underline">
-												<td class="write-table-content" colspan="4">
-													<div class="explain-date">
-														<p>
-															'2022-08-08 00시'부터 '1주일'동안 진행됩니다.<br>(2022-08-08 00시 00분 ~ 2022-08-15 23시 59분)
-														</p>
-													</div>
-												</td>
-											</tr>
 										</tbody>
 									</table>
+									<div class="explain-date">
+										<p>
+											'2022-08-08 00시'부터 '1주일'동안 진행됩니다.<br>(2022-08-08 00시 00분 ~ 2022-08-15 23시 59분)
+										</p>
+									</div>
 								</div>
 							</div>
 							<div id="write-table-body">
@@ -118,86 +113,86 @@
 												</td>
 											</tr>
 											<tr class="border-white-underline">
-												<td class="write-table-label">업로드횟수</td>
+												<td class="write-table-label">일일 업로드횟수</td>
 												<td class="write-table-content">
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="formCheck-15"><label class="form-check-label" for="formCheck-15">1회</label>
+														<input class="form-check-input" type="radio" id="formCheck-15"><label class="form-check-label" for="formCheck-15">일일 1회</label>
 													</div>
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="formCheck-16"><label class="form-check-label" for="formCheck-16">2회</label>
+														<input class="form-check-input" type="radio" id="formCheck-16"><label class="form-check-label" for="formCheck-16">일일 2회</label>
 													</div>
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="formCheck-17"><label class="form-check-label" for="formCheck-17">3회</label>
+														<input class="form-check-input" type="radio" id="formCheck-17"><label class="form-check-label" for="formCheck-17">일일 3회</label>
 													</div>
 												</td>
-												<td class="write-table-label">주당횟수</td>
+												<td class="write-table-label">주당 인증 일수</td>
 												<td class="write-table-content">
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="formCheck-18"><label class="form-check-label" for="formCheck-18">5회</label>
+														<input class="form-check-input" type="radio" id="formCheck-18"><label class="form-check-label" for="formCheck-18">주5일 (평일만)</label>
 													</div>
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="formCheck-19"><label class="form-check-label" for="formCheck-19">7회</label>
+														<input class="form-check-input" type="radio" id="formCheck-19"><label class="form-check-label" for="formCheck-19">주7일 (주말포함)</label>
 													</div>
 												</td>
 											</tr>
 											<tr class="border-white-underline">
-												<td class="write-table-label">인증 세부설정</td>
+												<td class="write-table-label">일일 업로드 <br> 세부설정</td>
 												<td class="write-table-content" colspan="3">
 													<div class="upload-detail">
 														<p class="no-margin fw-bold">1회차</p>
 														<input type="text" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">
 														<div>
 															<select class="select-width text-inline">
-																<option value="12" selected="">00시</option>
-																<option value="13">01시</option>
-																<option value="14">02시</option>
-																<option value="">03시</option>
-																<option value="">04시</option>
-																<option value="">05시</option>
-																<option value="">06시</option>
-																<option value="">07시</option>
-																<option value="">08시</option>
-																<option value="">09시</option>
-																<option value="">10시</option>
-																<option value="">11시</option>
-																<option value="">12시</option>
-																<option value="">13시</option>
-																<option value="">14시</option>
-																<option value="">15시</option>
-																<option value="">16시</option>
-																<option value="">17시</option>
-																<option value="">18시</option>
-																<option value="">19시</option>
-																<option value="">20시</option>
-																<option value="">21시</option>
-																<option value="">22시</option>
-																<option value="">23시</option>
+																<option value="0" selected="selected">00시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
 															</select>
 															<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>
 															<select class="select-width text-inline">
-																<option value="13">01시</option>
-																<option value="14">02시</option>
-																<option value="">03시</option>
-																<option value="">04시</option>
-																<option value="">05시</option>
-																<option value="">06시</option>
-																<option value="">07시</option>
-																<option value="">08시</option>
-																<option value="">09시</option>
-																<option value="">10시</option>
-																<option value="">11시</option>
-																<option value="">12시</option>
-																<option value="">13시</option>
-																<option value="">14시</option>
-																<option value="">15시</option>
-																<option value="">16시</option>
-																<option value="">17시</option>
-																<option value="">18시</option>
-																<option value="">19시</option>
-																<option value="">20시</option>
-																<option value="">21시</option>
-																<option value="">22시</option>
-																<option value="">23시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
 															</select>
 															<p class="no-margin text-inline">&nbsp;까지</p>
 															<div class="form-check time-limit-checkbox">
@@ -210,56 +205,56 @@
 														<input type="text" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">
 														<div>
 															<select class="select-width text-inline">
-																<option value="12" selected="">00시</option>
-																<option value="13">01시</option>
-																<option value="14">02시</option>
-																<option value="">03시</option>
-																<option value="">04시</option>
-																<option value="">05시</option>
-																<option value="">06시</option>
-																<option value="">07시</option>
-																<option value="">08시</option>
-																<option value="">09시</option>
-																<option value="">10시</option>
-																<option value="">11시</option>
-																<option value="">12시</option>
-																<option value="">13시</option>
-																<option value="">14시</option>
-																<option value="">15시</option>
-																<option value="">16시</option>
-																<option value="">17시</option>
-																<option value="">18시</option>
-																<option value="">19시</option>
-																<option value="">20시</option>
-																<option value="">21시</option>
-																<option value="">22시</option>
-																<option value="">23시</option>
+																<option value="0" selected="selected">00시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
 															</select>
 															<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>
 															<select class="select-width text-inline">
-																<option value="13">01시</option>
-																<option value="14">02시</option>
-																<option value="">03시</option>
-																<option value="">04시</option>
-																<option value="">05시</option>
-																<option value="">06시</option>
-																<option value="">07시</option>
-																<option value="">08시</option>
-																<option value="">09시</option>
-																<option value="">10시</option>
-																<option value="">11시</option>
-																<option value="">12시</option>
-																<option value="">13시</option>
-																<option value="">14시</option>
-																<option value="">15시</option>
-																<option value="">16시</option>
-																<option value="">17시</option>
-																<option value="">18시</option>
-																<option value="">19시</option>
-																<option value="">20시</option>
-																<option value="">21시</option>
-																<option value="">22시</option>
-																<option value="">23시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
 															</select>
 															<p class="no-margin text-inline">&nbsp;까지</p>
 															<div class="form-check time-limit-checkbox">
@@ -272,56 +267,56 @@
 														<input type="text" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">
 														<div>
 															<select class="select-width text-inline">
-																<option value="12" selected="">00시</option>
-																<option value="13">01시</option>
-																<option value="14">02시</option>
-																<option value="">03시</option>
-																<option value="">04시</option>
-																<option value="">05시</option>
-																<option value="">06시</option>
-																<option value="">07시</option>
-																<option value="">08시</option>
-																<option value="">09시</option>
-																<option value="">10시</option>
-																<option value="">11시</option>
-																<option value="">12시</option>
-																<option value="">13시</option>
-																<option value="">14시</option>
-																<option value="">15시</option>
-																<option value="">16시</option>
-																<option value="">17시</option>
-																<option value="">18시</option>
-																<option value="">19시</option>
-																<option value="">20시</option>
-																<option value="">21시</option>
-																<option value="">22시</option>
-																<option value="">23시</option>
+																<option value="0" selected="selected">00시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
 															</select>
 															<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>
 															<select class="select-width text-inline">
-																<option value="13">01시</option>
-																<option value="14">02시</option>
-																<option value="">03시</option>
-																<option value="">04시</option>
-																<option value="">05시</option>
-																<option value="">06시</option>
-																<option value="">07시</option>
-																<option value="">08시</option>
-																<option value="">09시</option>
-																<option value="">10시</option>
-																<option value="">11시</option>
-																<option value="">12시</option>
-																<option value="">13시</option>
-																<option value="">14시</option>
-																<option value="">15시</option>
-																<option value="">16시</option>
-																<option value="">17시</option>
-																<option value="">18시</option>
-																<option value="">19시</option>
-																<option value="">20시</option>
-																<option value="">21시</option>
-																<option value="">22시</option>
-																<option value="">23시</option>
+																<option value="1">01시</option>
+																<option value="2">02시</option>
+																<option value="3">03시</option>
+																<option value="4">04시</option>
+																<option value="5">05시</option>
+																<option value="6">06시</option>
+																<option value="7">07시</option>
+																<option value="8">08시</option>
+																<option value="9">09시</option>
+																<option value="10">10시</option>
+																<option value="11">11시</option>
+																<option value="12">12시</option>
+																<option value="13">13시</option>
+																<option value="14">14시</option>
+																<option value="15">15시</option>
+																<option value="16">16시</option>
+																<option value="17">17시</option>
+																<option value="18">18시</option>
+																<option value="19">19시</option>
+																<option value="20">20시</option>
+																<option value="21">21시</option>
+																<option value="22">22시</option>
+																<option value="23">23시</option>
 															</select>
 															<p class="no-margin text-inline">&nbsp;까지</p>
 															<div class="form-check time-limit-checkbox">
@@ -331,35 +326,28 @@
 													</div>
 												</td>
 											</tr>
-											<tr class="border-white-underline">
-												<td class="write-table-content" colspan="4">
-													<div class="explain-date">
-														<p class="bold-underline">챌린지 난이도에 따른 보상</p>
-														<p>
-															챌린지 난이도에 따른 추가 보상이 지급됩니다.<Br>
-														<ul>
-															<li>난이도 상 > 참여금의 5% 추가지급 (10,000원 > 10,500원)</li>
-															<br>
-															<li>난이도 중 > 참여금의 3% 추가지급 (10,000원 > 10,300원)</li>
-															<br>
-															<li>난이도 하 > 참여금의 2% 추가지급 (10,000원 > 10,200원)</li>
-														</ul>
-														</p>
-														<p class="bold-underline">챌린지 달성률에 따른 보상</p>
-														<p>
-															챌린지 성공 이후 전체 달성률에 대한 추가 보상이 지급됩니다.<br>
-														<ul>
-															<li>100% > 추가지급의 30% 추가지급 (10,000원 > 10,500원 > 10,650원)</li>
-															<br>
-															<li>90% > 추가지급의 10% 추가지급 (10,000원 > 10,500원 > 10,550원)</li>
-															<br>
-														</ul>
-														</p>
-													</div>
-												</td>
-											</tr>
 										</tbody>
 									</table>
+									<div class="explain-date font-14">
+										<p class="bold-underline">챌린지 난이도에 따른 보상</p>
+										<p>
+											챌린지 난이도에 따른 추가 보상이 지급됩니다.</p>
+										<p class="fw-bold color-red">100% 달성시</p>
+										<ul>
+											<li>난이도 상 > 참여금의 5% 추가지급 (10,000원 > 10,500원)</li>
+											<li>난이도 중 > 참여금의 3% 추가지급 (10,000원 > 10,300원)</li>
+											<li>난이도 하 > 참여금의 2% 추가지급 (10,000원 > 10,200원)</li>
+										</ul>
+										
+										<p class="bold-underline">챌린지 달성률에 따른 보상</p>
+										<p>
+											챌린지 성공 이후 전체 달성률에 대한 추가 보상이 지급됩니다.<br>
+										<ul>
+											<li><span class="fw-bold color-red">100%</span> > 추가지급의 30% 추가지급 (10,000원 > 10,500원 > 10,650원)</li>
+											<li>90% > 추가지급의 10% 추가지급 (10,000원 > 10,500원 > 10,550원)</li>
+										</ul>
+										</p>
+									</div>
 								</div>
 							</div>
 							<div id="write-table-explain">
@@ -401,12 +389,13 @@
 																<td><li class="list-inline-item"><input id="cate12" type="radio" name="category"><label class="form-check-label" for="cate12">뷰티</label></li></td>
 															</tr>
 														</table>
-													</div></td>
+													</div>
+												</td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">태그 설정</td>
 												<td class="write-table-content" colspan="3"><div>
-														<input type="text" class="typebox-size" name="tag" placeholder="태그를 입력해 주세요"><br>
+														<input type="text" class="typebox-size" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)"><br>
 													</div>
 													<div class="font-12">
 														<a href="#">#심심해</a> <a href="#">#놀자</a> <a href="#">#어렵다</a> <a href="#">#인생</a>
@@ -415,6 +404,30 @@
 										</tbody>
 									</table>
 								</div>
+							</div>
+
+							<div id="write-table-join">
+								<h5 class="write-header">챌린지 참가하기</h5>
+								<table class="table">
+									<tbody>
+										<tr class="table-none">
+											<td class="write-table-label">챌린지참가비용</td>
+											<td class="font-12 write-table-content"><select>
+													<option value="0" selected="selected">금액설정</option>
+													<option value="10,000">10,000</option>
+													<option value="20,000">20,000</option>
+													<option value="30,000">30,000</option>
+													<option value="40,000">40,000</option>
+													<option value="50,000">50,000</option>
+													<option value="60,000">60,000</option>
+													<option value="70,000">70,000</option>
+													<option value="80,000">80,000</option>
+													<option value="90,000">90,000</option>
+													<option value="100,000">100,000</option>
+											</select>&nbsp;원 <span class="float-r">※참가비용 설정 후 자동으로 참가됩니다.</span></td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 							<div class="text-center">
 								<button class="make-challenge make-challenge-button" type="submit">챌린지 개설</button>

@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div>
-			<p  class="certify-upload-header">인증업로드</p>
+			<p class="certify-upload-header">인증업로드</p>
 			<div class="table-responsive table-certify-form">
 				<table class="table">
 					<tbody class="table-none">
