@@ -207,3 +207,8 @@ textarea {
 #write-table-body {
 	margin-bottom: 100px;
 }
+
+.select-width {
+	width: 70px;
+	font-size: 14px;
+}
