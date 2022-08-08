@@ -7,42 +7,42 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MyController {
 
-	@RequestMapping(value="/my-review", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/my-review", method = {RequestMethod.GET, RequestMethod.POST})
 	public String myreview() {
 		System.out.println("myreview");
 		
 		return "my/my-review"; 
 	} 
 	
-	@RequestMapping(value="/my-challenge", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/my-challenge", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mychallenge() {
 		System.out.println("mychallenge");
 		
 		return "my/my-challenge"; 
 	} 
 	
-	@RequestMapping(value="/my-point", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/my-point", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypoint() {
 		System.out.println("mychallenge");
 		
 		return "my/my-point"; 
 	} 
 	
-	@RequestMapping(value="/my-event", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/my-event", method = {RequestMethod.GET, RequestMethod.POST})
 	public String myevent() {
 		System.out.println("myevent");
 		
 		return "my/my-event"; 
 	} 
 	
-	@RequestMapping(value="/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mybuylist() {
 		System.out.println("mybuylist");
 		
 		return "my/my-buylist"; 
 	} 
 	
-	@RequestMapping(value="/my-bookmark", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/my-bookmark", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mybookmark() {
 		System.out.println("mybookmark");
 		

@@ -31,5 +31,11 @@ public class UserController {
 		System.out.println("test");
 		
 		return "user/test123";
+	}
+	@RequestMapping(value="/test12", method = {RequestMethod.GET, RequestMethod.POST})
+	public String test1() {
+		System.out.println("test12");
+		
+		return "user/test12";
 	} 
 }

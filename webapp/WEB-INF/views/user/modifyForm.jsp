@@ -102,40 +102,40 @@
 					<h4 class="hobby-head">관심분야</h4>
 
 					<ul class="">
-						<li><input type="checkbox" id="cb1" /> <label for="cb1"><p
+						<li class="cata"><input type="checkbox" id="cb1" /> <label for="cb1"><p
 									class="istp">건강</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/건강.jpg" /></label></li>
-						<li><input type="checkbox" id="cb2" /> <label for="cb2"><p
+						<li class="cata"><input type="checkbox" id="cb2" /> <label for="cb2"><p
 									class="istp">공부</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/공부.jpg" /></label></li>
-						<li><input type="checkbox" id="cb3" /> <label for="cb3"><p
+						<li class="cata"><input type="checkbox" id="cb3" /> <label for="cb3"><p
 									class="istp">그림</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/그림.jpg" /></label></li>
-						<li><input type="checkbox" id="cb4" /> <label for="cb4"><p
+						<li class="cata"><input type="checkbox" id="cb4" /> <label for="cb4"><p
 									class="istp">독서</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/독서.jpg" /></label></li>
-						<li><input type="checkbox" id="cb5" /> <label for="cb5"><p
+						<li class="cata"><input type="checkbox" id="cb5" /> <label for="cb5"><p
 									class="istp">반려</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/반려동물.jpg" /></label></li>
-						<li><input type="checkbox" id="cb6" /> <label for="cb6"><p
+						<li class="cata"><input type="checkbox" id="cb6" /> <label for="cb6"><p
 									class="istp">뷰티</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/뷰티.jpg" /></label></li>
-						<li><input type="checkbox" id="cb7" /> <label for="cb7"><p
+						<li class="cata"><input type="checkbox" id="cb7" /> <label for="cb7"><p
 									class="istp">생활</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/생활습관.jpg" /></label></li>
-						<li><input type="checkbox" id="cb8" /> <label for="cb8"><p
+						<li class="cata"><input type="checkbox" id="cb8" /> <label for="cb8"><p
 									class="istp">식습</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/식습관.jpg" /></label></li>
-						<li><input type="checkbox" id="cb9" /> <label for="cb9"><p
+						<li class="cata"><input type="checkbox" id="cb9" /> <label for="cb9"><p
 									class="istp">요리</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/요리.jpg" /></label></li>
-						<li><input type="checkbox" id="cb10" /> <label for="cb10"><p
+						<li class="cata"><input type="checkbox" id="cb10" /> <label for="cb10"><p
 									class="istp">운동</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/운동.jpg" /></label></li>
-						<li><input type="checkbox" id="cb11" /> <label for="cb11"><p
+						<li class="cata"><input type="checkbox" id="cb11" /> <label for="cb11"><p
 									class="istp">음악</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/음악.jpg" /></label></li>
-						<li><input type="checkbox" id="cb12" /> <label for="cb12"><p
+						<li class="cata"><input type="checkbox" id="cb12" /> <label for="cb12"><p
 									class="istp">취미</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/취미.jpg" /></label></li>
 					</ul>

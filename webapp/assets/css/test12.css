@@ -1,0 +1,110 @@
+.nextlevel {
+  margin: 100px;
+  /*margin-left: 600px;*/
+  /*padding-left: 600px;*/
+}
+
+.navbar-navv {
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+  /*border: solid;*/
+  margin-left: 80px;
+}
+
+a:link {
+  text-decoration: none;
+  color: snow;
+  /*background-color: gainsboro;*/
+}
+
+a:visited {
+  text-decoration: none;
+  color: #858796;
+}
+
+a:active {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: lightyellow;
+}
+
+.gorytop {
+  /*font-size: 25px;*/
+  margin-left: 100px;
+  float: left;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.level1 {
+  border: solid 2px grey;
+  /*padding-right: 50px;*/
+  width: 660px;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.mylevel {
+  border: solid;
+  border-radius: 20%;
+  width: 60px;
+  height: 60px;
+  line-height: 55px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.leveldiv {
+  /*border: solid;*/
+  margin-bottom: 20px;
+  margin-left: 260px;
+}
+
+.shortcut {
+  /*border: solid 2px grey;*/
+  margin-left: 260px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: thistle;
+}
+
+.progress-bar {
+  width: 100%;
+}
+
+.container {
+  /*padding-left: 650px;*/
+  /*margin-left: 100px;*/
+}
+
+.userP {
+  /*margin-left: 260px;*/
+}
+
+.badgebtn {
+  margin-left: 290px;
+}
+
+.barNum {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: -3px;
+  color: black;
+}
+
+.name {
+  padding-top: 20px;
+}
+
+.levelbar {
+  margin-right: 216px;
+}
+

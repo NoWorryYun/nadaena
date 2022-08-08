@@ -64,6 +64,11 @@
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 						<button>리워드 받기</button>
+						<div class="cmodal">
+							<div class="cmodal-content">
+								모달창 내용
+							</div>
+						</div>
 					</div>
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
