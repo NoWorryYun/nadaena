@@ -51,10 +51,10 @@ input[type=button] {
   color: white;
 }
 
-li {
+/* li {
   display: inline-block;
-  /*margin: 20px;*/
-}
+  margin: 20px;
+} */
 
 input[type="checkbox"][id^="cb"] {
   display: none;
@@ -157,4 +157,9 @@ form.user .form-control-user {
   padding-left: 330px;
   padding-right: 300px;
 }
+.cata {
+  display: inline-block;
+}
+
+
 

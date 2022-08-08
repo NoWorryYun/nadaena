@@ -24,8 +24,6 @@ table {
 }
 
 #write-wrap-content {
-	width: 600px;
-	float: left;
 }
 
 .write-header {
@@ -93,6 +91,7 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 #calculator {
+	margin: 450px 0px 0px 0px;
 	padding: 10px 10px;
 	border: solid 3px #ff8f42;
 	height: auto;
@@ -208,4 +207,9 @@ textarea {
 
 #write-table-body {
 	margin-bottom: 100px;
+}
+
+.select-width {
+	width: 70px;
+	font-size: 14px;
 }

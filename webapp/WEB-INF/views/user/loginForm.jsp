@@ -49,14 +49,14 @@
 									<img class="login-img" src="${pageContext.request.contextPath}/assets/img/icant.jpg"/>
 								</div>
 								<div class="col-lg-6">
-								<h4 class="mb-4 login-head">로그인</h4>
+								
 									<div class="p-5">
 										<div class="text-center">
 											
 										</div>
 										<form class="user">
 											<div class="mb-3">
-												<input id="exampleInputEmail"
+												<input id="ex   ampleInputEmail"
 													class="form-control form-control-user" type="email"
 													aria-describedby="emailHelp" placeholder="이메일" name="email" />
 											</div>
@@ -75,13 +75,15 @@
 															class="form-check-label custom-control-label"
 															for="formCheck-1">로그인유지</label>
 													</div>
-													<a class="find" href=""> 아이디 /</a> <a class="find" href="">비밀번호찾기</a>
+													<a class="find" href="">/비밀번호찾기</a> <a class="find" href="">아이디찾기</a>
 												</div>
 
 											</div>
+											
 											<button class="btn btn-primary d-block btn-user w-100"
 												type="submit">로그인</button>
 											<div class="hr-sect">또는</div>
+											<div class="login-sns">
 											<a href="www.naver.com"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/pngwing.com.png" />
 											</a> <a href="www.naver.com"> <img class="btn-naver"
@@ -89,6 +91,7 @@
 											</a> <a href="www.naver.com"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/kakaobtn.png" />
 											</a>
+											</div>
 											<hr />
 											<p class="pp">나대나 회원이 되어라.</p>
 											<button

@@ -90,9 +90,10 @@
 	    <!-- //main-banner -->
 	</div>
     <!-- //banner-box -->
-    
-    
-        <h3 class="main-list">이벤트 나대나</h2>
+    <main>
+    <div class="main-box">
+        <h3 class="main-list">이벤트 나대나</h3>
+        <div>
         <div class="swiper-container">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -217,9 +218,11 @@
 			<div class="swiper-pagination"></div>
 		</div>
 		
+	</div>	
 		
 		
-		<h2 class="main-list">인기 나대나</h2>
+		
+		<h3 class="main-list">인기 나대나</h3>
         <div class="swiper-container">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -291,7 +294,7 @@
 			<div class="swiper-pagination"></div>
 	</div>
 	
-	<h2 class="main-list">듀토리얼 나대나</h2>
+	<h3 class="main-list">듀토리얼 나대나</h3>
 	 <div class="swiper-container">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
@@ -341,10 +344,10 @@
 			<div class="swiper-pagination"></div>
 	</div>
 	
-	
+	</div>
         
 </div>
-    
+    </main>
 <!-- footer -->
 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 <!-- //footer -->
@@ -356,12 +359,12 @@
 	new Swiper('.swiper-container', {
 	
 		slidesPerView : 4, // 동시에 보여줄 슬라이드 갯수
-		spaceBetween : 40, // 슬라이드간 간격
+		spaceBetween : 5, // 슬라이드간 간격
 		slidesPerGroup : 4, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
 	
 		// 그룹수가 맞지 않을 경우 빈칸으로 메우기
 		// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
-		loopFillGroupWithBlank : true,
+		/* loopFillGroupWithBlank : true, */
 	
 		loop : true, // 무한 반복
 	
