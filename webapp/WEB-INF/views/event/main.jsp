@@ -40,6 +40,7 @@
 							<div class="reflow-product-list cards">
 								<div class="products">
 									<a class="product" href="${pageContext.request.contextPath }/event/read"><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
+								                <p class="img_tag">가나다라</p>
 								        <div class="product-data">
 								            <div class="product-info">
 								                <h5 class="name">몽쉘 신제품 발매!!</h5>
@@ -47,11 +48,12 @@
 								            </div>
 								        </div>
 								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
+								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event2.jpg">
+								                <p class="img_tag">가나다라</p>
 								        <div class="product-data">
 								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
+								                <h5 class="name">탑건2 CGV 6,000원 관람!</h5>
+								                <p class="excerpt">#영화 #데이트 #할인권</p>
 								            </div>
 								        </div>
 								    </a>

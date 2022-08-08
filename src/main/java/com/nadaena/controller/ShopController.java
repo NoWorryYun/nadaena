@@ -13,11 +13,26 @@ public class ShopController {
 		return "shop/main";
 	}
 	
+	@RequestMapping(value="shop/main2")
+	public String main2() {
+		System.out.println(" ShopCtrl > main");
+		
+		return "shop/main2";
+	}
+	
+	
 	@RequestMapping(value="shop/product")
 	public String product() {
 		System.out.println(" ShopCtrl > product");
 		
 		return "shop/product";
+	}
+
+	@RequestMapping(value="shop/mypage")
+	public String mypage() {
+		System.out.println(" ShopCtrl > mypage");
+		
+		return "shop/mypage";
 	}
 
 }

@@ -455,3 +455,12 @@
   opacity: .95;
 }
 
+.img_tag { position: absolute; 
+    top: 30px;
+    right: 50px;
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: #fff;
+    padding: 10px 8px;
+    box-shadow: 2px 2px 2px #555;
+    font-size: 14px;
+}
