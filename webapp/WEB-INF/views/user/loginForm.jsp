@@ -49,14 +49,14 @@
 									<img class="login-img" src="${pageContext.request.contextPath}/assets/img/icant.jpg"/>
 								</div>
 								<div class="col-lg-6">
-								<h4 class="mb-4 login-head">로그인</h4>
+								
 									<div class="p-5">
 										<div class="text-center">
 											
 										</div>
 										<form class="user">
 											<div class="mb-3">
-												<input id="exampleInputEmail"
+												<input id="ex   ampleInputEmail"
 													class="form-control form-control-user" type="email"
 													aria-describedby="emailHelp" placeholder="이메일" name="email" />
 											</div>

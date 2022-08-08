@@ -2,7 +2,6 @@
   text-align: center;
   font-size: 1.8rem;
   font-weight: 800;
-  color: black;
 }
 
 form.user .btn-user {
@@ -26,7 +25,7 @@ form.user .btn-user {
   user-select: none;
   /*background-color: transparent;*/
   border: 1px solid transparent;
-  /* padding: .375rem .75rem; */
+  /*padding: .375rem .75rem;*/
   /*font-size: 1rem;*/
   /*border-radius: .35rem;*/
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -98,18 +97,18 @@ form.user .form-control-user {
 }
 
 .container {
-  /* padding: 50%; */
-  padding-top: 30px;
+  /*padding: 50%;*/
+  /*padding-top: 10px;*/
 }
+
 .login-img {
   width: 580px;
-  height: 497px;
-  margin-top: 100px;
+  height: 465px;
+  margin-top: 50px;
 }
+
 .login-head {
   margin-left: -35px;
+  /*margin-top: -20px;*/
 }
-
-
-
 
