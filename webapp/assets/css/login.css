@@ -51,6 +51,7 @@ a:hover {
 
 .find {
   color: #858796;
+  float: right;
 }
 
 .mb-2 {
@@ -63,9 +64,10 @@ a:hover {
 
 .btn-naver {
   /*height: 10%;*/
-  width: 18%;
+  width: 25%;
   object-fit: cover;
   margin-bottom: .5rem !important;
+   
   font-size: .8rem;
   border-radius: 0.6rem;
   padding: .75rem 1rem;
@@ -103,7 +105,7 @@ form.user .form-control-user {
 
 .login-img {
   width: 580px;
-  height: 465px;
+  height: 490px;
   margin-top: 50px;
 }
 
@@ -111,4 +113,7 @@ form.user .form-control-user {
   margin-left: -35px;
   /*margin-top: -20px;*/
 }
-
+.login-sns{
+	
+padding-left:80px
+}
