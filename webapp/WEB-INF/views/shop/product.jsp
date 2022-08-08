@@ -48,10 +48,9 @@
                     <img src="https://cdn.reflowhq.com/media/79235812/815804108/eee22bfd4daaf8f4038a4a468f349a2c_md.jpg" alt="">
                 </div>
                 <div class="ex">
-                    <p class="title">상품권 5만원</p>
+                    <p class="title">컬처랜드 상품권 5만원권 온라인</p>
 
                     <ul class="price_list">
-                        <li>소비자가격 <strike>50,000원</strike></li>
                         <li>판매가격 <span>50,000원</span></li>
                     </ul>
 

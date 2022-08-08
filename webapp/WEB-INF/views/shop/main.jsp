@@ -48,7 +48,8 @@
                 <ul class="living_sub">
                     <li><a href="">상품권</a></li>
                     <li><a href="">기프티콘</a></li>
-                    <li><a href="">기타</a></li>  
+                    <li><a href="">기타</a></li> 
+                    <li><a href="mypage">MY</a></li>  
                 </ul>
 
                 <ul class="search_list">
@@ -75,7 +76,6 @@
                         <div class="right">
                             <p class="b_name">제목제목</p>
                             <ul class="price_list">
-                                <li>소비자가격 <strike>1,020,000원</strike></li>
                                 <li>판매가격 <span>828,000원</span></li>
                                 <li class="last_li">총상품금액 <span class="it_1">828,000원</span></li>
                             </ul>
@@ -119,9 +119,6 @@
                     </div>
                     <p class="b_name">컬처랜드 상품권 5만원권 온라인</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">50,000원</span>
-                            </strike>
                             <p class="sale">50,000원</p>
                             
                             <p class="close" data-img="${pageContext.request.contextPath }/assets/img/products/cl50.jpg">미리보기<span>▼</span></p>
@@ -134,9 +131,6 @@
                     </div>
                     <p class="b_name">컬처랜드 상품권 3만원권 온라인</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">30,000원</span>
-                            </strike>
                             <p class="sale">30,000원</p>
                             
                             <p class="close" data-img="images/best_05.png">미리보기<span>▼</span></p>
@@ -149,9 +143,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="images/kitchen_img1.png">미리보기<span>▼</span></p>
@@ -166,9 +157,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="">미리보기<span>▼</span></p>
@@ -181,9 +169,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="">미리보기<span>▼</span></p>
@@ -196,9 +181,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="">미리보기<span>▼</span></p>
@@ -213,9 +195,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="">미리보기<span>▼</span></p>
@@ -228,9 +207,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="">미리보기<span>▼</span></p>
@@ -243,9 +219,6 @@
                     </div>
                     <p class="b_name">준비중</p>
                     <p class="price">
-                            <strike>
-                                <span class="unsale">준비중</span>
-                            </strike>
                             <p class="sale">준비중</p>
                             
                             <p class="close" data-img="">미리보기<span>▼</span></p>

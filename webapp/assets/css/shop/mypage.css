@@ -1,0 +1,94 @@
+#contents_wrap1 { width: 100%; }
+#sub_nav { width: 1200px; margin: 0 auto; }
+
+.home_btn ul { float: left; margin-top: 10px; }
+.home_btn ul li { float: left; }
+.home_btn ul li a { font-size: 12px; font-weight: 300; }
+.next_l { padding: 2px 5px; font-size: 12px; }
+
+.login_t { text-align: center; padding: 100px 0 100px 0;
+    font-size: 24px; 
+    font-weight: 300;
+    color: #111;
+}
+
+.tab_menu { display: flex; 
+    box-sizing: border-box; border: 1px solid #efefef;
+    margin-bottom: 80px; 
+}
+.tab_menu li {
+    border-bottom: 1px solid #999;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+    width: 25%;
+}
+.tab_menu li.current {
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 0px solid #999;
+}
+tr th { padding-bottom: 40px; font-size: 16px; font-weight: 400;
+    color: #000;
+}
+tr td { border-bottom: 1px solid #ccc; 
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.td_no i { font-size: 14px;  }
+.td_content { text-align: left; padding-left: 100px; 
+    font-weight: 500; 
+}
+.td_content a {
+    font-size: 15px;
+}
+.td_content a:hover { border-bottom: 1px solid #555; }
+
+.td_contents { 
+    text-align: left;
+    padding-left: 100px;
+}
+.td_contents a { font-size: 14px; }
+
+
+
+ul.list_style {
+    text-align: center;
+}
+ul.list_style li { display: inline-block; 
+    margin: 50px 0 ;
+}
+ul.list_style li a { 
+    font-size: 12px;
+    padding: 4px 0px;
+    color: #999;
+}
+ul.list_style li a:hover {
+    color: #000;
+    transition: 0.5s;
+}
+
+ul.list_style li.active a { color: #000; }
+
+
+.write_btn { text-align: right; padding-top: 40px; 
+    padding-right: 20px;
+}
+.write_btn a { border: 1px solid #999; 
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #efefef;
+    background-color: #111;
+}
+.write_btn a:hover { background-color: #efefef; 
+    color: #111;
+    transition: all 0.5s;
+}
+
+.tab_content { display: none; }
+.tab_content.active { display: block; }
