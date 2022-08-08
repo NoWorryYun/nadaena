@@ -572,7 +572,7 @@ table .board-read-cell {
 }
 
 table .border-white-underline {
-	border-bottom: 1px solid #ffffff;
+	border-bottom: 1px solid #dddddd;
 }
 
 .comment-button:hover, .comment-button:active {
