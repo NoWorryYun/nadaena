@@ -91,6 +91,7 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 #calculator {
+	margin: 450px 0px 0px 0px;
 	padding: 10px 10px;
 	border: solid 3px #ff8f42;
 	height: auto;
