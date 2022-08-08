@@ -61,6 +61,16 @@
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 						<button>리워드 받기</button>
+						<div class="cmodal">
+							<div class="cmodal-content">
+								<p>작성자 : 김이박</p>
+								<p>작성일자 : 2020.02.02</p>
+								<input type="text">
+								<br>
+								<button class="cmodal-button">등록</button>
+								<button class="cmodal-button">취소</button>
+							</div>
+						</div>
 					</div>
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
@@ -141,5 +151,20 @@
 
 
 </body>
+<script type="text/javascript">
+$(function(){
+	$("button").click(function(){
+		$(".cmodal").fadeIn();	
+	});	
+	
+	/* $(".cmodal-content").click(function(){
+		$(".cmodal").fadeOut();	
+	});	 */
+});
+
+
+
+</script>
+
 
 </html>
