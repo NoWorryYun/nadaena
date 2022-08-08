@@ -8,6 +8,10 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 	display: block;
 }
 
+#aside {
+	width:99% !important;
+}
+
 textarea {
 	margin: 0;
 	width: 100%;

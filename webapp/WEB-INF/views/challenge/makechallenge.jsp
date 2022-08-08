@@ -42,11 +42,7 @@
 	<main>
 		<div class="main-box">
 			<div class="row">
-				<div id="aside" class="col-2">
-					<div>
-						<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
-					</div>
-				</div>
+					<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
 					<div id="write-wrap-content">
@@ -427,28 +423,28 @@
 					</div>
 				</div>
 				<div id="rside" class="col-3">
-				<div id="calculator">
-					<p>난이도 설명</p>
-					<ul class="list-unstyled">
-						<li>챌린지 기간 1주 + 5점</li>
-						<li>챌린지 기간 2주 + 10점</li>
-						<li>챌린지 기간 3주 + 20점</li>
-						<li>인증 방법 동영상 + 20점</li>
-						<li>업로드 횟수 2회 + 10점</li>
-						<li>미니게임 + 5점</li>
-					</ul>
-					<p>난이도 계산기</p>
-					<ul class="list-unstyled">
-						<li>챌린지 기간 2주 + 10점</li>
-						<li>인증 방법 동영상 + 20점</li>
-						<li>업로드 횟수 2회 + 10점</li>
-						<li>미니게임 + 5점</li>
-					</ul>
-					<p>난이도 설정</p>
-					<p>합계</p>
-					<p>난이도</p>
+					<div id="calculator">
+						<p>난이도 설명</p>
+						<ul class="list-unstyled">
+							<li>챌린지 기간 1주 + 5점</li>
+							<li>챌린지 기간 2주 + 10점</li>
+							<li>챌린지 기간 3주 + 20점</li>
+							<li>인증 방법 동영상 + 20점</li>
+							<li>업로드 횟수 2회 + 10점</li>
+							<li>미니게임 + 5점</li>
+						</ul>
+						<p>난이도 계산기</p>
+						<ul class="list-unstyled">
+							<li>챌린지 기간 2주 + 10점</li>
+							<li>인증 방법 동영상 + 20점</li>
+							<li>업로드 횟수 2회 + 10점</li>
+							<li>미니게임 + 5점</li>
+						</ul>
+						<p>난이도 설정</p>
+						<p>합계</p>
+						<p>난이도</p>
+					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 
