@@ -74,8 +74,9 @@
 															type="checkbox" /><label
 															class="form-check-label custom-control-label"
 															for="formCheck-1">로그인유지</label>
+															<a class="find" href="">/비밀번호찾기</a> <a class="find" href="">아이디찾기</a>
 													</div>
-													<a class="find" href="">/비밀번호찾기</a> <a class="find" href="">아이디찾기</a>
+										
 												</div>
 
 											</div>
@@ -84,7 +85,7 @@
 												type="submit">로그인</button>
 											<div class="hr-sect">또는</div>
 											<div class="login-sns">
-											<a href="www.naver.com"> <img class="btn-naver"
+											<a href="https://www.naver.com/"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/pngwing.com.png" />
 											</a> <a href="www.naver.com"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/btn_naver1.png" />
