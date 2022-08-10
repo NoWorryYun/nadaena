@@ -24,6 +24,7 @@ table {
 }
 
 #write-wrap-content {
+	
 }
 
 .write-header {
@@ -50,6 +51,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .table-none {
+	border-style: none !important;
+}
+
+.table-none td {
 	border-style: none !important;
 }
 
@@ -86,6 +91,10 @@ table .write-table-label {
 	font-size: 12px;
 }
 
+.font-14 {
+	font-size: 14px;
+}
+
 address, dl, fieldset, figure, ol, p, pre, ul {
 	margin: 0 0 10px 0;
 }
@@ -111,6 +120,10 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	font-weight: bold;
 	text-decoration: underline;
 	text-underline-offset: 4px;
+}
+
+.color-red{
+	color: red;
 }
 
 .type-center {
@@ -191,12 +204,25 @@ table .border-white-underline {
 	margin-bottom: 10px;
 }
 
+.float-r {
+	float: right;
+	color: red;
+}
+
 .time-limit-checkbox {
 	float: right;
 	font-size: 12px;
 }
 
 #write-table-title {
+	margin-bottom: 100px;
+}
+
+#write-table-join {
+	margin-bottom: 50px;
+}
+
+#write-table-explain {
 	margin-bottom: 100px;
 }
 

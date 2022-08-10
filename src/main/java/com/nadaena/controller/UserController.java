@@ -26,16 +26,19 @@ public class UserController {
 		
 		return "user/modifyForm";
 	} 
-	@RequestMapping(value="/test123", method = {RequestMethod.GET, RequestMethod.POST})
-	public String test() {
-		System.out.println("test");
+	@RequestMapping(value="/find", method = {RequestMethod.GET, RequestMethod.POST})
+	public String findForm() {
+		System.out.println("find");
 		
-		return "user/test123";
-	}
-	@RequestMapping(value="/test12", method = {RequestMethod.GET, RequestMethod.POST})
-	public String test1() {
-		System.out.println("test12");
-		
-		return "user/test12";
+		return "user/findForm";
 	} 
+	/*
+	 * @RequestMapping(value="/test123", method = {RequestMethod.GET, RequestMethod.POST}) public String test() { System.out.println("test");
+	 * 
+	 * return "user/test123"; }
+	 * 
+	 * @RequestMapping(value="/test12", method = {RequestMethod.GET, RequestMethod.POST}) public String test1() { System.out.println("test12");
+	 * 
+	 * return "user/test12"; }
+	 */
 }
