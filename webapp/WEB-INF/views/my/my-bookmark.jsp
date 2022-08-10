@@ -34,7 +34,7 @@
 		
 			<!-- header -->
 			<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
-			<!-- //header -->
+			<!-- //aside -->
 		
 			
 			<div id="content" class="col-10">

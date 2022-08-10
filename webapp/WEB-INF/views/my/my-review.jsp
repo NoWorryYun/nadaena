@@ -33,9 +33,11 @@
 	
 	<div class="main-box">
 		<div class="row">
+		
 			<!-- aside -->
 			<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
-			<!-- aside -->
+			<!-- //aside -->
+
 
 			<div id="content" class="col-10">
 				<h3>나의 후기</h3>
