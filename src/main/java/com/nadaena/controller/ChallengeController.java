@@ -10,32 +10,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ChallengeController {
 	
-	@RequestMapping(value="/challenge/main", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/challenge/intro", method = {RequestMethod.GET, RequestMethod.POST})
 	public String challenge() {
-		System.out.println("challnege/main");
+		System.out.println("challnege/intro");
 		
-		return "challenge/main";
+		return "challenge/intro";
 	}
 	
-	@RequestMapping(value="/challenge/main2", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/challenge/certify", method = {RequestMethod.GET, RequestMethod.POST})
 	public String challenge2() {
-		System.out.println("challnege/main");
+		System.out.println("challnege/certify");
 		
-		return "challenge/main2";
+		return "challenge/certify";
 	}
 	
-	@RequestMapping(value="/challenge/main3", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/challenge/community", method = {RequestMethod.GET, RequestMethod.POST})
 	public String challenge3() {
-		System.out.println("challnege/main");
+		System.out.println("challnege/community");
 		
-		return "challenge/main3";
+		return "challenge/community";
 	}
 	
-	@RequestMapping(value="/challenge/main4", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/challenge/review", method = {RequestMethod.GET, RequestMethod.POST})
 	public String challenge4() {
-		System.out.println("challnege/main");
+		System.out.println("challnege/review");
 		
-		return "challenge/main4";
+		return "challenge/review";
 	}
 	
 	@RequestMapping(value="/challenge/write", method = {RequestMethod.GET, RequestMethod.POST})
