@@ -4,8 +4,9 @@
 		<div>
 			<div>
 				<div>
-					<img class="calender-size" src="${pageContext.request.contextPath}/assets/img/캘린더.png">
-					<p style="font-size: 9px;">Fullcalender 사용해서 달력 연동하기</p>
+					<div id='calendar-container'>
+						<div id='calendar'></div>
+					</div>
 				</div>
 			</div>
 			<div class="certify-graph-box">

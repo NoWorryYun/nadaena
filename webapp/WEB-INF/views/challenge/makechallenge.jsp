@@ -8,6 +8,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>챌린지개설</title>
+
+<!--------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------->
+<!------------------------------------		 CSS      ----------------------------------->
+<!--------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------->
+
 <!-- css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/font-awesome.min.css">
@@ -18,15 +25,35 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 
+<!-- ck에디터 css -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/ckEditor.css">
 
+<!-- jquery color picker css -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/colorPick.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/colorPick.dark.theme.css">
 
-<!-- js -->
+<!--------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------->
+<!------------------------------------		 JS       ----------------------------------->
+<!--------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------->
+
+<!-- jquery, bootstrap js -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+
+<!-- 슬라이드 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
+
+
+<!-- ck에디터js -->
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+
+<!-- 컬러피커js -->
+<script src="${pageContext.request.contextPath}/assets/js/colorPick.js"></script>
 
 </head>
 
@@ -51,9 +78,6 @@
 							<div id="write-table-title">
 								<div class="table-responsive table-writeform">
 									<table class="table">
-										<thead>
-											<tr></tr>
-										</thead>
 										<tbody class="table-none">
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height25">제목</td>
@@ -91,9 +115,6 @@
 								<h5 class="write-header">업로드 설정</h5>
 								<div class="table-responsive table-writeform">
 									<table class="table">
-										<thead>
-											<tr></tr>
-										</thead>
 										<tbody class="table-none">
 											<tr class="border-white-underline">
 												<td class="write-table-label">인증방법</td>
@@ -136,7 +157,8 @@
 												</td>
 											</tr>
 											<tr class="border-white-underline">
-												<td class="write-table-label">일일 업로드 <br> 세부설정</td>
+												<td class="write-table-label">일일 업로드 <br> 세부설정
+												</td>
 												<td class="write-table-content" colspan="3">
 													<div class="upload-detail">
 														<p class="no-margin fw-bold">1회차</p>
@@ -330,15 +352,14 @@
 									</table>
 									<div class="explain-date font-14">
 										<p class="bold-underline">챌린지 난이도에 따른 보상</p>
-										<p>
-											챌린지 난이도에 따른 추가 보상이 지급됩니다.</p>
+										<p>챌린지 난이도에 따른 추가 보상이 지급됩니다.</p>
 										<p class="fw-bold color-red">100% 달성시</p>
 										<ul>
 											<li>난이도 상 > 참여금의 5% 추가지급 (10,000원 > 10,500원)</li>
 											<li>난이도 중 > 참여금의 3% 추가지급 (10,000원 > 10,300원)</li>
 											<li>난이도 하 > 참여금의 2% 추가지급 (10,000원 > 10,200원)</li>
 										</ul>
-										
+
 										<p class="bold-underline">챌린지 달성률에 따른 보상</p>
 										<p>
 											챌린지 성공 이후 전체 달성률에 대한 추가 보상이 지급됩니다.<br>
@@ -353,18 +374,15 @@
 							<div id="write-table-explain">
 								<h5 class="write-header">챌린지 소개</h5>
 								<div class="table-responsive table-writeform">
-									<table class="table">
-										<thead>
-											<tr></tr>
-										</thead>
+									<table class="table table-padding">
 										<tbody class="table-none">
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height25">소개글</td>
-												<td class="write-table-content" colspan="3"><textarea></textarea>ck에디터로 소개글 꾸미기</td>
+												<td class="write-table-content" colspan="3"><textarea id="classic"></textarea></td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">배경색 설정</td>
-												<td class="write-table-content" colspan="3">color picker로 색상 선택</td>
+												<td class="write-table-content" colspan="3"><div class="colorPickSelector"></div></td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">카테고리 설정</td>
@@ -389,13 +407,12 @@
 																<td><li class="list-inline-item"><input id="cate12" type="radio" name="category"><label class="form-check-label" for="cate12">뷰티</label></li></td>
 															</tr>
 														</table>
-													</div>
-												</td>
+													</div></td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">태그 설정</td>
 												<td class="write-table-content" colspan="3"><div>
-														<input type="text" class="typebox-size" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)"><br>
+														<input type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)"><br>
 													</div>
 													<div class="font-12">
 														<a href="#">#심심해</a> <a href="#">#놀자</a> <a href="#">#어렵다</a> <a href="#">#인생</a>
@@ -476,6 +493,40 @@
 
 
 
-</body>
 
+
+</body>
+<!-- 자바스크립트 영역 -->
+
+<script type="text/javascript">
+        ClassicEditor
+            .create( document.querySelector( '#classic' ), {
+            	removePlugins: [ 'ImageUpload' ]
+            } )
+            .catch( error => {
+                console.error( error );
+        } );
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    // 테마 색상 선택
+    $(".colorPickSelector").colorPick({
+      'left' : '16.5px',
+      'bottom' : '-16.5938px',
+      'initialColor': '#3498db',
+      'allowRecent': true,
+      'recentMax': 5,
+      'allowCustomColor': false,
+      'palette': [
+        "#1abc9c", "#16a085", "#2ecc71", "#27ae60", "#3498db"
+        , "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50"
+        , "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c"
+        , "#c0392b", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"
+      ],
+      'onColorSelected': function() {
+      	this.element.css({'backgroundColor': this.color, 'color': this.color});
+      }
+    });
+  });
+</script>
 </html>

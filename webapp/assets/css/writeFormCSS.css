@@ -223,7 +223,12 @@ table .border-white-underline {
 }
 
 #write-table-explain {
+	width:102%;
 	margin-bottom: 100px;
+}
+
+.table-padding{
+	padding-bottom:10px;
 }
 
 textarea {
