@@ -1,4 +1,4 @@
-package com.javaex.service;
+package com.nadaena.service;
 
 public class MyService {
 

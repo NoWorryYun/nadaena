@@ -1,4 +1,4 @@
-package com.javaex.vo;
+package com.nadaena.vo;
 
 public class MyVo {
 
