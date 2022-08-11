@@ -1,5 +1,76 @@
 @charset "UTF-8";
 
+/* my2 */
+#review-modal {
+	display: none;
+}
+
+#review-modal h5 {
+	font-weight: bold;
+}
+
+.modal-text {
+	width: 466px;
+	height: 240px;
+}
+#modal-filebox {
+	height:34px;
+	margin: 10px 0px 15px 0px;
+}
+
+
+#modal-filepath {
+	background-color: grey;
+	width: 396px;
+	height: 34px;
+	float: left;
+}
+
+#modal-upbutton{
+	font-size: 14px;
+	width: 70px;
+	height: 34px;
+	padding:2px;
+	float:left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .review-header{
 	height: 26px;
 	font-size: 18px;

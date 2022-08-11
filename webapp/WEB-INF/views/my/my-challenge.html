@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="../../../assets/fonts/font-awesome.min.css">
 	<link rel="stylesheet" href="../../../assets/css/common.css">
 	<link rel="stylesheet" href="../../../assets/css/my.css">
+	<link rel="stylesheet" href="../../../assets/css/my2.css">
 	
 	<!-- js -->
 	<script type="text/javascript" src="../../../assets/js/jquery/jquery-1.12.4.js"></script>
@@ -62,40 +63,53 @@
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 						<button>리워드 받기</button>
-						<div id="review-modal" class="modal fade show" role="dialog" tabindex="-1" style="display: block;">
+						
+						<!-- 모달 -->
+						<div id="review-modal" class="modal fade show" role="dialog">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
 										<div>
-											<h4 class="modal-title">매일 10페이지 책 읽기</h4>
+											<h5>매일 10페이지 책 읽기</h5>
 										</div>
 										<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
+										<div class="modal-nicname-box">
+											<p class="modal-nickname">작성자 : 배달의기마민족</p>
+											<p class="modal-upload-date">작성일 : 2022-08-31</p>
+										</div>
+										<form>
+											<textarea class="modal-text"></textarea>
+											<div id="modal-filebox" class="clearfix">
+												<div id="modal-filepath" class="clearfix">
+													<p></p>
+												</div>
+												<button id="modal-upbutton" class="clearfix">사진첨부</button>
+											</div>
+											<div class="clear"></div>
+										</form>
+										
 										<div class="modal-image-box">
 											<div class="modal-image">
 												<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
 											</div>
 										</div>
-										<div class="review-text">
-											<div>
-												<p class="bold-underline">후기</p>
-											</div>
-											<p class="font-14">매일 10페이지 읽다가 9페이지 쯤 읽으면 잠듭니다. 대낮에 읽으세요. 가끔 펴자마자 잠듭니다. 리워드도 달달합니다. 두번하세요. 세번하세요.</p>
-										</div>
-									</div>
-									<div class="modal-nicname-box">
-										<p class="modal-nickname">작성자 : 배달의기마민족</p>
-										<p class="modal-upload-date">작성일 : 2022-08-31</p>
 									</div>
 									<div class="modal-footer">
-										<button class="btn btn-light" type="button" data-bs-dismiss="modal">닫기</button>
-										<button class="btn btn-primary" type="button">삭제</button>
+										<form>
+											<button class="btn btn-primary" type="button">작성 및 리워드받기</button>
+										</form>
 									</div>
 								</div>
 							</div>
 						</div>
+						
+						<!--  모달 끝 -->
+						
 					</div>
+					
+					
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="../../../assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
@@ -178,12 +192,12 @@
 <script type="text/javascript">
 $(function(){
 	$("button").click(function(){
-		$(".cmodal").fadeIn();	
+		$("#review-modal").fadeIn();	
 	});	
 	
-	/* $(".cmodal-content").click(function(){
-		$(".cmodal").fadeOut();	
-	});	 */
+	$(".btn-close").click(function(){
+		$("#review-modal").fadeOut();	
+	});	 
 });
 
 
