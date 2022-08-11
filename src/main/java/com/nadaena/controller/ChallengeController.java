@@ -17,6 +17,27 @@ public class ChallengeController {
 		return "challenge/main";
 	}
 	
+	@RequestMapping(value="/challenge/main2", method = {RequestMethod.GET, RequestMethod.POST})
+	public String challenge2() {
+		System.out.println("challnege/main");
+		
+		return "challenge/main2";
+	}
+	
+	@RequestMapping(value="/challenge/main3", method = {RequestMethod.GET, RequestMethod.POST})
+	public String challenge3() {
+		System.out.println("challnege/main");
+		
+		return "challenge/main3";
+	}
+	
+	@RequestMapping(value="/challenge/main4", method = {RequestMethod.GET, RequestMethod.POST})
+	public String challenge4() {
+		System.out.println("challnege/main");
+		
+		return "challenge/main4";
+	}
+	
 	@RequestMapping(value="/challenge/write", method = {RequestMethod.GET, RequestMethod.POST})
 	public String makeChallenge() {
 		System.out.println("challenge/makeChallenge");
