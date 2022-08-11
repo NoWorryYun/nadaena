@@ -303,11 +303,16 @@ button {
 	transition: transform 80ms ease-in;
 }
 
+.certify-graph-box{
+	margin-top : 15px;
+	text-align: center;
+}
+
 .certify-graph {
 	font-size: 9px;
 	font-weight: 900;
 	padding: 5px;
-	width: 48%;
+	width: 49%;
 	display: inline-block;
 	border: 1px solid #333333;
 	border-radius: 10px;

@@ -36,6 +36,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- Full Calendar JS -->
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
 <!-- full Calendar 언어 CDN -->
@@ -244,18 +246,18 @@
 			expandRows: true, // 화면에 맞게 높이 재설정
 			slotMinTime: '08:00', // Day 캘린더에서 시작 시간
 			slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
-			// 해더에 표시할 툴바        headerToolbar: {
+			// 해더에 표시할 툴바
+			headerToolbar: {
 				left: 'prev,next today',
 				center: 'title',
 				right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
 				},
 				initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-				initialDate: '2021-07-15', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
 				navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
 				editable: true, // 수정 가능?
 				selectable: true, // 달력 일자 드래그 설정가능
 				nowIndicator: true, // 현재 시간 마크
-				dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+				dayMaxEvents: false, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
 				locale: 'ko', // 한국어 설정
 				eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
 					console.log(obj);
@@ -279,60 +281,60 @@
 				calendar.unselect()
 			}
 				// 이벤트
-				events: [
+				,events: [
 					{
 						title: 'All Day Event',
-						start: '2021-07-01',
+						start: '2022-08-11',
 					},
 					{
 						title: 'Long Event',
-						start: '2021-07-07',
-						end: '2021-07-10'
+						start: '2021-08-07',
+						end: '2022-08-10'
 					},
 					{
 						groupId: 999,
 						title: 'Repeating Event',
-						start: '2021-07-09T16:00:00'
+						start: '2022-08-09T16:00:00'
 					},
 					{
 						groupId: 999,
 						title: 'Repeating Event',
-						start: '2021-07-16T16:00:00'
+						start: '2022-08-16T16:00:00'
 					},
 					{
 						title: 'Conference',
-						start: '2021-07-11',
-						end: '2021-07-13'
+						start: '2022-08-11',
+						end: '2022-08-13'
 					},
 					{
 						title: 'Meeting',
-						start: '2021-07-12T10:30:00',
-						end: '2021-07-12T12:30:00'
+						start: '2022-08-12T10:30:00',
+						end: '2022-08-12T12:30:00'
 					},
 					{
 						title: 'Lunch',
-						start: '2021-07-12T12:00:00'
+						start: '2022-08-12T12:00:00'
 					},
 					{
 						title: 'Meeting',
-						start: '2021-07-12T14:30:00'
+						start: '2022-08-12T14:30:00'
 					},
 					{
 						title: 'Happy Hour',
-						start: '2021-07-12T17:30:00'
+						start: '2022-08-12T17:30:00'
 					},
 					{
 						title: 'Dinner',
-						start: '2021-07-12T20:00:00'
+						start: '2022-08-12T20:00:00'
 					},
 					{
 						title: 'Birthday Party',
-						start: '2021-07-13T07:00:00'
+						start: '2022-08-13T07:00:00'
 					},
 					{
 						title: 'Click for Google',
 						url: 'http://google.com/', // 클릭시 해당 url로 이동
-						start: '2021-07-28'
+						start: '2022-08-28'
 					}
 				]
 			});      // 캘린더 랜더링
