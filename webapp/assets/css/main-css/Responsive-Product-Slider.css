@@ -13,6 +13,7 @@
 .carousel {
   position: relative;
   padding-top: 10px;
+  border-radius: 5px;
 }
 
 .g-0, .gy-0 {

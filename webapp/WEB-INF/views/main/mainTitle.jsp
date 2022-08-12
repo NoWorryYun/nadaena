@@ -15,21 +15,23 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/mainTitle.css">
 	
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/main-css/4-Col-Small-Slider-small.slider.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/main-css/BSB-Slider-3-Products.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/main-css/Media-Slider-Bootstrap-3.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/main-css/MUSA_carousel-product-cart-slider-carousel-product-cart-slider.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/main-css/Responsive-Product-Slider.css">
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 	
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/search.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mainslider.css">
 	
 	<!-- js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	
+	
 </head>
 
 
@@ -39,8 +41,6 @@
 <!-- header -->
 <c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
 <!-- //header -->
-
-<div class="main-box">
 
 	<div class="banner-box">
 	
@@ -61,7 +61,7 @@
 	                		<form class="d-flex align-items-center"><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="검색어를 입력해주세요." name="searchbar" /><button class="btn btn-success btn-lg" type="submit">Search</button></form>
 	            		</div>
 	       			</div>
-	        		 <!-- //search -->
+	        		 <!-- //title-search -->
 				</div>
 				
 				<div class="col-5">
@@ -72,17 +72,21 @@
 			                    <div class="carousel-item active"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" style="padding-right: 0px;padding-left: 0px;" /></div>
 			                    <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
 			                    <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
+			                	<div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
+			                    <div class="carousel-item"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
 			                </div>
 			                <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
 			                <ol class="carousel-indicators">
 			                    <li class="active" data-bs-target="#carousel-1" data-bs-slide-to="0"></li>
 			                    <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
 			                    <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+			                    <li data-bs-target="#carousel-1" data-bs-slide-to="3"></li>
+			                    <li data-bs-target="#carousel-1" data-bs-slide-to="4"></li>
+			                    
 			                </ol>
-			            </div>
-			            <!-- //slide-banner -->
+			            </div>		           
 			        </div>
-			        
+			        <!-- //slide-banner -->
 				</div>
 			
 			</div>
@@ -90,264 +94,344 @@
 	    <!-- //main-banner -->
 	</div>
     <!-- //banner-box -->
-    <main>
+    
+    
+<main>
     <div class="main-box">
-        <h3 class="main-list">이벤트 나대나</h3>
-        <div>
-        <div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<div>
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				</div>
-				<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-			</div>
-	
-			<!-- 네비게이션 -->
-			<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-			<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-		
-			<!-- 페이징 -->
-			<div class="swiper-pagination"></div>
-		</div>
-		
-	</div>	
-		
-		
-		
-		<h3 class="main-list">인기 나대나</h3>
-        <div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<div>
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				</div>
-				<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-		
-	
-			
-		</div>
-			<!-- 네비게이션 -->
-			<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-			<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-		
-			<!-- 페이징 -->
-			<div class="swiper-pagination"></div>
-	</div>
-	
-	<h3 class="main-list">듀토리얼 나대나</h3>
-	 <div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-				<div>
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-		
-	
-			
-		</div>
-			<!-- 네비게이션 -->
-			<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-			<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-		
-			<!-- 페이징 -->
-			<div class="swiper-pagination"></div>
-	</div>
-	
-	</div>
         
-</div>
-    </main>
+        <h3>이벤트 나대나</h3>
+        <div class="more"><a href="">더보기</a></div>
+    	<div class="lunchbox">
+
+  <!-- slider main container -->
+		  <div id="swiper1" class="swiper-container"> 
+		
+		      <!-- additional required wrapper -->
+		      <div class="swiper-wrapper col-10">
+		
+		          <!-- slides -->
+		          <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		          <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		         <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		       <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		        <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		        <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		        <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		      </div>
+		
+		     	 <!-- pagination -->
+		      	<div class="swiper-pagination"></div>
+	      		<!-- navigation buttons -->
+				<div id="js-prev1" class="swiper-button-prev col-1"></div>
+				<div id="js-next1" class="swiper-button-next col-1"></div>
+					
+		  	</div>
+
+	</div>
+
+
+	<h3>인기 나대나</h3>
+	<div class="more"><a href="">더보기</a></div>
+    	<div class="lunchbox">
+			<!-- slider main container -->
+			<div id="swiper1" class="swiper-container"> 
+		
+		      <!-- additional required wrapper -->
+		      <div class="swiper-wrapper">
+		
+		          <!-- slides -->
+		          <div class="swiper-slide">
+			          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div>
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		          </div>
+		
+		          <div class="swiper-slide">
+		            <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div class="nadaena_info">
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		         </div>
+		
+		         <div class="swiper-slide">
+		           <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div class="nadaena_info">
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div class="nadaena_info">
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div class="nadaena_info">
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div class="nadaena_info">
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		        </div>
+		
+		        <div class="swiper-slide">
+		         <a href="">
+				          <div class="product">
+				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+				             <div class="nadaena_info">
+				           	 	<p class="nadaena_name">마라톤</p>
+				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 </div>
+				          </div>
+				      </a>
+		        </div>
+		
+		      </div>
+		
+		     	 <!-- pagination -->
+		      	<div class="swiper-pagination"></div>
+		      	<!-- navigation buttons -->
+			<div id="js-prev1" class="swiper-button-prev"></div>
+			<div id="js-next1" class="swiper-button-next"></div>
+			
+		  	</div>
+
+		
+  
+	</div>
+
+
+
+	<h3>듀토리얼 나대나</h3>
+    	<div class="lunchbox">
+
+ 		 <!-- slider main container -->
+		  <div id="swiper1" class="swiper-container"> 
+		
+		      <!-- additional required wrapper -->
+		      <div class="swiper-wrapper">
+		
+		          <!-- slides -->
+		          <div class="swiper-slide">
+			          <div class="product">
+			              <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
+			              <h2 class="product__name">Lorem ipsum 2</h2>
+			              <p class="product__description">lorem ipsum dol</p>
+			          </div>
+		          </div>
+		
+		          <div class="swiper-slide">
+		            <div class="product">
+		              <img class="photograph" src="https://unsplash.it/g/430/431?image=401" alt="">
+		              <h2 class="product__name">Lorem ipsum 2</h2>
+		              <p class="product__description">lorem ipsum dol</p>
+		            </div>
+		         </div>
+		
+		         <div class="swiper-slide">
+		           <div class="product">
+		             <img class="photograph" src="https://unsplash.it/g/430/431?image=201" alt="">
+		             <h2 class="product__name">Lorem ipsum 3</h2>
+		             <p class="product__description">lorem ipsum dol</p>
+		           </div>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <div class="product">
+		            <img class="photograph" src="https://unsplash.it/g/430/431?image=504" alt="">
+		            <h2 class="product__name">Lorem ipsum 4</h2>
+		            <p class="product__description">lorem ipsum dol</p>
+		          </div>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <div class="product">
+		            <img class="photograph" src="https://unsplash.it/g/430/431?image=404" alt="">
+		            <h2 class="product__name">Lorem ipsum 5</h2>
+		            <p class="product__description">lorem ipsum dol</p>
+		          </div>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <div class="product">
+		            <img class="photograph" src="https://unsplash.it/g/430/431?image=406" alt="">
+		            <h2 class="product__name">Lorem ipsum 6</h2>
+		            <p class="product__description">lorem ipsum dol</p>
+		          </div>
+		        </div>
+		
+		        <div class="swiper-slide">
+		          <div class="product">
+		            <img class="photograph" src="https://unsplash.it/g/430/431?image=407" alt="">
+		            <h2 class="product__name">Lorem ipsum 7</h2>
+		            <p class="product__description">lorem ipsum dol</p>
+		          </div>
+		        </div>
+		
+		      </div>
+		
+		     	 <!-- pagination -->
+		      	<div class="swiper-pagination"></div>
+		      	<!-- navigation buttons -->
+			<div id="js-prev1" class="swiper-button-prev"></div>
+			<div id="js-next1" class="swiper-button-next"></div>
+			
+		  	</div>
+
+		
+  
+	</div>
+
+
+
+
+
+
+
+
+
+
+        
+	</div>
+	<!-- //main-box -->
+</main>
+<!-- //main -->
 <!-- footer -->
 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 <!-- //footer -->
@@ -356,29 +440,37 @@
 </body>
 
 <script>
-	new Swiper('.swiper-container', {
-	
-		slidesPerView : 4, // 동시에 보여줄 슬라이드 갯수
-		spaceBetween : 5, // 슬라이드간 간격
-		slidesPerGroup : 4, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
-	
-		// 그룹수가 맞지 않을 경우 빈칸으로 메우기
-		// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
-		/* loopFillGroupWithBlank : true, */
-	
-		loop : true, // 무한 반복
-	
-		pagination : { // 페이징
-			el : '.swiper-pagination',
-			clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
-		},
-		navigation : { // 네비게이션
-			nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-			prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-		},
-	});
-	
-	
+
+var swiper = new Swiper('.swiper-container', {
+
+    initialSlide : -1,
+
+    slidesPerView: 4,
+
+    observer: true,
+
+    observeParents: true,
+
+    loop: true,
+
+    pagination: {
+
+      el: '.swiper-pagination',
+
+      type: 'fraction',
+
+    },
+
+    navigation: {
+
+      nextEl: '.swiper-button-next',
+
+      prevEl: '.swiper-button-prev',
+
+    },
+
+  });
+
 
 </script>
 

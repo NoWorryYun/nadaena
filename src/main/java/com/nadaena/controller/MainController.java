@@ -17,4 +17,11 @@ public class MainController {
 		
 		return "main/mainTitle";
 	}
+	
+	@RequestMapping(value="/main/maintest", method = {RequestMethod.GET, RequestMethod.POST})
+	public String maintest2() {
+		System.out.println("maintest");
+		
+		return "main/test";
+	}
 }

@@ -18,10 +18,10 @@
 }
 
 .carousel-indicators {
-  right: 50%;
+  right: 20%;
   top: auto;
   bottom: -10px;
-  margin-right: -19px;
+  margin-right: -20px;
 }
 
 .carousel-indicators li {

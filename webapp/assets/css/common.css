@@ -4,7 +4,7 @@
 /******************************************/
 h1 {display: none;}
 h2 {font-size: 22px; font-weight: bold; padding-bottom: 20px; margin-bottom:20px; border-bottom: 2px solid #000000; }
-h3 {font-size: 18px; font-weight: bold; color: #595959; margin: 5px 0px 0px 0px;}
+h3 {font-size: 20px; font-weight: bold; color: #595959; margin: 5px 0px 0px 0px;}
 
 /* 드롭다운 상자 관련 */
 .dropdown-item.active, .dropdown-item:active {
