@@ -43,7 +43,9 @@
 				<div class="challenge-header">참가중 챌린지</div>
 				<div class="challenge-images">
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+						</div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -54,7 +56,9 @@
 						<!-- <button>리워드 받기</button> -->
 					</div>	
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+						</div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -63,14 +67,48 @@
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 						<button>리워드 받기</button>
-						<div class="cmodal">
-							<div class="cmodal-content">
-								모달창 내용
+						
+						<!-- 모달 -->
+						<div id="review-modal" class="modal fade show" role="dialog">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<div>
+											<h5>매일 10페이지 책 읽기</h5>
+										</div>
+										<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="modal-nicname-box">
+											<p class="modal-nickname">작성자 : 배달의기마민족</p>
+											<p class="modal-upload-date">작성일 : 2022-08-31</p>
+										</div>
+										<textarea class="modal-text"></textarea>
+										<input type="file" id="modal-upbutton">
+										
+										<!-- <div class="modal-image-box">
+											<div class="modal-image">
+												<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
+											</div>
+										</div> -->
+									</div>
+									<div class="modal-footer">
+										<form>
+											<button class="btn btn-primary">작성 및 리워드받기</button>
+										</form>
+									</div>
+								</div>
 							</div>
 						</div>
+						
+						<!--  모달 끝 -->
+						
 					</div>
+					
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+						</div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -91,7 +129,9 @@
 				</div>
 				<div class="challenge-images">
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+						</div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -101,7 +141,9 @@
 						</div>
 					</div>	
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+						</div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -111,7 +153,9 @@
 						</div>
 					</div>
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+						</div>
 						<div class="challenge-info">
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
@@ -148,5 +192,21 @@
 
 
 </body>
+<script type="text/javascript">
+$(function(){
+	$("button").click(function(){
+		$("#review-modal").fadeIn();	
+	});	
+	
+	$(".btn-close").click(function(){
+		$(".modal-text").remove();
+		$("#review-modal").fadeOut();	
+	});	 
+	
+	
+});
 
+
+
+</script>
 </html>
