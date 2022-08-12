@@ -4,5 +4,74 @@
 <mapper namespace="point">
 	
 	<!-- 쿼리문 작성 -->
+	
+	<insert id="zeroPoint" parameterType="com.nadaena.vo.PointVo">
+		<![CDATA[
+			insert into point
+			values (seq_pointNo.nextVal,
+					seq_userNo.nextVal,
+					null,
+					null,
+					0,
+					sysdate,
+					null,
+					null
+					)
+		]]>
+	</insert>
+	
+	<insert id="usePoint" parameterType="com.nadaena.vo.PointVo">
+		<![CDATA[
+			update point
+			set pointGroup = 12345,
+				charge = 20000,
+				amount = 50000,
+				pointDate = sysdate,
+				source = ,
+				pointMemo = 
+			where pointNo = 1000;	
+			
+			
+		
+		]]>
+	</insert>
+	
+	
+	
+	<select id="" parameterType="com.nadaena.vo.PointVo">
+		<![CDATA[
+			select from
+			values (seq_pointNo.nextval,
+					#{userNo},
+					#{pointGroup},
+					#{charge},
+					#{amount},
+					sysdate,
+					#{source}
+					#{pointMemo}
+					)
+		]]>
+	</select>	
+	
+	
+	
+	
+	
+	
+	
+	<select id="getBoard" parameterType="com.javaex.vo.BoardVo" resultMap = "resultMapBoardVo">
+		<![CDATA[
+			select  b.no,
+					b.title,
+					b.content,
+					b.hit,
+					to_char(b.reg_date, 'yyyy-mm-dd hh24:mi:ss') regDate,
+					b.user_no userNo,
+					u.name userName
+			from board b, users u
+			where b.user_no = u.no
+			and b.no = #{no}
+		]]>
+	</select>
 
 </mapper>
