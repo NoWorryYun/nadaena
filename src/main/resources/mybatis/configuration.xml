@@ -7,7 +7,5 @@
 
     <mappers>
         <mapper resource="mybatis/mappers/example.xml"/>
-        <mapper resource="mybatis/mappers/point.xml"/>
-        <mapper resource="mybatis/mappers/my-challenge.xml"/>
     </mappers>
 </configuration>
