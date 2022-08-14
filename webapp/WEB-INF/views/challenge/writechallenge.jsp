@@ -72,7 +72,7 @@
 				<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
-					<form action="">
+					<form method="post" action="${pageContext.request.contextPath}/challenge/makechallenge">
 						<div id="write-wrap-content">
 							<h5 class="write-header">챌린지 개설</h5>
 
@@ -369,7 +369,7 @@
 											<p class="bold-underline">챌린지 달성률에 따른 보상</p>
 											<p>
 												챌린지 성공 이후 전체 달성률에 대한 추가 보상이 지급됩니다.<br>
-												<ul>
+											<ul>
 												<li><span class="fw-bold color-red">100%</span> > 추가지급의 30% 추가지급 (10,000원 > 10,500원 > 10,650원)</li>
 												<li>90% > 추가지급의 10% 추가지급 (10,000원 > 10,500원 > 10,550원)</li>
 											</ul>
@@ -456,48 +456,61 @@
 									<button class="make-challenge make-challenge-button" type="submit">챌린지 개설</button>
 								</div>
 							</div>
-							
-							
-							
+
+
+
 						</div>
 						<!-- write-wrap content -->
-						
+
 					</form>
 					<!-- content form -->
-					
-					
-					
+
+
+
+				</div>
+				<!-- content col-7 -->
+
+
+
+				<div id="rside" class="col-3">
+					<div id="calculator">
+						<p>난이도 설명</p>
+						<ul class="list-unstyled">
+							<li>챌린지 기간 1주 + 5점</li>
+							<li>챌린지 기간 2주 + 10점</li>
+							<li>챌린지 기간 3주 + 20점</li>
+							<li>주 5회 + 5점</li>
+							<li>주 5회 + 10점</li>
+							<li>인증 방법 사진 + 10점</li>
+							<li>인증 방법 동영상 + 20점</li>
+							<li>일일 업로드 횟수 1회 + 5점</li>
+							<li>일일 업로드 횟수 2회 + 10점</li>
+							<li>일일 업로드 횟수 3회 + 20점</li>
+							<li>미니게임 + 5점</li>
+						</ul>
+						<p>난이도 설정 점수</p>
+						<ul class="list-unstyled">
+							<li>40점 이하 하</li>
+							<li>40~70점 중</li>
+							<li>70점 이상 상</li>
+						</ul>
+						<p>난이도 계산기</p>
+						<ul class="list-unstyled">
+							<li>챌린지 기간 <span id="cal-length"></span></li>
+							<li>주당 인증 일수 <span id="cal-times"></span></li>
+							<li>인증 방법 <span id="cal-way"></span></li>
+							<li>일일 업로드 횟수 <span id="cal-upload"></span></li>
+							<li>미니게임 <span id="cal-mini"></span></li>
+						</ul>
+						<p>합계</p>
+						<span id="cal-sum"></span>
+						<p>난이도</p>
+						<span id="cal-level"></span>
 					</div>
-					<!-- content col-7 -->
-					
-					
-					
-					<div id="rside" class="col-3">
-						<div id="calculator">
-							<p>난이도 설명</p>
-							<ul class="list-unstyled">
-								<li>챌린지 기간 1주 + 5점</li>
-								<li>챌린지 기간 2주 + 10점</li>
-								<li>챌린지 기간 3주 + 20점</li>
-								<li>인증 방법 동영상 + 20점</li>
-								<li>업로드 횟수 2회 + 10점</li>
-								<li>미니게임 + 5점</li>
-							</ul>
-							<p>난이도 계산기</p>
-							<ul class="list-unstyled">
-								<li>챌린지 기간 2주 + 10점</li>
-								<li>인증 방법 동영상 + 20점</li>
-								<li>업로드 횟수 2회 + 10점</li>
-								<li>미니게임 + 5점</li>
-							</ul>
-							<p>난이도 설정</p>
-							<p>합계</p>
-							<p>난이도</p>
-						</div>
-					</div>
+				</div>
 			</div>
 		</div>
-		
+
 
 
 
@@ -552,5 +565,5 @@
     })
   });
 
-</script></
-											html>
+</script>
+</ htm l>
