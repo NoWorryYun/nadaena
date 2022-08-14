@@ -52,7 +52,7 @@
 							<p>참여 인원 : 15</p>
 							<p>도전비용 : #{payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
+						</div> 
 						<!-- <button>리워드 받기</button> -->
 					</div>	
 					<div class="challenge-box">

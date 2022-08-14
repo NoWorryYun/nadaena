@@ -23,6 +23,6 @@ public class MychallengeDao {
 		List<MychallengeVo> mycList = sqlSession.selectList("mychallenge.selectList");
 		System.out.println(mycList);
 		
-		return mycList;
+		return mycList; 
 	}
 }
