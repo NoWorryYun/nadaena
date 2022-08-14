@@ -3,9 +3,11 @@
 
 <configuration>
     <typeAliases>
+    <typeAlias alias="WritechallengeVo" type="com.nadaena.vo.WriteChallengeVo" />
     </typeAliases>
 
     <mappers>
         <mapper resource="mybatis/mappers/example.xml"/>
+        <mapper resource="mybatis/mappers/writeChallenge.xml"/>
     </mappers>
 </configuration>

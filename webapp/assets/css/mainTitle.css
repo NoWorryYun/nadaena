@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* 1400*800 */
+
 .banner-box {
   background-color: blue;
   margin: 123px 0px -120px 0px; 
@@ -13,18 +15,16 @@
 	padding: 15px;
 }
 
-/* 
-div.container {
+div .container {
   height: 300px;
   background-color: var(--bs-blue);
-} */
-/* 
+}
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   width: 100%;
   padding-right: var(--bs-gutter-x,.75rem);
   padding-left: var(--bs-gutter-x,.75rem);
  
-} */
+}
 
 .main-list{
 	font-size: 22px;
@@ -78,6 +78,3 @@ div.main-title {
   justify-content: center;
 }
 
-.slide-botton{
-	
-}
