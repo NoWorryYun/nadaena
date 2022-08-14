@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nadaena.dao.MychallengeDao;
+/*import com.nadaena.dao.MychallengeDao;
 import com.nadaena.vo.MychallengeVo;
 
 @Service
@@ -25,11 +25,12 @@ public class MychallengeService {
 		
 	}
 	 
+	*/
 	
 	
 	
 	
-	
-	
-	
-}
+/*
+ * 
+ * }
+ */

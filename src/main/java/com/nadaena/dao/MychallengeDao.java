@@ -6,13 +6,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nadaena.vo.MychallengeVo;
-
-@Repository
-public class MychallengeDao {
-	
-	
-	//필드
+/*
+ * @Repository public class MychallengeDao {
+ * 
+ */
+/*	//필드
 	@Autowired
 	private SqlSession sqlSession;
 	
@@ -25,4 +23,4 @@ public class MychallengeDao {
 		
 		return mycList; 
 	}
-}
+}*/
