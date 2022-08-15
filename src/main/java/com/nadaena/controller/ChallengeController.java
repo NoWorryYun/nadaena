@@ -47,7 +47,7 @@ public class ChallengeController {
 	public String challengeWrite() {
 		System.out.println("challenge/challengeWriteForm");
 
-		return "challenge/makechallenge";
+		return "challenge/writechallenge";
 	}
 
 	@RequestMapping(value = "/challenge/makechallenge", method = { RequestMethod.GET, RequestMethod.POST })

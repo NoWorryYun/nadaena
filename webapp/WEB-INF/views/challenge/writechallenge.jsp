@@ -84,15 +84,15 @@
 											<tbody class="table-none">
 												<tr class="border-white-underline">
 													<td class="write-table-label line-height25">제목</td>
-													<td class="write-table-content" colspan="3"><input type="text" name="challengeTitle" class="write-title-shape"></td>
+													<td class="write-table-content" colspan="3"><input type="text" name="clgTitle" class="write-title-shape"></td>
 												</tr>
 												<tr class="border-white-underline">
 													<td class="write-table-label line-height2">대표이미지</td>
-													<td class="write-table-content" colspan="3"><input name="challenge-img" type="file"></td>
+													<td class="write-table-content" colspan="3"><input name="img" type="file"></td>
 												</tr>
 												<tr class="border-white-underline">
 													<td class="write-table-label">모집기간</td>
-													<td class="write-table-content"><select name="recruit-period" class="select-width">
+													<td class="write-table-content"><select name=recruitment class="select-width">
 															<option value="3" selected="selected">3일</option>
 															<option value="4">4일</option>
 															<option value="5">5일</option>
@@ -100,7 +100,7 @@
 															<option value="7">7일</option>
 													</select>&nbsp;</td>
 													<td class="write-table-label">챌린지 기간</td>
-													<td class="write-table-content"><select name="challenge-period" class="select-width">
+													<td class="write-table-content"><select name="period" class="select-width">
 															<option value="1" selected="selected">1주일</option>
 															<option value="2">2주일</option>
 															<option value="3">3주일</option>
@@ -123,16 +123,16 @@
 													<td class="write-table-label">인증방법</td>
 													<td class="write-table-content">
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="upload-picture" name="way-upload" checked="checked" value="picture"><label class="form-check-label" for="upload-picture">사진</label>
+															<input class="form-check-input" type="radio" id="upload-picture" name="certify" checked="checked" value="picture"><label class="form-check-label" for="upload-picture">사진</label>
 														</div>
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="upload-video" name="way-upload" value="video"><label class="form-check-label" for="upload-video">비디오</label>
+															<input class="form-check-input" type="radio" id="upload-video" name="certify" value="video"><label class="form-check-label" for="upload-video">비디오</label>
 														</div>
 													</td>
 													<td class="write-table-label">추가인증설정</td>
 													<td class="write-table-content">
 														<div class="form-check">
-															<input class="form-check-input" type="checkbox" id="minigame" value="0"><label class="form-check-label" for="minigame">미니게임</label>
+															<input class="form-check-input" type="checkbox" name="minigame" id="minigame" value="0"><label class="form-check-label" for="minigame">미니게임</label>
 														</div>
 													</td>
 												</tr>
@@ -140,22 +140,22 @@
 													<td class="write-table-label">일일 업로드횟수</td>
 													<td class="write-table-content">
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="one-one" name="one-times" value="1"><label class="form-check-label" for="one-one">일일 1회</label>
+															<input class="form-check-input" type="radio" id="one-one" name="upload" value="1"><label class="form-check-label" for="one-one">일일 1회</label>
 														</div>
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="one-two" name="one-times" value="2"><label class="form-check-label" for="one-two">일일 2회</label>
+															<input class="form-check-input" type="radio" id="one-two" name="upload" value="2"><label class="form-check-label" for="one-two">일일 2회</label>
 														</div>
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="one-three" name="one-times" value="3"><label class="form-check-label" for="one-three">일일 3회</label>
+															<input class="form-check-input" type="radio" id="one-three" name="upload" value="3"><label class="form-check-label" for="one-three">일일 3회</label>
 														</div>
 													</td>
 													<td class="write-table-label">주당 인증 일수</td>
 													<td class="write-table-content">
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="week-five" name="week-times" value="5"><label class="form-check-label" for="week-five">주5일 (평일만)</label>
+															<input class="form-check-input" type="radio" id="week-five" name="certifyDay" value="5"><label class="form-check-label" for="week-five">주5일 (평일만)</label>
 														</div>
 														<div class="form-check radio-with-label">
-															<input class="form-check-input" type="radio" id="week-seven" name="week-times" value="7"><label class="form-check-label" for="week-seven">주7일 (주말포함)</label>
+															<input class="form-check-input" type="radio" id="week-seven" name="certifyDay" value="7"><label class="form-check-label" for="week-seven">주7일 (주말포함)</label>
 														</div>
 													</td>
 												</tr>
@@ -384,33 +384,33 @@
 											<tbody class="table-none">
 												<tr class="border-white-underline">
 													<td class="write-table-label line-height25">소개글</td>
-													<td class="write-table-content" colspan="3"><textarea id="classic"></textarea></td>
+													<td class="write-table-content" colspan="3"><textarea name="content" id="classic"></textarea></td>
 												</tr>
 												<tr class="border-white-underline">
 													<td class="write-table-label line-height2">배경색 설정</td>
-													<td class="write-table-content" colspan="3"><div class="colorPickSelector"></div></td>
+													<td class="write-table-content" colspan="3"><div name="color" class="colorPickSelector"></div></td>
 												</tr>
 												<tr class="border-white-underline">
 													<td class="write-table-label line-height2">카테고리 설정</td>
 													<td class="write-table-content" colspan="3"><div>
 															<table class="category-letter">
 																<tr>
-																	<td><input id="cate1" type="radio" name="category" value="1"><label class="form-check-label" for="cate1">운동</label></td>
-																	<td><input id="cate2" type="radio" name="category" value="2"><label class="form-check-label" for="cate2">봉사활동</label></td>
-																	<td><input id="cate3" type="radio" name="category" value="3"><label class="form-check-label" for="cate3">독서</label></td>
-																	<td><input id="cate4" type="radio" name="category" value="4"><label class="form-check-label" for="cate4">건강</label></td>
+																	<td><input id="cate1" type="radio" name="interestNo" value="1"><label class="form-check-label" for="cate1">운동</label></td>
+																	<td><input id="cate2" type="radio" name="interestNo" value="2"><label class="form-check-label" for="cate2">봉사활동</label></td>
+																	<td><input id="cate3" type="radio" name="interestNo" value="3"><label class="form-check-label" for="cate3">독서</label></td>
+																	<td><input id="cate4" type="radio" name="interestNo" value="4"><label class="form-check-label" for="cate4">건강</label></td>
 																</tr>
 																<tr>
-																	<td><input id="cate5" type="radio" name="category" value="5"><label class="form-check-label" for="cate5">생활</label></td>
-																	<td><input id="cate6" type="radio" name="category" value="6"><label class="form-check-label" for="cate6">그림</label></td>
-																	<td><input id="cate7" type="radio" name="category" value="7"><label class="form-check-label" for="cate7">공부</label></td>
-																	<td><input id="cate8" type="radio" name="category" value="8"><label class="form-check-label" for="cate8">반려동물</label></td>
+																	<td><input id="cate5" type="radio" name="interestNo" value="5"><label class="form-check-label" for="cate5">생활</label></td>
+																	<td><input id="cate6" type="radio" name="interestNo" value="6"><label class="form-check-label" for="cate6">그림</label></td>
+																	<td><input id="cate7" type="radio" name="interestNo" value="7"><label class="form-check-label" for="cate7">공부</label></td>
+																	<td><input id="cate8" type="radio" name="interestNo" value="8"><label class="form-check-label" for="cate8">반려동물</label></td>
 																</tr>
 																<tr>
-																	<td><input id="cate9" type="radio" name="category" value="9"><label class="form-check-label" for="cate9">음악</label></td>
-																	<td><input id="cate10" type="radio" name="category" value="10"><label class="form-check-label" for="cate10">식습관</label></td>
-																	<td><input id="cate11" type="radio" name="category" value="11"><label class="form-check-label" for="cate11">취미</label></td>
-																	<td><input id="cate12" type="radio" name="category" value="12"><label class="form-check-label" for="cate12">뷰티</label></td>
+																	<td><input id="cate9" type="radio" name="interestNo" value="9"><label class="form-check-label" for="cate9">음악</label></td>
+																	<td><input id="cate10" type="radio" name="interestNo" value="10"><label class="form-check-label" for="cate10">식습관</label></td>
+																	<td><input id="cate11" type="radio" name="interestNo" value="11"><label class="form-check-label" for="cate11">취미</label></td>
+																	<td><input id="cate12" type="radio" name="interestNo" value="12"><label class="form-check-label" for="cate12">뷰티</label></td>
 																</tr>
 															</table>
 														</div></td>

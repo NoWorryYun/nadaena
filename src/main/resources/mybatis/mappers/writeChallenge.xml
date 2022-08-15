@@ -1,1 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="writeChallenge">
+
+	<resultMap id="resultWriteChallengeVo" type="WriteChallengeVo">
+		<result column="challengeNo" property="challengeNo" />
+		<result column="interestNo" property="interestNo" />
+		<result column="clgTitle" property="clgTitle" />
+		<result column="img" property="img" />
+		<result column="regDate" property="regDate" />
+		<result column="recruitment" property="recruitment" />
+		<result column="period" property="period" />
+		<result column="certify" property="certify" />
+		<result column="minigame" property="minigame" />
+		<result column="upload" property="upload" />
+		<result column="certifyDay" property="certifyDay" />
+		<result column="content" property="content" />
+		<result column="color" property="color" />
+		<result column="tag1" property="tag1" />
+		<result column="tag2" property="tag2" />
+		<result column="tag3" property="tag3" />
+		<result column="tag4" property="tag4" />
+		<result column="tag5" property="tag5" />
+		<result column="clgLevel" property="clgLevel" />
+		<result column="clgGroup" property="clgGroup" />
+	</resultMap>
+
+	<insert id="writeChallenge" parameterType="writeChallengeVo">
+		<![CDATA[
+			insert into challenge
+			values( seq_challengeNo.nextval,
+					#{interestNo}, 
+					#{clgTitle}, 
+					#{img},
+					to_char(sysdate, 'yy-mm-dd'), 
+					#{recruitment}, 
+					#{period}, 
+					#{certify},
+					#{minigame}, 
+					#{upload}, 
+					#{certifyDay},
+					#{content},
+					#{tag1},
+					#{tag2},
+					#{tag3},
+					#{tag4},
+					#{tag5},
+					#{clgLevel},
+					#{clgGroup}
+				)
+		]]>
+	</insert>
+
+	<insert id="ChallengeCertify" parameterType="writeChallengeVo">
+		<![CDATA[
+			insert into challenge
+			values( seq_certifyNo.nextval,
+					#{challengeNo},
+					#{clgTitle}, 
+					#{img},
+					to_char(sysdate, 
+					'yy-mm-dd'), 
+					#{recruitment}, 
+					#{period}, 
+					#{certify},
+					#{minigame}, 
+					#{upload}, 
+					#{certifyDay},
+					#{content},
+					#{tag1},
+					#{tag2},
+					#{tag3},
+					#{tag4},
+					#{tag5},
+					#{clgLevel},
+					#{clgGroup}
+				)
+		]]>
+	</insert>
+
+</mapper>
