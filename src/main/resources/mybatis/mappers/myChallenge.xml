@@ -4,7 +4,7 @@
 <mapper namespace="myChallenge">
  
 	<!-- 참가챌린지 가져오기 -->
-	<select id="selectList" parameterType="String" resultType="com.nadaena.vo.MCVo">
+	<select id="selectList" parameterType="String" resultType="MCVo">
 		<![CDATA[
 			select  c.clgTitle,
 			        c.regdate,
@@ -14,5 +14,6 @@
 			where c.challengeNo = m.challengeNo
 		]]>
 	</select>	
-
+	
+	
 </mapper>
