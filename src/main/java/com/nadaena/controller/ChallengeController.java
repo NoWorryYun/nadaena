@@ -2,6 +2,8 @@ package com.nadaena.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,16 +18,18 @@ public class ChallengeController {
 
 	@Autowired
 	private ChallengeService challengeService;
-
-	@RequestMapping(value = "/challenge/intro", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge() {
+/*
+	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge(@PathVariable("challengeNo") int challengeNo, Model model) {
 		System.out.println("challnege/intro");
 
+		model.addAttribute()
+		
 		return "challenge/intro";
 	}
-	
+	*/
 	@ResponseBody
-	@RequestMapping(value = "/challenge/getIntro", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/challenge/{challengeNo}/getIntro", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challengeIntro(@RequestBody int challengeNo) {
 		System.out.println("challnege/intro_content");
 		
@@ -36,29 +40,29 @@ public class ChallengeController {
 
 	
 	
-	@RequestMapping(value = "/challenge/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/challenge/{challengeNo}/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinchallenge() {
 		System.out.println("challnege/intro");
 		
 		return "redirect:/intro";
 	}
 
-	@RequestMapping(value = "/challenge/certify", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge2() {
+	@RequestMapping(value = "/challenge/{challengeNo}/certify", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge2(@PathVariable("challengeNo") int challengeNo) {
 		System.out.println("challnege/certify");
 
 		return "challenge/certify";
 	}
 
-	@RequestMapping(value = "/challenge/community", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge3() {
+	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge3(@PathVariable("challengeNo") int challengeNo) {
 		System.out.println("challnege/community");
 
 		return "challenge/community";
 	}
 
-	@RequestMapping(value = "/challenge/review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge4() {
+	@RequestMapping(value = "/challenge/{challengeNo}/review", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge4(@PathVariable("challengeNo") int challengeNo) {
 		System.out.println("challnege/review");
 
 		return "challenge/review";
@@ -78,14 +82,14 @@ public class ChallengeController {
 		return "redirect:/main";
 	}
 
-	@RequestMapping(value = "/challenge/board", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })
 	public String readBoard() {
 		System.out.println("challenge/board");
 
 		return "challenge/readboard";
 	}
 
-	@RequestMapping(value = "/challenge/writeboard", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/challenge/{challengeNo}/writeboard", method = { RequestMethod.GET, RequestMethod.POST })
 	public String writeBoard() {
 		System.out.println("challenge/writeboard");
 
