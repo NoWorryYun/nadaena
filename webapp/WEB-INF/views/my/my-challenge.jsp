@@ -41,31 +41,21 @@
 				<h3>나의 챌린지</h3>
 				
 				<div class="challenge-header">참가중 챌린지</div>
+				
+				
 				<div class="challenge-images">
+				<c:forEach items="${mcList}" var="MCVo">
 					<div class="challenge-box">
 						<div class="challenge-image">
 							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
 						</div>
 						<div class="challenge-info">
-							<h4>마라톤</h4>
+							<h4>${MCVo.clgTitle }</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 							<p>참여 인원 : 15</p>
-							<p>도전비용 : ${payment }원</p>
+							<p>도전비용 : ${MCVo.payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div> 
-						<!-- <button>리워드 받기</button> -->
-					</div>	
-					<div class="challenge-box">
-						<div class="challenge-image">
-							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
-						</div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
 						<button>리워드 받기</button>
 						
 						<!-- 모달 -->
@@ -102,23 +92,10 @@
 						</div>
 						
 						<!--  모달 끝 -->
-						
-					</div>
+					</div>	
+				</c:forEach>
+				</div>		
 					
-					<div class="challenge-box">
-						<div class="challenge-image">
-							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
-						</div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-						<button>리워드 받기</button>
-					</div>
-				</div>
 				<div class="challenge-header">
 					완료된 챌린지
 					<ul>

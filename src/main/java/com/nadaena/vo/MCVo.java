@@ -1,7 +1,7 @@
 package com.nadaena.vo;
 
 public class MCVo {
-	 
+	
 	//필드
 	private int userClgNo;
 	private int challengeNo;
