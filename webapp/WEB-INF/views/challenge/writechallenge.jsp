@@ -435,7 +435,7 @@
 										<tbody>
 											<tr class="table-none">
 												<td class="write-table-label">챌린지참가비용</td>
-												<td class="font-12 write-table-content"><select name="challnege-price">
+												<td class="font-12 write-table-content"><select name="payment">
 														<option value="0" selected="selected">금액설정</option>
 														<option value="10,000">10,000</option>
 														<option value="20,000">20,000</option>

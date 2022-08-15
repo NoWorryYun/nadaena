@@ -1,6 +1,6 @@
 package com.nadaena.vo;
 
-public class WriteChallengeVo {
+public class ChallengeVo {
 
 	//필드
 	private int challengeNo;
@@ -26,11 +26,11 @@ public class WriteChallengeVo {
 
 	//생성자
 
-	public WriteChallengeVo() {
+	public ChallengeVo() {
 		super();
 	}
 
-	public WriteChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
+	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup) {
 		super();
 		this.challengeNo = challengeNo;

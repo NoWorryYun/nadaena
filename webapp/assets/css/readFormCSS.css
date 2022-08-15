@@ -619,3 +619,8 @@ table .write-board-label {
 	font-size: 14px;
 	height: auto;
 }
+
+
+.back-color{
+	background-color: #eeeeee;
+}

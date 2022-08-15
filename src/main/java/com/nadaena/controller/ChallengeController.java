@@ -2,10 +2,12 @@ package com.nadaena.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nadaena.service.WriteChallengeService;
+import com.nadaena.service.ChallengeService;
 
 /*테스트*/
 
@@ -13,13 +15,32 @@ import com.nadaena.service.WriteChallengeService;
 public class ChallengeController {
 
 	@Autowired
-	private WriteChallengeService challengeService;
+	private ChallengeService challengeService;
 
 	@RequestMapping(value = "/challenge/intro", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challenge() {
 		System.out.println("challnege/intro");
 
 		return "challenge/intro";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/challenge/getIntro", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challengeIntro(@RequestBody int challengeNo) {
+		System.out.println("challnege/intro_content");
+		
+		String result = challengeService.introContent(challengeNo);
+		
+		return result;
+	}
+
+	
+	
+	@RequestMapping(value = "/challenge/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
+	public String joinchallenge() {
+		System.out.println("challnege/intro");
+		
+		return "redirect:/intro";
 	}
 
 	@RequestMapping(value = "/challenge/certify", method = { RequestMethod.GET, RequestMethod.POST })
