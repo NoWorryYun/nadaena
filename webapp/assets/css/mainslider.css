@@ -171,10 +171,12 @@
     /* if parent is flex it will stretch this image */
     align-self: center;
     display: block;
-
     height: auto;
     width: 90%;
-    margin-left: 13px;
+    width:206.6px;
+    height: 207.7px;
+    object-fit: cover;
+    margin-right: 40px;
   }
   
   .photograph img{
@@ -262,4 +264,10 @@
 .swiper-slide a:active {
   color : green;
   text-decoration: none;
+}
+
+.slider-size{
+	width: 370.03px;
+	height: 211.43px;
+	object-fit: cover;
 }
