@@ -6,21 +6,22 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/*
- * @Repository public class MychallengeDao {
- * 
- */
-/*	//필드
+import com.nadaena.vo.MCVo;
+
+
+@Repository public class MCDao {
+
+	//필드
 	@Autowired
 	private SqlSession sqlSession;
 	
 	//참가 챌린지 리스트 불러오기
-	public List<MychallengeVo> selectList() {
-		System.out.println("MycDao > getclist");
+	public List<MCVo> selectList() {
+		System.out.println("MycDao > getlist");
 		
-		List<MychallengeVo> mycList = sqlSession.selectList("mychallenge.selectList");
+		List<MCVo> mycList = sqlSession.selectList("mychallenge.selectList");
 		System.out.println(mycList);
 		
 		return mycList; 
 	}
-}*/
+}
