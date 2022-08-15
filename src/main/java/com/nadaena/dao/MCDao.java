@@ -10,7 +10,7 @@ import com.nadaena.vo.MCVo;
 
 @Repository
 public class MCDao {
-	
+	 
 	@Autowired
 	SqlSession sqlSession;
 	

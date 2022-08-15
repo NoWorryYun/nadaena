@@ -13,7 +13,7 @@ public class MCService {
 	
 	@Autowired
 	MCDao mcDao;
-	
+	 
 	//리스트(리스트만)
 	public List<MCVo> getmcList() {
 		System.out.println("MCS > getmcList()");

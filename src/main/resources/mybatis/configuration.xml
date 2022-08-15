@@ -5,7 +5,7 @@
     <typeAliases>
     <typeAlias alias="WritechallengeVo" type="com.nadaena.vo.WriteChallengeVo" />
     </typeAliases>
-
+ 
     <mappers>
     	<mapper resource="mybatis/mappers/writeChallenge.xml" />
     	<mapper resource="mybatis/mappers/myChallenge.xml" />

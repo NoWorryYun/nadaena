@@ -36,7 +36,7 @@
 			<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 			<!-- //aside -->
 			
-			
+			 
 			<div id="content" class="col-10">
 				<h3>나의 챌린지</h3>
 				

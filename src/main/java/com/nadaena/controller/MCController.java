@@ -16,7 +16,7 @@ public class MCController {
 	
 	@Autowired
 	MCService mcService;
-	
+	 
 	//참가중 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list(Model model) {

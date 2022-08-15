@@ -32,7 +32,7 @@ public class MyController {
 	@RequestMapping(value="my/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mybuylist() {
 		System.out.println("mybuylist");
-		
+		 
 		return "my/my-buylist"; 
 	} 
 	
