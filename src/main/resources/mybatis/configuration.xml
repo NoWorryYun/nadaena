@@ -7,7 +7,5 @@
     </typeAliases>
 
     <mappers>
-        <mapper resource="mybatis/mappers/example.xml"/>
-        <mapper resource="mybatis/mappers/writeChallenge.xml"/>
     </mappers>
 </configuration>

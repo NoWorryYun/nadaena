@@ -50,9 +50,9 @@
 							<h4>마라톤</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
+							<p>도전비용 : #{payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
+						</div> 
 						<!-- <button>리워드 받기</button> -->
 					</div>	
 					<div class="challenge-box">
@@ -83,7 +83,7 @@
 											<p class="modal-nickname">작성자 : 배달의기마민족</p>
 											<p class="modal-upload-date">작성일 : 2022-08-31</p>
 										</div>
-										<textarea class="modal-text"></textarea>
+										<textarea class="modal-text">.</textarea>
 										<input type="file" id="modal-upbutton">
 										
 										<!-- <div class="modal-image-box">
@@ -199,7 +199,7 @@ $(function(){
 	});	
 	
 	$(".btn-close").click(function(){
-		$(".modal-text").remove();
+		$(".modal-text").empty();
 		$("#review-modal").fadeOut();	
 	});	 
 	
