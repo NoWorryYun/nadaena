@@ -8,5 +8,6 @@
 
     <mappers>
     	<mapper resource="mybatis/mappers/writeChallenge.xml" />
+    	<mapper resource="mybatis/mappers/myChallenge.xml" />
     </mappers>
 </configuration>
