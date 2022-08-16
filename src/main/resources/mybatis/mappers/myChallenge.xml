@@ -32,9 +32,10 @@
 			insert into review
 			values (SEQ_REVIEWNO.nextval,
 					#{challengeNo},
-					#{userNo},
-					#{reviewContent}
-					#{reviewDate}
+					null,
+					null,
+					#{reviewContent},
+					sysdate
 					)
 		]]>
 	</insert>

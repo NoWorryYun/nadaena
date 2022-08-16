@@ -62,7 +62,7 @@
 						<div id="review-modal" class="modal fade show" role="dialog">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
-									<form action="my-review2" method="get">
+									<form action="writeReview" method="get">
 										<div class="modal-header">
 											<div>
 												<h5>${MCVo.clgTitle }</h5>
@@ -73,6 +73,8 @@
 											<div class="modal-nicname-box">
 												<p class="modal-nickname">작성자 : 배달의기마민족</p>
 												<p class="modal-upload-date">작성일 : 2022-08-31</p>
+												<input type="hidden" name="challengeNo" value="1">
+												<input type="hidden" name="userNo" value="1">
 											</div>
 											<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
 											<input type="file" id="modal-upbutton">
@@ -176,7 +178,7 @@ $(function(){
 	});	
 	
 	$(".btn-close").click(function(){
-		/* $(".modal-text").empty(); */
+		
 		$("#review-modal").fadeOut();	
 	});	 
 	
