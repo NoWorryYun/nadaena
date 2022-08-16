@@ -5,6 +5,7 @@
     <typeAliases>
     <typeAlias alias="ChallengeVo" type="com.nadaena.vo.ChallengeVo" />
     <typeAlias alias="MCVo" type="com.nadaena.vo.MCVo" />
+    <typeAlias alias="MRVo" type="com.nadaena.vo.MRVo" />
     </typeAliases>
  
     <mappers>
