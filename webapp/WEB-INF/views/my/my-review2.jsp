@@ -63,7 +63,7 @@
 					<div class="certify-list-info">
 						<div>
 							<div>
-								<a class="report" href="#">신고</a>
+								<a class="report" href="#">삭제</a>
 							</div>
 							<p class="review-uploader">피자만두</p>
 							<p class="review-comment">${MRVo.reviewContent }</p>

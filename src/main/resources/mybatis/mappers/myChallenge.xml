@@ -27,7 +27,7 @@
 	</select>
 	
 	<!-- 리뷰작성 -->
-	<insert id="insertReview" parameterType="MCVo">
+	<insert id="insertReview" parameterType="MRVo">
 		<![CDATA[
 			insert into review
 			values (SEQ_REVIEWNO.nextval,
@@ -39,4 +39,11 @@
 					)
 		]]>
 	</insert>
+	
+	
+	
+	
+	
+	
+	
 </mapper>
