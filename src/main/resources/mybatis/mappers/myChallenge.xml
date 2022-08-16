@@ -6,7 +6,8 @@
 	<!-- 참가챌린지 가져오기 -->
 	<select id="selectList" parameterType="String" resultType="MCVo">
 		<![CDATA[
-			select  c.clgTitle,
+			select  c.challengeNo,
+					c.clgTitle,
 			        c.regdate,
 			        c.period,
 			        m.payment
