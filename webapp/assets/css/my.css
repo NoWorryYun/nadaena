@@ -173,15 +173,40 @@
 	float: left;
 	margin: 0px 0px 0px 20px;
 }
+.challenge-box2{
+	width: 280px;
+	height: 385px;
+	float: left;
+	margin: 0px 0px 0px 20px;
+	background-color: white;
+}
 
 .challenge-image{
 	width: 280px;
 	height: 195px;
 }
 
+.challenge-image2{
+	width: 280px;
+	height: 195px;
+	margin: 60px 0px 0px 0px;
+}
+
 .challenge-image img{
 	width: 280px;
 	height: 195px;
+}
+
+.challenge-image2 img{
+	width: 280px;
+	height: 155px;
+}
+
+.none2 {
+	font-size: 24px;
+	text-align: center;
+	margin: 30px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 }
 
 .challenge-box h4{
