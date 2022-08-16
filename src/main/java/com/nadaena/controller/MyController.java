@@ -14,12 +14,6 @@ public class MyController {
 		return "my/my-review"; 
 	} 
 	
-	@RequestMapping(value="my/my-challenge", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mychallenge() {
-		System.out.println("mychallenge");
-		
-		return "my/my-challenge"; 
-	} 
 	
 	@RequestMapping(value="my/my-point", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypoint() {
@@ -38,7 +32,7 @@ public class MyController {
 	@RequestMapping(value="my/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mybuylist() {
 		System.out.println("mybuylist");
-		
+		 
 		return "my/my-buylist"; 
 	} 
 	

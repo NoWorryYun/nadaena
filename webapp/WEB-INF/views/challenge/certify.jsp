@@ -75,10 +75,10 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/main">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/main2">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/main3">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/main4">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/review">후기글</a></li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" role="tabpanel" id="tab-2">

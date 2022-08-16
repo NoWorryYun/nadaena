@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="writeChallenge">
+<mapper namespace="Challenge">
 
-	<resultMap id="resultWriteChallengeVo" type="WriteChallengeVo">
+	<resultMap id="resultChallengeVo" type="ChallengeVo">
 		<result column="challengeNo" property="challengeNo" />
 		<result column="interestNo" property="interestNo" />
 		<result column="clgTitle" property="clgTitle" />
@@ -26,7 +26,8 @@
 		<result column="clgGroup" property="clgGroup" />
 	</resultMap>
 
-	<insert id="writeChallenge" parameterType="writeChallengeVo">
+	<!-- 챌린지만들기 -->
+	<insert id="writeChallenge" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into challenge
 			values( seq_challengeNo.nextval,
@@ -52,7 +53,7 @@
 		]]>
 	</insert>
 
-	<insert id="ChallengeCertify" parameterType="writeChallengeVo">
+	<insert id="ChallengeCertify" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into challenge
 			values( seq_certifyNo.nextval,
@@ -78,5 +79,13 @@
 				)
 		]]>
 	</insert>
+
+	<select id="introContent" parameterType="int" resultType="String">
+		<![CDATA[
+			select content
+			from challenge
+			where challengeNo = #{challengeNo}
+		]]>
+	</select>
 
 </mapper>

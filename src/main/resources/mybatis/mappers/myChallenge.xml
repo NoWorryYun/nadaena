@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="myChallenge">
+ 
+	<!-- 참가챌린지 가져오기 -->
+	<select id="selectList" parameterType="String" resultType="MCVo">
+		<![CDATA[
+			select  c.clgTitle,
+			        c.regdate,
+			        c.period,
+			        m.payment
+			from challenge c, mychallenge m
+			where c.challengeNo = m.challengeNo
+		]]>
+	</select>	
 	
-
+	
 </mapper>
