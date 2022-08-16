@@ -115,7 +115,7 @@
     <div class="main-box">
         
         <h3>이벤트 나대나</h3>
-        <div class="more"><a href="">더보기</a></div>
+        <div class="more"><a href="">더보기 > </a></div>
     	<div class="lunchbox">
 
   <!-- slider main container -->
@@ -133,7 +133,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -147,7 +147,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -161,7 +161,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -175,7 +175,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -189,7 +189,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -203,7 +203,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -217,7 +217,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -237,7 +237,7 @@
 
 
 	<h3>인기 나대나</h3>
-	<div class="more"><a href="">더보기</a></div>
+	<div class="more"><a href="">더보기 > </a></div>
     	<div class="lunchbox">
 			<!-- slider main container -->
 			<div id="swiper1" class="swiper-container"> 
@@ -253,7 +253,7 @@
 				             <div>
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -266,7 +266,7 @@
 				             <div class="nadaena_info">
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -279,7 +279,7 @@
 				             <div class="nadaena_info">
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -292,7 +292,7 @@
 				             <div class="nadaena_info">
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -305,7 +305,7 @@
 				             <div class="nadaena_info">
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -318,7 +318,7 @@
 				             <div class="nadaena_info">
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>
@@ -331,7 +331,7 @@
 				             <div class="nadaena_info">
 				           	 	<p class="nadaena_name">마라톤</p>
 				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_inost">도전금액: 10000원</p>
+				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
 				           	 </div>
 				          </div>
 				      </a>

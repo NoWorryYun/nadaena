@@ -12,36 +12,22 @@
 <title>검색결과</title>
 
 <!-- css -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/fonts/font-awesome.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/common.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/saerch.css">
+<link rel="stylesheet"href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mainslider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/saerch.css">
 
 
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/searchForm-css/Dropdown-Login-with-Social-Logins-bootstrap-social.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/searchForm-css/Features-Boxed-Remixed.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/searchForm-css/Features-Boxed-Remixed-style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/searchForm-css/navbar-dropdown-multiple-columns.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/searchForm-css/styles-1.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/assets/css/main-page-slider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/Dropdown-Login-with-Social-Logins-bootstrap-social.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/Features-Boxed-Remixed.css">
+
 
 
 <!-- js -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -58,22 +44,19 @@
 			<div>
 				<p class="search-title">&quot;검색어&quot; 에 대한 검색 결과</p>
 				<div class="table-responsive">
+				
 					<table class="table">
-						<thead>
-							<tr></tr>
-						</thead>
 						<tbody>
 							<tr>
-								<td
-									style="text-align: center; width: 100px; margin: auto; height: 100px; background-color: silver;">
+								<td class="table-name">
 									<p class="select-name">
 										카테고리<br />선택
 									</p>
 								</td>
-								<td style="width: 550px; height: 150px;">
+								<td class="table-select">
 									<div>
 										<table class="category-letter">
-											<tbody>
+											<tbody class="tbody">
 												<tr>
 													<td>
 														<li class="list-inline-item"><input type="radio"
@@ -133,9 +116,12 @@
 									</div>
 								</td>
 							</tr>
+							
 						</tbody>
 					</table>
+					<!--//table  -->
 				</div>
+				<!--//table-responsive -->
 			</div>
 
 			<div>
@@ -145,7 +131,6 @@
 
 			<div class="features-boxed">
 				<div>
-					<div class="intro"></div>
 					<div class="row features">
 						<div class="col-sm-6 col-md-3 item">
 							<div class="box">
@@ -153,17 +138,15 @@
 									<img class="box-image img-responsive"
 										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
 								</div>
+								
 								<div class="info-box">
-									<h3 class="name">마라톤</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-										<p>참여 인원 : 15</p>
-										<p>최소 도전비용 : 20000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
+					           	 	<p class="nadaena_name">마라톤</p>
+					           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
+					           	 	<p class="nadaena_incost">도전금액: 10000원</p>
+				           		</div>
 							</div>
 						</div>
+					
 						<div class="col-sm-6 col-md-3 item">
 							<div class="box">
 								<div class="image-box">
@@ -283,8 +266,8 @@
 								</div>
 							</div>
 						</div>
-						
-					</div>
+						</div>
+					</div><!--  -->
 				</div>
 			</div>
 		</div>
