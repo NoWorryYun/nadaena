@@ -44,7 +44,7 @@
 				
 				
 				<div class="challenge-images">
-				<c:forEach items="${mcList}" var="MCVo">
+				<c:forEach items="${mcList}" var="MCVo" varStatus="i">
 					<div class="challenge-box">
 						<div class="challenge-image">
 							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
@@ -56,37 +56,37 @@
 							<p>도전비용 : ${MCVo.payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div> 
-						<button>리워드 받기</button>
+						<button class="modal-button">리워드 받기</button>
 						
 						<!-- 모달 -->
 						<div id="review-modal" class="modal fade show" role="dialog">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
-									<div class="modal-header">
-										<div>
-											<h5>매일 10페이지 책 읽기</h5>
-										</div>
-										<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">
-										<div class="modal-nicname-box">
-											<p class="modal-nickname">작성자 : 배달의기마민족</p>
-											<p class="modal-upload-date">작성일 : 2022-08-31</p>
-										</div>
-										<textarea class="modal-text">.</textarea>
-										<input type="file" id="modal-upbutton">
-										
-										<!-- <div class="modal-image-box">
-											<div class="modal-image">
-												<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
+									<form action="my-review" method="get">
+										<div class="modal-header">
+											<div>
+												<h5>${MCVo.clgTitle }</h5>
 											</div>
-										</div> -->
-									</div>
-									<div class="modal-footer">
-										<form>
-											<button class="btn btn-primary">작성 및 리워드받기</button>
-										</form>
-									</div>
+											<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="modal-nicname-box">
+												<p class="modal-nickname">작성자 : 배달의기마민족</p>
+												<p class="modal-upload-date">작성일 : 2022-08-31</p>
+											</div>
+											<textarea class="modal-text" name="reviewContent"></textarea>
+											<input type="file" id="modal-upbutton">
+											
+											<!-- <div class="modal-image-box">
+												<div class="modal-image">
+													<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
+												</div>
+											</div> -->
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
+										</div>
+									</form>	
 								</div>
 							</div>
 						</div>
@@ -171,12 +171,12 @@
 </body>
 <script type="text/javascript">
 $(function(){
-	$("button").click(function(){
+	$(".modal-button").click(function(){
 		$("#review-modal").fadeIn();	
 	});	
 	
 	$(".btn-close").click(function(){
-		$(".modal-text").empty();
+		/* $(".modal-text").empty(); */
 		$("#review-modal").fadeOut();	
 	});	 
 	
