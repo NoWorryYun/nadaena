@@ -15,7 +15,7 @@
 			where c.challengeNo = m.challengeNo
 		]]>
 	</select>	
-	
+	 
 	<!-- 리뷰불러오기 -->
 	<select id="selectreviewList" parameterType="String" resultType="MRVo">
 		<![CDATA[
