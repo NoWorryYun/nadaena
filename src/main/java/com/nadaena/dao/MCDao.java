@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.MCVo;
+import com.nadaena.vo.MRVo;
 
 @Repository
 public class MCDao {
@@ -22,4 +23,15 @@ public class MCDao {
 		
 		return mcList;
 	}
+	
+	//리뷰쓰기
+	public int writeReview(MRVo mrVo) {
+		System.out.println("BoardDao>write()");
+		
+		int count = sqlSession.insert("myChallenge.insertReview", mrVo);
+		
+		return count;
+	}
+	
+	
 }

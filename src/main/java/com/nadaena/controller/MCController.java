@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.nadaena.service.MCService;
 import com.nadaena.vo.MCVo;
+import com.nadaena.vo.MRVo;
 
 @Controller
 public class MCController {
@@ -30,4 +32,17 @@ public class MCController {
 		
 		return "my/my-challenge";
 	}
+	
+	//리뷰쓰기
+	@RequestMapping(value= "my/my-review2", method = {RequestMethod.GET, RequestMethod.POST})
+	public String writeReview(@ModelAttribute MRVo mrVo) {
+		System.out.println("bController > write()");
+		
+		// Service를 통해서 저장한다
+		mcService.writeReview(mrVo);
+
+		return "redirect:/my/my-challenge";
+	}
+	
+	
 }

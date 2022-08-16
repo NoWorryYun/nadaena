@@ -74,7 +74,7 @@
 												<p class="modal-nickname">작성자 : 배달의기마민족</p>
 												<p class="modal-upload-date">작성일 : 2022-08-31</p>
 											</div>
-											<textarea class="modal-text" name="reviewContent"></textarea>
+											<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
 											<input type="file" id="modal-upbutton">
 											
 											<!-- <div class="modal-image-box">

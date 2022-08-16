@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.MCDao;
 import com.nadaena.vo.MCVo;
+import com.nadaena.vo.MRVo;
 
 @Service
 public class MCService {
@@ -23,4 +24,12 @@ public class MCService {
 		return mcList;
 		
 	} 
+	
+	//게시글 등록
+	public int writeReview(MRVo mrVo) {
+		System.out.println("bService>b.write()");
+		
+		return mcDao.writeReview(mrVo);
+	}
+	
 }
