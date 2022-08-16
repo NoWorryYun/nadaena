@@ -180,7 +180,7 @@
   }
   
   .photograph img{
-  	width: 300px;
+  	width: 250px;
   	height: 200px;
   }
 
@@ -270,4 +270,11 @@
 	width: 370.03px;
 	height: 211.43px;
 	object-fit: cover;
+}
+
+.carousel-control-prev-icon{
+	color: blue;
+}
+.carousel-control-next-icon{
+	color: blue;
 }

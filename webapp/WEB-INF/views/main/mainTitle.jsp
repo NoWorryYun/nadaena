@@ -70,12 +70,20 @@
 			            <div id="carousel-1" class="carousel slide" data-bs-ride="carousel">
 			                <div class="carousel-inner">
 			                    <div class="carousel-item active slider-size"><img class="w-100 d-block" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="Slide Image" style="padding-right: 0px;padding-left: 0px;" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
-			                	<div class="carousel-item slider-size"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image" /></div>
+			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=502" alt="Slide Image" /></div>
+			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=404" alt="Slide Image" /></div>
+			                	<div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=405" alt="Slide Image" /></div>
+			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=406" alt="Slide Image" /></div>
 			                </div>
-			                <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+			                <div>
+			                <a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev">
+			                	<span class="carousel-control-prev-icon"></span>
+			                	<span class="visually-hidden">Previous</span>
+			                </a>
+			                <a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next">
+				                <span class="carousel-control-next-icon"></span>
+				                <span class="visually-hidden">Next</span>
+			                </a></div>
 			                <ol class="carousel-indicators">
 			                    <li class="active" data-bs-target="#carousel-1" data-bs-slide-to="0"></li>
 			                    <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
