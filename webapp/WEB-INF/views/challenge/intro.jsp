@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css">
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/readFormCSS.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Simple-Slider-Simple-Slider.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/icon-star-empty.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -66,7 +65,7 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
+								${cMap.intro.clgTitle}<br>2022-08-06~2022-08-27<br>
 							</h2>
 
 							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
@@ -87,76 +86,98 @@
 												<img class="picture-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png">
 												<div>
 													<div>
-														<p class="font-12 fw-bold">카테고리 : 독서</p>
+														<p class="font-12 fw-bold">카테고리 : ${cMap.intro.interestName}</p>
 													</div>
 													<ul class="list-inline font-12">
-														<li class="list-inline-item"><a href="#">#매일10페이지</a></li>
-														<li class="list-inline-item"><a href="#">#꾸준히</a></li>
-														<li class="list-inline-item"><a href="#">#독후감</a></li>
-														<li class="list-inline-item"><a href="#">#쉽다쉬워</a></li>
+														<li class="list-inline-item"><a href="#">${cMap.intro.tag1}</a></li>
+														<li class="list-inline-item"><a href="#">${cMap.intro.tag2}</a></li>
+														<li class="list-inline-item"><a href="#">${cMap.intro.tag3}</a></li>
+														<li class="list-inline-item"><a href="#">${cMap.intro.tag4}</a></li>
 													</ul>
 												</div>
 											</div>
 											<div class="content-introduce">
-												<div class="table-responsive" id="table-writeform"
-													style="border-style: none; border-color: rgb(255, 255, 255); border-top-color: rgb(33,; border-right-color: 37,; border-bottom-style: none; border-bottom-color: 41); border-left-color: 37,;">
+												<div class="table-responsive" id="table-writeform">
 													<form method="post" action="${pageContext.request.contextPath}/challenge/joinchallenge">
 														<table class="table">
 															<tbody style="border-style: none;">
 																<tr style="border-style: none;">
 																	<td class="write-table-label">모집기간</td>
 																	<td class="font-12">
-																		<p>2022-08-01 ~ 2022-08-06 (5일)</p>
+																		<p>
+																			<span id="startPeriod"></span>2022-08-01 ~ <span id="recruitPeriod"></span>2022-08-06 (${intro.recuritment})
+																		</p>
 																	</td>
 																</tr>
-																<tr style="border-style: none; height: 20px;">
+																<tr class="intro-cell">
 																	<td class="write-table-label">인증횟수</td>
 																	<td class="font-12">
-																		<p>주 7회, 1일 3회</p>
+																		<p>주 ${cMap.intro.certifyDay}회, 1일 ${cMap.intro.upload}회</p>
 																	</td>
 																</tr>
-																<tr style="border-style: none; height: 20px;">
+																<tr class="intro-cell">
 																	<td class="write-table-label">인증방법</td>
-																	<td class="font-12">
-																		<p>
-																			책읽기 시작한 페이지 업로드(09:00)~(10:00)<br>
-																		</p>
-																		<p>
-																			책읽기 마지막 페이지 업로드(09:00)~(10:00)<br>
-																		</p>
-																		<p>
-																			책 표지 사진 업로드(09:00)~(10:00)<br>
-																		</p>
-																	</td>
+																	<td class="font-12"><c:forEach items="${cMap.certifyList}" var="CertifyVo">
+																			<p>
+																				${CertifyVo.certifyTitle}(${CertifyVo.subOn}시)~(${CertifyVo.subOff}시)<br>
+																			</p>
+																		</c:forEach></td>
 																</tr>
-																<tr style="border-style: none; height: 20px;">
+																<tr class="intro-cell">
 																	<td class="write-table-label">난이도</td>
 																	<td class="font-12">
-																		<p>상</p>
+																	<c:choose>
+																		<c:when test="${cMap.intro.clgLevel == 1}">
+																		<p class="clgLevel">하</p>
+																		</c:when>
+																		<c:when test="${cMap.intro.clgLevel == 2}">
+																		<p class="clgLevel">중</p>
+																		</c:when>
+																		<c:otherwise>
+																		<p class="clgLevel">상</p>
+																		</c:otherwise>
+																		</c:choose>
 																	</td>
 																</tr>
-																<tr style="border-style: none; height: 20px;">
-																	<td class="write-table-label">참가비용범위</td>
-																	<td class="font-12">
-																		<p>10,000 ~ 100,000</p>
-																	</td>
-																</tr>
-																<tr style="border-style: none; height: 20px;">
+																<tr class="intro-cell">
 
 																	<td class="write-table-label">참가비용</td>
-																	<td class="font-12 table-none"><select name="payment">
-																			<option value="0" selected="selected">금액설정</option>
-																			<option value="10,000">10,000</option>
-																			<option value="20,000">20,000</option>
-																			<option value="30,000">30,000</option>
-																			<option value="40,000">40,000</option>
-																			<option value="50,000">50,000</option>
-																			<option value="60,000">60,000</option>
-																			<option value="70,000">70,000</option>
-																			<option value="80,000">80,000</option>
-																			<option value="90,000">90,000</option>
-																			<option value="100,000">100,000</option>
-																	</select>&nbsp;원</td>
+																	<td class="font-12 table-none">
+																	<c:choose>
+																			<c:when test="${cMap.intro.clgLevel == 1}">
+																				<select name="payment">
+																					<option value="0" selected="selected">금액설정</option>
+																					<option value="10,000">10,000</option>
+																					<option value="20,000">20,000</option>
+																					<option value="30,000">30,000</option>
+																					<option value="40,000">40,000</option>
+																					<option value="50,000">50,000</option>
+																					<option value="60,000">60,000</option>
+																					<option value="70,000">70,000</option>
+																					<option value="80,000">80,000</option>
+																					<option value="90,000">90,000</option>
+																					<option value="100,000">100,000</option>
+																				</select>
+																			</c:when>
+																			<c:when test="${cMap.intro.clgLevel == 2}">
+																				<select name="payment">
+																					<option value="0" selected="selected">금액설정</option>
+																					<option value="10,000">10,000</option>
+																					<option value="20,000">20,000</option>
+																					<option value="30,000">30,000</option>
+																					<option value="40,000">40,000</option>
+																					<option value="50,000">50,000</option>
+																				</select>
+																			</c:when>
+																			<c:otherwise>
+																				<select name="payment">
+																					<option value="0" selected="selected">금액설정</option>
+																					<option value="10,000">10,000</option>
+																					<option value="20,000">20,000</option>
+																					<option value="30,000">30,000</option>
+																				</select>
+																			</c:otherwise>
+																		</c:choose> &nbsp;원</td>
 																</tr>
 																<tr style="border-style: none;">
 																	<td id="enter-challenge-cell" class="type-center" colspan="2"><button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button></td>
@@ -172,7 +193,7 @@
 											<div class="back-color">
 												<p class="fw-bold">소개글</p>
 											</div>
-											<p id="intro-content" class="font-12">매일 책 10페이지씩 읽고 인증하시면 됩니다. 인증은 오전 9시부터 10시까지만 가능하며 책의 표지와 첫페이지와 끝페이지를 찍어서 올리시면 됩니다. 블라블라~</p>
+											<div id="intro-content" class="font-12">${cMap.intro.content}</div>
 										</div>
 									</div>
 								</div>
@@ -262,34 +283,7 @@
 	<!-- /footer -->
 
 
-
 </body>
 
-<script type="text/javascript">
-
-	$(document).ready(function(){
-		intro();
-	})
-	
-	function intro(){
-		$.ajax({
-			
-			url : "${pageContext.request.contextPath }/challenge/getIntro",
-			type : "post",
-			contentType : "application/json",
-			data : JSON.stringify(challengeNo),
-
-			dataType : "json",
-			success : function(result) {
-					render(guestList[i]); //vo --> 화면에 그린다
-			},
-			error : function(XHR, status, error) {
-				console.error(status + " : " + error);
-			}
-
-		});
-	}
-
-</script>
-
+ 
 </html>

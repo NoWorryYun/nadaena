@@ -23,12 +23,29 @@ public class ChallengeVo {
 	private String tag5;
 	private int clgLevel;
 	private int clgGroup;
-
+	private int certifyNo;
+	private String certifyTitle;
+	private int subOn;
+	private int subOff;
+	private String interestName;
+	
+	
 	//생성자
 
 	public ChallengeVo() {
 		super();
 	}
+
+	
+	public ChallengeVo(int challengeNo, int certifyNo, String certifyTitle, int subOn, int subOff) {
+		super();
+		this.challengeNo = challengeNo;
+		this.certifyNo = certifyNo;
+		this.certifyTitle = certifyTitle;
+		this.subOn = subOn;
+		this.subOff = subOff;
+	}
+
 
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup) {
@@ -54,6 +71,39 @@ public class ChallengeVo {
 		this.clgLevel = clgLevel;
 		this.clgGroup = clgGroup;
 	}
+
+	
+	
+	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
+			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName) {
+		super();
+		this.challengeNo = challengeNo;
+		this.interestNo = interestNo;
+		this.clgTitle = clgTitle;
+		this.img = img;
+		this.regDate = regDate;
+		this.recuritment = recuritment;
+		this.period = period;
+		this.certify = certify;
+		this.minigame = minigame;
+		this.upload = upload;
+		this.certifyDay = certifyDay;
+		this.content = content;
+		this.color = color;
+		this.tag1 = tag1;
+		this.tag2 = tag2;
+		this.tag3 = tag3;
+		this.tag4 = tag4;
+		this.tag5 = tag5;
+		this.clgLevel = clgLevel;
+		this.clgGroup = clgGroup;
+		this.certifyNo = certifyNo;
+		this.certifyTitle = certifyTitle;
+		this.subOn = subOn;
+		this.subOff = subOff;
+		this.interestName = interestName;
+	}
+
 
 	//GS
 	public int getChallengeNo() {
@@ -217,11 +267,63 @@ public class ChallengeVo {
 	}
 
 
+	public int getCertifyNo() {
+		return certifyNo;
+	}
+
+
+	public void setCertifyNo(int certifyNo) {
+		this.certifyNo = certifyNo;
+	}
+
+
+	public String getCertifyTitle() {
+		return certifyTitle;
+	}
+
+
+	public void setCertifyTitle(String certifyTitle) {
+		this.certifyTitle = certifyTitle;
+	}
+
+
+	public int getSubOn() {
+		return subOn;
+	}
+
+
+	public void setSubOn(int subOn) {
+		this.subOn = subOn;
+	}
+
+
+	public int getSubOff() {
+		return subOff;
+	}
+
+
+	public void setSubOff(int subOff) {
+		this.subOff = subOff;
+	}
+
+
+	public String getInterestName() {
+		return interestName;
+	}
+
+
+	public void setInterestName(String interestName) {
+		this.interestName = interestName;
+	}
+
+
 	//일반
 	@Override
 	public String toString() {
 		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recuritment=" + recuritment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
-				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + "]";
+				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
+				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + "]";
 	}
+
 
 }

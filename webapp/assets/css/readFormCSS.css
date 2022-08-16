@@ -9,7 +9,7 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 }
 
 #aside {
-	width:99% !important;
+	width: 99% !important;
 }
 
 textarea {
@@ -73,7 +73,8 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	float: left;
 }
 
-.board-write-box{
+.board-write-box {
+	
 }
 
 #enter-challenge-cell {
@@ -171,7 +172,7 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 .certify-header {
-	font-size : 20px;
+	font-size: 20px;
 	display: inline-block;
 	font-weight: bold;
 }
@@ -189,6 +190,11 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	font-size: 9px;
 	color: red;
 	padding: 2px;
+}
+
+.intro-cell {
+	border-style: none;
+	height: 20px;
 }
 
 .upload-date {
@@ -303,8 +309,8 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-.certify-graph-box{
-	margin-top : 15px;
+.certify-graph-box {
+	margin-top: 15px;
 	text-align: center;
 }
 
@@ -403,7 +409,6 @@ button {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 }
-
 
 #write-board-regist .return-challenge {
 	line-height: 2px;
@@ -509,12 +514,11 @@ button {
 	padding-top: 20px;
 }
 
-#board-write-box{
-	padding-top:20px;
-	
+#board-write-box {
+	padding-top: 20px;
 }
 
-.line-height25{
+.line-height25 {
 	line-height: 2.5;
 }
 
@@ -564,7 +568,7 @@ table .board-read-cell {
 }
 
 .button-area {
-	float:right;
+	float: right;
 	margin: 0;
 	padding: 0;
 	width: 14%;
@@ -620,7 +624,6 @@ table .write-board-label {
 	height: auto;
 }
 
-
-.back-color{
+.back-color {
 	background-color: #eeeeee;
 }

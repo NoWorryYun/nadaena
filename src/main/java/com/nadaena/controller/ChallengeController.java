@@ -1,15 +1,17 @@
 package com.nadaena.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.ChallengeService;
+import com.nadaena.vo.ChallengeVo;
 
 /*테스트*/
 
@@ -18,39 +20,41 @@ public class ChallengeController {
 
 	@Autowired
 	private ChallengeService challengeService;
-/*
+	
+	//intro
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challenge(@PathVariable("challengeNo") int challengeNo, Model model) {
 		System.out.println("challnege/intro");
 
-		model.addAttribute()
+		Map<String, Object> cMap = challengeService.intro(challengeNo);
+		
+		model.addAttribute("cMap" , cMap);
 		
 		return "challenge/intro";
 	}
-	*/
-	@ResponseBody
-	@RequestMapping(value = "/challenge/{challengeNo}/getIntro", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challengeIntro(@RequestBody int challengeNo) {
-		System.out.println("challnege/intro_content");
-		
-		String result = challengeService.introContent(challengeNo);
-		
-		return result;
-	}
 
 	
-	
-	@RequestMapping(value = "/challenge/{challengeNo}/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
-	public String joinchallenge() {
+	@RequestMapping(value = "/challenge/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
+	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
 		System.out.println("challnege/intro");
+		
+		challengeService.joinChallenge(challengeVo);
 		
 		return "redirect:/intro";
 	}
 
+	
 	@RequestMapping(value = "/challenge/{challengeNo}/certify", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge2(@PathVariable("challengeNo") int challengeNo) {
+	public String certify(@PathVariable("challengeNo") int challengeNo) {
 		System.out.println("challnege/certify");
 
+		return "challenge/certify";
+	}
+	
+	@RequestMapping(value = "/challenge/{challengeNo}/certified", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge2(@PathVariable("challengeNo") int challengeNo) {
+		System.out.println("challnege/certify");
+		
 		return "challenge/certify";
 	}
 

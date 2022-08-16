@@ -53,6 +53,90 @@
 		]]>
 	</insert>
 
+	<!-- 챌린지 intro -->
+	<select id="intro"  parameterType="int" resultType="ChallengeVo">
+		<![CDATA[
+			select challengeNo,
+			       c.interestNo interestNo,
+			       i.interestName interestName,
+			       clgTitle, 
+			       img,
+			       to_char(sysdate, 'yy-mm-dd'), 
+			       recruitment, 
+			       period, 
+			       certify,
+			       minigame, 
+			       upload, 
+			       certifyDay,
+			       content,
+			       tag1,
+			       tag2,
+			       tag3,
+			       tag4,
+			       tag5,
+			       clgLevel,
+			       clgGroup
+			from challenge c, interest i
+			where c.interestno = i.interestno(+)
+			and c.challengeNo = #{challengeNo}
+		]]>
+	</select>
+
+	<!-- 챌린지 참여(유저) -->
+	<insert id="joinChallenge" parameterType="ChallengeVo">
+		<![CDATA[
+		insert into mychallenge 
+		values(
+		    seq_userClgNo.nextval,
+		    #{challengeNo},
+		    #{userNo},
+		    sysdate,
+		    #{payment},
+		    2,
+		    1,
+		    0
+		)
+		]]>
+	</insert>
+
+	<!-- 챌린지 참여(방장) -->
+	<insert id="joinChallengeHeader" parameterType="ChallengeVo">
+		<![CDATA[
+		insert into mychallenge 
+		values(
+		    seq_userClgNo.nextval,
+		    #{challengeNo},
+		    #{userNo},
+		    sysdate,
+		    #{payment},
+		    1,
+		    1,
+		    0
+		)
+		]]>
+	</insert>
+	<!-- certify -->
+	<select id="certifyList" parameterType="int" resultType="ChallengeVo">
+		<![CDATA[
+			select  certifyNo,
+					challengeNo,
+					certifyTitle,
+					subOn,
+					subOff
+			from certify
+			where challengeNo = #{challengeNo}
+		]]>
+	</select>
+	
+	<!-- 카테고리 이름 가져오기 -->
+	<select id="cateId" parameterType="int" resultType="String">
+		<![CDATA[
+			select interestName
+			from interest
+			where interestNo = #{interestNo}		
+		]]>
+	</select>
+
 	<insert id="ChallengeCertify" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into challenge
@@ -80,12 +164,5 @@
 		]]>
 	</insert>
 
-	<select id="introContent" parameterType="int" resultType="String">
-		<![CDATA[
-			select content
-			from challenge
-			where challengeNo = #{challengeNo}
-		]]>
-	</select>
 
 </mapper>
