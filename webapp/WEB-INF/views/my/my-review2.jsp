@@ -63,7 +63,7 @@
 					<div class="certify-list-info">
 						<div>
 							<div>
-								<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?no=${MRVo.reviewNo}">삭제</a>
+								<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${MRVo.reviewNo}">삭제</a>
 							</div>
 							<p class="review-uploader">피자만두</p>
 							<p class="review-comment">${MRVo.reviewContent }</p>

@@ -9,6 +9,8 @@ h3 {font-size: 20px;
 	line-height: normal;
 	color: rgb(48, 52, 65);
 	margin: 5px 0px 0px 0px;
+	
+	/* border-bottom: 2px solid #000000; */
 }
 
 /* 드롭다운 상자 관련 */

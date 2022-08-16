@@ -4,8 +4,7 @@
 
 @media (min-width: 37.5em) {
   body {
-    padding-left: 4%;
-    padding-right: 4%;
+    
   }
 }
 
@@ -22,6 +21,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    margin-bottom: 50px;
+    margin-top: -25px;
 
     /* make room for arrows */
    /*  padding-left: 2em; */
@@ -233,13 +234,18 @@
   }
   
   .nadaena_limit{
-  	font-size: 15px;
-  	margin: 0px;
+	font-weight: normal;
+	margin: 8px 0px 8px;
+	font-size: 14px;
+	line-height: 21px;
+	height: 42px;
   }
 
   .nadaena_incost{
-  	font-size: 5px;
-  	margin: 0px;
+  	font-size: 17px;
+    font-weight: bold;
+    color: rgb(48, 52, 65);
+    height: 23px;
   }
   
   .nadaena_info{
