@@ -40,7 +40,13 @@
 		]]>
 	</insert>
 	
-	
+	<!-- 내가 쓴 리뷰 삭제 -->
+	<delete id="deleteReview" parameterType="MRVo">
+		<![CDATA[
+			delete from review 
+			where reviewNo = #{reviewNo}
+		]]>
+	</delete>
 	
 	
 	

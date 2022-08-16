@@ -35,11 +35,19 @@ public class MCService {
 		
 	} 
 	
-	//게시글 등록
+	//리뷰 쓰기
 	public int writeReview(MRVo mrVo) {
 		System.out.println("bService>b.write()");
 		
 		return mcDao.writeReview(mrVo);
+	}
+	
+	//리뷰 삭제
+	public int removeReview(MRVo mrVo) {
+		System.out.println("MCSERVICE >> del.review");
+		
+		return mcDao.deleteReview(mrVo);
+		
 	}
 	
 }

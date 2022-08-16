@@ -43,5 +43,12 @@ public class MCDao {
 		return count;
 	}
 	
+	//리뷰삭제
+	public int deleteReview(MRVo mrVo) {
+		System.out.println("MCDAO >>> DEL.review");
+		
+		return sqlSession.delete("myChallenge.deleteReview", mrVo);
+		
+	}
 	
 }

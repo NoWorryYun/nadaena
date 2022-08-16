@@ -2,6 +2,8 @@ package com.nadaena.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,5 +60,16 @@ public class MCController {
 		return "redirect:/my/my-challenge";
 	}
 	
-	
+	//리뷰삭제
+	@RequestMapping(value = "my/deleteReview", method = { RequestMethod.GET, RequestMethod.POST })
+	public String deleteReview(@ModelAttribute MRVo mrVo, HttpSession session) {
+		System.out.println("MCCON / delete");
+
+		// 로그인한 사용자의 글만 삭제하도록 세션의 userNo도 입력(쿼리문에서 검사)
+		//UserVo authUser = (UserVo) session.getAttribute("authUser");
+		//mRVo.setUserNo(authUser.getNo());
+		mcService.removeReview(mrVo);
+
+		return "redirect:/my/my-review2";
+	}
 }
