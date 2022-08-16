@@ -58,7 +58,14 @@
 	           		
 	           		<div class="title-search">
 	           			<div>
-	                		<form class="d-flex align-items-center"><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="검색어를 입력해주세요." name="searchbar" /><button class="btn btn-success btn-lg" type="submit">Search</button></form>
+	                		<form class="d-flex align-items-center"><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="검색어를 입력해주세요." name="searchbar" /><button class="btn btn-success btn-lg" type="submit">검색</button></form>
+	            		</div>
+	            		<div class="hash">
+		            		<div class="hash-name"><a href="" class="hash-tag">#이벤트</a></div>
+		            		<div class="hash-name2"><a href="" class="hash-tag">#운동</a></div>
+		            		<div class="hash-name2"><a href="" class="hash-tag">#상세페이지</a></div>
+		            		<div class="hash-name2"><a href="" class="hash-tag">#생활</a></div>
+		            		<div class="hash-name2"><a href="" class="hash-tag">#인기종목</a></div>
 	            		</div>
 	       			</div>
 	        		 <!-- //title-search -->
@@ -66,14 +73,14 @@
 				
 				<div class="col-5">
 				
-					<div class="slide-banner" style="width: 450px;height: 250px;background-image: url(https://cdn.bootstrapstudio.io/placeholders/1400x800.png);background-position: center;background-size: cover;padding-left: 0px;">
+					<div class="slide-banner">
 			            <div id="carousel-1" class="carousel slide" data-bs-ride="carousel">
 			                <div class="carousel-inner">
 			                    <div class="carousel-item active slider-size"><img class="w-100 d-block" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="Slide Image" style="padding-right: 0px;padding-left: 0px;" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=502" alt="Slide Image" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=404" alt="Slide Image" /></div>
-			                	<div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=405" alt="Slide Image" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="photograph" src="https://unsplash.it/g/430/431?image=406" alt="Slide Image" /></div>
+			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=502" alt="Slide Image" /></div>
+			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=404" alt="Slide Image" /></div>
+			                	<div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=405" alt="Slide Image" /></div>
+			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=406" alt="Slide Image" /></div>
 			                </div>
 			                <div>
 			                <a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev">

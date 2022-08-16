@@ -2,11 +2,35 @@
 
 /* 1400*800 */
 
+/**************************** 베너색상 */
 .banner-box {
-  background-color: blue;
+  background-color: #3366ff;
   margin: 123px 0px -120px 0px; 
   padding: 70px 0px 0px 0px;
+  
+  width: 100%;
+  height: 100%;
+  animation-name: bannerbox;
+  animation-duration: 35s;
+  animation-iteration-count: infinite;
+  
 }
+
+
+@keyframes bannerbox {
+	0% {background-color: #061b42;}
+	10% {background-color: #061b42;}
+	20% {background-color: #0c4541;}
+	30% {background-color: #0c4541;}
+	40% {background-color: #212224;}
+	50% {background-color: #212224;}
+	60% {background-color: #37116c;}
+	70% {background-color: #37116c;}
+	80% {background-color: #005c71;}
+	90% {background-color: #005c71;}
+	100% {background-color: #061b42;}
+}
+
 
 .main-banner {
 	width: 1113px;
@@ -26,6 +50,9 @@ div .container {
  
 }
 
+
+
+/**************************** 나대나배너 글귀 */
 .main-list{
 	font-size: 22px;
 	font-weight: bold;
@@ -39,10 +66,11 @@ div.main-title {
 
 }
 
+/**************************** 배너 검색란 */
 .title-search {
   font-size: 20px;
   height: 30px;
-  padding-top: 80px;
+  padding-top: 30px;
 }
 
 .con-nav{
@@ -55,6 +83,13 @@ div.main-title {
     z-index: 1;
 }
 
+.title-search button{
+	width: 15%;
+}
+
+
+
+/**************************** 배너 슬라라이더 */
 .carousel {
   position: relative;
   padding-top: 10px;
@@ -76,5 +111,104 @@ div.main-title {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.slide-banner{
+	width: 450px;
+    height: 250px;
+    /* background-image: url(https://cdn.bootstrapstudio.io/placeholders/1400x800.png); */
+    background-position: center;
+    background-size: cover;
+    padding-left: 0px;
+    border-radius: 10px;  
+}
+
+.carousel-inner{
+	border-radius: 10px;
+}
+
+.carousel-control-prev{
+	width: 10%;
+	
+}
+.carousel-control-next{
+	width: 10%;
+	
+}
+
+/**************************** 배너 슬라이더 하이라이트 제거 */
+.carousel-indicators [data-bs-target]{
+	border-bottom: none;
+	border-top: none;
+}
+
+
+/* 해쉬테그 */
+.hash{
+	grid-gap: 8px;
+	margin-top: 10px
+}
+
+.hash-name{
+	padding: 8px 12px;
+	float: left;
+	background-color: #3366ff;
+	border-radius: 20px;
+
+	animation-name: hashname;
+	animation-duration: 35s;
+	animation-iteration-count: infinite;
+}
+.hash-name2{
+	padding: 8px 12px;
+	float: left;
+	background-color: #3366ff;
+	border-radius: 20px;
+	margin-left: 10px;
+	
+	animation-name: hashname;
+	animation-duration: 35s;
+	animation-iteration-count: infinite;
+	
+}
+
+.hash-tag{
+	font-size: 20px;
+	grid-gap: 8px;
+	
+}
+
+
+@keyframes hashname {
+	0% {background-color: #1f3255;}
+	10% {background-color: #1f3255;}
+	20% {background-color: #255854;}
+	30% {background-color: #255854;}
+	40% {background-color: #38393a;}
+	50% {background-color: #38393a;}
+	60% {background-color: #4b297b;}
+	70% {background-color: #4b297b;}
+	80% {background-color: #1a6d80;}
+	90% {background-color: #1a6d80;}
+	100% {background-color: #1f3255;}
+}
+
+
+
+/**************************** 해쉬테그 링크디자인 */
+.hash a:link {
+  color : silver;
+  text-decoration: none;
+}
+.hash a:visited {
+  color : white;
+  text-decoration: none;
+}
+.hash a:hover {
+  color : silver;
+}
+.swiper-slide a:active {
+  color : green;
+  text-decoration: none;
 }
 

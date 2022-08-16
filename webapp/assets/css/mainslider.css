@@ -177,6 +177,7 @@
     height: 207.7px;
     object-fit: cover;
     margin-right: 40px;
+    border-radius: 10px;
   }
   
   .photograph img{
@@ -249,8 +250,9 @@
   	text-align: right;
   	font-size: 15px;
   }
-  
-  .swiper-slide a:link {
+
+/* 슬라이드 링크디자인 */
+.swiper-slide a:link {
   color : silver;
   text-decoration: none;
 }
@@ -266,6 +268,23 @@
   text-decoration: none;
 }
 
+.more a:link {
+  color : silver;
+  text-decoration: none;
+}
+.more a:visited {
+  color : black;
+  text-decoration: none;
+}
+.more a:hover {
+  color : blue;
+}
+.more a:active {
+  color : green;
+  text-decoration: none;
+}
+
+/* 슬라이드 사진크기고정  */
 .slider-size{
 	width: 370.03px;
 	height: 211.43px;
