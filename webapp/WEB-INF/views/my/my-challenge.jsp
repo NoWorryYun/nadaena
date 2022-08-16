@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -56,44 +56,8 @@
 							<p>도전비용 : ${MCVo.payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div> 
-						<button class="modal-button">리워드 받기</button>
-						
-						<!-- 모달 -->
-						<div id="review-modal" class="modal fade show" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<form action="writeReview" method="get">
-										<div class="modal-header">
-											<div>
-												<h5>${MCVo.clgTitle }</h5>
-											</div>
-											<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-										</div>
-										<div class="modal-body">
-											<div class="modal-nicname-box">
-												<p class="modal-nickname">작성자 : 배달의기마민족</p>
-												<p class="modal-upload-date">작성일 : 2022-08-31</p>
-												<input type="hidden" name="challengeNo" value="1">
-												<input type="hidden" name="userNo" value="1">
-											</div>
-											<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
-											<input type="file" id="modal-upbutton">
-											
-											<!-- <div class="modal-image-box">
-												<div class="modal-image">
-													<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
-												</div>
-											</div> -->
-										</div>
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
-										</div>
-									</form>	
-								</div>
-							</div>
-						</div>
-						
-						<!--  모달 끝 -->
+						<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
+					
 					</div>	
 				</c:forEach>
 				</div>		
@@ -170,20 +134,82 @@
 
 
 
+
+<!-------------------------------------------------------------------- -->	
+<!-- 모달 -->
+<div id="review-modal" class="modal fade show" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="writeReview" method="get">
+				<div class="modal-header">
+					<div>
+						<h5>${MCVo.clgTitle }</h5>
+				</div>
+				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="modal-nicname-box">
+					<p class="modal-nickname">작성자 : 배달의기마민족</p>
+					<p class="modal-upload-date">작성일 : 2022-08-31</p>
+					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
+					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
+				</div>
+				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
+				<input type="file" id="modal-upbutton">
+				
+				<!-- <div class="modal-image-box">
+					<div class="modal-image">
+						<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
+					</div>
+				</div> -->
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
+				</div>
+				
+			</form>	
+		</div>
+	</div>
+</div>
+
+<!--  모달 끝 -->
+
+
 </body>
 <script type="text/javascript">
-$(function(){
-	$(".modal-button").click(function(){
-		$("#review-modal").fadeIn();	
-	});	
+
+//리뷰작성 모달창 호출 했을때
+$(".modal-button").on("click", function(){
 	
-	$(".btn-close").click(function(){
-		
-		$("#review-modal").fadeOut();	
-	});	 
+	//모달창 초기화
+	$("#modal-challengeNo").val("");
+	$("#review-modal h5").html("");
+	$("#review-content").val("");
 	
-	 
-});
+	//데이타수집
+	var challengeNo = $(this).data("challengeno");
+	var clgTitle = $(this).data("title");
+
+	console.log(challengeNo);
+	console.log(clgTitle);
+	
+	//챌린지번호 숨기기
+	$("#modal-challengeNo").val(challengeNo);
+	
+	//첼린지타이틀 출력
+	$("#review-modal h5").html(clgTitle);
+	
+	//모달 보이기
+	$("#review-modal").modal("show");	
+});	
+
+
+//리뷰작성 모달창 닫기 했을때
+$(".btn-close").on("click", function(){
+	
+	$("#review-modal").fadeOut();	
+});	 
+
 
 
 
