@@ -25,6 +25,16 @@ public class MCService {
 		
 	} 
 	
+	//리뷰리스트(리스트만)
+	public List<MRVo> getmrList() {
+		System.out.println("MRS > getmcList()");
+		
+		List<MRVo> mrList = mcDao.selectreviewList();
+		
+		return mrList;
+		
+	} 
+	
 	//게시글 등록
 	public int writeReview(MRVo mrVo) {
 		System.out.println("bService>b.write()");

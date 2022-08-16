@@ -15,17 +15,26 @@
 		]]>
 	</select>	
 	
+	<!-- 리뷰불러오기 -->
+	<select id="selectreviewList" parameterType="String" resultType="MRVo">
+		<![CDATA[
+			select  reviewNo,
+					challengeNo,
+					userNo,
+					reviewContent
+			from review
+		]]>
+	</select>
+	
 	<!-- 리뷰작성 -->
 	<insert id="insertReview" parameterType="MCVo">
 		<![CDATA[
 			insert into review
 			values (SEQ_REVIEWNO.nextval,
-					<!-- #{reviewNo}
 					#{challengeNo},
 					#{userNo},
-					#{reviewImg}, -->
 					#{reviewContent}
-					<!-- #{reviewDate} -->
+					#{reviewDate}
 					)
 		]]>
 	</insert>

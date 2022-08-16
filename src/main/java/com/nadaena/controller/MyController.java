@@ -14,6 +14,12 @@ public class MyController {
 		return "my/my-review"; 
 	} 
 	
+	/*
+	 * @RequestMapping(value="my/my-review2", method = {RequestMethod.GET, RequestMethod.POST}) public String myreview2() {
+	 * System.out.println("myreview");
+	 * 
+	 * return "my/my-review2"; }
+	 */
 	
 	@RequestMapping(value="my/my-point", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypoint() {

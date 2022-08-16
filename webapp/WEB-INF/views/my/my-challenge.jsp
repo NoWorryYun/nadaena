@@ -62,7 +62,7 @@
 						<div id="review-modal" class="modal fade show" role="dialog">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
-									<form action="my-review" method="get">
+									<form action="my-review2" method="get">
 										<div class="modal-header">
 											<div>
 												<h5>${MCVo.clgTitle }</h5>

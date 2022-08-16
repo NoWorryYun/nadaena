@@ -24,6 +24,16 @@ public class MCDao {
 		return mcList;
 	}
 	
+	//리뷰 불러오기
+	public List<MRVo> selectreviewList() {
+		System.out.println("MRDao > selectreviewList()");
+		
+		List<MRVo> mrList = sqlSession.selectList("myChallenge.selectreviewList");
+		System.out.println(mrList);
+		
+		return mrList;
+	}
+	
 	//리뷰쓰기
 	public int writeReview(MRVo mrVo) {
 		System.out.println("BoardDao>write()");

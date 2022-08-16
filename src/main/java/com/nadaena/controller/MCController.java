@@ -33,8 +33,22 @@ public class MCController {
 		return "my/my-challenge";
 	}
 	
+	//리뷰 리스트
+	@RequestMapping(value = "my/my-review2", method = { RequestMethod.GET, RequestMethod.POST })
+	public String myreviewlist(Model model) {
+		System.out.println("MCC > mclist()");
+		
+		// Service를 통해서 list(주소)을 가져온다
+		List<MRVo> mrList = mcService.getmrList();
+		
+		// ds 데이터보내기 -->request attribute에 넣는다
+		model.addAttribute("mrList", mrList);
+		
+		return "my/my-review2";
+	}
+	
 	//리뷰쓰기
-	@RequestMapping(value= "my/my-review2", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeReview(@ModelAttribute MRVo mrVo) {
 		System.out.println("bController > write()");
 		
