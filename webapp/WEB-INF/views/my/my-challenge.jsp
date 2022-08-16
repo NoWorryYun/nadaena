@@ -135,7 +135,7 @@
 
 
 
-<!-------------------------------------------------------------------- -->	
+<!----------------------------------------------------------------------->	
 <!-- 모달 -->
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
@@ -143,7 +143,7 @@
 			<form action="writeReview" method="get">
 				<div class="modal-header">
 					<div>
-						<h5>${MCVo.clgTitle }</h5>
+						<h5></h5>
 				</div>
 				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
