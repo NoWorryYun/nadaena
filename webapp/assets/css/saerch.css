@@ -100,11 +100,11 @@ table{
 .ccheck input[type="checkbox"] + label .chk_img {
 	padding:0 0 0 30px;
 	height:20px;
-	background:url("/webapp/assets/img/즐겨찾기 별2.png")no-repeat;
+	background:url("/assets/img/즐겨찾기 별2.png")no-repeat;
 	cursor:pointer;
 }
 .ccheck input[type="checkbox"]:checked + label .chk_img {
-	background:url("/webapp/assets/img/즐겨찾기 별2.png")no-repeat;
+	background:url("/assets/img/즐겨찾기 별2.png")no-repeat;
 } 
 
 
