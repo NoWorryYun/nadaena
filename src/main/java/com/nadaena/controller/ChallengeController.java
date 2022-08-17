@@ -1,5 +1,7 @@
 package com.nadaena.controller;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.service.ChallengeService;
 import com.nadaena.vo.ChallengeVo;
@@ -33,10 +37,10 @@ public class ChallengeController {
 		return "challenge/intro";
 	}
 
-	
+	//챌린지 참여하기
 	@RequestMapping(value = "/challenge/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
-		System.out.println("challnege/intro");
+		System.out.println("challnege/joinchallenge");
 		
 		challengeService.joinChallenge(challengeVo);
 		
@@ -79,13 +83,24 @@ public class ChallengeController {
 		return "challenge/writechallenge";
 	}
 
+	//챌린지 개설하기
 	@RequestMapping(value = "/challenge/makechallenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String Create() {
 		System.out.println("challenge/makeChallenge");
-
+		
 		return "redirect:/main";
 	}
 
+	//챌린지 대표 이미지 받기
+    @ResponseBody
+    @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
+    public Map<String, Object> challengeImg(MultipartFile[] file) throws IOException {
+        
+    	Map<String, Object> resultMap = new HashMap<String, Object>();
+    	
+    	return resultMap;
+    }
+	
 	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })
 	public String readBoard() {
 		System.out.println("challenge/board");

@@ -52,6 +52,23 @@
 				)
 		]]>
 	</insert>
+	
+	<!-- 챌린지 참여(방장) -->
+	<insert id="joinChallengeHeader" parameterType="ChallengeVo">
+		<![CDATA[
+		insert into mychallenge 
+		values(
+		    seq_userClgNo.nextval,
+		    #{challengeNo},
+		    #{userNo},
+		    sysdate,
+		    #{payment},
+		    1,
+		    1,
+		    0
+		)
+		]]>
+	</insert>
 
 	<!-- 챌린지 intro -->
 	<select id="intro"  parameterType="int" resultType="ChallengeVo">
@@ -99,22 +116,7 @@
 		]]>
 	</insert>
 
-	<!-- 챌린지 참여(방장) -->
-	<insert id="joinChallengeHeader" parameterType="ChallengeVo">
-		<![CDATA[
-		insert into mychallenge 
-		values(
-		    seq_userClgNo.nextval,
-		    #{challengeNo},
-		    #{userNo},
-		    sysdate,
-		    #{payment},
-		    1,
-		    1,
-		    0
-		)
-		]]>
-	</insert>
+
 	<!-- certify -->
 	<select id="certifyList" parameterType="int" resultType="ChallengeVo">
 		<![CDATA[

@@ -64,10 +64,10 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm" 	class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community"	 class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
 								<div id="read-board">
 									<div>

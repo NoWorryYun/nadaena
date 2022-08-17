@@ -28,15 +28,15 @@ public class ChallengeVo {
 	private int subOn;
 	private int subOff;
 	private String interestName;
-	
-	
+	private int userNo;
+	private int payment;
+
 	//생성자
 
 	public ChallengeVo() {
 		super();
 	}
 
-	
 	public ChallengeVo(int challengeNo, int certifyNo, String certifyTitle, int subOn, int subOff) {
 		super();
 		this.challengeNo = challengeNo;
@@ -46,6 +46,12 @@ public class ChallengeVo {
 		this.subOff = subOff;
 	}
 
+	public ChallengeVo(int challengeNo, int userNo, int payment) {
+		super();
+		this.challengeNo = challengeNo;
+		this.userNo = userNo;
+		this.payment = payment;
+	}
 
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup) {
@@ -72,8 +78,6 @@ public class ChallengeVo {
 		this.clgGroup = clgGroup;
 	}
 
-	
-	
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName) {
 		super();
@@ -103,7 +107,6 @@ public class ChallengeVo {
 		this.subOff = subOff;
 		this.interestName = interestName;
 	}
-
 
 	//GS
 	public int getChallengeNo() {
@@ -266,64 +269,68 @@ public class ChallengeVo {
 		this.clgGroup = clgGroup;
 	}
 
-
 	public int getCertifyNo() {
 		return certifyNo;
 	}
-
 
 	public void setCertifyNo(int certifyNo) {
 		this.certifyNo = certifyNo;
 	}
 
-
 	public String getCertifyTitle() {
 		return certifyTitle;
 	}
-
 
 	public void setCertifyTitle(String certifyTitle) {
 		this.certifyTitle = certifyTitle;
 	}
 
-
 	public int getSubOn() {
 		return subOn;
 	}
-
 
 	public void setSubOn(int subOn) {
 		this.subOn = subOn;
 	}
 
-
 	public int getSubOff() {
 		return subOff;
 	}
-
 
 	public void setSubOff(int subOff) {
 		this.subOff = subOff;
 	}
 
-
 	public String getInterestName() {
 		return interestName;
 	}
-
 
 	public void setInterestName(String interestName) {
 		this.interestName = interestName;
 	}
 
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
+
+	public int getPayment() {
+		return payment;
+	}
+
+	public void setPayment(int payment) {
+		this.payment = payment;
+	}
 
 	//일반
 	@Override
 	public String toString() {
 		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recuritment=" + recuritment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
-				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + "]";
+				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + "]";
 	}
-
 
 }

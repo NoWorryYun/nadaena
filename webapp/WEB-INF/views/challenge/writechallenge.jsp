@@ -72,7 +72,7 @@
 				<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
-					<form method="post" action="${pageContext.request.contextPath}/challenge/makechallenge">
+					<form method="post" enctype="multipart/form-data">
 						<div id="write-wrap-content">
 							<h5 class="write-header">챌린지 개설</h5>
 
@@ -88,7 +88,7 @@
 												</tr>
 												<tr class="border-white-underline">
 													<td class="write-table-label line-height2">대표이미지</td>
-													<td class="write-table-content" colspan="3"><input name="img" type="file"></td>
+													<td class="write-table-content" colspan="3"><input name="img" type="file" multiple="multiple"></td>
 												</tr>
 												<tr class="border-white-underline">
 													<td class="write-table-label">모집기간</td>
@@ -453,7 +453,7 @@
 									</table>
 								</div>
 								<div class="text-center">
-									<button class="make-challenge make-challenge-button" type="submit">챌린지 개설</button>
+									<button id="MKBtn" class="make-challenge make-challenge-button" type="submit">챌린지 개설</button>
 								</div>
 							</div>
 
@@ -531,39 +531,61 @@
 </body>
 <!-- 자바스크립트 영역 -->
 
-<!-- ck Editor -->
-<script type="text/javascript">
-        ClassicEditor
-            .create( document.querySelector( '#classic' ), {
-            	removePlugins: [ 'ImageUpload' ]
-            } )
-            .catch( error => {
-                console.error( error );
-        } );
-</script>
 
-<!-- color picker -->
 <script type="text/javascript">
-  $(document).ready(function(){
-    // 테마 색상 선택
-    $(".colorPickSelector").colorPick({
-      'left' : '16.5px',
-      'bottom' : '-16.5938px',
-      'initialColor': '#16a085',
-      'allowRecent': false,
-      'recentMax': 5,
-      'allowCustomColor': false,
-      'palette': [
-        "#1abc9c", "#16a085", "#2ecc71", "#27ae60", "#3498db"
-        , "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50"
-        , "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c"
-        , "#c0392b", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"
-      ],
-      'onColorSelected': function() {
-      	this.element.css({'backgroundColor': this.color, 'color': this.color});
-      }
-    })
-  });
+	<!-- ck Editor -->
+	ClassicEditor
+		.create( document.querySelector( '#classic' ), {
+			removePlugins: [ 'ImageUpload' ]
+		} )
+		.catch( error => {
+		    console.error( error );
+	} );
 
+	<!-- color picker -->
+	 $(document).ready(function(){
+		// 테마 색상 선택
+		$(".colorPickSelector").colorPick({
+			'left' : '16.5px',
+			'bottom' : '-16.5938px',
+			'initialColor': '#16a085',
+			'allowRecent': false,
+			'recentMax': 5,
+			'allowCustomColor': false,
+			'palette': [
+			"#1abc9c", "#16a085", "#2ecc71", "#27ae60", "#3498db"
+			, "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50"
+			, "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c"
+			, "#c0392b", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"
+			],
+			'onColorSelected': function() {
+				this.element.css({'backgroundColor': this.color, 'color': this.color});
+			}
+		})
+	});
+
+	 <!-- form data -->
+  	$("#MKBtn").on("click", function(){
+  		var formData = new FormData();
+  		var inputFile = $('input[name="img"]');
+  		var files = inputFile[0].files;
+  		
+  		formData.append('files',files);
+  		
+  		$.ajax({
+  			contentType : false,
+  			processData : false,
+  			data : formData,
+  			url : '/challenge/upload',
+  			type : 'POST',
+  			success : function(result){
+  				var path = result.path;
+  			}
+  				
+  		})
+  		
+  	})
+	 
+  
 </script>
-</ htm l>
+</html>

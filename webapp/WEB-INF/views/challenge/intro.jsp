@@ -74,10 +74,10 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm" 	class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
 								<div class="tab-content">
 									<div id="introduce-wrap">
@@ -93,12 +93,13 @@
 														<li class="list-inline-item"><a href="#">${cMap.intro.tag2}</a></li>
 														<li class="list-inline-item"><a href="#">${cMap.intro.tag3}</a></li>
 														<li class="list-inline-item"><a href="#">${cMap.intro.tag4}</a></li>
+														<li class="list-inline-item"><a href="#">${cMap.intro.tag5}</a></li>
 													</ul>
 												</div>
 											</div>
 											<div class="content-introduce">
 												<div class="table-responsive" id="table-writeform">
-													<form method="post" action="${pageContext.request.contextPath}/challenge/joinchallenge">
+													<form id="joinForm" method="post" action="${pageContext.request.contextPath}/challenge/joinchallenge">
 														<table class="table">
 															<tbody style="border-style: none;">
 																<tr style="border-style: none;">
@@ -127,7 +128,7 @@
 																	<td class="write-table-label">난이도</td>
 																	<td class="font-12">
 																	<c:choose>
-																		<c:when test="${cMap.intro.clgLevel == 1}">
+																		<c:when test="${cMap.intro.clgLevel == 3}">
 																		<p class="clgLevel">하</p>
 																		</c:when>
 																		<c:when test="${cMap.intro.clgLevel == 2}">
@@ -180,10 +181,13 @@
 																		</c:choose> &nbsp;원</td>
 																</tr>
 																<tr style="border-style: none;">
-																	<td id="enter-challenge-cell" class="type-center" colspan="2"><button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button></td>
+																	<td id="enter-challenge-cell" class="type-center" colspan="2">
+																		<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																	</td>
 																</tr>
 															</tbody>
 														</table>
+														<input type="hidden" id="authUserNo" name="userNo" value="${authUser.userNo}">
 													</form>
 													<!-- //form -->
 												</div>
@@ -283,7 +287,32 @@
 	<!-- /footer -->
 
 
+<script type="text/javascript">
+
+	var authUser = $("#authUserNo").val();
+
+	$("#joinForm").on("submit", function(){
+		
+		console.log(authUser);
+		
+ 		if(authUser == "" || authuser == null){
+ 			alert("로그인 해주세요");
+ 			location.href = "${pageContext.request.contextPath}/user/login";
+ 			return false;
+ 		} 
+		var payment = $("[name='payment']").val();
+		console.log(payment);
+		if(payment < 1){
+			alert("금액을 선택해 주세요");
+			return false;
+ 		}
+	})
+	
+
+</script>
+
 </body>
+
 
  
 </html>
