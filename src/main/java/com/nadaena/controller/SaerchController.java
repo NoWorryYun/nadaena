@@ -22,11 +22,11 @@ public class SaerchController {
 		return "search/searchMain";
 	}
 	
-	@RequestMapping(value="/search/test", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/search/searchForm2", method = {RequestMethod.GET, RequestMethod.POST})
 	public String searchtest() {
-		System.out.println("searchtest");
+		System.out.println("search2");
 		
-		return "search/test";
+		return "search/searchForm2";
 	}
 
 }

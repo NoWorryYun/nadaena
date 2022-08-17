@@ -20,7 +20,6 @@
 
 
 
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/Dropdown-Login-with-Social-Logins-bootstrap-social.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/Features-Boxed-Remixed.css">
 
 
@@ -42,7 +41,10 @@
 	<main>
 		<div class="main-box">
 			<div>
-				<p class="search-title">&quot;검색어&quot; 에 대한 검색 결과</p>
+				<div class="search-result">
+					<p class="search-title"><a herd="">&quot;검색어&quot;</a> 에 대한 검색 결과</p>
+				</div>
+				
 				<div class="table-responsive">
 				
 					<table class="table">
@@ -54,7 +56,7 @@
 									</p>
 								</td>
 								<td class="table-select">
-									<div>
+									<div class="div-name">
 										<table class="category-letter">
 											<tbody class="tbody">
 												<tr>
@@ -124,10 +126,46 @@
 				<!--//table-responsive -->
 			</div>
 
-			<div>
-				<a href="#">인기순 </a>&gt; <a href="#">신규등록순 </a>&gt; <a href="#">마감일순
-				</a>&gt; <a href="#">카테고리순</a>
+
+
+
+			<div class="search-type">
+				<div class="search-type-select">
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span>인기순</span>
+					</div>
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span>신규등록순</span>
+					</div>
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span>마감일순</span>
+					</div>
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span>카테고리순</span>
+					</div>
+				</div>
 			</div>
+			
+			<div class="ccheck">
+				<input type="checkbox" id="check_test">
+				<label for="check_test">
+					<div class="chk_img">체크</div>
+				</label>
+			</div>
+			
+			
 
 			<div class="features-boxed">
 				<div>

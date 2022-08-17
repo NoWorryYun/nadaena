@@ -1,11 +1,16 @@
 @charset "UTF-8";
 
-.table-responsive .select{
-	background-color: black;
+table{
+	margin-bottom: 0px !important;
 }
 
-.table-responsive .select2{
-	background-color: silver;
+.table-responsive{
+	border: 1px solid black;
+}
+
+.table-responsive .select{
+	background-color: black;
+	
 }
 
 .table-name{
@@ -19,10 +24,123 @@
 }
 
 .table-select{
-	width: 550px; 
-	height: 150px;
+	text-align: center;
+    width: 550px;
+
 }
 
-tbody{
-	border: 1px solid black;
+.category-letter td{
+	width: 15%;
+    text-align: left;
 }
+
+/* 리스트 박스위치 */
+.category-letter{
+    margin-left: 130px;
+}
+
+.select-name{
+	margin: 25% !important;
+}
+
+/* 리스트 내용 세부조절 */
+.list-inline-item{
+	margin: 0px 10px 15px 15px;
+	font-family: 'Metro Sans',sans-serif;
+}
+
+.div-name{
+  	margin-top: 10px;	
+}
+
+.search-title{
+	display: flex;
+    color: rgb(48, 52, 65);
+    margin: 0px 0px 24px;
+    font-family: 'Metro Sans',sans-serif;
+    font-size: 22px;
+}
+
+.search-type{
+	margin: 24px 0px 0px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.search-type-select{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+
+.search-type-select-culm{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px 0px 0px 12px;
+}
+    
+ 
+ 
+.ccheck input[type="checkbox"] {
+	display:none;
+}
+
+.ccheck label{
+	width:100%;
+	height:20px;
+}
+
+.ccheck input[type="checkbox"] + label .chk_img {
+	padding:0 0 0 30px;
+	height:20px;
+	background:url("/webapp/assets/img/즐겨찾기 별2.png")no-repeat;
+	cursor:pointer;
+}
+.ccheck input[type="checkbox"]:checked + label .chk_img {
+	background:url("/webapp/assets/img/즐겨찾기 별2.png")no-repeat;
+} 
+
+
+
+    
+
+/* test */
+/* .search-list{
+	margin: 16px -10px 0px;
+	font-family: 'Metro Sans',sans-serif;
+    box-sizing: border-box;
+}
+
+.search-clum{
+	width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.search-clum-box{
+	width: 20%;
+    padding: 0px 10px;
+    margin-bottom: 50px;
+}
+
+.search-clum-box-info{
+	display: flex;
+    width: 214px;
+    max-height: 303px;
+    flex-direction: column;
+    position: relative;
+    text-decoration: none;
+}
+
+.search-clum-box-img{
+	position: absolute;
+    inset: 0px;
+    display: block;
+} */
