@@ -3,10 +3,47 @@
 
 <mapper namespace="mainTitle">
 
-
-
-
-
+	<!-- 메인화면 이벤트 리스트 불러오기 -->
+	<select id="eventList" parameterType="String" resultType="MainTitleVo">
+		<![CDATA[
+			select  c.challengeNo,
+			        c.clgTitle,
+			        c.img,
+			        c.recruitment,
+			        c.period,
+			        mc.payment,
+			        c.clgGroup,
+			        count_user
+			from mychallenge mc, challenge c
+			where mc.challengeNo = c.challengeNo
+			and  c.clgGroup = 2;
+		]]>
+	</select>
+	
+	<!-- 메인화면 인기순 리스트 불러오기 -->
+	<select id="popularityList" parameterType="String" resultType="MainTitleVo">
+		<![CDATA[
+			select  c.challengeNo,
+			        c.clgTitle,
+			        c.img,
+			        c.recruitment,
+			        c.period,
+			        mc.payment,
+			        c.clgGroup,
+			        count_user
+			from mychallenge mc, challenge c, (select count(userNo) count_user
+										       from mychallenge
+											   where challengeNo = {==count==})
+			where mc.challengeNo = c.challengeNo
+			and  c.clgGroup = 1;
+		]]>
+	</select>
+	
+	
+	
+	
+	
+	
 
 
 

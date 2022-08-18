@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Search">
+
+	<!-- 검색입력 -->
+	<select id="searchList" parameterType="String" resultType="MainTitleVo">
+		<![CDATA[
+			select  c.challengeNo,
+			        c.clgTitle,
+			        c.img,
+			        c.recruitment,
+			        c.period,
+			        mc.payment,
+			        c.clgGroup,
+			        count_user
+			from mychallenge mc, challenge c, (select count(userNo) count_user
+										       from mychallenge
+											   where challengeNo = {==count==})
+			where mc.challengeNo = c.challengeNo
+			and c.clgTitle like {==search==};
+		]]>
+	</select>
+
+
+
+</mapper>
