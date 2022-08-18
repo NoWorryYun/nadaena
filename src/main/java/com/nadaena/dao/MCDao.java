@@ -25,7 +25,7 @@ public class MCDao {
 		return mcList;
 	}
 	
-	//종료 리스트
+	//종료 리스트(전체)
 	public List<MCVo> selectList2() {
 		System.out.println("MCDao > selectList2()");
 		
@@ -33,6 +33,26 @@ public class MCDao {
 		System.out.println(mcList2);
 		
 		return mcList2;
+	}
+	
+	//종료 리스트(성공)
+	public List<MCVo> selectList3() {
+		System.out.println("MCDao > selectList3()");
+		
+		List<MCVo> mcList3 = sqlSession.selectList("myChallenge.selectList3");
+		System.out.println(mcList3);
+		
+		return mcList3;
+	}
+	
+	//종료 리스트(실패)
+	public List<MCVo> selectList4() {
+		System.out.println("MCDao > selectList4()");
+		
+		List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList4");
+		System.out.println(mcList4);
+		
+		return mcList4;
 	}
 	//리뷰 불러오기
 	public List<MRVo> selectreviewList() {

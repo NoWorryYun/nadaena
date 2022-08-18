@@ -21,7 +21,7 @@ public class MCController {
 	@Autowired
 	MCService mcService;
 	 
-	//참가중 + 종료중 챌린지 리스트
+	//참가중 + 종료중(전체) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list(Model model) {
 		System.out.println("MCC > mclist()");
@@ -41,6 +41,33 @@ public class MCController {
 		return "my/my-challenge";
 	}
 	
+	//종료중(성공) 챌린지 리스트
+	@RequestMapping(value = "my/my-challenge/success", method = { RequestMethod.GET, RequestMethod.POST })
+	public String list3(Model model) {
+		System.out.println("MCC > mclist3()");
+		
+		// Service를 통해서 list(주소)을 가져온다
+		List<MCVo> mcList3 = mcService.getmcList3();
+		
+		// ds 데이터보내기 -->request attribute에 넣는다
+		model.addAttribute("mcList3", mcList3);
+		
+		return "my/my-challenge";
+	}
+	
+	//종료중(실패) 챌린지 리스트
+	@RequestMapping(value = "my/my-challenge/failure", method = { RequestMethod.GET, RequestMethod.POST })
+	public String list4(Model model) {
+		System.out.println("MCC > mclist4()");
+		
+		// Service를 통해서 list(주소)을 가져온다
+		List<MCVo> mcList4 = mcService.getmcList4();
+		
+		// ds 데이터보내기 -->request attribute에 넣는다
+		model.addAttribute("mcList4", mcList4);
+		
+		return "my/my-challenge";
+	}
 	
 	//리뷰 리스트
 	@RequestMapping(value = "my/my-review2", method = { RequestMethod.GET, RequestMethod.POST })

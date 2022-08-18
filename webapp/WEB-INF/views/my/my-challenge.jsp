@@ -63,7 +63,10 @@
 						</div>
 							
 					</c:forEach>
-					<c:forEach items="${mcList}" var="j" begin="1" end="1">
+					
+					<c:set var="length" value="${fn:length(mcList)}" />
+					
+					<c:forEach begin="1" end="${3-length}" step="1">
 						<div class="challenge-box2">
 							<div class="challenge-image2">
 								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
@@ -78,9 +81,9 @@
 				<div class="challenge-header">
 					완료된 챌린지
 					<ul>
-						<li><a href="#">전체</a></li>
-						<li><a href="#">성공</a></li>
-						<li class="last-list"><a href="#">실패</a></li>
+						<li><a href="${pageContext.request.contextPath }/my/my-challenge">전체</a></li>
+						<li><a href="${pageContext.request.contextPath }/my/my-challenge/success">성공</a></li>
+						<li class="last-list"><a href="${pageContext.request.contextPath }/my/my-challenge/failure">실패</a></li>
 					</ul>
 				</div>
 				<div class="challenge-images">

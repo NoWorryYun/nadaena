@@ -25,7 +25,7 @@ public class MCService {
 		
 	} 
 	
-	//종료 리스트
+	//종료 리스트(전체)
 	public List<MCVo> getmcList2() {
 		System.out.println("MCS > getmcList2()");
 		
@@ -34,7 +34,27 @@ public class MCService {
 		return mcList2;
 		
 	} 
+	
+	//종료 리스트(성공)
+	public List<MCVo> getmcList3() {
+		System.out.println("MCS > getmcList2()");
 		
+		List<MCVo> mcList3 = mcDao.selectList3();
+		
+		return mcList3;
+		
+	} 
+	
+	//종료 리스트(실패)
+	public List<MCVo> getmcList4() {
+		System.out.println("MCS > getmcList2()");
+		
+		List<MCVo> mcList4 = mcDao.selectList4();
+		
+		return mcList4;
+		
+	} 
+	
 	//리뷰리스트(리스트만)
 	public List<MRVo> getmrList() {
 		System.out.println("MRS > getmcList()");
