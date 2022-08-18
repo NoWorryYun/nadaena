@@ -119,8 +119,6 @@
 		]]>
 	</update>
 	
-	
-	
 	<!-- 내가 쓴 리뷰 삭제 -->
 	<delete id="deleteReview" parameterType="MRVo">
 		<![CDATA[

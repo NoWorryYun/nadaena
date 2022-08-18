@@ -84,7 +84,7 @@ public class MCController {
 	}
 	
 	//리뷰 리스트
-	@RequestMapping(value = "my/my-review2", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
 	public String myreviewlist(Model model) {
 		System.out.println("MCC > mclist()");
 		
@@ -94,7 +94,7 @@ public class MCController {
 		// ds 데이터보내기 -->request attribute에 넣는다
 		model.addAttribute("mrList", mrList);
 		
-		return "my/my-review2";
+		return "my/my-review";
 	}
 	
 	//리뷰쓰기
@@ -122,6 +122,6 @@ public class MCController {
 		//mRVo.setUserNo(authUser.getNo());
 		mcService.removeReview(mrVo);
 
-		return "redirect:/my/my-review2";
+		return "redirect:/my/my-review";
 	}
 }

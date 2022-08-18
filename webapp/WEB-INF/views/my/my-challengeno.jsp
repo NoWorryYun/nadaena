@@ -101,7 +101,6 @@
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
 							</div>	 
-							<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
 						</div>
 					</c:forEach>
 				</div>
@@ -138,9 +137,9 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<form action="writeReview" method="get">
-				<div class="modal-header">
-					<div>
-						<h5></h5>
+			<div class="modal-header">
+				<div>
+					<h5></h5>
 				</div>
 				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
@@ -150,7 +149,6 @@
 					<p class="modal-upload-date">작성일 : 2022-08-31</p>
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
-					<!-- <input type="hidden" name="state" value="2"> -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
 				<input type="file" id="modal-upbutton">
@@ -160,10 +158,10 @@
 						<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
 					</div>
 				</div> -->
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
-				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
+			</div>
 				
 			</form>	
 		</div>
