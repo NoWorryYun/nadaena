@@ -15,7 +15,7 @@ public class MCService {
 	@Autowired
 	MCDao mcDao;
 	 
-	//리스트(리스트만)
+	//참가 리스트
 	public List<MCVo> getmcList() {
 		System.out.println("MCS > getmcList()");
 		
@@ -25,6 +25,16 @@ public class MCService {
 		
 	} 
 	
+	//종료 리스트
+	public List<MCVo> getmcList2() {
+		System.out.println("MCS > getmcList2()");
+		
+		List<MCVo> mcList2 = mcDao.selectList2();
+		
+		return mcList2;
+		
+	} 
+		
 	//리뷰리스트(리스트만)
 	public List<MRVo> getmrList() {
 		System.out.println("MRS > getmcList()");

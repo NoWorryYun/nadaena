@@ -19,9 +19,29 @@
 			        m.payment
 			from challenge c, mychallenge m
 			where c.challengeNo = m.challengeNo
+			and   m.state = 1
 		]]>
 	</select>	
 	 
+	<select id="selectList2" parameterType="String" resultType="MCVo">
+		<![CDATA[
+			select  m.userNo,
+					m.userClgNo,
+					c.challengeNo,
+					c.clgTitle,
+					m.mychallengeDate,
+					m.founder,
+					m.achievement,
+					m.state,
+			        c.regdate,
+			        c.period,
+			        m.payment
+			from challenge c, mychallenge m
+			where c.challengeNo = m.challengeNo
+			and   m.state = 2
+		]]>
+	</select>
+	
 	<!-- 리뷰불러오기 -->
 	<select id="selectreviewList" parameterType="String" resultType="MRVo">
 		<![CDATA[

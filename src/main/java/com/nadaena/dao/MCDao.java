@@ -15,6 +15,7 @@ public class MCDao {
 	@Autowired
 	SqlSession sqlSession;
 	
+	//참가 리스트
 	public List<MCVo> selectList() {
 		System.out.println("MCDao > selectList()");
 		
@@ -24,6 +25,15 @@ public class MCDao {
 		return mcList;
 	}
 	
+	//종료 리스트
+	public List<MCVo> selectList2() {
+		System.out.println("MCDao > selectList2()");
+		
+		List<MCVo> mcList2 = sqlSession.selectList("myChallenge.selectList2");
+		System.out.println(mcList2);
+		
+		return mcList2;
+	}
 	//리뷰 불러오기
 	public List<MRVo> selectreviewList() {
 		System.out.println("MRDao > selectreviewList()");

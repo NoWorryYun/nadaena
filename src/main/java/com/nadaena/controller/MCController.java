@@ -21,7 +21,7 @@ public class MCController {
 	@Autowired
 	MCService mcService;
 	 
-	//참가중 챌린지 리스트
+	//참가중 + 종료중 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list(Model model) {
 		System.out.println("MCC > mclist()");
@@ -32,8 +32,15 @@ public class MCController {
 		// ds 데이터보내기 -->request attribute에 넣는다
 		model.addAttribute("mcList", mcList);
 		
+		// Service를 통해서 list(주소)을 가져온다
+		List<MCVo> mcList2 = mcService.getmcList2();
+		
+		// ds 데이터보내기 -->request attribute에 넣는다
+		model.addAttribute("mcList2", mcList2);
+		
 		return "my/my-challenge";
 	}
+	
 	
 	//리뷰 리스트
 	@RequestMapping(value = "my/my-review2", method = { RequestMethod.GET, RequestMethod.POST })

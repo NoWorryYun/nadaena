@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -44,24 +45,34 @@
 				
 				
 				<div class="challenge-images">
-				<c:forEach items="${mcList}" var="MCVo" varStatus="i">
-					<div class="challenge-box">
-						<div class="challenge-boxin">
-							<div class="challenge-image">
-								<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+					<c:forEach items="${mcList}" var="MCVo" varStatus="i">
+						<div class="challenge-box">
+							<div class="challenge-boxin">
+								<div class="challenge-image">
+									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+								</div>
+								<div class="challenge-info">
+									<h4>${MCVo.clgTitle }</h4>
+									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+									<p>참여 인원 : 15</p>
+									<p>도전비용 : ${MCVo.payment }원</p>
+									<p class="last-p">기대 성공금액 : 2~3%</p>
+								</div>
+							</div>	 
+							<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
+						</div>
+							
+					</c:forEach>
+					<c:forEach items="${mcList}" var="j" begin="1" end="1">
+						<div class="challenge-box2">
+							<div class="challenge-image2">
+								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
 							</div>
-							<div class="challenge-info">
-								<h4>${MCVo.clgTitle }</h4>
-								<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-								<p>참여 인원 : 15</p>
-								<p>도전비용 : ${MCVo.payment }원</p>
-								<p class="last-p">기대 성공금액 : 2~3%</p>
+							<div class="none2">
+								<a href="#">챌린지 참여하기</a>
 							</div>
-						</div>	 
-						<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
-					</div>
-						
-				</c:forEach>
+						</div>
+					</c:forEach>
 				</div>		
 					
 				<div class="challenge-header">
@@ -73,42 +84,23 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<div class="challenge-box">
-						<div class="challenge-image">
-							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+					<c:forEach items="${mcList2}" var="MCVo" varStatus="i">
+						<div class="challenge-box">
+							<div class="challenge-boxin">
+								<div class="challenge-image">
+									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+								</div>
+								<div class="challenge-info">
+									<h4>${MCVo.clgTitle }</h4>
+									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+									<p>참여 인원 : 15</p>
+									<p>도전비용 : ${MCVo.payment }원</p>
+									<p class="last-p">기대 성공금액 : 2~3%</p>
+								</div>
+							</div>	 
+							<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
 						</div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-					</div>	
-					<div class="challenge-box">
-						<div class="challenge-image">
-							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
-						</div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-					</div>
-					<div class="challenge-box">
-						<div class="challenge-image">
-							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
-						</div>
-						<div class="challenge-info">
-							<h4>마라톤</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="paging" class="paging">
