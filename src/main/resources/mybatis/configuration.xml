@@ -16,5 +16,6 @@
     	<mapper resource="mybatis/mappers/myChallenge.xml" />
     	<mapper resource="mybatis/mappers/point.xml" />
     	<mapper resource="mybatis/mappers/users.xml" />
+    	<mapper resource="mybatis/mappers/product.xml" />
     </mappers>
 </configuration>
