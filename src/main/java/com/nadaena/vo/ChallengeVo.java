@@ -1,5 +1,7 @@
 package com.nadaena.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ChallengeVo {
 
 	//필드
@@ -31,55 +33,15 @@ public class ChallengeVo {
 	private int userNo;
 	private int payment;
 
-	//생성자
+	private MultipartFile imgs;
 
+	//생성자
 	public ChallengeVo() {
 		super();
 	}
 
-	public ChallengeVo(int challengeNo, int certifyNo, String certifyTitle, int subOn, int subOff) {
-		super();
-		this.challengeNo = challengeNo;
-		this.certifyNo = certifyNo;
-		this.certifyTitle = certifyTitle;
-		this.subOn = subOn;
-		this.subOff = subOff;
-	}
-
-	public ChallengeVo(int challengeNo, int userNo, int payment) {
-		super();
-		this.challengeNo = challengeNo;
-		this.userNo = userNo;
-		this.payment = payment;
-	}
-
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
-			int clgLevel, int clgGroup) {
-		super();
-		this.challengeNo = challengeNo;
-		this.interestNo = interestNo;
-		this.clgTitle = clgTitle;
-		this.img = img;
-		this.regDate = regDate;
-		this.recuritment = recuritment;
-		this.period = period;
-		this.certify = certify;
-		this.minigame = minigame;
-		this.upload = upload;
-		this.certifyDay = certifyDay;
-		this.content = content;
-		this.color = color;
-		this.tag1 = tag1;
-		this.tag2 = tag2;
-		this.tag3 = tag3;
-		this.tag4 = tag4;
-		this.tag5 = tag5;
-		this.clgLevel = clgLevel;
-		this.clgGroup = clgGroup;
-	}
-
-	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
-			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName) {
+			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs) {
 		super();
 		this.challengeNo = challengeNo;
 		this.interestNo = interestNo;
@@ -106,9 +68,11 @@ public class ChallengeVo {
 		this.subOn = subOn;
 		this.subOff = subOff;
 		this.interestName = interestName;
+		this.userNo = userNo;
+		this.payment = payment;
+		this.imgs = imgs;
 	}
 
-	//GS
 	public int getChallengeNo() {
 		return challengeNo;
 	}
@@ -325,12 +289,19 @@ public class ChallengeVo {
 		this.payment = payment;
 	}
 
-	//일반
+	public MultipartFile getImgs() {
+		return imgs;
+	}
+
+	public void setImgs(MultipartFile imgs) {
+		this.imgs = imgs;
+	}
+
 	@Override
 	public String toString() {
 		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recuritment=" + recuritment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
-				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + "]";
+				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", imgs=" + imgs + "]";
 	}
 
 }

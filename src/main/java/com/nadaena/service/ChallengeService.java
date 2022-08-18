@@ -1,11 +1,17 @@
 package com.nadaena.service;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.dao.ChallengeDao;
 import com.nadaena.vo.ChallengeVo;
@@ -47,19 +53,19 @@ public class ChallengeService {
 	//챌린지 만들기
 	
 	//챌린지 대표이미지 받아오기
-	/*
+	
 	public Map<String, Object> imgUpload(MultipartFile[] file){
 		
-		public String save(MultipartFile file) {
+		
 			System.out.println("fileService > save()");
-			System.out.println(file.getOriginalFilename());
+			System.out.println(file[0].getOriginalFilename());
 		
 			String saveDir = "C:\\javaStudy\\upload";
 			
 			//파일 정보(DB저장) 추출 저장
 		
 			//오리지날파일명, 저장경로+파일(랜덤)명, 파일사이즈
-			String orgName = file.getOriginalFilename();
+			String orgName = file[0].getOriginalFilename();
 		
 			//확장자(.jpg)
 			String exName = orgName.substring(orgName.lastIndexOf("."));
@@ -72,19 +78,17 @@ public class ChallengeService {
 			String filePath = saveDir + "\\" + saveName;
 			
 			//파일 사이즈
-			long fileSize = file.getSize();
+			//long fileSize = file[0].getSize();
 			
 			//Vo로 묶기
-			FileVo fileVo = new FileVo(orgName, saveName, filePath, fileSize);
-			System.out.println(fileVo);
+			Map<String, Object> uploadfile = new HashMap<String,Object>();
+			uploadfile.put("path", filePath);
 			
 			// (1)Dao DB에 저장
 			
-			fileDao.save(fileVo);
-			
 			// (2)파일(하드디스크) 저장
 			try {
-				byte[] fileData = file.getBytes();
+				byte[] fileData = file[0].getBytes();
 				OutputStream os = new FileOutputStream(filePath);
 				BufferedOutputStream bos = new BufferedOutputStream(os);
 				
@@ -95,7 +99,7 @@ public class ChallengeService {
 				e.printStackTrace();
 			}
 		
-		return challengeDao.
+		return uploadfile;
 	}
-	*/
+	
 }
