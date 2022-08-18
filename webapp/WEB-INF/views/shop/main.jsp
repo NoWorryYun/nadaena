@@ -88,7 +88,7 @@
                         <!-- 미리보기팝업 -->
                     </p>
                 </div>
-                <div class="box_2">
+                <div class="box_1">
                     <div class="scale">
                         <a href=""data-num="3"><img src="${pageContext.request.contextPath }/assets/img/shop/gp50.jpg" alt=""></a>
                     </div>

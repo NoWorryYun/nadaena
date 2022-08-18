@@ -1,8 +1,6 @@
 package com.nadaena.vo;
 
-import org.springframework.web.multipart.MultipartFile;
-
-public class ChallengeVo {
+public class MainTitleVo {
 
 	//필드
 	private int challengeNo;
@@ -32,16 +30,17 @@ public class ChallengeVo {
 	private String interestName;
 	private int userNo;
 	private int payment;
-
-	private MultipartFile imgs;
-
+	private int count_user;
+	
+	
 	//생성자
-	public ChallengeVo() {
+	
+	public MainTitleVo() {
 		super();
 	}
 
-	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
-			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs) {
+	public MainTitleVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
+			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, int count_user) {
 		super();
 		this.challengeNo = challengeNo;
 		this.interestNo = interestNo;
@@ -70,9 +69,11 @@ public class ChallengeVo {
 		this.interestName = interestName;
 		this.userNo = userNo;
 		this.payment = payment;
-		this.imgs = imgs;
+		this.count_user = count_user;
 	}
 
+	
+	////
 	public int getChallengeNo() {
 		return challengeNo;
 	}
@@ -289,19 +290,22 @@ public class ChallengeVo {
 		this.payment = payment;
 	}
 
-	public MultipartFile getImgs() {
-		return imgs;
+	public int getCount_user() {
+		return count_user;
 	}
 
-	public void setImgs(MultipartFile imgs) {
-		this.imgs = imgs;
+	public void setCount_user(int count_user) {
+		this.count_user = count_user;
 	}
 
 	@Override
 	public String toString() {
-		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recuritment=" + recuritment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
+		return "MainTitleVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recuritment=" + recuritment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
-				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", imgs=" + imgs + "]";
+				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", count_user=" + count_user + "]";
 	}
+
+	
+	
 
 }

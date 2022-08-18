@@ -485,6 +485,22 @@ var swiper = new Swiper('.swiper-container', {
     },
 
   });
+  
+  
+  Array.foreach(name function(c.challengeNo, c.clgTitle, c.img, c.recruitment,
+		  c.period, mc.payment, c.clgGroup, count_user, Array){
+	  
+	  console.log("no: " + c.challengeNo);
+	  console.log("no: " + c.clgTitle);
+	  console.log("no: " + c.img);
+	  console.log("no: " + c.period);
+	  console.log("no: " + mc.payment);
+	  console.log("no: " + c.clgGroup);
+	  console.log("no: " + count_user);
+	  console.log("no: " + array);
+	  
+	  
+  })
 
 
 </script>

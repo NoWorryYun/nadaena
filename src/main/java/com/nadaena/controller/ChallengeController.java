@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -83,20 +85,16 @@ public class ChallengeController {
 		return "challenge/writechallenge";
 	}
 
-	//챌린지 개설하기
-	@RequestMapping(value = "/challenge/makechallenge", method = { RequestMethod.GET, RequestMethod.POST })
-	public String Create() {
-		System.out.println("challenge/makeChallenge");
-		
-		return "redirect:/main";
-	}
-
 	//챌린지 대표 이미지 받기
-    @ResponseBody
+	@ResponseBody
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
-    public Map<String, Object> challengeImg(MultipartFile[] file) throws IOException {
-        
-    	Map<String, Object> resultMap = new HashMap<String, Object>();
+    public Map<String, Object> challengeImg(@ModelAttribute ChallengeVo challengeVo
+    		) throws IOException {
+
+		System.out.println(challengeVo); 
+		System.out.println(challengeVo.getImgs().getOriginalFilename()); 
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
     	
     	return resultMap;
     }

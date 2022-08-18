@@ -87,7 +87,7 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<c:forEach items="${mcList2}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcList3}" var="MCVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">

@@ -165,6 +165,7 @@
 	padding: 20px 0px 0px 0px;
 	height: 457px;
 	background-color: #eef4f7;
+	
 }
 
 .challenge-box{
@@ -173,6 +174,12 @@
 	float: left;
 	margin: 0px 0px 0px 20px;
 }
+.challenge-boxin{
+	width: 280px;
+	height: 385px;
+	background-color:white;
+}
+
 .challenge-box2{
 	width: 280px;
 	height: 385px;

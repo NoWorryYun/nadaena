@@ -7,20 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MyController {
 
-	@RequestMapping(value="my/my-review", method = {RequestMethod.GET, RequestMethod.POST})
-	public String myreview() {
-		System.out.println("myreview");
-		
-		return "my/my-review"; 
-	} 
-	
-	/*
-	 * @RequestMapping(value="my/my-review2", method = {RequestMethod.GET, RequestMethod.POST}) public String myreview2() {
-	 * System.out.println("myreview");
-	 * 
-	 * return "my/my-review2"; }
-	 */
-	
 	@RequestMapping(value="my/my-point", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mypoint() {
 		System.out.println("mychallenge");
