@@ -110,6 +110,15 @@
 		]]>
 	</insert>
 	
+	<!-- 리뷰 작성시 상태 업데이트 -->
+	<update id="updateState" parameterType="MCVo">
+		<![CDATA[
+			update myChallenge
+			set state = 2
+			where challengeNo = #{challengeNo}
+		]]>
+	</update>
+	
 	<!-- 내가 쓴 리뷰 삭제 -->
 	<delete id="deleteReview" parameterType="MRVo">
 		<![CDATA[

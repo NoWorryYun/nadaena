@@ -17,7 +17,7 @@
 					</button>
 				</form>
 				
-				<div id="userbox" class="col-3 text-end">
+				<div id="userbox" class="col-3 text-end">   
 				<c:if test="${not empty authUser }">
 					
 					<div id="btn-user" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,7 +30,7 @@
 					</ul>
 					 </c:if>
 					
-								<c:if test="${empty authUser }">
+				<c:if test="${empty authUser }">
 				<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a>
 					<a id="btn-join" class="btn btn-light btn-sm" href="#">회원가입</a>
 				 </c:if>
