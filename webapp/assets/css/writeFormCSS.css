@@ -244,3 +244,17 @@ textarea {
 	width: 70px;
 	font-size: 14px;
 }
+
+.tag{
+	color : blue;
+	margin-right: 15px;
+	cursor:pointer;
+}
+
+.tag:before{
+	content: "#";
+}
+
+.tag:hover{
+	color: red;
+}

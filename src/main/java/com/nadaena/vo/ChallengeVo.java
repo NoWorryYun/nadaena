@@ -10,7 +10,7 @@ public class ChallengeVo {
 	private String clgTitle;
 	private String img;
 	private String regDate;
-	private int recuritment;
+	private int recruitment;
 	private int period;
 	private int certify;
 	private int minigame;
@@ -32,7 +32,6 @@ public class ChallengeVo {
 	private String interestName;
 	private int userNo;
 	private int payment;
-
 	private MultipartFile imgs;
 
 	//생성자
@@ -40,7 +39,7 @@ public class ChallengeVo {
 		super();
 	}
 
-	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recuritment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
+	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs) {
 		super();
 		this.challengeNo = challengeNo;
@@ -48,7 +47,7 @@ public class ChallengeVo {
 		this.clgTitle = clgTitle;
 		this.img = img;
 		this.regDate = regDate;
-		this.recuritment = recuritment;
+		this.recruitment = recruitment;
 		this.period = period;
 		this.certify = certify;
 		this.minigame = minigame;
@@ -113,12 +112,12 @@ public class ChallengeVo {
 		this.regDate = regDate;
 	}
 
-	public int getRecuritment() {
-		return recuritment;
+	public int getRecruitment() {
+		return recruitment;
 	}
 
-	public void setRecuritment(int recuritment) {
-		this.recuritment = recuritment;
+	public void setRecruitment(int recruitment) {
+		this.recruitment = recruitment;
 	}
 
 	public int getPeriod() {
@@ -299,7 +298,7 @@ public class ChallengeVo {
 
 	@Override
 	public String toString() {
-		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recuritment=" + recuritment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
+		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
 				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", imgs=" + imgs + "]";
 	}

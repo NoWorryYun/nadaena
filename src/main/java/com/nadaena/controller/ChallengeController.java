@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.service.ChallengeService;
 import com.nadaena.vo.ChallengeVo;
@@ -88,11 +86,9 @@ public class ChallengeController {
 	//챌린지 대표 이미지 받기
 	@ResponseBody
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
-    public Map<String, Object> challengeImg(@ModelAttribute ChallengeVo challengeVo
-    		) throws IOException {
+    public Map<String, Object> challengeImg(@RequestBody ChallengeVo challengeVo) throws IOException {
 
-		System.out.println(challengeVo); 
-		System.out.println(challengeVo.getImgs().getOriginalFilename()); 
+		System.out.println(challengeVo);
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
     	

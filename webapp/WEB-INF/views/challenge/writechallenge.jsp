@@ -72,7 +72,7 @@
 				<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
-					<!-- 					<form id="MKForm" method="post" enctype="multipart/form-data"> -->
+<!-- 										<form id="MKForm" method="post" enctype="multipart/form-data"> -->
 					<div id="write-wrap-content">
 						<h5 class="write-header">챌린지 개설</h5>
 
@@ -123,10 +123,10 @@
 												<td class="write-table-label">인증방법</td>
 												<td class="write-table-content">
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="upload-picture" name="certify" checked="checked" value="picture"><label class="form-check-label" for="upload-picture">사진</label>
+														<input class="form-check-input" type="radio" id="upload-picture" name="certify" checked="checked" value="1"><label class="form-check-label" for="upload-picture">사진</label>
 													</div>
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="upload-video" name="certify" value="video"><label class="form-check-label" for="upload-video">비디오</label>
+														<input class="form-check-input" type="radio" id="upload-video" name="certify" value="2"><label class="form-check-label" for="upload-video">비디오</label>
 													</div>
 												</td>
 												<td class="write-table-label">추가인증설정</td>
@@ -420,8 +420,8 @@
 												<td class="write-table-content" colspan="3"><div id="tagDiv">
 														<input id="tagbar" type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)" data-value=""><br>
 													</div>
-													<div class="font-12">
-														<div id="tags"></div> 
+													<div id="tagLD"class="font-12">
+														<span id="tags"></span> 
 													</div></td>
 											</tr>
 										</tbody>
@@ -437,16 +437,16 @@
 											<td class="write-table-label">챌린지참가비용</td>
 											<td class="font-12 write-table-content"><select name="payment">
 													<option value="0" selected="selected">금액설정</option>
-													<option value="10,000">10,000</option>
-													<option value="20,000">20,000</option>
-													<option value="30,000">30,000</option>
-													<option value="40,000">40,000</option>
-													<option value="50,000">50,000</option>
-													<option value="60,000">60,000</option>
-													<option value="70,000">70,000</option>
-													<option value="80,000">80,000</option>
-													<option value="90,000">90,000</option>
-													<option value="100,000">100,000</option>
+													<option value="10000">10,000</option>
+													<option value="20000">20,000</option>
+													<option value="30000">30,000</option>
+													<option value="40000">40,000</option>
+													<option value="50000">50,000</option>
+													<option value="60000">60,000</option>
+													<option value="70000">70,000</option>
+													<option value="80000">80,000</option>
+													<option value="90000">90,000</option>
+													<option value="100000">100,000</option>
 											</select>&nbsp;원 <span class="float-r">※참가비용 설정 후 자동으로 참가됩니다.</span></td>
 										</tr>
 									</tbody>
@@ -462,7 +462,7 @@
 					</div>
 					<!-- write-wrap content -->
 
-					<!-- 					</form> -->
+<!-- 										</form> -->
 					<!-- content form -->
 
 
@@ -567,45 +567,164 @@
 		})
 	});
 
+	 <!-------------------------------- 태그 생성 // 삭제 -------------------------------->
+	  	//태그갯수확인
+	  	var count = 1;
+	  	
+	  	//태그 리스트 배열 선언
+	  	tagList = [];
+	  	
+		//태그 append  	
+	  	$("#tagbar").on("keyup", function(key){
+
+	  		if(key.keyCode == 13){
+	  			//태그 value 가져오기
+	  	  		var text = $("#tagbar").val();
+	  			
+	  	  		if(text == "" || text == null){
+	  	  			
+	  	  			alert("텍스트를 입력해 주세요")
+	  	  			
+	  	  		} else if(count <= 5){
+	  	  			
+	  	  			//태그 배열에 추가
+		  	  		tagList.push(text);
+		  	  		
+		  	  		//태그 append 선택자(*) 지우기
+		  	  		$("#tags *").remove();
+		  	  		
+		  	  		//태그바 초기화
+			  	  	var text = $("#tagbar").val("");
+		  	  		
+		  	  		//태그 갯수 +1
+		  	  		count += 1;	  	 
+		  	  		
+		  	  		for(var i = 0 ; i < tagList.length ; i++){
+						$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
+		  	  		}
+		  	  		
+				} else{
+					alert("최대 설정 가능한 태그입니다.");
+				}
+			  	  		
+	  		}
+	  		
+	  	});
+	  	
+	  	
+	  	//태그 1~5 삭제
+	  		$("#tagLD").on("click", "#tag1", function(){
+	  			
+	  			tagList.shift();
+	  			
+	  			$("#tags *").remove();
+	  			
+	  			count -= 1;
+	  			
+	  			for(var i = 0 ; i < tagList.length ; i++){
+	  				
+					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
+	  	  		}
+	  			
+	  		})
+	  	
+			$("#tagLD").on("click", "#tag2", function(){
+	  			
+	  			tagList.splice(1, 1);
+	  			
+	  			$("#tags *").remove();
+	  			
+	  			count -= 1;
+	  			
+	  			for(var i = 0 ; i < tagList.length ; i++){
+	  				
+					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
+	  	  		}
+	  		});
+	  		
+			$("#tagLD").on("click", "#tag3", function(){
+	  			
+	  			tagList.splice(2, 1);
+	  			
+	  			$("#tags *").remove();
+	  			
+	  			count -= 1;
+	  			
+	  			for(var i = 0 ; i < tagList.length ; i++){
+	  				
+					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
+	  	  		}
+	  			
+	  		});
+	  		
+			$("#tagLD").on("click", "#tag4", function(){
+	  			
+	  			tagList.splice(3, 1);
+	  			
+	  			$("#tags *").remove();
+	  			
+	  			count -= 1;
+	  			
+	  			for(var i = 0 ; i < tagList.length ; i++){
+	  				
+					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
+	  	  		}
+	  			
+	  		});
+	  		
+			$("#tagLD").on("click", "#tag5", function(){
+	  			
+	  			tagList.pop();
+	  			
+	  			$("#tags *").remove();
+	  			
+	  			count -= 1;
+	  			
+	  			for(var i = 0 ; i < tagList.length ; i++){
+	  				
+					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
+	  	  		}
+	  			
+	  		});
+	 
+	 
 	 <!-- form data -->
   	$("#MKBtn").on("click", function(){
-  		var clgTitle = $("#clgTitle").val();
-  		var interestNo = $('input:radio[name="interestNo"]:checked').val();
-  		var recruitment = $('select[name="recruitment"]').val();
-  		var period = $('select[name="period"]').val();
-  		var certify = $('input:radio[name="certify"]:checked').val();
-  		var minigame = $('input:checkbox[name="minigame"]:checked').val();
-  		var upload = $('input:radio[name="upload"]:checked').val();
-  		var certifyDay = $('input:radio[name="certifyDay"]:checked').val();
-  		var content = $("#classic").text();
-  		console.log(content);
-  		var color = $("#color");
-  		var tag1 = $("#tag1");
-  		var tag2 = $("#tag2");
-  		var tag3 = $("#tag3");
-  		var tag4 = $("#tag4");
-  		var tag5 = $("#tag5");
-  		var clgLevel = $("#clgLevel");
-  		var clgGroup = $("#clgGroup");
-  		var certifyNo = $("#certifyNo");
-  		var certifyTitle = $("#certifyTitle");
-  		var subOn = $("#subOn");
-  		var subOff = $("#subOff");
-  		var interestName = $("#interestName");
-  		var userNo = $("#userNo");
-  		var payment = $("#payment");
+  		
+//   		var content = $("#classic").text();
+
+//   		var color = $("#color");
+  		
+//   		var clgLevel = $("#clgLevel");
+  		
+//   		<!-- 과제관련 var -->
+//   		var certifyNo = $("#certifyNo");
+//   		var certifyTitle = $("#certifyTitle");
+//   		var subOn = $("#subOn");
+//   		var subOff = $("#subOff");
   		
   		
-  		var inputFile = $('input[name="img"]');
+//   		var userNo = $("#userNo");
+  		var payment = $('select[name="payment"]').val();
   		
-  		console.log(challengeVo);
+ 		var inputFile = $('input[name="img"]');
   		
   		var formData = new FormData();
   		
   		formData.append('imgs' , inputFile[0].files[0]);
   		formData.append('interestNo' ,  $('input:radio[name="interestNo"]:checked').val());
-  		
-  		console.log(formData);
+  		formData.append('clgTitle' ,  $("#clgTitle").val());
+  		formData.append('recruitment' ,  $('select[name="recruitment"]').val());
+  		formData.append('period' ,  $('select[name="period"]').val());
+  		formData.append('certify' ,  $('input:radio[name="certify"]:checked').val());
+  		formData.append('minigame' ,  $('input:checkbox[name="minigame"]:checked').val());
+  		formData.append('upload' ,  $('input:radio[name="upload"]:checked').val());
+  		formData.append('certifyDay' ,  $('input:radio[name="certifyDay"]:checked').val());
+  		formData.append('tag1' ,  tagList[0]);
+  		formData.append('tag2' ,  tagList[1]);
+  		formData.append('tag3' ,  tagList[2]);
+  		formData.append('tag4' ,  tagList[3]);
+  		formData.append('tag5' ,  tagList[4]);
   		
   		$.ajax({
   			contentType : false,
@@ -620,20 +739,8 @@
   		})
   		
   	})
-	 
-  	
-  	//태그그리기
-  	$("#tagDiv").on("keyup", "#tagbar", function(){
-  		var $this = $(this);
+
   		
-  		var text = $this.data("tagbar");
-  		console.log(text);
-  	})
-  		
-  	
-  	var str = "";
-  	
-  	str += '<p>
   
 </script>
 </html>
