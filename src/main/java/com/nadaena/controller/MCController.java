@@ -99,12 +99,16 @@ public class MCController {
 	
 	//리뷰쓰기
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeReview(@ModelAttribute MRVo mrVo) {
+	public String writeReview(@ModelAttribute MRVo mrVo, MCVo mcVo, Model model) {
 		System.out.println("bController > write()");
 		
 		// Service를 통해서 저장한다
 		mcService.writeReview(mrVo);
-
+		
+		mcService.updateState(mcVo);
+		
+		
+		
 		return "redirect:/my/my-challenge";
 	}
 	

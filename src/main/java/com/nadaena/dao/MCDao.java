@@ -54,6 +54,7 @@ public class MCDao {
 		
 		return mcList4;
 	}
+	
 	//리뷰 불러오기
 	public List<MRVo> selectreviewList() {
 		System.out.println("MRDao > selectreviewList()");
@@ -72,6 +73,13 @@ public class MCDao {
 		
 		return count;
 	}
+	
+	//상태업데이트
+	public int update(MCVo mcVo) {
+		
+		return sqlSession.update("myChallenge.updateState",mcVo);
+	}
+	
 	
 	//리뷰삭제
 	public int deleteReview(MRVo mrVo) {

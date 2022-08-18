@@ -72,6 +72,12 @@ public class MCService {
 		return mcDao.writeReview(mrVo);
 	}
 	
+	//상태 업데이트
+	public int updateState(MCVo mcVo) {
+		
+		return mcDao.update(mcVo);
+	}
+	
 	//리뷰 삭제
 	public int removeReview(MRVo mrVo) {
 		System.out.println("MCSERVICE >> del.review");
