@@ -31,11 +31,11 @@ public class MainController {
 		return "main/mainTitle";
 	}
 	
-	@RequestMapping(value="/main/maintest", method = {RequestMethod.GET, RequestMethod.POST})
-	public String maintest2() {
-		System.out.println("maintest");
+	@RequestMapping(value="/main2", method = {RequestMethod.GET, RequestMethod.POST})
+	public String main2(Model model) {
+		System.out.println("main2");
 		
-		return "main/test";
+		return "main/mainTitle";
 	}
 	
 	
