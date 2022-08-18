@@ -6,8 +6,14 @@
 	<!-- 참가챌린지 가져오기 -->
 	<select id="selectList" parameterType="String" resultType="MCVo">
 		<![CDATA[
-			select  c.challengeNo,
+			select  m.userNo,
+					m.userClgNo,
+					c.challengeNo,
 					c.clgTitle,
+					m.mychallengeDate,
+					m.founder,
+					m.achievement,
+					m.state,
 			        c.regdate,
 			        c.period,
 			        m.payment

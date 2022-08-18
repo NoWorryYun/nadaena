@@ -46,19 +46,21 @@
 				<div class="challenge-images">
 				<c:forEach items="${mcList}" var="MCVo" varStatus="i">
 					<div class="challenge-box">
-						<div class="challenge-image">
-							<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
-						</div>
-						<div class="challenge-info">
-							<h4>${MCVo.clgTitle }</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-							<p>참여 인원 : 15</p>
-							<p>도전비용 : ${MCVo.payment }원</p>
-							<p class="last-p">기대 성공금액 : 2~3%</p>
-						</div> 
+						<div class="challenge-boxin">
+							<div class="challenge-image">
+								<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+							</div>
+							<div class="challenge-info">
+								<h4>${MCVo.clgTitle }</h4>
+								<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+								<p>참여 인원 : 15</p>
+								<p>도전비용 : ${MCVo.payment }원</p>
+								<p class="last-p">기대 성공금액 : 2~3%</p>
+							</div>
+						</div>	 
 						<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
-					
-					</div>	
+					</div>
+						
 				</c:forEach>
 				</div>		
 					
@@ -153,6 +155,7 @@
 					<p class="modal-upload-date">작성일 : 2022-08-31</p>
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
+					<!-- <input type="hidden" name="state" value="2"> -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
 				<input type="file" id="modal-upbutton">
