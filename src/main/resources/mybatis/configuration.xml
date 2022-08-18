@@ -7,6 +7,7 @@
     <typeAlias alias="MCVo" type="com.nadaena.vo.MCVo" />
     <typeAlias alias="MRVo" type="com.nadaena.vo.MRVo" />
     <typeAlias alias="PointVo" type="com.nadaena.vo.PointVo" />
+    <typeAlias alias="UserVo" type="com.nadaena.vo.UserVo" />
     </typeAliases>
  
     <mappers>
@@ -14,5 +15,6 @@
     	<mapper resource="mybatis/mappers/Challenge.xml" />
     	<mapper resource="mybatis/mappers/myChallenge.xml" />
     	<mapper resource="mybatis/mappers/point.xml" />
+    	<mapper resource="mybatis/mappers/users.xml" />
     </mappers>
 </configuration>
