@@ -52,8 +52,7 @@
 
 
 
-.box_1 { float: left; margin-right: 21px; padding-bottom: 80px;}
-.box_2 { float: left; padding-bottom: 80px;  }
+.box_1 { float: left; margin-right: 14px; padding-bottom: 80px;}
 .scale { width: 386px; height: 286px; overflow: hidden;
     transform: scale(1); margin-bottom: 30px; }
 .scale img { position: relative; 

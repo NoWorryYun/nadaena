@@ -19,4 +19,14 @@ public class UserDao {
 			int count = sqlSession.insert("users.insertUser", userVo);
 			return count;
 		}
+		
+		public UserVo selectUser(UserVo userVo) {
+			System.out.println("userDao user");
+
+			UserVo authUser = sqlSession.selectOne("users.selectUser", userVo);
+
+			System.out.println("유저다오의: " + authUser);
+
+			return authUser;
+		}
 }

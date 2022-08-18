@@ -19,4 +19,12 @@ public class UserService {
 
 		return count;
 	}
+	
+	public UserVo getUser(UserVo userVo) {
+		System.out.println("user get ser");
+
+		UserVo authUser = userDao.selectUser(userVo);
+
+		return authUser;
+	}
 }
