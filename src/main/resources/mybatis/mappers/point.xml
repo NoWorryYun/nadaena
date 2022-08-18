@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="point">
+	
+	<!-- 회원가입시 초기값 0 -->
+	<insert id="insertPoint" parameterType="PointVo">
+		<![CDATA[
+			insert into point
+			values  (seq_pointNo.nextval,
+					#{pointNo},
+					#{userNo},
+					null,
+					null,
+					0,
+					null,
+					null,
+					null
+		]]>
+	</insert>
+	
+	<!-- 회원번호로 회원포인트정보 가져오기 -->
+	<select id="selectPoint" parameterType="int" resultType="PointVo">
+		select  p.pointNo,
+				u.userNo,
+				p.pointGroup,
+				p.charge,
+				p.amount,
+				p.pointDate,
+				p.source,
+				p.pointMemo
+		where u.userNo = p.userNo	
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

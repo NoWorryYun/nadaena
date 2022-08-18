@@ -41,11 +41,8 @@
 				<h3>마이 포인트</h3>
 			
 				
-                <div class="mypoint-header">
-                    포인트 내역
-                </div>
                 <div class="mypoint">
-                    <p class="mypoint2">*포인트 총잔액 : <span class="mypoint-number">46,500p</span></p>
+                    <p class="mypoint2">나대나 포인트<span class="mypoint-number">0원</span></p>
                 </div>
                 
                 <div class="mypoint-buttons">

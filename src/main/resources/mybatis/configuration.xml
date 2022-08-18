@@ -13,5 +13,6 @@
     	<mapper resource="mybatis/mappers/mainTitle.xml" />
     	<mapper resource="mybatis/mappers/Challenge.xml" />
     	<mapper resource="mybatis/mappers/myChallenge.xml" />
+    	<mapper resource="mybatis/mappers/point.xml" />
     </mappers>
 </configuration>
