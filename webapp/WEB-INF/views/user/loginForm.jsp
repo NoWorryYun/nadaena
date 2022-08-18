@@ -54,7 +54,7 @@
 										<div class="text-center">
 											
 										</div>
-										<form class="user">
+										<form class="user" method="post" action="${pageContext.request.contextPath}/login">
 											<div class="mb-3">
 												<input id="ex   ampleInputEmail"
 													class="form-control form-control-user" type="email"
@@ -64,7 +64,7 @@
 											<div class="mb-3">
 												<input id="exampleInputPassword"
 													class="form-control form-control-user" type="password"
-													placeholder="비밀번호" name="password" />
+													placeholder="비밀번호" name="pasword" />
 											</div>
 											<div class="mb-3">
 												<div class="custom-control custom-checkbox small">

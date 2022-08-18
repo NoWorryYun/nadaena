@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <header>
 	<div class="header-box">
@@ -17,22 +18,22 @@
 				</form>
 				
 				<div id="userbox" class="col-3 text-end">
-				
+				<c:if test="${not empty authUser }">
 					
 					<div id="btn-user" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 						<span id="lv-user" class="badge bg-secondary rounded-pill">Lv.999</span>
-						<span id="txt-nick">황일영님 안녕하세요</span>
+						<span id="txt-nick">${authUser.nickName}님 안녕하세요</span>
 					</div>
 					<ul id="btn-user-list" class="dropdown-menu">
 						<li><a class="dropdown-item" href="#">마이페이지</a></li>
 						<li><a class="dropdown-item" href="#">로그아웃</a></li>
 					</ul>
-					 
+					 </c:if>
 					
-					<!-- 
-					<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a>
+								<c:if test="${empty authUser }">
+				<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a>
 					<a id="btn-join" class="btn btn-light btn-sm" href="#">회원가입</a>
-					-->
+				 </c:if>
 				</div>
 			</div>
 			<!-- //row -->
