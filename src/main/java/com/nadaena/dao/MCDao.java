@@ -14,7 +14,7 @@ import com.nadaena.vo.PointVo;
 public class MCDao {
 	 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//참가 리스트
 	public List<MCVo> selectList() {
