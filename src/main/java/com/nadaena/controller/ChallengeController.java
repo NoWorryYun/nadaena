@@ -86,7 +86,7 @@ public class ChallengeController {
 	//챌린지 대표 이미지 받기
 	@ResponseBody
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
-    public Map<String, Object> challengeImg(@RequestBody ChallengeVo challengeVo) throws IOException {
+    public Map<String, Object> challengeImg(@ModelAttribute ChallengeVo challengeVo) throws IOException {
 
 		System.out.println(challengeVo);
 		

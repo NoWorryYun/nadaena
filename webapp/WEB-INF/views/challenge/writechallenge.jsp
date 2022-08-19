@@ -108,8 +108,8 @@
 										</tbody>
 									</table>
 									<div class="explain-date">
-										<p>
-											'2022-08-08 00시'부터 '1주일'동안 진행됩니다.<br>(2022-08-08 00시 00분 ~ 2022-08-15 23시 59분)
+										<p id="eDate">
+											'<span class="startDate"></span>'부터 '1주일'동안 진행됩니다.<br>(<span class="startDate"></span> ~ <span class="cDate"></span>)
 										</p>
 									</div>
 								</div>
@@ -533,16 +533,22 @@
 
 
 <script type="text/javascript">
-	
+
+	var editor;
 		
 	<!-- ck Editor -->
 	ClassicEditor
 		.create( document.querySelector( '#classic' ), {
 			removePlugins: [ 'ImageUpload' ]
 		} )
+		.then( newEditor => {
+			editor = newEditor;
+		})
 		.catch( error => {
 		    console.error( error );
 	} );
+	
+	//에디터
 	
 	
 	<!-- color picker -->
@@ -687,37 +693,210 @@
 	  			
 	  		});
 	 
+	
+ 	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
+	
+	$('[name=upload]').on("click", function(){
+		if($('[name=upload]').val() == 1){
+			
+		}
+	})
 	 
+	 
+	<!-------------------------------- 시간 설정 -------------------------------->
+	
+	var today = new Date();  
+	var date = today.getDate();
+	var rDate = new Date();
+	console.log(date);
+	
+	$('select[name="recruitment"]').on("change", function(){
+		var rec = $('select[name="recruitment"]').val();
+		
+		console.log("rec: " + rec);
+
+		if(rec == 3){
+			rDate = new Date(today.setDate(date + 3));
+			console.log(rDate);
+			
+			$('select[name="period"]').on("change", function(){
+				var pSel = $('select[name="period"]').val();
+				
+				var rDates = rDate.getDate();
+				
+				console.log("pSel: " + pSel);
+
+				if(pSel == 1){
+					rDate = new Date(rDate.setDate(rDates + 10));
+					console.log(rDate);
+				} else if(pSel == 2){
+					rDate = new Date(rDate.setDate(rDates + 17));
+					console.log(rDate);
+				} else {
+					rDate = new Date(rDate.setDate(rDates + 24));
+					console.log(rDate);
+				}
+				
+				rDate = new Date();
+			})
+		} else if(rec == 4){
+			rDate = new Date(today.setDate(date + 4));
+			console.log(rDate);
+			
+			$('select[name="period"]').on("change", function(){
+				var pSel = $('select[name="period"]').val();
+				
+				var rDates = rDate.getDate();
+				
+				console.log("pSel: " + pSel);
+
+				if(pSel == 1){
+					rDate = new Date(rDate.setDate(rDates + 4 + 7));
+					console.log("rDate1");
+					console.log(rDate);
+					console.log(typeof(rDate));
+				} else if(pSel == 2){
+					rDate = new Date(rDate.setDate(rDates + 4 + 14));
+					console.log("rDate2");
+					console.log(rDate);
+				} else {
+					rDate = new Date(rDate.setDate(rDates + 4 + 21));
+					console.log("rDate3");
+					console.log(rDate);
+				}
+				
+				rDate = new Date();
+			})
+		} else if(rec == 5){
+			rDate = new Date(today.setDate(date + 5));
+			console.log(rDate);
+			
+			$('select[name="period"]').on("change", function(){
+				var pSel = $('select[name="period"]').val();
+				
+				var rDates = rDate.getDate();
+				
+				console.log("pSel: " + pSel);
+
+				if(pSel == 1){
+					rDate = new Date(rDate.setDate(rDates + 5 + 7));
+					console.log(rDate);
+				} else if(pSel == 2){
+					rDate = new Date(rDate.setDate(rDates + 5 + 14));
+					console.log(rDate);
+				} else {
+					rDate = new Date(rDate.setDate(rDates + 5 + 21));
+					console.log(rDate);
+				}
+				
+				rDate = new Date();
+			})
+		} else if(rec == 6){
+			rDate = new Date(today.setDate(date + 6));
+			console.log(rDate);
+			
+			$('select[name="period"]').on("change", function(){
+				var pSel = $('select[name="period"]').val();
+				
+				var rDates = rDate.getDate();
+				
+				console.log("pSel: " + pSel);
+
+				if(pSel == 1){
+					rDate = new Date(rDate.setDate(rDates + 6 + 7));
+					console.log(rDate);
+				} else if(pSel == 2){
+					rDate = new Date(rDate.setDate(rDates + 6 + 14));
+					console.log(rDate);
+				} else {
+					rDate = new Date(rDate.setDate(rDates + 6 + 21));
+					console.log(rDate);
+				}
+				
+				rDate = new Date();
+			})
+		} else{
+			rDate = new Date(today.setDate(date + 7));
+			console.log(rDate);
+			
+			$('select[name="period"]').on("change", function(){
+				var pSel = $('select[name="period"]').val();
+				
+				var rDates = rDate.getDate();
+				
+				console.log("pSel: " + pSel);
+
+				if(pSel == 1){
+					rDate = new Date(rDate.setDate(rDates + 7 + 7));
+					console.log(rDate);
+				} else if(pSel == 2){
+					rDate = new Date(rDate.setDate(rDates + 7 + 14));
+					console.log(rDate);
+				} else {
+					rDate = new Date(rDate.setDate(rDates + 7 + 21));
+					console.log(rDate);
+				}
+				
+				rDate = new Date();
+			})
+		}
+		
+		var cDate = [];
+		cDate[0] = rDate.getFullYear();
+		cDate[1] = rDate.getMonth() + 1;
+		cDate[2] = rDate.getDate();
+		
+		$(".cDate").text((cDate[0] +'/'+ cDate[1] +'/'+ cDate[2]));
+		
+		today = new Date();
+	})
+	
+	
+	//챌린지 시작 날짜 
+	
+	
 	 <!-- form data -->
   	$("#MKBtn").on("click", function(){
   		
-//   		var content = $("#classic").text();
+//		var content = $("#classic").text();
 
-//   		var color = $("#color");
-  		
-//   		var clgLevel = $("#clgLevel");
-  		
-//   		<!-- 과제관련 var -->
-//   		var certifyNo = $("#certifyNo");
-//   		var certifyTitle = $("#certifyTitle");
-//   		var subOn = $("#subOn");
-//   		var subOff = $("#subOff");
-  		
-  		
-//   		var userNo = $("#userNo");
+//		var color = $("#color");
+		
+//		var clgLevel = $("#clgLevel");
+		
+//		<!-- 과제관련 var -->
+//		var certifyNo = $("#certifyNo");
+//		var certifyTitle = $("#certifyTitle");
+//		var subOn = $("#subOn");
+//		var subOff = $("#subOff");
+		
+		
+//		var userNo = $("#userNo");
+		
+
+
   		var payment = $('select[name="payment"]').val();
   		
  		var inputFile = $('input[name="img"]');
   		
+ 		var content = editor.getData();
+ 		
   		var formData = new FormData();
-  		
+
   		formData.append('imgs' , inputFile[0].files[0]);
   		formData.append('interestNo' ,  $('input:radio[name="interestNo"]:checked').val());
   		formData.append('clgTitle' ,  $("#clgTitle").val());
   		formData.append('recruitment' ,  $('select[name="recruitment"]').val());
   		formData.append('period' ,  $('select[name="period"]').val());
   		formData.append('certify' ,  $('input:radio[name="certify"]:checked').val());
-  		formData.append('minigame' ,  $('input:checkbox[name="minigame"]:checked').val());
+
+  		
+  		if($('input:checkbox[name="minigame"]:checked')==true){
+  			formData.append('minigame' ,  $('input:checkbox[name="minigame"]:checked').val()); //0
+  		}else {
+  			formData.append('minigame' , -1);
+  		}
+  		
   		formData.append('upload' ,  $('input:radio[name="upload"]:checked').val());
   		formData.append('certifyDay' ,  $('input:radio[name="certifyDay"]:checked').val());
   		formData.append('tag1' ,  tagList[0]);
@@ -725,6 +904,12 @@
   		formData.append('tag3' ,  tagList[2]);
   		formData.append('tag4' ,  tagList[3]);
   		formData.append('tag5' ,  tagList[4]);
+  		formData.append('content', content);
+  		
+  		
+  		formData.append('color',  $('[name="color"]').css( "background-color"));
+  		
+  		console.log($('[name="color"]').css( "background-color"));
   		
   		$.ajax({
   			contentType : false,
@@ -735,12 +920,11 @@
   			success : function(result){
   				console.log(result)
   			}
+
   				
   		})
   		
   	})
 
-  		
-  
 </script>
 </html>

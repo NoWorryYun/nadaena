@@ -39,6 +39,27 @@ public class ChallengeVo {
 		super();
 	}
 
+
+	public ChallengeVo(int interestNo, String clgTitle, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String tag1, String tag2, String tag3, String tag4, String tag5, MultipartFile imgs) {
+		super();
+		this.interestNo = interestNo;
+		this.clgTitle = clgTitle;
+		this.recruitment = recruitment;
+		this.period = period;
+		this.certify = certify;
+		this.minigame = minigame;
+		this.upload = upload;
+		this.certifyDay = certifyDay;
+		this.content = content;
+		this.tag1 = tag1;
+		this.tag2 = tag2;
+		this.tag3 = tag3;
+		this.tag4 = tag4;
+		this.tag5 = tag5;
+		this.imgs = imgs;
+	}
+
+
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs) {
 		super();
