@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>검색결과</title>
-
+    
+    
 	<!-- css -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/fonts/font-awesome.min.css">
@@ -17,7 +18,7 @@
 	<!-- js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
-	
+	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/tap_shop.js"></script>
 	
 		<!-- css -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/style.css">
@@ -27,8 +28,6 @@
 	
 	
 	<!-- js -->
-	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
-	<script src="${pageContext.request.contextPath }/assets/js/nav.js"></script>
 	
 </head>
 
@@ -100,17 +99,28 @@
                     <li data-tab="tab-3">문의</li>
                     <li data-tab="tab-4">취소/환불 규정</li>
                 </ul>
-
+                <!-- class="current"  -->
+				
+				<!-- 상세페이지 -->
                 <div class="notice_list tab_content active" id="tab-1">
-                	
-                    <p>페이지 준비중입니다</p>
-                    <br>
-                    <p>티켓 사용정보</p>
-                    <p>PIN 정보</p>
-                    <p>결제정보</p>
-                    <p>상세페이지</p>
-                    <img src="http://img1.tmon.kr/cdn4/deals/2021/11/25/7199972470/review_516dd.jpg" alt="">
+                	<c:import url="/WEB-INF/views/shop/detail.jsp"></c:import>
                 </div>
+                
+                <!-- 리뷰페이지 -->
+                <div class="notice_list tab_content" id="tab-2">
+                	<c:import url="/WEB-INF/views/shop/review.jsp"></c:import>
+                </div>
+                
+                <!-- 문의페이지 -->
+                <div class="notice_list tab_content" id="tab-3">
+                	<c:import url="/WEB-INF/views/shop/qna.jsp"></c:import>
+                </div>
+                
+                <!-- 규정페이지 -->
+                <div class="notice_list tab_content" id="tab-4">
+                	<c:import url="/WEB-INF/views/shop/policy.jsp"></c:import>
+                </div>
+                
             </div>
         </div>
         

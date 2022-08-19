@@ -42,17 +42,17 @@
 
 <main>
 	<div class="main-box">
-		<h2>포인트몰 > 장바구니</h2>
+		<h2>포인트몰 > 구매내역</h2>
 		<section id="contents_wrap1">
 
             <div class="contents_1">
                 <div class="step">
                     <ul class="step_list">
-                        <li class="on">01 장바구니</li>
+                        <li class="on">01 구매내역</li>
                         <li><i class="fas fa-angle-right"></i></li>
-                        <li>02 주문서작성</li>
+                        <li>02 =</li>
                         <li><i class="fas fa-angle-right"></i></li>
-                        <li>03 결제/주문완료</li>
+                        <li>03 </li>
                     </ul>
                 </div>
 
@@ -70,32 +70,32 @@
                         </colgroup>
                         <thead>
                             <tr>
-                                <th scope="col">
+                                <!-- <th scope="col">
                                     <div class="check">
                                         <input type="checkbox" name="allcheck" onclick="all_basket_check" class="checkbox" checked>
                                     </div>
-                                </th>
+                                </th> -->
                                 <th scope="col">상품명/선택사항</th>
                                 <th scope="col">수량</th>
                                 <th scope="col">상품금액</th>
-                                <th scope="col">삭제</th>
+                                <!-- <th scope="col">삭제</th> -->
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <td colspan="7">
-                                    <div class="td_text">장바구니가 비어 있습니다.</div>
+                                    <div class="td_text">구매내역이 비어 있습니다.</div>
                                 </td>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
-
+<!-- 
                 <ul class="btn">
                     <li><a href="">전체상품주문</a></li>
                     <li><a href="">선택상품주문</a></li>
                 </ul>
-
+ -->
                 <p class="ing"><a href="#">계속쇼핑하기</a></p>
                 
             </div>
