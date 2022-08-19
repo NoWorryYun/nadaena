@@ -97,7 +97,7 @@ public class MCController {
 		return "my/my-review";
 	}
 	
-	//리뷰쓰기
+	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeReview(@ModelAttribute MRVo mrVo, MCVo mcVo, Model model) {
 		System.out.println("bController > write()");
@@ -106,8 +106,6 @@ public class MCController {
 		mcService.writeReview(mrVo);
 		
 		mcService.updateState(mcVo);
-		
-		
 		
 		return "redirect:/my/my-challenge";
 	}

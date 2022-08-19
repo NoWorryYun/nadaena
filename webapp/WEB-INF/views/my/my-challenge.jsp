@@ -59,9 +59,11 @@
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
 							</div>	 
-							<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
+							<c:if test="${MCVo.endday => MCVo.yesterday }">
+								<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
+							</c:if>	
 						</div>
-							
+						
 					</c:forEach>
 					
 					<c:set var="length" value="${fn:length(mcList)}" />

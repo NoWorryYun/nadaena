@@ -14,9 +14,13 @@
 					m.founder,
 					m.achievement,
 					m.state,
-			        c.regdate,
+			        to_char(c.regdate, 'yy/mm/dd') regDate,
+			        c.recruitment,
 			        c.period,
-			        m.payment
+			        to_char(c.regdate + c.recruitment) startday,
+			        to_char(c.regdate + c.recruitment + c.period) endday,
+			        m.payment,
+			        to_char(sysdate-1, 'yy/mm/dd') yesterday
 			from challenge c, mychallenge m
 			where c.challengeNo = m.challengeNo
 			and   m.state = 1
@@ -34,7 +38,7 @@
 					m.founder,
 					m.achievement,
 					m.state,
-			        c.regdate,
+			        to_char(c.regdate, 'yy/mm/dd') regDate,
 			        c.period,
 			        m.payment
 			from challenge c, mychallenge m
@@ -54,7 +58,7 @@
 					m.founder,
 					m.achievement,
 					m.state,
-			        c.regdate,
+			        to_char(c.regdate, 'yy/mm/dd') regDate,
 			        c.period,
 			        m.payment
 			from challenge c, mychallenge m
@@ -75,7 +79,7 @@
 					m.founder,
 					m.achievement,
 					m.state,
-			        c.regdate,
+			        to_char(c.regdate, 'yy/mm/dd') regDate,
 			        c.period,
 			        m.payment
 			from challenge c, mychallenge m

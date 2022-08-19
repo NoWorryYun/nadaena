@@ -17,12 +17,13 @@ public class MCVo {
 	private int recruitment;
 	private int period;
 	private int level;
-	
+	private String startday;
+	private String endday;
+	private String yesterday;
 	public MCVo() {
 		super();
 	}
-	
-	public MCVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level) {
+	public MCVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, String startday, String endday, String yesterday) {
 		super();
 		this.userClgNo = userClgNo;
 		this.challengeNo = challengeNo;
@@ -38,6 +39,9 @@ public class MCVo {
 		this.recruitment = recruitment;
 		this.period = period;
 		this.level = level;
+		this.startday = startday;
+		this.endday = endday;
+		this.yesterday = yesterday;
 	}
 	public int getUserClgNo() {
 		return userClgNo;
@@ -123,14 +127,29 @@ public class MCVo {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	public String getStartday() {
+		return startday;
+	}
+	public void setStartday(String startday) {
+		this.startday = startday;
+	}
+	public String getEndday() {
+		return endday;
+	}
+	public void setEndday(String endday) {
+		this.endday = endday;
+	}
+	public String getYesterday() {
+		return yesterday;
+	}
+	public void setYesterday(String yesterday) {
+		this.yesterday = yesterday;
+	}
 	@Override
 	public String toString() {
 		return "MCVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
-				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + "]";
+				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + "]";
 	}
-	
-	
-	
 	
 	
 	
