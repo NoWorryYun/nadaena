@@ -56,12 +56,13 @@
     font-size: 16px;
 }
 
+
 .sum { padding-top: 50px; padding-right: 100px; }
 .sum span { float: right;  font-size: 20px; font-weight: 300; 
     color: #111;
 }
 
-.button { clear: both; padding-top: 70px; }
+input .button { clear: both; padding-top: 70px; }
 .button p {
     float: left;
     border: 1px solid #ccc;
@@ -72,17 +73,21 @@
     margin-right: 10px;
     
 }
+
 .button p a { font-size: 15px; font-weight: 500; }
 .button p.buy { width: 36%; 
     background-color: #111;
     padding: 0;
 }
+
+
 .buy a {
     color: #efefef;
     display: block;
     padding: 15px 0px;
-
 }
+
+ 
 .buy a:hover{ 
     background-color: #ffffff;
     color: #111;
@@ -98,6 +103,8 @@
     border-top: 1px solid #ccc 
 }
 
+
+
 .tab_menu { width: 100%;  }
 .tab_menu li { float: left; width: 25%; 
     text-align: center; padding-top: 20px;
@@ -105,4 +112,95 @@
     cursor: pointer;
 }
 
-.notice_list { padding: 100px 0; text-align: center; margin-top: 100px; }
+
+.detail_tab { padding: 100px 0; text-align: center; margin-top: 100px; }
+
+/* 문의하기 */
+
+.detail_tab table {
+	width: 100%;
+	max-width: 800px;
+	MARGIN: 0 AUTO;
+}
+
+/* 
+.detail_tab table {
+	 text-align: center; 
+	 width: 100%;
+}
+ */
+ 
+.QNAtitle{
+	width: 100%;
+	max-width: 810px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.QNAtitle h3{
+	padding-left: 15px;
+	font-size: 18px;
+}
+
+.QNAtitle .QNAnotice{
+	font-size: 14px;
+	color: #7d7e80;
+    padding-left: 20px;
+    /* position: relative; */
+}
+ 
+ 
+.writeArea{
+	width: 100%;
+	height: 160px;
+}
+ 
+.writeArea .QNAtextareatd{
+    padding: 5px;
+    padding-bottom: 0px;
+	width: 620px;
+	height: 150px;
+	padding-top: 2px;
+}
+
+.writeArea .buttontd{
+    padding: 1px;	
+	width: 80px;
+	height: 150px;
+}
+
+.writeArea .QNAtextarea{
+	width: 100%;
+	height: 100%;
+	padding: 10px 8px;
+	
+	border: 1px solid #b7bfc8;
+	font-size: 14px;
+    line-height: 22px;
+    color: #959da6;
+    resize: vertical;
+}
+.writeArea .button{
+	width: 100%;
+	height: 100%;
+	border: none;
+	
+    border: solid 1px #b7bfc8;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7d7e80;
+    background-color: #fff;
+}
+
+
+/* 
+.detail_tab button {
+	float: right;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 126px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px 0px;
+    margin-right: 0px;
+} */
