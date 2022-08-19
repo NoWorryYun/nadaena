@@ -2,42 +2,86 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mainTitle">
+	
+	<resultMap id="resultMainTitleVo" type="MainTitleVo">
+		<result column="challengeNo" property="challengeNo" />
+		<result column="interestNo" property="interestNo" />
+		<result column="clgTitle" property="clgTitle" />
+		<result column="img" property="img" />
+		<result column="regDate" property="regDate" />
+		<result column="recruitment" property="recruitment" />
+		<result column="period" property="period" />
+		<result column="certify" property="certify" />
+		<result column="minigame" property="minigame" />
+		<result column="upload" property="upload" />
+		<result column="certifyDay" property="certifyDay" />
+		<result column="content" property="content" />
+		<result column="color" property="color" />
+		<result column="tag1" property="tag1" />
+		<result column="tag2" property="tag2" />
+		<result column="tag3" property="tag3" />
+		<result column="tag4" property="tag4" />
+		<result column="tag5" property="tag5" />
+		<result column="clgLevel" property="clgLevel" />
+		<result column="clgGroup" property="clgGroup" />
+		<result column="count_user" property="count_user" />
+	</resultMap>
+	
+	
 
 	<!-- 메인화면 이벤트 리스트 불러오기 -->
-	<select id="eventList" parameterType="String" resultType="MainTitleVo">
+	<select id="eventList" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo,
-			        c.clgTitle,
-			        c.img,
-			        c.recruitment,
-			        c.period,
-			        mc.payment,
-			        c.clgGroup,
-			        count_user
-			from mychallenge mc, challenge c
-			where mc.challengeNo = c.challengeNo
-			and  c.clgGroup = 2;
+			select  c.challengeNo challengeNo,
+			        c.clgTitle clgTitle,
+			        c.img img,
+			        c.recruitment recruitment,
+			        c.period period,
+			        c.clgGroup clgGroup,
+			        c.clgLevel clgLevel,
+			        cc.count_user count_user
+			from challenge c, (select count(userNo) count_user
+			                   from mychallenge)cc
+			where c.clgGroup = 2
 		]]>
 	</select>
 	
 	<!-- 메인화면 인기순 리스트 불러오기 -->
-	<select id="popularityList" parameterType="String" resultType="MainTitleVo">
+	<select id="popularityList" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo,
-			        c.clgTitle,
-			        c.img,
-			        c.recruitment,
-			        c.period,
-			        mc.payment,
-			        c.clgGroup,
-			        count_user
-			from mychallenge mc, challenge c, (select count(userNo) count_user
-										       from mychallenge
-											   where challengeNo = {==count==})
-			where mc.challengeNo = c.challengeNo
-			and  c.clgGroup = 1;
+			select  c.challengeNo challengeNo,
+			        c.clgTitle clgTitle,
+			        c.img img,
+			        c.recruitment recruitment,
+			        c.period period,
+			        c.clgGroup clgGroup,
+			        c.clgLevel clgLevel,
+			        cc.count_user count_user
+			from challenge c, (select count(userNo) count_user
+			                   from mychallenge)cc
+			where c.clgGroup = 1
+			order by count_user asc
 		]]>
 	</select>
+	
+	<!-- 모집임박 나대나 -->
+	<select id="limtiTimeList" resultType="MainTitleVo">
+		<![CDATA[
+			select  c.challengeNo challengeNo,
+			        c.clgTitle clgTitle,
+			        c.img img,
+			        c.recruitment recruitment,
+			        c.period period,
+			        c.clgGroup clgGroup,
+			        c.clgLevel clgLevel,
+			        cc.count_user count_user
+			from challenge c, (select count(userNo) count_user
+			                   from mychallenge)cc
+			order by recruitment desc
+		]]>
+	</select>
+	
+	
 	
 	
 	

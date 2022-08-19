@@ -71,6 +71,18 @@ public class MainTitleVo {
 		this.payment = payment;
 		this.count_user = count_user;
 	}
+	
+	public MainTitleVo(int challengeNo, String clgTitle, String img, int recuritment, int period, int clgGroup, int payment, int count_user) {
+		super();
+		this.challengeNo = challengeNo;
+		this.clgTitle = clgTitle;
+		this.img = img;
+		this.recuritment = recuritment;
+		this.period = period;
+		this.clgGroup = clgGroup;
+		this.payment = payment;
+		this.count_user = count_user;
+	}
 
 	
 	////

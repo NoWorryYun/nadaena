@@ -19,7 +19,6 @@ public class MainTitleDao {
 		System.out.println("MainTitleDao > eventList()");
 		
 		List<MainTitleVo> eventList = sqlSession.selectList("mainTitle.eventList");
-		System.out.println(eventList);
 		
 		return eventList;
 	}
@@ -34,6 +33,14 @@ public class MainTitleDao {
 		return popularityList;
 	}
 	
+	public List<MainTitleVo> limtiTimeList() {
+		System.out.println("MainTitleDao > limtiTimeList()");
+		
+		List<MainTitleVo> limtiTimeList = sqlSession.selectList("mainTitle.limtiTimeList");
+		System.out.println(limtiTimeList);
+		
+		return limtiTimeList;
+	}
 	
 	
 }

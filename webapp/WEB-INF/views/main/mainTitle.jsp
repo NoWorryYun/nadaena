@@ -58,7 +58,10 @@
 	           		
 	           		<div class="title-search">
 	           			<div>
-	                		<form class="d-flex align-items-center"><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="검색어를 입력해주세요." name="searchbar" /><button class="btn btn-success btn-lg" type="submit">검색</button></form>
+	                		<form class="d-flex align-items-center" action="" method="post" enctype="multipart/form-data">
+		                		<input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="text" placeholder="검색어를 입력해주세요." name="banner-searchbar" />
+		                		<button class="btn btn-success btn-lg" type="submit">검색</button>
+	                		</form>
 	            		</div>
 	            		<div class="hash">
 		            		<div class="hash-name"><a href="" class="hash-tag">#이벤트</a></div>
@@ -117,320 +120,128 @@
         <h3>이벤트 나대나</h3>
         <div class="more"><a href="">더보기 > </a></div>
     	<div class="lunchbox">
-
-  <!-- slider main container -->
-		  <div id="swiper1" class="swiper-container"> 
-		
-		      <!-- additional required wrapper -->
-		      <div class="swiper-wrapper col-10">
-		
-		          <!-- slides -->
-		          <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		          <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		         <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		       <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		        <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		        <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		        <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		      </div>
-		
-		     	 <!-- pagination -->
-		      	<div class="swiper-pagination"></div>
-	      		<!-- navigation buttons -->
-				<div id="js-prev1" class="swiper-button-prev col-1"></div>
-				<div id="js-next1" class="swiper-button-next col-1"></div>
-					
-		  	</div>
-
-	</div>
-
-
-	<h3>인기 나대나</h3>
-	<div class="more"><a href="">더보기 > </a></div>
-    	<div class="lunchbox">
+    	
 			<!-- slider main container -->
-			<div id="swiper1" class="swiper-container"> 
+		  <div id="swiper1" class="swiper-container"> 
+		  
 		
 		      <!-- additional required wrapper -->
 		      <div class="swiper-wrapper">
 		
 		          <!-- slides -->
-		          <div class="swiper-slide">
-			          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div>
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		          </div>
-		
-		          <div class="swiper-slide">
-		            <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div class="nadaena_info">
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		         </div>
-		
-		         <div class="swiper-slide">
-		           <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div class="nadaena_info">
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div class="nadaena_info">
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div class="nadaena_info">
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div class="nadaena_info">
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		        </div>
-		
-		        <div class="swiper-slide">
-		         <a href="">
-				          <div class="product">
-				             <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-				             <div class="nadaena_info">
-				           	 	<p class="nadaena_name">마라톤</p>
-				           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-				           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           	 </div>
-				          </div>
-				      </a>
-		        </div>
-		
-		      </div>
-		
-		     	 <!-- pagination -->
-		      	<div class="swiper-pagination"></div>
-		      	<!-- navigation buttons -->
-			<div id="js-prev1" class="swiper-button-prev"></div>
-			<div id="js-next1" class="swiper-button-next"></div>
-			
+		          
+			  <!--챌린지 반복영역 -->
+		          <c:forEach var="MainTitleVo" items="${evMap.eventList}">
+			          <div class="swiper-slide">
+				          <li>
+					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+						          <div class="product">
+						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
+						             <div>
+						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
+						           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           	 </div>
+						          </div>
+						      </a>
+						  </li>  
+			          </div>
+				</c:forEach>
+	          <!--챌린지 반복영역 -->
 		  	</div>
+			<!-- pagination -->
+	      	<div class="swiper-pagination"></div>
+      		<!-- navigation buttons -->
+			<div id="js-prev1" class="swiper-button-prev col-1"></div>
+			<div id="js-next1" class="swiper-button-next col-1"></div>
+	</div>
+	</div>
+	
 
+
+	<h3>인기 나대나</h3>
+	<div class="more"><a href="">더보기 > </a></div>
+	
+    	<div class="lunchbox">
+    	
+			<!-- slider main container -->
+		  <div id="swiper1" class="swiper-container"> 
+		  
 		
-  
+		      <!-- additional required wrapper -->
+		      <div class="swiper-wrapper">
+		
+		          <!-- slides -->
+		          
+			  <!--챌린지 반복영역 -->
+		          <c:forEach var="MainTitleVo" items="${evMap.popularityList}">
+			          <div class="swiper-slide">
+				          <li>
+					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+						          <div class="product">
+						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
+						             <div>
+						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
+						           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           	 </div>
+						          </div>
+						      </a>
+						  </li>  
+			          </div>
+				</c:forEach>
+	          <!--챌린지 반복영역 -->
+		  	</div>
+			<!-- pagination -->
+	      	<div class="swiper-pagination"></div>
+      		<!-- navigation buttons -->
+			<div id="js-prev1" class="swiper-button-prev col-1"></div>
+			<div id="js-next1" class="swiper-button-next col-1"></div>
+	</div>
 	</div>
 
 
 
 	<h3>듀토리얼 나대나</h3>
     	<div class="lunchbox">
-
- 		 <!-- slider main container -->
+    	
+			<!-- slider main container -->
 		  <div id="swiper1" class="swiper-container"> 
+		  
 		
 		      <!-- additional required wrapper -->
 		      <div class="swiper-wrapper">
 		
 		          <!-- slides -->
-		          <div class="swiper-slide">
-			          <div class="product">
-			              <img class="photograph" src="https://unsplash.it/g/430/431?image=502" alt="">
-			              <h2 class="product__name">Lorem ipsum 2</h2>
-			              <p class="product__description">lorem ipsum dol</p>
+		          
+			  <!--챌린지 반복영역 -->
+		          <c:forEach var="MainTitleVo" items="${evMap.popularityList}">
+			          <div class="swiper-slide">
+				          <li>
+					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+						          <div class="product">
+						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
+						             <div>
+						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
+						           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           	 </div>
+						          </div>
+						      </a>
+						  </li>  
 			          </div>
-		          </div>
-		
-		          <div class="swiper-slide">
-		            <div class="product">
-		              <img class="photograph" src="https://unsplash.it/g/430/431?image=401" alt="">
-		              <h2 class="product__name">Lorem ipsum 2</h2>
-		              <p class="product__description">lorem ipsum dol</p>
-		            </div>
-		         </div>
-		
-		         <div class="swiper-slide">
-		           <div class="product">
-		             <img class="photograph" src="https://unsplash.it/g/430/431?image=201" alt="">
-		             <h2 class="product__name">Lorem ipsum 3</h2>
-		             <p class="product__description">lorem ipsum dol</p>
-		           </div>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <div class="product">
-		            <img class="photograph" src="https://unsplash.it/g/430/431?image=504" alt="">
-		            <h2 class="product__name">Lorem ipsum 4</h2>
-		            <p class="product__description">lorem ipsum dol</p>
-		          </div>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <div class="product">
-		            <img class="photograph" src="https://unsplash.it/g/430/431?image=404" alt="">
-		            <h2 class="product__name">Lorem ipsum 5</h2>
-		            <p class="product__description">lorem ipsum dol</p>
-		          </div>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <div class="product">
-		            <img class="photograph" src="https://unsplash.it/g/430/431?image=406" alt="">
-		            <h2 class="product__name">Lorem ipsum 6</h2>
-		            <p class="product__description">lorem ipsum dol</p>
-		          </div>
-		        </div>
-		
-		        <div class="swiper-slide">
-		          <div class="product">
-		            <img class="photograph" src="https://unsplash.it/g/430/431?image=407" alt="">
-		            <h2 class="product__name">Lorem ipsum 7</h2>
-		            <p class="product__description">lorem ipsum dol</p>
-		          </div>
-		        </div>
-		
-		      </div>
-		
-		     	 <!-- pagination -->
-		      	<div class="swiper-pagination"></div>
-		      	<!-- navigation buttons -->
-			<div id="js-prev1" class="swiper-button-prev"></div>
-			<div id="js-next1" class="swiper-button-next"></div>
-			
+				</c:forEach>
+	          <!--챌린지 반복영역 -->
 		  	</div>
-
-		
-  
+			<!-- pagination -->
+	      	<div class="swiper-pagination"></div>
+      		<!-- navigation buttons -->
+			<div id="js-prev1" class="swiper-button-prev col-1"></div>
+			<div id="js-next1" class="swiper-button-next col-1"></div>
+	</div>
 	</div>
 
 
@@ -485,22 +296,7 @@ var swiper = new Swiper('.swiper-container', {
     },
 
   });
-  
-  
-  Array.foreach(name function(c.challengeNo, c.clgTitle, c.img, c.recruitment,
-		  c.period, mc.payment, c.clgGroup, count_user, Array){
-	  
-	  console.log("no: " + c.challengeNo);
-	  console.log("no: " + c.clgTitle);
-	  console.log("no: " + c.img);
-	  console.log("no: " + c.period);
-	  console.log("no: " + mc.payment);
-	  console.log("no: " + c.clgGroup);
-	  console.log("no: " + count_user);
-	  console.log("no: " + array);
-	  
-	  
-  })
+
 
 
 </script>

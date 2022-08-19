@@ -1,6 +1,6 @@
 package com.nadaena.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.nadaena.service.MainTitleService;
-import com.nadaena.vo.MainTitleVo;
 
 
 @Controller
@@ -20,13 +19,13 @@ public class MainController {
 	
 	@RequestMapping(value="/main", method = {RequestMethod.GET, RequestMethod.POST})
 	public String main(Model model) {
-		System.out.println("main");
+		System.out.println("MainController>main");
 		
-		List<MainTitleVo> eventList = mainTitleService.eventList();
-		List<MainTitleVo> popularityList = mainTitleService.popularityList();
+		Map<String, Object> evMap = mainTitleService.eventList();
 		
-		model.addAttribute(eventList);
-		model.addAttribute(popularityList);
+		model.addAttribute("evMap", evMap);
+		model.addAttribute("popularityList", evMap);
+		model.addAttribute("limtiTimeList", evMap);
 		
 		return "main/mainTitle";
 	}

@@ -25,7 +25,7 @@ public class SearchController {
 		
 		model.addAttribute(searchList);
 		
-		return "search/searchForm";
+		return "Request:search/searchForm"; 
 	}
 	
 	@RequestMapping(value="/search/searchMain", method = {RequestMethod.GET, RequestMethod.POST})

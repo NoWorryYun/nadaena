@@ -6,19 +6,16 @@
 	<!-- 검색입력 -->
 	<select id="searchList" parameterType="String" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo,
-			        c.clgTitle,
-			        c.img,
-			        c.recruitment,
-			        c.period,
-			        mc.payment,
-			        c.clgGroup,
-			        count_user
-			from mychallenge mc, challenge c, (select count(userNo) count_user
-										       from mychallenge
-											   where challengeNo = {==count==})
-			where mc.challengeNo = c.challengeNo
-			and c.clgTitle like {==search==};
+			select  c.challengeNo challengeNo,
+			        c.clgTitle clgTitle,
+			        c.img img,
+			        c.recruitment recruitment,
+			        c.period period,
+			        c.clgGroup clgGroup,
+			        cc.count_user count_user
+			from challenge c, (select count(userNo) count_user
+			                   from mychallenge) cc
+			where clgTitle like %#{banner-searchbar}%
 		]]>
 	</select>
 
