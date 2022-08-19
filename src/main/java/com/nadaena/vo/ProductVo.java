@@ -11,6 +11,7 @@ public class ProductVo {
 	private int optionNo;
 	private String optionName;
 	private int optionPrice;
+	private int countOption;
 	
 	
 	
@@ -20,7 +21,7 @@ public class ProductVo {
 
 
 
-	public ProductVo(int productNo, String productName, int productCategory, String productContent, String policy, String thumbnail, int optionNo, String optionName, int optionPrice) {
+	public ProductVo(int productNo, String productName, int productCategory, String productContent, String policy, String thumbnail, int optionNo, String optionName, int optionPrice, int countOption) {
 		super();
 		this.productNo = productNo;
 		this.productName = productName;
@@ -31,6 +32,7 @@ public class ProductVo {
 		this.optionNo = optionNo;
 		this.optionName = optionName;
 		this.optionPrice = optionPrice;
+		this.countOption = countOption;
 	}
 
 
@@ -143,13 +145,23 @@ public class ProductVo {
 
 
 
+	public int getCountOption() {
+		return countOption;
+	}
+
+
+
+	public void setCountOption(int countOption) {
+		this.countOption = countOption;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "ProductVo [productNo=" + productNo + ", productName=" + productName + ", productCategory=" + productCategory + ", productContent=" + productContent + ", policy=" + policy + ", thumbnail=" + thumbnail + ", optionNo=" + optionNo + ", optionName=" + optionName
-				+ ", optionPrice=" + optionPrice + "]";
+				+ ", optionPrice=" + optionPrice + ", countOption=" + countOption + "]";
 	}
-	
-	
 	
 	
 

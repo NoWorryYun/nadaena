@@ -23,4 +23,19 @@ public class ProductDao {
 		return productList;
 	}
 
+	//상품정보 불러오기
+	public ProductVo getProduct(int productNo) {
+		System.out.println(" ProductDao > getProduct");
+		
+		return sqlSession.selectOne("product.getProduct", productNo);
+	}
+	
+	//옵션정보 불러오기
+	public List<ProductVo> getOption(int productNo) {
+		System.out.println(" ProductDao > getOption");
+		
+		return sqlSession.selectList("product.getOption", productNo);
+	}
+	
+	
 }

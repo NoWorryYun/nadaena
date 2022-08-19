@@ -3,7 +3,7 @@
 
 <mapper namespace="product">
  
-	<select id="getProductList" resultType="com.nadaena.vo.ProductVo" parameterType="int">
+	<!-- <select id="getProductList" resultType="com.nadaena.vo.ProductVo" parameterType="int">
 		<![CDATA[
 			select productNo,
 			        productName,
@@ -14,8 +14,66 @@
 			from product
 			where productCategory = #{cate}
 		]]>
+	</select> -->
+	
+	<select id="getProductList" resultType="com.nadaena.vo.ProductVo" parameterType="int">
+		<![CDATA[
+			select  p.productNo,
+			        p.productName, 
+			        p.productcategory, 
+			        countOption,
+			        p.thumbnail,
+			        c.optionPrice
+			from product p, (select count(optionprice) countOption,
+			                        min(optionPrice) optionPrice,
+			                        productNo
+			                 from options group by productNo)c
+			where p.productNo = c.productNo
+		]]>
 	</select>
 	
 	
 	
+	<!-- 상품정보 -->
+	<select id="getProduct" resultType="com.nadaena.vo.ProductVo" parameterType="int">
+		<![CDATA[
+			select productNo,
+		        productName,
+		        productContent,
+		        policy,
+		        thumbnail
+		from product
+		where productNo = #{productNo}
+		]]>
+	</select>
+	
+	<!-- 옵션정보 -->
+	<select id="getOption" resultType="com.nadaena.vo.ProductVo" parameterType="int">
+		<![CDATA[
+			select optionNo,
+			        optionName,
+			        optionPrice
+			from options
+			where productNo = #{productNo}
+		]]>
+	</select>
+	
+	
+	<!-- 
+	<select id="getProduct" resultType="com.nadaena.vo.ProductVo" parameterType="int">
+		<![CDATA[
+			select p.productNo,
+			        productName,
+			        productContent,
+			        policy,
+			        thumbnail,
+			        optionNo,
+			        optionName,
+			        optionPrice
+			from product p, options o
+			where o.productNo = p.productNo
+			and o.productNo = #{productNo}
+		]]>
+	</select>
+	 -->
 </mapper>

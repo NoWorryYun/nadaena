@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +27,7 @@ public class ProductController {
 		
 		//리스트 가져오기
 		List<ProductVo> productList = productService.getProductList(cate);
+		System.out.println("productList: " + productList);
 		
 		//리스트 jsp로 보내기
 		model.addAttribute("productList", productList);
@@ -47,10 +47,16 @@ public class ProductController {
 	
 	/* 상품페이지 */
 	@RequestMapping(value="shop/product/{productNo}")
-	public String product(@PathVariable("productNo")String productNo, Model model) {
+	public String product(@PathVariable("productNo")int productNo, Model model) {
 		System.out.println("shop/product/"+productNo);
 		
+		//상품정보 가져오기
+		ProductVo productDetail = productService.getProduct(productNo);
+		model.addAttribute("productDetail", productDetail);
 		
+		//옵션정보 가져오기
+		List<ProductVo> optionList = productService.getOption(productNo);
+		model.addAttribute("optionList", optionList);
 		
 		return "shop/productJSP";
 	}

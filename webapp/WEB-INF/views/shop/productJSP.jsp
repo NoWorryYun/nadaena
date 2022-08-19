@@ -45,11 +45,12 @@
 	 <div id="contents_wrap2">
             <div class="contents_2">
                 <div class="product_img">
-                    <img src="https://cdn.reflowhq.com/media/79235812/815804108/eee22bfd4daaf8f4038a4a468f349a2c_md.jpg" alt="">
+                    <img src="${pageContext.request.contextPath }/assets/img/shop/${productDetail.thumbnail }.jpg" alt="">
                 </div>
                 <div class="ex">
-                    <p class="title">컬처랜드 상품권 5만원권 온라인</p>
-
+                    <p class="title">${productDetail.productName }</p>
+					
+					
                     <ul class="price_list">
                         <li>판매가격 <span>50,000원</span></li>
                     </ul>
@@ -57,8 +58,10 @@
                     <div class="option">
                         <p>옵션</p>
                         <select id="select">
-                            <option value="fixed">-- 옵션필수선택 --</option>
-                            <option value="a">A타입</option>
+                         <option value="fixed">-- 옵션필수선택 --</option>
+                        	<c:forEach items="${optionList }" var="option">
+                            <option value="${option.optionNo }">${option.optionName }</option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -76,8 +79,10 @@
                     </div>
 
                     <div class="button">
+                   		 <!-- 
                         <p><a href="">찜하기</a></p>
                         <p><a href="">장바구니담기</a></p>
+                         -->
                         <p class="buy"><a href="">구매하기</a></p>
                         <!-- <input type="button" value="구매하기">
                         <input type="button" value="장바구니담기">
@@ -97,6 +102,7 @@
                 </ul>
 
                 <div class="notice_list tab_content active" id="tab-1">
+                	
                     <p>페이지 준비중입니다</p>
                     <br>
                     <p>티켓 사용정보</p>

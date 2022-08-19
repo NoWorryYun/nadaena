@@ -19,4 +19,20 @@ public class ProductService {
 		
 		return productDao.getProductList(cate);
 	}
+	
+	
+	//상품정보 가져오기
+	public ProductVo getProduct(int productNo) {
+		System.out.println(" ProductService > getProduct");
+		
+		
+		return productDao.getProduct(productNo);
+	}
+	
+	//옵션정보 불러오기
+	public List<ProductVo> getOption(int productNo) {
+		System.out.println(" ProductDao > getOption");
+		
+		return productDao.getOption(productNo);
+	}
 }

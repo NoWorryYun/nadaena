@@ -44,9 +44,9 @@
 		<section id="contents_wrap1">
             <div class="contents_1">
                 <ul class="living_sub">
-                    <li><a href="">상품권</a></li>
-                    <li><a href="">기프티콘</a></li>
-                    <li><a href="">기타</a></li> 
+                    <li><a href="?cate=1">상품권</a></li>
+                    <li><a href="?cate=2">기프티콘</a></li>
+                    <li><a href="?cate=3">기타</a></li> 
                     <li><a href="mypage">MY</a></li>  
                 </ul>
 
@@ -70,9 +70,13 @@
 	                    </div>
 	                    <p class="b_name">${product.productName }</p>
 	                    <p class="price">
-	                            <p class="sale">50,000원</p>
+                    		<c:choose>
+                    			<c:when test="${product.countOption == 1 }"><p class="sale">${product.optionPrice } 원</p></c:when>
+                    			<c:when test="${product.countOption > 1 }"><p class="sale">${product.optionPrice } 원 ~ </p></c:when>
+                    		</c:choose>
 	                            
-	                            <p class="close" data-img="${pageContext.request.contextPath }/assets/img/shop/cl50.jpg">미리보기<span>▼</span></p>
+	                            
+	                          <%--   <p class="close" data-img="${pageContext.request.contextPath }/assets/img/shop/cl50.jpg">미리보기<span>▼</span></p> --%>
 	                        <!-- 미리보기팝업 -->
 	                    </p>
                 </div>
