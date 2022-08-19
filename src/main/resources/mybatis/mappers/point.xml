@@ -19,8 +19,8 @@
 		]]>
 	</insert>
 	
-	<!-- 회원번호로 회원포인트정보 가져오기 -->
-	<select id="selectPoint" parameterType="int" resultType="PointVo">
+	<!-- 포인트 내역 리스트 -->
+	<select id="selectPoint" parameterType="String" resultType="PointVo">
 		select  p.pointNo,
 				u.userNo,
 				p.pointGroup,
