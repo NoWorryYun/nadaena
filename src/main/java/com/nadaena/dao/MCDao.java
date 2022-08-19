@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.MCVo;
 import com.nadaena.vo.MRVo;
+import com.nadaena.vo.PointVo;
 
 @Repository
 public class MCDao {
@@ -87,6 +88,16 @@ public class MCDao {
 		
 		return sqlSession.delete("myChallenge.deleteReview", mrVo);
 		
+	}
+	
+	//포인트 내역
+	public List<PointVo> selectPoint() {
+		System.out.println("pDao > selectpoint()");
+		
+		List<PointVo> pList = sqlSession.selectList("myChallenge.selectPoint");
+		System.out.println(pList);
+		
+		return pList;
 	}
 	
 }

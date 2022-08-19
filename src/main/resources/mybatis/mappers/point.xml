@@ -19,18 +19,7 @@
 		]]>
 	</insert>
 	
-	<!-- 포인트 내역 리스트 -->
-	<select id="selectPoint" parameterType="String" resultType="PointVo">
-		select  p.pointNo,
-				u.userNo,
-				p.pointGroup,
-				p.charge,
-				p.amount,
-				p.pointDate,
-				p.source,
-				p.pointMemo
-		where u.userNo = p.userNo	
-	</select>
+	
 	
 	
 	

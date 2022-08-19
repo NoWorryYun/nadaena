@@ -4,7 +4,7 @@
 <mapper namespace="myChallenge">
  
 	<!-- 참가챌린지 가져오기 -->
-	<select id="selectList" parameterType="String" resultType="MCVo">
+	<select id="selectList" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
 					m.userClgNo,
@@ -131,7 +131,18 @@
 		]]>
 	</delete>
 	
-	
+	<!-- 포인트 내역 리스트 -->
+	<select id="selectPoint" parameterType="String" resultType="PointVo">
+		select  p.pointNo,
+				u.userNo,
+				p.pointGroup,
+				p.charge,
+				p.amount,
+				p.pointDate,
+				p.source,
+				p.pointMemo
+		where u.userNo = p.userNo	
+	</select>
 	
 	
 	
