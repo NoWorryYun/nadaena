@@ -4,7 +4,7 @@
 <mapper namespace="myChallenge">
  
 	<!-- 참가챌린지 가져오기 -->
-	<select id="selectList" parameterType="String" resultType="MCVo">
+	<select id="selectList" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
 					m.userClgNo,
@@ -28,7 +28,7 @@
 	</select>	
 	
 	<!-- 종료 챌린지(전체) --> 
-	<select id="selectList2" parameterType="String" resultType="MCVo">
+	<select id="selectList2" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
 					m.userClgNo,
@@ -48,7 +48,7 @@
 	</select>
 	
 	<!-- 종료 챌린지(성공) --> 
-	<select id="selectList3" parameterType="String" resultType="MCVo">
+	<select id="selectList3" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
 					m.userClgNo,
@@ -69,7 +69,7 @@
 	</select>
 	
 	<!-- 종료 챌린지(실패) --> 
-	<select id="selectList4" parameterType="String" resultType="MCVo">
+	<select id="selectList4" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
 					m.userClgNo,

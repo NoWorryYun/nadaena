@@ -52,47 +52,46 @@
 			<div id="content" class="col-9">
 				<h3>나의 리뷰</h3>
 				
-				<div id="afterComment-wrap">
-	<div>
-		<ul class="list-inline">
-			<c:forEach items="${mrList}" var="MRVo" varStatus="i">
-				<li class="list-inline-item">
-					<div class="img-size">
-						<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-					</div>
-					<div class="certify-list-info">
-						<div>
-							<div>
-								<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${MRVo.reviewNo}">삭제</a>
+				
+	
+				<ul class="list-inline">
+					<c:forEach items="${mrList}" var="MRVo" varStatus="i">
+						<li class="list-inline-item">
+							<div class="img-size">
+								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 							</div>
-							<p class="review-uploader">피자만두</p>
-							<p class="review-comment">${MRVo.reviewContent }</p>
-						</div>
-					</div>
-				</li>
-			</c:forEach>
-		</ul>
-		
-		<div class="paging-box">
-			<nav>
-				<ul class="pagination pagination-sm">
-					<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item"><a class="page-link" href="#">4</a></li>
-					<li class="page-item"><a class="page-link" href="#">5</a></li>
-					<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+							<div class="certify-list-info">
+								<div>
+									<div>
+										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${MRVo.reviewNo}">삭제</a>
+									</div>
+									<p class="review-uploader">피자만두</p>
+									<p class="review-comment">${MRVo.reviewContent }</p>
+								</div>
+							</div>
+						</li>
+					</c:forEach>
 				</ul>
-			</nav>
-		</div>
-	</div>
-</div>	
-			</div>
-			
-		</div>
-		
-	</div>
+				
+				<div id="afterComment-wrap">
+					<div class="paging-box">
+						<nav>
+							<ul class="pagination pagination-sm">
+								<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">4</a></li>
+								<li class="page-item"><a class="page-link" href="#">5</a></li>
+								<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				
+			</div> <!-- content -->
+		</div> <!-- row -->
+	</div>	<!-- mainbox -->
 </main>
 
 

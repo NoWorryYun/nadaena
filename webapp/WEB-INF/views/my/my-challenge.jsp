@@ -45,7 +45,7 @@
 				
 				
 				<div class="challenge-images">
-					<c:forEach items="${mcList}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.mcList}" var="MCVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
@@ -78,8 +78,7 @@
 							</div>
 						</div>
 					</c:forEach>
-				</div>		
-					
+				</div>	
 				<div class="challenge-header">
 					완료된 챌린지
 					<ul>
@@ -89,7 +88,7 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<c:forEach items="${mcList2}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.mcList2}" var="MCVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
@@ -106,22 +105,30 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div>
-			<div class="paging" class="paging">
-				<ul>
-					<li><a href="">◀</a></li>
-					<li><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-					<li><a href="">▶</a></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
-		</div>
+			
+			
+			
+				<div id="afterComment-wrap">
+					<div class="paging-box">
+						<nav>
+							<ul class="pagination pagination-sm">
+								<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+								<li class="page-item"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">4</a></li>
+								<li class="page-item"><a class="page-link" href="#">5</a></li>
+								<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				
+			</div> <!-- content -->
+				
+		</div> <!-- row -->
 		
-	</div>
+	</div> <!-- mainbox -->
 </main>
 
 

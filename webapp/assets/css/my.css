@@ -354,6 +354,24 @@
 	font-weight: bold;
 	color: grey;
 }
+
+/* 리얼 페이징 */
+#afterComment-wrap {
+	padding-top: 25px;
+}
+
+.paging-box {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: normal;
+	justify-content: normal;
+	align-items: normal;
+	justify-content: center;
+}
+
+
+
 /* 페이징 */
 .paging {
   width: 310px;

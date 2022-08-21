@@ -1,6 +1,7 @@
 package com.nadaena.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,19 +25,12 @@ public class MCController {
 	//참가중 + 종료중(전체) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list1(Model model) {
-		System.out.println("MCC > mclist()");
 		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MCVo> mcList = mcService.getmcList();
+		Map<String, Object> mcMap = mcService.getmcList();
 		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mcList", mcList);
-		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MCVo> mcList2 = mcService.getmcList2();
-		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mcList2", mcList2);
+		model.addAttribute("mcMap", mcMap);
+		model.addAttribute("mcList", mcMap);
+		model.addAttribute("mcList2", mcMap);
 		
 		return "my/my-challenge";
 	}
@@ -48,17 +42,11 @@ public class MCController {
 		
 		System.out.println("MCC > mclist3()");
 		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MCVo> mcList = mcService.getmcList();
+		Map<String, Object> mcMap = mcService.getmcList2();
 		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mcList", mcList);
-		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MCVo> mcList3 = mcService.getmcList3();
-		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mcList3", mcList3);
+		model.addAttribute("mcMap", mcMap);
+		model.addAttribute("mcList", mcMap);
+		model.addAttribute("mcList3", mcMap);
 		
 		return "my/my-challengeyes";
 	}
@@ -68,17 +56,11 @@ public class MCController {
 	public String list3(Model model) {
 		System.out.println("MCC > mclist4()");
 		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MCVo> mcList = mcService.getmcList();
+		Map<String, Object> mcMap = mcService.getmcList3();
 		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mcList", mcList);
-		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MCVo> mcList4 = mcService.getmcList4();
-		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mcList4", mcList4);
+		model.addAttribute("mcMap", mcMap);
+		model.addAttribute("mcList", mcMap);
+		model.addAttribute("mcList4", mcMap);
 		
 		return "my/my-challengeno";
 	}
