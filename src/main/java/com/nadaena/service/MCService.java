@@ -66,16 +66,13 @@ public class MCService {
 	} 
 	
 	//리뷰 쓰기
-	public int writeReview(MRVo mrVo) {
+	public int writeReview(MRVo mrVo, MCVo mcVo) {
 		System.out.println("bService>b.write()");
 		
-		return mcDao.writeReview(mrVo);
-	}
-	
-	//상태 업데이트
-	public int updateState(MCVo mcVo) {
+		mcDao.writeReview(mrVo);
+		mcDao.update(mcVo);
 		
-		return mcDao.update(mcVo);
+		return 1;
 	}
 	
 	//리뷰 삭제

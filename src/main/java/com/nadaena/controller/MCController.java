@@ -103,9 +103,7 @@ public class MCController {
 		System.out.println("bController > write()");
 		
 		// Service를 통해서 저장한다
-		mcService.writeReview(mrVo);
-		
-		mcService.updateState(mcVo);
+		mcService.writeReview(mrVo,mcVo);
 		
 		return "redirect:/my/my-challenge";
 	}
