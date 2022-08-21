@@ -27,7 +27,179 @@
 		]]>
 	</select>	
 	
-	<!-- 종료 챌린지(전체) --> 
+	<!-- 종료 챌린지(전체) + 페이징 -->
+	<select id="selectList12" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.period,
+			        ort.payment
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.period,
+			       	  	 ot.payment
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.period,
+						        m.payment
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>
+	
+	<!-- 종료 챌린지(성공) + 페이징 -->
+	<select id="selectList13" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.period,
+			        ort.payment
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.period,
+			       	  	 ot.payment
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.period,
+						        m.payment
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2
+					    and   m.achievement >= 90)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>
+	
+	<!-- 종료 챌린지(실패) + 페이징 -->
+	<select id="selectList14" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.period,
+			        ort.payment
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.period,
+			       	  	 ot.payment
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.period,
+						        m.payment
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2
+					    and   m.achievement < 90)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>
+	
+	<!-- 전체글갯수 구하기 -->
+	<select id="selectTotalCnt" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		]]>
+	</select>
+	
+	<!-- 성공글갯수 구하기 -->
+	<select id="selectTotalCnt2" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.achievement >= 90
+		]]>
+	</select>	
+
+	<!-- 실패글갯수 구하기 -->
+	<select id="selectTotalCnt3" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.achievement < 90
+		]]>
+	</select>
+		
+	<!-- 종료 챌린지(전체)
 	<select id="selectList2" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
@@ -47,7 +219,7 @@
 		]]>
 	</select>
 	
-	<!-- 종료 챌린지(성공) --> 
+	종료 챌린지(성공) 
 	<select id="selectList3" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
@@ -68,7 +240,7 @@
 		]]>
 	</select>
 	
-	<!-- 종료 챌린지(실패) --> 
+	종료 챌린지(실패) 
 	<select id="selectList4" resultType="MCVo">
 		<![CDATA[
 			select  m.userNo,
@@ -87,7 +259,7 @@
 			and   m.state = 2
 			and   m.achievement < 90
 		]]>
-	</select>
+	</select> -->
 	
 	<!-- 리뷰불러오기 -->
 	<select id="selectreviewList" parameterType="String" resultType="MRVo">

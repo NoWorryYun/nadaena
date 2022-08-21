@@ -64,7 +64,7 @@
 							
 					</c:forEach>
 					
-					<c:set var="length" value="${fn:length(mcList)}" />
+					<c:set var="length" value="${fn:length(mcMap.mcList)}" />
 					
 					<c:forEach begin="1" end="${3-length}" step="1">
 						<div class="challenge-box2">
@@ -104,19 +104,37 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div>
-			<div class="paging" class="paging">
-				<ul>
-					<li><a href="">◀</a></li>
-					<li><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-					<li><a href="">▶</a></li>
-				</ul>
-				<div class="clear"></div>
-			</div>
+			
+				<div id="afterComment-wrap">
+					<div class="paging-box">
+						<nav>
+							<ul class="pagination pagination-sm">
+								<c:if test="${mcMap.prev}">
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-challenge/success?crtPage=${mcMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+								</c:if>
+								<c:forEach begin="${mcMap.startPageBtnNo}" end="${mcMap.endPageBtnNo}" step="1" var="page">	
+									<c:choose>
+										<c:when test="${param.crtPage==page}">
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-challenge/success?crtPage=${page}">${page}</a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-challenge/success?crtPage=${page}">${page}</a></li>
+										</c:otherwise>
+									</c:choose>	
+								</c:forEach>
+								
+								<c:if test="${mcMap.next}">
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-challenge/success?crtPage=${mcMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+								</c:if>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				
+				
+				
+				
+			</div>	
 		</div>
 		
 	</div>

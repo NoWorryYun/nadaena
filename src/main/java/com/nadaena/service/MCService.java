@@ -18,50 +18,222 @@ public class MCService {
 	MCDao mcDao;
 	
 	//참가+종료 리스트(전체)
-	public Map<String, Object> getmcList() {
+	public Map<String, Object> getmcList(int crtPage) {
 		System.out.println("C > getmcList");
 		
+		//////리스트 가져오기
+		
+		//페이지당 글갯수
+		int listCnt = 3;
+		
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
+		
 		List<MCVo> mcList = mcDao.selectList();
-		List<MCVo> mcList2 = mcDao.selectList2();
+		List<MCVo> mcList2 = mcDao.selectList12(startRnum, endRnum);
 		
-		Map<String, Object> mcMap = new HashMap<String, Object>();
+		//////////
+		//페이징계산
+		//////////
 		
-		mcMap.put("mcList", mcList);
-		mcMap.put("mcList2", mcList2);
+		//전체글갯수
+		int totalCnt = mcDao.selectTotalCnt();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> mcMap = new HashMap<String, Object>();
+		
+        mcMap.put("mcList", mcList);
+        mcMap.put("mcList2", mcList2);
+        mcMap.put("prev", prev);
+        mcMap.put("startPageBtnNo", startPageBtnNo);
+        mcMap.put("endPageBtnNo", endPageBtnNo);
+        mcMap.put("next", next);
 		
 		return mcMap;
 	}
 	
 	//참가+종료 리스트(성공)
-	public Map<String, Object> getmcList2() {
-		System.out.println("C > getmcList2");
+	public Map<String, Object> getmcList2(int crtPage) {
+		System.out.println("C > getmcList");
+		
+		//////리스트 가져오기
+		
+		//페이지당 글갯수
+		int listCnt = 3;
+		
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
 		
 		List<MCVo> mcList = mcDao.selectList();
-		List<MCVo> mcList3 = mcDao.selectList3();
+		List<MCVo> mcList3 = mcDao.selectList13(startRnum, endRnum);
 		
-		Map<String, Object> mcMap = new HashMap<String, Object>();
+		//////////
+		//페이징계산
+		//////////
 		
-		mcMap.put("mcList", mcList);
-		mcMap.put("mcList3", mcList3);
+		//전체글갯수
+		int totalCnt = mcDao.selectTotalCnt();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> mcMap = new HashMap<String, Object>();
+		
+        mcMap.put("mcList", mcList);
+        mcMap.put("mcList3", mcList3);
+        mcMap.put("prev", prev);
+        mcMap.put("startPageBtnNo", startPageBtnNo);
+        mcMap.put("endPageBtnNo", endPageBtnNo);
+        mcMap.put("next", next);
 		
 		return mcMap;
 	}
 	
 	//참가+종료 리스트(실패)
-	public Map<String, Object> getmcList3() {
-		System.out.println("C > getmcList3");
+	public Map<String, Object> getmcList3(int crtPage) {
+		System.out.println("C > getmcList");
+		
+		//////리스트 가져오기
+		
+		//페이지당 글갯수
+		int listCnt = 3;
+		
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
 		
 		List<MCVo> mcList = mcDao.selectList();
-		List<MCVo> mcList4 = mcDao.selectList4();
+		List<MCVo> mcList4 = mcDao.selectList14(startRnum, endRnum);
 		
-		Map<String, Object> mcMap = new HashMap<String, Object>();
+		//////////
+		//페이징계산
+		//////////
 		
-		mcMap.put("mcList", mcList);
-		mcMap.put("mcList4", mcList4);
+		//전체글갯수
+		int totalCnt = mcDao.selectTotalCnt();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> mcMap = new HashMap<String, Object>();
+		
+        mcMap.put("mcList", mcList);
+        mcMap.put("mcList4", mcList4);
+        mcMap.put("prev", prev);
+        mcMap.put("startPageBtnNo", startPageBtnNo);
+        mcMap.put("endPageBtnNo", endPageBtnNo);
+        mcMap.put("next", next);
 		
 		return mcMap;
 	}
 	
+	
+	/*
+	 * //참가+종료 리스트(성공) public Map<String, Object> getmcList2() { System.out.println("C > getmcList2");
+	 * 
+	 * List<MCVo> mcList = mcDao.selectList(); List<MCVo> mcList3 = mcDao.selectList3();
+	 * 
+	 * Map<String, Object> mcMap = new HashMap<String, Object>();
+	 * 
+	 * mcMap.put("mcList", mcList); mcMap.put("mcList3", mcList3);
+	 * 
+	 * return mcMap; }
+	 * 
+	 * //참가+종료 리스트(실패) public Map<String, Object> getmcList3() { System.out.println("C > getmcList3");
+	 * 
+	 * List<MCVo> mcList = mcDao.selectList(); List<MCVo> mcList4 = mcDao.selectList4();
+	 * 
+	 * Map<String, Object> mcMap = new HashMap<String, Object>();
+	 * 
+	 * mcMap.put("mcList", mcList); mcMap.put("mcList4", mcList4);
+	 * 
+	 * return mcMap; }
+	 */
 	//리뷰리스트(리스트만)
 	public List<MRVo> getmrList() {
 		System.out.println("MRS > getmcList()");

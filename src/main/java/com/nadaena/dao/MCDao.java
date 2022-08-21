@@ -1,6 +1,8 @@
 package com.nadaena.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,35 +28,74 @@ public class MCDao {
 		return mcList;
 	}
 	
-	//종료 리스트(전체)
-	public List<MCVo> selectList2() {
-		System.out.println("MCDao > selectList2()");
+	//종료 리스트+페이징
+	public List<MCVo> selectList12(int startRnum, int endRnum) {
 		
-		List<MCVo> mcList2 = sqlSession.selectList("myChallenge.selectList2");
-		System.out.println(mcList2);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> mcList2 = sqlSession.selectList("myChallenge.selectList12", map);
 		
 		return mcList2;
 	}
 	
 	//종료 리스트(성공)
-	public List<MCVo> selectList3() {
-		System.out.println("MCDao > selectList3()");
+	public List<MCVo> selectList13(int startRnum, int endRnum) {
 		
-		List<MCVo> mcList3 = sqlSession.selectList("myChallenge.selectList3");
-		System.out.println(mcList3);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> mcList3 = sqlSession.selectList("myChallenge.selectList13", map);
 		
 		return mcList3;
 	}
 	
-	//종료 리스트(실패)
-	public List<MCVo> selectList4() {
-		System.out.println("MCDao > selectList4()");
+	//종료 리스트(성공)
+	public List<MCVo> selectList14(int startRnum, int endRnum) {
 		
-		List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList4");
-		System.out.println(mcList4);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList14", map);
 		
 		return mcList4;
 	}
+	
+	//전체글 갯수
+	public int selectTotalCnt() {
+		
+		int totalCnt = sqlSession.selectOne("myChallenge.selectTotalCnt");
+		
+		return totalCnt;
+	}
+	
+	//성공글 갯수
+	public int selectTotalCnt2() {
+		
+		int totalCnt2 = sqlSession.selectOne("myChallenge.selectTotalCnt2");
+		
+		return totalCnt2;
+	}
+	
+	//전체글 갯수
+	public int selectTotalCnt3() {
+		
+		int totalCnt3 = sqlSession.selectOne("myChallenge.selectTotalCnt3");
+		
+		return totalCnt3;
+	}
+	
+	
+	/*
+	 * //종료 리스트(실패) public List<MCVo> selectList4() { System.out.println("MCDao > selectList4()");
+	 * 
+	 * List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList4"); System.out.println(mcList4);
+	 * 
+	 * return mcList4; }
+	 */
 	
 	//리뷰 불러오기
 	public List<MRVo> selectreviewList() {

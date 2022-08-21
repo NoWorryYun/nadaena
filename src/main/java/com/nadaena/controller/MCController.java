@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nadaena.service.MCService;
 import com.nadaena.vo.MCVo;
@@ -24,46 +25,61 @@ public class MCController {
 	 
 	//참가중 + 종료중(전체) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
-	public String list1(Model model) {
+	public String list1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		Map<String, Object> mcMap = mcService.getmcList();
+		Map<String, Object> mcMap = mcService.getmcList(crtPage);
 		
 		model.addAttribute("mcMap", mcMap);
-		model.addAttribute("mcList", mcMap);
-		model.addAttribute("mcList2", mcMap);
 		
 		return "my/my-challenge";
 	}
 	
-	
-	//종료중(성공) 챌린지 리스트
+	//참가중 + 종료중(성공) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge/success", method = { RequestMethod.GET, RequestMethod.POST })
-	public String list2(Model model) {
+	public String list2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		System.out.println("MCC > mclist3()");
-		
-		Map<String, Object> mcMap = mcService.getmcList2();
+		Map<String, Object> mcMap = mcService.getmcList2(crtPage);
 		
 		model.addAttribute("mcMap", mcMap);
-		model.addAttribute("mcList", mcMap);
-		model.addAttribute("mcList3", mcMap);
 		
 		return "my/my-challengeyes";
 	}
 	
-	//종료중(실패) 챌린지 리스트
+	//참가중 + 종료중(실패) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge/failure", method = { RequestMethod.GET, RequestMethod.POST })
-	public String list3(Model model) {
-		System.out.println("MCC > mclist4()");
+	public String list3(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		Map<String, Object> mcMap = mcService.getmcList3();
+		Map<String, Object> mcMap = mcService.getmcList3(crtPage);
 		
 		model.addAttribute("mcMap", mcMap);
-		model.addAttribute("mcList", mcMap);
-		model.addAttribute("mcList4", mcMap);
 		
 		return "my/my-challengeno";
 	}
+	
+	/*
+	 * //종료중(성공) 챌린지 리스트
+	 * 
+	 * @RequestMapping(value = "my/my-challenge/success", method = { RequestMethod.GET, RequestMethod.POST }) public String list2(Model model) {
+	 * 
+	 * System.out.println("MCC > mclist3()");
+	 * 
+	 * Map<String, Object> mcMap = mcService.getmcList2();
+	 * 
+	 * model.addAttribute("mcMap", mcMap); model.addAttribute("mcList", mcMap); model.addAttribute("mcList3", mcMap);
+	 * 
+	 * return "my/my-challengeyes"; }
+	 * 
+	 * //종료중(실패) 챌린지 리스트
+	 * 
+	 * @RequestMapping(value = "my/my-challenge/failure", method = { RequestMethod.GET, RequestMethod.POST }) public String list3(Model model) {
+	 * System.out.println("MCC > mclist4()");
+	 * 
+	 * Map<String, Object> mcMap = mcService.getmcList3();
+	 * 
+	 * model.addAttribute("mcMap", mcMap); model.addAttribute("mcList", mcMap); model.addAttribute("mcList4", mcMap);
+	 * 
+	 * return "my/my-challengeno"; }
+	 */
 	
 	//리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
