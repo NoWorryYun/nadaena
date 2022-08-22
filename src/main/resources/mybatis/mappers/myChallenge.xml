@@ -201,7 +201,6 @@
 		    and m.state=2
 		]]>
 	</select>
-		
 	
 	<!-- 리뷰불러오기 -->
 	<select id="selectreviewList" parameterType="String" resultType="MRVo">
@@ -209,7 +208,9 @@
 			select  reviewNo,
 					challengeNo,
 					userNo,
-					reviewContent
+					reviewImg,
+					reviewContent,
+					reviewDate
 			from review
 		]]>
 	</select>
@@ -220,8 +221,8 @@
 			insert into review
 			values (SEQ_REVIEWNO.nextval,
 					#{challengeNo},
-					null,
-					null,
+					#{userNo},
+					#{reviewImg},
 					#{reviewContent},
 					sysdate
 					)

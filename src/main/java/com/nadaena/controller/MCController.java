@@ -56,31 +56,6 @@ public class MCController {
 		return "my/my-challengeno";
 	}
 	
-	/*
-	 * //종료중(성공) 챌린지 리스트
-	 * 
-	 * @RequestMapping(value = "my/my-challenge/success", method = { RequestMethod.GET, RequestMethod.POST }) public String list2(Model model) {
-	 * 
-	 * System.out.println("MCC > mclist3()");
-	 * 
-	 * Map<String, Object> mcMap = mcService.getmcList2();
-	 * 
-	 * model.addAttribute("mcMap", mcMap); model.addAttribute("mcList", mcMap); model.addAttribute("mcList3", mcMap);
-	 * 
-	 * return "my/my-challengeyes"; }
-	 * 
-	 * //종료중(실패) 챌린지 리스트
-	 * 
-	 * @RequestMapping(value = "my/my-challenge/failure", method = { RequestMethod.GET, RequestMethod.POST }) public String list3(Model model) {
-	 * System.out.println("MCC > mclist4()");
-	 * 
-	 * Map<String, Object> mcMap = mcService.getmcList3();
-	 * 
-	 * model.addAttribute("mcMap", mcMap); model.addAttribute("mcList", mcMap); model.addAttribute("mcList4", mcMap);
-	 * 
-	 * return "my/my-challengeno"; }
-	 */
-	
 	//리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
 	public String myreviewlist(Model model) {

@@ -154,7 +154,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form action="writeReview" method="get">
+			<form id ="uploadForm" action="writeReview" method="POST" enctype="multipart/form-data">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
@@ -169,7 +169,7 @@
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
-				<input type="file" id="modal-upbutton">
+				<input type="file" name="reviewImg" id="modal-upbutton">
 				
 				<!-- <div class="modal-image-box">
 					<div class="modal-image">
@@ -178,7 +178,7 @@
 				</div> -->
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
+				<button type="submit" id="uploadBtn" class="btn btn-primary">작성 및 리워드받기</button>
 			</div>
 				
 			</form>	
@@ -236,6 +236,32 @@ $(".btn-close").on("click", function(){
 	
 	$("#review-modal").fadeOut();	
 });	 
+
+//ajax 데이타 전송
+$(function(){
+	$("#uploadBtn").on("click", function(){
+		uploadFile();
+	});
+});
+
+function uploadFile(){
+	
+	var form = $("#uploadForm")[0];
+	var formData = new FormData(form);
+	
+	$.ajax({
+		url : "/url",
+		type : "POST",
+		data : formData,
+		contentType : false,
+		processData : false
+	}).done(function(data){
+		callback(data);
+	});
+	
+}
+
+
 
 
 

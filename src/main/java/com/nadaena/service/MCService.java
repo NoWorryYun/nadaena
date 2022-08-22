@@ -212,28 +212,6 @@ public class MCService {
 		return mcMap;
 	}
 	
-	
-	/*
-	 * //참가+종료 리스트(성공) public Map<String, Object> getmcList2() { System.out.println("C > getmcList2");
-	 * 
-	 * List<MCVo> mcList = mcDao.selectList(); List<MCVo> mcList3 = mcDao.selectList3();
-	 * 
-	 * Map<String, Object> mcMap = new HashMap<String, Object>();
-	 * 
-	 * mcMap.put("mcList", mcList); mcMap.put("mcList3", mcList3);
-	 * 
-	 * return mcMap; }
-	 * 
-	 * //참가+종료 리스트(실패) public Map<String, Object> getmcList3() { System.out.println("C > getmcList3");
-	 * 
-	 * List<MCVo> mcList = mcDao.selectList(); List<MCVo> mcList4 = mcDao.selectList4();
-	 * 
-	 * Map<String, Object> mcMap = new HashMap<String, Object>();
-	 * 
-	 * mcMap.put("mcList", mcList); mcMap.put("mcList4", mcList4);
-	 * 
-	 * return mcMap; }
-	 */
 	//리뷰리스트(리스트만)
 	public List<MRVo> getmrList() {
 		System.out.println("MRS > getmcList()");
