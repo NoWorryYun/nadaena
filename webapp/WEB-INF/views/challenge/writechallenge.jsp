@@ -508,8 +508,6 @@
 	
  	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
 	
- 	$("#upload-here").innerHTML = str;
- 	
  	
  	$('input:radio[name="upload"]').on("click", function(){
  		var ups = $('input:radio[name="upload"]:checked').val();
@@ -519,86 +517,86 @@
  		
  		if(ups == 1){
  			$("#upload-here *").remove();
-			$("#upload-here").append(str);
+				$("#upload-here").append(upsList(1));
 		} else if(ups == 2){
 			$("#upload-here *").remove();
-			$("#upload-here").append(str);
-			$("#upload-here").append(str);
+				$("#upload-here").append(upsList(2));
 		} else{
 			$("#upload-here *").remove();
-			$("#upload-here").append(str);
-			$("#upload-here").append(str);
-			$("#upload-here").append(str);
+				$("#upload-here").append(upsList(3));
 		}
  		
 	})
 	 
- 		var str = "";
- 		
- 		str += '<div class="upload-detail">';
-		str += '<p class="no-margin fw-bold">1회차</p>';
-		str += '<input type="text" name="upload-detail1" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
-		str +='	<div>';
-		str +='		<select name="upload-time1-1" class="select-width text-inline">';
-		str +='			<option value="0" selected="selected">00시</option>';
-		str +='			<option value="1">01시</option>';
-		str +='			<option value="2">02시</option>';
-		str +='			<option value="3">03시</option>';
-		str +='			<option value="4">04시</option>';
-		str +='			<option value="5">05시</option>';
-		str +='			<option value="6">06시</option>';
-		str +='			<option value="7">07시</option>';
-		str +='			<option value="8">08시</option>';
-		str +='			<option value="9">09시</option>';
-		str +='			<option value="10">10시</option>';
-		str +='			<option value="11">11시</option>';
-		str +='			<option value="12">12시</option>';
-		str +='			<option value="13">13시</option>';
-		str +='			<option value="14">14시</option>';
-		str +='			<option value="15">15시</option>';
-		str +='			<option value="16">16시</option>';
-		str +='			<option value="17">17시</option>';
-		str +='			<option value="18">18시</option>';
-		str +='			<option value="19">19시</option>';
-		str +='			<option value="20">20시</option>';
-		str +='			<option value="21">21시</option>';
-		str +='			<option value="22">22시</option>';
-		str +='			<option value="23">23시</option>';
-		str +='		</select>';
-		str +='		<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>';
-		str +='		<select name="upload-time1-2" class="select-width text-inline">';
-		str +='			<option value="1">01시</option>';
-		str +='			<option value="2">02시</option>';
-		str +='			<option value="3">03시</option>';
-		str +='			<option value="4">04시</option>';
-		str +='			<option value="5">05시</option>';
-		str +='			<option value="6">06시</option>';
-		str +='			<option value="7">07시</option>';
-		str +='			<option value="8">08시</option>';
-		str +='			<option value="9">09시</option>';
-		str +='			<option value="10">10시</option>';
-		str +='			<option value="11">11시</option>';
-		str +='			<option value="12">12시</option>';
-		str +='			<option value="13">13시</option>';
-		str +='			<option value="14">14시</option>';
-		str +='			<option value="15">15시</option>';
-		str +='			<option value="16">16시</option>';
-		str +='			<option value="17">17시</option>';
-		str +='			<option value="18">18시</option>';
-		str +='			<option value="19">19시</option>';
-		str +='			<option value="20">20시</option>';
-		str +='			<option value="21">21시</option>';
-		str +='			<option value="22">22시</option>';
-		str +='			<option value="23">23시</option>';
-		str +='			<option value="24">24시</option>';
-		str +='		</select>';
-		str +='		<p class="no-margin text-inline">&nbsp;까지</p>';
-		str +='		<div class="form-check time-limit-checkbox">';
-		str +='			<input class="form-check-input" name="timestop1" type="checkbox" id="timestop1" value="true"><label class="form-check-label" for="timestop1">시간설정해제</label>';
-		str +='		</div>';
-		str +='	</div>';
-		str +='</div>';
- 		
+	function upsList(n){
+ 		for (var i = 1 ; i < (n+1) ; i++){
+	 		var str = "";
+	 		
+	 		str += '<div class="upload-detail">';
+			str += '<p class="no-margin fw-bold">'+ n +'회차</p>';
+			str += '<input type="text" name="upload-detail1" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
+			str +='	<div>';
+			str +='		<select name="upload-time'+ n +'-1" class="select-width text-inline">';
+			str +='			<option value="0" selected="selected">00시</option>';
+			str +='			<option value="1">01시</option>';
+			str +='			<option value="2">02시</option>';
+			str +='			<option value="3">03시</option>';
+			str +='			<option value="4">04시</option>';
+			str +='			<option value="5">05시</option>';
+			str +='			<option value="6">06시</option>';
+			str +='			<option value="7">07시</option>';
+			str +='			<option value="8">08시</option>';
+			str +='			<option value="9">09시</option>';
+			str +='			<option value="10">10시</option>';
+			str +='			<option value="11">11시</option>';
+			str +='			<option value="12">12시</option>';
+			str +='			<option value="13">13시</option>';
+			str +='			<option value="14">14시</option>';
+			str +='			<option value="15">15시</option>';
+			str +='			<option value="16">16시</option>';
+			str +='			<option value="17">17시</option>';
+			str +='			<option value="18">18시</option>';
+			str +='			<option value="19">19시</option>';
+			str +='			<option value="20">20시</option>';
+			str +='			<option value="21">21시</option>';
+			str +='			<option value="22">22시</option>';
+			str +='			<option value="23">23시</option>';
+			str +='		</select>';
+			str +='		<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>';
+			str +='		<select name="upload-time'+ n +'-2" class="select-width text-inline">';
+			str +='			<option value="1">01시</option>';
+			str +='			<option value="2">02시</option>';
+			str +='			<option value="3">03시</option>';
+			str +='			<option value="4">04시</option>';
+			str +='			<option value="5">05시</option>';
+			str +='			<option value="6">06시</option>';
+			str +='			<option value="7">07시</option>';
+			str +='			<option value="8">08시</option>';
+			str +='			<option value="9">09시</option>';
+			str +='			<option value="10">10시</option>';
+			str +='			<option value="11">11시</option>';
+			str +='			<option value="12">12시</option>';
+			str +='			<option value="13">13시</option>';
+			str +='			<option value="14">14시</option>';
+			str +='			<option value="15">15시</option>';
+			str +='			<option value="16">16시</option>';
+			str +='			<option value="17">17시</option>';
+			str +='			<option value="18">18시</option>';
+			str +='			<option value="19">19시</option>';
+			str +='			<option value="20">20시</option>';
+			str +='			<option value="21">21시</option>';
+			str +='			<option value="22">22시</option>';
+			str +='			<option value="23">23시</option>';
+			str +='			<option value="24">24시</option>';
+			str +='		</select>';
+			str +='		<p class="no-margin text-inline">&nbsp;까지</p>';
+			str +='		<div class="form-check time-limit-checkbox">';
+			str +='			<input class="form-check-input" name="timestop1" type="checkbox" id="timestop1" value="true"><label class="form-check-label" for="timestop1">시간설정해제</label>';
+			str +='		</div>';
+			str +='	</div>';
+			str +='</div>';
+ 		}
+ 	}
 		
 	 
 	<!-------------------------------- 시간 설정 -------------------------------->
