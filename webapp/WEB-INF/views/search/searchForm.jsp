@@ -42,7 +42,7 @@
 		<div class="main-box">
 			<div>
 				<div class="search-result">
-					<p class="search-title"><a herd="">&quot;검색어&quot;</a> 에 대한 검색 결과</p>
+					<p class="search-title"><a herd="">&quot;${searchbar}&quot;</a> 에 대한 검색 결과</p>
 				</div>
 				
 				<div class="table-responsive">
@@ -62,55 +62,55 @@
 												<tr>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />운동</li>
+															value="1"  name="category" />운동</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />봉사활동</li>
+															value="2" onclick="radioClick()" name="category" />봉사활동</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />독서</li>
+															value="3" onclick="radioClick()" name="category" />독서</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />건강</li>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															name="category" />생활</li>
-													</td>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															name="category" />그림</li>
-													</td>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															name="category" />공부</li>
-													</td>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															name="category" />반려동물</li>
+															value="4" onclick="radioClick()" name="category" />건강</li>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />음악</li>
+															value="5" onclick="radioClick()" name="category" />생활</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />식습관</li>
+														 	value="6" onclick="radioClick()" name="category" />그림</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />취미</li>
+															value="7" onclick="radioClick()" name="category" />공부</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															name="category" />뷰티</li>
+															value="8" onclick="radioClick()" name="category" />반려동물</li>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="9" onclick="radioClick()" name="category" />음악</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="10" onclick="radioClick()" name="category" />식습관</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="11" onclick="radioClick()" name="category" />취미</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="12" onclick="radioClick()" name="category" />뷰티</li>
 													</td>
 												</tr>
 											</tbody>
@@ -149,167 +149,42 @@
 						</div>
 						<span>마감일순</span>
 					</div>
-					<div class="search-type-select-culm">
-						<div class="search-type-select-culm-img">
-							<span class="check-img"></span>
-						</div>
-						<span>카테고리순</span>
-					</div>
 				</div>
 			</div>
-			
-			<div class="ccheck">
-				<input type="checkbox" id="check_test">
-				<label for="check_test">
-					<div class="chk_img">체크</div>
-				</label>
-			</div>
-			
-			
+
 
 			<div class="features-boxed">
 				<div>
 					<div class="row features">
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								
-								<div class="info-box">
-					           	 	<p class="nadaena_name">마라톤</p>
-					           	 	<p class="nadaena_limit">도전기한: 2222.01.02 ~ 2022.10.24</p>
-					           	 	<p class="nadaena_incost">도전금액: 10000원</p>
-				           		</div>
-							</div>
-						</div>
 					
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">마라톤</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-										<p>참여 인원 : 15</p>
-										<p>최소 도전비용 : 20000원</p>
-										<p>기대 성공금액 : 2~3%</p>
+					
+					<!-- 검색값 넣어야함 -->
+						<c:forEach var="MainTitleVo" items="${cMap.searchList}">
+							<div class="col-sm-6 col-md-3 item">
+								<a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+									<div class="box">
+										<div class="image-box">
+											<img class="box-image img-responsive"
+												src="${pageContext.request.contextPath}/assets/img/search-img.jpg<%-- ${pageContext.request.contextPath}/${MainTitleVo.img} --%>" alt="" />
+										</div>
+										
+										<div class="info-box">
+							           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+							           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
+							           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
+							           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           		</div>
 									</div>
-								</div>
+								</a>
 							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">하루 10페이지 책 읽기</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2023.1.15 ~ 2022.2.10</p>
-										<p>참여 인원 : 24</p>
-										<p>최소 도전비용 : 10000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">하루 이빨 3번닦기</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.1.26 ~ 2022.2.14</p>
-										<p>참여 인원 : 65</p>
-										<p>최소 도전비용 : 10000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">하루 팔굽혀펴기 100회</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.5.16 ~ 2022.5.31</p>
-										<p>참여 인원 : 85</p>
-										<p>최소 도전비용 : 30000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">집안청소 하기</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.7.26 ~ 2022.8.14</p>
-										<p>참여 인원 : 9</p>
-										<p>최소 도전비용 : 50000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">하루 1장 그림그리기</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.4.26 ~ 2022.4.6</p>
-										<p>참여 인원 : 105</p>
-										<p>최소 도전비용 : 20000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-3 item">
-							<div class="box">
-								<div class="image-box">
-									<img class="box-image img-responsive"
-										src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-								</div>
-								<div class="info-box">
-									<h3 class="name">마라톤</h3>
-									<div>
-										<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-										<p>참여 인원 : 15</p>
-										<p>최소 도전비용 : 20000원</p>
-										<p>기대 성공금액 : 2~3%</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						</div>
-					</div><!--  -->
-				</div>
+						</c:forEach>
+						
+					</div>
+					<!-- //row features -->
+				</div><!--  -->
 			</div>
 		</div>
-	</main>
+</main>
 
 
 
@@ -319,5 +194,40 @@
 
 
 </body>
+
+
+
+			
+<!-- <div class="ccheck">
+	<input type="checkbox" id="check_test">
+	<label for="check_test">
+		<div class="chk_img">체크</div>
+	</label>
+</div> -->
+			
+			
+<%-- <div class="col-sm-6 col-md-3 item">
+	<div class="box">
+		<div class="image-box">
+			<img class="box-image img-responsive"
+				src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
+				</div>
+				<div class="info-box">
+					<h3 class="name">마라톤</h3>
+					<div>
+						<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+						<p>참여 인원 : 15</p>
+						<p>최소 도전비용 : 20000원</p>
+						<p>기대 성공금액 : 2~3%</p>
+					</div>
+				</div>
+			</div>
+		</div> --%>
+
+
+
+
+
+
 
 </html>
