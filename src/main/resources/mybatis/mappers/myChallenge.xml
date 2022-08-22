@@ -176,6 +176,7 @@
 			select count(*) count
 			from challenge c, mychallenge m
 		    where c.challengeNo = m.challengeNo
+		    and m.state=2
 		]]>
 	</select>
 	
@@ -186,6 +187,7 @@
 			from challenge c, mychallenge m
 		    where c.challengeNo = m.challengeNo
 		    and m.achievement >= 90
+		    and m.state=2
 		]]>
 	</select>	
 
@@ -196,70 +198,10 @@
 			from challenge c, mychallenge m
 		    where c.challengeNo = m.challengeNo
 		    and m.achievement < 90
+		    and m.state=2
 		]]>
 	</select>
 		
-	<!-- 종료 챌린지(전체)
-	<select id="selectList2" resultType="MCVo">
-		<![CDATA[
-			select  m.userNo,
-					m.userClgNo,
-					c.challengeNo,
-					c.clgTitle,
-					m.mychallengeDate,
-					m.founder,
-					m.achievement,
-					m.state,
-			        to_char(c.regdate, 'yy/mm/dd') regDate,
-			        c.period,
-			        m.payment
-			from challenge c, mychallenge m
-			where c.challengeNo = m.challengeNo
-			and   m.state = 2
-		]]>
-	</select>
-	
-	종료 챌린지(성공) 
-	<select id="selectList3" resultType="MCVo">
-		<![CDATA[
-			select  m.userNo,
-					m.userClgNo,
-					c.challengeNo,
-					c.clgTitle,
-					m.mychallengeDate,
-					m.founder,
-					m.achievement,
-					m.state,
-			        to_char(c.regdate, 'yy/mm/dd') regDate,
-			        c.period,
-			        m.payment
-			from challenge c, mychallenge m
-			where c.challengeNo = m.challengeNo
-			and   m.state = 2
-			and   m.achievement >= 90
-		]]>
-	</select>
-	
-	종료 챌린지(실패) 
-	<select id="selectList4" resultType="MCVo">
-		<![CDATA[
-			select  m.userNo,
-					m.userClgNo,
-					c.challengeNo,
-					c.clgTitle,
-					m.mychallengeDate,
-					m.founder,
-					m.achievement,
-					m.state,
-			        to_char(c.regdate, 'yy/mm/dd') regDate,
-			        c.period,
-			        m.payment
-			from challenge c, mychallenge m
-			where c.challengeNo = m.challengeNo
-			and   m.state = 2
-			and   m.achievement < 90
-		]]>
-	</select> -->
 	
 	<!-- 리뷰불러오기 -->
 	<select id="selectreviewList" parameterType="String" resultType="MRVo">
