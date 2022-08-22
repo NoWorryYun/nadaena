@@ -38,6 +38,14 @@ public class ChallengeVo {
 	public ChallengeVo() {
 		super();
 	}
+	
+
+	public ChallengeVo(String certifyTitle, int subOn, int subOff) {
+		super();
+		this.certifyTitle = certifyTitle;
+		this.subOn = subOn;
+		this.subOff = subOff;
+	}
 
 
 	public ChallengeVo(int interestNo, String clgTitle, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String tag1, String tag2, String tag3, String tag4, String tag5, MultipartFile imgs) {

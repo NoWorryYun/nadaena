@@ -507,7 +507,8 @@
 	 
 	
  	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
-	
+
+	$("#upload-here").append(upsList(1));
  	
  	$('input:radio[name="upload"]').on("click", function(){
  		var ups = $('input:radio[name="upload"]:checked').val();
@@ -516,27 +517,28 @@
  		console.log(ups);
  		
  		if(ups == 1){
- 			$("#upload-here *").remove();
-				$("#upload-here").append(upsList(1));
+			$("#upload-here *").remove();
+			$("#upload-here").append(upsList(1));
+			
 		} else if(ups == 2){
 			$("#upload-here *").remove();
-				$("#upload-here").append(upsList(2));
+			$("#upload-here").append(upsList(2));
 		} else{
 			$("#upload-here *").remove();
-				$("#upload-here").append(upsList(3));
+			$("#upload-here").append(upsList(3));
 		}
  		
 	})
-	 
+	
 	function upsList(n){
+ 		var str = "";
  		for (var i = 1 ; i < (n+1) ; i++){
-	 		var str = "";
 	 		
 	 		str += '<div class="upload-detail">';
-			str += '<p class="no-margin fw-bold">'+ n +'회차</p>';
-			str += '<input type="text" name="upload-detail1" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
+			str += '<p class="no-margin fw-bold">'+ i +'회차</p>';
+			str += '<input type="text" id="certifyTitle'+ i +'" name="upload-detail'+ i +'" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
 			str +='	<div>';
-			str +='		<select name="upload-time'+ n +'-1" class="select-width text-inline">';
+			str +='		<select name="upload-time'+ i +'-1" class="select-width text-inline">';
 			str +='			<option value="0" selected="selected">00시</option>';
 			str +='			<option value="1">01시</option>';
 			str +='			<option value="2">02시</option>';
@@ -563,7 +565,7 @@
 			str +='			<option value="23">23시</option>';
 			str +='		</select>';
 			str +='		<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>';
-			str +='		<select name="upload-time'+ n +'-2" class="select-width text-inline">';
+			str +='		<select name="upload-time'+ i +'-2" class="select-width text-inline">';
 			str +='			<option value="1">01시</option>';
 			str +='			<option value="2">02시</option>';
 			str +='			<option value="3">03시</option>';
@@ -591,14 +593,18 @@
 			str +='		</select>';
 			str +='		<p class="no-margin text-inline">&nbsp;까지</p>';
 			str +='		<div class="form-check time-limit-checkbox">';
-			str +='			<input class="form-check-input" name="timestop1" type="checkbox" id="timestop1" value="true"><label class="form-check-label" for="timestop1">시간설정해제</label>';
+			str +='			<input class="form-check-input" name="timestop'+ i +'" type="checkbox" id="timestop'+ i +'" value="true"><label class="form-check-label" for="timestop'+ i +'">시간설정해제</label>';
 			str +='		</div>';
 			str +='	</div>';
 			str +='</div>';
  		}
+ 		
+ 		return str;
  	}
 		
-	 
+ 	
+
+	
 	<!-------------------------------- 시간 설정 -------------------------------->
 	
 	
@@ -848,16 +854,39 @@
   		
 //		var clgLevel = $("#clgLevel");
 		
-//		<!-- 과제관련 var -->
-//		var certifyNo = $("#certifyNo");
-//		var certifyTitle = $("#certifyTitle");
-//		var subOn = $("#subOn");
-//		var subOff = $("#subOff");
-		
-		
 //		var userNo = $("#userNo");
-		
-
+	if($('input:checkbox[name="timestop1"]:checked') == true){
+		$('select[name="upload-time1-1"]').val(-1),
+		$('select[name="upload-time1-2"]').val(-1)
+	}
+	if($('input:checkbox[name="timestop2"]:checked') == true){
+		$('select[name="upload-time2-1"]').val(-1),
+		$('select[name="upload-time2-2"]').val(-1)
+	}
+	if($('input:checkbox[name="timestop3"]:checked') == true){
+		$('select[name="upload-time3-1"]').val(-1),
+		$('select[name="upload-time3-2"]').val(-1)
+	}
+ 	
+	var upsVo1 = {
+		certifyTitle : $("#certifyTitle1").val(),
+		subOn :  $('select[name="upload-time1-1"]').val(),
+		subOff :  $('select[name="upload-time1-2"]').val()
+	}
+	var upsVo2 = {
+		certifyTitle : $("#certifyTitle2").val(),
+		subOn :  $('select[name="upload-time2-1"]').val(),
+		subOff :  $('select[name="upload-time2-2"]').val()
+	}
+	var upsVo3 = {
+		certifyTitle : $("#certifyTitle3").val(),
+		subOn :  $('select[name="upload-time3-1"]').val(),
+		subOff :  $('select[name="upload-time3-2"]').val()
+	}
+	
+	console.log(upsVo1);
+	console.log(upsVo2);
+	console.log(upsVo3);
 
   		var payment = $('select[name="payment"]').val();
   		
@@ -889,7 +918,6 @@
   		formData.append('tag4' ,  tagList[3]);
   		formData.append('tag5' ,  tagList[4]);
   		formData.append('content', content);
-  		
   		
   		formData.append('color',  $('[name="color"]').css( "background-color"));
   		
