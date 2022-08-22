@@ -163,195 +163,7 @@
 												<td class="write-table-label">일일 업로드 <br> 세부설정
 												</td>
 												<td class="write-table-content" colspan="3">
-													<div class="upload-detail">
-														<p class="no-margin fw-bold">1회차</p>
-														<input type="text" name="upload-detail1" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">
-														<div>
-															<select name="upload-time1-1" class="select-width text-inline">
-																<option value="0" selected="selected">00시</option>
-																<option value="1">01시</option>
-																<option value="2">02시</option>
-																<option value="3">03시</option>
-																<option value="4">04시</option>
-																<option value="5">05시</option>
-																<option value="6">06시</option>
-																<option value="7">07시</option>
-																<option value="8">08시</option>
-																<option value="9">09시</option>
-																<option value="10">10시</option>
-																<option value="11">11시</option>
-																<option value="12">12시</option>
-																<option value="13">13시</option>
-																<option value="14">14시</option>
-																<option value="15">15시</option>
-																<option value="16">16시</option>
-																<option value="17">17시</option>
-																<option value="18">18시</option>
-																<option value="19">19시</option>
-																<option value="20">20시</option>
-																<option value="21">21시</option>
-																<option value="22">22시</option>
-																<option value="23">23시</option>
-															</select>
-															<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>
-															<select name="upload-time1-2" class="select-width text-inline">
-																<option value="1">01시</option>
-																<option value="2">02시</option>
-																<option value="3">03시</option>
-																<option value="4">04시</option>
-																<option value="5">05시</option>
-																<option value="6">06시</option>
-																<option value="7">07시</option>
-																<option value="8">08시</option>
-																<option value="9">09시</option>
-																<option value="10">10시</option>
-																<option value="11">11시</option>
-																<option value="12">12시</option>
-																<option value="13">13시</option>
-																<option value="14">14시</option>
-																<option value="15">15시</option>
-																<option value="16">16시</option>
-																<option value="17">17시</option>
-																<option value="18">18시</option>
-																<option value="19">19시</option>
-																<option value="20">20시</option>
-																<option value="21">21시</option>
-																<option value="22">22시</option>
-																<option value="23">23시</option>
-																<option value="24">24시</option>
-															</select>
-															<p class="no-margin text-inline">&nbsp;까지</p>
-															<div class="form-check time-limit-checkbox">
-																<input class="form-check-input" name="timestop1" type="checkbox" id="timestop1" value="true"><label class="form-check-label" for="timestop1">시간설정해제</label>
-															</div>
-														</div>
-													</div>
-													<div class="upload-detail">
-														<p class="no-margin fw-bold">2회차</p>
-														<input type="text" name="upload-detail2" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">
-														<div>
-															<select name="upload-time2-1" class="select-width text-inline">
-																<option value="0" selected="selected">00시</option>
-																<option value="1">01시</option>
-																<option value="2">02시</option>
-																<option value="3">03시</option>
-																<option value="4">04시</option>
-																<option value="5">05시</option>
-																<option value="6">06시</option>
-																<option value="7">07시</option>
-																<option value="8">08시</option>
-																<option value="9">09시</option>
-																<option value="10">10시</option>
-																<option value="11">11시</option>
-																<option value="12">12시</option>
-																<option value="13">13시</option>
-																<option value="14">14시</option>
-																<option value="15">15시</option>
-																<option value="16">16시</option>
-																<option value="17">17시</option>
-																<option value="18">18시</option>
-																<option value="19">19시</option>
-																<option value="20">20시</option>
-																<option value="21">21시</option>
-																<option value="22">22시</option>
-																<option value="23">23시</option>
-															</select>
-															<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>
-															<select name="upload-time2-2" class="select-width text-inline">
-																<option value="1">01시</option>
-																<option value="2">02시</option>
-																<option value="3">03시</option>
-																<option value="4">04시</option>
-																<option value="5">05시</option>
-																<option value="6">06시</option>
-																<option value="7">07시</option>
-																<option value="8">08시</option>
-																<option value="9">09시</option>
-																<option value="10">10시</option>
-																<option value="11">11시</option>
-																<option value="12">12시</option>
-																<option value="13">13시</option>
-																<option value="14">14시</option>
-																<option value="15">15시</option>
-																<option value="16">16시</option>
-																<option value="17">17시</option>
-																<option value="18">18시</option>
-																<option value="19">19시</option>
-																<option value="20">20시</option>
-																<option value="21">21시</option>
-																<option value="22">22시</option>
-																<option value="23">23시</option>
-																<option value="24">24시</option>
-															</select>
-															<p class="no-margin text-inline">&nbsp;까지</p>
-															<div class="form-check time-limit-checkbox">
-																<input class="form-check-input" name="timestop2" type="checkbox" id="timestop2" value="true"><label class="form-check-label" for="timestop2">시간설정해제</label>
-															</div>
-														</div>
-													</div>
-													<div class="upload-detail">
-														<p class="no-margin fw-bold">3회차</p>
-														<input type="text" name="upload-detail3" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">
-														<div>
-															<select name="upload-time3-1" class="select-width text-inline">
-																<option value="0" selected="selected">00시</option>
-																<option value="1">01시</option>
-																<option value="2">02시</option>
-																<option value="3">03시</option>
-																<option value="4">04시</option>
-																<option value="5">05시</option>
-																<option value="6">06시</option>
-																<option value="7">07시</option>
-																<option value="8">08시</option>
-																<option value="9">09시</option>
-																<option value="10">10시</option>
-																<option value="11">11시</option>
-																<option value="12">12시</option>
-																<option value="13">13시</option>
-																<option value="14">14시</option>
-																<option value="15">15시</option>
-																<option value="16">16시</option>
-																<option value="17">17시</option>
-																<option value="18">18시</option>
-																<option value="19">19시</option>
-																<option value="20">20시</option>
-																<option value="21">21시</option>
-																<option value="22">22시</option>
-																<option value="23">23시</option>
-															</select>
-															<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>
-															<select name="upload-time3-2" class="select-width text-inline">
-																<option value="1">01시</option>
-																<option value="2">02시</option>
-																<option value="3">03시</option>
-																<option value="4">04시</option>
-																<option value="5">05시</option>
-																<option value="6">06시</option>
-																<option value="7">07시</option>
-																<option value="8">08시</option>
-																<option value="9">09시</option>
-																<option value="10">10시</option>
-																<option value="11">11시</option>
-																<option value="12">12시</option>
-																<option value="13">13시</option>
-																<option value="14">14시</option>
-																<option value="15">15시</option>
-																<option value="16">16시</option>
-																<option value="17">17시</option>
-																<option value="18">18시</option>
-																<option value="19">19시</option>
-																<option value="20">20시</option>
-																<option value="21">21시</option>
-																<option value="22">22시</option>
-																<option value="23">23시</option>
-																<option value="24">24시</option>
-															</select>
-															<p class="no-margin text-inline">&nbsp;까지</p>
-															<div class="form-check time-limit-checkbox">
-																<input class="form-check-input" type="checkbox" id="timestop3" name="timestop3" value="timestop3"><label class="form-check-label" for="timestop3">시간설정해제</label>
-															</div>
-														</div>
-													</div>
+													<div id = "upload-here"></div>
 												</td>
 											</tr>
 										</tbody>
@@ -490,9 +302,9 @@
 						</ul>
 						<p>난이도 설정 점수</p>
 						<ul class="list-unstyled">
-							<li>40점 이하 하</li>
-							<li>40~70점 중</li>
-							<li>70점 이상 상</li>
+							<li>40점 이하 ( 하 )</li>
+							<li>40~59점 ( 중 )</li>
+							<li>60점 이상 ( 상 )</li>
 						</ul>
 						<p>난이도 계산기</p>
 						<ul class="list-unstyled">
@@ -696,12 +508,98 @@
 	
  	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
 	
-	$('[name=upload]').on("click", function(){
-		if($('[name=upload]').val() == 1){
-			
+ 	$("#upload-here").innerHTML = str;
+ 	
+ 	
+ 	$('input:radio[name="upload"]').on("click", function(){
+ 		var ups = $('input:radio[name="upload"]:checked').val();
+ 		
+ 		
+ 		console.log(ups);
+ 		
+ 		if(ups == 1){
+ 			$("#upload-here *").remove();
+			$("#upload-here").append(str);
+		} else if(ups == 2){
+			$("#upload-here *").remove();
+			$("#upload-here").append(str);
+			$("#upload-here").append(str);
+		} else{
+			$("#upload-here *").remove();
+			$("#upload-here").append(str);
+			$("#upload-here").append(str);
+			$("#upload-here").append(str);
 		}
+ 		
 	})
 	 
+ 		var str = "";
+ 		
+ 		str += '<div class="upload-detail">';
+		str += '<p class="no-margin fw-bold">1회차</p>';
+		str += '<input type="text" name="upload-detail1" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
+		str +='	<div>';
+		str +='		<select name="upload-time1-1" class="select-width text-inline">';
+		str +='			<option value="0" selected="selected">00시</option>';
+		str +='			<option value="1">01시</option>';
+		str +='			<option value="2">02시</option>';
+		str +='			<option value="3">03시</option>';
+		str +='			<option value="4">04시</option>';
+		str +='			<option value="5">05시</option>';
+		str +='			<option value="6">06시</option>';
+		str +='			<option value="7">07시</option>';
+		str +='			<option value="8">08시</option>';
+		str +='			<option value="9">09시</option>';
+		str +='			<option value="10">10시</option>';
+		str +='			<option value="11">11시</option>';
+		str +='			<option value="12">12시</option>';
+		str +='			<option value="13">13시</option>';
+		str +='			<option value="14">14시</option>';
+		str +='			<option value="15">15시</option>';
+		str +='			<option value="16">16시</option>';
+		str +='			<option value="17">17시</option>';
+		str +='			<option value="18">18시</option>';
+		str +='			<option value="19">19시</option>';
+		str +='			<option value="20">20시</option>';
+		str +='			<option value="21">21시</option>';
+		str +='			<option value="22">22시</option>';
+		str +='			<option value="23">23시</option>';
+		str +='		</select>';
+		str +='		<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>';
+		str +='		<select name="upload-time1-2" class="select-width text-inline">';
+		str +='			<option value="1">01시</option>';
+		str +='			<option value="2">02시</option>';
+		str +='			<option value="3">03시</option>';
+		str +='			<option value="4">04시</option>';
+		str +='			<option value="5">05시</option>';
+		str +='			<option value="6">06시</option>';
+		str +='			<option value="7">07시</option>';
+		str +='			<option value="8">08시</option>';
+		str +='			<option value="9">09시</option>';
+		str +='			<option value="10">10시</option>';
+		str +='			<option value="11">11시</option>';
+		str +='			<option value="12">12시</option>';
+		str +='			<option value="13">13시</option>';
+		str +='			<option value="14">14시</option>';
+		str +='			<option value="15">15시</option>';
+		str +='			<option value="16">16시</option>';
+		str +='			<option value="17">17시</option>';
+		str +='			<option value="18">18시</option>';
+		str +='			<option value="19">19시</option>';
+		str +='			<option value="20">20시</option>';
+		str +='			<option value="21">21시</option>';
+		str +='			<option value="22">22시</option>';
+		str +='			<option value="23">23시</option>';
+		str +='			<option value="24">24시</option>';
+		str +='		</select>';
+		str +='		<p class="no-margin text-inline">&nbsp;까지</p>';
+		str +='		<div class="form-check time-limit-checkbox">';
+		str +='			<input class="form-check-input" name="timestop1" type="checkbox" id="timestop1" value="true"><label class="form-check-label" for="timestop1">시간설정해제</label>';
+		str +='		</div>';
+		str +='	</div>';
+		str +='</div>';
+ 		
+		
 	 
 	<!-------------------------------- 시간 설정 -------------------------------->
 	
@@ -724,14 +622,12 @@
 		pec = Number(pec);
 		<!--  첫화면  -->
 		rDate = new Date(today1.setDate(date + rec));
-		console.log(rDate);
 		
 		recDate[0] = rDate.getFullYear();
 		recDate[1] = rDate.getMonth() + 1;
 		recDate[2] = rDate.getDate();
 		
 		pDate = new Date(today2.setDate(date2 + rec + (pec*7)));
-		console.log("pDate : " + pDate);
 		
 		perDate[0] = pDate.getFullYear();
 		perDate[1] = pDate.getMonth() + 1;
@@ -741,11 +637,11 @@
 		$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
 		
 		if(pec == 1){
-			$('#weeks').text("1주일");
+			$('#weeks').text("1주");
 		} else if(pec == 2){
-			$('#weeks').text("2주일");
+			$('#weeks').text("2주");
 		} else{
-			$('#weeks').text("3주일");
+			$('#weeks').text("3주");
 		}
 		
 		today2 = new Date();
@@ -759,14 +655,12 @@
 			pec = Number(pec);
 			
 			rDate = new Date(today1.setDate(date + rec));
-			console.log(rDate);
 			
 			recDate[0] = rDate.getFullYear();
 			recDate[1] = rDate.getMonth() + 1;
 			recDate[2] = rDate.getDate();
 			
 			pDate = new Date(today2.setDate(date2 + rec + (pec*7)));
-			console.log("pDate : " + pDate);
 			
 			perDate[0] = pDate.getFullYear();
 			perDate[1] = pDate.getMonth() + 1;
@@ -774,9 +668,6 @@
 			
 			$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
 			$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
-			
-			console.log("rec: " + rec);
-			console.log("pec: " + pec);
 			
 			today2 = new Date();
 		})
@@ -789,14 +680,12 @@
 			pec = Number(pec);
 			
 			rDate = new Date(today1.setDate(date + rec));
-			console.log(rDate);
 			
 			recDate[0] = rDate.getFullYear();
 			recDate[1] = rDate.getMonth() + 1;
 			recDate[2] = rDate.getDate();
 			
 			pDate = new Date(today2.setDate(date2 + rec + (pec*7)));
-			console.log("pDate : " + pDate);
 			
 			perDate[0] = pDate.getFullYear();
 			perDate[1] = pDate.getMonth() + 1;
@@ -804,9 +693,6 @@
 			
 			$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
 			$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
-			
-			console.log("rec: " + rec);
-			console.log("pec: " + pec);
 			
 			today2 = new Date();
 			
@@ -827,24 +713,10 @@
 	<!-- 챌린지 난이도 계산 -->
 	var pCal = $('select[name="period"]').val();
 	pCal = Number(pCal);
-	console.log(pCal);
 	var cCal = $('input:radio[name="certify"]:checked').val();
-	console.log(cCal);
 	var uCal = $('input:radio[name="upload"]:checked').val();
-	console.log(uCal);
 	var cDCal = $('input:radio[name="certifyDay"]:checked').val();
-	console.log(cDCal);
-	var mCal = $('input:checkbox[name="minigame"]:checked').val();
-	console.log(mCal);
-
-	var minimini;
-	if(mCal == false){
-		minimini = 0;
-		minimini = Number(minimini);
-	} else{
-		minimini = 5;
-		minimini = Number(minimini);
-	}
+	var mCal = $('input:checkbox[name="minigame"]');
 	
 	var calList = [];
 	
@@ -854,24 +726,38 @@
 	calList[3] = 5;
 	calList[4] = 0;
 	
-	//기본점수
-	var basePoint = $("#cal-sum").text(calList[0] + calList[1] + calList[2] + calList[3] + calList[4]);
-	
+	//기본 베이스
+	var basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4];
+
+	$("#cal-length").text("( 1주일 )");
+	$("#cal-mini").text("( X )");
+	$("#cal-way").text("( 사진 )");
+	$("#cal-upload").text("( 1회 )");
+	$("#cal-times").text("( 5일 )");
+	$("#cal-sum").text(basePoint);
 	
 	$('select[name="period"]').on("change", function(){
 		var pCal = $('select[name="period"]').val();
 		if(pCal == 1){
 			calList[0] = 5;
-			console.log(calList[0]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-length").text("( 1주일 )");
 		} else if(pCal == 2){
 			calList[0] = 10;
-			console.log(calList[0]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-length").text("( 2주일 )");
+			
 		} else{
 			calList[0] = 20;
-			console.log(calList[0]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-length").text("( 3주일 )");
+			
 		}
 	})
 	
@@ -879,12 +765,18 @@
 		var cCal = $('input:radio[name="certify"]:checked').val();
 		if(cCal == 1){
 			calList[1] = 5;
-			console.log(calList[1]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-way").text("( 사진 )");
+			
 		} else {
 			calList[1] = 10;
-			console.log(calList[1]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-way").text("( 비디오 )");
+			
 		}
 	})
 	
@@ -892,16 +784,25 @@
 		var uCal = $('input:radio[name="upload"]:checked').val();
 		if(uCal == 1){
 			calList[2] = 5;
-			console.log(calList[2]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-upload").text("( 1회 )");
+			
 		} else if(uCal ==2 ){
 			calList[2] = 10;
-			console.log(calList[2]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-upload").text("( 2회 )");
+			
 		} else{
 			calList[2] = 20;
-			console.log(calList[2]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-upload").text("( 3회 )");
+			
 		}
 		
 	})
@@ -910,23 +811,43 @@
 		var cDCal = $('input:radio[name="certifyDay"]:checked').val();
 		if(cDCal == 5){
 			calList[3] = 5;
-			console.log(calList[3]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-times").text("( 5일 )");
+			
 		} else{
 			calList[3] = 10;
-			console.log(calList[3]);
-			basePoint;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+
+			$("#cal-sum").text(basePoint);
+			$("#cal-times").text("( 7일 )");
+			
 		}
 	})
 	
-	
+		
+	$('input:checkbox[name="minigame"]').on("change", function(){
+		if(mCal.is(":checked")){
+			calList[4] = 5;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+			
+			$("#cal-sum").text(basePoint);
+			$("#cal-mini").text("( O )");
+			
+		} else{
+			calList[4] = 0;
+			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
+			
+			$("#cal-sum").text(basePoint);
+			$("#cal-mini").text("( X )");
+			
+		}
+	})
+
 	 <!-- form data -->
   	$("#MKBtn").on("click", function(){
   		
-//		var content = $("#classic").text();
-
-//		var color = $("#color");
-		
 //		var clgLevel = $("#clgLevel");
 		
 //		<!-- 과제관련 var -->
@@ -973,8 +894,6 @@
   		
   		
   		formData.append('color',  $('[name="color"]').css( "background-color"));
-  		
-  		console.log($('[name="color"]').css( "background-color"));
   		
   		$.ajax({
   			contentType : false,
