@@ -1,11 +1,13 @@
 package com.nadaena.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MRVo {
 	
 	private int reviewNo;
 	private int challengeNo;
 	private int userNo;
-	private String reviewImg;
+	private MultipartFile reviewImg;
 	private String reviewContent;
 	private String reviewDate;
 	private String nickname;
@@ -13,7 +15,7 @@ public class MRVo {
 	public MRVo() {
 		super();
 	}
-	public MRVo(int reviewNo, int challengeNo, int userNo, String reviewImg, String reviewContent, String reviewDate, String nickname, String clgTitle) {
+	public MRVo(int reviewNo, int challengeNo, int userNo, MultipartFile reviewImg, String reviewContent, String reviewDate, String nickname, String clgTitle) {
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
@@ -42,10 +44,10 @@ public class MRVo {
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	public String getReviewImg() {
+	public MultipartFile getReviewImg() {
 		return reviewImg;
 	}
-	public void setReviewImg(String reviewImg) {
+	public void setReviewImg(MultipartFile reviewImg) {
 		this.reviewImg = reviewImg;
 	}
 	public String getReviewContent() {

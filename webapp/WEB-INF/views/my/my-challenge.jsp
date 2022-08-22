@@ -154,7 +154,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form id ="uploadForm" action="writeReview" method="POST" enctype="multipart/form-data">
+			<form id ="uploadForm" action="${pageContext.request.contextPath }/my/writeReview" method="post" enctype="multipart/form-data">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
@@ -169,7 +169,7 @@
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
-				<input type="file" name="reviewImg" id="modal-upbutton">
+				<input id="file" type="file" name="reviewImg" class="modal-upbutton">
 				
 				<!-- <div class="modal-image-box">
 					<div class="modal-image">
@@ -250,7 +250,7 @@ function uploadFile(){
 	var formData = new FormData(form);
 	
 	$.ajax({
-		url : "/url",
+		url : "${pageContext.request.contextPath }/my/writeReview",
 		type : "POST",
 		data : formData,
 		contentType : false,
