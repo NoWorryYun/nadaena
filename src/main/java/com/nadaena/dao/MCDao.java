@@ -40,7 +40,7 @@ public class MCDao {
 		return mcList2;
 	}
 	
-	//종료 리스트(성공)
+	//종료 리스트(성공) + 페이징
 	public List<MCVo> selectList13(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -52,7 +52,7 @@ public class MCDao {
 		return mcList3;
 	}
 	
-	//종료 리스트(성공)
+	//종료 리스트(실패) + 페이징
 	public List<MCVo> selectList14(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();

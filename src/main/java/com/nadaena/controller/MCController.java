@@ -30,7 +30,7 @@ public class MCController {
 		Map<String, Object> mcMap = mcService.getmcList(crtPage);
 		
 		model.addAttribute("mcMap", mcMap);
-		
+		System.out.println(mcMap);
 		return "my/my-challenge";
 	}
 	
@@ -41,7 +41,7 @@ public class MCController {
 		Map<String, Object> mcMap = mcService.getmcList2(crtPage);
 		
 		model.addAttribute("mcMap", mcMap);
-		
+		System.out.println(mcMap);
 		return "my/my-challengeyes";
 	}
 	
@@ -52,7 +52,7 @@ public class MCController {
 		Map<String, Object> mcMap = mcService.getmcList3(crtPage);
 		
 		model.addAttribute("mcMap", mcMap);
-		
+		System.out.println(mcMap);
 		return "my/my-challengeno";
 	}
 	

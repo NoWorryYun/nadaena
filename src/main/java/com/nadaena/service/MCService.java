@@ -108,7 +108,7 @@ public class MCService {
 		//////////
 		
 		//전체글갯수
-		int totalCnt = mcDao.selectTotalCnt();
+		int totalCnt2 = mcDao.selectTotalCnt2();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -121,11 +121,11 @@ public class MCService {
 		
 		//다음 화살표 유무
         boolean next = false;
-        if( (listCnt*endPageBtnNo) < totalCnt  ) {
+        if( (listCnt*endPageBtnNo) < totalCnt2  ) {
         	 next=true;
         
         }else {
-        	endPageBtnNo =(int)Math.ceil(totalCnt/(double)listCnt);       
+        	endPageBtnNo =(int)Math.ceil(totalCnt2/(double)listCnt);       
         }
        
         //이전 화살표 유무
@@ -173,7 +173,7 @@ public class MCService {
 		//////////
 		
 		//전체글갯수
-		int totalCnt = mcDao.selectTotalCnt();
+		int totalCnt3 = mcDao.selectTotalCnt3();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -186,11 +186,11 @@ public class MCService {
 		
 		//다음 화살표 유무
         boolean next = false;
-        if( (listCnt*endPageBtnNo) < totalCnt  ) {
+        if( (listCnt*endPageBtnNo) < totalCnt3  ) {
         	 next=true;
         
         }else {
-        	endPageBtnNo =(int)Math.ceil(totalCnt/(double)listCnt);       
+        	endPageBtnNo =(int)Math.ceil(totalCnt3/(double)listCnt);       
         }
        
         //이전 화살표 유무
