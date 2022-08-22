@@ -92,8 +92,8 @@
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label">모집기간</td>
-												<td class="write-table-content"><select name=recruitment class="select-width">
-														<option value="3" selected="selected">3일</option>
+												<td class="write-table-content"><select name="recruitment" class="select-width">
+														<option value="3">3일</option>
 														<option value="4">4일</option>
 														<option value="5">5일</option>
 														<option value="6">6일</option>
@@ -101,7 +101,7 @@
 												</select>&nbsp;</td>
 												<td class="write-table-label">챌린지 기간</td>
 												<td class="write-table-content"><select name="period" class="select-width">
-														<option value="1" selected="selected">1주일</option>
+														<option value="1">1주일</option>
 														<option value="2">2주일</option>
 														<option value="3">3주일</option>
 												</select></td>
@@ -109,7 +109,7 @@
 									</table>
 									<div class="explain-date">
 										<p id="eDate">
-											'<span class="startDate"></span>'부터 '1주일'동안 진행됩니다.<br>(<span class="startDate"></span> ~ <span class="cDate"></span>)
+											'<span class="startDate"></span>'부터 '<span id="weeks"></span>'동안 진행됩니다.<br>(<span class="startDate"></span> ~ <span class="cDate"></span>)
 										</p>
 									</div>
 								</div>
@@ -152,7 +152,7 @@
 												<td class="write-table-label">주당 인증 일수</td>
 												<td class="write-table-content">
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="week-five" name="certifyDay" value="5"><label class="form-check-label" for="week-five">주5일 (평일만)</label>
+														<input class="form-check-input" type="radio" id="week-five" name="certifyDay" value="5" checked="checked"><label class="form-check-label" for="week-five">주5일 (평일만)</label>
 													</div>
 													<div class="form-check radio-with-label">
 														<input class="form-check-input" type="radio" id="week-seven" name="certifyDay" value="7"><label class="form-check-label" for="week-seven">주7일 (주말포함)</label>
@@ -503,9 +503,9 @@
 							<li>미니게임 <span id="cal-mini"></span></li>
 						</ul>
 						<p>합계</p>
-						<span id="cal-sum"></span>
+						<p id="cal-sum"></p>
 						<p>난이도</p>
-						<span id="cal-level"></span>
+						<p id="cal-level"></p>
 					</div>
 				</div>
 			</div>
@@ -705,154 +705,219 @@
 	 
 	<!-------------------------------- 시간 설정 -------------------------------->
 	
-	var today = new Date();  
-	var date = today.getDate();
-	var rDate = new Date();
-	console.log(date);
 	
-	$('select[name="recruitment"]').on("change", function(){
-		var rec = $('select[name="recruitment"]').val();
+		var today1 = new Date();  
+		var today2 = new Date();
+		var rDate = new Date();
+		var pDate = new Date();
 		
-		console.log("rec: " + rec);
+		var date = today1.getDate();
+		var date2 = today2.getDate();
 
-		if(rec == 3){
-			rDate = new Date(today.setDate(date + 3));
-			console.log(rDate);
-			
-			$('select[name="period"]').on("change", function(){
-				var pSel = $('select[name="period"]').val();
-				
-				var rDates = rDate.getDate();
-				
-				console.log("pSel: " + pSel);
+		var recDate = [];
 
-				if(pSel == 1){
-					rDate = new Date(rDate.setDate(rDates + 10));
-					console.log(rDate);
-				} else if(pSel == 2){
-					rDate = new Date(rDate.setDate(rDates + 17));
-					console.log(rDate);
-				} else {
-					rDate = new Date(rDate.setDate(rDates + 24));
-					console.log(rDate);
-				}
-				
-				rDate = new Date();
-			})
-		} else if(rec == 4){
-			rDate = new Date(today.setDate(date + 4));
-			console.log(rDate);
-			
-			$('select[name="period"]').on("change", function(){
-				var pSel = $('select[name="period"]').val();
-				
-				var rDates = rDate.getDate();
-				
-				console.log("pSel: " + pSel);
+		var perDate = [];
 
-				if(pSel == 1){
-					rDate = new Date(rDate.setDate(rDates + 4 + 7));
-					console.log("rDate1");
-					console.log(rDate);
-					console.log(typeof(rDate));
-				} else if(pSel == 2){
-					rDate = new Date(rDate.setDate(rDates + 4 + 14));
-					console.log("rDate2");
-					console.log(rDate);
-				} else {
-					rDate = new Date(rDate.setDate(rDates + 4 + 21));
-					console.log("rDate3");
-					console.log(rDate);
-				}
-				
-				rDate = new Date();
-			})
-		} else if(rec == 5){
-			rDate = new Date(today.setDate(date + 5));
-			console.log(rDate);
-			
-			$('select[name="period"]').on("change", function(){
-				var pSel = $('select[name="period"]').val();
-				
-				var rDates = rDate.getDate();
-				
-				console.log("pSel: " + pSel);
-
-				if(pSel == 1){
-					rDate = new Date(rDate.setDate(rDates + 5 + 7));
-					console.log(rDate);
-				} else if(pSel == 2){
-					rDate = new Date(rDate.setDate(rDates + 5 + 14));
-					console.log(rDate);
-				} else {
-					rDate = new Date(rDate.setDate(rDates + 5 + 21));
-					console.log(rDate);
-				}
-				
-				rDate = new Date();
-			})
-		} else if(rec == 6){
-			rDate = new Date(today.setDate(date + 6));
-			console.log(rDate);
-			
-			$('select[name="period"]').on("change", function(){
-				var pSel = $('select[name="period"]').val();
-				
-				var rDates = rDate.getDate();
-				
-				console.log("pSel: " + pSel);
-
-				if(pSel == 1){
-					rDate = new Date(rDate.setDate(rDates + 6 + 7));
-					console.log(rDate);
-				} else if(pSel == 2){
-					rDate = new Date(rDate.setDate(rDates + 6 + 14));
-					console.log(rDate);
-				} else {
-					rDate = new Date(rDate.setDate(rDates + 6 + 21));
-					console.log(rDate);
-				}
-				
-				rDate = new Date();
-			})
+		var rec = $('select[name="recruitment"]').val();
+		rec = Number(rec);
+		var pec = $('select[name="period"]').val();
+		pec = Number(pec);
+		<!--  첫화면  -->
+		rDate = new Date(today1.setDate(date + rec));
+		console.log(rDate);
+		
+		recDate[0] = rDate.getFullYear();
+		recDate[1] = rDate.getMonth() + 1;
+		recDate[2] = rDate.getDate();
+		
+		pDate = new Date(today2.setDate(date2 + rec + (pec*7)));
+		console.log("pDate : " + pDate);
+		
+		perDate[0] = pDate.getFullYear();
+		perDate[1] = pDate.getMonth() + 1;
+		perDate[2] = pDate.getDate();
+		
+		$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
+		$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
+		
+		if(pec == 1){
+			$('#weeks').text("1주일");
+		} else if(pec == 2){
+			$('#weeks').text("2주일");
 		} else{
-			rDate = new Date(today.setDate(date + 7));
-			console.log(rDate);
-			
-			$('select[name="period"]').on("change", function(){
-				var pSel = $('select[name="period"]').val();
-				
-				var rDates = rDate.getDate();
-				
-				console.log("pSel: " + pSel);
-
-				if(pSel == 1){
-					rDate = new Date(rDate.setDate(rDates + 7 + 7));
-					console.log(rDate);
-				} else if(pSel == 2){
-					rDate = new Date(rDate.setDate(rDates + 7 + 14));
-					console.log(rDate);
-				} else {
-					rDate = new Date(rDate.setDate(rDates + 7 + 21));
-					console.log(rDate);
-				}
-				
-				rDate = new Date();
-			})
+			$('#weeks').text("3주일");
 		}
 		
-		var cDate = [];
-		cDate[0] = rDate.getFullYear();
-		cDate[1] = rDate.getMonth() + 1;
-		cDate[2] = rDate.getDate();
+		today2 = new Date();
 		
-		$(".cDate").text((cDate[0] +'/'+ cDate[1] +'/'+ cDate[2]));
+		<!-- 모집기간 설정 눌렀을 때 -->
+		$('select[name="recruitment"]').on("change", function(){
+			
+			var rec = $('select[name="recruitment"]').val();
+			rec = Number(rec);
+			var pec = $('select[name="period"]').val();
+			pec = Number(pec);
+			
+			rDate = new Date(today1.setDate(date + rec));
+			console.log(rDate);
+			
+			recDate[0] = rDate.getFullYear();
+			recDate[1] = rDate.getMonth() + 1;
+			recDate[2] = rDate.getDate();
+			
+			pDate = new Date(today2.setDate(date2 + rec + (pec*7)));
+			console.log("pDate : " + pDate);
+			
+			perDate[0] = pDate.getFullYear();
+			perDate[1] = pDate.getMonth() + 1;
+			perDate[2] = pDate.getDate();
+			
+			$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
+			$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
+			
+			console.log("rec: " + rec);
+			console.log("pec: " + pec);
+			
+			today2 = new Date();
+		})
 		
-		today = new Date();
-	})
+		<!-- 챌린지 기간 설정 눌렀을 때 -->
+		$('select[name="period"]').on("change", function(){
+			var rec = $('select[name="recruitment"]').val();
+			rec = Number(rec);
+			var pec = $('select[name="period"]').val();
+			pec = Number(pec);
+			
+			rDate = new Date(today1.setDate(date + rec));
+			console.log(rDate);
+			
+			recDate[0] = rDate.getFullYear();
+			recDate[1] = rDate.getMonth() + 1;
+			recDate[2] = rDate.getDate();
+			
+			pDate = new Date(today2.setDate(date2 + rec + (pec*7)));
+			console.log("pDate : " + pDate);
+			
+			perDate[0] = pDate.getFullYear();
+			perDate[1] = pDate.getMonth() + 1;
+			perDate[2] = pDate.getDate();
+			
+			$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
+			$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
+			
+			console.log("rec: " + rec);
+			console.log("pec: " + pec);
+			
+			today2 = new Date();
+			
+			if(pec == 1){
+				$('#weeks').text("1주일");
+			} else if(pec == 2){
+				$('#weeks').text("2주일");
+			} else{
+				$('#weeks').text("3주일");
+			}
+			
+		})
+	
 	
 	
 	//챌린지 시작 날짜 
+	
+	<!-- 챌린지 난이도 계산 -->
+	var pCal = $('select[name="period"]').val();
+	pCal = Number(pCal);
+	console.log(pCal);
+	var cCal = $('input:radio[name="certify"]:checked').val();
+	console.log(cCal);
+	var uCal = $('input:radio[name="upload"]:checked').val();
+	console.log(uCal);
+	var cDCal = $('input:radio[name="certifyDay"]:checked').val();
+	console.log(cDCal);
+	var mCal = $('input:checkbox[name="minigame"]:checked').val();
+	console.log(mCal);
+
+	var minimini;
+	if(mCal == false){
+		minimini = 0;
+		minimini = Number(minimini);
+	} else{
+		minimini = 5;
+		minimini = Number(minimini);
+	}
+	
+	var calList = [];
+	
+	calList[0] = 5;
+	calList[1] = 10;
+	calList[2] = 5;
+	calList[3] = 5;
+	calList[4] = 0;
+	
+	//기본점수
+	var basePoint = $("#cal-sum").text(calList[0] + calList[1] + calList[2] + calList[3] + calList[4]);
+	
+	
+	$('select[name="period"]').on("change", function(){
+		var pCal = $('select[name="period"]').val();
+		if(pCal == 1){
+			calList[0] = 5;
+			console.log(calList[0]);
+			basePoint;
+		} else if(pCal == 2){
+			calList[0] = 10;
+			console.log(calList[0]);
+			basePoint;
+		} else{
+			calList[0] = 20;
+			console.log(calList[0]);
+			basePoint;
+		}
+	})
+	
+	$('input:radio[name="certify"]').on("change", function(){
+		var cCal = $('input:radio[name="certify"]:checked').val();
+		if(cCal == 1){
+			calList[1] = 5;
+			console.log(calList[1]);
+			basePoint;
+		} else {
+			calList[1] = 10;
+			console.log(calList[1]);
+			basePoint;
+		}
+	})
+	
+	$('input:radio[name="upload"]').on("change", function(){
+		var uCal = $('input:radio[name="upload"]:checked').val();
+		if(uCal == 1){
+			calList[2] = 5;
+			console.log(calList[2]);
+			basePoint;
+		} else if(uCal ==2 ){
+			calList[2] = 10;
+			console.log(calList[2]);
+			basePoint;
+		} else{
+			calList[2] = 20;
+			console.log(calList[2]);
+			basePoint;
+		}
+		
+	})
+	
+	$('input:radio[name="certifyDay"]').on("change", function(){
+		var cDCal = $('input:radio[name="certifyDay"]:checked').val();
+		if(cDCal == 5){
+			calList[3] = 5;
+			console.log(calList[3]);
+			basePoint;
+		} else{
+			calList[3] = 10;
+			console.log(calList[3]);
+			basePoint;
+		}
+	})
 	
 	
 	 <!-- form data -->
