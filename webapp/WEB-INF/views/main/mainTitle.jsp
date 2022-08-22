@@ -58,7 +58,7 @@
 	           		
 	           		<div class="title-search">
 	           			<div>
-	                		<form class="d-flex align-items-center" action="" method="post" enctype="multipart/form-data">
+	                		<form class="d-flex align-items-center" action="${pageContext.request.contextPath}/search/searchForm" method="post" enctype="multipart/form-data">
 		                		<input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="text" placeholder="검색어를 입력해주세요." name="banner-searchbar" />
 		                		<button class="btn btn-success btn-lg" type="submit">검색</button>
 	                		</form>

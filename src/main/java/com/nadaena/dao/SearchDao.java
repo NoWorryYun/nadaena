@@ -15,10 +15,10 @@ public class SearchDao {
 	private SqlSession sqlSession;
 	
 	//검색입력
-	public List<MainTitleVo> searchList() {
+	public List<MainTitleVo> searchList(String searchbar) {
 		System.out.println("SearchDao > searchList()");
 		
-		List<MainTitleVo> searchList = sqlSession.selectList("Search.searchList");
+		List<MainTitleVo> searchList = sqlSession.selectList("Search.searchList", searchbar);
 		System.out.println(searchList);
 		
 		return searchList;
