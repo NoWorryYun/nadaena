@@ -144,7 +144,7 @@
                 	
                 	<div class="questionArea">
                 		<div class="textArea">
-                			<p class="text">문의내용 00이가 궁금합니다~</p>
+                			<p class="text">문의내용 00이가  궁금합니다~</p>
                 		</div>
                 	</div>
                 	
