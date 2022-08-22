@@ -253,7 +253,6 @@ function uploadFile(){
 		url : "${pageContext.request.contextPath }/my/writeReview",
 		type : "POST",
 		data : formData,
-		dataType: "json",
 		contentType : false,
 		processData : false
 	}).done(function(data){
