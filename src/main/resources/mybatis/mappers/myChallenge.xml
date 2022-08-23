@@ -253,10 +253,9 @@
 				p.pointGroup,
 				p.charge,
 				p.amount,
-				to_char(p.pointDate, 'yy/mm/dd') pointDate,
+				p.pointDate,
 				p.source,
 				p.pointMemo
-		from users u, point p		
 		where u.userNo = p.userNo	
 	</select>
 	

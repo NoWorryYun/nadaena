@@ -238,28 +238,28 @@ $(".btn-close").on("click", function(){
 });	 
 
 //ajax 데이타 전송
-$("#uploadBtn").on("click", function(){
+$(function(){
+	$("#uploadBtn").on("click", function(){
+		uploadFile();
+	});
+});
+
+function uploadFile(){
 	
-	var inputFile = $('input[name="reviewImg"]');
-	
-	var formData = new FormData();
-	
-	formData.append('reviewImg', inputFile.files);
+	var form = $("#uploadForm")[0];
+	var formData = new FormData(form);
 	
 	$.ajax({
-		
-		contentType : false,
-		processData : false,
+		url : "${pageContext.request.contextPath }/my/writeReview",
+		type : "POST",
 		data : formData,
-		url : '${pageContext.request.contextPath}/my/writeReview',
-		type : 'POST',
-		success : function(result){
-			console.log(result)
-		}
-			
-	})
+		contentType : false,
+		processData : false
+	}).done(function(data){
+		callback(data);
+	});
 	
-});
+}
 
 
 
