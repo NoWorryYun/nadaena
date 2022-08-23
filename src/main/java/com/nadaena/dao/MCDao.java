@@ -171,14 +171,23 @@ public class MCDao {
 		
 	}
 	
-	//포인트 내역
-	public List<PointVo> selectPoint() {
-		System.out.println("pDao > selectpoint()");
+	//포인트리스트 + 페이징
+	public List<PointVo> selectPoint(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
 		
 		List<PointVo> pList = sqlSession.selectList("myChallenge.selectPoint");
-		System.out.println(pList);
 		
 		return pList;
 	}
 	
+	//포인트내역 갯수
+	public int selectTotalCnt51() {
+		
+		int totalCnt51 = sqlSession.selectOne("myChallenge.selectTotalCnt51");
+		
+		return totalCnt51;
+	}	
 }

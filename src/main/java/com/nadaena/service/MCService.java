@@ -421,13 +421,65 @@ public class MCService {
 	}
 	
 	//포인트 리스트(내역)
-	public List<PointVo> getpList() {
+	public Map<String, Object> getpList51(int crtPage) {
+		//////리스트 가져오기
 		
-		List<PointVo> pList = mcDao.selectPoint();
+		//페이지당 글갯수
+		int listCnt = 7;
 		
-		return pList;
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
 		
-	} 	
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
+		
+		List<PointVo> pList = mcDao.selectPoint(startRnum, endRnum);
+		
+		//////////
+		//페이징계산
+		//////////
+		
+		//전체글갯수
+		int totalCnt51 = mcDao.selectTotalCnt51();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt51  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt51/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> pMap = new HashMap<String, Object>();
+		
+        pMap.put("pList", pList);
+        pMap.put("prev", prev);
+        pMap.put("startPageBtnNo", startPageBtnNo);
+        pMap.put("endPageBtnNo", endPageBtnNo);
+        pMap.put("next", next);
+		
+		return pMap;
+	}	
 	
 	 
 } 

@@ -405,18 +405,6 @@
 		]]>
 	</select>	
 	
-<!-- 	 리뷰불러오기
-	<select id="selectreviewList" parameterType="String" resultType="MRVo">
-		<![CDATA[
-			select  reviewNo,
-					challengeNo,
-					u.userNo,
-					reviewContent
-			from review r, users u
-			where u.userNo = r.userNo
-		]]>
-	</select> -->
-	
 	<!-- 리뷰불러오기 + 페이징 -->
 	<select id="selectreviewList" parameterType= "Map" resultType="MRVo">
 		<![CDATA[
@@ -483,20 +471,50 @@
 		]]>
 	</delete>
 	
-	<!-- 포인트 내역 리스트 -->
-	<select id="selectPoint" resultType="PointVo">
-		select  p.pointNo,
-				u.userNo,
-				p.pointGroup,
-				p.charge,
-				p.amount,
-				to_char(p.pointDate, 'yyyy-mm-dd') pointDate,
-				p.source,
-				p.pointMemo
-		from users u, point p
-		where u.userNo = p.userNo	
-	</select>
+	<!-- 포인트내역 + 페이징 -->
+	<select id="selectPoint" parameterType= "Map" resultType="PointVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.pointNo,
+					ort.userNo,
+					ort.pointGroup,
+					ort.charge,
+					ort.amount,
+					ort.pointDate,
+					ort.source,
+					ort.pointMemo
+			from (select rownum rn,
+						 ot.pointNo,
+						 ot.userNo,
+						 ot.pointGroup,
+						 ot.charge,
+						 ot.amount,
+						 ot.pointDate,
+						 ot.source,
+						 ot.pointMemo
+				  from (select  p.pointNo,
+								u.userNo,
+								p.pointGroup,
+								p.charge,
+								p.amount,
+								to_char(p.pointDate, 'yyyy-mm-dd') pointDate,
+								p.source,
+								p.pointMemo
+						from users u, point p
+						where u.userNo = p.userNo)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
 	
-	
+	<!-- 포인트내역 갯수 구하기 -->
+	<select id="selectTotalCnt51" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from point p, users u
+		    where u.userNo = p.userNo
+		]]>
+	</select>	
 	
 </mapper>

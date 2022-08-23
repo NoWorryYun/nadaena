@@ -116,15 +116,12 @@ public class MCController {
 	
 	//포인트 리스트(내역)
 	@RequestMapping(value = "my/my-point", method = { RequestMethod.GET, RequestMethod.POST })
-	public String mypList(Model model) {
-		System.out.println("MCC > mclist()");
+	public String plist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		// Service를 통해서 list(주소)을 가져온다
-		List<PointVo> pList = mcService.getpList();
+		Map<String, Object> pMap = mcService.getpList51(crtPage);
 		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("pList", pList);
-		
+		model.addAttribute("pMap", pMap);
+		System.out.println(pMap);
 		return "my/my-point";
 	}	
 }

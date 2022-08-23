@@ -66,7 +66,7 @@
                     </thead>
                     <tbody class="mypoint-table-body">
                     
-                    <c:forEach items="${pList}" var="PointVo" varStatus="i">
+                    <c:forEach items="${pMap.pList}" var="PointVo" varStatus="i">
                         <tr>
                             <td class="column1">${i.count }</td>
                             <td class="column2">${PointVo.pointDate }</td>
@@ -97,19 +97,31 @@
                     </tbody>
                 </table>
                 	
-                <div class="paging">
-                
-                    <ul>
-                        <li><a href="">◀</a></li>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">▶</a></li>
-                    </ul>
-                    <div class="clear"></div>
-                </div>
+				<div id="afterComment-wrap">
+					<div class="paging-box">
+						<nav>
+							<ul class="pagination pagination-sm">
+								<c:if test="${pMap.prev}">
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-point?crtPage=${pMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+								</c:if>
+								<c:forEach begin="${pMap.startPageBtnNo}" end="${pMap.endPageBtnNo}" step="1" var="page">	
+									<c:choose>
+										<c:when test="${param.crtPage==page}">
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-point?crtPage=${page}">${page}</a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-point?crtPage=${page}">${page}</a></li>
+										</c:otherwise>
+									</c:choose>	
+								</c:forEach>
+								
+								<c:if test="${pMap.next}">
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-point?crtPage=${pMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+								</c:if>
+							</ul>
+						</nav>
+					</div>
+				</div> <!-- paging -->
                 
                 
 			</div>

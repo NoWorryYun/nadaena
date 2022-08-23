@@ -12,6 +12,7 @@ public class MRVo {
 	private String reviewDate;
 	private String nickname;
 	private String clgTitle;
+	
 	public MRVo() {
 		super();
 	}

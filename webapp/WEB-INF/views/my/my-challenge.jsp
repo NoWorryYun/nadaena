@@ -168,7 +168,7 @@
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
-				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
+				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
 				<input type="file" id="modal-upbutton">
 				
 				<!-- <div class="modal-image-box">
