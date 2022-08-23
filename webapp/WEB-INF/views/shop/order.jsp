@@ -42,52 +42,155 @@
 				</div>
 				<div class="product">
 					<span class="thumbnail">
-						<img src="${pageContext.request.contextPath }/assets/img/shop/cl50.jpg" alt="주문상품" width="144px" height="96px">
+						<img src="${pageContext.request.contextPath }/assets/img/shop/himart.jpg" alt="주문상품" width="144px" height="96px">
 					</span>
 					<p class="productTitle">
-						<span class="text1">상품명</span>
+						<span class="text1">[하이마트] 모바일금액권 판매 전국에서 사용가능</span>
 						<span class="text2">을 주문합니다.</span>
 					</p>
 				</div>
 			</div>
 			<br>
-			<!-- 사용자정보 -->
-			<div class="info_section" id="_buyer" >
-				<h4><em>사용자 정보</em>
-					<span class="s_txt">※ 입력하신 연락처와 이메일로 티켓이나 PIN번호 등의 사용 정보를 받아보실 수 있습니다.</span>
-				</h4>
-				<div class="tbl_wrap">
-				    <table>
-				        <colgroup>
-				            <col style="width:160px;">
-				            <col>
-				        </colgroup>
-				        <thead>
-				        <tr>
-				            <th scope="row" class="bdb">사용자 선택</th>
-				            <td>
-				                <!--label태그에 .checked 클래스 추가 시 선택-->
-				                <label class="radios"><div class="iradio checked" style="position: relative;"><input type="radio" name="sort1" id="_iradio_buyer_self" checked="" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div><i class="ico"></i><em>구매자 본인</em></label>
-				                
-				            </td>
-				        </tr>
-				        </thead>
-				        <tbody id="_buyer_info"><tr>
-				    <th scope="row" class="bd0">이름</th>
-				    <td><em>장성찬</em></td>
-				</tr>
-				<tr>
-				    <th scope="row" class="bd0">연락처</th>
-				    <td><em>010-3105-9314</em></td>
-				</tr>
-				<tr>
-				    <th scope="row" class="bd0">이메일</th>
-				    <td class="last"><em>jnnd24@naver.com</em></td>
-				</tr></tbody>
-				    </table>
-				</div>
-			</div>
 			
+			<div class="check_content">
+			<!-- 사용자정보 -->
+				<div class="info_section" id="_buyer" >
+					<h4><em>사용자 정보</em>
+						<span class="s_txt">※ 입력하신 연락처와 이메일로 티켓이나 PIN번호 등의 사용 정보를 받아보실 수 있습니다.</span>
+					</h4>
+					<div class="tbl_wrap">
+					    <table>
+					        <colgroup>
+					            <col style="width:160px;">
+					            <col>
+					        </colgroup>
+					        <thead>
+					        <tr>
+					            <th scope="row" class="bdb">사용자 선택</th>
+					        </tr>
+					        </thead>
+					        <tbody id="_buyer_info"><tr>
+					    <th scope="row" class="bd0">이름</th>
+					    <td><em>장성찬</em></td>
+					</tr>
+					<tr>
+					    <th scope="row" class="bd0">연락처</th>
+					    <td><em>010-3105-9314</em></td>
+					</tr>
+					<tr>
+					    <th scope="row" class="bd0">이메일</th>
+					    <td class="last"><em>jnnd24@naver.com</em></td>
+					</tr></tbody>
+					    </table>
+					</div>
+				</div>
+				
+				<!-- 주문상품 정보 -->
+				<div class="info_section" id="_product" style=""><h4>주문상품 정보</h4>
+					<div class="tbl_wrap">
+					    <table class="product_table">
+					        <colgroup>
+					            <col style="width:160px;">
+					            <col style="width:440px;">
+					            <col style="width:140px;">
+					            <col style="width:110px;">
+					            <col style="width:105px;">
+					            <col>
+					        </colgroup>
+					        <thead>
+					        <tr>
+					            <th scope="col" colspan="2">상품정보</th>
+					            <th scope="col">상품금액</th>
+					            <th scope="col">할인금액</th>
+					            <th scope="col">주문금액</th>
+					        </tr>
+					        </thead>
+					        <tbody>
+					            <tr class="_deal" data-main-deal-srl="7199972470">
+					    <td class="thumb">
+					        <div class="product_thumb">
+					            <a href="" target="_blank"><img src="https://img2.tmon.kr/cdn4/deals/2022/08/11/7199972470/7199972470_catlist_3col_v2_a3bc2_1660195186production.jpg" alt="[문화상품권] 온라인문화상품권 본사공식판매 5만원권 3% 할인판매"></a>
+					        </div>
+					    </td>
+					    <td class="v_top">
+					        <div class="product_title">
+					            <div class="info">
+					                <ul>
+					                        <li>
+					                            <em class="name">
+					                                    [문화상품권] 온라인문화상품권 5만원권
+					                            </em>
+					                            <em class="num"><i>1</i>개</em>
+					                        </li>
+					                </ul>
+					            </div>
+					        </div>
+					    </td>
+					    <td class="mgl align_center">
+					        <span class="int_black"><em>48,500</em><i class="won">원</i></span>
+					    </td>
+					    <td class="mgl align_center">
+					        <span class="int">
+					            <em>0</em><i class="won">원</i>
+					        </span>
+					    </td>
+					        <td rowspan="1" class="mgl align_center">
+					            <span class="int_black_big"><em>
+					                48,500
+					            </em><i class="won">원</i></span>
+					        </td>
+					</tr>
+					    <tr class="inner_line">
+					        <td colspan="6">
+					            <div></div>
+					        </td>
+					    </tr>
+					
+					        </tbody>
+					        <tfoot>
+					        <tr>
+					            <td colspan="6">
+					                <div class="money_sum">
+					                    <ul>
+					                        <li>
+					                            <em class="title">상품금액</em>
+					                            <span class="int_black_big"><em>48,500</em><i class="won">원</i></span>
+					                        </li>
+					                        <li>
+					                            <em class="title">할인금액</em>
+					                            <span class="int_black_big">
+					                                <em>0</em><i class="won">원</i>
+					                            </span>
+					                        </li>
+					                        <li>
+					                            <em class="title">배송비</em>
+					                            <span class="int_black_big"><em>0</em><i class="won">원</i></span>
+					                        </li>
+					                    </ul>
+					                </div>
+					            </td>
+					        </tr>
+					        <tr>
+					            <td colspan="6" class="bd0">
+					                <div class="money_tot">
+					                    <em>총 주문금액</em>
+					                    <span class="int_black_big"><em>48,500</em><i class="won">원</i></span>
+					                </div>
+					            </td>
+					        </tr>
+					        </tfoot>
+					    </table>
+					</div>
+					<!-- <div class="immunity_info">
+					    <p>㈜티몬은 통신판매중개자로서 거래 당사자가 아니며, 입점 판매자가 등록한 상품, 거래 정보 및 거래에 대하여 (주)티몬은 일체의 책임을 지지 않습니다.</p>
+					    <p>㈜티몬의 전자금융거래법에 의해 결제대금예치업 등록번호는 02-006-00043입니다. 본 판매자는 고객님의 안전거래를 위해 관련 법률에 의거하여 티몬의 구매안전서비스를 적용하고 있습니다.<br><a href="http://www.fss.or.kr/kr/bbs/iframe/view.jsp?bbsid=1207404527596&amp;idx=1473755344912&amp;num=1" target="_blank">서비스 가입사실 확인 <i class="ico_arrow"></i></a></p>
+					</div> -->
+				</div>
+				<!-- //주문상품정보 -->
+
+
+
+			</div>
 			
 		</div>
 	</div>

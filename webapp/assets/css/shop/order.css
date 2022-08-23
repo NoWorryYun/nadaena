@@ -12,6 +12,7 @@
     padding: 24px 0;
     border-bottom: 1px #dfe2e6 solid;
     display: block;
+    height: 130px;
 }
 
 .orderCheck .product .thumbnail{
@@ -81,6 +82,9 @@
     margin-top: 14px;
 }
 
+table thead {
+    background-color: #fafafa;
+}
 
 table .bd0 {
     border-bottom: 0 none;
@@ -107,4 +111,120 @@ table td.last {
     text-align: left;
     padding-left: 0;
     text-indent: 20px;
+}
+
+
+/* 주문상품 정보*/
+table.product_table {
+    border-bottom: 1px #6c7580 solid;
+}
+
+table.product_table td.thumb {
+    padding: 29px 0;
+    vertical-align: top;
+}
+
+table.product_table td {
+    height: auto;
+}
+
+table td .product_thumb {
+    padding: 0 0 0 20px;
+}
+
+table td .product_thumb img {
+    width: 110px;
+    height: 110px;
+    vertical-align: top;
+}
+
+table td.v_top {
+    vertical-align: top;
+}
+
+
+.product_table .product_title {
+    padding: 24px 30px 30px 0;
+}
+
+.product_table .product_title .info .title {
+    margin-bottom: -7px;
+    letter-spacing: -1px;
+}
+
+.product_table .product_title .info .title a {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #16181a;
+}
+
+.product_table .product_title .info li .name {
+    display: block;
+    padding: 14px 0;
+    line-height: 16px;
+}
+
+.product_table .product_title .info li .num {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 46px;
+}
+
+table .align_center {
+    padding: 0;
+    text-align: center;
+}
+
+table .mgl {
+    border-left: 1px #eceef1 solid;
+}
+
+.int_black {
+    font-weight: 700;
+    font-size: 14px;
+    font-family: tahoma,"돋움",Dotum,sans-serif;
+    color: #16181a;
+}
+
+.int {
+    font-size: 14px;
+    font-family: tahoma,"돋움",Dotum,sans-serif;
+    color: #16181a;
+    letter-spacing: -.4px;
+}
+
+.int_black_big {
+    font-weight: 700;
+    font-size: 16px;
+    font-family: tahoma,"돋움",Dotum,sans-serif;
+    color: #16181a;
+}
+
+table td .money_tot {
+    height: 76px;
+    padding: 0 20px;
+    line-height: 76px;
+}
+
+table td .money_tot em {
+    float: left;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: "Nanum Gothic",Dotum,"Apple SD Gothic Neo",sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.info_section .immunity_info {
+    margin-top: 17px;
+}
+
+.info_section .immunity_info p {
+    position: relative;
+    margin-left: 16px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #575e66;
 }
