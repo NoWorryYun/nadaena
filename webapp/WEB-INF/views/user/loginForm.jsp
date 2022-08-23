@@ -95,7 +95,7 @@
 											<a href="https://www.naver.com/"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/pngwing.com.png" />
 											</a>
-											 <div id="naver_id_login"></div>
+											 <!-- <div id="naver_id_login"></div> -->
 											 <a href="www.naver.com"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/kakaobtn.png" />
 											</a>
@@ -129,7 +129,7 @@
 
 
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   	var naver_id_login = new naver_id_login("3hoLbYqi3ghHKHkF0Qsz", "http://localhost:8088/nadaena/naver_callback");
   	var state = naver_id_login.getUniqState();
   	naver_id_login.setButton("white", 2,40);
@@ -138,5 +138,5 @@
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();
   </script>
-
+ -->
 </html>
