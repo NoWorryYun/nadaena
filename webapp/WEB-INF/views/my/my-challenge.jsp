@@ -131,7 +131,7 @@
 							</ul>
 						</nav>
 					</div>
-				</div>
+				</div> <!-- paging -->
 				
 			</div> <!-- content -->
 				

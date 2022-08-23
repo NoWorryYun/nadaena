@@ -128,15 +128,25 @@ public class MCDao {
 		return totalCnt22;
 	}
 	
-	//리뷰 불러오기
-	public List<MRVo> selectreviewList() {
-		System.out.println("MRDao > selectreviewList()");
+	//리뷰 갯수
+	public int selectTotalCnt41() {
 		
-		List<MRVo> mrList = sqlSession.selectList("myChallenge.selectreviewList");
-		System.out.println(mrList);
+		int totalCnt41 = sqlSession.selectOne("myChallenge.selectTotalCnt41");
+		
+		return totalCnt41;
+	}
+	
+	//리뷰리스트 + 페이징
+	public List<MRVo> selectreviewList(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MRVo> mrList = sqlSession.selectList("myChallenge.selectreviewList", map);
 		
 		return mrList;
-	}
+	}	
 	
 	//리뷰쓰기
 	public int writeReview(MRVo mrVo) {

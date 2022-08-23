@@ -43,8 +43,8 @@
 				<div class="challenge-header">
 					진행중 이벤트
 					<ul>
-						<li><a href="#">진행중</a></li>
-						<li class="last-list"><a href="#">종료된</a></li>
+						<li><a href="${pageContext.request.contextPath }/my/my-event">진행중</a></li>
+						<li class="last-list"><a href="${pageContext.request.contextPath }/my/my-event/end">종료된</a></li>
 					</ul>
 				</div>
 				<div class="challenge-images">

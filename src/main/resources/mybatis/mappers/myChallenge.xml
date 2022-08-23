@@ -405,16 +405,52 @@
 		]]>
 	</select>	
 	
-	<!-- 리뷰불러오기 -->
+<!-- 	 리뷰불러오기
 	<select id="selectreviewList" parameterType="String" resultType="MRVo">
 		<![CDATA[
 			select  reviewNo,
 					challengeNo,
-					userNo,
+					u.userNo,
 					reviewContent
-			from review
+			from review r, users u
+			where u.userNo = r.userNo
 		]]>
-	</select>
+	</select> -->
+	
+	<!-- 리뷰불러오기 + 페이징 -->
+	<select id="selectreviewList" parameterType= "Map" resultType="MRVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.reviewNo,
+					ort.challengeNo,
+					ort.userNo,
+					ort.reviewContent
+			from (select rownum rn,
+						 ot.reviewNo,
+						 ot.challengeNo,
+						 ot.userNo,
+						 ot.reviewContent
+				  from (select  reviewNo,
+								challengeNo,
+								u.userNo,
+								reviewContent
+						from review r, users u
+						where u.userNo = r.userNo)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
+	
+	
+	<!-- 리뷰 갯수 구하기 -->
+	<select id="selectTotalCnt41" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from review r, users u
+		    where u.userNo = r.userNo
+		]]>
+	</select>		
 	
 	<!-- 리뷰작성 -->
 	<insert id="insertReview" parameterType="MRVo">
@@ -422,7 +458,7 @@
 			insert into review
 			values (SEQ_REVIEWNO.nextval,
 					#{challengeNo},
-					null,
+					#{userNo},
 					null,
 					#{reviewContent},
 					sysdate

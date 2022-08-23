@@ -339,16 +339,68 @@ public class MCService {
 		return mcMap;
 	}	
 	
-	
-	//리뷰리스트(리스트만)
-	public List<MRVo> getmrList() {
-		System.out.println("MRS > getmcList()");
+	//리뷰리스트(전체)
+	public Map<String, Object> getmrList41(int crtPage) {
+		System.out.println("C > getmcList");
 		
-		List<MRVo> mrList = mcDao.selectreviewList();
+		//////리스트 가져오기
 		
-		return mrList;
+		//페이지당 글갯수
+		int listCnt = 20;
 		
-	} 
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
+		
+		List<MRVo> mrList = mcDao.selectreviewList(startRnum, endRnum);
+		
+		//////////
+		//페이징계산
+		//////////
+		
+		//전체글갯수
+		int totalCnt41 = mcDao.selectTotalCnt41();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt41  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt41/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> mrMap = new HashMap<String, Object>();
+		
+        mrMap.put("mrList", mrList);
+        mrMap.put("prev", prev);
+        mrMap.put("startPageBtnNo", startPageBtnNo);
+        mrMap.put("endPageBtnNo", endPageBtnNo);
+        mrMap.put("next", next);
+		
+		return mrMap;
+	}		
 	
 	//리뷰 쓰기
 	public int writeReview(MRVo mrVo, MCVo mcVo) {
