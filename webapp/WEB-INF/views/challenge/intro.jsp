@@ -67,8 +67,16 @@
 							<h2 class="read-header">
 								${cMap.intro.clgTitle}<br>2022-08-06~2022-08-27<br>
 							</h2>
-
-							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
+							<form action="" method="post">
+								<c:choose>
+									<c:when test="">
+										<button class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button> 
+									</c:when>
+									<c:otherwise>
+										<button class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>
+									</c:otherwise>
+								</c:choose>
+							</form>
 						</div>
 
 						<div id="read-content">

@@ -26,11 +26,17 @@
 		<result column="clgGroup" property="clgGroup" />
 	</resultMap>
 
-	<!-- 챌린지만들기 -->
+	<!-- /////////////////////////////// 챌린지 관련 xml /////////////////////////////// -->	
+	<!-- 일반 챌린지만들기 -->
 	<insert id="writeChallenge" parameterType="ChallengeVo">
+		
+		<selectKey keyProperty="challengeNo" resultType="int" order="BEFORE">
+		    select seq_challengeNo.nextval from dual
+		</selectKey>
+		
 		<![CDATA[
 			insert into challenge
-			values( seq_challengeNo.nextval,
+			values( #{challengeNo},
 					#{interestNo}, 
 					#{clgTitle}, 
 					#{img},
@@ -42,17 +48,32 @@
 					#{upload}, 
 					#{certifyDay},
 					#{content},
+					#{color},
 					#{tag1},
 					#{tag2},
 					#{tag3},
 					#{tag4},
 					#{tag5},
 					#{clgLevel},
-					#{clgGroup}
+					1
 				)
 		]]>
 	</insert>
 	
+	<!-- 챌린지 과제 만들기 -->
+	 <insert id="makeSubject" parameterType="ChallengeVo">
+      <![CDATA[   
+         insert into certify
+            values (
+            seq_certifyNo.nextval,
+            #{challengeNo}, 
+            #{certifyTitle }, 
+            #{subOn },
+			#{subOff}
+			)
+       ]]>
+   </insert>
+   
 	<!-- 챌린지 참여(방장) -->
 	<insert id="joinChallengeHeader" parameterType="ChallengeVo">
 		<![CDATA[

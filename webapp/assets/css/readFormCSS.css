@@ -11,7 +11,18 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 #aside {
 	width: 99% !important;
 }
-
+.btnNone{
+	border-radius: none;
+	border: none;
+	background-color: rgba(255,255,255,0);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: none;
+	padding: 0px;
+	letter-spacing: none;
+	text-transform: none;
+	transition: none;
+}
 textarea {
 	margin: 0;
 	width: 100%;

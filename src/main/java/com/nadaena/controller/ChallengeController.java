@@ -1,7 +1,7 @@
 package com.nadaena.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.ChallengeService;
+import com.nadaena.vo.ChallengeSubVo;
 import com.nadaena.vo.ChallengeVo;
 
 /*테스트*/
@@ -86,25 +87,29 @@ public class ChallengeController {
 	//챌린지 내용 받기
 	@ResponseBody
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
-    public Map<String, Object> challengeData(@ModelAttribute ChallengeVo challengeVo) throws IOException {
+    public int challengeData(@ModelAttribute ChallengeVo challengeVo) throws IOException {
 
 		System.out.println(challengeVo);
 		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
+		int challengeNo = challengeService.makeChallenge(challengeVo);
+		
+		System.out.println(challengeNo);
     	
-    	return resultMap;
+    	return challengeNo;
     }
 	
 	@ResponseBody
-    @RequestMapping(value = "/challenge/subject", method = { RequestMethod.GET, RequestMethod.POST })
-    public Map<String, Object> challengeSub(@ModelAttribute ChallengeVo challengeVo) throws IOException {
+	@RequestMapping(value = "/challenge/makeSubject", method = { RequestMethod.GET, RequestMethod.POST })
+	public int challengeSub(@RequestBody List<ChallengeSubVo> upsList) throws IOException {
 
-		System.out.println(challengeVo);
+		System.out.println(upsList);
 		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-    	
-    	return resultMap;
-    }
+		int challengeSub = challengeService.makeClgSub(upsList);
+		
+		System.out.println(challengeSub);
+		
+		return challengeSub;
+	}
 	
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })

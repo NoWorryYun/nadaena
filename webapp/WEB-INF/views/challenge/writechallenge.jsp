@@ -513,9 +513,6 @@
  	$('input:radio[name="upload"]').on("click", function(){
  		var ups = $('input:radio[name="upload"]:checked').val();
  		
- 		
- 		console.log(ups);
- 		
  		if(ups == 1){
 			$("#upload-here *").remove();
 			$("#upload-here").append(upsList(1));
@@ -536,9 +533,9 @@
 	 		
 	 		str += '<div class="upload-detail">';
 			str += '<p class="no-margin fw-bold">'+ i +'회차</p>';
-			str += '<input type="text" id="certifyTitle'+ i +'" name="upload-detail'+ i +'" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
+			str += '<input type="text" id="certifyTitle'+ i +'" name="upload-detail'+ i +'" class="write-title-shape txt-subTitle" placeholder="인증해야 하는 내용을 적어주세요.">';
 			str +='	<div>';
-			str +='		<select name="upload-time'+ i +'-1" class="select-width text-inline">';
+			str +='		<select name="upload-time'+ i +'-1" class="select-width text-inline select-sTime">';
 			str +='			<option value="0" selected="selected">00시</option>';
 			str +='			<option value="1">01시</option>';
 			str +='			<option value="2">02시</option>';
@@ -565,7 +562,7 @@
 			str +='			<option value="23">23시</option>';
 			str +='		</select>';
 			str +='		<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>';
-			str +='		<select name="upload-time'+ i +'-2" class="select-width text-inline">';
+			str +='		<select name="upload-time'+ i +'-2" class="select-width text-inline select-eTime">';
 			str +='			<option value="1">01시</option>';
 			str +='			<option value="2">02시</option>';
 			str +='			<option value="3">03시</option>';
@@ -593,7 +590,7 @@
 			str +='		</select>';
 			str +='		<p class="no-margin text-inline">&nbsp;까지</p>';
 			str +='		<div class="form-check time-limit-checkbox">';
-			str +='			<input class="form-check-input" name="timestop'+ i +'" type="checkbox" id="timestop'+ i +'" value="true"><label class="form-check-label" for="timestop'+ i +'">시간설정해제</label>';
+			str +='			<input class="form-check-input chk-timeUse" name="timestop'+ i +'" type="checkbox" id="timestop'+ i +'" value="no"><label class="form-check-label" for="timestop'+ i +'">시간설정해제</label>';
 			str +='		</div>';
 			str +='	</div>';
 			str +='</div>';
@@ -738,27 +735,52 @@
 	$("#cal-way").text("( 사진 )");
 	$("#cal-upload").text("( 1회 )");
 	$("#cal-times").text("( 5일 )");
+	$("#cal-level").text("( 하 )");
 	$("#cal-sum").text(basePoint);
-	
+
 	$('select[name="period"]').on("change", function(){
 		var pCal = $('select[name="period"]').val();
 		if(pCal == 1){
 			calList[0] = 5;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-length").text("( 1주일 )");
 		} else if(pCal == 2){
 			calList[0] = 10;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-length").text("( 2주일 )");
 			
 		} else{
 			calList[0] = 20;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-length").text("( 3주일 )");
 			
@@ -770,14 +792,30 @@
 		if(cCal == 1){
 			calList[1] = 5;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-way").text("( 사진 )");
 			
 		} else {
 			calList[1] = 10;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-way").text("( 비디오 )");
 			
@@ -789,21 +827,45 @@
 		if(uCal == 1){
 			calList[2] = 5;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-upload").text("( 1회 )");
 			
 		} else if(uCal ==2 ){
 			calList[2] = 10;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-upload").text("( 2회 )");
 			
 		} else{
 			calList[2] = 20;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-upload").text("( 3회 )");
 			
@@ -816,14 +878,30 @@
 		if(cDCal == 5){
 			calList[3] = 5;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-times").text("( 5일 )");
 			
 		} else{
 			calList[3] = 10;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
-
+			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 			$("#cal-sum").text(basePoint);
 			$("#cal-times").text("( 7일 )");
 			
@@ -839,6 +917,14 @@
 			$("#cal-sum").text(basePoint);
 			$("#cal-mini").text("( O )");
 			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 		} else{
 			calList[4] = 0;
 			basePoint = calList[0] + calList[1] + calList[2] + calList[3] + calList[4]
@@ -846,20 +932,81 @@
 			$("#cal-sum").text(basePoint);
 			$("#cal-mini").text("( X )");
 			
+			if(basePoint < 40){
+				$("#cal-level").text("( 하 )");
+			} else if(basePoint >= 40 && basePoint < 60){
+				$("#cal-level").text("( 중 )");
+			} else{
+				$("#cal-level").text("( 상 )");
+			}
+			
 		}
 	})
 
 	 <!--------------------- form data ----------------------->
   	$("#MKBtn").on("click", function(){
-  		
-//		var clgLevel = $("#clgLevel");
-		
-//		var userNo = $("#userNo");
+  
 
-	
- 		var inputFile = $('input[name="img"]');
   		
+  		/* console.log(upsList); */
+  		
+  		
+  		var inputFile = $('input[name="img"]');
  		var content = editor.getData();
+ 		var payment = $('select[name="payment"]').val();
+ 	  	
+  		if($("#clgTitle").val() == "" || $("#clgTitle").val() == null){
+  			alert("제목을 입력해 주세요");
+  			return false;
+  		}
+  		
+  		if(inputFile[0].files[0] == "" || inputFile[0].files[0] == null){
+  			alert("대표 사진을 설정해 주세요");
+  			return false;
+  		}
+  		 
+  		if($('input:radio[name="interestNo"]:checked').val() =="" || $('input:radio[name="interestNo"]:checked').val() == null){
+  			alert("카테고리를 설정해 주세요");
+  			return false;
+  		}
+  		
+  		if(content == "" || content == null || content =="<p>&nbsp;</p>"){
+  			alert("소개글을 적어주세요");
+  			return false;
+  		}
+  		
+  		if(payment == "" || payment == null || payment < 1){
+  			alert("금액을 설정해 주세요.");
+  			return false;
+  		}
+  		
+
+  		
+  		
+		var clgLevel;
+		
+		
+		if(basePoint < 40){
+			clgLevel = 1;
+		} else if(basePoint >= 40 && basePoint < 60){
+			clgLevel = 2;
+		} else{
+			clgLevel = 3;
+		}
+		
+	
+  		if(clgLevel == 1 && payment > 30000){
+  			alert("금액을 다시 설정해 주세요. 난이도(하)10,000~30,000 설정 가능");
+  			return false;
+  		}
+  		if(clgLevel == 2 && payment > 50000){
+  			alert("금액을 다시 설정해 주세요. 난이도(중)10,000~50,000 설정 가능");
+  			return false;
+  		}
+ 		
+
+// 		var userNo = ${authUser.userNo};
+		var userNo = 1;
  		
   		var formData = new FormData();
 
@@ -871,7 +1018,7 @@
   		formData.append('certify' ,  $('input:radio[name="certify"]:checked').val());
 
   		
-  		if($('input:checkbox[name="minigame"]:checked')==true){
+  		if($('input:checkbox[name="minigame"]').is(":checked")){
   			formData.append('minigame' ,  $('input:checkbox[name="minigame"]:checked').val()); //0
   		}else {
   			formData.append('minigame' , -1);
@@ -885,8 +1032,12 @@
   		formData.append('tag4' ,  tagList[3]);
   		formData.append('tag5' ,  tagList[4]);
   		formData.append('content', content);
+  		formData.append('clgLevel', clgLevel);
+  		formData.append('payment', payment);
+  		formData.append('userNo', userNo);
   		
   		formData.append('color',  $('[name="color"]').css( "background-color"));
+  		
   		
   		$.ajax({
   			contentType : false,
@@ -895,96 +1046,55 @@
   			url : '${pageContext.request.contextPath}/challenge/upload',
   			type : 'POST',
   			success : function(result){
-  				console.log(result)
+				console.log("challengeNo : " + result);
+ 					var clgNo = result;
+ 					console.log("clgNo : " + clgNo);
+ 					var upsList = [];
+  		    		
+	  		    		$(".upload-detail").each(function (index, item) {
+	  		    			
+	  		    			var subTitle = $(this).find(".txt-subTitle" ).val();
+	  		    			var sTime  =$(this).find(".select-sTime" ).val();
+	  		    			var eTime = $(this).find(".select-eTime" ).val();
+	  		    			var timeUse = $(this).find(".chk-timeUse" ).is(":checked");
+	  		    			console.log(timeUse);
+  		    				if(timeUse == false){
+		  		    			var upsVo = {
+		  		    				certifyTitle : subTitle,
+		  		    				subOn :  sTime,
+		  		    				subOff :  eTime,
+		  		    				challengeNo : clgNo
+		  		    			};
+  		    				} else{
+  		    					var upsVo = {
+		  		    				certifyTitle : subTitle,
+		  		    				subOn :  -1,
+		  		    				subOff :  -1,
+		  		    				challengeNo : clgNo
+		  		    			};
+  		    				}
+  		    			upsList.push(upsVo);
+  		    		});
+ 					$.ajax({
+  					contentType : 'application/json',     
+  					data : JSON.stringify(upsList),
+  		  			url : '${pageContext.request.contextPath}/challenge/makeSubject',
+  		  			type : 'POST',
+  		  			
+	  		  		dataType : "json",
+  		  			success : function(result){
+  		  				if(result == 1){
+	  		  	  		alert("챌린지가 개설되었습니다!");
+	  	 				location.href = "${pageContext.request.contextPath}/main";
+  		  				} else{
+  		  					alert("챌린지 개설이 취소되었습니다.");
+  		  					return false;
+  		  				}
+	  				}
+	  			})
   			}
-  				
-  		})
+  		}) 
   		
-  		<!------------------- 서브젝트 저장 ------------------->
-  		var upsVo1;
-  		var upsVo2;
-  		var upsVo3;
-  		
-  		if($('input:checkbox[name="timestop1"]:checked') == true){
-  			upsVo1 = {
-  				certifyTitle : $("#certifyTitle1").val(),
-  				subOn :  $('select[name="upload-time1-1"]').val(),
-  				subOff :  $('select[name="upload-time1-2"]').val()
-  			}
-  		} else{
-  			upsVo1 = {
-  				certifyTitle : $("#certifyTitle1").val(),
-  				subOn :  -1,
-  				subOff :  -1
-  			}	
-  		}
-  		if($('input:checkbox[name="timestop2"]:checked') == true){
-  			upsVo2 = {
-  				certifyTitle : $("#certifyTitle2").val(),
-  				subOn :  $('select[name="upload-time2-1"]').val(),
-  				subOff :  $('select[name="upload-time2-2"]').val()
-  			}
-  		} else{
-  			upsVo2 = {
-  				certifyTitle : $("#certifyTitle2").val(),
-  				subOn :  -1,
-  				subOff :  -1
-  			}
-  		}
-  		if($('input:checkbox[name="timestop3"]:checked') == true){
-  			upsVo3 = {
-  				certifyTitle : $("#certifyTitle3").val(),
-  				subOn :  $('select[name="upload-time3-1"]').val(),
-  				subOff :  $('select[name="upload-time3-2"]').val()
-  			}
-  		} else{
-  			upsVo3 = {
-	  			certifyTitle : $("#certifyTitle3").val(),
-	  			subOn :  -1,
-	  			subOff :  -1
-  			}
-  		}
-  	 	
-  		console.log(upsVo1);
-  		console.log(upsVo2);
-  		console.log(upsVo3);
-
-  		
-  		var subData = new FormData();
-  		
-  		subData.append('upsVo1', upsVo1);
-  		subData.append('upsVo2', upsVo2);
-  		subData.append('upsVo3', upsVo3);
-  		
- 		$.ajax({
-  			contentType : false,
-  			processData : false,
-  			data : subData,
-  			url : '${pageContext.request.contextPath}/challenge/subject',
-  			type : 'POST',
-  			success : function(result){
-  				console.log(result)
-  			}
-
- 		})
- 		
- 		var joinData = new FormData();
- 		
-  		var payment = $('select[name="payment"]').val();
- 		
- 		joinData.append('payment', payment);
- 		
- 		$.ajax({
-  			contentType : false,
-  			processData : false,
-  			data : subData,
-  			url : '${pageContext.request.contextPath}/challenge/subject',
-  			type : 'POST',
-  			success : function(result){
-  				console.log(result)
-  			}
-
- 		})
   	})
 
 </script>

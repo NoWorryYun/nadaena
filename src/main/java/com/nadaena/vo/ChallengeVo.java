@@ -1,5 +1,7 @@
 package com.nadaena.vo;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class ChallengeVo {
@@ -34,11 +36,27 @@ public class ChallengeVo {
 	private int payment;
 	private MultipartFile imgs;
 
+	private List<ChallengeVo> upsList;
+
 	//생성자
 	public ChallengeVo() {
 		super();
 	}
+
+	public ChallengeVo(int challengeNo, int payment) {
+		super();
+		this.challengeNo = challengeNo;
+		this.payment = payment;
+	}
+
 	
+	
+	public ChallengeVo(int challengeNo, int userNo, int payment) {
+		super();
+		this.challengeNo = challengeNo;
+		this.userNo = userNo;
+		this.payment = payment;
+	}
 
 	public ChallengeVo(String certifyTitle, int subOn, int subOff) {
 		super();
@@ -46,7 +64,6 @@ public class ChallengeVo {
 		this.subOn = subOn;
 		this.subOff = subOff;
 	}
-
 
 	public ChallengeVo(int interestNo, String clgTitle, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String tag1, String tag2, String tag3, String tag4, String tag5, MultipartFile imgs) {
 		super();
@@ -67,9 +84,74 @@ public class ChallengeVo {
 		this.imgs = imgs;
 	}
 
+	public ChallengeVo(int interestNo, String clgTitle, String img, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5, int clgGroup) {
+		super();
+		this.interestNo = interestNo;
+		this.clgTitle = clgTitle;
+		this.img = img;
+		this.recruitment = recruitment;
+		this.period = period;
+		this.certify = certify;
+		this.minigame = minigame;
+		this.upload = upload;
+		this.certifyDay = certifyDay;
+		this.content = content;
+		this.color = color;
+		this.tag1 = tag1;
+		this.tag2 = tag2;
+		this.tag3 = tag3;
+		this.tag4 = tag4;
+		this.tag5 = tag5;
+		this.clgGroup = clgGroup;
+	}
+
+	public ChallengeVo(int interestNo, String img, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5, int clgLevel) {
+		super();
+		this.interestNo = interestNo;
+		this.img = img;
+		this.recruitment = recruitment;
+		this.period = period;
+		this.certify = certify;
+		this.minigame = minigame;
+		this.upload = upload;
+		this.certifyDay = certifyDay;
+		this.content = content;
+		this.color = color;
+		this.tag1 = tag1;
+		this.tag2 = tag2;
+		this.tag3 = tag3;
+		this.tag4 = tag4;
+		this.tag5 = tag5;
+		this.clgLevel = clgLevel;
+	}
 
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
-			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs) {
+			int clgLevel, int clgGroup) {
+		super();
+		this.challengeNo = challengeNo;
+		this.interestNo = interestNo;
+		this.clgTitle = clgTitle;
+		this.img = img;
+		this.regDate = regDate;
+		this.recruitment = recruitment;
+		this.period = period;
+		this.certify = certify;
+		this.minigame = minigame;
+		this.upload = upload;
+		this.certifyDay = certifyDay;
+		this.content = content;
+		this.color = color;
+		this.tag1 = tag1;
+		this.tag2 = tag2;
+		this.tag3 = tag3;
+		this.tag4 = tag4;
+		this.tag5 = tag5;
+		this.clgLevel = clgLevel;
+		this.clgGroup = clgGroup;
+	}
+
+	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
+			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs, List<ChallengeVo> upsList) {
 		super();
 		this.challengeNo = challengeNo;
 		this.interestNo = interestNo;
@@ -99,6 +181,7 @@ public class ChallengeVo {
 		this.userNo = userNo;
 		this.payment = payment;
 		this.imgs = imgs;
+		this.upsList = upsList;
 	}
 
 	public int getChallengeNo() {
@@ -323,6 +406,14 @@ public class ChallengeVo {
 
 	public void setImgs(MultipartFile imgs) {
 		this.imgs = imgs;
+	}
+
+	public List<ChallengeVo> getUpsList() {
+		return upsList;
+	}
+
+	public void setUpsList(List<ChallengeVo> upsList) {
+		this.upsList = upsList;
 	}
 
 	@Override
