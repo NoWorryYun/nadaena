@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.nadaena.service.MCService;
 import com.nadaena.vo.MCVo;
 import com.nadaena.vo.MRVo;
+import com.nadaena.vo.PointVo;
 
 @Controller
 public class MCController {
@@ -93,4 +94,17 @@ public class MCController {
 
 		return "redirect:/my/my-review";
 	}
+	
+	//포인트 리스트
+	@RequestMapping(value = "my/my-point", method = { RequestMethod.GET, RequestMethod.POST })
+	public String mypList(Model model) {
+		
+		// Service를 통해서 list(주소)을 가져온다
+		List<PointVo> pList = mcService.getpList();
+		
+		// ds 데이터보내기 -->request attribute에 넣는다
+		model.addAttribute("pList", pList);
+		
+		return "my/my-point";
+	}	
 }

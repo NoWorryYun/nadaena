@@ -88,15 +88,6 @@ public class MCDao {
 		return totalCnt3;
 	}
 	
-	
-	/*
-	 * //종료 리스트(실패) public List<MCVo> selectList4() { System.out.println("MCDao > selectList4()");
-	 * 
-	 * List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList4"); System.out.println(mcList4);
-	 * 
-	 * return mcList4; }
-	 */
-	
 	//리뷰 불러오기
 	public List<MRVo> selectreviewList() {
 		System.out.println("MRDao > selectreviewList()");

@@ -64,63 +64,18 @@
                             <th rowspan="8">포인트 잔액</th>
                         </tr>
                     </thead>
+                    
                     <tbody class="mypoint-table-body">
+                    <c:forEach items="${pList}" var="PointVo" varStatus="i">
                         <tr>
-                            <td class="column1">7</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">충전</td>
-                            <td class="column4">10000p</td>
-                            <td class="column5"></td>
-                            <td class="column6">46500p</td>
+                            <td class="column1">${status.count}</td>
+                            <td class="column2">${PointVo.pointDate}</td>
+                            <td class="column3" data-gno="${PointVo.pointGroup}">${PointVo.pointGroup}</td>
+                            <td class="column4">${PointVo.charge}</td>
+                            <td class="column5">${PointVo.charge}</td>
+                            <td class="column6">${PointVo.amount}</td>
                         </tr>
-                        <tr>
-                            <td class="column1">6</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">포인트몰 사용</td>
-                            <td class="column4"></td>
-                            <td class="column5">30000p</td>
-                            <td class="column6">36500p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">5</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">챌린지 참가</td>
-                            <td class="column4"></td>
-                            <td class="column5">50000p</td>
-                            <td class="column6">66500p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">4</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">리워드 획득</td>
-                            <td class="column4">11500p</td>
-                            <td class="column5"></td>
-                            <td class="column6">116500p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">3</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">충전</td>
-                            <td class="column4">30000p</td>
-                            <td class="column5"></td>
-                            <td class="column6">105000p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">2</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">포인트몰 사용</td>
-                            <td class="column4"></td>
-                            <td class="column5">5000p</td>
-                            <td class="column6">75000p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">1</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">챌린지 참가</td>
-                            <td class="column4"></td>
-                            <td class="column5">20000p</td>
-                            <td class="column6">80000p</td>
-                        </tr>
+                    </c:forEach>    
                     </tbody>
                 </table>
                 
@@ -152,5 +107,47 @@
 
 
 </body>
+<script type="text/javascript">
+
+var gNo= $(this).data("gno");
+
+console.log(gNo);
+
+if(gNo == 1) {
+	$(".column3").html("충전");
+} else if(gNo ==2) {
+	$(".column3").html("챌린지참가");
+} else if(gNo ==3) {
+	$(".column3").html("챌린지보상");
+} else if(gNo ==4) {
+	$(".column3").html("몰사용");
+} else if(gNo ==5) {
+	$(".column3").html("환전");
+} else {
+	$(".column3").html("오");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
 
 </html>

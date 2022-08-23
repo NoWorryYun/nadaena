@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.nadaena.dao.MCDao;
 import com.nadaena.vo.MCVo;
 import com.nadaena.vo.MRVo;
+import com.nadaena.vo.PointVo;
 
 @Service
 public class MCService {
@@ -239,5 +240,21 @@ public class MCService {
 		return mcDao.deleteReview(mrVo);
 		
 	}
-	 
+	
+	//포인트 리스트
+	public List<PointVo> getpList() {
+		
+		List<PointVo> pList = mcDao.selectPoint();
+				
+		return pList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 } 

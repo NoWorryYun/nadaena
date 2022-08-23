@@ -7,13 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MyController {
 
-	@RequestMapping(value="my/my-point", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mypoint() {
-		System.out.println("mychallenge");
-		
-		return "my/my-point"; 
-	} 
-	
 	@RequestMapping(value="my/my-event", method = {RequestMethod.GET, RequestMethod.POST})
 	public String myevent() {
 		System.out.println("myevent");
