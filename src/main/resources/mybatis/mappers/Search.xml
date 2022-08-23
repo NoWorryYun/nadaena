@@ -3,44 +3,111 @@
 
 <mapper namespace="Search">
 
-	<resultMap id="resultMainTitleVo" type="MainTitleVo">
-		<result column="challengeNo" property="challengeNo" />
-		<result column="interestNo" property="interestNo" />
-		<result column="clgTitle" property="clgTitle" />
-		<result column="img" property="img" />
-		<result column="regDate" property="regDate" />
-		<result column="recruitment" property="recruitment" />
-		<result column="period" property="period" />
-		<result column="certify" property="certify" />
-		<result column="minigame" property="minigame" />
-		<result column="upload" property="upload" />
-		<result column="certifyDay" property="certifyDay" />
-		<result column="content" property="content" />
-		<result column="color" property="color" />
-		<result column="tag1" property="tag1" />
-		<result column="tag2" property="tag2" />
-		<result column="tag3" property="tag3" />
-		<result column="tag4" property="tag4" />
-		<result column="tag5" property="tag5" />
-		<result column="clgLevel" property="clgLevel" />
-		<result column="clgGroup" property="clgGroup" />
-		<result column="count_user" property="count_user" />
-	</resultMap>
-
 
 	<!-- 검색입력 -->
-	<select id="searchList" parameterType="String" resultType="MainTitleVo">
+	<select id="searchList" parameterType="com.nadaena.vo.SearchVo" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo challengeNo,
-			        c.clgTitle clgTitle,
-			        c.img img,
-			        c.recruitment recruitment,
-			        c.period period,
-			        c.clgGroup clgGroup,
-			        cc.count_user count_user
-			from challenge c, (select count(userNo) count_user
-			                   from mychallenge) cc
-			where clgTitle like '%'||#{searchbar}||'%'
+			select ort.rn,
+			       ort.challengeNo,
+			       ort.interestNo,
+			       ort.interestName,
+			       ort.clgTitle,
+			       ort.img,
+			       ort.regDate,
+			       ort.recruitment,
+			       ort.period,
+			       ort.clgLevel,
+			       ort.clgGroup,
+			       ort.count_user,
+			       ort.color,
+			       ort.tag1,
+			       ort.tag2,
+			       ort.tag3,
+			       ort.tag4,
+			       ort.tag5,
+			       regDate2,
+	               recruitment2,
+	               period2
+			from 
+			     (select rownum rn,
+			             ot.challengeNo,
+			             ot.interestNo,
+			             ot.interestName,
+			             ot.clgTitle,
+			             ot.img,
+			             ot.regDate,
+			             ot.recruitment,
+			             ot.period,
+			             ot.clgLevel,
+			             ot.clgGroup,
+			             ot.count_user,
+			             ot.color,
+			             ot.tag1,
+			             ot.tag2,
+			             ot.tag3,
+			             ot.tag4,
+			             ot.tag5,
+			             regDate2,
+			             recruitment2,
+			             period2
+			      from 
+			            (select  c.challengeNo challengeNo,
+			                     c.interestNo interestNo,
+			                     i.interestName interestName,
+			                     c.clgTitle clgTitle,
+			                     c.img img,
+			                     c.regDate regDate,
+			                     c.recruitment recruitment,
+			                     c.period period,
+			                     c.clgLevel clgLevel,
+			                     c.clgGroup clgGroup,
+			                     nvl(cc.cnt, 0) count_user,
+			                     c.color color,
+			                     c.tag1 tag1,
+			                     c.tag2 tag2,
+			                     c.tag3 tag3,
+			                     c.tag4 tag4,
+			                     c.tag5 tag5,
+			                     to_char(regDate,'YYYY-MM-DD HH24:MI:SS') regDate2,
+			                     to_char(regDate+(recruitment)-(1/24/60/60),'YYYY-MM-DD HH24:MI:SS') recruitment2,
+			                     to_char(regDate+(recruitment)+(period*7)-(1/24/60/60),'YYYY-MM-DD HH24:MI:SS') period2
+			            from challenge c, interest i, 
+			                 (select challengeNo, count(challengeNo) cnt
+			                  from myChallenge
+			                  group by challengeNo) cc
+			            where  c.challengeNo = cc.challengeNo(+)
+			            and c.interestNo = i.interestNo    
+			            --조건
+			            and clgGroup = 2
+		]]>	            
+		
+						<if test="interestNo gt 0 ">
+						and c.interestNo = #{interestNo}
+						</if>
+			            
+			            
+			            <if test="keyword != ''  and  keyword != null ">
+						and c.clgTitle like '%'||#{keyword}||'%'
+						</if>
+						
+						
+						<if test="orderType == 'regDate'">
+						order by regDate desc
+						</if>
+						
+						<if test="orderType == 'likeOrder'">
+						order by count_user desc
+						</if>
+						
+						
+						
+		<![CDATA[	            
+			            ) ot
+			            
+			        )ort
+			where ort.rn >=1
+			and ort.rn <=20
+			
 		]]>
 	</select>
 

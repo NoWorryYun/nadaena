@@ -24,8 +24,6 @@ public class MainController {
 		Map<String, Object> evMap = mainTitleService.eventList();
 		
 		model.addAttribute("evMap", evMap);
-		model.addAttribute("popularityList", evMap);
-		model.addAttribute("limtiTimeList", evMap);
 		
 		return "main/mainTitle";
 	}

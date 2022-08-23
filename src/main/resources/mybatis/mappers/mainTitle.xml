@@ -32,52 +32,211 @@
 	<!-- 메인화면 이벤트 리스트 불러오기 -->
 	<select id="eventList" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo challengeNo,
-			        c.clgTitle clgTitle,
-			        c.img img,
-			        c.recruitment recruitment,
-			        c.period period,
-			        c.clgGroup clgGroup,
-			        c.clgLevel clgLevel,
-			        cc.count_user count_user
-			from challenge c, (select count(userNo) count_user
-			                   from mychallenge)cc
-			where c.clgGroup = 2
+			select ort.rn,
+				       ort.challengeNo,
+				       ort.interestNo,
+				       ort.clgTitle,
+				       ort.img,
+				       ort.regDate,
+				       ort.recruitment,
+				       ort.period,
+				       ort.clgLevel,
+				       ort.clgGroup,
+				       ort.count_user,
+				       ort.color,
+				       ort.tag1,
+				       ort.tag2,
+				       ort.tag3,
+				       ort.tag4,
+				       ort.tag5
+				from 
+				     (select rownum rn,
+				             ot.challengeNo,
+				             ot.interestNo,
+				             ot.clgTitle,
+				             ot.img,
+				             ot.regDate,
+				             ot.recruitment,
+				             ot.period,
+				             ot.clgLevel,
+				             ot.clgGroup,
+				             ot.count_user,
+				             ot.color,
+				             ot.tag1,
+				             ot.tag2,
+				             ot.tag3,
+				             ot.tag4,
+				             ot.tag5
+				      from 
+				            (select  c.challengeNo challengeNo,
+				                     c.interestNo interestNo,
+				                     c.clgTitle clgTitle,
+				                     c.img img,
+				                     c.regDate regDate,
+				                     c.recruitment recruitment,
+				                     c.period period,
+				                     c.clgLevel clgLevel,
+				                     c.clgGroup clgGroup,
+				                     nvl(cc.cnt, 0) count_user,
+				                     c.color color,
+				                     c.tag1 tag1,
+				                     c.tag2 tag2,
+				                     c.tag3 tag3,
+				                     c.tag4 tag4,
+				                     c.tag5 tag5
+				            from challenge c, (select challengeNo, count(challengeNo) cnt
+				                               from myChallenge
+				                               group by challengeNo) cc
+				            where  c.challengeNo = cc.challengeNo(+)
+				            and clgGroup = 2
+				            order by challengeNo desc) ot
+				        )ort
+				where ort.rn >=1
+				and ort.rn <=20
 		]]>
 	</select>
 	
 	<!-- 메인화면 인기순 리스트 불러오기 -->
 	<select id="popularityList" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo challengeNo,
-			        c.clgTitle clgTitle,
-			        c.img img,
-			        c.recruitment recruitment,
-			        c.period period,
-			        c.clgGroup clgGroup,
-			        c.clgLevel clgLevel,
-			        cc.count_user count_user
-			from challenge c, (select count(userNo) count_user
-			                   from mychallenge)cc
-			where c.clgGroup = 1
-			order by count_user asc
+			select ort.rn,
+			       ort.challengeNo,
+			       ort.interestNo,
+			       ort.clgTitle,
+			       ort.img,
+			       ort.regDate,
+			       ort.recruitment,
+			       ort.period,
+			       ort.clgLevel,
+			       ort.clgGroup,
+			       ort.count_user,
+			       ort.color,
+			       ort.tag1,
+			       ort.tag2,
+			       ort.tag3,
+			       ort.tag4,
+			       ort.tag5
+			from 
+			     (select rownum rn,
+			             ot.challengeNo,
+			             ot.interestNo,
+			             ot.clgTitle,
+			             ot.img,
+			             ot.regDate,
+			             ot.recruitment,
+			             ot.period,
+			             ot.clgLevel,
+			             ot.clgGroup,
+			             ot.count_user,
+			             ot.color,
+			             ot.tag1,
+			             ot.tag2,
+			             ot.tag3,
+			             ot.tag4,
+			             ot.tag5
+			      from 
+			            (select  c.challengeNo challengeNo,
+			                     c.interestNo interestNo,
+			                     c.clgTitle clgTitle,
+			                     c.img img,
+			                     c.regDate regDate,
+			                     c.recruitment recruitment,
+			                     c.period period,
+			                     c.clgLevel clgLevel,
+			                     c.clgGroup clgGroup,
+			                     nvl(cc.cnt, 0) count_user,
+			                     c.color color,
+			                     c.tag1 tag1,
+			                     c.tag2 tag2,
+			                     c.tag3 tag3,
+			                     c.tag4 tag4,
+			                     c.tag5 tag5
+			            from challenge c, (select challengeNo, count(challengeNo) cnt
+			                               from myChallenge
+			                               group by challengeNo) cc
+			            where  c.challengeNo = cc.challengeNo(+)
+			            and clgGroup = 1
+			            order by count_user desc) ot
+			        )ort
+			where ort.rn >=1
+			and ort.rn <=20
 		]]>
 	</select>
 	
 	<!-- 모집임박 나대나 -->
-	<select id="limtiTimeList" resultType="MainTitleVo">
+	<select id="limitTimeList" resultType="MainTitleVo">
 		<![CDATA[
-			select  c.challengeNo challengeNo,
-			        c.clgTitle clgTitle,
-			        c.img img,
-			        c.recruitment recruitment,
-			        c.period period,
-			        c.clgGroup clgGroup,
-			        c.clgLevel clgLevel,
-			        cc.count_user count_user
-			from challenge c, (select count(userNo) count_user
-			                   from mychallenge)cc
-			order by recruitment desc
+			select ort.rn,
+			       ort.challengeNo,
+			       ort.interestNo,
+			       ort.clgTitle,
+			       ort.img,
+			       ort.regDate,
+			       ort.recruitment,
+			       ort.period,
+			       ort.clgLevel,
+			       ort.clgGroup,
+			       ort.count_user,
+			       ort.color,
+			       ort.tag1,
+			       ort.tag2,
+			       ort.tag3,
+			       ort.tag4,
+			       ort.tag5,
+			       d,
+			       d1,
+			       d2
+			from 
+			     (select rownum rn,
+			             ot.challengeNo,
+			             ot.interestNo,
+			             ot.clgTitle,
+			             ot.img,
+			             ot.regDate,
+			             ot.recruitment,
+			             ot.period,
+			             ot.clgLevel,
+			             ot.clgGroup,
+			             ot.count_user,
+			             ot.color,
+			             ot.tag1,
+			             ot.tag2,
+			             ot.tag3,
+			             ot.tag4,
+			             ot.tag5,
+			             d,
+			             d1,
+			             d2
+			      from 
+			            (select  c.challengeNo challengeNo,
+			                     c.interestNo interestNo,
+			                     c.clgTitle clgTitle,
+			                     c.img img,
+			                     c.regDate regDate,
+			                     c.recruitment recruitment,
+			                     c.period period,
+			                     c.clgLevel clgLevel,
+			                     c.clgGroup clgGroup,
+			                     nvl(cc.cnt, 0) count_user,
+			                     c.color color,
+			                     c.tag1 tag1,
+			                     c.tag2 tag2,
+			                     c.tag3 tag3,
+			                     c.tag4 tag4,
+			                     c.tag5 tag5,
+			                     to_char(regDate+recruitment+(period*7),'YYYY-MM-DD HH24:MI:SS') d,
+			                     regDate+recruitment d1,
+			                     regDate+recruitment+(period*7) d2
+			            from challenge c, (select challengeNo, count(challengeNo) cnt
+			                               from myChallenge
+			                               group by challengeNo) cc
+			            where  c.challengeNo = cc.challengeNo(+)
+			            --조건
+			            and clgGroup = 1
+			            order by regDate asc) ot
+			        )ort
+			where ort.rn >=1
+			and ort.rn <=20
 		]]>
 	</select>
 	

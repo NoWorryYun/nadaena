@@ -27,14 +27,14 @@ public class MainTitleService {
 		List<MainTitleVo> popularityList = mainTitleDao.popularityList();
 		//System.out.println(popularityList);
 		
-		List<MainTitleVo> limtiTimeList = mainTitleDao.popularityList();
-		//System.out.println(popularityList);
+		List<MainTitleVo> limitTimeList = mainTitleDao.limitTimeList();
+		System.out.println("MainTitleService > eventList() "+limitTimeList);
 		
 		Map<String, Object> evMap = new HashMap<String, Object>();
 		
 		evMap.put("eventList", eventList);
 		evMap.put("popularityList", popularityList);
-		evMap.put("limtiTimeList", limtiTimeList);
+		evMap.put("limitTimeList", limitTimeList);
 		
 		return evMap;
 		

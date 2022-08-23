@@ -1,14 +1,13 @@
 package com.nadaena.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.SearchDao;
 import com.nadaena.vo.MainTitleVo;
+import com.nadaena.vo.SearchVo;
 @Service
 public class SearchService {
 	
@@ -16,17 +15,18 @@ public class SearchService {
 	private SearchDao searchDao ;
 	
 	//검색입력
-	public Map<String, Object> searchList(String searchbar) {
+	public List<MainTitleVo> searchList(SearchVo searchVo) {
 		System.out.println("SearchService > searchList()");
+		/* System.out.println(searchbar); */
 		
-		List<MainTitleVo> searchList = searchDao.searchList(searchbar);
+		
+		List<MainTitleVo> searchList = searchDao.searchList(searchVo);
 			
-		Map<String, Object> cMap = new HashMap<String, Object>();
+		//System.out.println("SearchService >"+searchbar);
 		
+		//cMap.put("eventList", searchList);
 		
-		cMap.put("eventList", searchList);
-		
-		return cMap;
+		return searchList;
 		
 	}
 

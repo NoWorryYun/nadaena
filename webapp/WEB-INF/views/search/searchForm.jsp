@@ -19,11 +19,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/saerch.css">
 
 
-
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/Features-Boxed-Remixed.css">
-
-
-
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
@@ -42,7 +37,7 @@
 		<div class="main-box">
 			<div>
 				<div class="search-result">
-					<p class="search-title"><a herd="">&quot;${searchbar}&quot;</a> 에 대한 검색 결과</p>
+					<p class="search-title"><a herd="">&quot;${param.keyword}&quot;</a> 에 대한 검색 결과</p>
 				</div>
 				
 				<div class="table-responsive">
@@ -66,51 +61,51 @@
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="2" onclick="radioClick()" name="category" />봉사활동</li>
+															value="2" name="category" />봉사활동</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="3" onclick="radioClick()" name="category" />독서</li>
+															value="3"name="category" />독서</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="4" onclick="radioClick()" name="category" />건강</li>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="5" onclick="radioClick()" name="category" />생활</li>
-													</td>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-														 	value="6" onclick="radioClick()" name="category" />그림</li>
-													</td>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="7" onclick="radioClick()" name="category" />공부</li>
-													</td>
-													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="8" onclick="radioClick()" name="category" />반려동물</li>
+															value="4" name="category" />건강</li>
 													</td>
 												</tr>
 												<tr>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="9" onclick="radioClick()" name="category" />음악</li>
+															value="5" name="category" />생활</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="10" onclick="radioClick()" name="category" />식습관</li>
+														 	value="6" name="category" />그림</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="11" onclick="radioClick()" name="category" />취미</li>
+															value="7" name="category" />공부</li>
 													</td>
 													<td>
 														<li class="list-inline-item"><input type="radio"
-															value="12" onclick="radioClick()" name="category" />뷰티</li>
+															value="8" name="category" />반려동물</li>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="9" name="category" />음악</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="10" name="category" />식습관</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="11" name="category" />취미</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="12" name="category" />뷰티</li>
 													</td>
 												</tr>
 											</tbody>
@@ -135,54 +130,30 @@
 						<div class="search-type-select-culm-img">
 							<span class="check-img"></span>
 						</div>
-						<span>인기순</span>
+						<span id="likeOrder">인기순</span>
 					</div>
 					<div class="search-type-select-culm">
 						<div class="search-type-select-culm-img">
 							<span class="check-img"></span>
 						</div>
-						<span>신규등록순</span>
+						<span id="newOrder">신규등록순</span>
 					</div>
 					<div class="search-type-select-culm">
 						<div class="search-type-select-culm-img">
 							<span class="check-img"></span>
 						</div>
-						<span>마감일순</span>
+						<span id="recruitmentOrder">마감일순</span>
 					</div>
 				</div>
+				
 			</div>
 
-
-			<div class="features-boxed">
-				<div>
-					<div class="row features">
-					
-					
-					<!-- 검색값 넣어야함 -->
-						<c:forEach var="MainTitleVo" items="${cMap.searchList}">
-							<div class="col-sm-6 col-md-3 item">
-								<a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
-									<div class="box">
-										<div class="image-box">
-											<img class="box-image img-responsive"
-												src="${pageContext.request.contextPath}/assets/img/search-img.jpg<%-- ${pageContext.request.contextPath}/${MainTitleVo.img} --%>" alt="" />
-										</div>
-										
-										<div class="info-box">
-							           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-							           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
-							           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
-							           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
-						           		</div>
-									</div>
-								</a>
-							</div>
-						</c:forEach>
-						
-					</div>
-					<!-- //row features -->
-				</div><!--  -->
+			<div id="clgListArea" class="row">
+				<!-- 챌린지 리스트 -->
 			</div>
+			
+
+
 		</div>
 </main>
 
@@ -195,34 +166,122 @@
 
 </body>
 
+<script type="text/javascript">
+
+var serchVo = {
+	keyword: "",
+	interestNo: -1,
+	orderType: "regDate"
+};
 
 
+/* 준비가 끝났을때 */
+$(document).ready(function(){
+	/* 리스트 요청+그리기 */
+	
+	var keyword = "${param.keyword}"
+	serchVo.keyword = keyword;
+	serchVo.interestNo = -1
+	orderType: "regDate"
+	
+	fetchList(serchVo);
+});
+
+
+/* 카테고리를 클릭했을때 */
+$("[name='category']").on("click", function(){
+	
+	var interestNo = $(this).val()
+	serchVo.interestNo = interestNo
+		
+	fetchList(serchVo);
+});
+
+/* 인기순 클릭했을때 */
+$("#likeOrder").on("click", function(){
+	console.log("클릭");
+	
+	
+	serchVo.orderType ="likeOrder";
+	
+	fetchList(serchVo);
+	
+	
+});
+/* 신규등록순 클릭했을때 */
+$("[name='newOrder']").on("click", function(){
+	
+	
+});
+/* 마감일순 클릭했을때 */
+$("[name='recruitmentOrder']").on("click", function(){
+	
+	
+});
+/* 리스트 요청 */
+function fetchList(serchVo){
+	console.log(serchVo);
+	$.ajax({
+		url : "${pageContext.request.contextPath }/search/getClgList",		
+		type : "post",
+		//contentType : "application/json",
+		data : serchVo,
+		
+		
+		dataType : "json",
+		success : function(clgList){
 			
-<!-- <div class="ccheck">
-	<input type="checkbox" id="check_test">
-	<label for="check_test">
-		<div class="chk_img">체크</div>
-	</label>
-</div> -->
+			//리스트영역 초기화
+			$("#clgListArea").text("");
 			
-			
-<%-- <div class="col-sm-6 col-md-3 item">
-	<div class="box">
-		<div class="image-box">
-			<img class="box-image img-responsive"
-				src="${pageContext.request.contextPath}/assets/img/search-img.jpg" />
-				</div>
-				<div class="info-box">
-					<h3 class="name">마라톤</h3>
-					<div>
-						<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
-						<p>참여 인원 : 15</p>
-						<p>최소 도전비용 : 20000원</p>
-						<p>기대 성공금액 : 2~3%</p>
-					</div>
-				</div>
-			</div>
-		</div> --%>
+			//화면 data + html 그린다
+			for(var i=0; i<clgList.length; i++){
+				render(clgList[i], "down");  //vo --> 화면에 그린다.
+			}
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+}
+
+
+
+/* 리스트 그리기 1개씩*/
+function render(clgVo, opt){
+	console.log("render()");
+	
+	var str = '';
+	str += '<div class="clgItem" >' ;
+	str += '    <a href="${pageContext.request.contextPath}/challenge/'+clgVo.challengeNo+'/intro">' ;
+	str += '        <div class="inner-box">' ;
+	str += '        	<div class="image-box">' ;
+	str += '        		<img class="clg-image img-responsive" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="" />' ;
+	str += '        	</div>' ;
+	str += '    		<div class="info-box">' ;
+	str += '    			<p class="nadaena_name">'+clgVo.clgTitle+'</p>' ;
+	str += '        		<p class="nadaena_period">챌린지 기간: '+clgVo.period+'</p>' ;
+	str += '        		<p class="nadaena_count_user">참여인원: '+clgVo.count_user+'</p>' ;
+	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.payment+' 원</p>' ;
+	str += '        		<p class="nadaena_payment">참여인원: '+clgVo.count_user+'</p>' ;
+	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.recruitment2+'</p>' ;
+	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.period2 +'</p>' ;
+	str += '        	</div>' ;
+	str += '    	</div>' ;
+	str += '    </a>' ;
+	str += '</div>' ;
+	
+	if(opt == "down"){
+		$("#clgListArea").append(str);	
+	
+	}else if(opt == "up"){
+		$("#clgListArea").prepend(str);
+	
+	}else {
+		console.log("opt오류");
+	}
+}
+</script>
 
 
 

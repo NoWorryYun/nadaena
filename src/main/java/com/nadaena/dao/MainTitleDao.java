@@ -19,6 +19,7 @@ public class MainTitleDao {
 		System.out.println("MainTitleDao > eventList()");
 		
 		List<MainTitleVo> eventList = sqlSession.selectList("mainTitle.eventList");
+		//System.out.println(eventList);
 		
 		return eventList;
 	}
@@ -28,18 +29,19 @@ public class MainTitleDao {
 		System.out.println("MainTitleDao > popularityList()");
 		
 		List<MainTitleVo> popularityList = sqlSession.selectList("mainTitle.popularityList");
-		System.out.println(popularityList);
+		//System.out.println("MainTitleDao > popularityList" + popularityList);
 		
 		return popularityList;
 	}
 	
-	public List<MainTitleVo> limtiTimeList() {
-		System.out.println("MainTitleDao > limtiTimeList()");
+	//모집임박 나대나
+	public List<MainTitleVo> limitTimeList() {
+		System.out.println("MainTitleDao > limitTimeList()");
 		
-		List<MainTitleVo> limtiTimeList = sqlSession.selectList("mainTitle.limtiTimeList");
-		System.out.println(limtiTimeList);
+		List<MainTitleVo> limitTimeList = sqlSession.selectList("mainTitle.limitTimeList");
+		System.out.println("MainTitleDao >limitTimeList " + limitTimeList);
 		
-		return limtiTimeList;
+		return limitTimeList;
 	}
 	
 	

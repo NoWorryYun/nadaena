@@ -109,38 +109,60 @@ table{
 
 
 
-    
+/* 챌린지 박스 */
 
-/* test */
-/* .search-list{
-	margin: 16px -10px 0px;
-	font-family: 'Metro Sans',sans-serif;
-    box-sizing: border-box;
+#clgListArea{
+	
 }
 
-.search-clum{
-	width: 100%;
-    display: flex;
-    flex-flow: row wrap;
+.clgItem {
+	margin-bottom: 10px;
+	width: 284.25px;
+	text-align: left;
+	margin-bottom: 50px;
 }
 
-.search-clum-box{
-	width: 20%;
-    padding: 0px 10px;
-    margin-bottom: 50px;
+
+.clgItem .inner-box .image-box .clg-image   {
+	width: 257.25px;
+	
 }
 
-.search-clum-box-info{
-	display: flex;
-    width: 214px;
-    max-height: 303px;
-    flex-direction: column;
-    position: relative;
-    text-decoration: none;
+
+.clgItem a:link {
+  color : black;
+  text-decoration: none;
+}
+.clgItem a:visited {
+  color : black;
+  text-decoration: none;
+}
+.clgItem a:hover {
+  color : blue;
+  text-decoration: none;
+}
+.clgItem a:active {
+  color : green;
+  text-decoration: none;
 }
 
-.search-clum-box-img{
-	position: absolute;
-    inset: 0px;
-    display: block;
-} */
+
+.nadaena_name {
+	margin-top: 3px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.nadaena_period {
+
+	margin-bottom: 5px;
+}
+
+.nadaena_count_user {
+	margin-bottom: 5px;
+}
+
+.nadaena_payment {
+	text-align: right;
+	font-size: 18px;
+}

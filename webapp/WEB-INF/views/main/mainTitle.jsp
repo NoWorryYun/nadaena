@@ -58,8 +58,8 @@
 	           		
 	           		<div class="title-search">
 	           			<div>
-	                		<form class="d-flex align-items-center" action="${pageContext.request.contextPath}/search/searchForm" method="post" enctype="multipart/form-data">
-		                		<input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="text" placeholder="검색어를 입력해주세요." name="banner-searchbar" />
+	                		<form class="d-flex align-items-center" action="${pageContext.request.contextPath}/search/searchForm" method="get">
+		                		<input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="text" placeholder="검색어를 입력해주세요." name="keyword" />
 		                		<button class="btn btn-success btn-lg" type="submit">검색</button>
 	                		</form>
 	            		</div>
@@ -204,7 +204,8 @@
 
 
 
-	<h3>듀토리얼 나대나</h3>
+	<h3>마감임박 나대나</h3>
+	<div class="more"><a href="">더보기 > </a></div>
     	<div class="lunchbox">
     	
 			<!-- slider main container -->
@@ -217,7 +218,7 @@
 		          <!-- slides -->
 		          
 			  <!--챌린지 반복영역 -->
-		          <c:forEach var="MainTitleVo" items="${evMap.popularityList}">
+		          <c:forEach var="MainTitleVo" items="${evMap.limitTimeList}">
 			          <div class="swiper-slide">
 				          <li>
 					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
