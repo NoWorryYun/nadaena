@@ -65,66 +65,40 @@
                         </tr>
                     </thead>
                     <tbody class="mypoint-table-body">
+                    
+                    <c:forEach items="${pList}" var="PointVo" varStatus="i">
                         <tr>
-                            <td class="column1">7</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">충전</td>
-                            <td class="column4">10000p</td>
-                            <td class="column5"></td>
-                            <td class="column6">46500p</td>
+                            <td class="column1">${i.count }</td>
+                            <td class="column2">${PointVo.pointDate }</td>
+                            <td class="column3">
+                            	<c:choose>
+                            		<c:when test="${PointVo.pointGroup == 1}"> 충전 </c:when>
+                            		<c:when test="${PointVo.pointGroup == 2}"> 챌린지참가 </c:when>
+                            		<c:when test="${PointVo.pointGroup == 3}"> 챌린지보상 </c:when>
+                            		<c:when test="${PointVo.pointGroup == 4}"> 몰사용 </c:when>
+                            		<c:when test="${PointVo.pointGroup == 5}"> 환불 </c:when>
+									<c:otherwise> 오류 </c:otherwise>
+                            	</c:choose>
+                            </td>
+                            <c:choose>
+                            	<c:when test="${PointVo.pointGroup %2 == 1}">
+                            		<td class="column4">${PointVo.charge}p</td>
+                            		<td class="column5">-</td>
+                            	</c:when>
+                            	<c:otherwise>
+                            		<td class="column4">-</td>
+                            		<td class="column5">${PointVo.charge}p</td>
+                            	</c:otherwise>	
+                            </c:choose>
+                            <td class="column6">${PointVo.amount }p</td>
                         </tr>
-                        <tr>
-                            <td class="column1">6</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">포인트몰 사용</td>
-                            <td class="column4"></td>
-                            <td class="column5">30000p</td>
-                            <td class="column6">36500p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">5</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">챌린지 참가</td>
-                            <td class="column4"></td>
-                            <td class="column5">50000p</td>
-                            <td class="column6">66500p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">4</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">리워드 획득</td>
-                            <td class="column4">11500p</td>
-                            <td class="column5"></td>
-                            <td class="column6">116500p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">3</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">충전</td>
-                            <td class="column4">30000p</td>
-                            <td class="column5"></td>
-                            <td class="column6">105000p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">2</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">포인트몰 사용</td>
-                            <td class="column4"></td>
-                            <td class="column5">5000p</td>
-                            <td class="column6">75000p</td>
-                        </tr>
-                        <tr>
-                            <td class="column1">1</td>
-                            <td class="column2">2010/01/01</td>
-                            <td class="column3">챌린지 참가</td>
-                            <td class="column4"></td>
-                            <td class="column5">20000p</td>
-                            <td class="column6">80000p</td>
-                        </tr>
+                       
+                    </c:forEach> 
                     </tbody>
                 </table>
-                
+                	
                 <div class="paging">
+                
                     <ul>
                         <li><a href="">◀</a></li>
                         <li><a href="">1</a></li>
@@ -136,6 +110,8 @@
                     </ul>
                     <div class="clear"></div>
                 </div>
+                
+                
 			</div>
 			
 		</div>
@@ -152,5 +128,38 @@
 
 
 </body>
+<script type="text/javascript">
+
+console.log(gno);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
 
 </html>

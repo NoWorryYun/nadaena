@@ -448,15 +448,16 @@
 	</delete>
 	
 	<!-- 포인트 내역 리스트 -->
-	<select id="selectPoint" parameterType="String" resultType="PointVo">
+	<select id="selectPoint" resultType="PointVo">
 		select  p.pointNo,
 				u.userNo,
 				p.pointGroup,
 				p.charge,
 				p.amount,
-				p.pointDate,
+				to_char(p.pointDate, 'yyyy-mm-dd') pointDate,
 				p.source,
 				p.pointMemo
+		from users u, point p
 		where u.userNo = p.userNo	
 	</select>
 	
