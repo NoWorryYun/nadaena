@@ -91,7 +91,7 @@
 									<div id="introduce-wrap">
 										<div>
 											<div class="float-l">
-												<img class="picture-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png">
+												<img class="picture-size" src="${pageContext.request.contextPath}/upload/forNaDaeNa/${cMap.intro.img}">
 												<div>
 													<div>
 														<p class="font-12 fw-bold">카테고리 : ${cMap.intro.interestName}</p>

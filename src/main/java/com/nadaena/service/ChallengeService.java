@@ -73,7 +73,7 @@ public class ChallengeService {
 			
 			//값 꺼내기
 			int interestNo = challengeVo.getInterestNo();
-			String img = filePath;
+			String img = saveName;
 			String clgTitle = challengeVo.getClgTitle();
 			int recruitment = challengeVo.getRecruitment();
 			int period = challengeVo.getPeriod();
