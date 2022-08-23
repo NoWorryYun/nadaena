@@ -35,4 +35,12 @@ public class ShopController {
 		return "shop/mypage";
 	}
 
+	
+	
+	@RequestMapping(value="shop/order")
+	public String order() {
+		System.out.println(" ShopCtrl > order");
+		
+		return "shop/order";
+	}
 }
