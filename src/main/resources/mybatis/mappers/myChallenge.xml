@@ -208,7 +208,7 @@
 			select  reviewNo,
 					challengeNo,
 					userNo,
-					reviewContent,
+					reviewContent
 			from review
 		]]>
 	</select>
