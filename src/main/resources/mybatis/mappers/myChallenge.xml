@@ -208,9 +208,7 @@
 			select  reviewNo,
 					challengeNo,
 					userNo,
-					reviewImg,
 					reviewContent,
-					reviewDate
 			from review
 		]]>
 	</select>
@@ -221,8 +219,8 @@
 			insert into review
 			values (SEQ_REVIEWNO.nextval,
 					#{challengeNo},
-					#{userNo},
-					#{reviewImg},
+					null,
+					null,
 					#{reviewContent},
 					sysdate
 					)

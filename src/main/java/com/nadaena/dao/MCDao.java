@@ -80,22 +80,13 @@ public class MCDao {
 		return totalCnt2;
 	}
 	
-	//전체글 갯수
+	//실패글 갯수
 	public int selectTotalCnt3() {
 		
 		int totalCnt3 = sqlSession.selectOne("myChallenge.selectTotalCnt3");
 		
 		return totalCnt3;
 	}
-	
-	
-	/*
-	 * //종료 리스트(실패) public List<MCVo> selectList4() { System.out.println("MCDao > selectList4()");
-	 * 
-	 * List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList4"); System.out.println(mcList4);
-	 * 
-	 * return mcList4; }
-	 */
 	
 	//리뷰 불러오기
 	public List<MRVo> selectreviewList() {
@@ -121,7 +112,6 @@ public class MCDao {
 		
 		return sqlSession.update("myChallenge.updateState",mcVo);
 	}
-	
 	
 	//리뷰삭제
 	public int deleteReview(MRVo mrVo) {

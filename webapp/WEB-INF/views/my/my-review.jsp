@@ -58,15 +58,15 @@
 					<c:forEach items="${mrList}" var="MRVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
-								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/my/writeReview/${requestScope.reviewImg}"></a>
+								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 							</div>
 							<div class="certify-list-info">
 								<div>
 									<div>
-										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview/${requestScope.reviewNo}">삭제</a>
+										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${MRVo.reviewNo}">삭제</a>
 									</div>
 									<p class="review-uploader">피자만두</p>
-									<p class="review-comment">${requestScope.reviewContent}</p>
+									<p class="review-comment">${MRVo.reviewContent }</p>
 								</div>
 							</div>
 						</li>

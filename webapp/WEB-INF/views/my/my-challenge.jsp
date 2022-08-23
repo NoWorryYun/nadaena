@@ -154,7 +154,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form id ="uploadForm" action="${pageContext.request.contextPath }/my/writeReview" method="post" enctype="multipart/form-data">
+			<form action="writeReview" method="get">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
@@ -164,12 +164,12 @@
 			<div class="modal-body">
 				<div class="modal-nicname-box">
 					<p class="modal-nickname">작성자 : 배달의기마민족</p>
-					<p class="modal-upload-date">작성일 : <span class="writeday"></span></p>
+					<p class="modal-upload-date">작성일 : 2022-08-31</p>
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
-				<input id="file" type="file" name="reviewImg" class="modal-upbutton">
+				<input type="file" id="modal-upbutton">
 				
 				<!-- <div class="modal-image-box">
 					<div class="modal-image">
@@ -178,7 +178,7 @@
 				</div> -->
 			</div>
 			<div class="modal-footer">
-				<button type="submit" id="uploadBtn" class="btn btn-primary">작성 및 리워드받기</button>
+				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
 			</div>
 				
 			</form>	
@@ -237,29 +237,6 @@ $(".btn-close").on("click", function(){
 	$("#review-modal").fadeOut();	
 });	 
 
-//ajax 데이타 전송
-$(function(){
-	$("#uploadBtn").on("click", function(){
-		uploadFile();
-	});
-});
-
-function uploadFile(){
-	
-	var form = $("#uploadForm")[0];
-	var formData = new FormData(form);
-	
-	$.ajax({
-		url : "${pageContext.request.contextPath }/my/writeReview",
-		type : "POST",
-		data : formData,
-		contentType : false,
-		processData : false
-	}).done(function(data){
-		callback(data);
-	});
-	
-}
 
 
 
