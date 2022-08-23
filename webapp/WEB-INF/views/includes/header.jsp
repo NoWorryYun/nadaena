@@ -26,13 +26,13 @@
 					</div>
 					<ul id="btn-user-list" class="dropdown-menu">
 						<li><a class="dropdown-item" href="#">마이페이지</a></li>
-						<li><a class="dropdown-item" href="#">로그아웃</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 					</ul>
 					 </c:if>
 					
 				<c:if test="${empty authUser }">
-				<a id="btn-login" class="btn btn-light btn-sm" href="#">로그인</a>
-					<a id="btn-join" class="btn btn-light btn-sm" href="#">회원가입</a>
+				<a id="btn-login" class="btn btn-light btn-sm" href="${pageContext.request.contextPath }/loginForm">로그인</a>
+					<a id="btn-join" class="btn btn-light btn-sm" href="${pageContext.request.contextPath }/joinForm">회원가입</a>
 				 </c:if>
 				</div>
 			</div>

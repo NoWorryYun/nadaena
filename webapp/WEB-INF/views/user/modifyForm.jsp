@@ -33,6 +33,7 @@
 
 <main>
 	<div class="main-box">
+		<form class="user" id="modifyForm" method="post" action="${pageContext.request.contextPath}/modify">
 			<div class="container">
 
 				<div class="card-body p-0">
@@ -43,55 +44,56 @@
 						<div class="text-center">
 							<h4 class="mb-4">회원정보수정</h4>
 						</div>
-						<form class="user">
+					
+						
 							<div class="row mb-3">
+							<div class=" mb-3">
+									<input id="exampleFirstName" class="form-control form-control-user" type="text" placeholder="이름" name="name" value="${userVo.name }" />
+								</div>
+							
 								<div class="mb-3">
 									<input id="exampleInputEmail"
 										class="form-control form-control-user" type="text"
 										placeholder="닉네임"
-										name="username" />
+										name="nickName"  value="${userVo.nickName }" />
 								</div>
 
 
 								<div class="mb-3">
 									<input id="examplePasswordInput"
 										class="form-control form-control-user" type="password"
-										placeholder="비밀번호" name="password" />
+										placeholder="비밀번호" name="pasword" />
 								</div>
 
-								<div class="mb-3">
+								<!-- <div class="mb-3">
 									<input id="exampleRepeatPasswordInput"
 										class="form-control form-control-user" type="password"
 										placeholder="비밀번호 확인" name="password_repeat" />
+								</div> -->
+								<div class=" mb-3">
+									<input id="exbirth" class="form-control form-control-user" type="text" placeholder="생년월일" name="birth" value="${userVo.birth }" />
 								</div>
-								<div class="info" id="info__birth">
-									<select class="box  form-control" id="birth-year">
-										<option disabled selected>출생 연도</option>
-									</select> <select class="box  form-control" id="birth-month">
-										<option disabled selected>월</option>
-									</select> <select class="box mb-3 form-control" id="birth-day">
-										<option disabled selected>일</option>
-									</select>
-								</div>
+
 
 								<div class=" mb-3">
 									<input id="phoneNumber" class="form-control form-control-user"
-										type="text" placeholder="휴대폰번호 (-) 없이 입력해주세요" name="phn" />
+										type="text" placeholder="핸드폰번호" name="phn" />
+								</div>
+
+							<div class=" mb-3">
+									<input id="sample6_postcode" class="asdf form-control-user form-control" type="text" placeholder="우편번호" name="postNo" />
+									 <input type="button" class="addbtn"onclick="sample6_execDaumPostcode()"value="주소찾기">
+								</div>
+								<div class=" mb-3">
+									<input id="sample6_address" class="form-control form-control-user" type="text" placeholder="주소" name="address1" />
 								</div>
 
 								<div class=" mb-3">
-									<input id="address" class="asdf form-control-user form-control"
-										type="text" placeholder="주소" name="joinaddress" /> <input
-										type="button" class="addbtn" value="주소찾기">
-								</div>
-                                <div class=" mb-3">
-									<input id="address2" class="form-control form-control-user"
-										type="text" placeholder="상세주소" name="" />
+									<input id="sample6_detailAddress" class="form-control form-control-user" type="text" placeholder="상세주소" name="address2" />
 								</div>
 							</div>
-
 							
-						</form>
+				
 					</div>
 				</div>
 			</div>
@@ -99,6 +101,7 @@
 			<div class="">
 
 				<div class="hobby-check">
+				
 					<h4 class="hobby-head">관심분야</h4>
 
 					<ul class="">
@@ -139,12 +142,13 @@
 									class="istp">취미</p> <img
 								src="${pageContext.request.contextPath}/assets/img/interest/취미.jpg" /></label></li>
 					</ul>
-                                                    <button class="membership-btn" type="submit">회원가입</button>
+                                                    <button class="membership-btn" type="submit">회원정보수정</button>
+                                          
 				</div>
                 
 			</div>
             
-
+	</form>
 		</div>
 </main>
 

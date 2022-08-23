@@ -59,6 +59,7 @@
 
 								<div class="mb-3">
 									<input id="examplePasswordInput" class="form-control form-control-user" type="password" placeholder="비밀번호" name="pasword" />
+									<!-- <span id="pwtext">사용불가</span> -->
 								</div>
 
 								<!-- <div class="mb-3">
@@ -113,22 +114,22 @@
 					<div class="hobby-check">
 
 						<h4 class="hobby-head">관심분야</h4>
-
+							
 						<ul class="">
-							<li class="cata"><input type="checkbox" id="cb1" value="a" <c:if test="${time[0]}==1">checked="checked"</c:if>/> <label for="cb1"><p class="istp">건강</p> <img src="${pageContext.request.contextPath}/assets/img/interest/건강.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb2" value="b"<c:if test="${time[1]}==2">checked="checked"</c:if> /> <label for="cb2"><p class="istp">공부</p> <img src="${pageContext.request.contextPath}/assets/img/interest/공부.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb3" value="c"<c:if test="${time[2]}==3">checked="checked"</c:if>/> <label for="cb3"><p class="istp">그림</p> <img src="${pageContext.request.contextPath}/assets/img/interest/그림.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb4" value="d"<c:if test="${time[3]}==4">checked="checked"</c:if>/> <label for="cb4"><p class="istp">독서</p> <img src="${pageContext.request.contextPath}/assets/img/interest/독서.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb5" value="e"<c:if test="${time[4]}==5">checked="checked"</c:if>/> <label for="cb5"><p class="istp">반려</p> <img src="${pageContext.request.contextPath}/assets/img/interest/반려동물.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb6" value="f"<c:if test="${time[5]}==6">checked="checked"</c:if>/> <label for="cb6"><p class="istp">뷰티</p> <img src="${pageContext.request.contextPath}/assets/img/interest/뷰티.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb7"value="g"<c:if test="${time[6]}==7">checked="checked"</c:if> /> <label for="cb7"><p class="istp">생활</p> <img src="${pageContext.request.contextPath}/assets/img/interest/생활습관.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb8"value="h"<c:if test="${time[7]}==8">checked="checked"</c:if>/> <label for="cb8"><p class="istp">식습</p> <img src="${pageContext.request.contextPath}/assets/img/interest/식습관.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb9" value="i"<c:if test="${time[8]}==9">checked="checked"</c:if>/> <label for="cb9"><p class="istp">요리</p> <img src="${pageContext.request.contextPath}/assets/img/interest/요리.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb10" value="j"<c:if test="${time[9]}==10">checked="checked"</c:if>/> <label for="cb10"><p class="istp">운동</p> <img src="${pageContext.request.contextPath}/assets/img/interest/운동.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb11" value="k"<c:if test="${time[10]}==11">checked="checked"</c:if>/> <label for="cb11"><p class="istp">음악</p> <img src="${pageContext.request.contextPath}/assets/img/interest/음악.jpg" /></label></li>
-							<li class="cata"><input type="checkbox" id="cb12" value="l"<c:if test="${time[11]}==12">checked="checked"</c:if>/> <label for="cb12"><p class="istp">취미</p> <img src="${pageContext.request.contextPath}/assets/img/interest/취미.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="건강" onchange="checkBox"> <label for="cbcheck"><p class="istp">건강</p> <img src="${pageContext.request.contextPath}/assets/img/interest/건강.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="공부" /> <label for="cbcheck"><p class="istp">공부</p> <img src="${pageContext.request.contextPath}/assets/img/interest/공부.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="그림"/> <label for="cbcheck"><p class="istp">그림</p> <img src="${pageContext.request.contextPath}/assets/img/interest/그림.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="독서"/> <label for="cbcheck"><p class="istp">독서</p> <img src="${pageContext.request.contextPath}/assets/img/interest/독서.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="반려"/> <label for="cbcheck"><p class="istp">반려</p> <img src="${pageContext.request.contextPath}/assets/img/interest/반려동물.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="뷰티"/> <label for="cbcheck"><p class="istp">뷰티</p> <img src="${pageContext.request.contextPath}/assets/img/interest/뷰티.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck"value="생활" /> <label for="cbcheck"><p class="istp">생활</p> <img src="${pageContext.request.contextPath}/assets/img/interest/생활습관.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck"value="식습"/> <label for="cbcheck"><p class="istp">식습</p> <img src="${pageContext.request.contextPath}/assets/img/interest/식습관.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="요리"/> <label for="cbcheck"><p class="istp">요리</p> <img src="${pageContext.request.contextPath}/assets/img/interest/요리.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="운동"/> <label for="cbcheck"><p class="istp">운동</p> <img src="${pageContext.request.contextPath}/assets/img/interest/운동.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="음악"/> <label for="cbcheck"><p class="istp">음악</p> <img src="${pageContext.request.contextPath}/assets/img/interest/음악.jpg" /></label></li>
+							<li class="cata"><input type="checkbox" id="cbcheck" value="취미"/> <label for="cbcheck"><p class="istp">취미</p> <img src="${pageContext.request.contextPath}/assets/img/interest/취미.jpg" /></label></li>
 						</ul>
-						<button class="membership-btn" type="submit">회원가입</button>
+						<button class="membership-btn" type="submit" id="btnSubmit">회원가입</button>
 					</div>
 				</div>
 			</form>
@@ -151,6 +152,32 @@
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
+/* $("#btnSubmit").on("click", function(){
+	console.log("회원버튼 클릭");
+	
+
+	};
+	
+	
+	
+	$.ajax({
+		url : "${pageContext.request.contextPath}/join/hobby",		
+		type : "post",
+		contentType : "application/json",
+		data : JSON.stringify(HobbyVo),   //js객체를 JSON문자열로 변경
+		dataType : "json",
+		success : function(gVo){
+			//1개데이터 리스트 추가(그리기)하기
+
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+}); */
+
+
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -196,6 +223,50 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
+/
+/*
+var id = document.querySelector('#id');
+var pw1 = document.querySelector('#pasword');
+var pw2 = document.querySelector('#password_repeat');
+var pwMsg = document.querySelector('#pwtext');
 
+//이벤트
+pw1.addEventListener("focusout", checkPw);
+pw2.addEventListener("focusout", repeatPw);
+
+function checkPw() {
+    var pwPattern = /[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{8,16}/;
+    if(pw1.value === "") {
+        error[1].innerHTML = "입력해주세요";
+        error[1].style.display = "block";
+    } else if(!pwPattern.test(pw1.value)) {
+        error[1].innerHTML = "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
+        pwMsg.innerHTML = "사용불가";
+        pwMsgArea.style.paddingRight = "93px";
+        error[1].style.display = "block";
+        
+        pwMsg.style.display = "block";
+    } else {
+        error[1].style.display = "none";
+        pwMsg.innerHTML = "사용가능";
+        pwMsg.style.display = "block";
+        pwMsg.style.color = "#03c75a";
+    }
+}
+
+function repeatPW() {
+    if(pw2.value === pw1.value && pw2.value != "") {
+        error[2].style.display = "none";
+    } else if(pw2.value !== pw1.value) {
+        error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
+        error[2].style.display = "block";
+    } 
+
+    if(pw2.value === "") {
+        error[2].innerHTML = "입력해주세요.";
+        error[2].style.display = "block";
+    }
+}
+*/
 </script>
 </html>

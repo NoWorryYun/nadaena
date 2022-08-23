@@ -20,12 +20,15 @@
 	href="${pageContext.request.contextPath }/assets/css/common.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/login.css">
+	
 
 <!-- js -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
+	
 </head>
 
 
@@ -84,12 +87,16 @@
 											<button class="btn btn-primary d-block btn-user w-100"
 												type="submit">로그인</button>
 											<div class="hr-sect">또는</div>
+											
+								
+											 
+											 
 											<div class="login-sns">
 											<a href="https://www.naver.com/"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/pngwing.com.png" />
-											</a> <a href="www.naver.com"> <img class="btn-naver"
-												role="button" src="assets/img/loginimg/btn_naver1.png" />
-											</a> <a href="www.naver.com"> <img class="btn-naver"
+											</a>
+											 <div id="naver_id_login"></div>
+											 <a href="www.naver.com"> <img class="btn-naver"
 												role="button" src="assets/img/loginimg/kakaobtn.png" />
 											</a>
 											</div>
@@ -122,5 +129,14 @@
 
 
 </body>
+<script type="text/javascript">
+  	var naver_id_login = new naver_id_login("3hoLbYqi3ghHKHkF0Qsz", "http://localhost:8088/nadaena/naver_callback");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://localhost:8088/nadaena/loginForm");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+  </script>
 
 </html>
