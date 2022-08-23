@@ -55,6 +55,28 @@ public class MCController {
 		System.out.println(mcMap);
 		return "my/my-challengeno";
 	}
+
+	//참가중 이벤트 리스트
+	@RequestMapping(value = "my/my-event", method = { RequestMethod.GET, RequestMethod.POST })
+	public String elist1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> mcMap = mcService.getmeList21(crtPage);
+		
+		model.addAttribute("mcMap", mcMap);
+		System.out.println(mcMap);
+		return "my/my-event";
+	}
+
+	//종료된 이벤트 리스트
+	@RequestMapping(value = "my/my-event/end", method = { RequestMethod.GET, RequestMethod.POST })
+	public String elist2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> mcMap = mcService.getmeList22(crtPage);
+		
+		model.addAttribute("mcMap", mcMap);
+		System.out.println(mcMap);
+		return "my/my-eventend";
+	}
 	
 	//리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })

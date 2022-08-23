@@ -64,6 +64,30 @@ public class MCDao {
 		return mcList4;
 	}
 	
+	//진행중 이벤트 + 페이징
+	public List<MCVo> selectList21(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> meList1 = sqlSession.selectList("myChallenge.selectList21", map);
+		System.out.println(meList1);
+		return meList1;
+	}
+
+	//종료 이벤트 + 페이징
+	public List<MCVo> selectList22(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> meList2 = sqlSession.selectList("myChallenge.selectList22", map);
+		System.out.println(meList2);
+		return meList2;
+	}
+	
 	//전체글 갯수
 	public int selectTotalCnt() {
 		
@@ -86,6 +110,22 @@ public class MCDao {
 		int totalCnt3 = sqlSession.selectOne("myChallenge.selectTotalCnt3");
 		
 		return totalCnt3;
+	}
+
+	//진행이벤트 갯수
+	public int selectTotalCnt21() {
+		
+		int totalCnt21 = sqlSession.selectOne("myChallenge.selectTotalCnt21");
+		
+		return totalCnt21;
+	}
+
+	//종료이벤트 갯수
+	public int selectTotalCnt22() {
+		
+		int totalCnt22 = sqlSession.selectOne("myChallenge.selectTotalCnt22");
+		
+		return totalCnt22;
 	}
 	
 	//리뷰 불러오기

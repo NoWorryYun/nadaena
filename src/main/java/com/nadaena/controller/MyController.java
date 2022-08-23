@@ -14,12 +14,6 @@ public class MyController {
 		return "my/my-point"; 
 	} 
 	
-	@RequestMapping(value="my/my-event", method = {RequestMethod.GET, RequestMethod.POST})
-	public String myevent() {
-		System.out.println("myevent");
-		
-		return "my/my-event"; 
-	} 
 	
 	@RequestMapping(value="my/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mybuylist() {

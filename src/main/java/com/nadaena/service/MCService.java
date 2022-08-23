@@ -211,6 +211,133 @@ public class MCService {
 		
 		return mcMap;
 	}
+
+	//진행중 이벤트 리스트(전체)
+	public Map<String, Object> getmeList21(int crtPage) {
+		System.out.println("C > getmcList");
+		
+		//////리스트 가져오기
+		
+		//페이지당 글갯수
+		int listCnt = 3;
+		
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
+		
+		List<MCVo> meList1 = mcDao.selectList21(startRnum, endRnum);
+		
+		//////////
+		//페이징계산
+		//////////
+		
+		//전체글갯수
+		int totalCnt21 = mcDao.selectTotalCnt21();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt21  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt21/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> mcMap = new HashMap<String, Object>();
+		
+        mcMap.put("meList1", meList1);
+        mcMap.put("prev", prev);
+        mcMap.put("startPageBtnNo", startPageBtnNo);
+        mcMap.put("endPageBtnNo", endPageBtnNo);
+        mcMap.put("next", next);
+		
+		return mcMap;
+	}	
+	
+	//종료 이벤트 리스트(전체)
+	public Map<String, Object> getmeList22(int crtPage) {
+		System.out.println("C > getmcList");
+		
+		//////리스트 가져오기
+		
+		//페이지당 글갯수
+		int listCnt = 3;
+		
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
+		
+		List<MCVo> meList2 = mcDao.selectList22(startRnum, endRnum);
+		
+		//////////
+		//페이징계산
+		//////////
+		
+		//전체글갯수
+		int totalCnt22 = mcDao.selectTotalCnt22();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalCnt22  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalCnt22/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> mcMap = new HashMap<String, Object>();
+		
+        mcMap.put("meList2", meList2);
+        mcMap.put("prev", prev);
+        mcMap.put("startPageBtnNo", startPageBtnNo);
+        mcMap.put("endPageBtnNo", endPageBtnNo);
+        mcMap.put("next", next);
+		
+		return mcMap;
+	}	
+	
 	
 	//리뷰리스트(리스트만)
 	public List<MRVo> getmrList() {
