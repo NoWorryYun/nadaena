@@ -83,10 +83,10 @@ public class ChallengeController {
 		return "challenge/writechallenge";
 	}
 
-	//챌린지 대표 이미지 받기
+	//챌린지 내용 받기
 	@ResponseBody
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
-    public Map<String, Object> challengeImg(@ModelAttribute ChallengeVo challengeVo) throws IOException {
+    public Map<String, Object> challengeData(@ModelAttribute ChallengeVo challengeVo) throws IOException {
 
 		System.out.println(challengeVo);
 		
@@ -94,6 +94,18 @@ public class ChallengeController {
     	
     	return resultMap;
     }
+	
+	@ResponseBody
+    @RequestMapping(value = "/challenge/subject", method = { RequestMethod.GET, RequestMethod.POST })
+    public Map<String, Object> challengeSub(@ModelAttribute ChallengeVo challengeVo) throws IOException {
+
+		System.out.println(challengeVo);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+    	
+    	return resultMap;
+    }
+	
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })
 	public String readBoard() {

@@ -72,7 +72,7 @@
 				<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
-<!-- 										<form id="MKForm" method="post" enctype="multipart/form-data"> -->
+					<!-- 										<form id="MKForm" method="post" enctype="multipart/form-data"> -->
 					<div id="write-wrap-content">
 						<h5 class="write-header">챌린지 개설</h5>
 
@@ -163,7 +163,7 @@
 												<td class="write-table-label">일일 업로드 <br> 세부설정
 												</td>
 												<td class="write-table-content" colspan="3">
-													<div id = "upload-here"></div>
+													<div id="upload-here"></div>
 												</td>
 											</tr>
 										</tbody>
@@ -232,8 +232,8 @@
 												<td class="write-table-content" colspan="3"><div id="tagDiv">
 														<input id="tagbar" type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)" data-value=""><br>
 													</div>
-													<div id="tagLD"class="font-12">
-														<span id="tags"></span> 
+													<div id="tagLD" class="font-12">
+														<span id="tags"></span>
 													</div></td>
 											</tr>
 										</tbody>
@@ -274,7 +274,7 @@
 					</div>
 					<!-- write-wrap content -->
 
-<!-- 										</form> -->
+					<!-- 										</form> -->
 					<!-- content form -->
 
 
@@ -507,14 +507,8 @@
 	 
 	
  	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
-<<<<<<< master
 
 	$("#upload-here").append(upsList(1));
-=======
-	
- 	$("#upload-here").innerHTML = str;
- 	
->>>>>>> d01894c 그리기
  	
  	$('input:radio[name="upload"]').on("click", function(){
  		var ups = $('input:radio[name="upload"]:checked').val();
@@ -523,35 +517,18 @@
  		console.log(ups);
  		
  		if(ups == 1){
-<<<<<<< master
 			$("#upload-here *").remove();
 			$("#upload-here").append(upsList(1));
 			
-=======
- 			$("#upload-here *").remove();
-			$("#upload-here").append(str);
->>>>>>> d01894c 그리기
 		} else if(ups == 2){
 			$("#upload-here *").remove();
-<<<<<<< master
 			$("#upload-here").append(upsList(2));
-=======
-			$("#upload-here").append(str);
-			$("#upload-here").append(str);
->>>>>>> d01894c 그리기
 		} else{
 			$("#upload-here *").remove();
-<<<<<<< master
 			$("#upload-here").append(upsList(3));
-=======
-			$("#upload-here").append(str);
-			$("#upload-here").append(str);
-			$("#upload-here").append(str);
->>>>>>> d01894c 그리기
 		}
  		
 	})
-<<<<<<< master
 	
 	function upsList(n){
  		var str = "";
@@ -624,75 +601,6 @@
  		
  		return str;
  	}
-=======
-	 
- 		var str = "";
- 		
- 		str += '<div class="upload-detail">';
-		str += '<p class="no-margin fw-bold">1회차</p>';
-		str += '<input type="text" name="upload-detail1" class="write-title-shape" placeholder="인증해야 하는 내용을 적어주세요.">';
-		str +='	<div>';
-		str +='		<select name="upload-time1-1" class="select-width text-inline">';
-		str +='			<option value="0" selected="selected">00시</option>';
-		str +='			<option value="1">01시</option>';
-		str +='			<option value="2">02시</option>';
-		str +='			<option value="3">03시</option>';
-		str +='			<option value="4">04시</option>';
-		str +='			<option value="5">05시</option>';
-		str +='			<option value="6">06시</option>';
-		str +='			<option value="7">07시</option>';
-		str +='			<option value="8">08시</option>';
-		str +='			<option value="9">09시</option>';
-		str +='			<option value="10">10시</option>';
-		str +='			<option value="11">11시</option>';
-		str +='			<option value="12">12시</option>';
-		str +='			<option value="13">13시</option>';
-		str +='			<option value="14">14시</option>';
-		str +='			<option value="15">15시</option>';
-		str +='			<option value="16">16시</option>';
-		str +='			<option value="17">17시</option>';
-		str +='			<option value="18">18시</option>';
-		str +='			<option value="19">19시</option>';
-		str +='			<option value="20">20시</option>';
-		str +='			<option value="21">21시</option>';
-		str +='			<option value="22">22시</option>';
-		str +='			<option value="23">23시</option>';
-		str +='		</select>';
-		str +='		<p class="no-margin text-inline">&nbsp;부터&nbsp;</p>';
-		str +='		<select name="upload-time1-2" class="select-width text-inline">';
-		str +='			<option value="1">01시</option>';
-		str +='			<option value="2">02시</option>';
-		str +='			<option value="3">03시</option>';
-		str +='			<option value="4">04시</option>';
-		str +='			<option value="5">05시</option>';
-		str +='			<option value="6">06시</option>';
-		str +='			<option value="7">07시</option>';
-		str +='			<option value="8">08시</option>';
-		str +='			<option value="9">09시</option>';
-		str +='			<option value="10">10시</option>';
-		str +='			<option value="11">11시</option>';
-		str +='			<option value="12">12시</option>';
-		str +='			<option value="13">13시</option>';
-		str +='			<option value="14">14시</option>';
-		str +='			<option value="15">15시</option>';
-		str +='			<option value="16">16시</option>';
-		str +='			<option value="17">17시</option>';
-		str +='			<option value="18">18시</option>';
-		str +='			<option value="19">19시</option>';
-		str +='			<option value="20">20시</option>';
-		str +='			<option value="21">21시</option>';
-		str +='			<option value="22">22시</option>';
-		str +='			<option value="23">23시</option>';
-		str +='			<option value="24">24시</option>';
-		str +='		</select>';
-		str +='		<p class="no-margin text-inline">&nbsp;까지</p>';
-		str +='		<div class="form-check time-limit-checkbox">';
-		str +='			<input class="form-check-input" name="timestop1" type="checkbox" id="timestop1" value="true"><label class="form-check-label" for="timestop1">시간설정해제</label>';
-		str +='		</div>';
-		str +='	</div>';
-		str +='</div>';
- 		
->>>>>>> d01894c 그리기
 		
  	
 
@@ -941,47 +849,14 @@
 		}
 	})
 
-	 <!-- form data -->
+	 <!--------------------- form data ----------------------->
   	$("#MKBtn").on("click", function(){
   		
 //		var clgLevel = $("#clgLevel");
 		
 //		var userNo = $("#userNo");
-	if($('input:checkbox[name="timestop1"]:checked') == true){
-		$('select[name="upload-time1-1"]').val(-1),
-		$('select[name="upload-time1-2"]').val(-1)
-	}
-	if($('input:checkbox[name="timestop2"]:checked') == true){
-		$('select[name="upload-time2-1"]').val(-1),
-		$('select[name="upload-time2-2"]').val(-1)
-	}
-	if($('input:checkbox[name="timestop3"]:checked') == true){
-		$('select[name="upload-time3-1"]').val(-1),
-		$('select[name="upload-time3-2"]').val(-1)
-	}
- 	
-	var upsVo1 = {
-		certifyTitle : $("#certifyTitle1").val(),
-		subOn :  $('select[name="upload-time1-1"]').val(),
-		subOff :  $('select[name="upload-time1-2"]').val()
-	}
-	var upsVo2 = {
-		certifyTitle : $("#certifyTitle2").val(),
-		subOn :  $('select[name="upload-time2-1"]').val(),
-		subOff :  $('select[name="upload-time2-2"]').val()
-	}
-	var upsVo3 = {
-		certifyTitle : $("#certifyTitle3").val(),
-		subOn :  $('select[name="upload-time3-1"]').val(),
-		subOff :  $('select[name="upload-time3-2"]').val()
-	}
-	
-	console.log(upsVo1);
-	console.log(upsVo2);
-	console.log(upsVo3);
 
-  		var payment = $('select[name="payment"]').val();
-  		
+	
  		var inputFile = $('input[name="img"]');
   		
  		var content = editor.getData();
@@ -1022,10 +897,94 @@
   			success : function(result){
   				console.log(result)
   			}
-
   				
   		})
   		
+  		<!------------------- 서브젝트 저장 ------------------->
+  		var upsVo1;
+  		var upsVo2;
+  		var upsVo3;
+  		
+  		if($('input:checkbox[name="timestop1"]:checked') == true){
+  			upsVo1 = {
+  				certifyTitle : $("#certifyTitle1").val(),
+  				subOn :  $('select[name="upload-time1-1"]').val(),
+  				subOff :  $('select[name="upload-time1-2"]').val()
+  			}
+  		} else{
+  			upsVo1 = {
+  				certifyTitle : $("#certifyTitle1").val(),
+  				subOn :  -1,
+  				subOff :  -1
+  			}	
+  		}
+  		if($('input:checkbox[name="timestop2"]:checked') == true){
+  			upsVo2 = {
+  				certifyTitle : $("#certifyTitle2").val(),
+  				subOn :  $('select[name="upload-time2-1"]').val(),
+  				subOff :  $('select[name="upload-time2-2"]').val()
+  			}
+  		} else{
+  			upsVo2 = {
+  				certifyTitle : $("#certifyTitle2").val(),
+  				subOn :  -1,
+  				subOff :  -1
+  			}
+  		}
+  		if($('input:checkbox[name="timestop3"]:checked') == true){
+  			upsVo3 = {
+  				certifyTitle : $("#certifyTitle3").val(),
+  				subOn :  $('select[name="upload-time3-1"]').val(),
+  				subOff :  $('select[name="upload-time3-2"]').val()
+  			}
+  		} else{
+  			upsVo3 = {
+	  			certifyTitle : $("#certifyTitle3").val(),
+	  			subOn :  -1,
+	  			subOff :  -1
+  			}
+  		}
+  	 	
+  		console.log(upsVo1);
+  		console.log(upsVo2);
+  		console.log(upsVo3);
+
+  		
+  		var subData = new FormData();
+  		
+  		subData.append('upsVo1', upsVo1);
+  		subData.append('upsVo2', upsVo2);
+  		subData.append('upsVo3', upsVo3);
+  		
+ 		$.ajax({
+  			contentType : false,
+  			processData : false,
+  			data : subData,
+  			url : '${pageContext.request.contextPath}/challenge/subject',
+  			type : 'POST',
+  			success : function(result){
+  				console.log(result)
+  			}
+
+ 		})
+ 		
+ 		var joinData = new FormData();
+ 		
+  		var payment = $('select[name="payment"]').val();
+ 		
+ 		joinData.append('payment', payment);
+ 		
+ 		$.ajax({
+  			contentType : false,
+  			processData : false,
+  			data : subData,
+  			url : '${pageContext.request.contextPath}/challenge/subject',
+  			type : 'POST',
+  			success : function(result){
+  				console.log(result)
+  			}
+
+ 		})
   	})
 
 </script>
