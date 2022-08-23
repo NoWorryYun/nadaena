@@ -82,7 +82,7 @@
                         <p><a href="">찜하기</a></p>
                         <p><a href="">장바구니담기</a></p>
                          -->
-                        <p class="buy"><a href="">구매하기</a></p>
+                        <p class="buy"><a href="${pageContext.request.contextPath }/shop/order">구매하기</a></p>
                         <!-- <input type="button" value="구매하기">
                         <input type="button" value="장바구니담기">
                         <input type="button" value="찜하기"> -->
@@ -115,6 +115,7 @@
                 <div class="detail_tab tab_content" id="tab-3" style="display: none;">
                 	<c:import url="/WEB-INF/views/shop/qna.jsp"></c:import>
                  </div>
+                 
                 <!-- 규정페이지 -->
                 <div class="detail_tab tab_content" id="tab-4" style="display: none;">
                 	<c:import url="/WEB-INF/views/shop/policy.jsp"></c:import>
@@ -133,5 +134,13 @@
 
 
 </body>
-
+<script type="text/javascript">
+	/* 로그인여부 확인 후 QNA작성 */
+	var userNo = $("[name='userNo']").val()
+	$(".addQNA").on("click",function(){
+		 if(userNo == ""){
+			alert("로그인 후 작성할 수 있습니다.")
+		}; 
+	});
+</script>
 </html>

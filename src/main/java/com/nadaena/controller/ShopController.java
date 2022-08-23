@@ -35,7 +35,7 @@ public class ShopController {
 		return "shop/mypage";
 	}
 
-	
+
 	
 	@RequestMapping(value="shop/order")
 	public String order() {
@@ -43,4 +43,8 @@ public class ShopController {
 		
 		return "shop/order";
 	}
+	
+	
+	
+	
 }
