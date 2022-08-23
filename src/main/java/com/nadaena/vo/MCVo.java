@@ -17,13 +17,15 @@ public class MCVo {
 	private int recruitment;
 	private int period;
 	private int level;
+	private int clgGroup;
 	private String startday;
 	private String endday;
 	private String yesterday;
 	public MCVo() {
 		super();
 	}
-	public MCVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, String startday, String endday, String yesterday) {
+	public MCVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, int clgGroup, String startday, String endday,
+			String yesterday) {
 		super();
 		this.userClgNo = userClgNo;
 		this.challengeNo = challengeNo;
@@ -39,6 +41,7 @@ public class MCVo {
 		this.recruitment = recruitment;
 		this.period = period;
 		this.level = level;
+		this.clgGroup = clgGroup;
 		this.startday = startday;
 		this.endday = endday;
 		this.yesterday = yesterday;
@@ -127,6 +130,12 @@ public class MCVo {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	public int getClgGroup() {
+		return clgGroup;
+	}
+	public void setClgGroup(int clgGroup) {
+		this.clgGroup = clgGroup;
+	}
 	public String getStartday() {
 		return startday;
 	}
@@ -148,8 +157,9 @@ public class MCVo {
 	@Override
 	public String toString() {
 		return "MCVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
-				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + "]";
+				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + "]";
 	}
+	
 	
 	
 	

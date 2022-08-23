@@ -48,7 +48,7 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<c:forEach items="${mcMap.meList1}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.meList2}" var="MCVo" varStatus="i">
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">
@@ -69,21 +69,21 @@
 						<nav>
 							<ul class="pagination pagination-sm">
 								<c:if test="${mcMap.prev}">
-									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-event?crtPage=${mcMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-event/end?crtPage=${mcMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
 								</c:if>
 								<c:forEach begin="${mcMap.startPageBtnNo}" end="${mcMap.endPageBtnNo}" step="1" var="page">	
 									<c:choose>
 										<c:when test="${param.crtPage==page}">
-											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-event?crtPage=${page}">${page}</a></li>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-event/end?crtPage=${page}">${page}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-event?crtPage=${page}">${page}</a></li>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-event/end?crtPage=${page}">${page}</a></li>
 										</c:otherwise>
 									</c:choose>	
 								</c:forEach>
 								
 								<c:if test="${mcMap.next}">
-									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-event?crtPage=${mcMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-event/end?crtPage=${mcMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
 								</c:if>
 							</ul>
 						</nav>

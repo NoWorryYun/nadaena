@@ -64,6 +64,30 @@ public class MCDao {
 		return mcList4;
 	}
 	
+	//진행중 이벤트 + 페이징
+	public List<MCVo> selectList21(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> meList1 = sqlSession.selectList("myChallenge.selectList21", map);
+		System.out.println(meList1);
+		return meList1;
+	}
+
+	//종료 이벤트 + 페이징
+	public List<MCVo> selectList22(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MCVo> meList2 = sqlSession.selectList("myChallenge.selectList22", map);
+		System.out.println(meList2);
+		return meList2;
+	}
+	
 	//전체글 갯수
 	public int selectTotalCnt() {
 		
@@ -80,32 +104,49 @@ public class MCDao {
 		return totalCnt2;
 	}
 	
-	//전체글 갯수
+	//실패글 갯수
 	public int selectTotalCnt3() {
 		
 		int totalCnt3 = sqlSession.selectOne("myChallenge.selectTotalCnt3");
 		
 		return totalCnt3;
 	}
-	
-	
-	/*
-	 * //종료 리스트(실패) public List<MCVo> selectList4() { System.out.println("MCDao > selectList4()");
-	 * 
-	 * List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList4"); System.out.println(mcList4);
-	 * 
-	 * return mcList4; }
-	 */
-	
-	//리뷰 불러오기
-	public List<MRVo> selectreviewList() {
-		System.out.println("MRDao > selectreviewList()");
+
+	//진행이벤트 갯수
+	public int selectTotalCnt21() {
 		
-		List<MRVo> mrList = sqlSession.selectList("myChallenge.selectreviewList");
-		System.out.println(mrList);
+		int totalCnt21 = sqlSession.selectOne("myChallenge.selectTotalCnt21");
+		
+		return totalCnt21;
+	}
+
+	//종료이벤트 갯수
+	public int selectTotalCnt22() {
+		
+		int totalCnt22 = sqlSession.selectOne("myChallenge.selectTotalCnt22");
+		
+		return totalCnt22;
+	}
+	
+	//리뷰 갯수
+	public int selectTotalCnt41() {
+		
+		int totalCnt41 = sqlSession.selectOne("myChallenge.selectTotalCnt41");
+		
+		return totalCnt41;
+	}
+	
+	//리뷰리스트 + 페이징
+	public List<MRVo> selectreviewList(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MRVo> mrList = sqlSession.selectList("myChallenge.selectreviewList", map);
 		
 		return mrList;
-	}
+	}	
 	
 	//리뷰쓰기
 	public int writeReview(MRVo mrVo) {
@@ -122,7 +163,6 @@ public class MCDao {
 		return sqlSession.update("myChallenge.updateState",mcVo);
 	}
 	
-	
 	//리뷰삭제
 	public int deleteReview(MRVo mrVo) {
 		System.out.println("MCDAO >>> DEL.review");
@@ -131,14 +171,23 @@ public class MCDao {
 		
 	}
 	
-	//포인트 내역
-	public List<PointVo> selectPoint() {
-		System.out.println("pDao > selectpoint()");
+	//포인트리스트 + 페이징
+	public List<PointVo> selectPoint(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
 		
 		List<PointVo> pList = sqlSession.selectList("myChallenge.selectPoint");
-		System.out.println(pList);
 		
 		return pList;
 	}
 	
+	//포인트내역 갯수
+	public int selectTotalCnt51() {
+		
+		int totalCnt51 = sqlSession.selectOne("myChallenge.selectTotalCnt51");
+		
+		return totalCnt51;
+	}	
 }

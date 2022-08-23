@@ -1,6 +1,5 @@
 package com.nadaena.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -55,20 +54,39 @@ public class MCController {
 		System.out.println(mcMap);
 		return "my/my-challengeno";
 	}
-	
-	//리뷰 리스트
-	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String myreviewlist(Model model) {
-		System.out.println("MCC > mclist()");
+
+	//참가중 이벤트 리스트
+	@RequestMapping(value = "my/my-event", method = { RequestMethod.GET, RequestMethod.POST })
+	public String elist1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		// Service를 통해서 list(주소)을 가져온다
-		List<MRVo> mrList = mcService.getmrList();
+		Map<String, Object> mcMap = mcService.getmeList21(crtPage);
 		
-		// ds 데이터보내기 -->request attribute에 넣는다
-		model.addAttribute("mrList", mrList);
-		
-		return "my/my-review";
+		model.addAttribute("mcMap", mcMap);
+		System.out.println(mcMap);
+		return "my/my-event";
 	}
+
+	//종료된 이벤트 리스트
+	@RequestMapping(value = "my/my-event/end", method = { RequestMethod.GET, RequestMethod.POST })
+	public String elist2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> mcMap = mcService.getmeList22(crtPage);
+		
+		model.addAttribute("mcMap", mcMap);
+		System.out.println(mcMap);
+		return "my/my-eventend";
+	}
+	
+	//종료된 이벤트 리스트
+	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
+	public String rlist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> mrMap = mcService.getmrList41(crtPage);
+		
+		model.addAttribute("mrMap", mrMap);
+		System.out.println(mrMap);
+		return "my/my-review";
+	}	
 	
 	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
@@ -93,4 +111,15 @@ public class MCController {
 
 		return "redirect:/my/my-review";
 	}
+	
+	//포인트 리스트(내역)
+	@RequestMapping(value = "my/my-point", method = { RequestMethod.GET, RequestMethod.POST })
+	public String plist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> pMap = mcService.getpList51(crtPage);
+		
+		model.addAttribute("pMap", pMap);
+		System.out.println(pMap);
+		return "my/my-point";
+	}	
 }

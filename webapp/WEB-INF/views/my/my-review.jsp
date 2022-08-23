@@ -52,21 +52,19 @@
 			<div id="content" class="col-9">
 				<h3>나의 리뷰</h3>
 				
-				
-	
 				<ul class="list-inline">
-					<c:forEach items="${mrList}" var="MRVo" varStatus="i">
+					<c:forEach items="${mrMap.mrList}" var="MRVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
-								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/my/writeReview/${requestScope.reviewImg}"></a>
+								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
 							</div>
 							<div class="certify-list-info">
 								<div>
 									<div>
-										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview/${requestScope.reviewNo}">삭제</a>
+										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${MRVo.reviewNo}">삭제</a>
 									</div>
 									<p class="review-uploader">피자만두</p>
-									<p class="review-comment">${requestScope.reviewContent}</p>
+									<p class="review-comment">${MRVo.reviewContent }</p>
 								</div>
 							</div>
 						</li>
@@ -77,17 +75,27 @@
 					<div class="paging-box">
 						<nav>
 							<ul class="pagination pagination-sm">
-								<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+								<c:if test="${mrMap.prev}">
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-review?crtPage=${mrMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+								</c:if>
+								<c:forEach begin="${mrMap.startPageBtnNo}" end="${mrMap.endPageBtnNo}" step="1" var="page">	
+									<c:choose>
+										<c:when test="${param.crtPage==page}">
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-review?crtPage=${page}">${page}</a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-review?crtPage=${page}">${page}</a></li>
+										</c:otherwise>
+									</c:choose>	
+								</c:forEach>
+								
+								<c:if test="${mrMap.next}">
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-review?crtPage=${mrMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+								</c:if>
 							</ul>
 						</nav>
 					</div>
-				</div>
+				</div> <!-- paging -->
 				
 			</div> <!-- content -->
 		</div> <!-- row -->
