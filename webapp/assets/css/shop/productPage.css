@@ -113,7 +113,7 @@ input .button { clear: both; padding-top: 70px; }
 }
 
 
-.detail_tab { padding: 100px 0; text-align: center; margin-top: 100px; }
+.detail_tab { padding: 100px 0; text-align: center; margin-top: 0px; }
 
 /* 문의하기 */
 
@@ -191,8 +191,49 @@ input .button { clear: both; padding-top: 70px; }
     color: #7d7e80;
     background-color: #fff;
 }
+.QNAread{
+	text-align:left;
+	padding: 20px 16px;
+    border-bottom: 1px solid #e3e5e8;
+    
+   	max-width: 810px;
+	margin: 0 auto;
+}
 
+.QNAread .memberInfo{
+	font-size: 12px;
+    display: inline-block;
+    margin-right: 10px;
+    color: #7d7e80;
+}
 
+.QNAread .textArea{
+    font-size: 13px;
+    line-height: 1.2em;
+    color: #7d7e80;
+    word-break: break-all;
+}
+
+.QNAread .replyArea{
+    padding: 20px 23px 20px 41px;
+    background-color: #f8f8f8;
+}
+
+.reviewtext{
+    font-size: 14px;
+    color: #16181a;
+    line-height: 22px;
+    min-height: 66px;
+}
+
+.reviewStar{
+    height: 17px;
+}
+
+.report{
+    color: #6c7580;
+    font-size: 12px;
+}
 /* 
 .detail_tab button {
 	float: right;
