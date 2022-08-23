@@ -1,6 +1,5 @@
 package com.nadaena.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.nadaena.service.MCService;
 import com.nadaena.vo.MCVo;
 import com.nadaena.vo.MRVo;
-import com.nadaena.vo.PointVo;
 
 @Controller
 public class MCController {
