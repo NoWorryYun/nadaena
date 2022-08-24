@@ -21,7 +21,7 @@ public class MyDao {
 	//참가 리스트
 	public List<MCVo> selectList() {
 		
-		List<MCVo> mcList = sqlSession.selectList("myChallenge.selectList");
+		List<MCVo> mcList = sqlSession.selectList("my.selectList");
 		
 		return mcList;
 	}
@@ -33,7 +33,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> mcList2 = sqlSession.selectList("myChallenge.selectList12", map);
+		List<MCVo> mcList2 = sqlSession.selectList("my.selectList12", map);
 		
 		return mcList2;
 	}
@@ -45,7 +45,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> mcList3 = sqlSession.selectList("myChallenge.selectList13", map);
+		List<MCVo> mcList3 = sqlSession.selectList("my.selectList13", map);
 		
 		return mcList3;
 	}
@@ -57,7 +57,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> mcList4 = sqlSession.selectList("myChallenge.selectList14", map);
+		List<MCVo> mcList4 = sqlSession.selectList("my.selectList14", map);
 		
 		return mcList4;
 	}
@@ -69,7 +69,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> meList1 = sqlSession.selectList("myChallenge.selectList21", map);
+		List<MCVo> meList1 = sqlSession.selectList("my.selectList21", map);
 		System.out.println(meList1);
 		return meList1;
 	}
@@ -81,7 +81,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> meList2 = sqlSession.selectList("myChallenge.selectList22", map);
+		List<MCVo> meList2 = sqlSession.selectList("my.selectList22", map);
 		System.out.println(meList2);
 		return meList2;
 	}
@@ -89,7 +89,7 @@ public class MyDao {
 	//전체글 갯수
 	public int selectTotalCnt() {
 		
-		int totalCnt = sqlSession.selectOne("myChallenge.selectTotalCnt");
+		int totalCnt = sqlSession.selectOne("my.selectTotalCnt");
 		
 		return totalCnt;
 	}
@@ -97,7 +97,7 @@ public class MyDao {
 	//성공글 갯수
 	public int selectTotalCnt2() {
 		
-		int totalCnt2 = sqlSession.selectOne("myChallenge.selectTotalCnt2");
+		int totalCnt2 = sqlSession.selectOne("my.selectTotalCnt2");
 		
 		return totalCnt2;
 	}
@@ -105,7 +105,7 @@ public class MyDao {
 	//실패글 갯수
 	public int selectTotalCnt3() {
 		
-		int totalCnt3 = sqlSession.selectOne("myChallenge.selectTotalCnt3");
+		int totalCnt3 = sqlSession.selectOne("my.selectTotalCnt3");
 		
 		return totalCnt3;
 	}
@@ -113,7 +113,7 @@ public class MyDao {
 	//진행이벤트 갯수
 	public int selectTotalCnt21() {
 		
-		int totalCnt21 = sqlSession.selectOne("myChallenge.selectTotalCnt21");
+		int totalCnt21 = sqlSession.selectOne("my.selectTotalCnt21");
 		
 		return totalCnt21;
 	}
@@ -121,7 +121,7 @@ public class MyDao {
 	//종료이벤트 갯수
 	public int selectTotalCnt22() {
 		
-		int totalCnt22 = sqlSession.selectOne("myChallenge.selectTotalCnt22");
+		int totalCnt22 = sqlSession.selectOne("my.selectTotalCnt22");
 		
 		return totalCnt22;
 	}
@@ -129,7 +129,7 @@ public class MyDao {
 	//리뷰 갯수
 	public int selectTotalCnt41() {
 		
-		int totalCnt41 = sqlSession.selectOne("myChallenge.selectTotalCnt41");
+		int totalCnt41 = sqlSession.selectOne("my.selectTotalCnt41");
 		
 		return totalCnt41;
 	}
@@ -141,7 +141,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<ReviewVo> rList = sqlSession.selectList("myChallenge.selectreviewList", map);
+		List<ReviewVo> rList = sqlSession.selectList("my.selectreviewList", map);
 		
 		return rList;
 	}	
@@ -149,7 +149,7 @@ public class MyDao {
 	//리뷰쓰기
 	public int writeReview(ReviewVo reviewVo) {
 		
-		int count = sqlSession.insert("myChallenge.insertReview", reviewVo);
+		int count = sqlSession.insert("my.insertReview", reviewVo);
 		
 		System.out.println(reviewVo);
 		return count;
@@ -160,7 +160,7 @@ public class MyDao {
 	public int update(ReviewVo reviewVo) {
 		
 		System.out.println(reviewVo);
-		return sqlSession.update("myChallenge.updateState",reviewVo);
+		return sqlSession.update("my.updateState",reviewVo);
 		
 	}
 	
@@ -168,7 +168,7 @@ public class MyDao {
 	public int deleteReview(ReviewVo reviewVo) {
 		System.out.println("MCDAO >>> DEL.review");
 		
-		return sqlSession.delete("myChallenge.deleteReview", reviewVo);
+		return sqlSession.delete("my.deleteReview", reviewVo);
 		
 	}
 	
@@ -179,7 +179,7 @@ public class MyDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<PointVo> pList = sqlSession.selectList("myChallenge.selectPoint", map);
+		List<PointVo> pList = sqlSession.selectList("my.selectPoint", map);
 		
 		return pList;
 	}
@@ -187,7 +187,7 @@ public class MyDao {
 	//포인트내역 갯수
 	public int selectTotalCnt51() {
 		
-		int totalCnt51 = sqlSession.selectOne("myChallenge.selectTotalCnt51");
+		int totalCnt51 = sqlSession.selectOne("my.selectTotalCnt51");
 		
 		return totalCnt51;
 	}	
