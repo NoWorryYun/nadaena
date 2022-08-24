@@ -152,8 +152,8 @@ public class MyDao {
 		int count = sqlSession.insert("my.insertReview", reviewVo);
 		
 		System.out.println(reviewVo);
-		return count;
 		
+		return count;
 	}
 	
 	//상태업데이트

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.service.MyService;
 import com.nadaena.vo.ReviewVo;
@@ -90,10 +89,10 @@ public class MyController {
 	
 	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, Model model, HttpSession session) {
+	public String writeReview(@ModelAttribute ReviewVo reviewVo, Model model, HttpSession session) {
 		
 		// Service를 통해서 저장한다
-		myService.writeReview(file, reviewVo);
+		myService.writeReview(reviewVo);
 		System.out.println(reviewVo);
 		
 		return "redirect:/my/my-challenge";

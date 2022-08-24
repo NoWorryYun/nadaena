@@ -13,6 +13,7 @@ public class ReviewVo {
 	private String nickname;
 	private String clgTitle;
 	private int state;
+	
 	public ReviewVo() {
 		super();
 	}

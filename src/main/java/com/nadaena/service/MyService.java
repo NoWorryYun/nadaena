@@ -11,7 +11,6 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.dao.MyDao;
 import com.nadaena.vo.MyVo;
@@ -408,17 +407,16 @@ public class MyService {
 	}		
 	
 	//리뷰 쓰기
-	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
-		System.out.println("GalleryService>restore");
+	public String writeReview(ReviewVo reviewVo) {
 
 		String saveDir = "C:\\javaStudy\\upload";
 
 		// -원파일이름
-		String orgName = file.getOriginalFilename();
+		String orgName = reviewVo.getReviewImg().getOriginalFilename();
 		System.out.println("orgName:" + orgName);
 
 		// 확장자
-		String exName = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+		String exName = orgName.substring(orgName.lastIndexOf("."));
 		System.out.println("exName:" + exName);
 
 		// -저장파일이름
@@ -428,14 +426,13 @@ public class MyService {
 		// -파일패스 생성(
 		String filePath = saveDir + "\\" + saveName;
 		System.out.println("filePath:" + filePath);
-
-		// 파일 사이즈
-		long fileSize = file.getSize();
-		System.out.println("fileSize:" + fileSize);
-
+		
+		reviewVo.setReviewImg(null);
+		
+		
 		// 파일업로드(복사)
 		try {
-			byte[] fileData = file.getBytes();
+			byte[] fileData = reviewVo.getReviewImg().getBytes();
 			OutputStream out = new FileOutputStream(filePath);
 			BufferedOutputStream bout = new BufferedOutputStream(out);
 
@@ -447,9 +444,6 @@ public class MyService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		reviewVo.setReviewImg(file);
-		
 		
 		System.out.println("=======");
 		System.out.println(reviewVo.toString());
