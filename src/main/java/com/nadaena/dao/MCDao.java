@@ -143,31 +143,31 @@ public class MCDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<ReviewVo> mrList = sqlSession.selectList("myChallenge.selectreviewList", map);
+		List<ReviewVo> rList = sqlSession.selectList("myChallenge.selectreviewList", map);
 		
-		return mrList;
+		return rList;
 	}	
 	
 	//리뷰쓰기
-	public int writeReview(ReviewVo mrVo) {
+	public int writeReview(ReviewVo reviewVo) {
 		System.out.println("BoardDao>write()");
 		
-		int count = sqlSession.insert("myChallenge.insertReview", mrVo);
+		int count = sqlSession.insert("myChallenge.insertReview", reviewVo);
 		
 		return count;
 	}
 	
 	//상태업데이트
-	public int update(ReviewVo mrVo) {
+	public int update(ReviewVo reviewVo) {
 		
-		return sqlSession.update("myChallenge.updateState",mrVo);
+		return sqlSession.update("myChallenge.updateState",reviewVo);
 	}
 	
 	//리뷰삭제
-	public int deleteReview(ReviewVo mrVo) {
+	public int deleteReview(ReviewVo reviewVo) {
 		System.out.println("MCDAO >>> DEL.review");
 		
-		return sqlSession.delete("myChallenge.deleteReview", mrVo);
+		return sqlSession.delete("myChallenge.deleteReview", reviewVo);
 		
 	}
 	

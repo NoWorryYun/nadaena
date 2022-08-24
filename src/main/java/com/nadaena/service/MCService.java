@@ -357,7 +357,7 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<ReviewVo> mrList = mcDao.selectreviewList(startRnum, endRnum);
+		List<ReviewVo> rList = mcDao.selectreviewList(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
@@ -391,32 +391,32 @@ public class MCService {
         }
         
         
-        Map<String, Object> mrMap = new HashMap<String, Object>();
+        Map<String, Object> rMap = new HashMap<String, Object>();
 		
-        mrMap.put("mrList", mrList);
-        mrMap.put("prev", prev);
-        mrMap.put("startPageBtnNo", startPageBtnNo);
-        mrMap.put("endPageBtnNo", endPageBtnNo);
-        mrMap.put("next", next);
+        rMap.put("rList", rList);
+        rMap.put("prev", prev);
+        rMap.put("startPageBtnNo", startPageBtnNo);
+        rMap.put("endPageBtnNo", endPageBtnNo);
+        rMap.put("next", next);
 		
-		return mrMap;
+		return rMap;
 	}		
 	
 	//리뷰 쓰기
-	public int writeReview(ReviewVo mrVo) {
+	public int writeReview(ReviewVo reviewVo) {
 		System.out.println("bService>b.write()");
 		
-		mcDao.writeReview(mrVo);
-		mcDao.update(mrVo);
+		mcDao.writeReview(reviewVo);
+		mcDao.update(reviewVo);
 		
 		return 1;
 	}
 	
 	//리뷰 삭제
-	public int removeReview(ReviewVo mrVo) {
+	public int removeReview(ReviewVo reviewVo) {
 		System.out.println("MCSERVICE >> del.review");
 		
-		return mcDao.deleteReview(mrVo);
+		return mcDao.deleteReview(reviewVo);
 		
 	}
 	
