@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.MCVo;
-import com.nadaena.vo.ReviewVo;
 import com.nadaena.vo.PointVo;
+import com.nadaena.vo.ReviewVo;
 
 @Repository
 public class MCDao {

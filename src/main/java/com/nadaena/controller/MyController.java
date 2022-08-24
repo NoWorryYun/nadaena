@@ -76,14 +76,14 @@ public class MyController {
 		return "my/my-eventend";
 	}
 	
-	//종료된 이벤트 리스트
+	//리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
 	public String rlist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		Map<String, Object> mrMap = mcService.getmrList41(crtPage);
+		Map<String, Object> rMap = mcService.getrList41(crtPage);
 		
-		model.addAttribute("mrMap", mrMap);
-		System.out.println(mrMap);
+		model.addAttribute("rMap", rMap);
+		System.out.println(rMap);
 		return "my/my-review";
 	}	
 	
@@ -105,7 +105,7 @@ public class MyController {
 
 		// 로그인한 사용자의 글만 삭제하도록 세션의 userNo도 입력(쿼리문에서 검사)
 		//UserVo authUser = (UserVo) session.getAttribute("authUser");
-		//mRVo.setUserNo(authUser.getNo());
+		//reviewVo.setUserNo(authUser.getNo());
 		mcService.removeReview(reviewVo);
 
 		return "redirect:/my/my-review";

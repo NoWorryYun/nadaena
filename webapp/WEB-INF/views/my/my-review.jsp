@@ -53,7 +53,7 @@
 				<h3>나의 리뷰</h3>
 				
 				<ul class="list-inline">
-					<c:forEach items="${rMap.mrList}" var="ReviewVo" varStatus="i">
+					<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
 								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>

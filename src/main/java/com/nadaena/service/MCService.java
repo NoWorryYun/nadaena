@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.MCDao;
 import com.nadaena.vo.MCVo;
-import com.nadaena.vo.ReviewVo;
 import com.nadaena.vo.PointVo;
+import com.nadaena.vo.ReviewVo;
 
 @Service
 public class MCService {
@@ -340,7 +340,7 @@ public class MCService {
 	}	
 	
 	//리뷰리스트(전체)
-	public Map<String, Object> getmrList41(int crtPage) {
+	public Map<String, Object> getrList41(int crtPage) {
 		System.out.println("C > getmcList");
 		
 		//////리스트 가져오기
@@ -420,7 +420,7 @@ public class MCService {
 		
 	}
 	
-	//리뷰리스트(전체)
+	//포인트(전체)
 	public Map<String, Object> getpList51(int crtPage) {
 		System.out.println("C > getmcList");
 		
