@@ -29,6 +29,13 @@ textarea {
 	height: 200px !important;
 }
 
+.picture-size{
+	width : 200px;
+	height : 240px;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
 #read-header-box {
 	font-weight: bold;
 	text-align: center;

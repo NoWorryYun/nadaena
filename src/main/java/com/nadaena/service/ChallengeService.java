@@ -47,7 +47,7 @@ public class ChallengeService {
 			//파일 사이즈
 			//long fileSize = file[0].getSize();
 			
-			
+			System.out.println("challengeVo: "+challengeVo);
 			//값 꺼내기
 			int interestNo = challengeVo.getInterestNo();
 			String img = saveName;
@@ -66,6 +66,7 @@ public class ChallengeService {
 			String tag4 = challengeVo.getTag4();
 			String tag5 = challengeVo.getTag5();
 			int clgLevel = challengeVo.getClgLevel();
+			System.out.println("서비스 레벨"+clgLevel);
 			int payment = challengeVo.getPayment();
 			int userNo = challengeVo.getUserNo();
 			//Vo로 묶기
@@ -87,8 +88,11 @@ public class ChallengeService {
 												tag5,
 												clgLevel);
 			
+			System.out.println(clgVo);
+			
 			// Dao DB에 저장
 			challengeDao.makeChallenge(clgVo);
+			System.out.println("보 겟레벨:"+clgVo.getClgLevel());
 			
 			// 챌린지 번호 뽑기
 			int challengeNo = clgVo.getChallengeNo();

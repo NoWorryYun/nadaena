@@ -18,6 +18,7 @@ public class ChallengeDao {
 	//챌린지 개설
 	public int makeChallenge(ChallengeVo clgVo) {
 		int count = sqlSession.insert("Challenge.writeChallenge", clgVo);
+		System.out.println(clgVo.toString());
 		
 		return count;
 	}

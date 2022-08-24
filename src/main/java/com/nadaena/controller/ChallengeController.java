@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.ChallengeService;
@@ -90,6 +89,7 @@ public class ChallengeController {
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
     public int challengeData(@ModelAttribute ChallengeVo challengeVo) throws IOException {
 
+		System.out.println(challengeVo.getClgLevel());
 		int challengeNo = challengeService.makeChallenge(challengeVo);
 		
     	return challengeNo;
@@ -118,9 +118,6 @@ public class ChallengeController {
 	@RequestMapping(value="/challenge/chkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
 	public int chkBookMark(@RequestBody ChallengeVo challengeVo) {
 	
-		System.out.println(challengeVo);
-		System.out.println("chkBookMark");
-		
 		return challengeService.chkBM(challengeVo);
 		
 	}
@@ -129,9 +126,6 @@ public class ChallengeController {
 	@ResponseBody
 	@RequestMapping(value="/challenge/unChkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
 	public int unChkBookMark(@RequestBody ChallengeVo challengeVo) {
-		
-		System.out.println(challengeVo);
-		System.out.println("unChkBookMark");
 		
 		return challengeService.unChkBm(challengeVo);
 		
