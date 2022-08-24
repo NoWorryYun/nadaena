@@ -13,16 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.nadaena.dao.MCDao;
+import com.nadaena.dao.MyDao;
 import com.nadaena.vo.MCVo;
 import com.nadaena.vo.PointVo;
 import com.nadaena.vo.ReviewVo;
 
 @Service
-public class MCService {
+public class MyService {
 	
 	@Autowired
-	MCDao mcDao;
+	MyDao myDao;
 	
 	//참가+종료 리스트(전체)
 	public Map<String, Object> getmcList(int crtPage) {
@@ -41,15 +41,15 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MCVo> mcList = mcDao.selectList();
-		List<MCVo> mcList2 = mcDao.selectList12(startRnum, endRnum);
+		List<MCVo> mcList = myDao.selectList();
+		List<MCVo> mcList2 = myDao.selectList12(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt = mcDao.selectTotalCnt();
+		int totalCnt = myDao.selectTotalCnt();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -106,15 +106,15 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MCVo> mcList = mcDao.selectList();
-		List<MCVo> mcList3 = mcDao.selectList13(startRnum, endRnum);
+		List<MCVo> mcList = myDao.selectList();
+		List<MCVo> mcList3 = myDao.selectList13(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt2 = mcDao.selectTotalCnt2();
+		int totalCnt2 = myDao.selectTotalCnt2();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -171,15 +171,15 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MCVo> mcList = mcDao.selectList();
-		List<MCVo> mcList4 = mcDao.selectList14(startRnum, endRnum);
+		List<MCVo> mcList = myDao.selectList();
+		List<MCVo> mcList4 = myDao.selectList14(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt3 = mcDao.selectTotalCnt3();
+		int totalCnt3 = myDao.selectTotalCnt3();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -236,14 +236,14 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MCVo> meList1 = mcDao.selectList21(startRnum, endRnum);
+		List<MCVo> meList1 = myDao.selectList21(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt21 = mcDao.selectTotalCnt21();
+		int totalCnt21 = myDao.selectTotalCnt21();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -299,14 +299,14 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MCVo> meList2 = mcDao.selectList22(startRnum, endRnum);
+		List<MCVo> meList2 = myDao.selectList22(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt22 = mcDao.selectTotalCnt22();
+		int totalCnt22 = myDao.selectTotalCnt22();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -362,14 +362,14 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<ReviewVo> rList = mcDao.selectreviewList(startRnum, endRnum);
+		List<ReviewVo> rList = myDao.selectreviewList(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt41 = mcDao.selectTotalCnt41();
+		int totalCnt41 = myDao.selectTotalCnt41();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -455,18 +455,18 @@ public class MCService {
 		System.out.println(reviewVo.toString());
 
 		// 파일정보 DB저장
-		mcDao.writeReview(reviewVo);
+		myDao.writeReview(reviewVo);
 		//상태업데이트
-		mcDao.update(reviewVo);
+		myDao.update(reviewVo);
 		
 		return saveName;
 	}
 	
 	//리뷰 삭제
 	public int removeReview(ReviewVo reviewVo) {
-		System.out.println("MCSERVICE >> del.review");
+		System.out.println("MySERVICE >> del.review");
 		
-		return mcDao.deleteReview(reviewVo);
+		return myDao.deleteReview(reviewVo);
 		
 	}
 	
@@ -488,14 +488,14 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<PointVo> pList = mcDao.selectPoint(startRnum, endRnum);
+		List<PointVo> pList = myDao.selectPoint(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt51 = mcDao.selectTotalCnt51();
+		int totalCnt51 = myDao.selectTotalCnt51();
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;

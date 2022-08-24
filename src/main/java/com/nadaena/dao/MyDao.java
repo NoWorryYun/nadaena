@@ -13,7 +13,7 @@ import com.nadaena.vo.PointVo;
 import com.nadaena.vo.ReviewVo;
 
 @Repository
-public class MCDao {
+public class MyDao {
 	 
 	@Autowired
 	private SqlSession sqlSession;
