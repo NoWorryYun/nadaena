@@ -420,8 +420,10 @@ public class MCService {
 		
 	}
 	
-	//포인트 리스트(내역)
+	//리뷰리스트(전체)
 	public Map<String, Object> getpList51(int crtPage) {
+		System.out.println("C > getmcList");
+		
 		//////리스트 가져오기
 		
 		//페이지당 글갯수

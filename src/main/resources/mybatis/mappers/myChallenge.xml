@@ -493,7 +493,7 @@
 						 ot.source,
 						 ot.pointMemo
 				  from (select  p.pointNo,
-								u.userNo,
+								p.userNo,
 								p.pointGroup,
 								p.charge,
 								p.amount,

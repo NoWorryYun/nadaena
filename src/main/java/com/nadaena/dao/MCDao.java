@@ -178,7 +178,7 @@ public class MCDao {
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<PointVo> pList = sqlSession.selectList("myChallenge.selectPoint");
+		List<PointVo> pList = sqlSession.selectList("myChallenge.selectPoint", map);
 		
 		return pList;
 	}
