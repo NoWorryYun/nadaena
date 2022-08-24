@@ -403,11 +403,11 @@ public class MCService {
 	}		
 	
 	//리뷰 쓰기
-	public int writeReview(MRVo mrVo, MCVo mcVo) {
+	public int writeReview(MRVo mrVo) {
 		System.out.println("bService>b.write()");
 		
 		mcDao.writeReview(mrVo);
-		mcDao.update(mcVo);
+		mcDao.update(mrVo);
 		
 		return 1;
 	}

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nadaena.service.MCService;
-import com.nadaena.vo.MCVo;
 import com.nadaena.vo.MRVo;
 
 @Controller
@@ -90,11 +89,11 @@ public class MyController {
 	
 	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeReview(@ModelAttribute MRVo mrVo, MCVo mcVo, Model model) {
+	public String writeReview(@ModelAttribute MRVo mrVo, Model model) {
 		System.out.println("bController > write()");
 		
 		// Service를 통해서 저장한다
-		mcService.writeReview(mrVo,mcVo);
+		mcService.writeReview(mrVo);
 		
 		return "redirect:/my/my-challenge";
 	}

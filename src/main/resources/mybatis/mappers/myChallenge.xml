@@ -455,11 +455,12 @@
 	</insert>
 	
 	<!-- 리뷰 작성시 상태 업데이트 -->
-	<update id="updateState" parameterType="MCVo">
+	<update id="updateState" parameterType="MRVo">
 		<![CDATA[
 			update myChallenge
 			set state = 2
 			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
 		]]>
 	</update>
 	

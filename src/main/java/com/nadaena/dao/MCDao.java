@@ -158,9 +158,9 @@ public class MCDao {
 	}
 	
 	//상태업데이트
-	public int update(MCVo mcVo) {
+	public int update(MRVo mrVo) {
 		
-		return sqlSession.update("myChallenge.updateState",mcVo);
+		return sqlSession.update("myChallenge.updateState",mrVo);
 	}
 	
 	//리뷰삭제

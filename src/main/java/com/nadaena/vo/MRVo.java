@@ -12,11 +12,12 @@ public class MRVo {
 	private String reviewDate;
 	private String nickname;
 	private String clgTitle;
-	
+	private int state;
 	public MRVo() {
 		super();
 	}
-	public MRVo(int reviewNo, int challengeNo, int userNo, MultipartFile reviewImg, String reviewContent, String reviewDate, String nickname, String clgTitle) {
+	
+	public MRVo(int reviewNo, int challengeNo, int userNo, MultipartFile reviewImg, String reviewContent, String reviewDate, String nickname, String clgTitle, int state) {
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
@@ -26,6 +27,7 @@ public class MRVo {
 		this.reviewDate = reviewDate;
 		this.nickname = nickname;
 		this.clgTitle = clgTitle;
+		this.state = state;
 	}
 	public int getReviewNo() {
 		return reviewNo;
@@ -75,10 +77,17 @@ public class MRVo {
 	public void setClgTitle(String clgTitle) {
 		this.clgTitle = clgTitle;
 	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
 	@Override
 	public String toString() {
-		return "MRVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", reviewImg=" + reviewImg + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + "]";
+		return "MRVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", reviewImg=" + reviewImg + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state + "]";
 	}
+	
 	
 	
 }
