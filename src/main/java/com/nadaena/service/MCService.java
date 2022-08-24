@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.MCDao;
 import com.nadaena.vo.MCVo;
-import com.nadaena.vo.MRVo;
+import com.nadaena.vo.ReviewVo;
 import com.nadaena.vo.PointVo;
 
 @Service
@@ -357,7 +357,7 @@ public class MCService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MRVo> mrList = mcDao.selectreviewList(startRnum, endRnum);
+		List<ReviewVo> mrList = mcDao.selectreviewList(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
@@ -403,7 +403,7 @@ public class MCService {
 	}		
 	
 	//리뷰 쓰기
-	public int writeReview(MRVo mrVo) {
+	public int writeReview(ReviewVo mrVo) {
 		System.out.println("bService>b.write()");
 		
 		mcDao.writeReview(mrVo);
@@ -413,7 +413,7 @@ public class MCService {
 	}
 	
 	//리뷰 삭제
-	public int removeReview(MRVo mrVo) {
+	public int removeReview(ReviewVo mrVo) {
 		System.out.println("MCSERVICE >> del.review");
 		
 		return mcDao.deleteReview(mrVo);

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nadaena.service.MCService;
-import com.nadaena.vo.MRVo;
+import com.nadaena.vo.ReviewVo;
 
 @Controller
 public class MyController {
@@ -89,7 +89,7 @@ public class MyController {
 	
 	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeReview(@ModelAttribute MRVo mrVo, Model model) {
+	public String writeReview(@ModelAttribute ReviewVo mrVo, Model model) {
 		System.out.println("bController > write()");
 		
 		// Service를 통해서 저장한다
@@ -100,7 +100,7 @@ public class MyController {
 	
 	//리뷰삭제
 	@RequestMapping(value = "my/deleteReview", method = { RequestMethod.GET, RequestMethod.POST })
-	public String deleteReview(@ModelAttribute MRVo mrVo, HttpSession session) {
+	public String deleteReview(@ModelAttribute ReviewVo mrVo, HttpSession session) {
 		System.out.println("MCCON / delete");
 
 		// 로그인한 사용자의 글만 삭제하도록 세션의 userNo도 입력(쿼리문에서 검사)

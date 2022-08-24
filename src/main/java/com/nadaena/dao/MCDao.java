@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.MCVo;
-import com.nadaena.vo.MRVo;
+import com.nadaena.vo.ReviewVo;
 import com.nadaena.vo.PointVo;
 
 @Repository
@@ -137,19 +137,19 @@ public class MCDao {
 	}
 	
 	//리뷰리스트 + 페이징
-	public List<MRVo> selectreviewList(int startRnum, int endRnum) {
+	public List<ReviewVo> selectreviewList(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MRVo> mrList = sqlSession.selectList("myChallenge.selectreviewList", map);
+		List<ReviewVo> mrList = sqlSession.selectList("myChallenge.selectreviewList", map);
 		
 		return mrList;
 	}	
 	
 	//리뷰쓰기
-	public int writeReview(MRVo mrVo) {
+	public int writeReview(ReviewVo mrVo) {
 		System.out.println("BoardDao>write()");
 		
 		int count = sqlSession.insert("myChallenge.insertReview", mrVo);
@@ -158,13 +158,13 @@ public class MCDao {
 	}
 	
 	//상태업데이트
-	public int update(MRVo mrVo) {
+	public int update(ReviewVo mrVo) {
 		
 		return sqlSession.update("myChallenge.updateState",mrVo);
 	}
 	
 	//리뷰삭제
-	public int deleteReview(MRVo mrVo) {
+	public int deleteReview(ReviewVo mrVo) {
 		System.out.println("MCDAO >>> DEL.review");
 		
 		return sqlSession.delete("myChallenge.deleteReview", mrVo);

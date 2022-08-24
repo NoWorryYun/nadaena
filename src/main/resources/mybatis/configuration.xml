@@ -5,7 +5,7 @@
     <typeAliases>
     <typeAlias alias="ChallengeVo" type="com.nadaena.vo.ChallengeVo" />
     <typeAlias alias="MCVo" type="com.nadaena.vo.MCVo" />
-    <typeAlias alias="MRVo" type="com.nadaena.vo.MRVo" />
+    <typeAlias alias="ReviewVo" type="com.nadaena.vo.ReviewVo" />
     <typeAlias alias="PointVo" type="com.nadaena.vo.PointVo" />
     <typeAlias alias="UserVo" type="com.nadaena.vo.UserVo" />
     <typeAlias alias="MainTitleVo" type="com.nadaena.vo.MainTitleVo" />
