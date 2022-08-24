@@ -26,7 +26,7 @@
 		<result column="clgGroup" property="clgGroup" />
 	</resultMap>
 
-	<!-- /////////////////////////////// 챌린지 관련 xml /////////////////////////////// -->	
+	<!-- /////////////////////////////// 챌린지 개설 관련 xml /////////////////////////////// -->	
 	<!-- 일반 챌린지만들기 -->
 	<insert id="writeChallenge" parameterType="ChallengeVo">
 		
@@ -90,7 +90,11 @@
 		)
 		]]>
 	</insert>
-
+	<!-- /////////////////////////////////////////////////////////////////////// -->
+	
+	
+	
+	<!-- ///////////////////////////챌린지 세부 페이지 관련/////////////////////////// -->
 	<!-- 챌린지 intro -->
 	<select id="intro"  parameterType="int" resultType="ChallengeVo">
 		<![CDATA[
@@ -137,7 +141,34 @@
 		]]>
 	</insert>
 
+	<!-- 북마크 확인 -->
+	<select id="bookMark" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(challengeNo)
+			from bookmark
+			where userNo = #{userNo}
+		]]>
+	</select>
 
+	<!-- 북마크 설정 -->
+	<insert id="chkBM" parameterType="ChallengeVo">
+		<![CDATA[
+			insert into bookmark
+			values(seq_bookmarkNo.nextval, #{userNo}, #{challengeNo}, sysdate)
+		]]>
+	</insert>
+
+	<!-- 북마크 해제 -->
+		<delete id="unChkBM" parameterType="ChallengeVo">
+			<![CDATA[
+			delete from bookmark
+			where userNo = #{userNo}
+			and challengeNo = #{challengeNo}
+			]]>
+		</delete>
+		
+		
+		
 	<!-- certify -->
 	<select id="certifyList" parameterType="int" resultType="ChallengeVo">
 		<![CDATA[

@@ -67,16 +67,7 @@
 							<h2 class="read-header">
 								${cMap.intro.clgTitle}<br>2022-08-06~2022-08-27<br>
 							</h2>
-							<form action="" method="post">
-								<c:choose>
-									<c:when test="">
-										<button class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button> 
-									</c:when>
-									<c:otherwise>
-										<button class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>
-									</c:otherwise>
-								</c:choose>
-							</form>
+							<div id="bookMark" class="i-float"></div>
 						</div>
 
 						<div id="read-content">
@@ -195,7 +186,8 @@
 																</tr>
 															</tbody>
 														</table>
-														<input type="hidden" id="authUserNo" name="userNo" value="${authUser.userNo}">
+														<input type="hidden" id="authUserNo" name="userNo" value="1">
+														<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 													</form>
 													<!-- //form -->
 												</div>
@@ -296,9 +288,80 @@
 
 
 <script type="text/javascript">
-
+	
 	var authUser = $("#authUserNo").val();
-
+	var challengeNo = $("#challengeNo").val();
+	
+	authUser = Number(authUser);
+	challengeNo = Number(challengeNo);
+	
+	console.log(authUser);
+	console.log(challengeNo);
+	
+	var bookMarkData = {
+			userNo : authUser,
+			challengeNo : challengeNo
+	}
+	
+	$(document).ready(function(){
+		bkload();
+	})
+	
+	function bkload(){
+	if(authUser == "" || authUser == null){
+			$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
+		} else{
+			$.ajax({
+				contentType : 'application/json',     
+				data : JSON.stringify(authUser),
+				url : '${pageContext.request.contextPath}/challenge/bookMark',
+				type : 'POST',
+				
+				dataType : "json",
+				success : function(result){
+					console.log(result);
+					if(result == 1){
+						$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
+					} else{
+						$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+					}
+				}
+			})
+		}
+	}
+	
+	
+	$("#bookMark").on("click", "#unCheckbookMark", function(){
+		console.log("언체크 클릭");
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(bookMarkData),
+			url : '${pageContext.request.contextPath}/challenge/chkBookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
+			}
+		})
+	})
+	
+	$("#bookMark").on("click", "#checkbookMark", function(){
+		console.log("체크 클릭");
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(bookMarkData),
+			url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+			}
+		})
+	})
+	
+	
 	$("#joinForm").on("submit", function(){
 		
 		console.log(authUser);
@@ -310,12 +373,11 @@
  		} 
 		var payment = $("[name='payment']").val();
 		console.log(payment);
-		if(payment < 1){
-			alert("금액을 선택해 주세요");
-			return false;
- 		}
+		if(payment == "" || payment == null || payment < 1){
+  			alert("금액을 설정해 주세요.");
+  			return false;
+  		}
 	})
-	
 
 </script>
 

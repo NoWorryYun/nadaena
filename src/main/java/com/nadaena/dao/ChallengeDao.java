@@ -14,19 +14,7 @@ public class ChallengeDao {
 
 	@Autowired
 	private SqlSession sqlSession;
-	
-	//인트로 내용 받아오기
-	public ChallengeVo intro(int challengeNo) {
-		return sqlSession.selectOne("Challenge.intro", challengeNo);
-	}
-	
-	//인트로 업로드 상세 받아오기
-	public List<ChallengeVo> certifyList(int challengeNo) {
-	
-		return sqlSession.selectList("Challenge.certifyList", challengeNo);
-		
-	}
-	
+
 	//챌린지 개설
 	public int makeChallenge(ChallengeVo clgVo) {
 		int count = sqlSession.insert("Challenge.writeChallenge", clgVo);
@@ -36,7 +24,6 @@ public class ChallengeDao {
 	
 	//챌린지 과제 만들기
 	public int makeClgSub(List<ChallengeSubVo> upsList) {
-		System.out.println("ChallengeDao > makeSub");
 
 		for(int i = 0 ; i < upsList.size() ; i++) {
 			
@@ -52,16 +39,48 @@ public class ChallengeDao {
 		return 1;
 	}
 	
+	//챌린지 참여하기(방장)
+	public int joinChallengeHeader(ChallengeVo challengeVo) {
+		
+		return sqlSession.insert("Challenge.joinChallengeHeader", challengeVo);
+	}
+	
+	
+	//인트로 내용 받아오기
+	public ChallengeVo intro(int challengeNo) {
+		return sqlSession.selectOne("Challenge.intro", challengeNo);
+	}
+	
+	//인트로 업로드 상세 받아오기
+	public List<ChallengeVo> certifyList(int challengeNo) {
+	
+		return sqlSession.selectList("Challenge.certifyList", challengeNo);
+		
+	}
+	
+	//북마크 설정
+	public int bookMark(int userNo) {
+		
+		return sqlSession.selectOne("Challenge.bookMark", userNo);
+	}
+	
+	//북마크 설정
+	public int chkBM(ChallengeVo challengeVo) {
+		
+		return sqlSession.insert("Challenge.chkBM", challengeVo);
+	}
+	
+	//북마크 해제
+	public int unChkBM(ChallengeVo challengeVo) {
+		
+		return sqlSession.insert("Challenge.unChkBM", challengeVo);
+	}
+	
 	//챌린지 참여하기(유저)
 	public int joinChallenge(ChallengeVo challengeVo) {
 		
 		return sqlSession.insert("Challenge.joinChallenge", challengeVo);
 	}
 	
-	//챌린지 참여하기(방장)
-	public int joinChallengeHeader(ChallengeVo challengeVo) {
-		
-		return sqlSession.insert("Challenge.joinChallengeHeader", challengeVo);
-	}
 	
 }

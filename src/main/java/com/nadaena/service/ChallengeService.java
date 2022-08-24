@@ -22,34 +22,11 @@ public class ChallengeService {
 	@Autowired
 	private ChallengeDao challengeDao;
 	
-	
-	//Intro 받아오기
-	public Map<String, Object> intro(int challegeNo) {
-		
-		ChallengeVo intro = challengeDao.intro(challegeNo);
-		
-		List<ChallengeVo> certifyList = challengeDao.certifyList(challegeNo);
-		
-		Map<String, Object> cMap = new HashMap<String, Object>();
-		
-		cMap.put("intro", intro);
-		cMap.put("certifyList", certifyList);
-		
-		return cMap;
-	}
-	
-	//챌린지 참여하기(유저)
-	public int joinChallenge(ChallengeVo challengeVo) {
-		
-		return challengeDao.joinChallenge(challengeVo);
-	}
-	
 	//챌린지 만들기
 	
 	public int makeChallenge(ChallengeVo challengeVo){
 		
 			System.out.println("ChallengeSerivce > makeChallenge()");
-			System.out.println(challengeVo.getImgs().getOriginalFilename());
 		
 			String saveDir = "C:\\javaStudy\\upload\\forNaDaeNa";
 			
@@ -112,19 +89,15 @@ public class ChallengeService {
 			
 			// Dao DB에 저장
 			challengeDao.makeChallenge(clgVo);
-			System.out.println(clgVo);
 			
 			// 챌린지 번호 뽑기
 			int challengeNo = clgVo.getChallengeNo();
-			System.out.println(challengeNo);
-			
-			
 			
 			ChallengeVo clgjoinVo = new ChallengeVo(challengeNo, userNo, payment);
 			
 			// 챌린지 참가(방장)
-			int clgheader = challengeDao.joinChallengeHeader(clgjoinVo);
-			System.out.println(clgheader);
+			challengeDao.joinChallengeHeader(clgjoinVo);
+
 			// 파일 저장
 			try {
 				byte[] fileData = challengeVo.getImgs().getBytes();
@@ -141,10 +114,52 @@ public class ChallengeService {
 		return challengeNo;
 	}
 	
-	
 	//챌린지 과제 만들기
 	public int makeClgSub(List<ChallengeSubVo> upsList) {
 
 		return challengeDao.makeClgSub(upsList);
 	}
+	
+	
+	//Intro 받아오기
+	public Map<String, Object> intro(int challegeNo) {
+		
+		ChallengeVo intro = challengeDao.intro(challegeNo);
+		
+		List<ChallengeVo> certifyList = challengeDao.certifyList(challegeNo);
+		
+		Map<String, Object> cMap = new HashMap<String, Object>();
+		
+		cMap.put("intro", intro);
+		cMap.put("certifyList", certifyList);
+		
+		return cMap;
+	}
+
+	//북마크 확인
+	public int bookMark(int challengeNo) {
+		
+		return challengeDao.bookMark(challengeNo);
+	}
+
+	//북마크 설정
+	public int chkBM(ChallengeVo challengeVo) {
+		
+		return challengeDao.chkBM(challengeVo);
+	}
+	
+	//북마크 해제
+	public int unChkBm(ChallengeVo challengeVo) {
+		
+		return challengeDao.unChkBM(challengeVo);
+	}
+	
+	
+	//챌린지 참여하기(유저)
+	public int joinChallenge(ChallengeVo challengeVo) {
+		
+		return challengeDao.joinChallenge(challengeVo);
+	}
+	
+
 }

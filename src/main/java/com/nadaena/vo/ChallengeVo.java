@@ -38,6 +38,7 @@ public class ChallengeVo {
 
 	private List<ChallengeVo> upsList;
 
+	
 	//생성자
 	public ChallengeVo() {
 		super();
