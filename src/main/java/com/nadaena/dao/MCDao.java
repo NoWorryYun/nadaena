@@ -20,10 +20,8 @@ public class MCDao {
 	
 	//참가 리스트
 	public List<MCVo> selectList() {
-		System.out.println("MCDao > selectList()");
 		
 		List<MCVo> mcList = sqlSession.selectList("myChallenge.selectList");
-		System.out.println(mcList);
 		
 		return mcList;
 	}
@@ -150,17 +148,20 @@ public class MCDao {
 	
 	//리뷰쓰기
 	public int writeReview(ReviewVo reviewVo) {
-		System.out.println("BoardDao>write()");
 		
 		int count = sqlSession.insert("myChallenge.insertReview", reviewVo);
 		
+		System.out.println(reviewVo);
 		return count;
+		
 	}
 	
 	//상태업데이트
 	public int update(ReviewVo reviewVo) {
 		
+		System.out.println(reviewVo);
 		return sqlSession.update("myChallenge.updateState",reviewVo);
+		
 	}
 	
 	//리뷰삭제
