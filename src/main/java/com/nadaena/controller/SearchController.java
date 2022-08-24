@@ -1,6 +1,7 @@
 package com.nadaena.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,9 +49,15 @@ public class SearchController {
 	
 	
 	
-	@RequestMapping(value="/search/searchForm2", method = {RequestMethod.GET, RequestMethod.POST})
-	public String searchmain() {
-		System.out.println("searchForm");
+	@RequestMapping(value = "/search/searchForm", method = { RequestMethod.GET, RequestMethod.POST })
+	public String list4(Model model, 
+					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage ) {
+		System.out.println("BoardContoller>list4()");
+		
+		Map<String, Object> cMap = searchService.selectList(crtPage);
+		model.addAttribute("cMap", cMap);
+		
+		System.out.println("controller --> " + cMap);
 		
 		return "search/searchForm";
 	}

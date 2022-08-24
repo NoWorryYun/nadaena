@@ -76,9 +76,8 @@
 			                  from myChallenge
 			                  group by challengeNo) cc
 			            where  c.challengeNo = cc.challengeNo(+)
-			            and c.interestNo = i.interestNo    
+			            and c.interestNo = i.interestNo
 			            --조건
-			            and clgGroup = 2
 		]]>	            
 		
 						<if test="interestNo gt 0 ">
@@ -88,8 +87,7 @@
 			            
 			            <if test="keyword != ''  and  keyword != null ">
 						and c.clgTitle like '%'||#{keyword}||'%'
-						</if>
-						
+						</if>				
 						
 						<if test="orderType == 'regDate'">
 						order by regDate desc
@@ -98,6 +96,15 @@
 						<if test="orderType == 'likeOrder'">
 						order by count_user desc
 						</if>
+						
+						<if test="orderType == 'newOrder'">
+						order by regDate desc
+						</if>
+						
+						<if test="orderType == 'recruitmentOrder'">
+						order by recruitment2 asc
+						</if>
+						
 						
 						
 						
