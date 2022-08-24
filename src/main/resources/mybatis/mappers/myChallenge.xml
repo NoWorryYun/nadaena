@@ -346,7 +346,6 @@
 		]]>
 	</select>	
 	
-	
 	<!-- 전체글갯수 구하기 -->
 	<select id="selectTotalCnt" resultType="int">
 		<![CDATA[
@@ -447,7 +446,7 @@
 			values (SEQ_REVIEWNO.nextval,
 					#{challengeNo},
 					#{userNo},
-					null,
+					#{reviewImg},
 					#{reviewContent},
 					sysdate
 					)

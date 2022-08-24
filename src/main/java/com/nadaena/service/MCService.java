@@ -1,11 +1,17 @@
 package com.nadaena.service;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.dao.MCDao;
 import com.nadaena.vo.MCVo;
@@ -20,7 +26,6 @@ public class MCService {
 	
 	//참가+종료 리스트(전체)
 	public Map<String, Object> getmcList(int crtPage) {
-		System.out.println("C > getmcList");
 		
 		//////리스트 가져오기
 		
@@ -403,13 +408,58 @@ public class MCService {
 	}		
 	
 	//리뷰 쓰기
-	public int writeReview(ReviewVo reviewVo) {
-		System.out.println("bService>b.write()");
+	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
+		System.out.println("GalleryService>restore");
+
+		String saveDir = "C:\\javaStudy\\upload";
+
+		// -원파일이름
+		String orgName = file.getOriginalFilename();
+		System.out.println("orgName:" + orgName);
+
+		// 확장자
+		String exName = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+		System.out.println("exName:" + exName);
+
+		// -저장파일이름
+		String saveName = System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
+		System.out.println("saveName:" + saveName);
+
+		// -파일패스 생성(
+		String filePath = saveDir + "\\" + saveName;
+		System.out.println("filePath:" + filePath);
+
+		// 파일 사이즈
+		long fileSize = file.getSize();
+		System.out.println("fileSize:" + fileSize);
+
+		// 파일업로드(복사)
+		try {
+			byte[] fileData = file.getBytes();
+			OutputStream out = new FileOutputStream(filePath);
+			BufferedOutputStream bout = new BufferedOutputStream(out);
+
+			bout.write(fileData);
+
+			if (bout != null) {
+				bout.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
+		reviewVo.setReviewImg(file);
+		
+		
+		System.out.println("=======");
+		System.out.println(reviewVo.toString());
+
+		// 파일정보 DB저장
 		mcDao.writeReview(reviewVo);
+		//상태업데이트
 		mcDao.update(reviewVo);
 		
-		return 1;
+		return saveName;
 	}
 	
 	//리뷰 삭제

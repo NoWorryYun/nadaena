@@ -154,7 +154,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form action="writeReview" method="get">
+			<form action="${pageContext.request.contextPath}/my/writeReview" method="post" enctype="multipart/form-data">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
@@ -169,7 +169,7 @@
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
-				<input type="file" id="modal-upbutton">
+				<input type="file" id="modal-upbutton" name="reviewImg" value="">
 				
 				<!-- <div class="modal-image-box">
 					<div class="modal-image">
@@ -227,7 +227,8 @@ $(".modal-button").on("click", function(){
 	$("#review-modal .writeday").html(today);
 	
 	//모달 보이기
-	$("#review-modal").modal("show");	
+	$("#review-modal").modal("show");
+	
 });	
 
 
@@ -238,9 +239,7 @@ $(".btn-close").on("click", function(){
 });	 
 
 
-
-
-
+      
 
 
 </script>
