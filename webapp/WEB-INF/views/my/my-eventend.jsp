@@ -48,7 +48,7 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<c:forEach items="${mcMap.meList2}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.meList2}" var="MyVo" varStatus="i">
 					<div class="challenge-box">
 						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
 						<div class="challenge-info">

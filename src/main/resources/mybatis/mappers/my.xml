@@ -4,7 +4,7 @@
 <mapper namespace="my">
  
 	<!-- 참가챌린지 가져오기 -->
-	<select id="selectList" resultType="MCVo">
+	<select id="selectList" resultType="MyVo">
 		<![CDATA[
 			select  m.userNo,
 					m.userClgNo,
@@ -30,7 +30,7 @@
 	</select>	
 	
 	<!-- 종료 챌린지(전체) + 페이징 -->
-	<select id="selectList12" parameterType= "Map" resultType="MCVo">
+	<select id="selectList12" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
 					ort.userNo,
@@ -93,7 +93,7 @@
 	</select>
 	
 	<!-- 종료 챌린지(전체) + 페이징 -->
-	<select id="selectList13" parameterType= "Map" resultType="MCVo">
+	<select id="selectList13" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
 					ort.userNo,
@@ -158,7 +158,7 @@
 	
 	
 	<!-- 종료 챌린지(실패) + 페이징 -->
-	<select id="selectList14" parameterType= "Map" resultType="MCVo">
+	<select id="selectList14" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
 					ort.userNo,
@@ -222,7 +222,7 @@
 	</select>	
 	
 	<!-- 진행 이벤트(전체) + 페이징 -->
-	<select id="selectList21" parameterType= "Map" resultType="MCVo">
+	<select id="selectList21" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
 					ort.userNo,
@@ -284,7 +284,7 @@
 		]]>
 	</select>
 	<!-- 종료 이벤트(전체) + 페이징 -->
-	<select id="selectList22" parameterType= "Map" resultType="MCVo">
+	<select id="selectList22" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
 					ort.userNo,

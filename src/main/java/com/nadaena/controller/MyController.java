@@ -102,7 +102,7 @@ public class MyController {
 	//리뷰삭제
 	@RequestMapping(value = "my/deleteReview", method = { RequestMethod.GET, RequestMethod.POST })
 	public String deleteReview(@ModelAttribute ReviewVo reviewVo, HttpSession session) {
-		System.out.println("MCCON / delete");
+		System.out.println("MyCON / delete");
 
 		// 로그인한 사용자의 글만 삭제하도록 세션의 userNo도 입력(쿼리문에서 검사)
 		//UserVo authUser = (UserVo) session.getAttribute("authUser");

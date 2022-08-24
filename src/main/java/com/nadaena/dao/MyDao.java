@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.nadaena.vo.MCVo;
+import com.nadaena.vo.MyVo;
 import com.nadaena.vo.PointVo;
 import com.nadaena.vo.ReviewVo;
 
@@ -19,69 +19,69 @@ public class MyDao {
 	private SqlSession sqlSession;
 	
 	//참가 리스트
-	public List<MCVo> selectList() {
+	public List<MyVo> selectList() {
 		
-		List<MCVo> mcList = sqlSession.selectList("my.selectList");
+		List<MyVo> mcList = sqlSession.selectList("my.selectList");
 		
 		return mcList;
 	}
 	
 	//종료 리스트+페이징
-	public List<MCVo> selectList12(int startRnum, int endRnum) {
+	public List<MyVo> selectList12(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> mcList2 = sqlSession.selectList("my.selectList12", map);
+		List<MyVo> mcList2 = sqlSession.selectList("my.selectList12", map);
 		
 		return mcList2;
 	}
 	
 	//종료 리스트(성공) + 페이징
-	public List<MCVo> selectList13(int startRnum, int endRnum) {
+	public List<MyVo> selectList13(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> mcList3 = sqlSession.selectList("my.selectList13", map);
+		List<MyVo> mcList3 = sqlSession.selectList("my.selectList13", map);
 		
 		return mcList3;
 	}
 	
 	//종료 리스트(실패) + 페이징
-	public List<MCVo> selectList14(int startRnum, int endRnum) {
+	public List<MyVo> selectList14(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> mcList4 = sqlSession.selectList("my.selectList14", map);
+		List<MyVo> mcList4 = sqlSession.selectList("my.selectList14", map);
 		
 		return mcList4;
 	}
 	
 	//진행중 이벤트 + 페이징
-	public List<MCVo> selectList21(int startRnum, int endRnum) {
+	public List<MyVo> selectList21(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> meList1 = sqlSession.selectList("my.selectList21", map);
+		List<MyVo> meList1 = sqlSession.selectList("my.selectList21", map);
 		System.out.println(meList1);
 		return meList1;
 	}
 
 	//종료 이벤트 + 페이징
-	public List<MCVo> selectList22(int startRnum, int endRnum) {
+	public List<MyVo> selectList22(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<MCVo> meList2 = sqlSession.selectList("my.selectList22", map);
+		List<MyVo> meList2 = sqlSession.selectList("my.selectList22", map);
 		System.out.println(meList2);
 		return meList2;
 	}
@@ -166,7 +166,7 @@ public class MyDao {
 	
 	//리뷰삭제
 	public int deleteReview(ReviewVo reviewVo) {
-		System.out.println("MCDAO >>> DEL.review");
+		System.out.println("MyDAO >>> DEL.review");
 		
 		return sqlSession.delete("my.deleteReview", reviewVo);
 		

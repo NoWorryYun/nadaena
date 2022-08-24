@@ -45,21 +45,21 @@
 				
 				
 				<div class="challenge-images">
-					<c:forEach items="${mcMap.mcList}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.mcList}" var="MyVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
 									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
 								</div>
 								<div class="challenge-info">
-									<h4>${MCVo.clgTitle }</h4>
+									<h4>${MyVo.clgTitle }</h4>
 									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 									<p>참여 인원 : 15</p>
-									<p>도전비용 : ${MCVo.payment }원</p>
+									<p>도전비용 : ${MyVo.payment }원</p>
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
 							</div>	 
-							<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
+							<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기 ${MyVo.challengeNo}</button>
 						</div>
 							
 					</c:forEach>
@@ -87,17 +87,17 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<c:forEach items="${mcMap.mcList3}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.mcList3}" var="MyVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
 									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
 								</div>
 								<div class="challenge-info">
-									<h4>${MCVo.clgTitle }</h4>
+									<h4>${MyVo.clgTitle }</h4>
 									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 									<p>참여 인원 : 15</p>
-									<p>도전비용 : ${MCVo.payment }원</p>
+									<p>도전비용 : ${MyVo.payment }원</p>
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
 							</div>	 
