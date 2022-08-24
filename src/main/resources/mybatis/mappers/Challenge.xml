@@ -162,15 +162,23 @@
 	</insert>
 
 	<!-- 북마크 해제 -->
-		<delete id="unChkBM" parameterType="ChallengeVo">
-			<![CDATA[
+	<delete id="unChkBM" parameterType="ChallengeVo">
+		<![CDATA[
 			delete from bookmark
 			where userNo = #{userNo}
 			and challengeNo = #{challengeNo}
-			]]>
-		</delete>
+		]]>
+	</delete>
 		
-		
+	<!-- 챌린지 참여 여부 확인 -->
+	<select id="joinChk" parameterType="ChallengeVo" resultType="int">
+		<![CDATA[
+			select count(userNo) userCount
+			from mychallenge
+			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
+		]]>
+	</select>
 		
 	<!-- certify -->
 	<select id="certifyList" parameterType="int" resultType="ChallengeVo">

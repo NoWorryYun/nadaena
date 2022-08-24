@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -126,17 +128,29 @@ public class ChallengeService {
 	
 	
 	//Intro 받아오기
-	public Map<String, Object> intro(int challegeNo) {
+	public Map<String, Object> intro(int challengeNo, HttpServletRequest request) {
 		
-		ChallengeVo intro = challengeDao.intro(challegeNo);
+		ChallengeVo clgVo= (ChallengeVo)request.getAttribute("authUser");
 		
-		List<ChallengeVo> certifyList = challengeDao.certifyList(challegeNo);
+		int userNo = 1;
+		
+		ChallengeVo challengeVo = new ChallengeVo(challengeNo, userNo);
+		
+		System.out.println("challengeVo : "+ challengeVo);
+		
+		ChallengeVo intro = challengeDao.intro(challengeNo);
+		
+		List<ChallengeVo> certifyList = challengeDao.certifyList(challengeNo);
+		
+		int joinChk = challengeDao.joinChk(challengeVo);
+		
+		System.out.println("joinChk : " + joinChk);
 		
 		Map<String, Object> cMap = new HashMap<String, Object>();
 		
 		cMap.put("intro", intro);
 		cMap.put("certifyList", certifyList);
-		
+		cMap.put("joinChk", joinChk);
 		return cMap;
 	}
 

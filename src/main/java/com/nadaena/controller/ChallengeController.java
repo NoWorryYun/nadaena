@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,10 +30,10 @@ public class ChallengeController {
 	
 	//intro
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge(@PathVariable("challengeNo") int challengeNo, Model model) {
+	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpServletRequest request, Model model) {
 		System.out.println("challnege/intro");
 
-		Map<String, Object> cMap = challengeService.intro(challengeNo);
+		Map<String, Object> cMap = challengeService.intro(challengeNo, request);
 		
 		model.addAttribute("cMap" , cMap);
 		

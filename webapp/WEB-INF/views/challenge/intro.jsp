@@ -146,7 +146,7 @@
 																	<c:choose>
 																			<c:when test="${cMap.intro.clgLevel == 3}">
 																				<select name="payment">
-																					<option value="0"">금액설정</option>
+																					<option value="0">금액설정</option>
 																					<option value="10000">10,000</option>
 																					<option value="20000">20,000</option>
 																					<option value="30000">30,000</option>
@@ -161,7 +161,7 @@
 																			</c:when>
 																			<c:when test="${cMap.intro.clgLevel == 2}">
 																				<select name="payment">
-																					<option value="0"">금액설정</option>
+																					<option value="0">금액설정</option>
 																					<option value="10000">10,000</option>
 																					<option value="20000">20,000</option>
 																					<option value="30000">30,000</option>
@@ -171,7 +171,7 @@
 																			</c:when>
 																			<c:otherwise>
 																				<select name="payment">
-																					<option value="0"">금액설정</option>
+																					<option value="0">금액설정</option>
 																					<option value="10000">10,000</option>
 																					<option value="20000">20,000</option>
 																					<option value="30000">30,000</option>
@@ -181,7 +181,15 @@
 																</tr>
 																<tr style="border-style: none;">
 																	<td id="enter-challenge-cell" class="type-center" colspan="2">
-																		<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																		<c:choose>
+																			<c:when test="${cMap.joinChk} == 0">
+																				<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																			</c:when>
+																			<c:otherwise>
+																				<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
+																			</c:otherwise>
+																		</c:choose>
+																		
 																	</td>
 																</tr>
 															</tbody>
@@ -217,8 +225,7 @@
 											<div class="swiper-wrapper">
 												<div class="swiper-slide"></div>
 												<div class="swiper-slide">
-													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png">
-													</a>
+													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png"> </a>
 												</div>
 												<div class="swiper-slide"></div>
 											</div>

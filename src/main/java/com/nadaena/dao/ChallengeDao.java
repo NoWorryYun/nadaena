@@ -77,6 +77,12 @@ public class ChallengeDao {
 		return sqlSession.insert("Challenge.unChkBM", challengeVo);
 	}
 	
+	//챌린지 참여 확인
+	public int joinChk(ChallengeVo challengeVo) {
+		
+		return sqlSession.selectOne("Challenge.joinChk", challengeVo);
+	}
+	
 	//챌린지 참여하기(유저)
 	public int joinChallenge(ChallengeVo challengeVo) {
 		
