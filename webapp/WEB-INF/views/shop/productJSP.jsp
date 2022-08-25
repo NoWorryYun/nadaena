@@ -53,7 +53,6 @@
                     <ul class="price_list">
                         <li>판매가격 <span>50,000원</span></li>
                     </ul>
-
                     <div class="option">
                         <p>옵션</p>
                         <select id="select">

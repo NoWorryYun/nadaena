@@ -56,6 +56,7 @@
 			      			</select>
 			      		</td>
 		      		</tr>
+		      		
 		      		<tr>
 		      			<td>내용</td>
 		      			<td colspan="2"><textarea name="postContent"></textarea></td>

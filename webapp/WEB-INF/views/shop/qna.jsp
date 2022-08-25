@@ -46,6 +46,7 @@
 	                		<a class="report" href="#">신고</a>
 	                	</div>
 	                	
+	                	
 	                	<c:if test="${qna.productAnswer != null || authUser.userNo == 1}">
 		                	<div class="replyArea">
 		                		<div class="memberInfo">

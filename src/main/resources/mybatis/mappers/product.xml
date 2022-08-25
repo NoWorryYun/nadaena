@@ -99,6 +99,7 @@
 	 	]]>
 	 </select>
 	 
+	 
 	 <!-- QNA문의하기 -->
 	 <insert id="qnaInsert" parameterType="com.nadaena.vo.QnaVo">
 	 	<![CDATA[

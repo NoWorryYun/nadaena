@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ShopController {
 	
+	
 	@RequestMapping(value="shop/main")
 	public String main() {
 		System.out.println(" ShopCtrl > main");
