@@ -39,14 +39,14 @@
 <!--------------------------------------------------------------------------------------->
 
 <!-- jquery, bootstrap js -->
-<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script> --%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 
-<%-- <!-- 슬라이드 js -->
+ <!-- 슬라이드 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script> --%>
+<script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
 
 
 <!-- ck에디터js -->
@@ -1047,8 +1047,7 @@
   		}
  		
 
-// 		var userNo = ${authUser.userNo};
-		var userNo = 1;
+		var userNo = ${authUser.userNo};
  		
   		var formData = new FormData();
 

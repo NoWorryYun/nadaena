@@ -181,12 +181,15 @@
 	</delete>
 		
 	<!-- 챌린지 참여 여부 확인 -->
-	<select id="joinChk" parameterType="ChallengeVo" resultType="int">
+	<select id="joinChk" parameterType="ChallengeVo" resultType="ChallengeVo">
 		<![CDATA[
-			select count(userNo) userCount
-			from mychallenge
+			select  ( select count(userNo)
+			          from mychallenge
+			          where challengeNo = #{challengeNo}
+			          and userNo = #{userNo}) userCount,
+	        		founder
+			from mychallenge          
 			where challengeNo = #{challengeNo}
-			and userNo = #{userNo}
 		]]>
 	</select>
 		

@@ -194,13 +194,21 @@
 																<tr style="border-style: none;">
 																	<td id="enter-challenge-cell" class="type-center" colspan="2">
 																		<c:choose>
-																			<c:when test="${cMap.joinChk} == 0">
-																				<input type="hidden" name="joinchk" value="1">
-																				<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																			<c:when test="${cMap.joinChk.userCount != 0}">
+																				<c:choose>
+																					<c:when test="${cMap.joinChk.founder} == 2">
+																						<input type="hidden" name="clgInOutChk" value="2">
+																						<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
+																					</c:when>
+																					<c:otherwise>
+																						<input type="hidden" name="clgInOutChk" value="3">
+																						<button id="btnSubmit" class="font-12" type="submit">챌린지 삭제하기</button>
+																					</c:otherwise>
+																				</c:choose>
 																			</c:when>
 																			<c:otherwise>
-																				<input type="hidden" name="joinchk" value="2">
-																				<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
+																				<input type="hidden" name="clgInOutChk" value="1">
+																				<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
 																			</c:otherwise>
 																		</c:choose>
 																		

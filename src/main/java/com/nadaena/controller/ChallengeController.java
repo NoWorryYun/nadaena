@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.nadaena.service.ChallengeService;
 import com.nadaena.vo.ChallengeSubVo;
 import com.nadaena.vo.ChallengeVo;
+import com.nadaena.vo.UserVo;
 
 /*테스트*/
 
@@ -30,10 +31,14 @@ public class ChallengeController {
 	
 	//intro
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpServletRequest request, Model model) {
+	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) {
 		System.out.println("challnege/intro");
 
-		Map<String, Object> cMap = challengeService.intro(challengeNo, request);
+		UserVo userVo = (UserVo)session.getAttribute("authUser");
+		
+		int userNo = userVo.getUserNo();
+		
+		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
 		model.addAttribute("cMap" , cMap);
 		
@@ -44,6 +49,8 @@ public class ChallengeController {
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
 		System.out.println("challnege/joinchallenge");
+		
+		System.out.println(challengeVo);
 		
 		challengeService.joinChallenge(challengeVo);
 		

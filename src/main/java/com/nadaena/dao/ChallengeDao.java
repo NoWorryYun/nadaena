@@ -78,7 +78,7 @@ public class ChallengeDao {
 	}
 	
 	//챌린지 참여 확인
-	public int joinChk(ChallengeVo challengeVo) {
+	public ChallengeVo joinChk(ChallengeVo challengeVo) {
 		
 		return sqlSession.selectOne("Challenge.joinChk", challengeVo);
 	}

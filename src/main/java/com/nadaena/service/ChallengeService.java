@@ -128,13 +128,18 @@ public class ChallengeService {
 	
 	
 	//Intro 받아오기
-	public Map<String, Object> intro(int challengeNo, HttpServletRequest request) {
+	public Map<String, Object> intro(int challengeNo, int userNo) {
 		
-		ChallengeVo clgVo= (ChallengeVo)request.getAttribute("authUser");
+//		ChallengeVo clgVo= (ChallengeVo)request.getAttribute("authUser");
 		
-		int userNo = 1;
+		System.out.println(challengeNo);
 		
-		ChallengeVo challengeVo = new ChallengeVo(challengeNo, userNo);
+//		int userNo = clgVo.getUserNo();
+		System.out.println(userNo);
+		
+		ChallengeVo challengeVo = new ChallengeVo();
+		challengeVo.setChallengeNo(challengeNo);
+		challengeVo.setUserNo(userNo);
 		
 		System.out.println("challengeVo : "+ challengeVo);
 		
@@ -142,7 +147,7 @@ public class ChallengeService {
 		
 		List<ChallengeVo> certifyList = challengeDao.certifyList(challengeNo);
 		
-		int joinChk = challengeDao.joinChk(challengeVo);
+		ChallengeVo joinChk = challengeDao.joinChk(challengeVo);
 		
 		System.out.println("joinChk : " + joinChk);
 		
