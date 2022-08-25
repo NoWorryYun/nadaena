@@ -89,5 +89,10 @@ public class ChallengeDao {
 		return sqlSession.insert("Challenge.joinChallenge", challengeVo);
 	}
 	
+	//챌린지 탈퇴하기(유저)
+	public int joinCancel(ChallengeVo challengeVo) {
+		
+		return sqlSession.delete("Challenge.joinCancel", challengeVo);
+	}
 	
 }

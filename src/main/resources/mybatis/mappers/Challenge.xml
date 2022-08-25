@@ -143,7 +143,17 @@
 		)
 		]]>
 	</insert>
-
+	
+	<!-- 챌린지 탈퇴(유저) -->
+	<insert id="joinCancel" parameterType="ChallengeVo">
+		<![CDATA[
+			delete from mychallenge
+			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
+		]]>
+	</insert>
+	
+	
 	<!-- 북마크 확인 -->
 	<select id="bookMark" parameterType="int" resultType="int">
 		<![CDATA[

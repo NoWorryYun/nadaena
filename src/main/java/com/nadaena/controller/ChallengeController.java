@@ -41,7 +41,7 @@ public class ChallengeController {
 	}
 
 	//챌린지 참여하기
-	@RequestMapping(value = "/challenge/joinchallenge", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
 		System.out.println("challnege/joinchallenge");
 		
@@ -101,6 +101,8 @@ public class ChallengeController {
 	@RequestMapping(value = "/challenge/makeSubject", method = { RequestMethod.GET, RequestMethod.POST })
 	public int challengeSub(@RequestBody List<ChallengeSubVo> upsList) throws IOException {
 
+		System.out.println(upsList);
+		
 		int challengeSub = challengeService.makeClgSub(upsList);
 		
 		return challengeSub;

@@ -173,11 +173,22 @@ public class ChallengeService {
 	}
 	
 	
-	//챌린지 참여하기(유저)
+	//챌린지 참여/탈퇴하기(유저)
 	public int joinChallenge(ChallengeVo challengeVo) {
 		
-		return challengeDao.joinChallenge(challengeVo);
+		int joinchk = challengeVo.getClgInOutChk();
+		
+		if(joinchk == 1) {
+			challengeDao.joinChallenge(challengeVo);
+		} else if(joinchk == 2){
+			challengeDao.joinCancel(challengeVo);
+		} else {
+			challengeDao.joinCancel(challengeVo);
+			////////추가하기 방폭파//////////
+		}
+		return 1;
 	}
+	
 	
 
 }

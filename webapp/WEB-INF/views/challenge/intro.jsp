@@ -98,7 +98,7 @@
 											</div>
 											<div class="content-introduce">
 												<div class="table-responsive" id="table-writeform">
-													<form id="joinForm" method="post" action="${pageContext.request.contextPath}/challenge/joinchallenge">
+													<form id="joinForm" method="post" action="${pageContext.request.contextPath}/challenge/clginout">
 														<table class="table">
 															<tbody style="border-style: none;">
 																<tr style="border-style: none;">
@@ -114,14 +114,26 @@
 																	<td class="font-12">
 																		<p>주 ${cMap.intro.certifyDay}회, 1일 ${cMap.intro.upload}회</p>
 																	</td>
+																	
 																</tr>
 																<tr class="intro-cell">
 																	<td class="write-table-label">인증방법</td>
-																	<td class="font-12"><c:forEach items="${cMap.certifyList}" var="CertifyVo">
-																			<p>
-																				${CertifyVo.certifyTitle}(${CertifyVo.subOn}시)~(${CertifyVo.subOff}시)<br>
-																			</p>
-																		</c:forEach></td>
+																	<td class="font-12">
+																		<c:forEach items="${cMap.certifyList}" var="CertifyVo">
+																			<c:choose>
+																				<c:when test="${CertifyVo.subOn != '-1'}">
+																					<p>
+																						${CertifyVo.certifyTitle}(${CertifyVo.subOn}시)~(${CertifyVo.subOff}시)<br>
+																					</p>
+																				</c:when>
+																				<c:otherwise>
+																					<p>
+																						${CertifyVo.certifyTitle} (시간제한없음)<br>
+																					</p>
+																				</c:otherwise>
+																			</c:choose>
+																		</c:forEach>
+																	</td>
 																</tr>
 																<tr class="intro-cell">
 																	<td class="write-table-label">난이도</td>
@@ -183,9 +195,11 @@
 																	<td id="enter-challenge-cell" class="type-center" colspan="2">
 																		<c:choose>
 																			<c:when test="${cMap.joinChk} == 0">
+																				<input type="hidden" name="joinchk" value="1">
 																				<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
 																			</c:when>
 																			<c:otherwise>
+																				<input type="hidden" name="joinchk" value="2">
 																				<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
 																			</c:otherwise>
 																		</c:choose>

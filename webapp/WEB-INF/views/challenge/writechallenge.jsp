@@ -39,14 +39,14 @@
 <!--------------------------------------------------------------------------------------->
 
 <!-- jquery, bootstrap js -->
-<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script> --%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 
-<!-- 슬라이드 js -->
+<%-- <!-- 슬라이드 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-<script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script> --%>
 
 
 <!-- ck에디터js -->
@@ -508,21 +508,20 @@
 	
  	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
 
-	$("#upload-here").append(upsList(1));
+	$("#upload-here").html(upsList(1));
  	
  	$('input:radio[name="upload"]').on("click", function(){
  		var ups = $('input:radio[name="upload"]:checked').val();
  		
  		if(ups == 1){
-			$("#upload-here *").remove();
-			$("#upload-here").append(upsList(1));
-			
+ 			$("#upload-here *").remove();
+			$("#upload-here").html(upsList(1));
 		} else if(ups == 2){
 			$("#upload-here *").remove();
-			$("#upload-here").append(upsList(2));
+			$("#upload-here").html(upsList(2));
 		} else{
 			$("#upload-here *").remove();
-			$("#upload-here").append(upsList(3));
+			$("#upload-here").html(upsList(3));
 		}
  		
 	})
@@ -598,9 +597,27 @@
  		
  		return str;
  	}
-		
  	
+	$("#upload-here").on("click",".chk-timeUse", function(){
+		var ups = $('input:radio[name="upload"]:checked').val();
+	 	ups = Number(ups);
+ 		for(var i = 1 ; i < (ups+1) ; i++){
+ 			var timestop = $('input:checkbox[name="timestop' + i + '"]');
+			if(timestop.is(":checked")){
+	 			$('select[name="upload-time' + i + '-1"]').attr("disabled", true);
+	 			$('select[name="upload-time' + i + '-1"]').val(-1);
+	 			$('select[name="upload-time' + i + '-2"]').attr("disabled", true);
+	 			$('select[name="upload-time' + i + '-2"]').val(-1);
+	 		} else{
+	 			$('select[name="upload-time' + i + '-1"]').removeAttr("disabled");
+	 			$('select[name="upload-time' + i + '-2"]').removeAttr("disabled");
+	 		}
+ 		}
+ 	})
 
+	
+ 	
+ 	
 	
 	<!-------------------------------- 시간 설정 -------------------------------->
 	
@@ -945,9 +962,35 @@
 
 	 <!--------------------- form data ----------------------->
   	$("#MKBtn").on("click", function(){
-  
-
   		
+  		var ups = $('input:radio[name="upload"]:checked').val();
+  		ups=Number(ups);
+  		
+  		for (var i = 1 ; i < (ups+1) ; i++){
+  			var title = $("#certifyTitle"+ i +"").val();
+  			if(title == "" || title == null){
+  				alert("인증할 내용을 적어주세요");
+  				return false;
+  			}
+  			
+  			var timestop = $('input:checkbox[name="timestop' + i + '"]');
+	  		var timeS1 = $('select[name="upload-time' + i + '-1"]').val();
+	  		var timeS2 = $('select[name="upload-time' + i + '-2"]').val();
+	  		if(timestop.is(":checked") == false){
+	  			if( timeS1 == "" || timeS1 == null || timeS2 == "" || timeS2 == null ){
+	  				alert("시간을 설정해주세요.");
+	  				return false;
+	  			} else if(timeS1 >= timeS2){
+		  			alert("시작시간이 끝나는 시간보다 크면 안됩니다");
+		  			return false;
+		  		} else{
+		  			console.log("시간맞음");
+		  		}
+	  		} else{
+	  			console.log("체크되어있음");
+	  		}
+		}
+	  		
   		/* console.log(upsList); */
   		
   		
@@ -979,8 +1022,6 @@
   			alert("금액을 설정해 주세요.");
   			return false;
   		}
-  		
-
   		
   		
 		var clgLevel;
@@ -1032,12 +1073,8 @@
   		
   			if(i <tagList.length){
   				formData.append('tag'+(i+1) ,  tagList[i]);
-  	  			console.log('tag'+(i+1));
-  	  			console.log(tagList[i]);	
   			}else {
   				formData.append('tag'+(i+1) , "");
-  	  			console.log('tag'+(i+1));
-  	  			console.log(tagList[i]);
   			}
   		}
   		
@@ -1049,7 +1086,6 @@
   		
   		formData.append('color',  $('[name="color"]').css( "background-color"));
   		
-  		console.log(clgLevel);
   		$.ajax({
   			contentType : false,
   			processData : false,
@@ -1057,9 +1093,7 @@
   			url : '${pageContext.request.contextPath}/challenge/upload',
   			type : 'POST',
   			success : function(result){
-				console.log("challengeNo : " + result);
  					var clgNo = result;
- 					console.log("clgNo : " + clgNo);
  					var upsList = [];
   		    		
 	  		    		$(".upload-detail").each(function (index, item) {
@@ -1068,7 +1102,6 @@
 	  		    			var sTime  =$(this).find(".select-sTime" ).val();
 	  		    			var eTime = $(this).find(".select-eTime" ).val();
 	  		    			var timeUse = $(this).find(".chk-timeUse" ).is(":checked");
-	  		    			console.log(timeUse);
   		    				if(timeUse == false){
 		  		    			var upsVo = {
 		  		    				certifyTitle : subTitle,
@@ -1105,7 +1138,6 @@
 	  			})
   			}
   		}) 
-  		
   	})
 
 </script>

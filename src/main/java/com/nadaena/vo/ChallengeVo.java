@@ -44,6 +44,8 @@ public class ChallengeVo {
 
 	private int userCount;
 
+	private int clgInOutChk;
+
 	//생성자
 	public ChallengeVo() {
 		super();
@@ -259,6 +261,45 @@ public class ChallengeVo {
 		this.recRDM = recRDM;
 		this.recRDP = recRDP;
 		this.userCount = userCount;
+	}
+
+	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
+			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs, List<ChallengeVo> upsList, String recRD, String recRDM, String recRDP, int userCount, int clgInOutChk) {
+		super();
+		this.challengeNo = challengeNo;
+		this.interestNo = interestNo;
+		this.clgTitle = clgTitle;
+		this.img = img;
+		this.regDate = regDate;
+		this.recruitment = recruitment;
+		this.period = period;
+		this.certify = certify;
+		this.minigame = minigame;
+		this.upload = upload;
+		this.certifyDay = certifyDay;
+		this.content = content;
+		this.color = color;
+		this.tag1 = tag1;
+		this.tag2 = tag2;
+		this.tag3 = tag3;
+		this.tag4 = tag4;
+		this.tag5 = tag5;
+		this.clgLevel = clgLevel;
+		this.clgGroup = clgGroup;
+		this.certifyNo = certifyNo;
+		this.certifyTitle = certifyTitle;
+		this.subOn = subOn;
+		this.subOff = subOff;
+		this.interestName = interestName;
+		this.userNo = userNo;
+		this.payment = payment;
+		this.imgs = imgs;
+		this.upsList = upsList;
+		this.recRD = recRD;
+		this.recRDM = recRDM;
+		this.recRDP = recRDP;
+		this.userCount = userCount;
+		this.clgInOutChk = clgInOutChk;
 	}
 
 	public int getChallengeNo() {
@@ -525,12 +566,20 @@ public class ChallengeVo {
 		this.userCount = userCount;
 	}
 
+	public int getClgInOutChk() {
+		return clgInOutChk;
+	}
+
+	public void setClgInOutChk(int clgInOutChk) {
+		this.clgInOutChk = clgInOutChk;
+	}
+
 	@Override
 	public String toString() {
 		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
 				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", imgs=" + imgs + ", upsList=" + upsList + ", recRD=" + recRD + ", recRDM=" + recRDM + ", recRDP="
-				+ recRDP + ", userCount=" + userCount + "]";
+				+ recRDP + ", userCount=" + userCount + ", clgInOutChk=" + clgInOutChk + "]";
 	}
 
 }
