@@ -159,7 +159,6 @@ public class MyDao {
 	//상태업데이트
 	public int update(ReviewVo reviewVo) {
 		
-		System.out.println(reviewVo);
 		return sqlSession.update("my.updateState",reviewVo);
 		
 	}

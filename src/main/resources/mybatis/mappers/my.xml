@@ -411,16 +411,19 @@
 					ort.reviewNo,
 					ort.challengeNo,
 					ort.userNo,
-					ort.reviewContent
+					ort.reviewContent,
+					ort.reviewImg
 			from (select rownum rn,
 						 ot.reviewNo,
 						 ot.challengeNo,
 						 ot.userNo,
-						 ot.reviewContent
+						 ot.reviewContent,
+						 ot.reviewImg
 				  from (select  reviewNo,
 								challengeNo,
 								u.userNo,
-								reviewContent
+								reviewContent,
+								reviewImg
 						from review r, users u
 						where u.userNo = r.userNo)ot
 				  )ort

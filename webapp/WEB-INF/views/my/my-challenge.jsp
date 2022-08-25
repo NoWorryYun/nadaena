@@ -52,7 +52,7 @@
 									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
 								</div>
 								<div class="challenge-info">
-									<h4>${MCVo.clgTitle }</h4>
+									<h4>${MyVo.clgTitle }</h4>
 									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 									<p>참여 인원 : 15</p>
 									<p>도전비용 : ${MyVo.payment }원</p>
@@ -88,7 +88,7 @@
 					</ul>
 				</div>
 				<div class="challenge-images">
-					<c:forEach items="${mcMap.mcList2}" var="MCVo" varStatus="i">
+					<c:forEach items="${mcMap.mcList2}" var="MyVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
@@ -169,7 +169,7 @@
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
-				<input type="file" id="modal-upbutton" name="reviewImg" value="">
+				<input type="file" id="modal-upbutton" name="file" value="">
 				
 				<!-- <div class="modal-image-box">
 					<div class="modal-image">

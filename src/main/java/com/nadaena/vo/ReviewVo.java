@@ -7,28 +7,30 @@ public class ReviewVo {
 	private int reviewNo;
 	private int challengeNo;
 	private int userNo;
-	private MultipartFile reviewImg;
+	private MultipartFile file;
 	private String reviewContent;
 	private String reviewDate;
 	private String nickname;
 	private String clgTitle;
 	private int state;
-	
-	public ReviewVo() {
-		super();
-	}
-	
-	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile reviewImg, String reviewContent, String reviewDate, String nickname, String clgTitle, int state) {
+	private String reviewImg;
+	private String saveName;
+	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName) {
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
 		this.userNo = userNo;
-		this.reviewImg = reviewImg;
+		this.file = file;
 		this.reviewContent = reviewContent;
 		this.reviewDate = reviewDate;
 		this.nickname = nickname;
 		this.clgTitle = clgTitle;
 		this.state = state;
+		this.reviewImg = reviewImg;
+		this.saveName = saveName;
+	}
+	public ReviewVo() {
+		super();
 	}
 	public int getReviewNo() {
 		return reviewNo;
@@ -48,11 +50,11 @@ public class ReviewVo {
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	public MultipartFile getReviewImg() {
-		return reviewImg;
+	public MultipartFile getFile() {
+		return file;
 	}
-	public void setReviewImg(MultipartFile reviewImg) {
-		this.reviewImg = reviewImg;
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	public String getReviewContent() {
 		return reviewContent;
@@ -84,11 +86,22 @@ public class ReviewVo {
 	public void setState(int state) {
 		this.state = state;
 	}
+	public String getReviewImg() {
+		return reviewImg;
+	}
+	public void setReviewImg(String reviewImg) {
+		this.reviewImg = reviewImg;
+	}
+	public String getSaveName() {
+		return saveName;
+	}
+	public void setSaveName(String saveName) {
+		this.saveName = saveName;
+	}
 	@Override
 	public String toString() {
-		return "ReviewVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", reviewImg=" + reviewImg + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state + "]";
+		return "ReviewVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", file=" + file + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state
+				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + "]";
 	}
-	
-	
 	
 }

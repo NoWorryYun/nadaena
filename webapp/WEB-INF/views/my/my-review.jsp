@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -56,7 +57,7 @@
 					<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
-								<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
+								<a href="#"><img class="img-size" src="${pageContext.request.contextPath }/upload/${RequestScope.reviewImg }"></a>
 							</div>
 							<div class="certify-list-info">
 								<div>
