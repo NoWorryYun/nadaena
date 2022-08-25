@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -68,7 +69,7 @@
                     
                     <c:forEach items="${pMap.pList}" var="PointVo" varStatus="i">
                         <tr>
-                            <td class="column1">${i.count }</td>
+                            <td class="column1">${PointVo.rn }</td>
                             <td class="column2">${PointVo.pointDate }</td>
                             <td class="column3">
                             	<c:choose>
@@ -82,18 +83,33 @@
                             </td>
                             <c:choose>
                             	<c:when test="${PointVo.pointGroup %2 == 1}">
-                            		<td class="column4">${PointVo.charge}p</td>
+                            		<td class="column4">${PointVo.amount}p</td>
                             		<td class="column5">-</td>
+                            		<td class="column6">0p</td>
                             	</c:when>
                             	<c:otherwise>
                             		<td class="column4">-</td>
-                            		<td class="column5">${PointVo.charge}p</td>
+                            		<td class="column5">${PointVo.amount}p</td>
+                            		<td class="column6">0p</td>
                             	</c:otherwise>	
                             </c:choose>
-                            <td class="column6">${PointVo.amount }p</td>
+                            
                         </tr>
                        
                     </c:forEach> 
+                    
+					<c:set var="length" value="${fn:length(pMap.pList)}" />
+					
+					<c:forEach begin="1" end="${7-length}" step="1">
+                        <tr>
+                            <td class="column1"></td>
+                            <td class="column2"></td>
+                            <td class="column3"></td>
+                       		<td class="column4"></td>
+                       		<td class="column5"></td>
+                            <td class="column6">0p</td>
+                        </tr>						
+					</c:forEach>                    
                     </tbody>
                 </table>
                 	

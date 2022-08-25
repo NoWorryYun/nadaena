@@ -634,11 +634,12 @@
 								p.pointGroup,
 								p.charge,
 								p.amount,
-								to_char(p.pointDate, 'yyyy-mm-dd') pointDate,
+								p.pointDate,
 								p.source,
 								p.pointMemo
 						from users u, point p
-						where u.userNo = p.userNo)ot
+						where u.userNo = p.userNo
+						order by p.pointDate desc)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  

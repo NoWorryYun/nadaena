@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -60,7 +61,21 @@
 						</div>
 						<button>리워드 받기</button>
 					</div>
-					</c:forEach>	
+					</c:forEach>
+					
+					<c:set var="length" value="${fn:length(mcMap.meList2)}" />
+					
+					<c:forEach begin="1" end="${3-length}" step="1">
+						<div class="challenge-box2">
+							<div class="challenge-image2">
+								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
+							</div>
+							<div class="none2">
+								<a href="#">이벤트 참여하기</a>
+							</div>
+						</div>
+						
+					</c:forEach>							
 				</div>
 				
 			

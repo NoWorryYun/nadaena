@@ -57,7 +57,7 @@
 					<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
-								<a href="#"><img class="img-size" src="${pageContext.request.contextPath }/upload/${RequestScope.reviewImg }"></a>
+								<a href="#"><img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
 							</div>
 							<div class="certify-list-info">
 								<div>

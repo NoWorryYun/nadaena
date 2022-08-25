@@ -11,10 +11,11 @@ public class PointVo {
 	private String pointDate;
 	private String source;
 	private String pointMemo;
+	private int rn;
 	public PointVo() {
 		super();
 	}
-	public PointVo(int pointNo, int userNo, int pointGroup, int charge, int amount, String pointDate, String source, String pointMemo) {
+	public PointVo(int pointNo, int userNo, int pointGroup, int charge, int amount, String pointDate, String source, String pointMemo, int rn) {
 		super();
 		this.pointNo = pointNo;
 		this.userNo = userNo;
@@ -24,6 +25,7 @@ public class PointVo {
 		this.pointDate = pointDate;
 		this.source = source;
 		this.pointMemo = pointMemo;
+		this.rn = rn;
 	}
 	public int getPointNo() {
 		return pointNo;
@@ -73,9 +75,15 @@ public class PointVo {
 	public void setPointMemo(String pointMemo) {
 		this.pointMemo = pointMemo;
 	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
 	@Override
 	public String toString() {
-		return "PointVo [pointNo=" + pointNo + ", userNo=" + userNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", source=" + source + ", pointMemo=" + pointMemo + "]";
+		return "PointVo [pointNo=" + pointNo + ", userNo=" + userNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", source=" + source + ", pointMemo=" + pointMemo + ", rn=" + rn + "]";
 	}
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -40,7 +41,12 @@
 			<div id="content" class="col-10">
 				<h3>즐겨찾기</h3>
 				
-				<div class="challenge-header">관심있는 챌린지</div>
+				<div class="challenge-header">관심있는 챌린지
+					<ul>
+						<li><a href="${pageContext.request.contextPath }/my/my-bookmark1">챌린지</a></li>
+						<li class="last-list"><a href="${pageContext.request.contextPath }/my/my-bookmark2">이벤트</a></li>
+					</ul>		
+				</div>			
 				<div class="challenge-images">
 					<c:forEach items="${mbMap.mbList1}" var="MyVo" varStatus="i">
 					<div class="challenge-box">
@@ -53,6 +59,19 @@
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 					</div>	
+					</c:forEach>
+					
+					<c:set var="length" value="${fn:length(mbMap.mbList1)}" />
+					
+					<c:forEach begin="1" end="${3-length}" step="1">
+						<div class="challenge-box2">
+							<div class="challenge-image2">
+								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
+							</div>
+							<div class="none2">
+								<a href="#">챌린지 참여하기</a>
+							</div>
+						</div>
 					</c:forEach>
 				</div>
 				
