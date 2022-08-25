@@ -33,10 +33,15 @@ public class ChallengeController {
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) {
 		System.out.println("challnege/intro");
-
+		
 		UserVo userVo = (UserVo)session.getAttribute("authUser");
 		
-		int userNo = userVo.getUserNo();
+		int userNo;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}  else {
+			userNo = -1;
+		}
 		
 		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
