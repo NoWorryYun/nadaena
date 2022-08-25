@@ -1,6 +1,6 @@
 package com.nadaena.vo;
 
-public class MyVo {
+public class MCVo {
 	
 	//필드
 	private int userClgNo;
@@ -21,10 +21,10 @@ public class MyVo {
 	private String startday;
 	private String endday;
 	private String yesterday;
-	public MyVo() {
+	public MCVo() {
 		super();
 	}
-	public MyVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, int clgGroup, String startday, String endday,
+	public MCVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, int clgGroup, String startday, String endday,
 			String yesterday) {
 		super();
 		this.userClgNo = userClgNo;
@@ -156,7 +156,7 @@ public class MyVo {
 	}
 	@Override
 	public String toString() {
-		return "MyVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
+		return "MCVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
 				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + "]";
 	}
 	

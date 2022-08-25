@@ -65,18 +65,9 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								${cMap.intro.clgTitle}<br>2022-08-06~2022-08-27<br>
+								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
-							<form action="" method="post">
-								<c:choose>
-									<c:when test="">
-										<button class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button> 
-									</c:when>
-									<c:otherwise>
-										<button class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>
-									</c:otherwise>
-								</c:choose>
-							</form>
+							<div id="bookMark" class="i-float"></div>
 						</div>
 
 						<div id="read-content">
@@ -91,7 +82,7 @@
 									<div id="introduce-wrap">
 										<div>
 											<div class="float-l">
-												<img class="picture-size" src="${pageContext.request.contextPath}/upload/forNaDaeNa/${cMap.intro.img}">
+												<div class="picture-size" style="background-image: url(${pageContext.request.contextPath}/upload/forNaDaeNa/${cMap.intro.img});"></div>
 												<div>
 													<div>
 														<p class="font-12 fw-bold">카테고리 : ${cMap.intro.interestName}</p>
@@ -114,7 +105,7 @@
 																	<td class="write-table-label">모집기간</td>
 																	<td class="font-12">
 																		<p>
-																			<span id="startPeriod"></span>2022-08-01 ~ <span id="recruitPeriod"></span>2022-08-06 (${intro.recuritment})
+																			<span id="startPeriod"></span>${cMap.intro.regDate} ~ <span id="recruitPeriod"></span>${cMap.intro.recRDM} (${cMap.intro.recruitment}일)
 																		</p>
 																	</td>
 																</tr>
@@ -136,7 +127,7 @@
 																	<td class="write-table-label">난이도</td>
 																	<td class="font-12">
 																	<c:choose>
-																		<c:when test="${cMap.intro.clgLevel == 3}">
+																		<c:when test="${cMap.intro.clgLevel == 1}">
 																		<p class="clgLevel">하</p>
 																		</c:when>
 																		<c:when test="${cMap.intro.clgLevel == 2}">
@@ -153,49 +144,58 @@
 																	<td class="write-table-label">참가비용</td>
 																	<td class="font-12 table-none">
 																	<c:choose>
-																			<c:when test="${cMap.intro.clgLevel == 1}">
+																			<c:when test="${cMap.intro.clgLevel == 3}">
 																				<select name="payment">
-																					<option value="0" selected="selected">금액설정</option>
-																					<option value="10,000">10,000</option>
-																					<option value="20,000">20,000</option>
-																					<option value="30,000">30,000</option>
-																					<option value="40,000">40,000</option>
-																					<option value="50,000">50,000</option>
-																					<option value="60,000">60,000</option>
-																					<option value="70,000">70,000</option>
-																					<option value="80,000">80,000</option>
-																					<option value="90,000">90,000</option>
-																					<option value="100,000">100,000</option>
+																					<option value="0">금액설정</option>
+																					<option value="10000">10,000</option>
+																					<option value="20000">20,000</option>
+																					<option value="30000">30,000</option>
+																					<option value="40000">40,000</option>
+																					<option value="50000">50,000</option>
+																					<option value="60000">60,000</option>
+																					<option value="70000">70,000</option>
+																					<option value="80000">80,000</option>
+																					<option value="90000">90,000</option>
+																					<option value="100000">100,000</option>
 																				</select>
 																			</c:when>
 																			<c:when test="${cMap.intro.clgLevel == 2}">
 																				<select name="payment">
-																					<option value="0" selected="selected">금액설정</option>
-																					<option value="10,000">10,000</option>
-																					<option value="20,000">20,000</option>
-																					<option value="30,000">30,000</option>
-																					<option value="40,000">40,000</option>
-																					<option value="50,000">50,000</option>
+																					<option value="0">금액설정</option>
+																					<option value="10000">10,000</option>
+																					<option value="20000">20,000</option>
+																					<option value="30000">30,000</option>
+																					<option value="40000">40,000</option>
+																					<option value="50000">50,000</option>
 																				</select>
 																			</c:when>
 																			<c:otherwise>
 																				<select name="payment">
-																					<option value="0" selected="selected">금액설정</option>
-																					<option value="10,000">10,000</option>
-																					<option value="20,000">20,000</option>
-																					<option value="30,000">30,000</option>
+																					<option value="0">금액설정</option>
+																					<option value="10000">10,000</option>
+																					<option value="20000">20,000</option>
+																					<option value="30000">30,000</option>
 																				</select>
 																			</c:otherwise>
 																		</c:choose> &nbsp;원</td>
 																</tr>
 																<tr style="border-style: none;">
 																	<td id="enter-challenge-cell" class="type-center" colspan="2">
-																		<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																		<c:choose>
+																			<c:when test="${cMap.joinChk} == 0">
+																				<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																			</c:when>
+																			<c:otherwise>
+																				<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
+																			</c:otherwise>
+																		</c:choose>
+																		
 																	</td>
 																</tr>
 															</tbody>
 														</table>
-														<input type="hidden" id="authUserNo" name="userNo" value="${authUser.userNo}">
+														<input type="hidden" id="authUserNo" name="userNo" value="1">
+														<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 													</form>
 													<!-- //form -->
 												</div>
@@ -225,8 +225,7 @@
 											<div class="swiper-wrapper">
 												<div class="swiper-slide"></div>
 												<div class="swiper-slide">
-													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png">
-													</a>
+													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png"> </a>
 												</div>
 												<div class="swiper-slide"></div>
 											</div>
@@ -296,26 +295,101 @@
 
 
 <script type="text/javascript">
-
-	var authUser = $("#authUserNo").val();
-
+	
+	
 	$("#joinForm").on("submit", function(){
 		
-		console.log(authUser);
+		var payment = $('select[name="payment"]').val();
 		
- 		if(authUser == "" || authuser == null){
- 			alert("로그인 해주세요");
- 			location.href = "${pageContext.request.contextPath}/user/login";
- 			return false;
- 		} 
-		var payment = $("[name='payment']").val();
-		console.log(payment);
-		if(payment < 1){
-			alert("금액을 선택해 주세요");
+		if(authUser == "" || authUser == null){
+			alert("로그인 해주세요");
+			location.href = "${pageContext.request.contextPath}/user/login";
 			return false;
- 		}
+		} 
+		
+		console.log(payment);
+		
+		if(payment == "" || payment == null || payment < 1){
+			alert("금액을 설정해 주세요.");
+			return false;
+		}
+		
+		
+		
+		alert("참여가 완료되었습니다!");
 	})
 	
+	
+	var authUser = $("#authUserNo").val();
+	var challengeNo = $("#challengeNo").val();
+	
+	authUser = Number(authUser);
+	challengeNo = Number(challengeNo);
+	
+	console.log(authUser);
+	console.log(challengeNo);
+	
+	var bookMarkData = {
+			userNo : authUser,
+			challengeNo : challengeNo
+	}
+	
+	$(document).ready(function(){
+		bkload();
+	})
+	
+	//북마크 확인하기
+	function bkload(){
+	if(authUser == "" || authUser == null){
+			$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
+		} else{
+			$.ajax({
+				contentType : 'application/json',     
+				data : JSON.stringify(authUser),
+				url : '${pageContext.request.contextPath}/challenge/bookMark',
+				type : 'POST',
+				
+				dataType : "json",
+				success : function(result){
+					if(result == 1){
+						$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
+					} else{
+						$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+					}
+				}
+			})
+		}
+	}
+	
+	$("#bookMark").on("click", "#unCheckbookMark", function(){
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(bookMarkData),
+			url : '${pageContext.request.contextPath}/challenge/chkBookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
+			}
+		})
+	})
+	
+	$("#bookMark").on("click", "#checkbookMark", function(){
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(bookMarkData),
+			url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+			}
+		})
+	})
+	
+
 
 </script>
 

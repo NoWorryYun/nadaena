@@ -4,7 +4,7 @@
 <configuration>
     <typeAliases>
     <typeAlias alias="ChallengeVo" type="com.nadaena.vo.ChallengeVo" />
-    <typeAlias alias="MyVo" type="com.nadaena.vo.MyVo" />
+    <typeAlias alias="MCVo" type="com.nadaena.vo.MCVo" />
     <typeAlias alias="ReviewVo" type="com.nadaena.vo.ReviewVo" />
     <typeAlias alias="PointVo" type="com.nadaena.vo.PointVo" />
     <typeAlias alias="UserVo" type="com.nadaena.vo.UserVo" />
@@ -15,7 +15,7 @@
     	<mapper resource="mybatis/mappers/mainTitle.xml" />
     	<mapper resource="mybatis/mappers/Search.xml" />
     	<mapper resource="mybatis/mappers/Challenge.xml" />
-    	<mapper resource="mybatis/mappers/my.xml" />
+    	<mapper resource="mybatis/mappers/myChallenge.xml" />
     	<mapper resource="mybatis/mappers/point.xml" />
     	<mapper resource="mybatis/mappers/users.xml" />
     	<mapper resource="mybatis/mappers/product.xml" />

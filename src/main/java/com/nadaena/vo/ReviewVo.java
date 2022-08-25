@@ -13,9 +13,17 @@ public class ReviewVo {
 	private String nickname;
 	private String clgTitle;
 	private int state;
+<<<<<<< HEAD
 	private String reviewImg;
 	private String saveName;
 	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName) {
+=======
+	public ReviewVo() {
+		super();
+	}
+	
+	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile reviewImg, String reviewContent, String reviewDate, String nickname, String clgTitle, int state) {
+>>>>>>> branch 'master' of https://github.com/NoWorryYun/nadaena.git
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
@@ -100,8 +108,12 @@ public class ReviewVo {
 	}
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "ReviewVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", file=" + file + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state
 				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + "]";
+=======
+		return "MRVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", reviewImg=" + reviewImg + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state + "]";
+>>>>>>> branch 'master' of https://github.com/NoWorryYun/nadaena.git
 	}
 	
 }

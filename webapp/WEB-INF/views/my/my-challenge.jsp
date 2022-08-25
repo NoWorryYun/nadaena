@@ -45,7 +45,7 @@
 				
 				
 				<div class="challenge-images">
-					<c:forEach items="${mcMap.mcList}" var="MyVo" varStatus="i">
+					<c:forEach items="${mcMap.mcList}" var="MCVo" varStatus="i">
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
@@ -55,12 +55,12 @@
 									<h4>${MyVo.clgTitle }</h4>
 									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 									<p>참여 인원 : 15</p>
-									<p>도전비용 : ${MyVo.payment }원</p>
+									<p>도전비용 : ${MCVo.payment }원</p>
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
 							</div>	 
-							<c:if test="${MyVo.endday >= MyVo.yesterday}">
-								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기 ${MyVo.challengeNo}</button>
+							<c:if test="${MCVo.endday >= MCVo.yesterday}">
+								<button class="modal-button"  data-challengeno="${MCVo.challengeNo}" data-title="${MCVo.clgTitle }">리워드 받기 ${MCVo.challengeNo}</button>
 							</c:if>	
 						</div>
 						
@@ -95,10 +95,10 @@
 									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
 								</div>
 								<div class="challenge-info">
-									<h4>${MyVo.clgTitle }</h4>
+									<h4>${MCVo.clgTitle }</h4>
 									<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 									<p>참여 인원 : 15</p>
-									<p>도전비용 : ${MyVo.payment }원</p>
+									<p>도전비용 : ${MCVo.payment }원</p>
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
 							</div>	 
@@ -154,7 +154,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form action="${pageContext.request.contextPath}/my/writeReview" method="post" enctype="multipart/form-data">
+			<form action="writeReview" method="get">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
@@ -169,7 +169,11 @@
 					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
+<<<<<<< HEAD
 				<input type="file" id="modal-upbutton" name="file" value="">
+=======
+				<input type="file" id="modal-upbutton">
+>>>>>>> branch 'master' of https://github.com/NoWorryYun/nadaena.git
 				
 				<!-- <div class="modal-image-box">
 					<div class="modal-image">
@@ -227,8 +231,7 @@ $(".modal-button").on("click", function(){
 	$("#review-modal .writeday").html(today);
 	
 	//모달 보이기
-	$("#review-modal").modal("show");
-	
+	$("#review-modal").modal("show");	
 });	
 
 
@@ -239,7 +242,9 @@ $(".btn-close").on("click", function(){
 });	 
 
 
-      
+
+
+
 
 
 </script>

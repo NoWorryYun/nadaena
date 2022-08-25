@@ -994,6 +994,7 @@
 			clgLevel = 3;
 		}
 		
+		console.log(clgLevel);
 	
   		if(clgLevel == 1 && payment > 30000){
   			alert("금액을 다시 설정해 주세요. 난이도(하)10,000~30,000 설정 가능");
@@ -1026,11 +1027,21 @@
   		
   		formData.append('upload' ,  $('input:radio[name="upload"]:checked').val());
   		formData.append('certifyDay' ,  $('input:radio[name="certifyDay"]:checked').val());
-  		formData.append('tag1' ,  tagList[0]);
-  		formData.append('tag2' ,  tagList[1]);
-  		formData.append('tag3' ,  tagList[2]);
-  		formData.append('tag4' ,  tagList[3]);
-  		formData.append('tag5' ,  tagList[4]);
+  		
+  		for(var i = 0 ; i <5 ; i++){
+  		
+  			if(i <tagList.length){
+  				formData.append('tag'+(i+1) ,  tagList[i]);
+  	  			console.log('tag'+(i+1));
+  	  			console.log(tagList[i]);	
+  			}else {
+  				formData.append('tag'+(i+1) , "");
+  	  			console.log('tag'+(i+1));
+  	  			console.log(tagList[i]);
+  			}
+  		}
+  		
+  		
   		formData.append('content', content);
   		formData.append('clgLevel', clgLevel);
   		formData.append('payment', payment);
@@ -1038,7 +1049,7 @@
   		
   		formData.append('color',  $('[name="color"]').css( "background-color"));
   		
-  		
+  		console.log(clgLevel);
   		$.ajax({
   			contentType : false,
   			processData : false,
@@ -1085,7 +1096,7 @@
   		  			success : function(result){
   		  				if(result == 1){
 	  		  	  		alert("챌린지가 개설되었습니다!");
-	  	 				location.href = "${pageContext.request.contextPath}/main";
+// 	  	 				location.href = "${pageContext.request.contextPath}/main";
   		  				} else{
   		  					alert("챌린지 개설이 취소되었습니다.");
   		  					return false;

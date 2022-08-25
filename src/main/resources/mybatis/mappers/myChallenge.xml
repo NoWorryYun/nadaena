@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="myChallenge">
+ 
+	<!-- 참가챌린지 가져오기 -->
+	<select id="selectList" resultType="MCVo">
+		<![CDATA[
+			select  m.userNo,
+					m.userClgNo,
+					c.challengeNo,
+					c.clgTitle,
+					m.mychallengeDate,
+					m.founder,
+					m.achievement,
+					m.state,
+			        to_char(c.regdate, 'yy/mm/dd') regDate,
+			        c.recruitment,
+			        c.period,
+			        c.clgGroup,
+			        to_char(c.regdate + c.recruitment) startday,
+			        to_char(c.regdate + c.recruitment + c.period) endday,
+			        m.payment,
+			        to_char(sysdate-1, 'yy/mm/dd') yesterday
+			from challenge c, mychallenge m
+			where c.challengeNo = m.challengeNo
+			and   m.state = 1
+			and   c.clgGroup=1
+		]]>
+	</select>	
+	
+	<!-- 종료 챌린지(전체) + 페이징 -->
+	<select id="selectList12" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.payment,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.recruitment,
+			        	 ot.period,
+			        	 ot.clgGroup,
+			        	 ot.startday,
+			        	 ot.endday,
+			       	  	 ot.payment,
+			       	  	 ot.yesterday
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        m.payment,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2
+					    and   c.clgGroup=1)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>
+	
+	<!-- 종료 챌린지(전체) + 페이징 -->
+	<select id="selectList13" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.payment,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.recruitment,
+			        	 ot.period,
+			        	 ot.clgGroup,
+			        	 ot.startday,
+			        	 ot.endday,
+			       	  	 ot.payment,
+			       	  	 ot.yesterday
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        m.payment,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2
+					    and   m.achievement >= 90
+					    and   c.clgGroup=1)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
+	
+	
+	<!-- 종료 챌린지(실패) + 페이징 -->
+	<select id="selectList14" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.payment,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.recruitment,
+			        	 ot.period,
+			        	 ot.clgGroup,
+			        	 ot.startday,
+			        	 ot.endday,
+			       	  	 ot.payment,
+			       	  	 ot.yesterday
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        m.payment,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2
+					    and   m.achievement < 90
+					    and   c.clgGroup=1)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
+	
+	<!-- 진행 이벤트(전체) + 페이징 -->
+	<select id="selectList21" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.payment,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.recruitment,
+			        	 ot.period,
+			        	 ot.clgGroup,
+			        	 ot.startday,
+			        	 ot.endday,
+			       	  	 ot.payment,
+			       	  	 ot.yesterday
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        m.payment,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 1
+					    and   c.clgGroup=2)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>
+	<!-- 종료 이벤트(전체) + 페이징 -->
+	<select id="selectList22" parameterType= "Map" resultType="MCVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.userNo,
+					ort.userClgNo,
+					ort.challengeNo,
+					ort.clgTitle,
+					ort.mychallengeDate,
+					ort.founder,
+					ort.achievement,
+					ort.state,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.payment,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.userNo,
+						 ot.userClgNo,
+						 ot.challengeNo,
+						 ot.clgTitle,
+						 ot.mychallengeDate,
+						 ot.founder,
+						 ot.achievement,
+						 ot.state,
+			        	 ot.regDate,
+			        	 ot.recruitment,
+			        	 ot.period,
+			        	 ot.clgGroup,
+			        	 ot.startday,
+			        	 ot.endday,
+			       	  	 ot.payment,
+			       	  	 ot.yesterday
+				  from (select  m.userNo,
+								m.userClgNo,
+								c.challengeNo,
+								c.clgTitle,
+								m.mychallengeDate,
+								m.founder,
+								m.achievement,
+								m.state,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        m.payment,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+					    from challenge c, mychallenge m
+					    where c.challengeNo = m.challengeNo
+					    and   m.state = 2
+					    and   c.clgGroup=2)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
+	
+	
+	<!-- 전체글갯수 구하기 -->
+	<select id="selectTotalCnt" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.state=2
+		    and   c.clgGroup=1
+		]]>
+	</select>
+	
+	<!-- 성공글갯수 구하기 -->
+	<select id="selectTotalCnt2" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.achievement >= 90
+		    and m.state=2
+		    and   c.clgGroup=1
+		]]>
+	</select>	
+
+	<!-- 실패글갯수 구하기 -->
+	<select id="selectTotalCnt3" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.achievement < 90
+		    and m.state=2
+		    and   c.clgGroup=1
+		]]>
+	</select>
+
+
+	<!-- 이벤트 진행중 갯수 구하기 -->
+	<select id="selectTotalCnt21" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.state=1
+		    and   c.clgGroup=2
+		]]>
+	</select>	
+	
+	<!-- 종료 이벤트 갯수 구하기 -->
+	<select id="selectTotalCnt22" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from challenge c, mychallenge m
+		    where c.challengeNo = m.challengeNo
+		    and m.state=2
+		    and   c.clgGroup=2
+		]]>
+	</select>	
+	
+	<!-- 리뷰불러오기 + 페이징 -->
+	<select id="selectreviewList" parameterType= "Map" resultType="ReviewVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.reviewNo,
+					ort.challengeNo,
+					ort.userNo,
+					ort.reviewContent
+			from (select rownum rn,
+						 ot.reviewNo,
+						 ot.challengeNo,
+						 ot.userNo,
+						 ot.reviewContent
+				  from (select  reviewNo,
+								challengeNo,
+								u.userNo,
+								reviewContent
+						from review r, users u
+						where u.userNo = r.userNo)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
+	
+	
+	<!-- 리뷰 갯수 구하기 -->
+	<select id="selectTotalCnt41" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from review r, users u
+		    where u.userNo = r.userNo
+		]]>
+	</select>		
+	
+	<!-- 리뷰작성 -->
+	<insert id="insertReview" parameterType="ReviewVo">
+		<![CDATA[
+			insert into review
+			values (SEQ_REVIEWNO.nextval,
+					#{challengeNo},
+					#{userNo},
+					null,
+					#{reviewContent},
+					sysdate
+					)
+		]]>
+	</insert>
+	
+	<!-- 리뷰 작성시 상태 업데이트 -->
+	<update id="updateState" parameterType="ReviewVo">
+		<![CDATA[
+			update myChallenge
+			set state = 2
+			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
+		]]>
+	</update>
+	
+	<!-- 내가 쓴 리뷰 삭제 -->
+	<delete id="deleteReview" parameterType="ReviewVo">
+		<![CDATA[
+			delete from review 
+			where reviewNo = #{reviewNo}
+		]]>
+	</delete>
+	
+	<!-- 포인트내역 + 페이징 -->
+	<select id="selectPoint" parameterType= "Map" resultType="PointVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.pointNo,
+					ort.userNo,
+					ort.pointGroup,
+					ort.charge,
+					ort.amount,
+					ort.pointDate,
+					ort.source,
+					ort.pointMemo
+			from (select rownum rn,
+						 ot.pointNo,
+						 ot.userNo,
+						 ot.pointGroup,
+						 ot.charge,
+						 ot.amount,
+						 ot.pointDate,
+						 ot.source,
+						 ot.pointMemo
+				  from (select  p.pointNo,
+								p.userNo,
+								p.pointGroup,
+								p.charge,
+								p.amount,
+								to_char(p.pointDate, 'yyyy-mm-dd') pointDate,
+								p.source,
+								p.pointMemo
+						from users u, point p
+						where u.userNo = p.userNo)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
+	
+	<!-- 포인트내역 갯수 구하기 -->
+	<select id="selectTotalCnt51" resultType="int">
+		<![CDATA[
+			select count(*) count
+			from point p, users u
+		    where u.userNo = p.userNo
+		]]>
+	</select>	
+	
+</mapper>

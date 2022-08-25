@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,34 +24,11 @@ public class ChallengeService {
 	@Autowired
 	private ChallengeDao challengeDao;
 	
-	
-	//Intro 받아오기
-	public Map<String, Object> intro(int challegeNo) {
-		
-		ChallengeVo intro = challengeDao.intro(challegeNo);
-		
-		List<ChallengeVo> certifyList = challengeDao.certifyList(challegeNo);
-		
-		Map<String, Object> cMap = new HashMap<String, Object>();
-		
-		cMap.put("intro", intro);
-		cMap.put("certifyList", certifyList);
-		
-		return cMap;
-	}
-	
-	//챌린지 참여하기(유저)
-	public int joinChallenge(ChallengeVo challengeVo) {
-		
-		return challengeDao.joinChallenge(challengeVo);
-	}
-	
 	//챌린지 만들기
 	
 	public int makeChallenge(ChallengeVo challengeVo){
 		
 			System.out.println("ChallengeSerivce > makeChallenge()");
-			System.out.println(challengeVo.getImgs().getOriginalFilename());
 		
 			String saveDir = "C:\\javaStudy\\upload\\forNaDaeNa";
 			
@@ -70,7 +49,7 @@ public class ChallengeService {
 			//파일 사이즈
 			//long fileSize = file[0].getSize();
 			
-			
+			System.out.println("challengeVo: "+challengeVo);
 			//값 꺼내기
 			int interestNo = challengeVo.getInterestNo();
 			String img = saveName;
@@ -89,6 +68,7 @@ public class ChallengeService {
 			String tag4 = challengeVo.getTag4();
 			String tag5 = challengeVo.getTag5();
 			int clgLevel = challengeVo.getClgLevel();
+			System.out.println("서비스 레벨"+clgLevel);
 			int payment = challengeVo.getPayment();
 			int userNo = challengeVo.getUserNo();
 			//Vo로 묶기
@@ -110,21 +90,20 @@ public class ChallengeService {
 												tag5,
 												clgLevel);
 			
+			System.out.println(clgVo);
+			
 			// Dao DB에 저장
 			challengeDao.makeChallenge(clgVo);
-			System.out.println(clgVo);
+			System.out.println("보 겟레벨:"+clgVo.getClgLevel());
 			
 			// 챌린지 번호 뽑기
 			int challengeNo = clgVo.getChallengeNo();
-			System.out.println(challengeNo);
-			
-			
 			
 			ChallengeVo clgjoinVo = new ChallengeVo(challengeNo, userNo, payment);
 			
 			// 챌린지 참가(방장)
-			int clgheader = challengeDao.joinChallengeHeader(clgjoinVo);
-			System.out.println(clgheader);
+			challengeDao.joinChallengeHeader(clgjoinVo);
+
 			// 파일 저장
 			try {
 				byte[] fileData = challengeVo.getImgs().getBytes();
@@ -141,10 +120,64 @@ public class ChallengeService {
 		return challengeNo;
 	}
 	
-	
 	//챌린지 과제 만들기
 	public int makeClgSub(List<ChallengeSubVo> upsList) {
 
 		return challengeDao.makeClgSub(upsList);
 	}
+	
+	
+	//Intro 받아오기
+	public Map<String, Object> intro(int challengeNo, HttpServletRequest request) {
+		
+		ChallengeVo clgVo= (ChallengeVo)request.getAttribute("authUser");
+		
+		int userNo = 1;
+		
+		ChallengeVo challengeVo = new ChallengeVo(challengeNo, userNo);
+		
+		System.out.println("challengeVo : "+ challengeVo);
+		
+		ChallengeVo intro = challengeDao.intro(challengeNo);
+		
+		List<ChallengeVo> certifyList = challengeDao.certifyList(challengeNo);
+		
+		int joinChk = challengeDao.joinChk(challengeVo);
+		
+		System.out.println("joinChk : " + joinChk);
+		
+		Map<String, Object> cMap = new HashMap<String, Object>();
+		
+		cMap.put("intro", intro);
+		cMap.put("certifyList", certifyList);
+		cMap.put("joinChk", joinChk);
+		return cMap;
+	}
+
+	//북마크 확인
+	public int bookMark(int challengeNo) {
+		
+		return challengeDao.bookMark(challengeNo);
+	}
+
+	//북마크 설정
+	public int chkBM(ChallengeVo challengeVo) {
+		
+		return challengeDao.chkBM(challengeVo);
+	}
+	
+	//북마크 해제
+	public int unChkBm(ChallengeVo challengeVo) {
+		
+		return challengeDao.unChkBM(challengeVo);
+	}
+	
+	
+	//챌린지 참여하기(유저)
+	public int joinChallenge(ChallengeVo challengeVo) {
+		
+		return challengeDao.joinChallenge(challengeVo);
+	}
+	
+
 }

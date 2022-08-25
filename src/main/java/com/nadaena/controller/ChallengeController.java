@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,10 +30,10 @@ public class ChallengeController {
 	
 	//intro
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge(@PathVariable("challengeNo") int challengeNo, Model model) {
+	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpServletRequest request, Model model) {
 		System.out.println("challnege/intro");
 
-		Map<String, Object> cMap = challengeService.intro(challengeNo);
+		Map<String, Object> cMap = challengeService.intro(challengeNo, request);
 		
 		model.addAttribute("cMap" , cMap);
 		
@@ -89,12 +91,9 @@ public class ChallengeController {
     @RequestMapping(value = "/challenge/upload", method = { RequestMethod.GET, RequestMethod.POST })
     public int challengeData(@ModelAttribute ChallengeVo challengeVo) throws IOException {
 
-		System.out.println(challengeVo);
-		
+		System.out.println(challengeVo.getClgLevel());
 		int challengeNo = challengeService.makeChallenge(challengeVo);
 		
-		System.out.println(challengeNo);
-    	
     	return challengeNo;
     }
 	
@@ -102,19 +101,41 @@ public class ChallengeController {
 	@RequestMapping(value = "/challenge/makeSubject", method = { RequestMethod.GET, RequestMethod.POST })
 	public int challengeSub(@RequestBody List<ChallengeSubVo> upsList) throws IOException {
 
-		System.out.println(upsList);
-		
 		int challengeSub = challengeService.makeClgSub(upsList);
 		
-		System.out.println(challengeSub);
-		
 		return challengeSub;
+	}
+	
+	//북마크 확인
+	@ResponseBody
+	@RequestMapping(value="/challenge/bookMark", method = {RequestMethod.GET, RequestMethod.POST})
+	public int Bookmark(@RequestBody int userNo) {
+	
+		return challengeService.bookMark(userNo);
+		
+	}
+	
+	//북마크 설정
+	@ResponseBody
+	@RequestMapping(value="/challenge/chkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
+	public int chkBookMark(@RequestBody ChallengeVo challengeVo) {
+	
+		return challengeService.chkBM(challengeVo);
+		
+	}
+
+	//북마크 해제
+	@ResponseBody
+	@RequestMapping(value="/challenge/unChkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
+	public int unChkBookMark(@RequestBody ChallengeVo challengeVo) {
+		
+		return challengeService.unChkBm(challengeVo);
+		
 	}
 	
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })
 	public String readBoard() {
-		System.out.println("challenge/board");
 
 		return "challenge/readboard";
 	}

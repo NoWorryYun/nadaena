@@ -57,6 +57,10 @@
 			      		</td>
 		      		</tr>
 		      		<tr>
+		      			<td>내용</td>
+		      			<td colspan="2"><textarea name="postContent"></textarea></td>
+		      		</tr>
+		      		<tr>
 			      		<div id="file">
 								<table>
 									<colgroup>
@@ -64,15 +68,13 @@
 										<col style="width: 220px;">
 									</colgroup>
 									<tr>
-										<td class="text-left"><input type="file" name="file"></td>
+										<td class="text-left"><label for="fileUpload">사진 선택</label>
+										<input id="fileUpload" type="file" name="file" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml" style="display:none"></td>
 									</tr>
 								</table>
 						</div>
 		      		</tr>
-		      		<tr>
-		      			<td>내용</td>
-		      			<td colspan="2"><textarea name="postContent"></textarea></td>
-		      		</tr>
+		      		
 		      	</table>
 		      	<div id="btnArea">
 		      		<button class="btn_l" type="submit" >포스트하기</button>
