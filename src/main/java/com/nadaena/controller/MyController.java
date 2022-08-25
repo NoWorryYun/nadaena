@@ -77,6 +77,28 @@ public class MyController {
 		return "my/my-eventend";
 	}
 	
+	//북마크 챌린지 리스트
+	@RequestMapping(value = "my/my-bookmark1", method = { RequestMethod.GET, RequestMethod.POST })
+	public String blist1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> mbMap = myService.getmbList1(crtPage);
+		
+		model.addAttribute("mbMap", mbMap);
+		
+		return "my/my-bookmark1";
+	}	
+	
+	//북마크 이벤트 리스트
+	@RequestMapping(value = "my/my-bookmark2", method = { RequestMethod.GET, RequestMethod.POST })
+	public String blist2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		Map<String, Object> mbMap = myService.getmbList2(crtPage);
+		
+		model.addAttribute("mbMap", mbMap);
+		
+		return "my/my-bookmark2";
+	}	
+	
 	//리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
 	public String rlist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {

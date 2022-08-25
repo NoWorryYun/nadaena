@@ -126,6 +126,46 @@ public class MyDao {
 		return totalCnt22;
 	}
 	
+	//북마크 챌린지 + 페이징
+	public List<MyVo> selectbList1(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MyVo> mbList1 = sqlSession.selectList("my.selectbList1", map);
+		return mbList1;
+	}
+	
+	//북마크 챌린지 갯수
+	public int selectTotalCntb1() {
+		
+		int totalCnt = sqlSession.selectOne("my.selectTotalCntb1");
+		
+		return totalCnt;
+	}
+	
+	//북마크 이벤트 + 페이징
+	public List<MyVo> selectbList2(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<MyVo> mbList2 = sqlSession.selectList("my.selectbList2", map);
+		return mbList2;
+	}
+	
+	//북마크 이벤트 갯수
+	public int selectTotalCntb2() {
+		
+		int totalCnt = sqlSession.selectOne("my.selectTotalCntb2");
+		
+		return totalCnt;
+	}	
+	
+	
+	
 	//리뷰 갯수
 	public int selectTotalCnt41() {
 		

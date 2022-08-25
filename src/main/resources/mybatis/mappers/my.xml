@@ -404,6 +404,141 @@
 		]]>
 	</select>	
 	
+	<!-- 북마크 챌린지 리스트 페이징 -->	
+	<select id="selectbList1" parameterType= "Map" resultType="MyVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.bookmarkNo,
+					ort.userNo,
+					ort.challengeNo,
+					ort.bookmarkDate,
+					ort.clgTitle,
+					ort.Img,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.bookmarkNo,
+						 ot.userNo,
+						 ot.challengeNo,
+						 ot.bookmarkDate,
+						 ot.clgTitle,
+						 ot.Img,
+				         ot.regDate,
+				         ot.recruitment,
+				         ot.period,
+				         ot.clgGroup,
+				         ot.startday,
+				         ot.endday,
+				         ot.yesterday
+				  from (select  b.bookmarkNo,
+								b.userNo,
+								c.challengeNo,
+								to_char(b.bookmarkDate, 'yy/mm/dd') bookmarkDate,
+								c.clgTitle,
+								c.Img,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday					
+						from bookmark b, users u, challenge c
+						where b.bookmarkno = c.challengeNo
+						and b.userno = u.userno
+						and c.clgGroup = 1)ot
+						)ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  		
+		]]>
+	</select>	
+	
+	<!-- 북마크 이벤트 리스트 페이징 -->
+	<select id="selectbList2" parameterType= "Map" resultType="MyVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.bookmarkNo,
+					ort.userNo,
+					ort.challengeNo,
+					ort.bookmarkDate,
+					ort.clgTitle,
+					ort.Img,
+			        ort.regDate,
+			        ort.recruitment,
+			        ort.period,
+			        ort.clgGroup,
+			        ort.startday,
+			        ort.endday,
+			        ort.yesterday
+			from (select rownum rn,
+						 ot.bookmarkNo,
+						 ot.userNo,
+						 ot.challengeNo,
+						 ot.bookmarkDate,
+						 ot.clgTitle,
+						 ot.Img,
+				         ot.regDate,
+				         ot.recruitment,
+				         ot.period,
+				         ot.clgGroup,
+				         ot.startday,
+				         ot.endday,
+				         ot.yesterday
+				  from (select  b.bookmarkNo,
+								b.userNo,
+								c.challengeNo,
+								to_char(b.bookmarkDate, 'yy/mm/dd') bookmarkDate,
+								c.clgTitle,
+								c.Img,
+						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        c.recruitment,
+						        c.period,
+						        c.clgGroup,
+						        to_char(c.regdate + c.recruitment) startday,
+						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday					
+						from bookmark b, users u, challenge c
+						where b.bookmarkno = c.challengeNo
+						and b.userno = u.userno
+						and c.clgGroup = 2)ot
+						)ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}
+		]]>
+	</select>	
+	
+	<!-- 북마크 챌린지 갯수-->
+	<select id="selectTotalCntb1" resultType="int">
+		<![CDATA[
+			select  count(*) count
+			from bookmark b, users u, challenge c
+			where b.bookmarkno = c.challengeNo
+			and b.userno = u.userno
+			and c.clgGroup = 1
+		]]>
+	</select>	
+	
+	<!-- 북마크 이벤트 갯수-->
+	<select id="selectTotalCntb2" resultType="int">
+		<![CDATA[
+			select  count(*) count
+			from bookmark b, users u, challenge c
+			where b.bookmarkno = c.challengeNo
+			and b.userno = u.userno
+			and c.clgGroup = 2
+		]]>
+	</select>	
+	
+	
+	
+	
+	
+	
 	<!-- 리뷰불러오기 + 페이징 -->
 	<select id="selectreviewList" parameterType= "Map" resultType="ReviewVo">
 		<![CDATA[
@@ -455,7 +590,6 @@
 					)
 		]]>
 	</insert>
-	
 	<!-- 리뷰 작성시 상태 업데이트 -->
 	<update id="updateState" parameterType="ReviewVo">
 		<![CDATA[

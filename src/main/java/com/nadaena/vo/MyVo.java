@@ -21,11 +21,13 @@ public class MyVo {
 	private String startday;
 	private String endday;
 	private String yesterday;
+	private String bookmarkNo;
+	private String bookmarkDate;
 	public MyVo() {
 		super();
 	}
 	public MyVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, int clgGroup, String startday, String endday,
-			String yesterday) {
+			String yesterday, String bookmarkNo, String bookmarkDate) {
 		super();
 		this.userClgNo = userClgNo;
 		this.challengeNo = challengeNo;
@@ -45,6 +47,8 @@ public class MyVo {
 		this.startday = startday;
 		this.endday = endday;
 		this.yesterday = yesterday;
+		this.bookmarkNo = bookmarkNo;
+		this.bookmarkDate = bookmarkDate;
 	}
 	public int getUserClgNo() {
 		return userClgNo;
@@ -154,14 +158,24 @@ public class MyVo {
 	public void setYesterday(String yesterday) {
 		this.yesterday = yesterday;
 	}
+	public String getBookmarkNo() {
+		return bookmarkNo;
+	}
+	public void setBookmarkNo(String bookmarkNo) {
+		this.bookmarkNo = bookmarkNo;
+	}
+	public String getBookmarkDate() {
+		return bookmarkDate;
+	}
+	public void setBookmarkDate(String bookmarkDate) {
+		this.bookmarkDate = bookmarkDate;
+	}
 	@Override
 	public String toString() {
 		return "MyVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
-				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + "]";
+				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + ", bookmarkNo=" + bookmarkNo
+				+ ", bookmarkDate=" + bookmarkDate + "]";
 	}
-	
-	
-	
 	
 	
 }
