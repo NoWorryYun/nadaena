@@ -187,7 +187,11 @@
 			          from mychallenge
 			          where challengeNo = #{challengeNo}
 			          and userNo = #{userNo}) userCount,
-	        		founder
+	        		founder,
+	        		(select payment
+			         from mychallenge
+			         where challengeNo = #{challengeNo}
+			         and userNo = #{userNo}) payment
 			from mychallenge          
 			where challengeNo = #{challengeNo}
 		]]>

@@ -155,41 +155,50 @@
 
 																	<td class="write-table-label">참가비용</td>
 																	<td class="font-12 table-none">
-																	<c:choose>
-																			<c:when test="${cMap.intro.clgLevel == 3}">
-																				<select name="payment">
-																					<option value="0">금액설정</option>
-																					<option value="10000">10,000</option>
-																					<option value="20000">20,000</option>
-																					<option value="30000">30,000</option>
-																					<option value="40000">40,000</option>
-																					<option value="50000">50,000</option>
-																					<option value="60000">60,000</option>
-																					<option value="70000">70,000</option>
-																					<option value="80000">80,000</option>
-																					<option value="90000">90,000</option>
-																					<option value="100000">100,000</option>
-																				</select>
-																			</c:when>
-																			<c:when test="${cMap.intro.clgLevel == 2}">
-																				<select name="payment">
-																					<option value="0">금액설정</option>
-																					<option value="10000">10,000</option>
-																					<option value="20000">20,000</option>
-																					<option value="30000">30,000</option>
-																					<option value="40000">40,000</option>
-																					<option value="50000">50,000</option>
-																				</select>
+																	
+																		<c:choose>
+																			<c:when test="${cMap.joinChk.payment != null}">
+																				${cMap.joinChk.payment} &nbsp;원
 																			</c:when>
 																			<c:otherwise>
-																				<select name="payment">
-																					<option value="0">금액설정</option>
-																					<option value="10000">10,000</option>
-																					<option value="20000">20,000</option>
-																					<option value="30000">30,000</option>
-																				</select>
+																				<c:choose>
+																					<c:when test="${cMap.intro.clgLevel == 3}">
+																						<select name="payment">
+																							<option value="0">금액설정</option>
+																							<option value="10000">10,000</option>
+																							<option value="20000">20,000</option>
+																							<option value="30000">30,000</option>
+																							<option value="40000">40,000</option>
+																							<option value="50000">50,000</option>
+																							<option value="60000">60,000</option>
+																							<option value="70000">70,000</option>
+																							<option value="80000">80,000</option>
+																							<option value="90000">90,000</option>
+																							<option value="100000">100,000</option>
+																						</select>
+																					</c:when>
+																					<c:when test="${cMap.intro.clgLevel == 2}">
+																						<select name="payment">
+																							<option value="0">금액설정</option>
+																							<option value="10000">10,000</option>
+																							<option value="20000">20,000</option>
+																							<option value="30000">30,000</option>
+																							<option value="40000">40,000</option>
+																							<option value="50000">50,000</option>
+																						</select>
+																					</c:when>
+																					<c:otherwise>
+																						<select name="payment">
+																							<option value="0">금액설정</option>
+																							<option value="10000">10,000</option>
+																							<option value="20000">20,000</option>
+																							<option value="30000">30,000</option>
+																						</select>
+																					</c:otherwise>
+																				</c:choose> &nbsp;원
 																			</c:otherwise>
-																		</c:choose> &nbsp;원</td>
+																		</c:choose>
+																	</td>
 																</tr>
 																<tr style="border-style: none;">
 																	<td id="enter-challenge-cell" class="type-center" colspan="2">
