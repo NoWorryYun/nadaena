@@ -155,26 +155,6 @@
 			
 			
 			<div id="paging">
-				<ul>
-					<c:if test="${cMap.prev}">
-						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.startPageBtnNo-1}">◀</a></li>
-					</c:if>
-					
-					<c:forEach begin="${cMap.startPageBtnNo}" end="${cMap.endPageBtnNo}" step="1" varStatus="page">							
-						<c:choose>
-							<c:when test="${param.crtPage==page}">
-								<li class="active"><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
-							</c:otherwise>
-						</c:choose>	
-					</c:forEach>
-					
-					<c:if test="${cMap.next}">
-						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.endPageBtnNo+1}">▶</a></li>
-					</c:if>
-				</ul>
 				
 				
 				<div class="clear"></div>
@@ -196,9 +176,12 @@
 
 <script type="text/javascript">
 
-var serchVo = {
+
+
+var searchVo = {
 	keyword: "",
 	interestNo: -1,
+	crtPage: 1,
 	orderType: "regDate"
 };
 
@@ -207,13 +190,13 @@ var serchVo = {
 $(document).ready(function(){
 	/* 리스트 요청+그리기 */
 	
-	serchVo.keyword =  "${param.keyword}";
+	searchVo.keyword =  "${param.keyword}";
 	if(${param.interestNo != null}){
-		serchVo.interestNo = "${param.interestNo}"
+		searchVo.interestNo = "${param.interestNo}";
 	}
-	orderType: "regDate"
+	searchVo.crtPage = 1;
 	
-	fetchList(serchVo);
+	fetchList(searchVo);
 });
 
 
@@ -221,9 +204,9 @@ $(document).ready(function(){
 $("[name='category']").on("click", function(){
 	
 	var interestNo = $(this).val()
-	serchVo.interestNo = interestNo
+	searchVo.interestNo = interestNo
 		
-	fetchList(serchVo);
+	fetchList(searchVo);
 });
 
 /* 인기순 클릭했을때 */
@@ -231,9 +214,9 @@ $("#likeOrder").on("click", function(){
 	console.log("클릭");
 	
 	
-	serchVo.orderType ="likeOrder";
+	searchVo.orderType ="likeOrder";
 	
-	fetchList(serchVo);
+	fetchList(searchVo);
 	
 	
 });
@@ -241,40 +224,41 @@ $("#likeOrder").on("click", function(){
 $("#newOrder").on("click", function(){
 	console.log("newOrder클릭");
 	
-	serchVo.orderType ="newOrder";
+	searchVo.orderType ="newOrder";
 	
-	fetchList(serchVo);
+	fetchList(searchVo);
 	
 });
 /* 마감일순 클릭했을때 */
 $("#recruitmentOrder").on("click", function(){
 	console.log("recruitmentOrder클릭");
 	
-	serchVo.orderType ="recruitmentOrder";
+	searchVo.orderType ="recruitmentOrder";
 	
-	fetchList(serchVo);
+	fetchList(searchVo);
 	
 });
 /* 리스트 요청 */
-function fetchList(serchVo){
-	console.log(serchVo);
+function fetchList(searchVo){
 	$.ajax({
 		url : "${pageContext.request.contextPath }/search/getClgList",		
 		type : "post",
 		//contentType : "application/json",
-		data : serchVo,
-		
+		data : searchVo,
 		
 		dataType : "json",
-		success : function(clgList){
+		success : function(cMap){
 			
-			//리스트영역 초기화
-			$("#clgListArea").text("");
+			console.log(cMap);
+			var clgList = cMap.clgList;
 			
-			//화면 data + html 그린다
 			for(var i=0; i<clgList.length; i++){
-				render(clgList[i], "down");  //vo --> 화면에 그린다.
+				render(clgList[i], "down");
 			}
+			
+			pagingRender(cMap);
+			
+			
 		},
 		error : function(XHR, status, error) {
 			console.error(status + " : " + error);
@@ -286,7 +270,6 @@ function fetchList(serchVo){
 
 /* 리스트 그리기 1개씩*/
 function render(clgVo, opt){
-	console.log("render()");
 	
 	var str = '';
 	str += '<div class="clgItem" >' ;
@@ -315,6 +298,36 @@ function render(clgVo, opt){
 		console.log("opt오류");
 	}
 }
+
+
+
+function pagingRender(cMap){
+	console.log("pagingRender");
+	console.log(cMap.startPageBtnNo);
+	console.log(cMap.endPageBtnNo);
+	var str = '';
+	str += '<ul class="pagination pagination-sm">' ;
+	
+	str += '	<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/search/searchForm?crtPage=${rMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>';
+	
+	for(var i=cMap.startPageBtnNo; i<=cMap.endPageBtnNo; i++){
+		str += '	<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/search/searchForm?crtPage='+ i +'">' + i + '</a></li>';
+	
+	}
+	
+	str += '	<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/search/searchForm?crtPage=${rMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>'
+	
+	str += '</ul>' ;	
+	
+	$("#paging").append(str);	
+	
+	
+	/* str += '    <li class=""><a href="${pageContext.request.contextPath }/search/searchForm?crtPage='+ i +'>aaaa</a></li>' ; */
+	/* str += '    <li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.endPageBtnNo+1}">▶</a></li>' ; */
+	
+
+}
+
 </script>
 
 
