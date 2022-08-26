@@ -116,18 +116,17 @@
 					        <div class="product_title">
 					            <div class="info">
 					                <ul>
-					                        <li>
-					                            <em class="name">
-					                                    [문화상품권] 온라인문화상품권 5만원권
-					                            </em>
-					                            <em class="num"><i>1</i>개</em>
-					                        </li>
+				                        <li>
+				                            <em class="name">
+				                                    [문화상품권] 온라인문화상품권 5만원권
+				                            </em>
+				                        </li>
 					                </ul>
 					            </div>
 					        </div>
 					    </td>
 					    <td class="mgl align_center">
-					        <span class="int_black"><em>48,500</em><i class="won">원</i></span>
+					        <span class="int_black"><em>50,000</em><i class="won">원</i></span>
 					    </td>
 					    <td class="mgl align_center">
 					        <span class="int">
@@ -136,7 +135,7 @@
 					    </td>
 					        <td rowspan="1" class="mgl align_center">
 					            <span class="int_black_big"><em>
-					                48,500
+					                50,000
 					            </em><i class="won">원</i></span>
 					        </td>
 					</tr>
@@ -154,7 +153,7 @@
 					                    <ul>
 					                        <li>
 					                            <em class="title">상품금액</em>
-					                            <span class="int_black_big"><em>48,500</em><i class="won">원</i></span>
+					                            <span class="int_black_big"><em>50,000</em><i class="won">원</i></span>
 					                        </li>
 					                        <li>
 					                            <em class="title">할인금액</em>
@@ -162,10 +161,12 @@
 					                                <em>0</em><i class="won">원</i>
 					                            </span>
 					                        </li>
+					                        <!-- 
 					                        <li>
 					                            <em class="title">배송비</em>
 					                            <span class="int_black_big"><em>0</em><i class="won">원</i></span>
 					                        </li>
+					                         -->
 					                    </ul>
 					                </div>
 					            </td>
@@ -174,20 +175,22 @@
 					            <td colspan="6" class="bd0">
 					                <div class="money_tot">
 					                    <em>총 주문금액</em>
-					                    <span class="int_black_big"><em>48,500</em><i class="won">원</i></span>
+					                    <span class="int_black_big"><em>50,000</em><i class="won">원</i></span>
 					                </div>
 					            </td>
 					        </tr>
 					        </tfoot>
 					    </table>
 					</div>
-					<!-- <div class="immunity_info">
-					    <p>㈜티몬은 통신판매중개자로서 거래 당사자가 아니며, 입점 판매자가 등록한 상품, 거래 정보 및 거래에 대하여 (주)티몬은 일체의 책임을 지지 않습니다.</p>
-					    <p>㈜티몬의 전자금융거래법에 의해 결제대금예치업 등록번호는 02-006-00043입니다. 본 판매자는 고객님의 안전거래를 위해 관련 법률에 의거하여 티몬의 구매안전서비스를 적용하고 있습니다.<br><a href="http://www.fss.or.kr/kr/bbs/iframe/view.jsp?bbsid=1207404527596&amp;idx=1473755344912&amp;num=1" target="_blank">서비스 가입사실 확인 <i class="ico_arrow"></i></a></p>
-					</div> -->
 				</div>
 				<!-- //주문상품정보 -->
 
+
+				<!-- 결제수단 -->
+				<div class="pay_section" id="_payInfo">
+					<h4>결제방법 선택<button type="button" class="btn_pay_info" id="_showCardInterestFreeInfoBtn">포인트 충전</button></h4>
+				</div>
+				<!-- //결제수단 -->
 
 
 			</div>

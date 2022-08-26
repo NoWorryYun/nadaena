@@ -1,6 +1,6 @@
-#contents_wrap1 { width: 100%; }
+/* #contents_wrap1 { width: 100%; }
 
-.contents_1 { width: 1200px; margin: 0 auto; }
+.contents_1 { width: 1200px; margin: 0 auto; } */
 
 .home_btn ul { float: left; }
 .home_btn ul li { float: left; }
@@ -12,9 +12,10 @@
 #contents_wrap2 { width: 100%; padding-bottom: 100px; 
     
 }
-.contents_2 { width: 1200px; margin: 0 auto; 
-    margin-top: 100px; overflow: auto;
-    
+.contents_2 { margin: 0 auto; 
+	width: 1200px;
+    margin-top: 100px; 
+    overflow: auto;
 }
 
 .product_img { float: left; width: 50%; box-sizing: border-box; }
@@ -46,6 +47,11 @@
 .count { padding-top: 30px; border-bottom: 1px solid #ccc; 
     padding-bottom: 50px; padding-right: 100px;
 }
+
+.count .amount{
+	text-align: center;
+}
+
 .count form { float: right; clear: both; margin-top: -25px;
 }
 .count form input { border: 1px solid #111; 

@@ -184,13 +184,11 @@ table .mgl {
 .int_black {
     font-weight: 700;
     font-size: 14px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
     color: #16181a;
 }
 
 .int {
     font-size: 14px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
     color: #16181a;
     letter-spacing: -.4px;
 }
@@ -198,7 +196,6 @@ table .mgl {
 .int_black_big {
     font-weight: 700;
     font-size: 16px;
-    font-family: tahoma,"돋움",Dotum,sans-serif;
     color: #16181a;
 }
 
@@ -212,7 +209,6 @@ table td .money_tot em {
     float: left;
     font-weight: 700;
     font-size: 20px;
-    font-family: "Nanum Gothic",Dotum,"Apple SD Gothic Neo",sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -227,4 +223,31 @@ table td .money_tot em {
     font-size: 12px;
     line-height: 18px;
     color: #575e66;
+}
+
+.pay_section {
+    position: relative;
+    margin-top: 60px;
+}
+
+.pay_section h4 {
+    font-weight: 700;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.btn_pay_info {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 26px;
+    margin-left: 12px;
+    padding: 0 12px;
+    border: 1px solid #959da6;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 26px;
+    color: #6c7580;
+    letter-spacing: -.8px;
 }

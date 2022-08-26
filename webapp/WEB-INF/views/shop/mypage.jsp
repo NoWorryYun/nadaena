@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/mypage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/animate.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/cart.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/mypage.css">
     
     
     
@@ -60,13 +60,11 @@
 
                     <table>
                         <colgroup>
-                            <col width="120">
-                            <col width="400">
-                            <col width="130">
-                            <col width="150">
-                            <col width="150">
-                            <col width="130">
-                            <col width="120">
+                            <col width="190">
+                            <col width="460">
+                            <col width="180">
+                            <col width="190">
+                            <col width="190">
                         </colgroup>
                         <thead>
                             <tr>
@@ -75,15 +73,17 @@
                                         <input type="checkbox" name="allcheck" onclick="all_basket_check" class="checkbox" checked>
                                     </div>
                                 </th> -->
-                                <th scope="col">상품명/선택사항</th>
-                                <th scope="col">수량</th>
+                                <th scope="col">구매일시</th>
+                                <th scope="col">상품정보</th>
+                                <th scope="col">유효기간</th>
                                 <th scope="col">상품금액</th>
+                                <th scope="col">관리</th>
                                 <!-- <th scope="col">삭제</th> -->
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <td colspan="7">
+                                <td colspan="5">
                                     <div class="td_text">구매내역이 비어 있습니다.</div>
                                 </td>
                             </tr>

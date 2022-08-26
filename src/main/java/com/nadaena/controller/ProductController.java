@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nadaena.service.ProductService;
 import com.nadaena.service.QnaService;
+import com.nadaena.vo.ProductReviewVo;
 import com.nadaena.vo.ProductVo;
 import com.nadaena.vo.QnaVo;
 
@@ -65,8 +66,12 @@ public class ProductController {
 		
 		//QNA리스트 가져오기
 		List<QnaVo> qnaList = qnaService.getQnaList(productNo);
-		System.out.println(qnaList);
 		model.addAttribute("qnaList", qnaList);
+		
+		//리뷰리스트 가져오기
+		List<ProductReviewVo> reviewList = productService.getReveiwList(productNo);
+		System.out.println(reviewList);
+		model.addAttribute("reviewList", reviewList);
 		
 		return "shop/productJSP";
 	}
@@ -94,4 +99,16 @@ public class ProductController {
 	}
 	
 
+	
+	/* 리뷰 불러오기 */
+	
+	public String reviewList() {
+		System.out.println(" shop >reviewList");
+		
+		return "";
+	}
+	
+	
+	
+	
 }

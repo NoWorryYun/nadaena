@@ -66,9 +66,9 @@
                     <div class="count">
                         <p>수량</p>
                         <form>
-                            <input type=text value=1>
-                            <input type=button value="+" onClick="javascript:this.form.amount.value++;">
                             <input type=button value="-" onClick="javascript:this.form.amount.value--;">
+                            <input class="amout" type=text value=1>
+                            <input type=button value="+" onClick="javascript:this.form.amount.value++;">
                         </form>
                     </div>
 
@@ -139,6 +139,8 @@
 	$(".addQNA").on("click",function(){
 		 if(userNo == ""){
 			alert("로그인 후 작성할 수 있습니다.")
+			/* attr.('href', '${pageContext.request.contextPath }/loginForm') */
+			location.href = "${pageContext.request.contextPath }/loginForm";
 		}; 
 	});
 </script>

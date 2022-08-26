@@ -127,5 +127,30 @@
 	 </update>
 	 
 	 
+	 <!-- 리뷰불러오기 -->
+	 <select id="getReviewList" parameterType="int" resultType="com.nadaena.vo.ProductReviewVo">
+	 	<![CDATA[
+	 		select  r.productreviewNo,
+			        r.orderNo,
+			        r.userNo,
+			        r.productreviewIMG,
+			        r.productreviewContent,
+			        to_char(r.productreviewDate, 'yyyy-mm-dd') productreviewDate,
+			        r.productNo,
+			        RPAD(SUBSTR(u.email, 1, 3), LENGTH(u.email), '*') AS email
+			from users u, (select  r.productreviewNo,
+			                        r.orderNo,
+			                        r.userNo,
+			                        r.productreviewIMG,
+			                        r.productreviewContent,
+			                        r.productreviewDate,
+			                        o.productNo
+			                from productReview r, orders o
+			                where r.orderNo = o.orderNo
+			                and productNo = #{productNo}) r
+			where u.userNo = r.userNo
+	 	]]>
+	 </select>
+	 
 	 
 </mapper>
