@@ -1,0 +1,79 @@
+
+#contents_wrap1 { width: 100%; }
+
+
+
+
+
+table { margin-top: 50px;  
+
+}
+
+thead {
+        
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+th { font-weight: 400;
+    padding: 20px 0;
+    color: #111;
+    text-align: center;
+}
+
+tr { background-color: rgba(248, 248, 248, 0.4);
+    
+}
+td { text-align: center; }
+.td_text { font-size: 14px; padding: 40px 0; 
+    border-bottom: 1px solid #ccc;
+}
+
+/* 
+장바구니 메뉴
+ul .btn { text-align: center; padding: 100px 5px; position: relative; }
+.btn li { display: inline-block; padding: 0 5px; position: relative;  }
+.btn li a { border: 1px solid #222; 
+    padding: 10px 20px;
+    font-weight: 300;
+    font-size: 15px;
+    color: #222;
+    border-radius: 5px;
+}
+.btn li a:hover {
+    background-color: #efefef;
+    transition: all 0.3s;
+}
+ */
+
+
+.ing { position: absolute; top: 38%;
+    right: 20%;
+}
+.ing a { border: 1px solid #333; 
+    font-size: 14px;
+    color: #efefef;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+}
+.ing a:hover {
+    background-color: #efefef;
+    transition: all 0.5s;
+}
+
+
+
+tr th { padding-bottom: 40px; font-size: 16px; font-weight: 400;
+    color: #000;
+}
+tr td { border-bottom: 1px solid #ccc; 
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+
+
