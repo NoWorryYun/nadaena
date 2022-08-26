@@ -152,6 +152,34 @@
 				<!-- 챌린지 리스트 -->
 			</div>
 			
+			
+			
+			<div id="paging">
+				<ul>
+					<c:if test="${cMap.prev}">
+						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.startPageBtnNo-1}">◀</a></li>
+					</c:if>
+					
+					<c:forEach begin="${cMap.startPageBtnNo}" end="${cMap.endPageBtnNo}" step="1" varStatus="page">							
+						<c:choose>
+							<c:when test="${param.crtPage==page}">
+								<li class="active"><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
+							</c:otherwise>
+						</c:choose>	
+					</c:forEach>
+					
+					<c:if test="${cMap.next}">
+						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.endPageBtnNo+1}">▶</a></li>
+					</c:if>
+				</ul>
+				
+				
+				<div class="clear"></div>
+			</div>
+			
 
 
 		</div>
@@ -179,9 +207,10 @@ var serchVo = {
 $(document).ready(function(){
 	/* 리스트 요청+그리기 */
 	
-	var keyword = "${param.keyword}"
-	serchVo.keyword = keyword;
-	serchVo.interestNo = -1
+	serchVo.keyword =  "${param.keyword}";
+	if(${param.interestNo != null}){
+		serchVo.interestNo = "${param.interestNo}"
+	}
 	orderType: "regDate"
 	
 	fetchList(serchVo);
@@ -209,13 +238,21 @@ $("#likeOrder").on("click", function(){
 	
 });
 /* 신규등록순 클릭했을때 */
-$("[name='newOrder']").on("click", function(){
+$("#newOrder").on("click", function(){
+	console.log("newOrder클릭");
 	
+	serchVo.orderType ="newOrder";
+	
+	fetchList(serchVo);
 	
 });
 /* 마감일순 클릭했을때 */
-$("[name='recruitmentOrder']").on("click", function(){
+$("#recruitmentOrder").on("click", function(){
+	console.log("recruitmentOrder클릭");
 	
+	serchVo.orderType ="recruitmentOrder";
+	
+	fetchList(serchVo);
 	
 });
 /* 리스트 요청 */
@@ -260,12 +297,9 @@ function render(clgVo, opt){
 	str += '        	</div>' ;
 	str += '    		<div class="info-box">' ;
 	str += '    			<p class="nadaena_name">'+clgVo.clgTitle+'</p>' ;
-	str += '        		<p class="nadaena_period">챌린지 기간: '+clgVo.period+'</p>' ;
+	str += '        		<p class="nadaena_period">도전기한: '+clgVo.period+'</p>' ;
 	str += '        		<p class="nadaena_count_user">참여인원: '+clgVo.count_user+'</p>' ;
 	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.payment+' 원</p>' ;
-	str += '        		<p class="nadaena_payment">참여인원: '+clgVo.count_user+'</p>' ;
-	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.recruitment2+'</p>' ;
-	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.period2 +'</p>' ;
 	str += '        	</div>' ;
 	str += '    	</div>' ;
 	str += '    </a>' ;
