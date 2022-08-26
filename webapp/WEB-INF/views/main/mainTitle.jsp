@@ -58,9 +58,9 @@
 	           		
 	           		<div class="title-search">
 	           			<div>
-	                		<form class="d-flex align-items-center" action="${pageContext.request.contextPath}/search/searchForm" method="get">
-		                		<input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="text" placeholder="검색어를 입력해주세요." name="keyword" />
-		                		<button class="btn btn-success btn-lg" type="submit">검색</button>
+	                		<form id="search-submit" class="d-flex align-items-center" action="${pageContext.request.contextPath}/search/searchForm" method="get">
+		                		<input id="txt-main-search" class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="text" placeholder="검색어를 입력해주세요." name="keyword" value=""/>
+		                		<button id="search-btn" class="btn btn-success btn-lg" type="submit">검색</button>
 	                		</form>
 	            		</div>
 	            		<div class="hash">
@@ -79,11 +79,32 @@
 					<div class="slide-banner">
 			            <div id="carousel-1" class="carousel slide" data-bs-ride="carousel">
 			                <div class="carousel-inner">
-			                    <div class="carousel-item active slider-size"><img class="w-100 d-block" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="Slide Image" style="padding-right: 0px;padding-left: 0px;" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=502" alt="Slide Image" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=404" alt="Slide Image" /></div>
-			                	<div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=405" alt="Slide Image" /></div>
-			                    <div class="carousel-item slider-size"><img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=406" alt="Slide Image" /></div>
+			                <!-- 이미지경로 따로, 이벤트경로 지정해야함... -->
+			                    <div class="carousel-item active slider-size">
+				                    <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+				                    	<img class="w-100 d-block" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="Slide Image" style="padding-right: 0px;padding-left: 0px;" />
+				                    </a>
+			                    </div>
+			                    <div class="carousel-item slider-size">
+				                    <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+				                    	<img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=502" alt="Slide Image" />
+				                    </a>
+			                    </div>
+			                    <div class="carousel-item slider-size">
+				                    <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+				                    	<img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=404" alt="Slide Image" />
+				                    </a>
+			                    </div>
+			                	<div class="carousel-item slider-size">
+				                	<a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+				                		<img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=405" alt="Slide Image" />
+				                	</a>
+			                	</div>
+				                    <div class="carousel-item slider-size">
+				                    	<a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
+				                    <img class="w-100 d-block" src="https://unsplash.it/g/430/431?image=406" alt="Slide Image" />
+			                    </a>
+			                    </div>
 			                </div>
 			                <div>
 			                <a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev">
@@ -118,7 +139,7 @@
     <div class="main-box">
         
         <h3>이벤트 나대나</h3>
-        <div class="more"><a href="">더보기 > </a></div>
+        <div class="more"><a href="${pageContext.request.contextPath}/event">더보기 > </a></div>
     	<div class="lunchbox">
     	
 			<!-- slider main container -->
@@ -249,11 +270,6 @@
 
 
 
-
-
-
-
-
         
 	</div>
 	<!-- //main-box -->
@@ -297,7 +313,19 @@ var swiper = new Swiper('.swiper-container', {
     },
 
   });
-
+  
+  
+$("#search-submit").on("submit", function(){
+    var keyword = $("#txt-main-search").val()
+	console.log(keyword);
+	
+    if(keyword == '' || keyword == null){
+		alert("검색어를 입력해주세요.");
+		return false;
+    }
+    
+    return true;
+  });
 
 
 </script>

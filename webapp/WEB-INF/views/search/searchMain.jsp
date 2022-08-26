@@ -12,19 +12,16 @@
 <title>검색결과</title>
 
 <!-- css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
-
-<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/searchForm-css/search.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mainslider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/saerch.css">
 
 
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 </head>
 
 
@@ -36,261 +33,156 @@
 
 
 
-<main>
-	<div class="main-box">	
-	<h2>인기 나대나</h2>
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
+	<main>
+		<div class="main-box">
+			<div>
+				<div class="search-result">
+					<p class="search-title">나대나 모든 챌린지를 확인해보세요!</p>
 				</div>
-				<div class="swiper-slide">
-				<div>
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
+				
+				<div class="table-responsive">
+				
+					<table class="table">
+						<tbody>
+							<tr>
+								<td class="table-name">
+									<p class="select-name">
+										카테고리<br />선택
+									</p>
+								</td>
+								<td class="table-select">
+									<div class="div-name">
+										<table class="category-letter">
+											<tbody class="tbody">
+												<tr>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="1"  name="category" />운동</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="2" name="category" />봉사활동</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="3"name="category" />독서</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="4" name="category" />건강</li>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="5" name="category" />생활</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+														 	value="6" name="category" />그림</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="7" name="category" />공부</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="8" name="category" />반려동물</li>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="9" name="category" />음악</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="10" name="category" />식습관</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="11" name="category" />취미</li>
+													</td>
+													<td>
+														<li class="list-inline-item"><input type="radio"
+															value="12" name="category" />뷰티</li>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					<!--//table  -->
 				</div>
-				</div>
-				<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-				<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
+				<!--//table-responsive -->
 			</div>
-	
-			<!-- 네비게이션 -->
-			<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-			<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-		
-			<!-- 페이징 -->
-			<div class="swiper-pagination"></div>
+
+
+
+
+			<div class="search-type">
+				<div class="search-type-select">
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span id="likeOrder">인기순</span>
+					</div>
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span id="newOrder">신규등록순</span>
+					</div>
+					<div class="search-type-select-culm">
+						<div class="search-type-select-culm-img">
+							<span class="check-img"></span>
+						</div>
+						<span id="recruitmentOrder">마감일순</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<div id="clgListArea" class="row">
+				<!-- 챌린지 리스트 -->
+			</div>
+			
+			
+			
+			<div id="paging">
+				<ul>
+					<c:if test="${cMap.prev}">
+						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.startPageBtnNo-1}">◀</a></li>
+					</c:if>
+					
+					<c:forEach begin="${cMap.startPageBtnNo}" end="${cMap.endPageBtnNo}" step="1" varStatus="page">							
+						<c:choose>
+							<c:when test="${param.crtPage==page}">
+								<li class="active"><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
+							</c:otherwise>
+						</c:choose>	
+					</c:forEach>
+					
+					<c:if test="${cMap.next}">
+						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.endPageBtnNo+1}">▶</a></li>
+					</c:if>
+				</ul>
+				
+				
+				<div class="clear"></div>
+			</div>
+			
+
+
 		</div>
-		
-		<h2>추천 나대나</h2>
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-					<a href="">
-						<div>
-							<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-							<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-							<div id="" class="swiper-mix">신청인원 : 89명</div>
-							<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-							<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-						</div>
-					</a>
-				</div>
-					<div class="swiper-slide">
-						<a href="">
-							<div>
-								<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-								<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-								<div id="" class="swiper-mix">신청인원 : 89명</div>
-								<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-								<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-							</div>
-						</a>
-					</div>
-					<div class="swiper-slide">
-					<a href="">
-							<div>
-								<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-								<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-								<div id="" class="swiper-mix">신청인원 : 89명</div>
-								<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-								<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-							</div>
-						</a>
-					</div>
-					<div class="swiper-slide">
-					<a href="">
-							<div>
-								<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-								<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-								<div id="" class="swiper-mix">신청인원 : 89명</div>
-								<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-								<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-							</div>
-						</a>
-					</div>
-				</div>
-		
-				<!-- 네비게이션 -->
-				<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-				<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-			
-				<!-- 페이징 -->
-				<div class="swiper-pagination"></div>
-			</div>
-			
-			
-			<h2>모집임박 나대나</h2>
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<a href="">
-								<div>
-									<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-									<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-									<div id="" class="swiper-mix">신청인원 : 89명</div>
-									<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-									<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-								</div>
-							</a>
-						</div>
-					<div class="swiper-slide">
-						<a href="">
-								<div>
-									<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-									<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-									<div id="" class="swiper-mix">신청인원 : 89명</div>
-									<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-									<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-								</div>
-						</a>
-					</div>
-					<div class="swiper-slide">
-						<a href="">
-							<div>
-								<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-								<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-								<div id="" class="swiper-mix">신청인원 : 89명</div>
-								<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-								<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-							</div>
-						</a>
-					</div>
-					<div class="swiper-slide">
-					<a href="">
-							<div>
-								<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-								<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-								<div id="" class="swiper-mix">신청인원 : 89명</div>
-								<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-								<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-							</div>
-						</a>
-					</div>
-					<div class="swiper-slide">
-					<a href="">
-							<div>
-								<img src="${pageContext.request.contextPath}/assets/img/search-img.jpg">
-								<div id="" class="swiper-mix">도전기간 : 2021.10.29 ~ 2021.11.15</div>
-								<div id="" class="swiper-mix">신청인원 : 89명</div>
-								<div id="" class="swiper-mix">도전 금액 : 10000원</div>
-								<div id="" class="swiper-mix">예상 리워드 : 2~3%</div>
-							</div>
-						</a>
-					</div>
-					
-					
-				</div>
-		
-				<!-- 네비게이션 -->
-				<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-				<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-			
-				<!-- 페이징 -->
-				<div class="swiper-pagination"></div>
-			</div>
-	</div>		
 </main>
 
 
@@ -301,30 +193,134 @@
 
 
 </body>
-<script>
-	new Swiper('.swiper-container', {
-	
-		slidesPerView : 4, // 동시에 보여줄 슬라이드 갯수
-		spaceBetween : 40, // 슬라이드간 간격
-		slidesPerGroup : 4, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
-	
-		// 그룹수가 맞지 않을 경우 빈칸으로 메우기
-		// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
-		loopFillGroupWithBlank : true,
-	
-		loop : true, // 무한 반복
-	
-		pagination : { // 페이징
-			el : '.swiper-pagination',
-			clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
-		},
-		navigation : { // 네비게이션
-			nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-			prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-		},
-	});
-	
-	
 
+<script type="text/javascript">
+
+var serchVo = {
+	keyword: "",
+	interestNo: -1,
+	orderType: "regDate"
+};
+
+
+/* 준비가 끝났을때 */
+$(document).ready(function(){
+	/* 리스트 요청+그리기 */
+	
+	serchVo.keyword =  "${param.keyword}";
+	if(${param.interestNo != null}){
+		serchVo.interestNo = "${param.interestNo}"
+	}
+	orderType: "regDate"
+	
+	fetchList(serchVo);
+});
+
+
+/* 카테고리를 클릭했을때 */
+$("[name='category']").on("click", function(){
+	
+	var interestNo = $(this).val()
+	serchVo.interestNo = interestNo
+		
+	fetchList(serchVo);
+});
+
+/* 인기순 클릭했을때 */
+$("#likeOrder").on("click", function(){
+	console.log("클릭");
+	
+	
+	serchVo.orderType ="likeOrder";
+	
+	fetchList(serchVo);
+	
+	
+});
+/* 신규등록순 클릭했을때 */
+$("#newOrder").on("click", function(){
+	console.log("newOrder클릭");
+	
+	serchVo.orderType ="newOrder";
+	
+	fetchList(serchVo);
+	
+});
+/* 마감일순 클릭했을때 */
+$("#recruitmentOrder").on("click", function(){
+	console.log("recruitmentOrder클릭");
+	
+	serchVo.orderType ="recruitmentOrder";
+	
+	fetchList(serchVo);
+	
+});
+/* 리스트 요청 */
+function fetchList(serchVo){
+	console.log(serchVo);
+	$.ajax({
+		url : "${pageContext.request.contextPath }/search/getClgList",		
+		type : "post",
+		//contentType : "application/json",
+		data : serchVo,
+		
+		
+		dataType : "json",
+		success : function(clgList){
+			
+			//리스트영역 초기화
+			$("#clgListArea").text("");
+			
+			//화면 data + html 그린다
+			for(var i=0; i<clgList.length; i++){
+				render(clgList[i], "down");  //vo --> 화면에 그린다.
+			}
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+}
+
+
+
+/* 리스트 그리기 1개씩*/
+function render(clgVo, opt){
+	console.log("render()");
+	
+	var str = '';
+	str += '<div class="clgItem" >' ;
+	str += '    <a href="${pageContext.request.contextPath}/challenge/'+clgVo.challengeNo+'/intro">' ;
+	str += '        <div class="inner-box">' ;
+	str += '        	<div class="image-box">' ;
+	str += '        		<img class="clg-image img-responsive" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="" />' ;
+	str += '        	</div>' ;
+	str += '    		<div class="info-box">' ;
+	str += '    			<p class="nadaena_name">'+clgVo.clgTitle+'</p>' ;
+	str += '        		<p class="nadaena_period">도전기한: '+clgVo.period+'</p>' ;
+	str += '        		<p class="nadaena_count_user">참여인원: '+clgVo.count_user+'</p>' ;
+	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.payment+' 원</p>' ;
+	str += '        	</div>' ;
+	str += '    	</div>' ;
+	str += '    </a>' ;
+	str += '</div>' ;
+	
+	if(opt == "down"){
+		$("#clgListArea").append(str);	
+	
+	}else if(opt == "up"){
+		$("#clgListArea").prepend(str);
+	
+	}else {
+		console.log("opt오류");
+	}
+}
 </script>
+
+
+
+
+
+
+
 </html>

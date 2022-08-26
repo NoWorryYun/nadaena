@@ -24,7 +24,7 @@ public class SearchController {
 
 	//검색리스트 폼  검색결과페이지
 	@RequestMapping(value = "/search/searchForm", method = { RequestMethod.GET, RequestMethod.POST })
-	public String saerch(@RequestParam(value = "keyword", required = false) String searchbar, Model model) {
+	public String searchForm(@ModelAttribute SearchVo searchVo) {
 		System.out.println("SearchController > search");
 
 		//List<MainTitleVo> searchList = searchService.searchList(searchbar);

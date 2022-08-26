@@ -226,21 +226,24 @@ div.main-title {
 .nadaena_name {
 	margin-top: 3px;
 	text-align: center;
-	font-size: 22px;
+	font-size: 18px;
+	margin-bottom: 7px !important;
 }
 
 .nadaena_period {
 	margin-bottom: 5px;
+	font-size: 12px;
 	text-align:left;
 }
 
 .nadaena_count_user {
 	margin-bottom: 5px;
+	font-size: 12px;
 	text-align:left;
 }
 
 .nadaena_payment {
 	text-align: right !important;
-	font-size: 18px;
+	font-size: 14px;
 }
 

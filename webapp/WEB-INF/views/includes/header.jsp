@@ -49,18 +49,18 @@
 						전체카테고리
 					</a>
 					<ul id="text-cate-list" class="dropdown-menu">
-						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?keyword=운동">운동</a></li>
-						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=3?keyword=독서">독서</a></li>
-						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?keyword=건강?interestNo=4">건강</a></li>
-						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?keyword=생활?value=5">생활</a></li>
-						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?value=6?keyword=그림">그림</a></li>
-						<li><a class="dropdown-item" href="#">공부</a></li>
-						<li><a class="dropdown-item" href="http://localhost:8088/nadaena/search/searchForm?keyword=">봉사활동</a></li>
-						<li><a class="dropdown-item" href="#">반려동물</a></li>
-						<li><a class="dropdown-item" href="#">음악</a></li>
-						<li><a class="dropdown-item" href="#">식습관</a></li>
-						<li><a class="dropdown-item" href="#">취미</a></li>
-						<li><a class="dropdown-item" href="#">뷰티</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=1">운동</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=3">독서</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=4">건강</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=5">생활</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=6">그림</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=7">공부</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=2">봉사활동</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=8">반려동물</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=9">음악</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=10">식습관</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=11">취미</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath}/search/searchForm?interestNo=12">뷰티</a></li>
 					</ul>
 				</li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/search/searchmain">챌린지</a></li>
@@ -69,7 +69,7 @@
 			</ul>
 			<c:if test="${not empty authUser }">
 				<div id="btnbox" class="col-2">
-					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="#">챌린지 개설하기</a>
+					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="${pageContext.request.contextPath}/challenge/write">챌린지 개설하기</a>
 				</div>
 			</c:if>
 			<%-- <c:if test="${sessionScope.authUser(userNo) == 1 }">
@@ -81,5 +81,31 @@
 		<!-- nav -->
 	</div>
 	<!-- //header-box -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+<script>
+	$("#searchbox").on("submit", function(){
+	    var keyword = $("#text-search").val()
+		console.log(keyword);
+		
+	    if(keyword == '' || keyword == null){
+	    	  alert("검색어를 입력해주세요.");
+	          return false;
+	    }
+	    
+	    return true;
+	  });
+
+</script>
+
 
 </header>

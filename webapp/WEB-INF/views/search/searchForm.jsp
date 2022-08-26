@@ -207,9 +207,10 @@ var serchVo = {
 $(document).ready(function(){
 	/* 리스트 요청+그리기 */
 	
-	var keyword = "${param.keyword}"
-	serchVo.keyword = keyword;
-	serchVo.interestNo = -1
+	serchVo.keyword =  "${param.keyword}";
+	if(${param.interestNo != null}){
+		serchVo.interestNo = "${param.interestNo}"
+	}
 	orderType: "regDate"
 	
 	fetchList(serchVo);
