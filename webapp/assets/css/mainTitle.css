@@ -115,7 +115,7 @@ div.main-title {
 }
 
 .swiper-slide {
-  text-align: center;
+ /*  text-align: center; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,7 +205,7 @@ div.main-title {
 
 /**************************** 해쉬테그 링크디자인 */
 .hash a:link {
-  color : silver;
+  color : white;
   text-decoration: none;
 }
 .hash a:visited {
@@ -218,5 +218,29 @@ div.main-title {
 .swiper-slide a:active {
   color : green;
   text-decoration: none;
+}
+
+
+
+
+.nadaena_name {
+	margin-top: 3px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.nadaena_period {
+	margin-bottom: 5px;
+	text-align:left;
+}
+
+.nadaena_count_user {
+	margin-bottom: 5px;
+	text-align:left;
+}
+
+.nadaena_payment {
+	text-align: right !important;
+	font-size: 18px;
 }
 
