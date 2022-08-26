@@ -64,11 +64,11 @@
 	                		</form>
 	            		</div>
 	            		<div class="hash">
-		            		<div class="hash-name"><a href="" class="hash-tag">#이벤트</a></div>
-		            		<div class="hash-name2"><a href="" class="hash-tag">#운동</a></div>
-		            		<div class="hash-name2"><a href="" class="hash-tag">#상세페이지</a></div>
-		            		<div class="hash-name2"><a href="" class="hash-tag">#생활</a></div>
-		            		<div class="hash-name2"><a href="" class="hash-tag">#인기종목</a></div>
+		            		<div class="hash-name"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=봉사활동" class="hash-tag">#봉사활동</a></div>
+		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=운동" class="hash-tag">#운동</a></div>
+		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=반려동물" class="hash-tag">#반려동물</a></div>
+		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=생활" class="hash-tag">#생활</a></div>
+		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=식습관" class="hash-tag">#식습관</a></div>
 	            		</div>
 	       			</div>
 	        		 <!-- //title-search -->
@@ -139,9 +139,9 @@
 						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
-						           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
-						           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_count_user">참여인원: ${MainTitleVo.count_user}</p>
+						           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
 						           	 </div>
 						          </div>
 						      </a>
@@ -183,9 +183,9 @@
 						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
-						           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
-						           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_count_user">신청인원: ${MainTitleVo.count_user}</p>
+						           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
 						           	 </div>
 						          </div>
 						      </a>
@@ -226,9 +226,9 @@
 						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_limit">도전기한: ${MainTitleVo.period}</p>
-						           	 	<p class="nadaena_limit">신청인원: ${MainTitleVo.count_user}</p>
-						           	 	<p class="nadaena_incost">도전금액: ${MainTitleVo.payment}</p>
+						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_count_user">신청인원: ${MainTitleVo.count_user}</p>
+						           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
 						           	 </div>
 						          </div>
 						      </a>
