@@ -157,4 +157,11 @@ public class MyController {
 		
 		return "my/my-bookmark"; 
 	} 
+	
+	@RequestMapping(value="my/my-main", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mymain() {
+		System.out.println("mybookmark");
+		
+		return "my/my-main"; 
+	} 
 }

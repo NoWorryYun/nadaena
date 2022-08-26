@@ -64,7 +64,7 @@
 									<div>
 										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${ReviewVo.reviewNo}">삭제</a>
 									</div>
-									<p class="review-uploader">피자만두</p>
+									<p class="review-uploader">${ReviewVo.nickname }</p>
 									<p class="review-comment">${ReviewVo.reviewContent }</p>
 								</div>
 							</div>

@@ -67,7 +67,11 @@
                     </thead>
                     <tbody class="mypoint-table-body">
                     
+                    <c:set var="total" value="0" />
+                    <c:set var="length" value="${fn:length(pMap.pList)}" />
+                    
                     <c:forEach items="${pMap.pList}" var="PointVo" varStatus="i">
+                    
                         <tr>
                             <td class="column1">${PointVo.rn }</td>
                             <td class="column2">${PointVo.pointDate }</td>
@@ -85,12 +89,18 @@
                             	<c:when test="${PointVo.pointGroup %2 == 1}">
                             		<td class="column4">${PointVo.amount}p</td>
                             		<td class="column5">-</td>
-                            		<td class="column6">0p</td>
+                            		<td class="column6">
+                            			<c:set var="total" value ="${total + PointVo.amount }" />
+                            			<c:out value="${total}"/>
+                            		</td>
                             	</c:when>
                             	<c:otherwise>
                             		<td class="column4">-</td>
                             		<td class="column5">${PointVo.amount}p</td>
-                            		<td class="column6">0p</td>
+                            		<td class="column6">
+                            			<c:set var="total" value ="${total - PointVo.amount }" />
+                            			<c:out value="${total}"/>
+									</td>
                             	</c:otherwise>	
                             </c:choose>
                             
@@ -102,12 +112,12 @@
 					
 					<c:forEach begin="1" end="${7-length}" step="1">
                         <tr>
-                            <td class="column1"></td>
+                            <td class="column1">-</td>
                             <td class="column2"></td>
                             <td class="column3"></td>
                        		<td class="column4"></td>
                        		<td class="column5"></td>
-                            <td class="column6">0p</td>
+                            <td class="column6"></td>
                         </tr>						
 					</c:forEach>                    
                     </tbody>
@@ -158,8 +168,8 @@
 </body>
 <script type="text/javascript">
 
-console.log(gno);
-
+pList.reverse();
+console.log(pList.reverse());
 
 
 

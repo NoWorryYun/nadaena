@@ -370,34 +370,6 @@
 
 
 
-/* 페이징 */
-.paging {
-  width: 310px;
-  height: 30px;
-  margin: 10px 0px 0px 450px;
-}
-
-.paging > ul {
-  list-style: none;
-  margin: 10px 5px 10px 68px;
-}
-
-
-.paging > ul > li {
-  float: left;
-  margin: 0px 5px 0px 5px;
-}
-
-.paging a {
-	color: black;
-	text-decoration: none;
-}
-.search-form{
-	padding:0px 0px 0px 282px;
-	margin: 20px 0px 0px 0px;
-	height: 36px;
-}
-
 /* 구매목록 */
 
 .buylist {

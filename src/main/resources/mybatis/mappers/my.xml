@@ -547,18 +547,21 @@
 					ort.challengeNo,
 					ort.userNo,
 					ort.reviewContent,
-					ort.reviewImg
+					ort.reviewImg,
+					ort.nickname
 			from (select rownum rn,
 						 ot.reviewNo,
 						 ot.challengeNo,
 						 ot.userNo,
 						 ot.reviewContent,
-						 ot.reviewImg
+						 ot.reviewImg,
+						 ot.nickname
 				  from (select  reviewNo,
 								challengeNo,
 								u.userNo,
 								reviewContent,
-								reviewImg
+								reviewImg,
+								u.nickname
 						from review r, users u
 						where u.userNo = r.userNo)ot
 				  )ort
@@ -590,6 +593,7 @@
 					)
 		]]>
 	</insert>
+	
 	<!-- 리뷰 작성시 상태 업데이트 -->
 	<update id="updateState" parameterType="ReviewVo">
 		<![CDATA[
