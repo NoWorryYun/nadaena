@@ -75,10 +75,11 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a id="introForm" 	class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="certifyForm"class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="community"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="review"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link active" role="tab"
+										href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" role="tabpanel" id="tab-2">
@@ -116,27 +117,44 @@
 													<p class="certify-upload-header">인증업로드</p>
 													<div class="table-responsive table-certify-form">
 														<table class="table">
-															<tbody class="table-none">
+															<tbody>
 																<tr>
-																	<td class="certify-label certify-label-none" colspan=""><span style="font-weight: normal !important;">책읽기 시작한 페이지 업로드(09:00)~(10:00)</span><br></td>
-																</tr>
-																<tr>
-																	<td class="certify-label" colspan=""><input type="file"></td>
-																</tr>
-																<tr>
-																	<td class="certify-label certify-label-none" colspan=""><span style="font-weight: normal !important;">책읽기 마지막 페이지 업로드(09:00)~(10:00)</span><br></td>
-																</tr>
-																<tr>
-																	<td class="certify-label" colspan=""><input type="file"><br></td>
-																</tr>
-																<tr>
-																	<td class="certify-label certify-label-none" colspan=""><span style="font-weight: normal !important;">책 표지 사진 업로드(09:00)~(10:00)</span><br></td>
-																</tr>
-																<tr>
-																	<td class="certify-label certify-label-none" colspan=""><input type="file"></td>
-																</tr>
-																<tr>
-																	<td class="certify-label certify-label-none text-center" colspan=""><button class="make-challenge certify" type="submit">인증하기</button></td>
+																	<td class="certify-label certify-label-none" colspan="">
+																		<div class="type-center table-certify-label">
+																			<p>책읽기 시작한 페이지 업로드</p>
+																			<p>(09:00)~(10:00)</p>
+																		</div>
+																		<div class="type-center table-certify-label">
+																			<input type="file">
+																		</div>
+																		<div class="type-center table-certify-labels">
+																			<button class="make-challenge certify" type="submit">인증하기</button>
+																		</div>
+																	</td>
+																	<td class="certify-label certify-label-none" colspan="">
+																		<div class="type-center table-certify-label">
+																			<p>책읽기 시작한 페이지 업로드</p>
+																			<p>(09:00)~(10:00)</p>
+																		</div>
+																		<div class="type-center table-certify-label">
+																			<input type="file">
+																		</div>
+																		<div class="type-center table-certify-labels">
+																			<button class="make-challenge certify" type="submit">인증하기</button>
+																		</div>
+																	</td>
+																	<td class="certify-label certify-label-none" colspan="">
+																		<div class="type-center table-certify-label">
+																			<p>책읽기 시작한 페이지 업로드</p>
+																			<p>(09:00)~(10:00)</p>
+																		</div>
+																		<div class="type-center table-certify-label">
+																			<input type="file">
+																		</div>
+																		<div class="type-center table-certify-labels">
+																			<button class="make-challenge certify" type="submit">인증하기</button>
+																		</div>
+																	</td>
 																</tr>
 															</tbody>
 														</table>

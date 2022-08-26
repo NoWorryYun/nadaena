@@ -95,4 +95,12 @@ public class ChallengeDao {
 		return sqlSession.delete("Challenge.joinCancel", challengeVo);
 	}
 	
+	//진행바 체크하기
+	public int chkProgress(ChallengeVo clgVo) {
+		
+		int dao = sqlSession.selectOne("Challenge.chkProgress", clgVo);
+		System.out.println("dao, chkProgress int값 : "+dao);
+		return sqlSession.selectOne("Challenge.chkProgress", clgVo);
+	}
+	
 }

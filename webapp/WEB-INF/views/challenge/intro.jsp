@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -157,7 +156,7 @@
 																	<td class="font-12 table-none">
 																	
 																		<c:choose>
-																			<c:when test="${cMap.joinChk.payment != null}">
+																			<c:when test="${cMap.joinChk.payment > 500}">
 																				${cMap.joinChk.payment} &nbsp;원
 																			</c:when>
 																			<c:otherwise>
@@ -225,7 +224,6 @@
 																</tr>
 															</tbody>
 														</table>
-														<input type="hidden" id="authUserNo" name="userNo" value="1">
 														<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 													</form>
 													<!-- //form -->
@@ -326,32 +324,36 @@
 
 
 <script type="text/javascript">
-	
-	
+	var authUser = "${sessionScope.authUser}"
+
 	$("#joinForm").on("submit", function(){
-		
 		var payment = $('select[name="payment"]').val();
+		var clgOutChk = $("[name='clgInOutChk']").val();
 		
-		if(authUser == "" || authUser == null){
-			alert("로그인 해주세요");
-			location.href = "${pageContext.request.contextPath}/user/login";
-			return false;
-		} 
+		console.log(clgOutChk);
 		
-		console.log(payment);
-		
-		if(payment == "" || payment == null || payment < 1){
-			alert("금액을 설정해 주세요.");
-			return false;
+		if(clgOutChk == 1 ){
+			if(authUser == "" || authUser == null){
+				alert("로그인 해주세요");
+				location.href = "${pageContext.request.contextPath}/user/login";
+				return false;
+			} 
+			
+			if(payment == "" || payment == null || payment < 1){
+				alert("금액을 설정해 주세요.");
+				return false;
+			}
+			
+			alert("참여가 완료되었습니다!");
 		}
 		
+	
 		
 		
-		alert("참여가 완료되었습니다!");
 	})
 	
 	
-	var authUser = $("#authUserNo").val();
+	
 	var challengeNo = $("#challengeNo").val();
 	
 	authUser = Number(authUser);

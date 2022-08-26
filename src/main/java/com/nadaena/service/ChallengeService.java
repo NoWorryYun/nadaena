@@ -4,12 +4,14 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -155,7 +157,9 @@ public class ChallengeService {
 		
 		cMap.put("intro", intro);
 		cMap.put("certifyList", certifyList);
+		
 		cMap.put("joinChk", joinChk);
+		
 		return cMap;
 	}
 
@@ -194,6 +198,43 @@ public class ChallengeService {
 		return 1;
 	}
 	
-	
+	public double calProgress(int challengeNo, int userNo) throws ParseException {
+		
+		int count = 0;
+		
+		ChallengeVo challengeVo = challengeDao.intro(challengeNo);
+		
+		String recRD = challengeVo.getRecRD();
+		int period = challengeVo.getPeriod();
+		int upload = challengeVo.getUpload();
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date calDate = format.parse(recRD);
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(calDate);
+
+		for(int i = 0 ; i < (period*7) ; i++) {
+			cal.add(Calendar.DATE, + 1);
+			String certifieddate = format.format(cal.getTime());
+			
+			ChallengeVo clgVo = new ChallengeVo();
+			clgVo.setCertifieddate(certifieddate);
+			clgVo.setUserNo(userNo);
+			clgVo.setChallengeNo(challengeNo);
+
+			int chkProgress = challengeDao.chkProgress(clgVo);
+			
+			if(chkProgress == upload) {
+				count += 1;
+				
+			} 
+		}
+		double result = (double)Math.round(((double)count/(period*7))*10000)/100;
+		
+		return result;
+		
+	}
 
 }

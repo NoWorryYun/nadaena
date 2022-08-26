@@ -50,6 +50,10 @@ textarea {
 	border: none;
 }
 
+.display-IB{
+	display: inline-block;
+}
+
 .select-width {
 	width: 70px;
 	font-size: 14px;
@@ -91,6 +95,10 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	float: left;
 }
 
+.float-r {
+	float: right;
+}
+
 .board-write-box {
 	
 }
@@ -124,6 +132,15 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	border-radius: 15px;
 }
 
+.table-certify-label{
+	padding : 10px;
+	border-bottom : 1px solid #9f9f9f;
+}
+
+.table-certify-labels{
+	padding : 10px;
+}
+
 .table-line {
 	border-style: none;
 	border-color: var(- -bs-table-hover-bg);
@@ -138,7 +155,6 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 }
 
 .certify-label {
-	border-bottom-width: 3px !important;
 	width: auto;
 	font-weight: 900;
 	font-size: 12px;

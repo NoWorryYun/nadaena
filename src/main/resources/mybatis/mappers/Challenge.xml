@@ -103,10 +103,10 @@
 			       i.interestName interestName,
 			       clgTitle, 
 			       img,
-			       to_char(regDate, 'yyyy/mm/dd') regDate, 
-			       to_char(regDate+recruitment, 'yyyy/mm/dd') recRD,
-			       to_char(regDate+recruitment-1, 'yyyy/mm/dd') recRDM,
-			       to_char(regDate+recruitment-1+(period*7), 'yyyy/mm/dd') recRDP,
+			       to_char(regDate, 'yyyy-mm-dd') regDate, 
+			       to_char(regDate+recruitment, 'yyyy-mm-dd') recRD,
+			       to_char(regDate+recruitment-1, 'yyyy-mm-dd') recRDM,
+			       to_char(regDate+recruitment-1+(period*7), 'yyyy-mm-dd') recRDP,
 			       recruitment, 
 			       period, 
 			       certify,
@@ -216,6 +216,24 @@
 			select interestName
 			from interest
 			where interestNo = #{interestNo}		
+		]]>
+	</select>
+
+	<!-- 진행도 체크하기 -->
+	<select id="chkProgress" parameterType="ChallengeVo" resultType="int">
+		<![CDATA[
+			select  count(ed.certifiedNo) certCount
+			from certify fy, (select certifiedNo,
+			                         certifyNo,
+			                         userNo,
+			                         certifiedDate                         
+			                  from certified
+			                  where certifieddate = #{certifieddate}
+			                  and userNo = #{userNo}) ed, (select  challengeNo
+					                                       from challenge
+					                                       where challengeNo = #{challengeNo}) c
+			where fy.certifyNo = ed.certifyNo(+)
+			and c.challengeNo = fy.challengeNo
 		]]>
 	</select>
 

@@ -1,6 +1,7 @@
 package com.nadaena.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -31,9 +32,9 @@ public class ChallengeController {
 	
 	//intro
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) {
+	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) throws ParseException {
 		System.out.println("challnege/intro");
-		
+
 		UserVo userVo = (UserVo)session.getAttribute("authUser");
 		
 		int userNo;
@@ -47,6 +48,7 @@ public class ChallengeController {
 		
 		model.addAttribute("cMap" , cMap);
 		
+		double cf = challengeService.calProgress(challengeNo, userNo);
 		return "challenge/intro";
 	}
 
@@ -64,9 +66,22 @@ public class ChallengeController {
 
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/certify", method = { RequestMethod.GET, RequestMethod.POST })
-	public String certify(@PathVariable("challengeNo") int challengeNo) {
+	public String certify(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) {
 		System.out.println("challnege/certify");
 
+		UserVo userVo = (UserVo)session.getAttribute("authUser");
+		
+		int userNo;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}  else {
+			userNo = -1;
+		}
+		
+		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
+		
+		model.addAttribute("cMap" , cMap);
+		
 		return "challenge/certify";
 	}
 	
