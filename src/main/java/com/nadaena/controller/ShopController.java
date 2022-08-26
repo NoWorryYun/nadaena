@@ -1,11 +1,23 @@
 package com.nadaena.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nadaena.service.ProductService;
+import com.nadaena.vo.OrderVo;
+import com.nadaena.vo.UserVo;
 
 @Controller
 public class ShopController {
 	
+	@Autowired
+	ProductService productService;
 	
 	@RequestMapping(value="shop/main")
 	public String main() {
@@ -34,6 +46,25 @@ public class ShopController {
 		System.out.println(" ShopCtrl > mypage");
 		
 		return "shop/mypage";
+	}
+	
+	@RequestMapping(value="shop/mypage2")
+	public String mypage2(Model model, HttpSession session) {
+		System.out.println(" ShopCtrl > orderList");
+		
+		
+//		UserVo authUser = (UserVo)session.getAttribute("authUser");
+//		int userNo = authUser.getUserNo();
+//		System.out.println("authUser: " + userNo);
+		
+		int userNo = 2;
+		
+		List<OrderVo> orderList = productService.getOrderList(userNo);
+		System.out.println(orderList);
+		
+		model.addAttribute("orderList", orderList);
+		
+		return "shop/orderList";
 	}
 
 

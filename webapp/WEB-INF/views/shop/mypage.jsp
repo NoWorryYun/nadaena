@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/mypage.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/animate.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/mypage.css">
+    <%-- <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/cart.css"> --%>
     
     
     
@@ -47,13 +47,7 @@
 
             <div class="contents_1">
                 <div class="step">
-                    <ul class="step_list">
-                        <li class="on">01 구매내역</li>
-                        <li><i class="fas fa-angle-right"></i></li>
-                        <li>02 =</li>
-                        <li><i class="fas fa-angle-right"></i></li>
-                        <li>03 </li>
-                    </ul>
+                        <h4 class="table_title">최근 구매내역</h4>
                 </div>
 
                 <div class="table_cart">
@@ -75,19 +69,21 @@
                                 </th> -->
                                 <th scope="col">구매일시</th>
                                 <th scope="col">상품정보</th>
-                                <th scope="col">유효기간</th>
+                                <th scope="col">상태</th>
                                 <th scope="col">상품금액</th>
                                 <th scope="col">관리</th>
                                 <!-- <th scope="col">삭제</th> -->
                             </tr>
                         </thead>
-                        <tfoot>
+                        <tbody>
                             <tr>
-                                <td colspan="5">
-                                    <div class="td_text">구매내역이 비어 있습니다.</div>
-                                </td>
+                                <td>2020.02.02</td>
+                                <td>문상</td>
+                                <td>사용가능</td>
+                                <td>50,000</td>
+                                <td>재발송/환불</td>
                             </tr>
-                        </tfoot>
+                        <tbody>
                     </table>
                 </div>
 <!-- 

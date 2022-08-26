@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.nadaena.vo.OrderVo;
 import com.nadaena.vo.ProductReviewVo;
 import com.nadaena.vo.ProductVo;
 
@@ -44,6 +45,15 @@ public class ProductDao {
 		System.out.println(" ProductDao > getReviewList");
 		
 		return sqlSession.selectList("product.getReviewList", productNo);
+	}
+	
+	
+	
+	//구매내역리스트 불러오기
+	public List<OrderVo> getOrderList(int userNo){
+		System.out.println(" ProductDao > getOrderList");
+		
+		return sqlSession.selectList("product.getOrderList", userNo);
 	}
 	
 }

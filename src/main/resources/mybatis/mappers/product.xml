@@ -130,25 +130,69 @@
 	 <!-- 리뷰불러오기 -->
 	 <select id="getReviewList" parameterType="int" resultType="com.nadaena.vo.ProductReviewVo">
 	 	<![CDATA[
-	 		select  r.productreviewNo,
-			        r.orderNo,
-			        r.userNo,
-			        r.productreviewIMG,
-			        r.productreviewContent,
-			        to_char(r.productreviewDate, 'yyyy-mm-dd') productreviewDate,
-			        r.productNo,
-			        RPAD(SUBSTR(u.email, 1, 3), LENGTH(u.email), '*') AS email
-			from users u, (select  r.productreviewNo,
-			                        r.orderNo,
-			                        r.userNo,
-			                        r.productreviewIMG,
-			                        r.productreviewContent,
-			                        r.productreviewDate,
-			                        o.productNo
-			                from productReview r, orders o
-			                where r.orderNo = o.orderNo
-			                and productNo = #{productNo}) r
-			where u.userNo = r.userNo
+	 		select o.optionNo,
+			        o.optionName,
+			        o.optionPrice,
+			        p.orderNo,
+			        p.productNo,
+			        p.userNo,
+			        p.orderQuantity,
+			        p.orderPay,
+			        to_char(p.orderDate, 'yyyy-mm-dd') orderDate,
+			        to_char(p.useDate, 'yyyy-mm-dd') useDate,
+			        to_char(p.refundDate,'yyyy-mm-dd') refundDate,
+			        p.productName,
+			        p.thumbnail
+			from options o, (select  o.orderNo,
+			                        o.productNo,
+			                        o.userNo,
+			                        o.optionNo,
+			                        o.orderQuantity,
+			                        o.orderPay,
+			                        o.orderDate,
+			                        o.useDate,
+			                        o.refundDate,
+			                        p.productName,
+			                        p.thumbnail
+			                from orders o, product p
+			                where o.productNo = p.productNo) p
+			where o.optionNo = p.optionNo
+			and userNo=#{userNo}
+	 	]]>
+	 </select>
+	 
+	 
+	 <!-- 구매내역 -->
+	 <select id="getOrderList" parameterType="int" resultType="com.nadaena.vo.OrderVo">
+	 	<![CDATA[
+	 		select	o.optionNo,
+			        o.optionName,
+			        o.optionPrice,
+			        p.orderNo,
+			        p.productNo,
+			        p.userNo,
+			        p.orderQuantity,
+			        p.orderPay,
+			        p.orderDate,
+			        p.useDate,
+			        p.refundDate,
+			        p.productName,
+			        p.thumbnail
+			from options o, (select  o.orderNo,
+			                        o.productNo,
+			                        o.userNo,
+			                        o.optionNo,
+			                        o.orderQuantity,
+			                        o.orderPay,
+			                        o.orderDate,
+			                        o.useDate,
+			                        o.refundDate,
+			                        p.productName,
+			                        p.thumbnail
+			                from orders o, product p
+			                where o.productNo = p.productNo) p
+			where o.optionNo = p.optionNo
+			and userNo=2
 	 	]]>
 	 </select>
 	 

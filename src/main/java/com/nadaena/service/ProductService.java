@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.ProductDao;
+import com.nadaena.vo.OrderVo;
 import com.nadaena.vo.ProductReviewVo;
 import com.nadaena.vo.ProductVo;
 
@@ -44,5 +45,13 @@ public class ProductService {
 		System.out.println(" ProductService > getReviewList");
 		
 		return productDao.getReviewList(productNo);
+	}
+	
+	
+	//구매내역리스트 불러오기
+	public List<OrderVo> getOrderList(int userNo){
+		System.out.println(" ProductService > getOrderList");
+		
+		return productDao.getOrderList(userNo);
 	}
 }

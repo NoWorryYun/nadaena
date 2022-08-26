@@ -15,6 +15,9 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/my.css">
 	
+	
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/mypage.css">
+    
 	<!-- js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
@@ -50,7 +53,7 @@
 							<div class="delivery1">배송완료 <span class="delivery2">8/12 도착</span></div>
 							<br>
 							<div class="buylist-inside">
-								<div class="buylist-imagebox"><img src="${pageContext.request.contextPath }/assets/img/coffee.jpg"></div>
+								<div class="buylist-imagebox"><img width="64" height="64" src="${pageContext.request.contextPath }/assets/img/coffee.jpg"></div>
 								<div class="buylist-text">
 									<p>칸타타 콘트라블랙 500ml, 24개입</p>
 									<p>100,000P / 2개</p>

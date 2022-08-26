@@ -1,35 +1,80 @@
+/*
+임시
 #contents_wrap1 { width: 100%; }
-#sub_nav { width: 1200px; margin: 0 auto; }
 
-.home_btn ul { float: left; margin-top: 10px; }
-.home_btn ul li { float: left; }
-.home_btn ul li a { font-size: 12px; font-weight: 300; }
-.next_l { padding: 2px 5px; font-size: 12px; }
 
-.login_t { text-align: center; padding: 100px 0 100px 0;
-    font-size: 24px; 
-    font-weight: 300;
+.table_title { 
+	padding-top: 70px;
+    height: 28px;
+    font-size: 20px;
+}
+
+.tbale_title h4{
+	text-align: center; 
+	
+}
+
+
+
+table { margin-top: 50px;  
+
+}
+
+thead {
+        
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+th { font-weight: 400;
+    padding: 20px 0;
     color: #111;
+    text-align: center;
 }
 
-.tab_menu { display: flex; 
-    box-sizing: border-box; border: 1px solid #efefef;
-    margin-bottom: 80px; 
+tr { background-color: rgba(248, 248, 248, 0.4);
+    
 }
-.tab_menu li {
-    border-bottom: 1px solid #999;
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
-    cursor: pointer;
-    width: 25%;
+td { text-align: center; }
+.td_text { font-size: 14px; padding: 40px 0; 
+    border-bottom: 1px solid #ccc;
 }
-.tab_menu li.current {
-    border-top: 1px solid #999;
-    border-left: 1px solid #999;
-    border-right: 1px solid #999;
-    border-bottom: 0px solid #999;
+*/
+/* 
+장바구니 메뉴
+ul .btn { text-align: center; padding: 100px 5px; position: relative; }
+.btn li { display: inline-block; padding: 0 5px; position: relative;  }
+.btn li a { border: 1px solid #222; 
+    padding: 10px 20px;
+    font-weight: 300;
+    font-size: 15px;
+    color: #222;
+    border-radius: 5px;
 }
+.btn li a:hover {
+    background-color: #efefef;
+    transition: all 0.3s;
+}
+ */
+/*
+임시
+.ing { position: absolute; top: 38%;
+    right: 20%;
+}
+.ing a { border: 1px solid #333; 
+    font-size: 14px;
+    color: #efefef;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #333;
+}
+.ing a:hover {
+    background-color: #efefef;
+    transition: all 0.5s;
+}
+
+
+
 tr th { padding-bottom: 40px; font-size: 16px; font-weight: 400;
     color: #000;
 }
@@ -37,58 +82,123 @@ tr td { border-bottom: 1px solid #ccc;
     padding: 20px 0;
     text-align: center;
     font-size: 14px;
-    cursor: pointer;
 }
 
-.td_no i { font-size: 14px;  }
-.td_content { text-align: left; padding-left: 100px; 
-    font-weight: 500; 
-}
-.td_content a {
-    font-size: 15px;
-}
-.td_content a:hover { border-bottom: 1px solid #555; }
-
-.td_contents { 
-    text-align: left;
-    padding-left: 100px;
-}
-.td_contents a { font-size: 14px; }
+*/
 
 
+/* 구매목록 */
 
-ul.list_style {
-    text-align: center;
-}
-ul.list_style li { display: inline-block; 
-    margin: 50px 0 ;
-}
-ul.list_style li a { 
-    font-size: 12px;
-    padding: 4px 0px;
-    color: #999;
-}
-ul.list_style li a:hover {
-    color: #000;
-    transition: 0.5s;
+.buylist {
+	padding: 15px 25px 15px 25px;
+	border: 1px solid grey;
+	border-radius: 12px;
+	height: 310px;
+	background-color:white;
+	margin: 45px 0px 0px 0px;
 }
 
-ul.list_style li.active a { color: #000; }
-
-
-.write_btn { text-align: right; padding-top: 40px; 
-    padding-right: 20px;
-}
-.write_btn a { border: 1px solid #999; 
-    padding: 10px 20px;
-    font-size: 14px;
-    color: #efefef;
-    background-color: #111;
-}
-.write_btn a:hover { background-color: #efefef; 
-    color: #111;
-    transition: all 0.5s;
+.buylist-header {
+	padding: 0px 0px 7px 0px;
+	height: 50px;
 }
 
-.tab_content { display: none; }
-.tab_content.active { display: block; }
+.buylist-body {
+	height: 211px;
+	border: solid 1px grey;
+	border-radius: 12px;
+}
+
+.delivery2 {
+	color: green;
+}
+
+.orderdate {
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	background-color: white;
+	
+}
+
+.product {
+	font-size: 16px;
+	color: rgb(52, 106, 255);
+	float: right;
+	background-color: white;
+}
+
+.buylist-info {
+	padding: 20px;
+	width: 620px;
+	border-right: 1px solid;
+	height: 210px;
+	float: left;
+}
+
+.buylist-info img {
+	width: 110px;
+	height: 135px;
+}
+
+
+.buylist-buttons {
+	float:right;
+}
+
+.buylist-buttons button {
+	margin: 5px;
+	color: blue;
+	border-color: blue;
+	border-radius: 12px;
+	width: 150px;
+	height: 46px;
+	display: block;
+}
+
+
+
+.delivery1 {
+	font-size: 18px;
+	font-weight: bold;
+	background-color: white;
+	width: 509px;
+	height: 30px;
+	float: left;
+	margin-bottom: 4px;
+}
+
+.buylist-inside {
+	float: left;
+	height: 92px;
+}
+
+.buylist-imagebox {
+	float: left;
+	height: 135px;
+	
+}
+
+
+.buylist-text {
+	font-size: 16px;
+	float: left;
+	width: 429px;
+	height: 92px;
+}
+.buylist-text p{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.buttons-box {
+	width: 195px;
+	height: 170px;
+	float:right;
+	padding: 15px;
+}
+
+
+
+
