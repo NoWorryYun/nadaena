@@ -1,17 +1,17 @@
 package com.nadaena.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.SearchService;
+import com.nadaena.vo.MainTitleVo;
 import com.nadaena.vo.SearchVo;
 
 @Controller
@@ -33,9 +33,21 @@ public class SearchController {
 	@RequestMapping(value = "/search/getClgList", method = { RequestMethod.GET, RequestMethod.POST })
 	public Map<String, Object> getClgList(@ModelAttribute SearchVo searchVo) {
 		System.out.println("SearchController > getClgList");
-	
+		
 		Map<String, Object> cMap = searchService.searchList(searchVo);
 
+		System.out.println("====================================================");
+		System.out.println(cMap.get("clgList"));
+		
+		System.out.println(cMap.get("prev"));
+		System.out.println(cMap.get("startPageBtnNo"));
+		System.out.println(cMap.get("endPageBtnNo"));
+		System.out.println(cMap.get("next"));
+		System.out.println(cMap.get("crtPage"));
+		
+		List<MainTitleVo> a = (List<MainTitleVo>)cMap.get("clgList");
+		System.out.println(a.size());
+		System.out.println("====================================================");
 		return cMap;
 	}
 

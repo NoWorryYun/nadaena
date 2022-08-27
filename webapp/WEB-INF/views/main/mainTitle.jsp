@@ -69,6 +69,7 @@
 		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=반려동물" class="hash-tag">#반려동물</a></div>
 		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=생활" class="hash-tag">#생활</a></div>
 		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=식습관" class="hash-tag">#식습관</a></div>
+		            		<div class="hash-name2"><a href="${pageContext.request.contextPath}/search/searchForm?keyword=마라" class="hash-tag">#마라</a></div>
 	            		</div>
 	       			</div>
 	        		 <!-- //title-search -->

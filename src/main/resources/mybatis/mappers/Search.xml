@@ -94,10 +94,6 @@
 						)
 						</if>
 						
-						<if test="orderType == 'regDate'">
-						order by regDate desc
-						</if>
-						
 						<if test="orderType == 'likeOrder'">
 						order by count_user desc
 						</if>
@@ -122,51 +118,33 @@
 	</select>
 
 	<select id="selectTotalCnt" resultType="int">
-		<![CDATA[
-			select   count(*) totalCnt
+
+		<![CDATA[	
+			select  count(*) totalCnt
             from challenge c, interest i, 
                  (select challengeNo, count(challengeNo) cnt
                   from myChallenge
                   group by challengeNo) cc
             where  c.challengeNo = cc.challengeNo(+)
             and c.interestNo = i.interestNo
-			            
+	            
 		]]>	            
-		
+
 			<if test="interestNo gt 0 ">
 			and c.interestNo = #{interestNo}
 			</if>
-            
-            
-            <if test="keyword != ''  and  keyword != null ">
+	            
+	            
+           	<if test="keyword != ''  and  keyword != null ">
 			and (c.clgTitle like '%'||#{keyword}||'%'
 				 or c.tag1 like '%'||#{keyword}||'%'
-                 or c.tag2 like '%'||#{keyword}||'%'
-                 or c.tag3 like '%'||#{keyword}||'%'
-                 or c.tag4 like '%'||#{keyword}||'%'
-                 or c.tag5 like '%'||#{keyword}||'%'
+	                or c.tag2 like '%'||#{keyword}||'%'
+	                or c.tag3 like '%'||#{keyword}||'%'
+	                or c.tag4 like '%'||#{keyword}||'%'
+	                or c.tag5 like '%'||#{keyword}||'%'
 			)
-			
-			
 			</if>
-			
-			<if test="orderType == 'regDate'">
-			order by regDate desc
-			</if>
-			
-			<if test="orderType == 'likeOrder'">
-			order by count_user desc
-			</if>
-			
-			<if test="orderType == 'newOrder'">
-			order by regDate desc
-			</if>
-			
-			<if test="orderType == 'recruitmentOrder'">
-			order by recruitment2 asc
-			</if>
-						
-	
+		
 	</select>
 
 	

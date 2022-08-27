@@ -22,14 +22,14 @@ public class SearchDao {
 		System.out.println("SearchDao > searchList()");
 
 		List<MainTitleVo> searchList = sqlSession.selectList("Search.searchList", searchVo);
-
+		
 		return searchList;
 	}
 
-	public int selectTotalCnt() {
+	public int selectTotalCnt(SearchVo searchVo) {
 		System.out.println("searchDao>selectTotalCnt()");
 
-		int totalCnt = sqlSession.selectOne("Search.selectTotalCnt");
+		int totalCnt = sqlSession.selectOne("Search.selectTotalCnt", searchVo);
 
 		return totalCnt;
 	}

@@ -20,13 +20,11 @@ public class SearchService {
 	//검색입력
 	public Map<String, Object> searchList(SearchVo searchVo) {
 		System.out.println("SearchService > searchList()");
-		System.out.println("---------------------------------------");
-		System.out.println(searchVo);
 
 		/////////////////////// // 리스트가져오기 /////////////////////////////////////////////
 		
 		//페이지당 글갯수
-		int listCnt = 20;
+		int listCnt = 8;
 
 		//현재페이지
 		int crtPage = searchVo.getCrtPage();
@@ -48,10 +46,12 @@ public class SearchService {
 		////////////////////////////////////////////// // 페이징 계산 //////////////////////////////////////////////
 
 		//전체글갯수 
-		int totalCnt = searchDao.selectTotalCnt();
-
+		int totalCnt = searchDao.selectTotalCnt(searchVo);
+		//System.out.println("전체글갯수" + totalCnt);
+		
+		
 		//페이지당 버튼 갯수 
-		int pageBtnCount = 5;
+		int pageBtnCount = 3;
 
 		//마지막 버튼 번호 
 		int endPageBtnNo = (int) Math.ceil(crtPage / (double) pageBtnCount) * pageBtnCount;
@@ -73,9 +73,6 @@ public class SearchService {
 		if (startPageBtnNo != 1) {
 			prev = true;
 		}
-
-		
-
 		
 		//리스트 페이징 정보 묶기 
 		Map<String, Object> cMap = new HashMap<String, Object>();
@@ -85,7 +82,7 @@ public class SearchService {
 		cMap.put("startPageBtnNo", startPageBtnNo);
 		cMap.put("endPageBtnNo", endPageBtnNo);
 		cMap.put("next", next);
-
+		cMap.put("crtPage", crtPage);
 		return cMap;
 
 	}

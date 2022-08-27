@@ -37,7 +37,12 @@
 		<div class="main-box">
 			<div>
 				<div class="search-result">
-					<p class="search-title"><a herd="">&quot;${param.keyword}&quot;</a> 에 대한 검색 결과</p>
+					<c:if test="${empty param.keyword}">
+						<h2>챌린지</h2>
+					</c:if>
+					<c:if test="${!empty param.keyword}">
+						<p class="search-title">&quot;${param.keyword}&quot;에 대한 검색 결과</p>	
+					</c:if>
 				</div>
 				
 				<div class="table-responsive">
@@ -56,56 +61,44 @@
 											<tbody class="tbody">
 												<tr>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="1"  name="category" />운동</li>
+														<li class="list-inline-item"><input type="radio" value="1" name="category" />운동</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="2" name="category" />봉사활동</li>
+														<li class="list-inline-item"><input type="radio" value="2" name="category" />봉사활동</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="3"name="category" />독서</li>
+														<li class="list-inline-item"><input type="radio" value="3"name="category" />독서</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="4" name="category" />건강</li>
+														<li class="list-inline-item"><input type="radio" value="4" name="category" />건강</li>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="5" name="category" />생활</li>
+														<li class="list-inline-item"><input type="radio" value="5" name="category" />생활</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-														 	value="6" name="category" />그림</li>
+														<li class="list-inline-item"><input type="radio" value="6" name="category" />그림</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="7" name="category" />공부</li>
+														<li class="list-inline-item"><input type="radio" value="7" name="category" />공부</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="8" name="category" />반려동물</li>
+														<li class="list-inline-item"><input type="radio" value="8" name="category" />반려동물</li>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="9" name="category" />음악</li>
+														<li class="list-inline-item"><input type="radio" value="9" name="category" />음악</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="10" name="category" />식습관</li>
+														<li class="list-inline-item"><input type="radio" value="10" name="category" />식습관</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="11" name="category" />취미</li>
+														<li class="list-inline-item"><input type="radio" value="11" name="category" />취미</li>
 													</td>
 													<td>
-														<li class="list-inline-item"><input type="radio"
-															value="12" name="category" />뷰티</li>
+														<li class="list-inline-item"><input type="radio" value="12" name="category" />뷰티</li>
 													</td>
 												</tr>
 											</tbody>
@@ -130,19 +123,19 @@
 						<div class="search-type-select-culm-img">
 							<span class="check-img"></span>
 						</div>
-						<span id="likeOrder">인기순</span>
+						<span id="newOrder" class="orderType fw-bolder"  data-ordertype="newOrder">신규등록순</span>
 					</div>
 					<div class="search-type-select-culm">
 						<div class="search-type-select-culm-img">
 							<span class="check-img"></span>
 						</div>
-						<span id="newOrder">신규등록순</span>
+						<span id="likeOrder" class="orderType" data-ordertype="likeOrder" >인기순</span>
 					</div>
 					<div class="search-type-select-culm">
 						<div class="search-type-select-culm-img">
 							<span class="check-img"></span>
 						</div>
-						<span id="recruitmentOrder">마감일순</span>
+						<span id="recruitmentOrder" class="orderType"  data-ordertype="recruitmentOrder">마감일순</span>
 					</div>
 				</div>
 				
@@ -153,14 +146,10 @@
 			</div>
 			
 			
-			
 			<div id="paging">
-				
-				
-				<div class="clear"></div>
+				<!-- 페이징 버튼 -->					
 			</div>
 			
-
 
 		</div>
 </main>
@@ -175,27 +164,14 @@
 </body>
 
 <script type="text/javascript">
-
-
-
-var searchVo = {
-	keyword: "",
-	interestNo: -1,
-	crtPage: 1,
-	orderType: "regDate"
-};
-
+var searchVo = {};
 
 /* 준비가 끝났을때 */
 $(document).ready(function(){
-	/* 리스트 요청+그리기 */
+	//리스트를 가져오기 위한 초기값 설정
+	initSearchVo();
 	
-	searchVo.keyword =  "${param.keyword}";
-	if(${param.interestNo != null}){
-		searchVo.interestNo = "${param.interestNo}";
-	}
-	searchVo.crtPage = 1;
-	
+	//리스트 요청+그리기 
 	fetchList(searchVo);
 });
 
@@ -204,42 +180,106 @@ $(document).ready(function(){
 $("[name='category']").on("click", function(){
 	
 	var interestNo = $(this).val()
-	searchVo.interestNo = interestNo
-		
+	searchVo.interestNo = interestNo;
+	
+	searchVo.crtPage = 1;
+	searchVo.orderType = "newOrder";
+	
+	
+	//선택한 정렬순 두껍게 표현
+	//기본글씨로
+	$("#likeOrder").removeClass("fw-bolder");
+	$("#newOrder").removeClass("fw-bolder");
+	$("#recruitmentOrder").removeClass("fw-bolder");
+	
+	//선택한 정렬만 두껍께
+	$("#newOrder").addClass("fw-bolder");
+	
+	//리스트 요청+그리기 
 	fetchList(searchVo);
 });
 
-/* 인기순 클릭했을때 */
-$("#likeOrder").on("click", function(){
-	console.log("클릭");
+
+/* 정렬순을  클릭했을때 */
+$(".orderType").on("click", function(){
+	
+	var orderType = $(this).data("ordertype");
+	searchVo.orderType = orderType;
 	
 	
-	searchVo.orderType ="likeOrder";
+	//선택한 정렬순 두껍게 표현
+	//기본글씨로
+	$("#likeOrder").removeClass("fw-bolder");
+	$("#newOrder").removeClass("fw-bolder");
+	$("#recruitmentOrder").removeClass("fw-bolder");
 	
+	//선택한 정렬만 두껍께
+	$("#"+orderType).addClass("fw-bolder");
+	
+	
+	//리스트 요청+그리기 
 	fetchList(searchVo);
-	
-	
 });
-/* 신규등록순 클릭했을때 */
-$("#newOrder").on("click", function(){
-	console.log("newOrder클릭");
+
+//페이징 버튼을 클릭했을때
+$("#paging").on("click" ,".page-link", function(e){
+	e.preventDefault();
 	
-	searchVo.orderType ="newOrder";
+	var $this = $(this);
+	var crtPage = $this.data("crtpage");
 	
+	searchVo.crtPage = crtPage;
+	
+	//리스트 요청+그리기 
 	fetchList(searchVo);
-	
 });
-/* 마감일순 클릭했을때 */
-$("#recruitmentOrder").on("click", function(){
-	console.log("recruitmentOrder클릭");
+
+
+
+//리스트를 가져오기 위한 초기값 설정
+function initSearchVo(){
+	//키워드
+	searchVo.keyword =  "${param.keyword}";
 	
-	searchVo.orderType ="recruitmentOrder";
+	//카테고리번호
+	var interestNo = "${param.interestNo}";
 	
-	fetchList(searchVo);
+	if((interestNo == null) || (interestNo == "")){
+		interestNo = -1;
+	}
+	searchVo.interestNo = interestNo;
 	
-});
+	//카테고리 라디오 버튼 선택된걸로 표시
+	$("[value='"+interestNo+"']").attr("checked", "checked")
+	
+	
+	//현재페이지
+	var crtPage = "${param.crtPage}";
+	
+	if(crtPage < 1){
+		crtPage = 1;
+	}
+	searchVo.crtPage = crtPage;
+	
+	
+	//정렬순
+	var orderType = "${param.orderType}";
+	
+	if((orderType == null) || (orderType == "")){
+		orderType = "newOrder";
+	}
+	searchVo.orderType = orderType;
+	
+	
+	
+}
+
+
 /* 리스트 요청 */
 function fetchList(searchVo){
+	
+	console.log(searchVo);
+	
 	$.ajax({
 		url : "${pageContext.request.contextPath }/search/getClgList",		
 		type : "post",
@@ -252,10 +292,16 @@ function fetchList(searchVo){
 			console.log(cMap);
 			var clgList = cMap.clgList;
 			
+			//이전리스트 삭제
+			$("#clgListArea").html("");
+			
+			//리스트그리기
 			for(var i=0; i<clgList.length; i++){
 				render(clgList[i], "down");
 			}
-			
+
+			//이전 페이징 삭제
+			$("#paging").html("");
 			pagingRender(cMap);
 			
 			
@@ -300,36 +346,36 @@ function render(clgVo, opt){
 }
 
 
-
 function pagingRender(cMap){
-	console.log("pagingRender");
-	console.log(cMap.startPageBtnNo);
-	console.log(cMap.endPageBtnNo);
+	
 	var str = '';
 	str += '<ul class="pagination pagination-sm">' ;
 	
-	str += '	<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/search/searchForm?crtPage=${rMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>';
-	
-	for(var i=cMap.startPageBtnNo; i<=cMap.endPageBtnNo; i++){
-		str += '	<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/search/searchForm?crtPage='+ i +'">' + i + '</a></li>';
-	
+	if(cMap.prev == true){
+		str += '	<li class="page-item" ><a class="page-link" data-crtpage="'+(cMap.startPageBtnNo-1)+'" aria-label="Previous" href=""><span aria-hidden="true">«</span></a></li>';
 	}
 	
-	str += '	<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/search/searchForm?crtPage=${rMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>'
+	for(var i=cMap.startPageBtnNo; i<=cMap.endPageBtnNo; i++){
+		
+		if(cMap.crtPage == i){
+			str += '	<li class="page-item active" ><a class="page-link" data-crtpage="'+ i +'"  href="">' + i + '</a></li>';
+		}else{
+			str += '	<li class="page-item" ><a class="page-link" data-crtpage="'+ i +'"  href="">' + i + '</a></li>';
+		}
+		
+	}
+	
+	if(cMap.next == true){
+		str += '	<li class="page-item" ><a class="page-link" data-crtpage="'+(cMap.endPageBtnNo+1)+'" aria-label="Next" href=""><span aria-hidden="true">»</span></a></li>'
+	}
 	
 	str += '</ul>' ;	
 	
 	$("#paging").append(str);	
-	
-	
-	/* str += '    <li class=""><a href="${pageContext.request.contextPath }/search/searchForm?crtPage='+ i +'>aaaa</a></li>' ; */
-	/* str += '    <li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.endPageBtnNo+1}">▶</a></li>' ; */
-	
 
 }
 
 </script>
-
 
 
 
