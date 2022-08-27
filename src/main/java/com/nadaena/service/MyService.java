@@ -584,15 +584,26 @@ public class MyService {
 		
 		//포인트계산
 		//난이도, 참가비용 <-- reviewVo<--챌린지번호 유저번호
+		System.out.println("상태업데이트 후 서비스로 옴");
+		System.out.println("포인트 정보 가져오라 시킴");
 		
+				
 		myDao.selectReviewPoint(reviewVo);
 		
+		System.out.println("담아왔다 서비스로");
 		
 		
-		System.out.println(reviewVo);
+		System.out.println("담아온Vo" + reviewVo);
 		
-	    
 		
+		int pay = reviewVo.getPayment();
+		int level = reviewVo.getClgLevel();
+		int source = reviewVo.getChallengeNo();
+		
+		reviewVo.setChallengeSource(source);
+		reviewVo.setAmount(pay+level);
+		
+		myDao.writeReviewPoint(reviewVo);
 		
 		//달성률 -->함수로계산
 		//persent = makePersent()

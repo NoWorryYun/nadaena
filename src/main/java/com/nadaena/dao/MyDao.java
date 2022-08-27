@@ -191,14 +191,16 @@ public class MyDao {
 		
 		int count = sqlSession.insert("my.insertReview", reviewVo);
 		
-		System.out.println(reviewVo);
+		System.out.println("리뷰쓰기");
 		
 		return count;
 	}
 
-	//포인트 계산
+	//포인트 정보가져오기
 	public ReviewVo selectReviewPoint(ReviewVo reviewVo) {
-		System.out.println(reviewVo);
+		
+		System.out.println("포인트담아와라(dao)");
+		
 		return sqlSession.selectOne("my.selectReviewPoint", reviewVo);
 		
 	}	
@@ -208,7 +210,6 @@ public class MyDao {
 		
 		int count = sqlSession.insert("my.insertReviewPoint", reviewVo);
 		
-		System.out.println(reviewVo);
 		
 		return count;
 	}	

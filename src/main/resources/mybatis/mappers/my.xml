@@ -629,7 +629,7 @@
 	</delete>
 	
 	<!-- 리워드 관련 정보 가져오기 -->
-	<select id="selectReviewPoint" parameterType = "ReviewVo" resultType="ReviewVo">
+	<select id="selectReviewPoint" parameterType ="ReviewVo" resultType="ReviewVo">
 		<![CDATA[	
 			select  c.challengeNo,
 			        m.userNo,
@@ -639,11 +639,10 @@
 			where c.challengeNo = m.challengeNo
 			and c.challengeNo = #{challengeNo}
 			and m.userNo = #{userNo}
-			
 		]]>
 	</select>	
 	
-	<!-- 리뷰 작성시 리워드 지급 
+	<!-- 리뷰 작성시 리워드 지급-->
 	<insert id="insertReviewPoint" parameterType="ReviewVo">
 		<![CDATA[
 			insert into point
@@ -653,13 +652,12 @@
 					0,
 					#{amount},
 					sysdate,
-					#{chellengeSource},
+					#{challengeSource},
 					null,
 					null
 					)
 		]]>
 	</insert>	
-	-->
 	
 	<!-- 포인트내역 + 페이징 -->
 	<select id="selectPoint" parameterType= "Map" resultType="ReviewVo">
