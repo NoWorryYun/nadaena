@@ -588,22 +588,22 @@ public class MyService {
 		System.out.println("포인트 정보 가져오라 시킴");
 		
 				
-		myDao.selectReviewPoint(reviewVo);
+		ReviewVo rVo = myDao.selectReviewPoint(reviewVo);
 		
 		System.out.println("담아왔다 서비스로");
 		
 		
-		System.out.println("담아온Vo" + reviewVo);
+		System.out.println("담아온Vo" + rVo);
 		
 		
-		int pay = reviewVo.getPayment();
-		int level = reviewVo.getClgLevel();
-		int source = reviewVo.getChallengeNo();
+		int pay = rVo.getPayment();
+		int level = rVo.getClgLevel();
+		int source = rVo.getChallengeNo();
 		
-		reviewVo.setChallengeSource(source);
-		reviewVo.setAmount(pay+level);
+		rVo.setChallengeSource(source);
+		rVo.setAmount(pay+level);
 		
-		myDao.writeReviewPoint(reviewVo);
+		myDao.writeReviewPoint(rVo);
 		
 		//달성률 -->함수로계산
 		//persent = makePersent()

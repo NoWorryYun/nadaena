@@ -206,9 +206,9 @@ public class MyDao {
 	}	
 	
 	//포인트 지급
-	public int writeReviewPoint(ReviewVo reviewVo) {
+	public int writeReviewPoint(ReviewVo rVo) {
 		
-		int count = sqlSession.insert("my.insertReviewPoint", reviewVo);
+		int count = sqlSession.insert("my.insertReviewPoint", rVo);
 		
 		
 		return count;
