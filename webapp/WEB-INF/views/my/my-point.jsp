@@ -92,7 +92,7 @@
                             		<td class="column6">
                             			<c:set var="total" value ="${total + PointVo.amount }" />
                             			<c:out value="${total}"/>
-                            		</td>
+                            		</td>	
                             	</c:when>
                             	<c:otherwise>
                             		<td class="column4">-</td>
@@ -100,7 +100,7 @@
                             		<td class="column6">
                             			<c:set var="total" value ="${total - PointVo.amount }" />
                             			<c:out value="${total}"/>
-									</td>
+                            		</td>	
                             	</c:otherwise>	
                             </c:choose>
                             

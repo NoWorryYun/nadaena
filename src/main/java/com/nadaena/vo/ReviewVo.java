@@ -15,7 +15,32 @@ public class ReviewVo {
 	private int state;
 	private String reviewImg;
 	private String saveName;
-	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName) {
+	private int pointNo;
+	private int pointGroup;
+	private int charge;
+	private int amount;
+	private String pointDate;
+	private String challengeSource;
+	private String productSource;
+	private String pointMemo;
+	private int rn;
+	private int level;
+	private int achievement;
+	private int payment;
+	public ReviewVo() {
+		super();
+	}
+	
+	
+	public ReviewVo(int challengeNo, int userNo) {
+		super();
+		this.challengeNo = challengeNo;
+		this.userNo = userNo;
+	}
+
+
+	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName, int pointNo, int pointGroup, int charge, int amount, String pointDate,
+			String challengeSource, String productSource, String pointMemo, int rn, int level, int achievement, int payment) {
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
@@ -28,9 +53,18 @@ public class ReviewVo {
 		this.state = state;
 		this.reviewImg = reviewImg;
 		this.saveName = saveName;
-	}
-	public ReviewVo() {
-		super();
+		this.pointNo = pointNo;
+		this.pointGroup = pointGroup;
+		this.charge = charge;
+		this.amount = amount;
+		this.pointDate = pointDate;
+		this.challengeSource = challengeSource;
+		this.productSource = productSource;
+		this.pointMemo = pointMemo;
+		this.rn = rn;
+		this.level = level;
+		this.achievement = achievement;
+		this.payment = payment;
 	}
 	public int getReviewNo() {
 		return reviewNo;
@@ -98,10 +132,84 @@ public class ReviewVo {
 	public void setSaveName(String saveName) {
 		this.saveName = saveName;
 	}
+	public int getPointNo() {
+		return pointNo;
+	}
+	public void setPointNo(int pointNo) {
+		this.pointNo = pointNo;
+	}
+	public int getPointGroup() {
+		return pointGroup;
+	}
+	public void setPointGroup(int pointGroup) {
+		this.pointGroup = pointGroup;
+	}
+	public int getCharge() {
+		return charge;
+	}
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public String getPointDate() {
+		return pointDate;
+	}
+	public void setPointDate(String pointDate) {
+		this.pointDate = pointDate;
+	}
+	public String getChallengeSource() {
+		return challengeSource;
+	}
+	public void setChallengeSource(String challengeSource) {
+		this.challengeSource = challengeSource;
+	}
+	public String getProductSource() {
+		return productSource;
+	}
+	public void setProductSource(String productSource) {
+		this.productSource = productSource;
+	}
+	public String getPointMemo() {
+		return pointMemo;
+	}
+	public void setPointMemo(String pointMemo) {
+		this.pointMemo = pointMemo;
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public int getAchievement() {
+		return achievement;
+	}
+	public void setAchievement(int achievement) {
+		this.achievement = achievement;
+	}
+	public int getPayment() {
+		return payment;
+	}
+	public void setPayment(int payment) {
+		this.payment = payment;
+	}
 	@Override
 	public String toString() {
 		return "ReviewVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", file=" + file + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state
-				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + "]";
+				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + ", pointNo=" + pointNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", challengeSource=" + challengeSource + ", productSource=" + productSource
+				+ ", pointMemo=" + pointMemo + ", rn=" + rn + ", level=" + level + ", achievement=" + achievement + ", payment=" + payment + "]";
 	}
+	
 	
 }

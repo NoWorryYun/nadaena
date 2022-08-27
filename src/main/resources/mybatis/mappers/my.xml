@@ -21,7 +21,8 @@
 			        to_char(c.regdate + c.recruitment) startday,
 			        to_char(c.regdate + c.recruitment + c.period) endday,
 			        m.payment,
-			        to_char(sysdate-1, 'yy/mm/dd') yesterday
+			        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+			        c.clglevel
 			from challenge c, mychallenge m
 			where c.challengeNo = m.challengeNo
 			and   m.state = 1
@@ -48,7 +49,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.payment,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -65,7 +67,8 @@
 			        	 ot.startday,
 			        	 ot.endday,
 			       	  	 ot.payment,
-			       	  	 ot.yesterday
+			       	  	 ot.yesterday,
+			       	  	 ot.clglevel
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -81,7 +84,8 @@
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
@@ -111,7 +115,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.payment,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -128,7 +133,8 @@
 			        	 ot.startday,
 			        	 ot.endday,
 			       	  	 ot.payment,
-			       	  	 ot.yesterday
+			       	  	 ot.yesterday,
+			       	  	 ot.clglevel
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -144,7 +150,8 @@
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
@@ -176,7 +183,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.payment,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -193,7 +201,8 @@
 			        	 ot.startday,
 			        	 ot.endday,
 			       	  	 ot.payment,
-			       	  	 ot.yesterday
+			       	  	 ot.yesterday,
+			       	  	 ot.clglevel
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -209,7 +218,8 @@
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
@@ -240,7 +250,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.payment,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -257,7 +268,8 @@
 			        	 ot.startday,
 			        	 ot.endday,
 			       	  	 ot.payment,
-			       	  	 ot.yesterday
+			       	  	 ot.yesterday,
+			       	  	 ot.clglevel
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -273,7 +285,8 @@
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 1
@@ -302,7 +315,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.payment,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -319,7 +333,8 @@
 			        	 ot.startday,
 			        	 ot.endday,
 			       	  	 ot.payment,
-			       	  	 ot.yesterday
+			       	  	 ot.yesterday,
+			       	  	 ot.clglevel
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -335,7 +350,8 @@
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
@@ -420,7 +436,8 @@
 			        ort.clgGroup,
 			        ort.startday,
 			        ort.endday,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.bookmarkNo,
 						 ot.userNo,
@@ -434,7 +451,8 @@
 				         ot.clgGroup,
 				         ot.startday,
 				         ot.endday,
-				         ot.yesterday
+				         ot.yesterday,
+				         ot.clglevel
 				  from (select  b.bookmarkNo,
 								b.userNo,
 								c.challengeNo,
@@ -447,7 +465,8 @@
 						        c.clgGroup,
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday					
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel					
 						from bookmark b, users u, challenge c
 						where b.bookmarkno = c.challengeNo
 						and b.userno = u.userno
@@ -474,7 +493,8 @@
 			        ort.clgGroup,
 			        ort.startday,
 			        ort.endday,
-			        ort.yesterday
+			        ort.yesterday,
+			        ort.clglevel
 			from (select rownum rn,
 						 ot.bookmarkNo,
 						 ot.userNo,
@@ -488,7 +508,8 @@
 				         ot.clgGroup,
 				         ot.startday,
 				         ot.endday,
-				         ot.yesterday
+				         ot.yesterday,
+				         ot.clglevel
 				  from (select  b.bookmarkNo,
 								b.userNo,
 								c.challengeNo,
@@ -501,7 +522,8 @@
 						        c.clgGroup,
 						        to_char(c.regdate + c.recruitment) startday,
 						        to_char(c.regdate + c.recruitment + c.period) endday,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday					
+						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        c.clglevel					
 						from bookmark b, users u, challenge c
 						where b.bookmarkno = c.challengeNo
 						and b.userno = u.userno
@@ -534,11 +556,6 @@
 		]]>
 	</select>	
 	
-	
-	
-	
-	
-	
 	<!-- 리뷰불러오기 + 페이징 -->
 	<select id="selectreviewList" parameterType= "Map" resultType="ReviewVo">
 		<![CDATA[
@@ -569,7 +586,6 @@
 			and rn<=#{endRnum}	  
 		]]>
 	</select>	
-	
 	
 	<!-- 리뷰 갯수 구하기 -->
 	<select id="selectTotalCnt41" resultType="int">
@@ -612,8 +628,41 @@
 		]]>
 	</delete>
 	
+	<!-- 리워드 관련 정보 가져오기 -->
+	<select id="selectReviewPoint" parameterType = "ReviewVo" resultType="ReviewVo">
+		<![CDATA[	
+			select  c.challengeNo,
+			        m.userNo,
+			        c.clgLevel,  
+			        m.payment
+			from challenge c, mychallenge m
+			where c.challengeNo = m.challengeNo
+			and c.challengeNo = #{challengeNo}
+			and m.userNo = #{userNo}
+			
+		]]>
+	</select>	
+	
+	<!-- 리뷰 작성시 리워드 지급 
+	<insert id="insertReviewPoint" parameterType="ReviewVo">
+		<![CDATA[
+			insert into point
+			values (SEQ_pointNo.nextval,
+					#{userNo},
+					3,
+					0,
+					#{amount},
+					sysdate,
+					#{chellengeSource},
+					null,
+					null
+					)
+		]]>
+	</insert>	
+	-->
+	
 	<!-- 포인트내역 + 페이징 -->
-	<select id="selectPoint" parameterType= "Map" resultType="PointVo">
+	<select id="selectPoint" parameterType= "Map" resultType="ReviewVo">
 		<![CDATA[
 			select  ort.rn,
 					ort.pointNo,

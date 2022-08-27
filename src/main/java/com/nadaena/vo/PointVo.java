@@ -9,13 +9,14 @@ public class PointVo {
 	private int charge;
 	private int amount;
 	private String pointDate;
-	private String source;
+	private String challengeSource;
+	private String productSource;
 	private String pointMemo;
 	private int rn;
 	public PointVo() {
 		super();
 	}
-	public PointVo(int pointNo, int userNo, int pointGroup, int charge, int amount, String pointDate, String source, String pointMemo, int rn) {
+	public PointVo(int pointNo, int userNo, int pointGroup, int charge, int amount, String pointDate, String challengeSource, String productSource, String pointMemo, int rn) {
 		super();
 		this.pointNo = pointNo;
 		this.userNo = userNo;
@@ -23,7 +24,8 @@ public class PointVo {
 		this.charge = charge;
 		this.amount = amount;
 		this.pointDate = pointDate;
-		this.source = source;
+		this.challengeSource = challengeSource;
+		this.productSource = productSource;
 		this.pointMemo = pointMemo;
 		this.rn = rn;
 	}
@@ -63,11 +65,17 @@ public class PointVo {
 	public void setPointDate(String pointDate) {
 		this.pointDate = pointDate;
 	}
-	public String getSource() {
-		return source;
+	public String getChallengeSource() {
+		return challengeSource;
 	}
-	public void setSource(String source) {
-		this.source = source;
+	public void setChallengeSource(String challengeSource) {
+		this.challengeSource = challengeSource;
+	}
+	public String getProductSource() {
+		return productSource;
+	}
+	public void setProductSource(String productSource) {
+		this.productSource = productSource;
 	}
 	public String getPointMemo() {
 		return pointMemo;
@@ -83,7 +91,8 @@ public class PointVo {
 	}
 	@Override
 	public String toString() {
-		return "PointVo [pointNo=" + pointNo + ", userNo=" + userNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", source=" + source + ", pointMemo=" + pointMemo + ", rn=" + rn + "]";
+		return "PointVo [pointNo=" + pointNo + ", userNo=" + userNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", challengeSource=" + challengeSource + ", productSource=" + productSource + ", pointMemo=" + pointMemo
+				+ ", rn=" + rn + "]";
 	}
 	
 }

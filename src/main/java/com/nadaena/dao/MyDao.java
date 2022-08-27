@@ -195,6 +195,24 @@ public class MyDao {
 		
 		return count;
 	}
+
+	//포인트 계산
+	public ReviewVo selectReviewPoint(ReviewVo reviewVo) {
+		System.out.println(reviewVo);
+		return sqlSession.selectOne("my.selectReviewPoint", reviewVo);
+		
+	}	
+	
+	//포인트 지급
+	public int writeReviewPoint(ReviewVo reviewVo) {
+		
+		int count = sqlSession.insert("my.insertReviewPoint", reviewVo);
+		
+		System.out.println(reviewVo);
+		
+		return count;
+	}	
+	
 	
 	//상태업데이트
 	public int update(ReviewVo reviewVo) {

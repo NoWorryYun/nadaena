@@ -112,7 +112,8 @@ public class MyController {
 	
 	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
-	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, Model model, HttpSession session) {
+	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 
+							  Model model, HttpSession session) {
 		
 		// Service를 통해서 저장한다
 		myService.writeReview(file, reviewVo);

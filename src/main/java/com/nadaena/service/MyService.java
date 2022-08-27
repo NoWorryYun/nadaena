@@ -469,7 +469,6 @@ public class MyService {
 	}	
 	//리뷰리스트(전체)
 	public Map<String, Object> getrList41(int crtPage) {
-		System.out.println("C > getmcList");
 		
 		//////리스트 가져오기
 		
@@ -530,7 +529,7 @@ public class MyService {
 		return rMap;
 	}		
 	
-	//리뷰 쓰기
+	//리뷰 쓰기 + 리워드 지급 + 상태업데이트
 	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
 
 		String saveDir = "C:\\javaStudy\\upload";
@@ -574,13 +573,40 @@ public class MyService {
 		System.out.println("=======");
 		
 		
+		//reviewVo파일정보 추가
 		reviewVo.setReviewImg(saveName);
 		
-		// 파일정보 DB저장
+		//리뷰저장
 		myDao.writeReview(reviewVo);
-		//상태업데이트
+		
+		//챌린지 완료로 상태 변경
 		myDao.update(reviewVo);
-		System.out.println(reviewVo.toString());
+		
+		//포인트계산
+		//난이도, 참가비용 <-- reviewVo<--챌린지번호 유저번호
+		
+		myDao.selectReviewPoint(reviewVo);
+		
+		
+		
+		System.out.println(reviewVo);
+		
+	    
+		
+		
+		//달성률 -->함수로계산
+		//persent = makePersent()
+				
+		//난이도 참가비용 달성률 --> 받을 포인트 계산
+		
+		//포인트 저장
+		
+		
+		/* myDao.writeReviewPoint(reviewVo); */
+		
+
+		
+		
 		
 		return filePath;
 	}
