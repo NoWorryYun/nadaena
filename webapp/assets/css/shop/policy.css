@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+.ProductInfoNotes {
+	margin-bottom: 20px;
+	padding: 0px;
+	color: rgb(22, 24, 26);
+	font-size: 12px;
+	letter-spacing: -0.3px;
+	background-color: rgb(255, 255, 255);
+	
+}
+
+.noteTitle {
+	margin: 0px;
+	padding: 0px;
+	font-size: 16px;
+	border-width: 0px;
+	border-style: initial;
+	border-color: initial;
+	cursor: pointer;
+	outline: 0px;
+	border-radius: 0px;
+	font-weight: 600;
+	color: rgb(22, 24, 26);
+	width: 770px;
+	text-align: left;
+}
+
+.noteTitle h4 {
+	margin: 0px 0px 16px;
+	padding: 0px;
+	line-height: 1;
+	font-size: 16px;
+}
+
+.note {
+	margin: 0px;
+	padding: 0px;
+	font-family: Dotum, 'Apple SD Gothic Neo', sans-serif;
+	table-layout: fixed;
+	width: 770px;
+	border-width: 1px 0px 0px;
+	border-top-style: solid;
+	border-right-style: initial;
+	border-bottom-style: initial;
+	border-left-style: initial;
+	border-top-color: rgb(227, 229, 232);
+	border-right-color: initial;
+	border-bottom-color: initial;
+	border-left-color: initial;
+	border-image: initial;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	word-break: break-all;
+}
+
+.noteTable th {
+	margin: 0px;
+	padding: 15px 16px;
+	border-width: 0px 0px 1px;
+/* 	border-top-style: initial; */
+/* 	border-right-style: initial; */
+/* 	border-bottom-style: solid; */
+/* 	border-left-style: initial; */
+/* 	border-top-color: initial; */
+/* 	border-right-color: initial; */
+	border-bottom-color: rgb(227, 229, 232);
+/* 	border-left-color: initial; */
+/* 	border-image: initial; */
+/* 	border-spacing: 0px; */
+/* 	border-collapse: collapse; */
+/* 	word-break: break-all; */
+/* 	vertical-align: top; */
+/* 	box-sizing: border-box; */
+	line-height: 22px;
+	font-size: 13px;
+	text-align: left;
+	width: 269.5px;
+	font-weight: 400;
+	background: rgb(248, 248, 248);
+}
+
+.noteTable td {
+	margin: 0px;
+	padding: 15px 16px;
+	border-width: 0px 0px 1px;
+	border-top-style: initial;
+	border-right-style: initial;
+	border-bottom-style: solid;
+	border-left-style: initial;
+	border-top-color: initial;
+	border-right-color: initial;
+	border-bottom-color: rgb(227, 229, 232);
+	border-left-color: initial;
+	border-image: initial;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	word-break: break-all;
+	vertical-align: top;
+	box-sizing: border-box;
+	line-height: 22px;
+	font-size: 13px;
+	color: rgb(125, 126, 128);
+}

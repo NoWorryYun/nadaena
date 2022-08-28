@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/shop.css">
     <%-- <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/animate.css"> --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/productPage.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/policy.css">
 	
 	
 	<!-- js -->
