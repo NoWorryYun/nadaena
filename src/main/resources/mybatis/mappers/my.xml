@@ -623,7 +623,7 @@
 						from review r, challenge c, users u
 						where r.challengeno = c.challengeno
 						and r.userno = u.userno
-						and c.challengeno = 101)ot
+						and c.challengeno = #{challengeNo})ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -647,7 +647,7 @@
 		    from review r, challenge c, users u
 			where r.challengeno = c.challengeno
 			and r.userno = u.userno
-			and c.challengeno = 101
+			and c.challengeno = #{challengeNo}
 		]]>
 	</select>
 		

@@ -191,11 +191,12 @@ public class MyDao {
 	}	
 	
 	//챌린지리뷰리스트 + 페이징
-	public List<ReviewVo> selectreview(int startRnum, int endRnum) {
+	public List<ReviewVo> selectreview(int startRnum, int endRnum, int challengeNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("challengeNo", challengeNo);
 		
 		List<ReviewVo> rList = sqlSession.selectList("my.selectreview", map);
 		

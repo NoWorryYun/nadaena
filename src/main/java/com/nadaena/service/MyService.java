@@ -530,9 +530,12 @@ public class MyService {
 	}		
 	
 	//챌린지리뷰리스트
-	public Map<String, Object> getrList(int crtPage) {
+	public Map<String, Object> getrList(int crtPage, int challengeNo) {
 		
 		//////리스트 가져오기
+		
+		ReviewVo reviewVo = new ReviewVo();
+		reviewVo.setChallengeNo(challengeNo);
 		
 		//페이지당 글갯수
 		int listCnt = 20;
@@ -546,8 +549,7 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<ReviewVo> rList = myDao.selectreview(startRnum, endRnum);
-		
+		List<ReviewVo> rList = myDao.selectreview(startRnum, endRnum, challengeNo);
 		//////////
 		//페이징계산
 		//////////

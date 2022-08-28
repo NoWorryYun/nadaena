@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -111,11 +112,12 @@ public class MyController {
 	}	
 	
 	//챌린지 - 리뷰 리스트
-	@RequestMapping(value="my/review", method = {RequestMethod.GET, RequestMethod.POST})
-	public String review(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+	@RequestMapping(value="my/review/{challengeNo}", method = {RequestMethod.GET, RequestMethod.POST})
+	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
+					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		System.out.println("review");
 		
-		Map<String, Object> rMap = myService.getrList(crtPage);
+		Map<String, Object> rMap = myService.getrList(crtPage, challengeNo);
 		
 		model.addAttribute("rMap", rMap);
 		
