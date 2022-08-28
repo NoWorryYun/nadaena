@@ -26,9 +26,13 @@ public class MyController {
 	 
 	//참가중 + 종료중(전체) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
-	public String list1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+	public String list1(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		Map<String, Object> mcMap = myService.getmcList(crtPage);
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		
+		Map<String, Object> mcMap = myService.getmcList(crtPage, userNo);
 		
 		model.addAttribute("mcMap", mcMap);
 		
@@ -37,9 +41,13 @@ public class MyController {
 	
 	//참가중 + 종료중(성공) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge/success", method = { RequestMethod.GET, RequestMethod.POST })
-	public String list2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+	public String list2(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		Map<String, Object> mcMap = myService.getmcList2(crtPage);
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		
+		Map<String, Object> mcMap = myService.getmcList2(crtPage, userNo);
 		
 		model.addAttribute("mcMap", mcMap);
 		
@@ -48,9 +56,11 @@ public class MyController {
 	
 	//참가중 + 종료중(실패) 챌린지 리스트
 	@RequestMapping(value = "my/my-challenge/failure", method = { RequestMethod.GET, RequestMethod.POST })
-	public String list3(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
-		
-		Map<String, Object> mcMap = myService.getmcList3(crtPage);
+	public String list3(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		Map<String, Object> mcMap = myService.getmcList3(crtPage, userNo);
 		
 		model.addAttribute("mcMap", mcMap);
 		
@@ -103,7 +113,7 @@ public class MyController {
 	
 	//마이리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String rlist(Model model, HttpSession session, ReviewVo reviewVo,
+	public String rlist(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");

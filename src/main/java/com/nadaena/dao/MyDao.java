@@ -18,19 +18,20 @@ public class MyDao {
 	private SqlSession sqlSession;
 	
 	//참가 리스트
-	public List<MyVo> selectList() {
+	public List<MyVo> selectList(int userNo) {
 		
-		List<MyVo> mcList = sqlSession.selectList("my.selectList");
+		List<MyVo> mcList = sqlSession.selectList("my.selectList", userNo);
 		
 		return mcList;
 	}
 	
 	//종료 리스트+페이징
-	public List<MyVo> selectList12(int startRnum, int endRnum) {
+	public List<MyVo> selectList12(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> mcList2 = sqlSession.selectList("my.selectList12", map);
 		
@@ -38,11 +39,12 @@ public class MyDao {
 	}
 	
 	//종료 리스트(성공) + 페이징
-	public List<MyVo> selectList13(int startRnum, int endRnum) {
+	public List<MyVo> selectList13(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> mcList3 = sqlSession.selectList("my.selectList13", map);
 		
@@ -50,11 +52,12 @@ public class MyDao {
 	}
 	
 	//종료 리스트(실패) + 페이징
-	public List<MyVo> selectList14(int startRnum, int endRnum) {
+	public List<MyVo> selectList14(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> mcList4 = sqlSession.selectList("my.selectList14", map);
 		
@@ -86,25 +89,25 @@ public class MyDao {
 	}
 	
 	//전체글 갯수
-	public int selectTotalCnt() {
+	public int selectTotalCnt(int userNo) {
 		
-		int totalCnt = sqlSession.selectOne("my.selectTotalCnt");
+		int totalCnt = sqlSession.selectOne("my.selectTotalCnt", userNo);
 		
 		return totalCnt;
 	}
 	
 	//성공글 갯수
-	public int selectTotalCnt2() {
+	public int selectTotalCnt2(int userNo) {
 		
-		int totalCnt2 = sqlSession.selectOne("my.selectTotalCnt2");
+		int totalCnt2 = sqlSession.selectOne("my.selectTotalCnt2", userNo);
 		
 		return totalCnt2;
 	}
 	
 	//실패글 갯수
-	public int selectTotalCnt3() {
+	public int selectTotalCnt3(int userNo) {
 		
-		int totalCnt3 = sqlSession.selectOne("my.selectTotalCnt3");
+		int totalCnt3 = sqlSession.selectOne("my.selectTotalCnt3", userNo);
 		
 		return totalCnt3;
 	}

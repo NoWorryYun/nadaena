@@ -24,7 +24,7 @@ public class MyService {
 	MyDao myDao;
 	
 	//참가+종료 리스트(전체)
-	public Map<String, Object> getmcList(int crtPage) {
+	public Map<String, Object> getmcList(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
@@ -40,15 +40,15 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> mcList = myDao.selectList();
-		List<MyVo> mcList2 = myDao.selectList12(startRnum, endRnum);
+		List<MyVo> mcList = myDao.selectList(userNo);
+		List<MyVo> mcList2 = myDao.selectList12(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt = myDao.selectTotalCnt();
+		int totalCnt = myDao.selectTotalCnt(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -88,7 +88,7 @@ public class MyService {
 	}
 	
 	//참가+종료 리스트(성공)
-	public Map<String, Object> getmcList2(int crtPage) {
+	public Map<String, Object> getmcList2(int crtPage, int userNo) {
 		System.out.println("C > getmcList");
 		
 		//////리스트 가져오기
@@ -105,15 +105,15 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> mcList = myDao.selectList();
-		List<MyVo> mcList3 = myDao.selectList13(startRnum, endRnum);
+		List<MyVo> mcList = myDao.selectList(userNo);
+		List<MyVo> mcList3 = myDao.selectList13(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt2 = myDao.selectTotalCnt2();
+		int totalCnt2 = myDao.selectTotalCnt2(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -153,7 +153,7 @@ public class MyService {
 	}
 	
 	//참가+종료 리스트(실패)
-	public Map<String, Object> getmcList3(int crtPage) {
+	public Map<String, Object> getmcList3(int crtPage, int userNo) {
 		System.out.println("C > getmcList");
 		
 		//////리스트 가져오기
@@ -170,15 +170,15 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> mcList = myDao.selectList();
-		List<MyVo> mcList4 = myDao.selectList14(startRnum, endRnum);
+		List<MyVo> mcList = myDao.selectList(userNo);
+		List<MyVo> mcList4 = myDao.selectList14(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt3 = myDao.selectTotalCnt3();
+		int totalCnt3 = myDao.selectTotalCnt3(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
