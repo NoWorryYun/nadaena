@@ -7,199 +7,294 @@
     <title>검색결과</title>
 
 	<!-- css -->
-	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
-	<link rel="stylesheet" href="/assets/css/common.css">
+	<link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/fonts/font-awesome.min.css">
+	<link rel="stylesheet" href="./assets/css/common.css">
+	<link rel="stylesheet" href="./assets/css/order.css">
 	
 	<!-- js -->
-	<script type="text/javascript" src="/assets/js/jquery/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
-	
-	<!-- css -->
-	<link rel="stylesheet" href="/assets/css/shop/style.css">
-	<link rel="stylesheet" href="/assets/css/shop/shop.css">
-	<link rel="stylesheet" href="/assets/css/shop/order.css">
+	<script type="text/javascript" src="./assets/js/jquery/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 
 
 <body>
 <!-- header -->
-<c:import url="/WEB-INF/views/includes/header.jsp"></c:import>
+<header>
+	<div class="header-box">
+		<div class="header-top">
+			<div class="row">
+				<div id="logbox" class="col-2">
+					<h1>나대나</h1>
+					<a href="#"> <img class="logo-img" src="./assets/img/logo.png">
+					</a>
+				</div>
+				<form id="searchbox" class="col-7 text-center" action="" method="get">
+					<input id="text-search" type="text" class="">
+					<button id="btn-search" type="submit">
+						<i class="fa fa-search"></i>
+					</button>
+				</form>
+				
+				<div id="userbox" class="col-3 text-end">   
+				<a id="btn-login" class="btn btn-light btn-sm" href="./loginForm">로그인</a>
+					<a id="btn-join" class="btn btn-light btn-sm" href="./joinForm">회원가입</a>
+				</div>
+			</div>
+			<!-- //row -->
+
+
+		</div>
+		<!-- //header-top -->
+
+		<nav id="navbox" class="row">
+			<ul class="nav col-10">
+				<li class="nav-item">
+					<a id="text-cate" href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						전체카테고리
+					</a>
+					<ul id="text-cate-list" class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">운동</a></li>
+						<li><a class="dropdown-item" href="#">독서</a></li>
+						<li><a class="dropdown-item" href="#">건강</a></li>
+						<li><a class="dropdown-item" href="#">생활</a></li>
+						<li><a class="dropdown-item" href="#">그림</a></li>
+						<li><a class="dropdown-item" href="#">공부</a></li>
+						<li><a class="dropdown-item" href="#">봉사활동</a></li>
+						<li><a class="dropdown-item" href="#">반려동물</a></li>
+						<li><a class="dropdown-item" href="#">음악</a></li>
+						<li><a class="dropdown-item" href="#">식습관</a></li>
+						<li><a class="dropdown-item" href="#">취미</a></li>
+						<li><a class="dropdown-item" href="#">뷰티</a></li>
+					</ul>
+				</li>
+				<li class="nav-item"><a href="#">챌린지</a></li>
+				<li class="nav-item"><a href="#">이벤트</a></li>
+				<li class="nav-item"><a href="#">포인트몰</a></li>
+			</ul>
+
+			<div id="btnbox" class="col-2">
+				<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="#">챌린지 개설하기</a>
+			</div>
+		</nav>
+		<!-- nav -->
+	</div>
+	<!-- //header-box -->
+
+</header>
 <!-- //header -->
 		
 
 
 <main>
 	<div class="main-box">
-		<div id="order_wrap">
-			<div class="orderCheck">
-				<div class="title">
-					<p>구매하기</p>
-				</div>
-				<div class="product">
-					<span class="thumbnail">
-						<img src="${pageContext.request.contextPath }/assets/img/shop/himart.jpg" alt="주문상품" width="144px" height="96px">
-					</span>
-					<p class="productTitle">
-						<span class="text1">[하이마트] 모바일금액권 판매 전국에서 사용가능</span>
-						<span class="text2">을 주문합니다.</span>
-					</p>
-				</div>
-			</div>
-			<br>
-			
-			<div class="check_content">
-			<!-- 사용자정보 -->
-				<div class="info_section" id="_buyer" >
-					<h4><em>사용자 정보</em>
-						<span class="s_txt">※ 입력하신 연락처와 이메일로 티켓이나 PIN번호 등의 사용 정보를 받아보실 수 있습니다.</span>
-					</h4>
-					<div class="tbl_wrap">
-					    <table>
-					        <colgroup>
-					            <col style="width:160px;">
-					            <col>
-					        </colgroup>
-					        <thead>
-					        <tr>
-					            <th scope="row" class="bdb">사용자 선택</th>
-					        </tr>
-					        </thead>
-					        <tbody id="_buyer_info"><tr>
-					    <th scope="row" class="bd0">이름</th>
-					    <td><em>장성찬</em></td>
-					</tr>
-					<tr>
-					    <th scope="row" class="bd0">연락처</th>
-					    <td><em>010-3105-9314</em></td>
-					</tr>
-					<tr>
-					    <th scope="row" class="bd0">이메일</th>
-					    <td class="last"><em>jnnd24@naver.com</em></td>
-					</tr></tbody>
-					    </table>
-					</div>
-				</div>
-				
-				<!-- 주문상품 정보 -->
-				<div class="info_section" id="_product" style=""><h4>주문상품 정보</h4>
-					<div class="tbl_wrap">
-					    <table class="product_table">
-					        <colgroup>
-					            <col style="width:160px;">
-					            <col style="width:440px;">
-					            <col style="width:140px;">
-					            <col style="width:110px;">
-					            <col style="width:105px;">
-					            <col>
-					        </colgroup>
-					        <thead>
-					        <tr>
-					            <th scope="col" colspan="2">상품정보</th>
-					            <th scope="col">상품금액</th>
-					            <th scope="col">할인금액</th>
-					            <th scope="col">주문금액</th>
-					        </tr>
-					        </thead>
-					        <tbody>
-					            <tr class="_deal" data-main-deal-srl="7199972470">
-					    <td class="thumb">
-					        <div class="product_thumb">
-					            <a href="" target="_blank"><img src="https://img2.tmon.kr/cdn4/deals/2022/08/11/7199972470/7199972470_catlist_3col_v2_a3bc2_1660195186production.jpg" alt="[문화상품권] 온라인문화상품권 본사공식판매 5만원권 3% 할인판매"></a>
-					        </div>
-					    </td>
-					    <td class="v_top">
-					        <div class="product_title">
-					            <div class="info">
-					                <ul>
-				                        <li>
-				                            <em class="name">
-				                                    [문화상품권] 온라인문화상품권 5만원권
-				                            </em>
-				                        </li>
-					                </ul>
-					            </div>
-					        </div>
-					    </td>
-					    <td class="mgl align_center">
-					        <span class="int_black"><em>50,000</em><i class="won">원</i></span>
-					    </td>
-					    <td class="mgl align_center">
-					        <span class="int">
-					            <em>0</em><i class="won">원</i>
-					        </span>
-					    </td>
-					        <td rowspan="1" class="mgl align_center">
-					            <span class="int_black_big"><em>
-					                50,000
-					            </em><i class="won">원</i></span>
-					        </td>
-					</tr>
-					    <tr class="inner_line">
-					        <td colspan="6">
-					            <div></div>
-					        </td>
-					    </tr>
-					
-					        </tbody>
-					        <tfoot>
-					        <tr>
-					            <td colspan="6">
-					                <div class="money_sum">
-					                    <ul>
-					                        <li>
-					                            <em class="title">상품금액</em>
-					                            <span class="int_black_big"><em>50,000</em><i class="won">원</i></span>
-					                        </li>
-					                        <li>
-					                            <em class="title">할인금액</em>
-					                            <span class="int_black_big">
-					                                <em>0</em><i class="won">원</i>
-					                            </span>
-					                        </li>
-					                        <!-- 
-					                        <li>
-					                            <em class="title">배송비</em>
-					                            <span class="int_black_big"><em>0</em><i class="won">원</i></span>
-					                        </li>
-					                         -->
-					                    </ul>
-					                </div>
-					            </td>
-					        </tr>
-					        <tr>
-					            <td colspan="6" class="bd0">
-					                <div class="money_tot">
-					                    <em>총 주문금액</em>
-					                    <span class="int_black_big"><em>50,000</em><i class="won">원</i></span>
-					                </div>
-					            </td>
-					        </tr>
-					        </tfoot>
-					    </table>
-					</div>
-				</div>
-				<!-- //주문상품정보 -->
-
-
-				<!-- 결제수단 -->
-				<div class="pay_section" id="_payInfo">
-					<h4>결제방법 선택<button type="button" class="btn_pay_info" id="_showCardInterestFreeInfoBtn">포인트 충전</button></h4>
-				</div>
-				<!-- //결제수단 -->
-
-
-			</div>
-			
+		<!-- 주문결제페이지배너 -->
+		<div class="orderBanner">
+			<div class="orderTextBox">
+				<div class="orderTitle">주문결제</div>
+				<div class="orderText">매일매일 새로운 혜택이 가득</div>
+			</div>	
 		</div>
+		<div class="orderLayout">
+			<!-- 주문결제페이지 리스트 -->
+			<div class="orderList">
+				<ul>
+					<li>01 장바구니<span>></span></li>
+					<li class="active">02 주문결제<span>></span></li>
+					<li>03 주문완료</li>
+				</ul>
+			</div>
+			<!-- 주문제품 -->
+			<div class="orderProduct">
+				<div class="orderProductImg"><img src="/assets/img/orderProduct.jpg" alt=""/></div>
+				<div class="productTextBox">
+					<div class="productText"><span>[문화상품권] 온라인문화상품권 본사공식판매 5만원권 3% 할인판매 </span>상품을 주문합니다.</div>
+					<div class="productSubText">선택하신 상품의 가격과 옵션정보는 하단 주문상품 정보에서 확인하실 수 있습니다.</div>
+				</div>
+			</div>
+			<!-- 사용자정보 -->
+			<div class="userInfo">
+
+				<!-- 사용자선택 -->
+				<div class="userInfoTextBox">
+					<div class="userInfoText">사용자정보</div>
+					<div class="userInfoSubText">※ 입력하신 연락처와 이메일로 티켓이나 PIN번호 등의 사용 정보를 받아보실 수 있습니다.</div>
+				</div>
+				<table class="userChoice">
+					<th>사용자 선택</th>
+					<th>
+						<input type="checkbox" id="check">
+						<label for="check">구매자 본인</label>
+					</th>
+					
+					<tr>
+						<td>이름</td>
+						<td>장성찬</td>
+					</tr>
+					<tr>
+						<td>연락처</td>
+						<td>010-0000-1111</td>
+					</tr>
+					<tr>
+						<td>이메일</td>
+						<td></td>
+					</tr>
+
+				</table>
+
+				<!-- 주문상품정보 -->
+				<div class="userInfoTextBox">
+					<div class="userInfoText">주문상품 정보</div>
+				</div>
+				<table class="productInfo">
+					<th>상품정보</th>
+					<th>상품금액</th>
+					<th>할인금액</th>
+					<th>배송비</th>
+					<th>주문금액</th>
+					
+					<tr class="orderInfo">
+						<td>
+							<div class="orderProductImg"><img src="/assets/img/orderProduct.jpg" alt=""/></div>
+							<div class="productTextBox">
+								<div class="productText"><span>[문화상품권] 온라인문화상품권 본사공식판매 5만원권 3% 할인판매</div>
+								<div class="productSubText">[문화상품권] 온라인문화상품권 5만원권<span>1개</span></div>
+								<div class="orderNum">수량변경</div>
+							</div>
+						</td>
+						<td>48,500원</td>
+						<td>0원</td>
+						<td>-</td>
+						<td>48,500원</td>
+					</tr>
+					<tr class="productPrice">
+						<td></td>
+						<td colspan="4">상품금액<span>48,500원</span></td>
+					</tr>
+					<tr class="productSale">
+						<td></td>
+						<td colspan="4">할인금액<span>0원</span></td>
+					</tr>
+					<tr class="orderPrice">
+						<td></td>
+						<td colspan="4">배송비<span>0원</span></td>
+					</tr>
+					<tr class="allPrice">
+						<td>총 주문금액</td>
+						<td colspan="4">48,500원</td>
+					</tr>
+				</table>
+
+				<!-- 약관 -->
+				<div class="userAlert">
+					㈜티몬은 통신판매중개자로서 거래 당사자가 아니며, 입점 판매자가 등록한 상품, 거래 정보 및 거래에 대하여 (주)티몬은 일체의 책임을 지지 않습니다. <br>
+					㈜티몬의 전자금융거래법에 의해 결제대금예치업 등록번호는 02-006-00043입니다. 본 판매자는 고객님의 안전거래를 위해 관련 법률에 의거하여 티몬의 구매안전서비스를 적용하고 있습니다. <br>
+					서비스 가입사실 확인 
+				</div>	
+
+				<!-- 결제방법 선택 -->
+				<div class="userInfoTextBox">
+					<div class="userInfoText">결제방법 선택</div>
+				</div>
+			
+				<div class="payChoice">
+					<div class="choiceText">결제방법</div>
+					<div class="cash">
+						<div class="payMathod">캐시사용</div>
+						<div class="keyup"><input type="text" value="0">원</div>
+						<input type="button" value="전액사용"></div>	
+					</div>
+				</div>
+
+				<!-- 약관 동의 -->
+				<div class="userInfoTextBox">
+					<div class="userInfoText">약관 동의</div>
+				</div>
+				<div class="agreeBox">
+					<div class="leftAgreeBox">
+						<div class="allAgree">
+							<input type="checkbox" id="allAgree">
+							<label for="allAgree">전체 동의하기</label>
+						</div>
+						<div class="agree agree1">
+							<input type="checkbox" id="agree1">
+							<label for="agree1">개인정보 제3자 제공에 동의합니다. </label>
+						</div>
+						<div class="agree agree2">
+							<input type="checkbox" id="agree2">
+							<label for="agree2">결제대행서비스 이용약관에 동의합니다. </label>
+						</div>
+						<div class="agree agree3">
+							<input type="checkbox" id="agree3">
+							<label for="agree3">주문할 상품설명에 명시된 내용과 사용조건을 확인하였으며, 취소. 환불규정에 동의합니다.s</label>
+						</div>
+
+					</div>
+					<div class="rightAgreeBox">
+						<ul class="productInfo">
+							<li>총 상품금액<span>48,500원</span></li>
+							<li>배송비<span>0원</span></li>
+							<li>할인 금액<span>0원</span></li>
+							<li>캐시 사용<span>0원</span></li>
+							<li>적립금 사용<span>0원</span></li>
+						</ul>
+						<div class="allProduct">총 결제금액</div>
+						<div class="allProductPrice">48,500원</div>
+					</div>
+
+					<div class="cancelBtn">
+						<input type="button" value="취소">
+					</div>
+					<div class="payBtn active">
+						<input type="button" value="결제하기">
+					</div>
+				
+				</div>
+
+		
+
+				<!-- 알림 -->
+				<div class="checkAlert">
+					<div class="alertText">꼭 확인해주세요!</div>	
+					<div class="alertSubText">
+						BC카드 무이자할부 우리비자, 광주, 전북, 수협, 저축은행, 우체국, 새마을금고, 산업, 제주, 신협, 현대증권카드는 제외됩니다. “상품권 및 현금성 상품” 에 대하여 카드 할인혜택이 제외 될 수 있습<br> 
+						니다 이벤트 종료일 23시 59분 59초까지 결제 요청된 경우에 할인이 적용됩니다. (서버시간은 컴퓨터마다 상이하니, 10분 전까지 결제완료 부탁드립니다.)
+					</div>
+				</div>	
+
+			</div>
+		
+		</div>
+		
+		
+				<!-- 하단배너 -->
+
+			<div class="orderBottomBanner">
+				<div class="orderTextBox">
+					<div class="orderTitle"></div>
+					<div class="orderText"></div>
+				</div>	
+			</div>
 	</div>
 </main>
 
 
 
 <!-- footer -->
-<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
+<footer>
+	<div class="footer-box text-center">
+		<p class="footer-title">나대나 팀프로젝트 컴퍼니</p>
+
+		<p class="footer-content">
+			회사명 : (주)글로벌 아이티(IT) 인재개발원 사업자등록번호 : 119-99-54433 대표자명 : 정우성<br>
+			서울시 관악구 남부순환로 1820,에그엘로우14층 전화번호 : 02-1234-5678 팩스번호 : 02-9876-5432<br>
+		<p>
+		<p class="footer-copyright">Copyright 2022 (주)글로벌아이티정보기술. ALL
+			RIGHTS RESERVED.</p>
+	</div>
+</footer>
+
 <!-- //footer -->
 
 
