@@ -1,253 +1,138 @@
-@charset "UTF-8";
-.order_wrap{
-    font-size: 12px;
-}
-.orderCheck .title{
-	width: 326px;
-    height: 18px;
-    
-}
-
-.orderCheck .product{
-    padding: 24px 0;
-    border-bottom: 1px #dfe2e6 solid;
-    display: block;
-    height: 130px;
-}
-
-.orderCheck .product .thumbnail{
-    display: block;
-    float: left;
-    position: relative;
-    width: 130px;
-    height: 130px;
-    margin-right: 30px;
-
-}
-
-.orderCheck .product .thumbnail img{
-    width: 100%;
-    height: 100%;
-}
-
-.orderCheck .product .productTitle{
-    float: left;
-    width: 820px;
-    margin: 20px 0 0 0;
-}
-
-.orderCheck .product .productTitle span{
-       display: block;
-}
-
-.orderCheck .product .productTitle .text1{
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    color: #16181a;
-    letter-spacing: -.5px;
-}
-
-.orderCheck .product .productTitle .text2{
-    margin-top: 14px;
-    font-size: 11px;
-    line-height: 16px;
-    color: #959da6;
-}
-
-.info_section {
-    position: relative;
-    margin-top: 60px;
-}
-
-.info_section h4 {
-    font-weight: 700;
-    font-size: 17px;
-}
-
-.info_section h4 em {
-    display: inline-block;
-    width: 170px;
-}
-
-.info_section h4 .s_txt {
-    font-weight: 400;
-    font-size: 12px;
-    color: #959da6;
-}
+main .main-box { width: 100%; margin: 0; padding: 0;}
+main .main-box .orderBanner { position: relative; width: 100%; height: 200px; background: url(../img/orderBanner.jpg) center center no-repeat;}
+main .main-box .orderBanner .orderTextBox { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: aliceblue; text-align: center;}
+main .main-box .orderBanner .orderTextBox .orderTitle { font-size: 30px; font-weight: bold; }
+main .main-box .orderBanner .orderTextBox .orderText { font-size: 14px; padding-top: 5px; }
 
 
-.info_section .tbl_wrap {
-    position: relative;
-    margin-top: 14px;
-}
+main .main-box .orderLayout { width: 100%; max-width: 1113px; margin: 0 auto;  }
+main .main-box .orderList { border-bottom: 2px solid #000; box-sizing: border-box; margin-top: 50px;}
+main .main-box .orderList ul { display: flex; justify-content: right; }
+main .main-box .orderList ul li { list-style: none; text-decoration: none; font-size: 18px; color: #999; font-weight: bolder;  }
+main .main-box .orderList ul li.active { color: orangered; }
+main .main-box .orderList ul li span { padding: 0 10px; }
 
-table thead {
-    background-color: #fafafa;
-}
-
-table .bd0 {
-    border-bottom: 0 none;
-}
-
-table td.last {
-    border-bottom: 0;
-}
-
-.info_section table th {
-    height: 50px;
-    padding-left: 20px;
-    font-size: 14px;
-    color: #5b5e63;
-    text-align: left;
-    padding-left: 0;
-    text-indent: 20px;
-}
-
-.info_section table td {
-    height: 50px;
-    padding-left: 20px;
-    font-size: 14px;
-    text-align: left;
-    padding-left: 0;
-    text-indent: 20px;
-}
+main .main-box .orderProduct { display: flex; -ms-flex-align: center; border-bottom: 1px solid #ccc; }
+main .main-box .orderProduct .orderProductImg { width: 200px; }
+main .main-box .orderProduct .orderProductImg  img { width: 150px; }
+main .main-box .orderProduct .productTextBox { flex: 1; }
+main .main-box .orderProduct .productTextBox .productText { font-size: 18px; color: #000; font-weight: bolder; padding-top: 30px;}
+main .main-box .orderProduct .productTextBox .productText span {color: rgb(224, 83, 32);  }
+main .main-box .orderProduct .productTextBox .productSubText { font-size: 12px; padding-top: 10px; }
 
 
-/* 주문상품 정보*/
-table.product_table {
-    border-bottom: 1px #6c7580 solid;
-}
+/* 사용자선택 테이블 */
+.userInfoTextBox { display: flex; margin-top: 80px; margin-bottom: 20px; }
+.userInfoTextBox .userInfoText { width: 200px; color: #000; font-size: 18px; font-weight: bold; }
+.userInfoTextBox .userInfoSubText { flex: 1; font-size: 12px; color: #aaa; padding-top: 5px; }
 
-table.product_table td.thumb {
-    padding: 29px 0;
-    vertical-align: top;
-}
+.userInfo table.userChoice { width: 100%; border-bottom: 1px solid #ccc; }
+.userInfo table.userChoice th { height: 50px; border-top: 2px solid #999; border-bottom: 1px solid #000; background: #fafafa; padding-left: 20px; }
+.userInfo table.userChoice th input[id="check"] + label { display: inline-block;  border-radius: 50%; cursor: pointer;}
 
-table.product_table td {
-    height: auto;
-}
+.userInfo table.userChoice th:nth-child(1) { width: 200px; }
+.userInfo table.userChoice tr td:nth-child(1) { font-size: 14px; color: #555; font-weight: 600; padding: 20px 0; padding-left: 20px;}
+.userInfo table.userChoice tr td:nth-child(2) { border-bottom: 1px solid #ccc; font-size: 14px; }
 
-table td .product_thumb {
-    padding: 0 0 0 20px;
-}
+/* 주문상품 정보 테이블 */
+.userInfo table.productInfo { width: 100%; border-bottom: 1px solid #ccc; }
+.userInfo table.productInfo th { height: 50px; text-align: center; border-top: 2px solid #999; border-bottom: 1px solid #000; background: #fff; padding-left: 20px; }
 
-table td .product_thumb img {
-    width: 110px;
-    height: 110px;
-    vertical-align: top;
-}
-
-table td.v_top {
-    vertical-align: top;
-}
+.userInfo table.productInfo tr.orderInfo td .orderProductImg { float: left; width: 130px; }
+.userInfo table.productInfo tr.orderInfo td .orderProductImg img { width: 100px; }
+.userInfo table.productInfo tr.orderInfo td .productTextBox .productText { font-size: 13x; color: #000; font-weight: bolder; padding-top: 30px;}
+.userInfo table.productInfo tr.orderInfo td .productTextBox .productSubText { font-size: 10px; padding-top: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px; box-sizing: border-box; }
+.userInfo table.productInfo tr.orderInfo td .productTextBox .productSubText span { float: right; margin-right: 50px;}
+.userInfo table.productInfo tr.orderInfo td .productTextBox .orderNum { width: 100px; height: 30px; line-height: 28px; font-size: 12px; text-align: center; border: 1px solid #ccc;box-sizing: border-box; margin-top: 10px; margin-left: 130px; cursor: pointer; }
 
 
-.product_table .product_title {
-    padding: 24px 30px 30px 0;
-}
+.userInfo table.productInfo tr.orderInfo td { height: 200px; border-right: 1px solid #eee; border-bottom: 1px solid #999; box-sizing: border-box; padding-left: 20px; }
 
-.product_table .product_title .info .title {
-    margin-bottom: -7px;
-    letter-spacing: -1px;
-}
+.userInfo table.productInfo tr.orderInfo  td:nth-child(2),
+.userInfo table.productInfo tr.orderInfo  td:nth-child(3),
+.userInfo table.productInfo tr.orderInfo  td:nth-child(4),
+.userInfo table.productInfo tr.orderInfo  td:nth-child(5){ text-align: center; font-size: 14px; color: #000; font-weight: 800; }
+.userInfo table.productInfo tr.orderInfo  td:nth-child(5) { border-right: 0px; }
 
-.product_table .product_title .info .title a {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    color: #16181a;
-}
-
-.product_table .product_title .info li .name {
-    display: block;
-    padding: 14px 0;
-    line-height: 16px;
-}
-
-.product_table .product_title .info li .num {
-    position: absolute;
-    top: 0;
-    right: 0;
-    line-height: 46px;
-}
-
-table .align_center {
-    padding: 0;
-    text-align: center;
-}
-
-table .mgl {
-    border-left: 1px #eceef1 solid;
-}
-
-.int_black {
-    font-weight: 700;
-    font-size: 14px;
-    color: #16181a;
-}
-
-.int {
-    font-size: 14px;
-    color: #16181a;
-    letter-spacing: -.4px;
-}
-
-.int_black_big {
-    font-weight: 700;
-    font-size: 16px;
-    color: #16181a;
-}
-
-table td .money_tot {
-    height: 76px;
-    padding: 0 20px;
-    line-height: 76px;
-}
-
-table td .money_tot em {
-    float: left;
-    font-weight: 700;
-    font-size: 20px;
-    -webkit-font-smoothing: antialiased;
-}
+.userInfo table.productInfo tr:nth-child(3),
+.userInfo table.productInfo tr:nth-child(4),
+.userInfo table.productInfo tr:nth-child(5) { background-color: #f9f9f9; }
+.userInfo table.productInfo tr.productPrice td:nth-child(2) { font-size: 14px; color: #000; font-weight: 600; border-bottom: 1px solid #ccc; padding: 25px 0 15px 0; }
+.userInfo table.productInfo tr.productPrice td:nth-child(2) span { font-size: 16px; float: right; padding-right: 20px; }
+.userInfo table.productInfo tr.productSale td:nth-child(2) { font-size: 14px; color: #000; font-weight: 600; border-bottom: 1px solid #ccc; padding: 15px 0 15px 0; }
+.userInfo table.productInfo tr.productSale td:nth-child(2) span { font-size: 16px; float: right; padding-right: 20px; }
+.userInfo table.productInfo tr.orderPrice { border-bottom: 1px solid #ccc; }
+.userInfo table.productInfo tr.orderPrice td:nth-child(2) { font-size: 14px; color: #000; font-weight: 600; border-bottom: 1px solid #ccc; padding: 15px 0 30px 0; }
+.userInfo table.productInfo tr.orderPrice td:nth-child(2) span { font-size: 16px; float: right; padding-right: 20px; }
 
 
-.info_section .immunity_info {
-    margin-top: 17px;
-}
+.userInfo table.productInfo tr.allPrice  { height: 80px; background-color: #f9f9f9; }
+.userInfo table.productInfo tr.allPrice td:nth-child(1) { font-size: 20px; font-weight: 600; color: #000; padding-left: 20px; }
+.userInfo table.productInfo tr.allPrice td:nth-child(2) { text-align: right; line-height: 70px; font-weight: 600; color: #000; padding-right: 20px; }
 
-.info_section .immunity_info p {
-    position: relative;
-    margin-left: 16px;
-    font-size: 12px;
-    line-height: 18px;
-    color: #575e66;
-}
 
-.pay_section {
-    position: relative;
-    margin-top: 60px;
-}
+/* 티몬알림 */
+.userAlert { margin-top: 20px; font-size: 12px; color: #555; }
 
-.pay_section h4 {
-    font-weight: 700;
-    font-size: 17px;
-    -webkit-font-smoothing: antialiased;
-}
+/* 결제방법선택 */
 
-.btn_pay_info {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    height: 26px;
-    margin-left: 12px;
-    padding: 0 12px;
-    border: 1px solid #959da6;
-    background-color: #fff;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 26px;
-    color: #6c7580;
-    letter-spacing: -.8px;
-}
+.payChoice { display: flex; align-items: center; height: 100px; border-top: 2px solid #888; border-bottom: 1px solid #888; }
+.payChoice .choiceText { width: 180px; padding-left: 20px; font-size: 15px; font-weight: bold; }
+.payChoice .cash {flex: 1; display: flex; align-items: center; }
+.payChoice .cash .payMathod { width: 100px; font-size: 13px; font-weight: 600; padding-right: 20px; }
+.payChoice .cash .keyup { font-size: 12px; font-weight: 600; padding: 0 10px; }
+.payChoice .cash input[type="text"] { width: 130px; height: 30px; }
+.payChoice .cash input[type="button"] { width: 80px; height: 30px; font-size: 12px; border: 1px solid #ccc; background-color: #efefef; }
+
+
+/* 약관동의 */
+.agreeBox {position: relative; display: flex; border-top: 2px solid #888; border-bottom: 1px solid #888; }
+.agreeBox .leftAgreeBox { width: 780px; }
+.agreeBox .leftAgreeBox .allAgree { border-bottom: 1px solid #ccc; }
+.agreeBox .leftAgreeBox .allAgree  input[type="checkbox"] { width: 25px; height: 25px; margin: 20px 0; }
+.agreeBox .leftAgreeBox .allAgree  input[id="allAgree"]:checked { accent-color: rgb(255, 94, 0); }
+.agreeBox .leftAgreeBox .allAgree  label[for="allAgree"] { position: relative; top: -5px; padding-left: 10px; font-size: 16px; font-weight: 600; }
+
+.agreeBox .leftAgreeBox .agree { margin-left: 40px; }
+
+.agreeBox .leftAgreeBox .agree input[type="checkbox"] { width: 20px; height: 20px; margin: 10px 0; }
+.agreeBox .leftAgreeBox .agree1 input[type="checkbox"] { width: 20px; height: 20px; margin-top: 30px; }
+
+.agreeBox .leftAgreeBox .agree  input[id="agree1"]:checked { accent-color: rgb(255, 94, 0); }
+.agreeBox .leftAgreeBox .agree  input[id="agree2"]:checked { accent-color: rgb(255, 94, 0); }
+.agreeBox .leftAgreeBox .agree  input[id="agree3"]:checked { accent-color: rgb(255, 94, 0); }
+.agreeBox .leftAgreeBox .agree1  label[for="agree1"] { position: relative; top: -5px; padding-left: 10px; font-size: 14px; font-weight: 600; }
+.agreeBox .leftAgreeBox .agree2  label[for="agree2"] { position: relative; top: -5px; padding-left: 10px; font-size: 12px; }
+.agreeBox .leftAgreeBox .agree3  label[for="agree3"] { position: relative; top: -5px; padding-left: 10px; font-size: 12px; }
+
+
+.agreeBox .rightAgreeBox { flex: 1; border-left: 1px solid #ccc;}
+.agreeBox .rightAgreeBox  ul.productInfo { font-size: 14px; color: #000; font-weight: bold; box-sizing: border-box; padding: 30px 20px; }
+.agreeBox .rightAgreeBox  ul.productInfo li { list-style: none; text-decoration: none; padding: 5px 0;  }
+.agreeBox .rightAgreeBox  ul.productInfo li span { float: right; font-size: 18px; }
+
+.agreeBox .rightAgreeBox .allProduct { font-size: 20px; color: rgb(255, 94, 0); font-weight: 600; padding: 20px 20px 30px 20px; border-top: 1px solid #ccc; }
+.agreeBox .rightAgreeBox .allProductPrice { float: right; font-size: 32px; color: rgb(255, 94, 0); font-weight: 600; padding-right: 20px; padding-bottom: 20px;}
+
+.agreeBox .cancelBtn { position: absolute; top: 400px;left: 24%; }
+.agreeBox .payBtn { position: absolute; top: 400px; left: 51%; }
+/* .agreeBox .payBtn.active input[type="button"] { background-color: rgb(255, 94, 0); color: #fff; } */
+.agreeBox input[type="button"] { width: 270px; height: 60px; font-size: 20px; font-weight: 600; color: rgb(255, 94, 0); border: 1px solid rgb(255, 94, 0); background-color: #fff; }
+.agreeBox input[type="button"]:hover { background-color: rgb(255, 94, 0); color: #fff; transition: 0.5s; }
+
+
+
+/* 알림 */
+
+.checkAlert { border: 1px solid #efefef; padding: 0 30px; margin-top: 150px; margin-bottom: 100px; }
+.checkAlert .alertText { font-size: 20px; color: #000; font-weight: 600; padding: 10px 0 ; }
+.checkAlert .alertSubText { font-size: 12px; padding-bottom: 10px; }
+
+
+
+/* 하단배너 */
+
+.orderBottomBanner { position: relative; width: 100%; height: 100px; background: url(../img/orderBottomBanner.png) center center no-repeat;}
+.orderBottomBanner .orderTextBox { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: aliceblue; text-align: center;}
+.orderBottomBanner .orderTextBox .orderTitle { font-size: 30px; font-weight: bold; }
+.orderBottomBanner .orderTextBox .orderText { font-size: 14px; padding-top: 5px; }
