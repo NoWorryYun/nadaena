@@ -99,7 +99,7 @@ public class MyController {
 		return "my/my-bookmark2";
 	}	
 	
-	//리뷰 리스트
+	//마이리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
 	public String rlist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
@@ -109,6 +109,18 @@ public class MyController {
 		
 		return "my/my-review";
 	}	
+	
+	//챌린지 - 리뷰 리스트
+	@RequestMapping(value="my/review", method = {RequestMethod.GET, RequestMethod.POST})
+	public String review(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		System.out.println("review");
+		
+		Map<String, Object> rMap = myService.getrList41(crtPage);
+		
+		model.addAttribute("rMap", rMap);
+		
+		return "challenge/review"; 
+	} 	
 	
 	//리뷰쓰기+상태업데이트
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
@@ -165,4 +177,5 @@ public class MyController {
 		
 		return "my/my-main"; 
 	} 
+	
 }

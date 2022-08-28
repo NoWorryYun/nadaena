@@ -83,250 +83,58 @@
 								<div id="afterComment-wrap">
 									<div>
 										<ul class="list-inline">
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
+											<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
+												<li class="list-inline-item">
+													<div class="img-size">
+														<a href="#"><img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
 													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
+													<div class="certify-list-info">
 														<div>
-															<a class="report" href="#">신고</a>
+															<div>
+																<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${ReviewVo.reviewNo}">삭제</a>
+															</div>
+															<p class="review-uploader">${ReviewVo.nickname }</p>
+															<p class="review-comment">${ReviewVo.reviewContent }</p>
 														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
 													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
-											<li class="list-inline-item">
-												<div class="img-size">
-													<a href="#"><img class="img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png"></a>
-												</div>
-												<div class="certify-list-info">
-													<div>
-														<div>
-															<a class="report" href="#">신고</a>
-														</div>
-														<p class="review-uploader">피자만두</p>
-														<p class="review-comment">후기 : 피자만두는 너무 맛있었다</p>
-													</div>
-												</div>
-											</li>
+												</li>
+											</c:forEach>
 										</ul>
-										<div class="paging-box">
-											<nav>
-												<ul class="pagination pagination-sm">
-													<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-													<li class="page-item"><a class="page-link" href="#">1</a></li>
-													<li class="page-item"><a class="page-link" href="#">2</a></li>
-													<li class="page-item"><a class="page-link" href="#">3</a></li>
-													<li class="page-item"><a class="page-link" href="#">4</a></li>
-													<li class="page-item"><a class="page-link" href="#">5</a></li>
-													<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-												</ul>
-											</nav>
-										</div>
+				<div id="afterComment-wrap">
+					<div class="paging-box">
+						<nav>
+							<ul class="pagination pagination-sm">
+								<c:if test="${rMap.prev}">
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-review?crtPage=${rMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+								</c:if>
+								<c:forEach begin="${rMap.startPageBtnNo}" end="${rMap.endPageBtnNo}" step="1" var="page">	
+									<c:choose>
+										<c:when test="${param.crtPage==page}">
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-review?crtPage=${page}">${page}</a></li>
+										</c:when>
+										<c:otherwise>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-review?crtPage=${page}">${page}</a></li>
+										</c:otherwise>
+									</c:choose>	
+								</c:forEach>
+								
+								<c:if test="${rMap.next}">
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-review?crtPage=${rMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+								</c:if>
+							</ul>
+						</nav>
+					</div>
+				</div> <!-- paging -->
+				
+				
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+
+<!-- ========================================================================================================================================================================================== -->
 
 				<div id="rside" class="col-3">
 					<div id="challenge-recommand">

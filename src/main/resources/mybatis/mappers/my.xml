@@ -565,20 +565,23 @@
 					ort.userNo,
 					ort.reviewContent,
 					ort.reviewImg,
-					ort.nickname
+					ort.nickname,
+					ort.reviewDate
 			from (select rownum rn,
 						 ot.reviewNo,
 						 ot.challengeNo,
 						 ot.userNo,
 						 ot.reviewContent,
 						 ot.reviewImg,
-						 ot.nickname
+						 ot.nickname,
+						 ot.reviewDate
 				  from (select  reviewNo,
 								challengeNo,
 								u.userNo,
 								reviewContent,
 								reviewImg,
-								u.nickname
+								u.nickname,
+								r.reviewDate
 						from review r, users u
 						where u.userNo = r.userNo)ot
 				  )ort
@@ -586,6 +589,8 @@
 			and rn<=#{endRnum}	  
 		]]>
 	</select>	
+
+	<!-- 챌린지 리뷰 리스트 -->
 	
 	<!-- 리뷰 갯수 구하기 -->
 	<select id="selectTotalCnt41" resultType="int">
