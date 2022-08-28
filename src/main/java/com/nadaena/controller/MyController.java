@@ -106,7 +106,7 @@ public class MyController {
 		Map<String, Object> rMap = myService.getrList41(crtPage);
 		
 		model.addAttribute("rMap", rMap);
-		
+		System.out.println(rMap);
 		return "my/my-review";
 	}	
 	
@@ -115,7 +115,7 @@ public class MyController {
 	public String review(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		System.out.println("review");
 		
-		Map<String, Object> rMap = myService.getrList41(crtPage);
+		Map<String, Object> rMap = myService.getrList(crtPage);
 		
 		model.addAttribute("rMap", rMap);
 		

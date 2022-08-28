@@ -125,8 +125,6 @@
 						</nav>
 					</div>
 				</div> <!-- paging -->
-				
-				
 									</div>
 								</div>
 							</div>

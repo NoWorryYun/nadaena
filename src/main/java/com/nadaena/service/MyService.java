@@ -465,8 +465,9 @@ public class MyService {
         mbMap.put("next", next);
 		
 		return mbMap;
-	}	
-	//리뷰리스트(전체)
+	}
+	
+	//마이리뷰리스트
 	public Map<String, Object> getrList41(int crtPage) {
 		
 		//////리스트 가져오기
@@ -527,6 +528,68 @@ public class MyService {
 		
 		return rMap;
 	}		
+	
+	//챌린지리뷰리스트
+	public Map<String, Object> getrList(int crtPage) {
+		
+		//////리스트 가져오기
+		
+		//페이지당 글갯수
+		int listCnt = 20;
+		
+		//현재페이지
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		//시작글번호
+		int startRnum = (crtPage - 1)*listCnt + 1;
+		
+		//끝글번호
+		int endRnum = (startRnum + listCnt) -1 ;
+		
+		List<ReviewVo> rList = myDao.selectreview(startRnum, endRnum);
+		
+		//////////
+		//페이징계산
+		//////////
+		
+		//전체글갯수
+		int totalrCnt = myDao.selectTotalrCnt();
+		
+		//페이지당버튼갯수
+		int pageBtnCount = 5;
+		
+		//마지막버튼번호
+		int endPageBtnNo = (int)Math.ceil(crtPage/(double)pageBtnCount)*pageBtnCount;
+		
+		//
+		int startPageBtnNo = (endPageBtnNo-pageBtnCount)+1;
+		
+		//다음 화살표 유무
+        boolean next = false;
+        if( (listCnt*endPageBtnNo) < totalrCnt  ) {
+        	 next=true;
+        
+        }else {
+        	endPageBtnNo =(int)Math.ceil(totalrCnt/(double)listCnt);       
+        }
+       
+        //이전 화살표 유무
+        boolean prev = false;
+        if(startPageBtnNo != 1) {
+        	prev=true;
+        }
+        
+        
+        Map<String, Object> rMap = new HashMap<String, Object>();
+		
+        rMap.put("rList", rList);
+        rMap.put("prev", prev);
+        rMap.put("startPageBtnNo", startPageBtnNo);
+        rMap.put("endPageBtnNo", endPageBtnNo);
+        rMap.put("next", next);
+		
+		return rMap;
+	}	
 	
 	//리뷰 쓰기 + 리워드 지급 + 상태업데이트
 	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
@@ -613,10 +676,6 @@ public class MyService {
 		
 		
 		/* myDao.writeReviewPoint(reviewVo); */
-		
-
-		
-		
 		
 		return filePath;
 	}

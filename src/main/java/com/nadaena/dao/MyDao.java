@@ -163,15 +163,20 @@ public class MyDao {
 		return totalCnt;
 	}	
 	
-	
-	
-	//리뷰 갯수
+	//마이리뷰 갯수
 	public int selectTotalCnt41() {
 		
 		int totalCnt41 = sqlSession.selectOne("my.selectTotalCnt41");
 		
 		return totalCnt41;
 	}
+	//챌린지리뷰 갯수
+	public int selectTotalrCnt() {
+		
+		int totalrCnt = sqlSession.selectOne("my.selectTotalrCnt");
+		
+		return totalrCnt;
+	}	
 	
 	//리뷰리스트 + 페이징
 	public List<ReviewVo> selectreviewList(int startRnum, int endRnum) {
@@ -184,6 +189,18 @@ public class MyDao {
 		
 		return rList;
 	}	
+	
+	//챌린지리뷰리스트 + 페이징
+	public List<ReviewVo> selectreview(int startRnum, int endRnum) {
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		
+		List<ReviewVo> rList = sqlSession.selectList("my.selectreview", map);
+		
+		return rList;
+	}
 	
 	//리뷰쓰기
 	public int writeReview(ReviewVo reviewVo) {

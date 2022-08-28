@@ -583,7 +583,8 @@
 								u.nickname,
 								r.reviewDate
 						from review r, users u
-						where u.userNo = r.userNo)ot
+						where u.userNo = r.userNo
+						and u.userno = 1)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -591,16 +592,65 @@
 	</select>	
 
 	<!-- 챌린지 리뷰 리스트 -->
+	<select id="selectreview" parameterType= "Map" resultType="ReviewVo">
+		<![CDATA[
+			select  ort.rn,
+					ort.reviewNo,
+					ort.challengeNo,
+					ort.userNo,
+					ort.reviewContent,
+					ort.reviewImg,
+					ort.nickname,
+					ort.clgTitle,
+					ort.reviewDate
+			from (select rownum rn,
+						 ot.reviewNo,
+						 ot.challengeNo,
+						 ot.userNo,
+						 ot.reviewContent,
+						 ot.reviewImg,
+						 ot.nickname,
+						 ot.clgTitle,
+						 ot.reviewDate
+				  from (select  r.reviewNo,
+						        r.challengeNo,
+						        u.userNo,
+						        r.reviewContent,
+						        r.reviewImg,
+						        u.nickname,
+						        c.clgTitle,
+						        r.reviewDate
+						from review r, challenge c, users u
+						where r.challengeno = c.challengeno
+						and r.userno = u.userno
+						and c.challengeno = 101)ot
+				  )ort
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}	  
+		]]>
+	</select>	
 	
-	<!-- 리뷰 갯수 구하기 -->
+	<!-- 마이리뷰 갯수 구하기 -->
 	<select id="selectTotalCnt41" resultType="int">
 		<![CDATA[
 			select count(*) count
 			from review r, users u
 		    where u.userNo = r.userNo
+		    and u.userNo=1
 		]]>
 	</select>		
-	
+
+	<!-- 챌린지리뷰 갯수 구하기 -->
+	<select id="selectTotalrCnt" resultType="int">
+		<![CDATA[
+			select count(*) count
+		    from review r, challenge c, users u
+			where r.challengeno = c.challengeno
+			and r.userno = u.userno
+			and c.challengeno = 101
+		]]>
+	</select>
+		
 	<!-- 리뷰작성 -->
 	<insert id="insertReview" parameterType="ReviewVo">
 		<![CDATA[

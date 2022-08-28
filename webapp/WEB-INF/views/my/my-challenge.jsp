@@ -166,7 +166,7 @@
 					<p class="modal-nickname">작성자 : 배달의기마민족</p>
 					<p class="modal-upload-date">작성일 : 2022-08-31</p>
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
-					<input type="hidden" name="userNo" value="authUser.userNo"><!-- 세션에서 -->
+					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 					<input type="hidden" name="nickname" value="이선생"><!-- 세션에서 -->
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
