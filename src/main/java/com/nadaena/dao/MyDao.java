@@ -65,11 +65,12 @@ public class MyDao {
 	}
 	
 	//진행중 이벤트 + 페이징
-	public List<MyVo> selectList21(int startRnum, int endRnum) {
+	public List<MyVo> selectList21(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> meList1 = sqlSession.selectList("my.selectList21", map);
 		System.out.println(meList1);
@@ -77,11 +78,12 @@ public class MyDao {
 	}
 
 	//종료 이벤트 + 페이징
-	public List<MyVo> selectList22(int startRnum, int endRnum) {
+	public List<MyVo> selectList22(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> meList2 = sqlSession.selectList("my.selectList22", map);
 		System.out.println(meList2);
@@ -113,70 +115,73 @@ public class MyDao {
 	}
 
 	//진행이벤트 갯수
-	public int selectTotalCnt21() {
+	public int selectTotalCnt21(int userNo) {
 		
-		int totalCnt21 = sqlSession.selectOne("my.selectTotalCnt21");
+		int totalCnt21 = sqlSession.selectOne("my.selectTotalCnt21", userNo);
 		
 		return totalCnt21;
 	}
 
 	//종료이벤트 갯수
-	public int selectTotalCnt22() {
+	public int selectTotalCnt22(int userNo) {
 		
-		int totalCnt22 = sqlSession.selectOne("my.selectTotalCnt22");
+		int totalCnt22 = sqlSession.selectOne("my.selectTotalCnt22", userNo);
 		
 		return totalCnt22;
 	}
 	
 	//북마크 챌린지 + 페이징
-	public List<MyVo> selectbList1(int startRnum, int endRnum) {
+	public List<MyVo> selectbList1(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> mbList1 = sqlSession.selectList("my.selectbList1", map);
 		return mbList1;
 	}
 	
 	//북마크 챌린지 갯수
-	public int selectTotalCntb1() {
+	public int selectTotalCntb1(int userNo) {
 		
-		int totalCnt = sqlSession.selectOne("my.selectTotalCntb1");
+		int totalCnt = sqlSession.selectOne("my.selectTotalCntb1", userNo);
 		
 		return totalCnt;
 	}
 	
 	//북마크 이벤트 + 페이징
-	public List<MyVo> selectbList2(int startRnum, int endRnum) {
+	public List<MyVo> selectbList2(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<MyVo> mbList2 = sqlSession.selectList("my.selectbList2", map);
 		return mbList2;
 	}
 	
 	//북마크 이벤트 갯수
-	public int selectTotalCntb2() {
+	public int selectTotalCntb2(int userNo) {
 		
-		int totalCnt = sqlSession.selectOne("my.selectTotalCntb2");
+		int totalCnt = sqlSession.selectOne("my.selectTotalCntb2", userNo);
 		
 		return totalCnt;
 	}	
 	
 	//마이리뷰 갯수
-	public int selectTotalCnt41() {
+	public int selectTotalCnt41(int userNo) {
 		
-		int totalCnt41 = sqlSession.selectOne("my.selectTotalCnt41");
+		int totalCnt41 = sqlSession.selectOne("my.selectTotalCnt41", userNo);
 		
 		return totalCnt41;
 	}
+	
 	//챌린지리뷰 갯수
-	public int selectTotalrCnt() {
+	public int selectTotalrCnt(int challengeNo) {
 		
-		int totalrCnt = sqlSession.selectOne("my.selectTotalrCnt");
+		int totalrCnt = sqlSession.selectOne("my.selectTotalrCnt", challengeNo);
 		
 		return totalrCnt;
 	}	
@@ -252,11 +257,12 @@ public class MyDao {
 	}
 	
 	//포인트리스트 + 페이징
-	public List<ReviewVo> selectPoint(int startRnum, int endRnum) {
+	public List<ReviewVo> selectPoint(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<ReviewVo> pList = sqlSession.selectList("my.selectPoint", map);
 		
@@ -264,17 +270,17 @@ public class MyDao {
 	}
 	
 	//포인트 총합
-	public int selectsum() {
+	public int selectsum(int userNo) {
 		
-		int sum = sqlSession.selectOne("my.selectSum");
+		int sum = sqlSession.selectOne("my.selectSum", userNo);
 		
 		return sum;
 	}	
 	
 	//포인트내역 갯수
-	public int selectTotalCnt51() {
+	public int selectTotalCnt51(int userNo) {
 		
-		int totalCnt51 = sqlSession.selectOne("my.selectTotalCnt51");
+		int totalCnt51 = sqlSession.selectOne("my.selectTotalCnt51", userNo);
 		
 		return totalCnt51;
 	}	

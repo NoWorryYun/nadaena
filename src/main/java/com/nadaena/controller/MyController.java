@@ -69,9 +69,12 @@ public class MyController {
 
 	//참가중 이벤트 리스트
 	@RequestMapping(value = "my/my-event", method = { RequestMethod.GET, RequestMethod.POST })
-	public String elist1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+	public String elist1(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
 		
-		Map<String, Object> mcMap = myService.getmeList21(crtPage);
+		Map<String, Object> mcMap = myService.getmeList21(crtPage, userNo);
 		
 		model.addAttribute("mcMap", mcMap);
 		
@@ -80,9 +83,11 @@ public class MyController {
 
 	//종료된 이벤트 리스트
 	@RequestMapping(value = "my/my-event/end", method = { RequestMethod.GET, RequestMethod.POST })
-	public String elist2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
-		
-		Map<String, Object> mcMap = myService.getmeList22(crtPage);
+	public String elist2(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		Map<String, Object> mcMap = myService.getmeList22(crtPage, userNo);
 		
 		model.addAttribute("mcMap", mcMap);
 		
@@ -91,9 +96,11 @@ public class MyController {
 	
 	//북마크 챌린지 리스트
 	@RequestMapping(value = "my/my-bookmark1", method = { RequestMethod.GET, RequestMethod.POST })
-	public String blist1(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
-		
-		Map<String, Object> mbMap = myService.getmbList1(crtPage);
+	public String blist1(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		Map<String, Object> mbMap = myService.getmbList1(crtPage, userNo);
 		
 		model.addAttribute("mbMap", mbMap);
 		
@@ -102,9 +109,11 @@ public class MyController {
 	
 	//북마크 이벤트 리스트
 	@RequestMapping(value = "my/my-bookmark2", method = { RequestMethod.GET, RequestMethod.POST })
-	public String blist2(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
-		
-		Map<String, Object> mbMap = myService.getmbList2(crtPage);
+	public String blist2(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		Map<String, Object> mbMap = myService.getmbList2(crtPage, userNo);
 		
 		model.addAttribute("mbMap", mbMap);
 		
@@ -155,9 +164,9 @@ public class MyController {
 	public String deleteReview(@ModelAttribute ReviewVo reviewVo, HttpSession session) {
 		System.out.println("MyCON / delete");
 
-		// 로그인한 사용자의 글만 삭제하도록 세션의 userNo도 입력(쿼리문에서 검사)
-		//UserVo authUser = (UserVo) session.getAttribute("authUser");
-		//reviewVo.setUserNo(authUser.getNo());
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		reviewVo.setUserNo(authUser.getUserNo());
+		
 		myService.removeReview(reviewVo);
 
 		return "redirect:/my/my-review";
@@ -165,9 +174,12 @@ public class MyController {
 	
 	//포인트 리스트(내역)
 	@RequestMapping(value = "my/my-point", method = { RequestMethod.GET, RequestMethod.POST })
-	public String plist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+	public String plist(Model model, HttpSession session,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
 		
-		Map<String, Object> pMap = myService.getpList51(crtPage);
+		Map<String, Object> pMap = myService.getpList51(crtPage, userNo);
 		
 		model.addAttribute("pMap", pMap);
 		System.out.println(pMap);
@@ -179,13 +191,6 @@ public class MyController {
 		System.out.println("mybuylist");
 		 
 		return "my/my-buylist"; 
-	} 
-	
-	@RequestMapping(value="my/my-bookmark", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mybookmark() {
-		System.out.println("mybookmark");
-		
-		return "my/my-bookmark"; 
 	} 
 	
 	@RequestMapping(value="my/my-main", method = {RequestMethod.GET, RequestMethod.POST})

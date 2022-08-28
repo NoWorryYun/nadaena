@@ -218,7 +218,7 @@ public class MyService {
 	}
 
 	//진행중 이벤트 리스트(전체)
-	public Map<String, Object> getmeList21(int crtPage) {
+	public Map<String, Object> getmeList21(int crtPage, int userNo) {
 		System.out.println("C > getmcList");
 		
 		//////리스트 가져오기
@@ -235,14 +235,14 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> meList1 = myDao.selectList21(startRnum, endRnum);
+		List<MyVo> meList1 = myDao.selectList21(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt21 = myDao.selectTotalCnt21();
+		int totalCnt21 = myDao.selectTotalCnt21(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -281,8 +281,7 @@ public class MyService {
 	}	
 	
 	//종료 이벤트 리스트(전체)
-	public Map<String, Object> getmeList22(int crtPage) {
-		System.out.println("C > getmcList");
+	public Map<String, Object> getmeList22(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
@@ -298,14 +297,14 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> meList2 = myDao.selectList22(startRnum, endRnum);
+		List<MyVo> meList2 = myDao.selectList22(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt22 = myDao.selectTotalCnt22();
+		int totalCnt22 = myDao.selectTotalCnt22(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -343,8 +342,8 @@ public class MyService {
 		return mcMap;
 	}	
 
-	//종료 이벤트 리스트(전체)
-	public Map<String, Object> getmbList1(int crtPage) {
+	//북마크 챌린지
+	public Map<String, Object> getmbList1(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
@@ -360,14 +359,14 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> mbList1 = myDao.selectbList1(startRnum, endRnum);
+		List<MyVo> mbList1 = myDao.selectbList1(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCntb1 = myDao.selectTotalCntb1();
+		int totalCntb1 = myDao.selectTotalCntb1(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -406,7 +405,7 @@ public class MyService {
 	}	
 	
 	//북마크 이벤트 리스트
-	public Map<String, Object> getmbList2(int crtPage) {
+	public Map<String, Object> getmbList2(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
@@ -422,14 +421,14 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<MyVo> mbList2 = myDao.selectbList2(startRnum, endRnum);
+		List<MyVo> mbList2 = myDao.selectbList2(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCntb2 = myDao.selectTotalCntb2();
+		int totalCntb2 = myDao.selectTotalCntb2(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -492,7 +491,7 @@ public class MyService {
 		//////////
 		
 		//전체글갯수
-		int totalCnt41 = myDao.selectTotalCnt41();
+		int totalCnt41 = myDao.selectTotalCnt41(userNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -556,7 +555,7 @@ public class MyService {
 		//////////
 		
 		//전체글갯수
-		int totalrCnt = myDao.selectTotalrCnt();
+		int totalrCnt = myDao.selectTotalrCnt(challengeNo);
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -692,8 +691,7 @@ public class MyService {
 	}
 	
 	//포인트(전체)
-	public Map<String, Object> getpList51(int crtPage) {
-		System.out.println("C > getmcList");
+	public Map<String, Object> getpList51(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
@@ -709,15 +707,15 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		//총포인트
-		int sum = myDao.selectsum();
-		List<ReviewVo> pList = myDao.selectPoint(startRnum, endRnum);
+		int sum = myDao.selectsum(userNo);
+		List<ReviewVo> pList = myDao.selectPoint(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산
 		//////////
 		
 		//전체글갯수
-		int totalCnt51 = myDao.selectTotalCnt51();
+		int totalCnt51 = myDao.selectTotalCnt51(userNo);
 		
 		
 		//페이지당버튼갯수

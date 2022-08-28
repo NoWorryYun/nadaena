@@ -227,6 +227,7 @@
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
 					    and   m.achievement < 90
+					    and m.userNo = #{userNo}
 					    and   c.clgGroup=1)ot
 				  )ort
 			where rn>=#{startRnum}
@@ -293,6 +294,7 @@
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 1
+					    and m.userNo = #{userNo}
 					    and   c.clgGroup=2)ot
 				  )ort
 			where rn>=#{startRnum}
@@ -358,6 +360,7 @@
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
+					    and m.userNo = #{userNo}
 					    and   c.clgGroup=2)ot
 				  )ort
 			where rn>=#{startRnum}
@@ -412,6 +415,7 @@
 		    where c.challengeNo = m.challengeNo
 		    and m.state=1
 		    and   c.clgGroup=2
+		    and m.userNo = #{userNo}
 		]]>
 	</select>	
 	
@@ -423,6 +427,7 @@
 		    where c.challengeNo = m.challengeNo
 		    and m.state=2
 		    and   c.clgGroup=2
+		    and m.userNo = #{userNo}
 		]]>
 	</select>	
 	
@@ -476,6 +481,7 @@
 						from bookmark b, users u, challenge c
 						where b.bookmarkno = c.challengeNo
 						and b.userno = u.userno
+						and u.userNo = #{userNo}
 						and c.clgGroup = 1)ot
 						)ort
 			where rn>=#{startRnum}
@@ -533,6 +539,7 @@
 						from bookmark b, users u, challenge c
 						where b.bookmarkno = c.challengeNo
 						and b.userno = u.userno
+						and u.userNo = #{userNo}
 						and c.clgGroup = 2)ot
 						)ort
 			where rn>=#{startRnum}
@@ -547,6 +554,7 @@
 			from bookmark b, users u, challenge c
 			where b.bookmarkno = c.challengeNo
 			and b.userno = u.userno
+			and u.userNo = #{userNo}
 			and c.clgGroup = 1
 		]]>
 	</select>	
@@ -558,6 +566,7 @@
 			from bookmark b, users u, challenge c
 			where b.bookmarkno = c.challengeNo
 			and b.userno = u.userno
+			and u.userNo = #{userNo}
 			and c.clgGroup = 2
 		]]>
 	</select>	
@@ -642,7 +651,7 @@
 			select count(*) count
 			from review r, users u
 		    where u.userNo = r.userNo
-		    and u.userNo=1
+		    and u.userNo = #{userNo}
 		]]>
 	</select>		
 
@@ -686,6 +695,7 @@
 		<![CDATA[
 			delete from review 
 			where reviewNo = #{reviewNo}
+			and userNo=#{userNo}
 		]]>
 	</delete>
 	
@@ -754,6 +764,7 @@
 								p.pointMemo
 						from users u, point p
 						where u.userNo = p.userNo
+						and u.userNo = #{userNo}
 						order by p.pointDate desc)ot
 				  )ort
 			where rn>=#{startRnum}
@@ -766,7 +777,7 @@
 		<![CDATA[	
 			select  sum(amount) sum
 			from point
-			where userNo=1
+			where userNo=#{userNo}
 		]]>
 	</select>	
 	
@@ -777,6 +788,7 @@
 			select count(*) count
 			from point p, users u
 		    where u.userNo = p.userNo
+		    and u.userNo = #{userNo}
 		]]>
 	</select>	
 	
