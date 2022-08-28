@@ -172,6 +172,10 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	font-size: 20px;
 }
 
+.word-wrap{
+	word-break: break-all;
+}
+
 #certify-all-mine {
 	margin-top: 7px;
 	float: right;

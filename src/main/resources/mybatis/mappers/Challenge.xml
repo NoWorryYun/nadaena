@@ -90,6 +90,44 @@
 		)
 		]]>
 	</insert>
+	
+	<!-- certifyList 가져오기 -->
+	<select id="certifyList" parameterType="ChallengeVo" resultType="ChallengeVo">
+	<![CDATA[
+		select  cc.rn rn,
+		        cc.certifyNo certifyNo,
+		        cc.challengeNo challengeNo,
+		        cc.certifyTitle certifyTitle,
+		        cc.subOn subOn,
+		        cc.subOff subOff,
+		        cc.certifyChk certifyChk,
+		        cc.certifiedNo certifiedNo
+		from (  select  rownum rn,
+		                c.certifyNo,
+		                c.challengeNo,
+		                c.certifyTitle,
+		                c.subOn,
+		                c.subOff,
+		                c.certifyChk,
+		                c.certifiedNo
+		        from (  select  q.certifyNo certifyNo,
+		                        q.challengeNo challengeNo,
+		                        q.certifyTitle certifyTitle,
+		                        q.subOn subOn,
+		                        q.subOff subOff,
+		                        d.certifyNo certifyChk,
+		                        d.certifiedNo certifiedNo
+		                from certify q,  (select certifyNo,
+		                                         certifiedNo
+		                                    from certified
+		                                    where certifieddate = to_char(sysdate, 'yy-mm-dd')
+		                                    and userNo = #{userNo}) d
+		                where challengeNo = #{challengeNo}
+		                and q.certifyNo = d.certifyNo(+)
+		                order by q.certifyNo asc) c
+		     ) cc
+		]]>
+	</select>
 	<!-- /////////////////////////////////////////////////////////////////////// -->
 	
 	
@@ -126,7 +164,16 @@
 			and c.challengeNo = #{challengeNo}
 		]]>
 	</select>
-
+	
+	<!-- 카테고리 이름 가져오기 -->
+	<select id="cateId" parameterType="int" resultType="String">
+		<![CDATA[
+			select interestName
+			from interest
+			where interestNo = #{interestNo}		
+		]]>
+	</select>
+		
 	<!-- 챌린지 참여(유저) -->
 	<insert id="joinChallenge" parameterType="ChallengeVo">
 		<![CDATA[
@@ -196,29 +243,7 @@
 			where challengeNo = #{challengeNo}
 		]]>
 	</select>
-		
-	<!-- certify -->
-	<select id="certifyList" parameterType="int" resultType="ChallengeVo">
-		<![CDATA[
-			select  certifyNo,
-					challengeNo,
-					certifyTitle,
-					subOn,
-					subOff
-			from certify
-			where challengeNo = #{challengeNo}
-		]]>
-	</select>
-	
-	<!-- 카테고리 이름 가져오기 -->
-	<select id="cateId" parameterType="int" resultType="String">
-		<![CDATA[
-			select interestName
-			from interest
-			where interestNo = #{interestNo}		
-		]]>
-	</select>
-
+			
 	<!-- 진행도 체크하기 -->
 	<select id="chkProgress" parameterType="ChallengeVo" resultType="int">
 		<![CDATA[
@@ -237,32 +262,53 @@
 		]]>
 	</select>
 
-	<insert id="ChallengeCertify" parameterType="ChallengeVo">
+	<!-- 캘린더 날짜계산 -->
+	
+	<select id="calender" parameterType="ChallengeVo" resultType="ChallengeVo">
 		<![CDATA[
-			insert into challenge
-			values( seq_certifyNo.nextval,
-					#{challengeNo},
-					#{clgTitle}, 
-					#{img},
-					to_char(sysdate, 
-					'yy-mm-dd'), 
-					#{recruitment}, 
-					#{period}, 
-					#{certify},
-					#{minigame}, 
-					#{upload}, 
-					#{certifyDay},
-					#{content},
-					#{tag1},
-					#{tag2},
-					#{tag3},
-					#{tag4},
-					#{tag5},
-					#{clgLevel},
-					#{clgGroup}
-				)
+			select  cc.certifyTitle certifyTitle,
+			        c.regDate regDate,
+			        recruitment recruitment,
+			        to_char(regDate+recruitment, 'yyyy-mm-dd') recRD,
+			        c.period period,
+			        c.upload upload,
+			        cc.subon subOn,
+			        cc.suboff subOff,
+			        cc.certifieddate certifiedDate
+			from challenge c, (select  ct.certifyNo,
+			                            ct.certifyTitle,
+			                            ct.challengeNo,
+			                            ct.subon,
+			                          ct.suboff,
+			                          cf.certifieddate,
+			                          cf.userNo
+			                    from  certify ct, (select certifieddate,
+			                                            userNo,
+			                                            certifyNo
+			                                    from certified
+			                                    where userNo= #{userNo}
+			                                    and certifieddate = #{certifieddate}) cf
+			                    where ct.certifyNo = cf.certifyNo(+)
+			                    and ct.challengeNo = #{challengeNo}) cc
+			where c.challengeNo = cc.challengeNo
+			and c.challengeNo = #{challengeNo}
+		]]>
+	</select>
+	
+	<!-- 답 제출하기 -->
+	<insert id="certifiedSubmit">
+		<![CDATA[
+			insert into certified
+			values(seq_certifiedNo.nextval, #{certifyNo}, #{userNo}, #{img}, to_char(sysdate, 'yy-mm-dd'))
 		]]>
 	</insert>
 
-
+	<!-- 답 수정하기 -->
+	<update id="certifiedUpdate">
+		<![CDATA[
+			update certified
+			set certifiedImg = #{img}
+			where certifiedNo = #{certifiedNo}
+		]]>
+	</update>
 </mapper>

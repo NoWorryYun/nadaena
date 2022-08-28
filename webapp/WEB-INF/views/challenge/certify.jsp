@@ -66,10 +66,9 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
+								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
-
-							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
+							<div id="bookMark" class="i-float"></div>
 						</div>
 
 						<div id="read-content">
@@ -119,42 +118,45 @@
 														<table class="table">
 															<tbody>
 																<tr>
-																	<td class="certify-label certify-label-none" colspan="">
-																		<div class="type-center table-certify-label">
-																			<p>책읽기 시작한 페이지 업로드</p>
-																			<p>(09:00)~(10:00)</p>
-																		</div>
-																		<div class="type-center table-certify-label">
-																			<input type="file">
-																		</div>
-																		<div class="type-center table-certify-labels">
-																			<button class="make-challenge certify" type="submit">인증하기</button>
-																		</div>
-																	</td>
-																	<td class="certify-label certify-label-none" colspan="">
-																		<div class="type-center table-certify-label">
-																			<p>책읽기 시작한 페이지 업로드</p>
-																			<p>(09:00)~(10:00)</p>
-																		</div>
-																		<div class="type-center table-certify-label">
-																			<input type="file">
-																		</div>
-																		<div class="type-center table-certify-labels">
-																			<button class="make-challenge certify" type="submit">인증하기</button>
-																		</div>
-																	</td>
-																	<td class="certify-label certify-label-none" colspan="">
-																		<div class="type-center table-certify-label">
-																			<p>책읽기 시작한 페이지 업로드</p>
-																			<p>(09:00)~(10:00)</p>
-																		</div>
-																		<div class="type-center table-certify-label">
-																			<input type="file">
-																		</div>
-																		<div class="type-center table-certify-labels">
-																			<button class="make-challenge certify" type="submit">인증하기</button>
-																		</div>
-																	</td>
+																	<c:forEach  items="${cMap.certifyList}" var="ChallengeVo">
+																		<td class="certify-label certify-label-none" colspan="">
+																			<form id="certify-check" action="${pageContext.request.contextPath}/challenge/${ChallengeVo.challengeNo}/certified" method="post" enctype="multipart/form-data">
+																				<div class="type-center table-certify-label">
+																						<p class="word-wrap">${ChallengeVo.certifyTitle}</p>
+																					<c:choose>
+																						<c:when test="${ChallengeVo.subOn != '-1'}">
+																							<p>
+																								(${ChallengeVo.subOn}시)~(${ChallengeVo.subOff}시)<br>
+																							</p>
+																						</c:when>
+																						<c:otherwise>
+																							<p>
+																								(시간제한없음)<br>
+																							</p>
+																						</c:otherwise>
+																					</c:choose>
+																				</div>
+																				<div class="type-center table-certify-label">
+																					<input type="file" name="imgs">
+																				</div>
+																				<div class="type-center table-certify-labels btn-certify">
+																					<input type="hidden" class="certifyNo" name="certifyNo" value="${ChallengeVo.certifyNo}">
+																					
+																					<c:choose>
+																						<c:when test="${ChallengeVo.certifyChk > 0 && ChallengeVo.certifyChk != null}">
+																							<button class="make-challenge certify" type="submit">수정하기</button>
+																							<input type="hidden" name="certifyChk" value="2">
+																							<input type="hidden" name="certifiedNo" value="${ChallengeVo.certifiedNo}">
+																						</c:when>
+																						<c:otherwise>
+																							<button class="make-challenge certify" type="submit">인증하기</button>
+																							<input type="hidden" name="certifyChk" value="1">
+																						</c:otherwise>
+																					</c:choose>
+																				</div>
+																			</form>
+																		</td>
+																	</c:forEach>
 																</tr>
 															</tbody>
 														</table>
@@ -739,46 +741,7 @@
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- /footer -->
 
-
-
-
-	<!-- 
-	//리뷰 모달창 
-	<div id="review-modal" class="modal fade show" role="dialog" tabindex="-1" style="display: block;">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div>
-						<h4 class="modal-title">매일 10페이지 책 읽기</h4>
-					</div>
-					<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="modal-image-box">
-						<div class="modal-image">
-							<img src="bg-navbar-dropdown-themes.png" />
-						</div>
-					</div>
-					<div class="review-text">
-						<div>
-							<p class="bold-underline">후기</p>
-						</div>
-						<p class="font-14">매일 10페이지 읽다가 9페이지 쯤 읽으면 잠듭니다. 대낮에 읽으세요. 가끔 펴자마자 잠듭니다. 리워드도 달달합니다. 두번하세요. 세번하세요.</p>
-					</div>
-				</div>
-				<div class="modal-nicname-box">
-					<p class="modal-nickname">작성자 : 배달의기마민족</p>
-					<p class="modal-upload-date">작성일 : 2022-08-31</p>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-light" type="button" data-bs-dismiss="modal">닫기</button>
-					<button class="btn btn-primary" type="button">삭제</button>
-				</div>
-			</div>
-		</div>
-	</div>
- -->
-
+	<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 	<script>
 		(function() {
 			$(function() {
@@ -790,8 +753,8 @@
 						{
 							height : '700px', // calendar 높이 설정
 							expandRows : true, // 화면에 맞게 높이 재설정
-							slotMinTime : '08:00', // Day 캘린더에서 시작 시간
-							slotMaxTime : '20:00', // Day 캘린더에서 종료 시간
+							slotMinTime : '00:00', // Day 캘린더에서 시작 시간
+							slotMaxTime : '24:00', // Day 캘린더에서 종료 시간
 							// 해더에 표시할 툴바
 							headerToolbar : {
 								left : 'prev,next today',
@@ -799,10 +762,10 @@
 								right : 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
 							},
 							initialView : 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-							navLinks : false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+							navLinks : true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
 							editable : false, // 수정 가능?
 							selectable : false, // 달력 일자 드래그 설정가능
-							nowIndicator : true, // 현재 시간 마크
+							nowIndicator : false, // 현재 시간 마크
 							dayMaxEvents : false, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
 							locale : 'ko', // 한국어 설정
 							eventAdd : function(obj) { // 이벤트가 추가되면 발생하는 이벤트
@@ -828,55 +791,93 @@
 							}
 							// 이벤트
 							,
-							events : [ {
-								title : 'All Day Event',
-								start : '2022-08-11',
-							}, {
-								title : 'Long Event',
-								start : '2021-08-07',
-								end : '2022-08-10'
-							}, {
-								groupId : 999,
-								title : 'Repeating Event',
-								start : '2022-08-09T16:00:00'
-							}, {
-								groupId : 999,
-								title : 'Repeating Event',
-								start : '2022-08-16T16:00:00'
-							}, {
-								title : 'Conference',
-								start : '2022-08-11',
-								end : '2022-08-13'
-							}, {
-								title : 'Meeting',
-								start : '2022-08-12T10:30:00',
-								end : '2022-08-12T12:30:00'
-							}, {
-								title : 'Lunch',
-								start : '2022-08-12T12:00:00'
-							}, {
-								title : 'Meeting',
-								start : '2022-08-12T14:30:00'
-							}, {
-								title : 'Happy Hour',
-								start : '2022-08-12T17:30:00'
-							}, {
-								title : 'Dinner',
-								start : '2022-08-12T20:00:00'
-							}, {
-								title : 'Birthday Party',
-								start : '2022-08-13T07:00:00'
-							}, {
-								title : 'Click for Google',
-								url : 'http://google.com/', // 클릭시 해당 url로 이동
-								start : '2022-08-28'
-							} ]
+							events : []
+
+								
 						}); // 캘린더 랜더링
 				calendar.render();
 			});
 		})();
 	</script>
+	<script type="text/javascript">
+		var authUser = "${authUser.userNo}";
+		$(document).ready(function() {
+			if (authUser == "" || authUser == null) {
+				alert("로그인해주세요");
+				location.href = "${pageContext.request.contextPath}/loginForm"
+			}
 
+			bkload();
+		})
+
+		var challengeNo = $("#challengeNo").val();
+
+		challengeNo = Number(challengeNo);
+
+		console.log(authUser);
+		console.log(challengeNo);
+
+		var bookMarkData = {
+			userNo : authUser,
+			challengeNo : challengeNo
+		}
+
+		//북마크 확인하기
+		function bkload() {
+			if (authUser == "" || authUser == null) {
+				$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
+			} else {
+				$.ajax({
+					contentType : 'application/json',
+					data : JSON.stringify(authUser),
+					url : '${pageContext.request.contextPath}/challenge/bookMark',
+					type : 'POST',
+	
+					dataType : "json",
+					success : function(result) {
+						if (result == 1) {
+							$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
+						} else {
+							$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+						}
+					}
+				})
+			}
+		}
+
+		$("#bookMark").on("click", "#unCheckbookMark", function() {
+			$.ajax({
+				contentType : 'application/json',
+				data : JSON.stringify(bookMarkData),
+				url : '${pageContext.request.contextPath}/challenge/chkBookMark',
+				type : 'POST',
+
+				dataType : "json",
+				success : function(result) {
+					$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
+				}
+			})
+		})
+
+		$("#bookMark").on("click", "#checkbookMark", function() {
+			$.ajax({
+				contentType : 'application/json',
+				data : JSON.stringify(bookMarkData),
+				url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+				type : 'POST',
+	
+				dataType : "json",
+				success : function(result) {
+					$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+				}
+			})
+		})
+						
+						
+						
+						
+						
+	</script>
 
 </body>
 

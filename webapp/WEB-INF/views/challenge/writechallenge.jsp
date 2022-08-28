@@ -365,6 +365,13 @@
 	
 	<!-- color picker -->
 	 $(document).ready(function(){
+		var authUser = "${authUser}";
+		 
+		 if(authUser == "" || authUser == null){
+			 alert("로그인해주세요");
+			 location.href = "${pageContext.request.contextPath}/loginForm"
+		 }
+		 
 		// 테마 색상 선택
 		$(".colorPickSelector").colorPick({
 			'left' : '16.5px',
@@ -1047,7 +1054,7 @@
   		}
  		
 
-		var userNo = ${authUser.userNo};
+		var userNo = "${authUser.userNo}";
  		
   		var formData = new FormData();
 

@@ -118,16 +118,16 @@
 																<tr class="intro-cell">
 																	<td class="write-table-label">인증방법</td>
 																	<td class="font-12">
-																		<c:forEach items="${cMap.certifyList}" var="CertifyVo">
+																		<c:forEach items="${cMap.certifyList}" var="ChallengeVo">
 																			<c:choose>
-																				<c:when test="${CertifyVo.subOn != '-1'}">
+																				<c:when test="${ChallengeVo.subOn != '-1'}">
 																					<p>
-																						${CertifyVo.certifyTitle}(${CertifyVo.subOn}시)~(${CertifyVo.subOff}시)<br>
+																						${ChallengeVo.certifyTitle}(${ChallengeVo.subOn}시)~(${ChallengeVo.subOff}시)<br>
 																					</p>
 																				</c:when>
 																				<c:otherwise>
 																					<p>
-																						${CertifyVo.certifyTitle} (시간제한없음)<br>
+																						${ChallengeVo.certifyTitle} (시간제한없음)<br>
 																					</p>
 																				</c:otherwise>
 																			</c:choose>

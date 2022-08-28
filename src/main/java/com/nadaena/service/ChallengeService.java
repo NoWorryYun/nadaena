@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class ChallengeService {
 	
 	public int makeChallenge(ChallengeVo challengeVo){
 		
-			System.out.println("ChallengeSerivce > makeChallenge()");
+			System.out.println("챌린지를 만들었습니다.(Service)");
 		
 			String saveDir = "C:\\javaStudy\\upload\\forNaDaeNa";
 			
@@ -70,7 +71,6 @@ public class ChallengeService {
 			String tag4 = challengeVo.getTag4();
 			String tag5 = challengeVo.getTag5();
 			int clgLevel = challengeVo.getClgLevel();
-			System.out.println("서비스 레벨"+clgLevel);
 			int payment = challengeVo.getPayment();
 			int userNo = challengeVo.getUserNo();
 			//Vo로 묶기
@@ -92,11 +92,8 @@ public class ChallengeService {
 												tag5,
 												clgLevel);
 			
-			System.out.println(clgVo);
-			
 			// Dao DB에 저장
 			challengeDao.makeChallenge(clgVo);
-			System.out.println("보 겟레벨:"+clgVo.getClgLevel());
 			
 			// 챌린지 번호 뽑기
 			int challengeNo = clgVo.getChallengeNo();
@@ -132,26 +129,19 @@ public class ChallengeService {
 	//Intro 받아오기
 	public Map<String, Object> intro(int challengeNo, int userNo) {
 		
-//		ChallengeVo clgVo= (ChallengeVo)request.getAttribute("authUser");
-		
 		System.out.println(challengeNo);
 		
-//		int userNo = clgVo.getUserNo();
 		System.out.println(userNo);
 		
 		ChallengeVo challengeVo = new ChallengeVo();
 		challengeVo.setChallengeNo(challengeNo);
 		challengeVo.setUserNo(userNo);
 		
-		System.out.println("challengeVo : "+ challengeVo);
-		
 		ChallengeVo intro = challengeDao.intro(challengeNo);
 		
-		List<ChallengeVo> certifyList = challengeDao.certifyList(challengeNo);
+		List<ChallengeVo> certifyList = challengeDao.certifyList(challengeVo);
 		
 		ChallengeVo joinChk = challengeDao.joinChk(challengeVo);
-		
-		System.out.println("joinChk : " + joinChk);
 		
 		Map<String, Object> cMap = new HashMap<String, Object>();
 		
@@ -198,7 +188,46 @@ public class ChallengeService {
 		return 1;
 	}
 	
+	//날짜 확인하기
+	public ArrayList<ChallengeVo> dateChk(int challengeNo, int userNo) throws ParseException {
+		System.out.println("인증 날짜를 계산합니다.");
+		
+		ChallengeVo challengeVo = challengeDao.intro(challengeNo);
+		
+		String recRD = challengeVo.getRecRD();
+		int period = challengeVo.getPeriod();
+		int upload = challengeVo.getUpload();
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date calDate = format.parse(recRD);
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(calDate);
+
+		ArrayList<ChallengeVo> dateChk = new ArrayList<>();
+		
+		for(int i = 0 ; i < (period*7) ; i++) {
+			cal.add(Calendar.DATE, + 1);
+			String certifieddate = format.format(cal.getTime());
+			
+			ChallengeVo clgVo = new ChallengeVo();
+			clgVo.setCertifieddate(certifieddate);
+			clgVo.setUserNo(userNo);
+			clgVo.setChallengeNo(challengeNo);
+			
+//			ChallengeVo calenderInfo = challengeDao.calender(clgVo);
+//			dateChk.add(calenderInfo);
+		}	
+		System.out.println(dateChk);
+		
+			return dateChk;
+	}
+	
+	//진행도 계산하기
 	public double calProgress(int challengeNo, int userNo) throws ParseException {
+		
+		System.out.println("진행도를 계산합니다.");
 		
 		int count = 0;
 		
@@ -237,4 +266,73 @@ public class ChallengeService {
 		
 	}
 
+	//인증하기(파일)
+	public int certifyUpload(ChallengeVo challengeVo, int userNo, int ChallengeNo) {
+		System.out.println("인증중입니다. (Service)");
+		System.out.println(challengeVo.getImgs().getOriginalFilename());
+		
+		String saveDir = "C:\\javaStudy\\upload";
+		
+		//인증여부확인
+		int certifyChk = challengeVo.getCertifyChk();
+		
+		//파일 정보(DB저장) 추출 저장
+	
+		//오리지날파일명, 저장경로+파일(랜덤)명, 파일사이즈
+		String orgName = challengeVo.getImgs().getOriginalFilename();
+	
+		//확장자(.jpg)
+		String exName = orgName.substring(orgName.lastIndexOf("."));
+		
+		//저장파일명(현재시간 + 이름 난수)
+		String saveName =  System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
+		
+		//파일경로(디렉토리+저장파일명)
+		String filePath = saveDir + "\\" + saveName;
+		
+		//필요 정보 추출
+		int certifyNo = challengeVo.getCertifyNo();
+		System.out.println("certifyNo : "+certifyNo);
+		int certifiedNo = challengeVo.getCertifiedNo();
+		System.out.println("certifiedNo" + certifiedNo);
+
+		//Vo로 묶기
+		ChallengeVo clgVo = new ChallengeVo();
+		
+		clgVo.setImg(saveName);
+		clgVo.setUserNo(userNo);
+		clgVo.setCertifyNo(certifyNo);
+		clgVo.setCertifiedNo(certifiedNo);
+		
+		System.out.println(clgVo);
+	
+		int result;
+		// (1)Dao DB에 저장
+		
+		if(certifyChk == 1) {
+			//인증저장
+			result = challengeDao.certifiedSubmit(clgVo);
+			System.out.println("인증저장완료");
+		} else {
+			//인증수정
+			result = challengeDao.certifiedUpdate(clgVo);
+			System.out.println("인증수정완료");
+		}
+		
+		// (2)파일(하드디스크) 저장
+		try {
+			byte[] fileData = challengeVo.getImgs().getBytes();
+			OutputStream os = new FileOutputStream(filePath);
+			BufferedOutputStream bos = new BufferedOutputStream(os);
+			
+			os.write(fileData);
+			bos.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 }

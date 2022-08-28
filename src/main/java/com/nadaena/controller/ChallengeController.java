@@ -43,28 +43,57 @@ public class ChallengeController {
 		}  else {
 			userNo = -1;
 		}
+
+		challengeService.dateChk(challengeNo, userNo);
 		
 		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
 		model.addAttribute("cMap" , cMap);
 		
-		double cf = challengeService.calProgress(challengeNo, userNo);
 		return "challenge/intro";
 	}
 
+	//북마크 확인
+	@ResponseBody
+	@RequestMapping(value="/challenge/bookMark", method = {RequestMethod.GET, RequestMethod.POST})
+	public int Bookmark(@RequestBody int userNo) {
+		System.out.println("북마크 확인중");
+	
+		return challengeService.bookMark(userNo);
+		
+	}
+	
+	//북마크 설정
+	@ResponseBody
+	@RequestMapping(value="/challenge/chkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
+	public int chkBookMark(@RequestBody ChallengeVo challengeVo) {
+		System.out.println("북마크 설정");
+	
+		return challengeService.chkBM(challengeVo);
+		
+	}
+
+	//북마크 해제
+	@ResponseBody
+	@RequestMapping(value="/challenge/unChkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
+	public int unChkBookMark(@RequestBody ChallengeVo challengeVo) {
+		System.out.println("북마크 해제");
+		
+		return challengeService.unChkBm(challengeVo);
+		
+	}
+	
 	//챌린지 참여하기
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
 		System.out.println("challnege/joinchallenge");
-		
-		System.out.println(challengeVo);
 		
 		challengeService.joinChallenge(challengeVo);
 		
 		return "redirect:/intro";
 	}
 
-	
+	//인증페이지
 	@RequestMapping(value = "/challenge/{challengeNo}/certify", method = { RequestMethod.GET, RequestMethod.POST })
 	public String certify(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) {
 		System.out.println("challnege/certify");
@@ -82,30 +111,40 @@ public class ChallengeController {
 		
 		model.addAttribute("cMap" , cMap);
 		
-		return "challenge/certify";
-	}
-	
-	@RequestMapping(value = "/challenge/{challengeNo}/certified", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge2(@PathVariable("challengeNo") int challengeNo) {
-		System.out.println("challnege/certify");
+		System.out.println("chk : " + cMap);
 		
 		return "challenge/certify";
 	}
-
-	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge3(@PathVariable("challengeNo") int challengeNo) {
-		System.out.println("challnege/community");
-
-		return "challenge/community";
+	
+	
+	@RequestMapping(value = "/challenge/{challengeNo}/certified", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge2(@PathVariable("challengeNo") int challengeNo, HttpSession session, @ModelAttribute ChallengeVo challengeVo) throws ParseException {
+		System.out.println("challnege/certify");
+		
+		UserVo userVo = (UserVo)session.getAttribute("authUser");
+		
+		int userNo;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}  else {
+			userNo = -1;
+		}
+		
+		challengeVo.setChallengeNo(challengeNo);
+		challengeVo.setUserNo(userNo);
+		
+		
+		
+		System.out.println("인증내용을 보냈습니다.");
+		System.out.println(challengeVo);
+		
+		challengeService.certifyUpload(challengeVo, userNo, challengeNo);
+		
+		return "redirect:./certify";
 	}
 
-	@RequestMapping(value = "/challenge/{challengeNo}/review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge4(@PathVariable("challengeNo") int challengeNo) {
-		System.out.println("challnege/review");
 
-		return "challenge/review";
-	}
-
+	//writeForm으로 이동
 	@RequestMapping(value = "/challenge/write", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challengeWrite() {
 		System.out.println("challenge/challengeWriteForm");
@@ -124,44 +163,27 @@ public class ChallengeController {
     	return challengeNo;
     }
 	
+	//챌린지 만들기
 	@ResponseBody
 	@RequestMapping(value = "/challenge/makeSubject", method = { RequestMethod.GET, RequestMethod.POST })
 	public int challengeSub(@RequestBody List<ChallengeSubVo> upsList) throws IOException {
-
+		
 		System.out.println(upsList);
 		
 		int challengeSub = challengeService.makeClgSub(upsList);
 		
 		return challengeSub;
 	}
-	
-	//북마크 확인
-	@ResponseBody
-	@RequestMapping(value="/challenge/bookMark", method = {RequestMethod.GET, RequestMethod.POST})
-	public int Bookmark(@RequestBody int userNo) {
-	
-		return challengeService.bookMark(userNo);
-		
-	}
-	
-	//북마크 설정
-	@ResponseBody
-	@RequestMapping(value="/challenge/chkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
-	public int chkBookMark(@RequestBody ChallengeVo challengeVo) {
-	
-		return challengeService.chkBM(challengeVo);
-		
-	}
 
-	//북마크 해제
-	@ResponseBody
-	@RequestMapping(value="/challenge/unChkBookMark", method = {RequestMethod.GET, RequestMethod.POST})
-	public int unChkBookMark(@RequestBody ChallengeVo challengeVo) {
-		
-		return challengeService.unChkBm(challengeVo);
-		
-	}
 	
+
+
+	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge3(@PathVariable("challengeNo") int challengeNo) {
+		System.out.println("challnege/community");
+
+		return "challenge/community";
+	}
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })
 	public String readBoard() {
@@ -175,4 +197,14 @@ public class ChallengeController {
 
 		return "challenge/writeboard";
 	}
+
+	@RequestMapping(value = "/challenge/{challengeNo}/review", method = { RequestMethod.GET, RequestMethod.POST })
+	public String challenge4(@PathVariable("challengeNo") int challengeNo) {
+		System.out.println("challnege/review");
+
+		return "challenge/review";
+	}
+	
+	
+	
 }

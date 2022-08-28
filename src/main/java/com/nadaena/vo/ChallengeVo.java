@@ -50,6 +50,8 @@ public class ChallengeVo {
 	private int certCount;
 	private String certifieddate;
 
+	private int certifyChk;
+	private int certifiedNo;
 	//생성자
 	public ChallengeVo() {
 		super();
@@ -306,10 +308,9 @@ public class ChallengeVo {
 		this.clgInOutChk = clgInOutChk;
 	}
 
-	
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs, List<ChallengeVo> upsList, String recRD, String recRDM, String recRDP, int userCount, int founder, int clgInOutChk,
-			int certCount, String certifieddate) {
+			int certCount, String certifieddate, int certifyChk, int certifiedNo) {
 		super();
 		this.challengeNo = challengeNo;
 		this.interestNo = interestNo;
@@ -348,6 +349,8 @@ public class ChallengeVo {
 		this.clgInOutChk = clgInOutChk;
 		this.certCount = certCount;
 		this.certifieddate = certifieddate;
+		this.certifyChk = certifyChk;
+		this.certifiedNo = certifiedNo;
 	}
 
 	public int getChallengeNo() {
@@ -647,13 +650,31 @@ public class ChallengeVo {
 		this.certifieddate = certifieddate;
 	}
 
+	public int getCertifyChk() {
+		return certifyChk;
+	}
+
+	public void setCertifyChk(int certifyChk) {
+		this.certifyChk = certifyChk;
+	}
+
+	public int getCertifiedNo() {
+		return certifiedNo;
+	}
+
+	public void setCertifiedNo(int certifiedNo) {
+		this.certifiedNo = certifiedNo;
+	}
+
 	@Override
 	public String toString() {
 		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
 				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", imgs=" + imgs + ", upsList=" + upsList + ", recRD=" + recRD + ", recRDM=" + recRDM + ", recRDP="
-				+ recRDP + ", userCount=" + userCount + ", founder=" + founder + ", clgInOutChk=" + clgInOutChk + ", certCount=" + certCount + ", certifieddate=" + certifieddate + "]";
+				+ recRDP + ", userCount=" + userCount + ", founder=" + founder + ", clgInOutChk=" + clgInOutChk + ", certCount=" + certCount + ", certifieddate=" + certifieddate + ", certifyChk=" + certifyChk + ", certifiedNo=" + certifiedNo + "]";
 	}
+
+
 
 
 }
