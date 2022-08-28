@@ -669,7 +669,8 @@
 					ort.charge,
 					ort.amount,
 					ort.pointDate,
-					ort.source,
+					ort.challengeSource,
+					ort.productSource,
 					ort.pointMemo
 			from (select rownum rn,
 						 ot.pointNo,
@@ -678,7 +679,8 @@
 						 ot.charge,
 						 ot.amount,
 						 ot.pointDate,
-						 ot.source,
+						 ot.challengeSource,
+						 ot.productSource,
 						 ot.pointMemo
 				  from (select  p.pointNo,
 								p.userNo,
@@ -686,7 +688,8 @@
 								p.charge,
 								p.amount,
 								p.pointDate,
-								p.source,
+								p.challengeSource,
+								p.productSource,
 								p.pointMemo
 						from users u, point p
 						where u.userNo = p.userNo
@@ -696,6 +699,16 @@
 			and rn<=#{endRnum}	  
 		]]>
 	</select>	
+	
+	<!-- 포인트총합 -->
+	<select id="selectSum" resultType="int">
+		<![CDATA[	
+			select  sum(amount) sum
+			from point
+			where userNo=1
+		]]>
+	</select>	
+	
 	
 	<!-- 포인트내역 갯수 구하기 -->
 	<select id="selectTotalCnt51" resultType="int">

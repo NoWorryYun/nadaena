@@ -43,7 +43,7 @@
 			
 				
                 <div class="mypoint">
-                    <p class="mypoint2">나대나 포인트<span class="mypoint-number">0원</span></p>
+                    <p class="mypoint2">나대나 포인트<span class="mypoint-number">${pMap.sum}P</span></p>
                 </div>
                 
                 <div class="mypoint-buttons">
@@ -62,7 +62,6 @@
                             <th>적립/사용내용</th>
                             <th>적립</th>
                             <th>사용</th>
-                            <th rowspan="8">포인트 잔액</th>
                         </tr>
                     </thead>
                     <tbody class="mypoint-table-body">
@@ -70,42 +69,34 @@
                     <c:set var="total" value="0" />
                     <c:set var="length" value="${fn:length(pMap.pList)}" />
                     
-                    <c:forEach items="${pMap.pList}" var="PointVo" varStatus="i">
+                    <c:forEach items="${pMap.pList}" var="ReviewVo" varStatus="i">
                     
                         <tr>
-                            <td class="column1">${PointVo.rn }</td>
-                            <td class="column2">${PointVo.pointDate }</td>
+                            <td class="column1">${ReviewVo.rn }</td>
+                            <td class="column2">${ReviewVo.pointDate }</td>
                             <td class="column3">
                             	<c:choose>
-                            		<c:when test="${PointVo.pointGroup == 1}"> 충전 </c:when>
-                            		<c:when test="${PointVo.pointGroup == 2}"> 챌린지참가 </c:when>
-                            		<c:when test="${PointVo.pointGroup == 3}"> 챌린지보상 </c:when>
-                            		<c:when test="${PointVo.pointGroup == 4}"> 몰사용 </c:when>
-                            		<c:when test="${PointVo.pointGroup == 5}"> 환불 </c:when>
+                            		<c:when test="${ReviewVo.pointGroup == 1}"> 충전 </c:when>
+                            		<c:when test="${ReviewVo.pointGroup == 2}"> 챌린지참가 </c:when>
+                            		<c:when test="${ReviewVo.pointGroup == 3}"> 챌린지보상 </c:when>
+                            		<c:when test="${ReviewVo.pointGroup == 4}"> 몰사용 </c:when>
+                            		<c:when test="${ReviewVo.pointGroup == 5}"> 환불 </c:when>
 									<c:otherwise> 오류 </c:otherwise>
                             	</c:choose>
                             </td>
                             <c:choose>
-                            	<c:when test="${PointVo.pointGroup %2 == 1}">
-                            		<td class="column4">${PointVo.amount}p</td>
+                            	<c:when test="${ReviewVo.pointGroup %2 == 1}">
+                            		<td class="column4">${ReviewVo.amount}p</td>
                             		<td class="column5">-</td>
-                            		<td class="column6">
-                            			<c:set var="total" value ="${total + PointVo.amount }" />
-                            			<c:out value="${total}"/>
-                            		</td>	
                             	</c:when>
                             	<c:otherwise>
                             		<td class="column4">-</td>
-                            		<td class="column5">${PointVo.amount}p</td>
-                            		<td class="column6">
-                            			<c:set var="total" value ="${total - PointVo.amount }" />
-                            			<c:out value="${total}"/>
-                            		</td>	
+                            		<td class="column5">${ReviewVo.amount}p</td>
                             	</c:otherwise>	
                             </c:choose>
-                            
+                           
                         </tr>
-                       
+	                      
                     </c:forEach> 
                     
 					<c:set var="length" value="${fn:length(pMap.pList)}" />

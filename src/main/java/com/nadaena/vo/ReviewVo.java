@@ -27,6 +27,7 @@ public class ReviewVo {
 	private int clgLevel;
 	private int achievement;
 	private int payment;
+	private int sum;
 	public ReviewVo() {
 		super();
 	}
@@ -51,7 +52,7 @@ public class ReviewVo {
 
 
 	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName, int pointNo, int pointGroup, int charge, int amount, String pointDate,
-			int challengeSource, int productSource, String pointMemo, int rn, int clgLevel, int achievement, int payment) {
+			int challengeSource, int productSource, String pointMemo, int rn, int clgLevel, int achievement, int payment, int sum) {
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
@@ -76,6 +77,7 @@ public class ReviewVo {
 		this.clgLevel = clgLevel;
 		this.achievement = achievement;
 		this.payment = payment;
+		this.sum = sum;
 	}
 
 
@@ -309,12 +311,24 @@ public class ReviewVo {
 	}
 
 
+	public int getSum() {
+		return sum;
+	}
+
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+
+
 	@Override
 	public String toString() {
 		return "ReviewVo [reviewNo=" + reviewNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", file=" + file + ", reviewContent=" + reviewContent + ", reviewDate=" + reviewDate + ", nickname=" + nickname + ", clgTitle=" + clgTitle + ", state=" + state
 				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + ", pointNo=" + pointNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", challengeSource=" + challengeSource + ", productSource=" + productSource
-				+ ", pointMemo=" + pointMemo + ", rn=" + rn + ", clgLevel=" + clgLevel + ", achievement=" + achievement + ", payment=" + payment + "]";
+				+ ", pointMemo=" + pointMemo + ", rn=" + rn + ", clgLevel=" + clgLevel + ", achievement=" + achievement + ", payment=" + payment + ", sum=" + sum + "]";
 	}
+
+
 
 	
 

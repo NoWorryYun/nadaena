@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.MyVo;
-import com.nadaena.vo.PointVo;
 import com.nadaena.vo.ReviewVo;
 
 @Repository
@@ -231,16 +230,24 @@ public class MyDao {
 	}
 	
 	//포인트리스트 + 페이징
-	public List<PointVo> selectPoint(int startRnum, int endRnum) {
+	public List<ReviewVo> selectPoint(int startRnum, int endRnum) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		
-		List<PointVo> pList = sqlSession.selectList("my.selectPoint", map);
+		List<ReviewVo> pList = sqlSession.selectList("my.selectPoint", map);
 		
 		return pList;
 	}
+	
+	//포인트 총합
+	public int selectsum() {
+		
+		int sum = sqlSession.selectOne("my.selectSum");
+		
+		return sum;
+	}	
 	
 	//포인트내역 갯수
 	public int selectTotalCnt51() {

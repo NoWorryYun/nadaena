@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.dao.MyDao;
 import com.nadaena.vo.MyVo;
-import com.nadaena.vo.PointVo;
 import com.nadaena.vo.ReviewVo;
 
 @Service
@@ -647,8 +646,9 @@ public class MyService {
 		
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
-		
-		List<PointVo> pList = myDao.selectPoint(startRnum, endRnum);
+		//총포인트
+		int sum = myDao.selectsum();
+		List<ReviewVo> pList = myDao.selectPoint(startRnum, endRnum);
 		
 		//////////
 		//페이징계산
@@ -656,6 +656,7 @@ public class MyService {
 		
 		//전체글갯수
 		int totalCnt51 = myDao.selectTotalCnt51();
+		
 		
 		//페이지당버튼갯수
 		int pageBtnCount = 5;
@@ -689,7 +690,8 @@ public class MyService {
         pMap.put("startPageBtnNo", startPageBtnNo);
         pMap.put("endPageBtnNo", endPageBtnNo);
         pMap.put("next", next);
-		
+		pMap.put("sum", sum);
+        
 		return pMap;
 	}	
 	
