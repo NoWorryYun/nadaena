@@ -468,12 +468,13 @@ public class MyService {
 	}
 	
 	//마이리뷰리스트
-	public Map<String, Object> getrList41(int crtPage) {
+	public Map<String, Object> getmyrList(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
 		//페이지당 글갯수
 		int listCnt = 20;
+		
 		
 		//현재페이지
 		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
@@ -484,7 +485,7 @@ public class MyService {
 		//끝글번호
 		int endRnum = (startRnum + listCnt) -1 ;
 		
-		List<ReviewVo> rList = myDao.selectreviewList(startRnum, endRnum);
+		List<ReviewVo> rList = myDao.selectreviewList(startRnum, endRnum, userNo);
 		
 		//////////
 		//페이징계산

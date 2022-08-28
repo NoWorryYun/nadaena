@@ -584,7 +584,7 @@
 								r.reviewDate
 						from review r, users u
 						where u.userNo = r.userNo
-						and u.userno = 1)ot
+						and u.userNo = #{userNo})ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  

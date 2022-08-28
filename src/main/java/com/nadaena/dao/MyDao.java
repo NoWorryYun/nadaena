@@ -178,12 +178,13 @@ public class MyDao {
 		return totalrCnt;
 	}	
 	
-	//리뷰리스트 + 페이징
-	public List<ReviewVo> selectreviewList(int startRnum, int endRnum) {
+	//마이리뷰리스트 + 페이징
+	public List<ReviewVo> selectreviewList(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
+		map.put("userNo", userNo);
 		
 		List<ReviewVo> rList = sqlSession.selectList("my.selectreviewList", map);
 		

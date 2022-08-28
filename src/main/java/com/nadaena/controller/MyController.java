@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.service.MyService;
 import com.nadaena.vo.ReviewVo;
+import com.nadaena.vo.UserVo;
 
 @Controller
 public class MyController {
@@ -102,9 +103,13 @@ public class MyController {
 	
 	//마이리뷰 리스트
 	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String rlist(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+	public String rlist(Model model, HttpSession session, ReviewVo reviewVo,
+						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
-		Map<String, Object> rMap = myService.getrList41(crtPage);
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		
+		Map<String, Object> rMap = myService.getmyrList(crtPage, userNo);
 		
 		model.addAttribute("rMap", rMap);
 		System.out.println(rMap);
