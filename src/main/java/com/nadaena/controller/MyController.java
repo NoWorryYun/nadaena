@@ -153,7 +153,10 @@ public class MyController {
 	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 
 							  Model model, HttpSession session) {
 		
-		// Service를 통해서 저장한다
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		reviewVo.setUserNo(authUser.getUserNo());
+		reviewVo.setNickname(authUser.getNickName());
+		
 		myService.writeReview(file, reviewVo);
 		
 		return "redirect:/my/my-challenge";
