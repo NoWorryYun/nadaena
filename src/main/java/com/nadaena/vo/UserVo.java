@@ -14,10 +14,11 @@ public class UserVo {
 	private String address2;
 	private int interestNo;
 	private String interestName;
+	private int myinterestNo;
 	public UserVo() {
 		super();
 	}
-	public UserVo(int userNo, String email, String nickName, String pasword, String name, String birth, String hp, String postNo, String address1, String address2, int interestNo, String interestName) {
+	public UserVo(int userNo, String email, String nickName, String pasword, String name, String birth, String hp, String postNo, String address1, String address2, int interestNo, String interestName, int myinterestNo) {
 		super();
 		this.userNo = userNo;
 		this.email = email;
@@ -31,6 +32,7 @@ public class UserVo {
 		this.address2 = address2;
 		this.interestNo = interestNo;
 		this.interestName = interestName;
+		this.myinterestNo = myinterestNo;
 	}
 	public int getUserNo() {
 		return userNo;
@@ -104,13 +106,17 @@ public class UserVo {
 	public void setInterestName(String interestName) {
 		this.interestName = interestName;
 	}
+	public int getMyinterestNo() {
+		return myinterestNo;
+	}
+	public void setMyinterestNo(int myinterestNo) {
+		this.myinterestNo = myinterestNo;
+	}
 	@Override
 	public String toString() {
 		return "UserVo [userNo=" + userNo + ", email=" + email + ", nickName=" + nickName + ", pasword=" + pasword + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", postNo=" + postNo + ", address1=" + address1 + ", address2=" + address2 + ", interestNo=" + interestNo
-				+ ", interestName=" + interestName + "]";
+				+ ", interestName=" + interestName + ", myinterestNo=" + myinterestNo + "]";
 	}
-	
-	
 
 	
 }
