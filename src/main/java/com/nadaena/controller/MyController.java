@@ -165,6 +165,15 @@ public class MyController {
 		return "challenge/review"; 
 	} 	
 	
+	//챌린지게시판 - 커뮤니티
+	
+	
+	
+	
+	
+	
+	
+	
 	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급)
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 
