@@ -154,7 +154,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form action="writeReview" method="get">
+			<form action="${pageContext.request.contextPath}/my/writeReview" method="post" enctype="multipart/form-data">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
@@ -163,19 +163,11 @@
 			</div>
 			<div class="modal-body">
 				<div class="modal-nicname-box">
-					<p class="modal-nickname">작성자 : 배달의기마민족</p>
-					<p class="modal-upload-date">작성일 : 2022-08-31</p>
+					<p class="modal-upload-date">작성일 : <span class="writeday"></span></p>
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
-					<input type="hidden" name="userNo" value="1"><!-- 세션에서 -->
 				</div>
-				<textarea class="modal-text" id="review-content" name="reviewContent"></textarea>
-				<input type="file" id="modal-upbutton">
-				
-				<!-- <div class="modal-image-box">
-					<div class="modal-image">
-						<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
-					</div>
-				</div> -->
+				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
+				<input type="file" id="modal-upbutton" name="file" value="">
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
@@ -203,7 +195,17 @@ $(".modal-button").on("click", function(){
 	//데이타수집
 	var challengeNo = $(this).data("challengeno");
 	var clgTitle = $(this).data("title");
+	
+	//오늘날짜
+	const date = new Date();
+	
+	const year = date.getFullYear();
+	const month = ('0' + (date.getMonth() + 1)).slice(-2);
+	const day = ('0' + date.getDate()).slice(-2);
+	const today = year + '-' + month + '-' + day;
 
+	console.log(today);
+	
 	console.log(challengeNo);
 	console.log(clgTitle);
 	
@@ -213,8 +215,12 @@ $(".modal-button").on("click", function(){
 	//첼린지타이틀 출력
 	$("#review-modal h5").html(clgTitle);
 	
+	//리뷰 작성일 출력
+	$("#review-modal .writeday").html(today);
+	
 	//모달 보이기
-	$("#review-modal").modal("show");	
+	$("#review-modal").modal("show");
+	
 });	
 
 
@@ -225,6 +231,7 @@ $(".btn-close").on("click", function(){
 });	 
 
 
+      
 
 
 </script>

@@ -159,9 +159,6 @@
 </body>
 <script type="text/javascript">
 
-pList.reverse();
-console.log(pList.reverse());
-
 
 
 

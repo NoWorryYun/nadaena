@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mymodal.css">
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/readFormCSS.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Simple-Slider-Simple-Slider.css">
@@ -75,7 +76,7 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a id="introForm" 	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm"   class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
 									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
 									<li class="nav-item read-tab" role="presentation"><a id="community"	  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
 									<li class="nav-item read-tab" role="presentation"><a id="review"	  class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
@@ -86,7 +87,8 @@
 											<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 												<li class="list-inline-item">
 													<div class="img-size">
-														<a href="#"><img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
+														<a href="#" class="modal-button" data-clgtitle="${ReviewVo.clgTitle }" data-reviewdate="${ReviewVo.reviewDate }">
+														<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
 													</div>
 													<div class="certify-list-info">
 														<div>
@@ -215,7 +217,34 @@
 	<!-- /footer -->
 
 
+<!----------------------------------------------------------------------->	
+<!-- 모달 -->
+<div id="review-modal" class="modal fade show" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<form action="${pageContext.request.contextPath}/my/writeReview" method="post" enctype="multipart/form-data">
+			<div class="modal-header">
+				<div>
+					<h5></h5>
+				</div>
+				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="modal-nicname-box">
+					<p class="modal-upload-date">작성일 : <span class="readday"></span></p>
+				</div>
+				<textarea class="modal-text" id="review-content" name="reviewContent" value="${ReviewVo.reviewContent }"></textarea>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary">확인</button>
+			</div>
+				
+			</form>	
+		</div>
+	</div>
+</div>
 
+<!--  모달 끝 -->
 
 <!-- ㄴ
 //리뷰 모달창 
@@ -255,6 +284,39 @@
 -->
 
 	<script>
+	//리뷰작성 모달창 호출 했을때
+	$(".modal-button").on("click", function(){
+		
+		//모달창 초기화
+		$("#review-modal h5").html("");
+		$("#review-content").val("");
+		
+		//데이타수집
+		var clgTitle = $(this).data("title");
+		var reviewDate = $(this).data("reviewdate");
+
+		
+		console.log(clgTitle);
+		
+		//챌린지번호 숨기기
+		
+		//첼린지타이틀 출력
+		$("#review-modal h5").html(clgTitle);
+		
+		//리뷰 작성일 출력
+		$("#review-modal .readday").html(reviewDate);
+		
+		//모달 보이기
+		$("#review-modal").modal("show");
+		
+	});	
+
+
+	//리뷰작성 모달창 닫기 했을때
+	$(".btn-close").on("click", function(){
+		
+		$("#review-modal").fadeOut();	
+	});
 	$(".report").on("click", function(){
 		
 		var result = confirm("신고하시겠습니까?");
@@ -270,7 +332,7 @@
 	
 	
 	
-		(function() {
+	/* 	(function() {
 			$(function() {
 				// calendar element 취득
 				var calendarEl = $('#calendar')[0];
@@ -364,7 +426,7 @@
 						}); // 캘린더 랜더링
 				calendar.render();
 			});
-		})();
+		})(); */
 	</script>
 
 

@@ -60,7 +60,7 @@
 								</div>
 							</div>	 
 							<c:if test="${MyVo.endday >= MyVo.yesterday}">
-								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }" data-title="${MyVo.nickname }">리워드 받기 ${MyVo.challengeNo}</button>
+								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기 ${MyVo.challengeNo}</button>
 							</c:if>	
 						</div>
 						
@@ -195,7 +195,6 @@ $(".modal-button").on("click", function(){
 	//데이타수집
 	var challengeNo = $(this).data("challengeno");
 	var clgTitle = $(this).data("title");
-	var nickname = $(this).data("nickname");
 	
 	//오늘날짜
 	const date = new Date();
@@ -218,7 +217,6 @@ $(".modal-button").on("click", function(){
 	
 	//리뷰 작성일 출력
 	$("#review-modal .writeday").html(today);
-	$("#review-modal .mnickname").html(nickname);
 	
 	//모달 보이기
 	$("#review-modal").modal("show");
