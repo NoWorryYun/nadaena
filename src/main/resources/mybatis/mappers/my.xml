@@ -634,7 +634,7 @@
 						        r.reviewImg,
 						        u.nickname,
 						        c.clgTitle,
-						        r.reviewDate
+						        to_char(r.reviewDate, 'yy/mm/dd') reviewDate
 						from review r, challenge c, users u
 						where r.challengeno = c.challengeno
 						and r.userno = u.userno
