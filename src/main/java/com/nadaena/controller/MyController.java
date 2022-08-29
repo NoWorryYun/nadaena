@@ -36,7 +36,7 @@ public class MyController {
 		
 		model.addAttribute("mcMap", mcMap);
 		
-		return "my/my-challenge";
+		return "my/challenge";
 	}
 	
 	//참가중 + 종료(성공) 챌린지 리스트
@@ -51,7 +51,7 @@ public class MyController {
 		
 		model.addAttribute("mcMap", mcMap);
 		
-		return "my/my-challengeyes";
+		return "my/challengeyes";
 	}
 	
 	//참가중 + 종료(실패) 챌린지 리스트
@@ -64,7 +64,7 @@ public class MyController {
 		
 		model.addAttribute("mcMap", mcMap);
 		
-		return "my/my-challengeno";
+		return "my/challengeno";
 	}
 
 	//참가중 이벤트 리스트
@@ -78,7 +78,7 @@ public class MyController {
 		
 		model.addAttribute("mcMap", mcMap);
 		
-		return "my/my-event";
+		return "my/event";
 	}
 
 	//종료된 이벤트 리스트
@@ -91,7 +91,7 @@ public class MyController {
 		
 		model.addAttribute("mcMap", mcMap);
 		
-		return "my/my-eventend";
+		return "my/eventend";
 	}
 	
 	//북마크 챌린지 리스트
@@ -104,7 +104,7 @@ public class MyController {
 		
 		model.addAttribute("mbMap", mbMap);
 		
-		return "my/my-bookmark1";
+		return "my/bookmark1";
 	}	
 	
 	//북마크 이벤트 리스트
@@ -117,7 +117,7 @@ public class MyController {
 		
 		model.addAttribute("mbMap", mbMap);
 		
-		return "my/my-bookmark2";
+		return "my/bookmark2";
 	}	
 	
 	//마이리뷰 리스트
@@ -132,7 +132,7 @@ public class MyController {
 		
 		model.addAttribute("rMap", rMap);
 		System.out.println(rMap);
-		return "my/my-review";
+		return "my/review";
 	}	
 	
 	//챌린지게시판 - 리뷰 리스트
@@ -159,7 +159,7 @@ public class MyController {
 		
 		myService.writeReview(file, reviewVo);
 		
-		return "redirect:/my/my-challenge";
+		return "redirect:/my/challenge";
 	}
 	
 	//리뷰삭제
@@ -172,7 +172,7 @@ public class MyController {
 		
 		myService.removeReview(reviewVo);
 
-		return "redirect:/my/my-review";
+		return "redirect:/my/review";
 	}
 	
 	//포인트 리스트(사용내역)
@@ -186,7 +186,7 @@ public class MyController {
 		
 		model.addAttribute("pMap", pMap);
 		System.out.println(pMap);
-		return "my/my-point";
+		return "my/point";
 	}	
 	
 	@RequestMapping(value="my/my-buylist", method = {RequestMethod.GET, RequestMethod.POST})
@@ -199,7 +199,7 @@ public class MyController {
 	@RequestMapping(value="my/main", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mymain() {
 		
-		return "my/my-main"; 
+		return "my/main"; 
 	} 
 	
 }
