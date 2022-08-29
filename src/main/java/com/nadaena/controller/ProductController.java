@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.ProductService;
 import com.nadaena.service.QnaService;
@@ -74,6 +76,18 @@ public class ProductController {
 		model.addAttribute("reviewList", reviewList);
 		
 		return "shop/productJSP";
+	}
+	
+	/* selected 옵션가격 가져오기 */
+	@ResponseBody
+	@RequestMapping(value="shop/product/getOptionPrice")
+	public int getOptionPrice(@RequestBody int optionNo) {
+		System.out.println(" productCtrl > getOptionPrice");
+		
+		int optionPrice = productService.getOptionPrice(optionNo);
+		System.out.println("getOptionPrice = " + optionPrice);
+		
+		return optionPrice;
 	}
 	
 	

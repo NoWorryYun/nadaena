@@ -51,40 +51,52 @@
 					
 					
                     <ul class="price_list">
-                        <li>판매가격 <span>50,000원</span></li>
+                        <li>판매가격 
+                        <div class="priceWrap">
+                        	<span id="optionPrice">50,000</span><span>원</span>
+                        	</div>
+                       	</li>
                     </ul>
-                    <div class="option">
-                        <p>옵션</p>
-                        <select id="select">
-                        	<c:forEach items="${optionList }" var="option">
-                            	<option value="${option.optionNo }">${option.optionName }</option>
-                            </c:forEach>
-                        </select>
-                    </div>
-
-                    <div class="count">
-                        <p>수량</p>
-                        <form>
-                            <input type=button value="-" class="amountMinus">
-                            <input class="amount" type=text value=1>
-                            <input type=button value="+" class="amountPlus">
-                        </form>
-                    </div>
-
-                    <div class="sum">
-                        <p>총 합계금액<span>50,000원</span></p>
-                    </div>
-
-                    <div class="button">
-                   		 <!-- 
-                        <p><a href="">찜하기</a></p>
-                        <p><a href="">장바구니담기</a></p>
-                         -->
-                        <p class="buy"><a href="${pageContext.request.contextPath }/shop/order">구매하기</a></p>
-                        <!-- <input type="button" value="구매하기">
-                        <input type="button" value="장바구니담기">
-                        <input type="button" value="찜하기"> -->
-                    </div>
+                    <!-- 결제폼 -->
+                    <form action="${pageContext.request.contextPath}/shop/orderForm" method="get" name="order">
+                    	<input type="hidden" name="productNo" value="${productDetail.productNo }">
+	                    <div class="option">
+	                        <p>옵션</p>
+	                        <select name="options" id="select">
+	                        	<c:forEach items="${optionList }" var="option">
+	                            	<option value="${option.optionNo }">${option.optionName }</option>
+	                            </c:forEach>
+	                        </select>
+	                    </div>
+	
+	                    <div class="count">
+	                        <p>수량</p>
+	                        	<div class="countBtn">
+		                            <input type=button value="-" class="amountMinus">
+		                            <input name="amount" class="amount" type=text value=1>
+		                            <input type=button value="+" class="amountPlus">
+	                            </div>
+	                    </div>
+					
+	                    <div class="sum">
+	                        <p>총 합계금액<span>50,000원</span></p>
+	                    </div>
+	
+	                    <div class="button">
+	                   		 <!-- 
+	                        <p><a href="">찜하기</a></p>
+	                        <p><a href="">장바구니담기</a></p>
+	                         -->
+	                        <p class="buy"><a href="${pageContext.request.contextPath }/shop/order">구매하기</a></p>
+	                        <button type="submit"  >
+	                        	<p class="buy">구매하기</p>
+	                        </button>
+	                        <!-- <input type="button" value="구매하기">
+	                        <input type="button" value="장바구니담기">
+	                        <input type="button" value="찜하기"> -->
+	                    </div>
+                    </form>
+					<!-- //결제폼 -->
                 </div>
             </div>
         </div>
@@ -134,29 +146,89 @@
 </body>
 <script type="text/javascript">
 	/* 로그인여부 확인 후 QNA작성 */
-	var userNo = $("[name='userNo']").val()
+	var userNo = $("[name='userNo']").val();
+	
 	$(".addQNA").on("click",function(){
 		 if(userNo == ""){
-			alert("로그인 후 작성할 수 있습니다.")
-			/* attr.('href', '${pageContext.request.contextPath }/loginForm') */
+			alert("로그인 후 작성할 수 있습니다.");
 			location.href = "${pageContext.request.contextPath }/loginForm";
 		}; 
 	});
-	
-	/* 수량선택 */
-	
-	/* var amount = $(".amount").val(); */
 
-	
+	/* 수량선택 */
 	var amount = $(".amount").val();
 	var num = amount;
 	
+		/* 플러스 */
 	$(".amountPlus").on("click",function(){
-		console.log("amountPlus 클릭");
-		
 		num ++ ;
 		$(".amount").val(num);
-	})
+	});
+	
+		/* 마이너스 */
+	$(".amountMinus").on("click",function(){
+		num -- ;
+		$(".amount").val(num);
+	});
+
+		
+		
+		
+		
+		
+		
+	/* 옵션 선택하면 가격 불러오기 */
+	$("#select").change(function(){
+		  console.log($(this).val()); //value값 가져오기
+		  var optionNo = $(this).val();
+		  
+		  /* 옵션가격불러오기 */
+		  $.ajax({
+				
+				url : "${pageContext.request.contextPath }/shop/product/getOptionPrice",		
+				type : "post",
+				contentType : "application/json",
+				data : optionNo,
+
+				dataType : "json",
+				success : function(result){
+					/*성공시 처리해야될 코드 작성*/
+					console.log(result)
+					
+					result = addComma(result);
+					$("#optionPrice").text(result);
+					
+					
+				},
+				error : function(XHR, status, error) {
+					console.error(status + " : " + error);
+				}
+			});
+
+		  
+	}); 
+	
+	
+	/* 합계금액 */
+	
+	var optionPrice = $("#optinPrice").val();
+	var amount = $(".amount").val();
+	
+	
+	$(".sum").on("click",function(){
+		console.log("합계 클릭");
+		console.log(amount);
+		
+	});
+	
+	
+	
+	//천단위 콤마 펑션
+	function addComma(value){
+		value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return value; 
+	}
+	
 	 
 </script>
 </html>

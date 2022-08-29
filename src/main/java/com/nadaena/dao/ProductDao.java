@@ -39,6 +39,12 @@ public class ProductDao {
 		return sqlSession.selectList("product.getOption", productNo);
 	}
 	
+	//selected 옵션가격 가져오기
+	public int getOptionPrice(int optionNo) {
+		System.out.println(" ProductDao > getOptionPrice");
+		
+		return sqlSession.selectOne("product.getOptionPrice", optionNo);
+	}
 	
 	//리뷰리스트 불러오기
 	public List<ProductReviewVo> getReviewList(int productNo){
@@ -54,6 +60,19 @@ public class ProductDao {
 		System.out.println(" ProductDao > getOrderList");
 		
 		return sqlSession.selectList("product.getOrderList", userNo);
+	}
+	
+	//주문페이지 상품정보
+	public ProductVo orderForm(int productNo) {
+		System.out.println(" ProductDao > orderForm");
+		
+		return sqlSession.selectOne("product.orderForm", productNo);
+	}
+	//주문페이지 옵션정보
+	public ProductVo orderFormOption(int optionNo) {
+		System.out.println(" ProductDao > orderFormOption");
+		
+		return sqlSession.selectOne("product.orderFormOption", optionNo);
 	}
 	
 }

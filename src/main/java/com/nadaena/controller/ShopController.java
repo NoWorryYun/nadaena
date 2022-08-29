@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nadaena.service.ProductService;
 import com.nadaena.vo.OrderVo;
+import com.nadaena.vo.ProductVo;
 import com.nadaena.vo.UserVo;
 
 @Controller
@@ -73,9 +75,18 @@ public class ShopController {
 
 
 	
-	@RequestMapping(value="shop/order")
-	public String order() {
+	@RequestMapping(value="shop/orderForm")
+	public String order(@RequestParam("productNo")int productNo
+			,@RequestParam("options")int optionNo
+			, Model model) {
 		System.out.println(" ShopCtrl > order");
+		
+		ProductVo orderProduct = productService.orderForm(productNo);
+		model.addAttribute("product", orderProduct);
+		
+		ProductVo orderOption = productService.orderFormOption(optionNo);
+		System.out.println(orderOption);
+		
 		
 		return "shop/order";
 	}

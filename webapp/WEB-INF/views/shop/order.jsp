@@ -55,9 +55,9 @@
 			
 			<!-- 주문제품 -->
 			<div class="orderProduct">
-				<div class="orderProductImg"><img src="/assets/img/orderProduct.jpg" alt=""/></div>
+				<div class="orderProductImg"><img src="${pageContext.request.contextPath }/assets/img/shop/${product.thumbnail }.jpg" alt=""/></div>
 				<div class="productTextBox">
-					<div class="productText"><span>[문화상품권] 온라인문화상품권 본사공식판매 5만원권 3% 할인판매 </span>상품을 주문합니다.</div>
+					<div class="productText"><span>${product.productName }</span>상품을 주문합니다.</div>
 					<div class="productSubText">선택하신 상품의 가격과 옵션정보는 하단 주문상품 정보에서 확인하실 수 있습니다.</div>
 				</div>
 			</div>
@@ -104,9 +104,9 @@
 					
 					<tr class="orderInfo">
 						<td>
-							<div class="orderProductImg"><img src="/assets/img/orderProduct.jpg" alt=""/></div>
+							<div class="orderProductImg"><img src="${pageContext.request.contextPath }/assets/img/shop/${product.thumbnail }.jpg" alt=""/></div>
 							<div class="productTextBox">
-								<div class="productText"><span>[문화상품권] 온라인문화상품권 본사공식판매 5만원권 3% 할인판매</div>
+								<div class="productText"><span>${product.productName }</div>
 								<div class="productSubText">[문화상품권] 온라인문화상품권 5만원권<span>1개</span></div>
 								<div class="orderNum">수량변경</div>
 							</div>
@@ -134,12 +134,9 @@
 					</tr>
 				</table>
 
-				<!-- 약관 -->
-				<div class="userAlert">
-					㈜티몬은 통신판매중개자로서 거래 당사자가 아니며, 입점 판매자가 등록한 상품, 거래 정보 및 거래에 대하여 (주)티몬은 일체의 책임을 지지 않습니다. <br>
-					㈜티몬의 전자금융거래법에 의해 결제대금예치업 등록번호는 02-006-00043입니다. 본 판매자는 고객님의 안전거래를 위해 관련 법률에 의거하여 티몬의 구매안전서비스를 적용하고 있습니다. <br>
-					서비스 가입사실 확인 
-				</div>	
+				<!-- 안내 -->
+				<!-- <div class="userAlert">
+				</div>	 -->
 
 				<!-- 결제방법 선택 -->
 				<div class="userInfoTextBox">

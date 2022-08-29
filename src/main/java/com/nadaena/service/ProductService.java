@@ -38,6 +38,13 @@ public class ProductService {
 		return productDao.getOption(productNo);
 	}
 	
+
+	//selected 옵션가격 가져오기
+	public int getOptionPrice(int optionNo) {
+		System.out.println(" ProductService > getOptionPrice");
+		
+		return productDao.getOptionPrice(optionNo);
+	}
 	
 	
 	//리뷰리스트 불러오기
@@ -54,4 +61,19 @@ public class ProductService {
 		
 		return productDao.getOrderList(userNo);
 	}
+
+	//주문페이지
+	public ProductVo orderForm(int productNo) {
+		System.out.println(" ProductService > orderForm");
+		
+		return productDao.orderForm(productNo);
+	}
+	
+	//주문페이지 옵션
+	public ProductVo orderFormOption(int optionNo) {
+		System.out.println(" ProductService > orderFormOption");
+		
+		return productDao.orderFormOption(optionNo);
+	}
+	
 }

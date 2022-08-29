@@ -34,9 +34,10 @@
 }
 
 .price_list { padding-top: 50px; padding-right: 100px; }
-.price_list li { padding-bottom: 15px; }
-.price_list li strike { float: right; }
-.price_list li span { float: right; }
+.price_list li { padding-bottom: 15px; 
+}
+/* .price_list li span { float: right; } */
+.price_list li .priceWrap { float: right; }
 
 .option { padding-top: 50px; padding-right: 100px; }
 .option #select { float: right; margin-top: -18px; 
@@ -53,13 +54,13 @@
 	text-align: center;
 }
 
-.count form { float: right; clear: both; margin-top: -25px;
+.count .countBtn { float: right; clear: both; margin-top: -25px;
 }
-.count form input { border: 1px solid #111; 
+.count .countBtn input { border: 1px solid #111; 
     padding: 2px 10px;
 }
-.count form input[type=text] { width: 72px; }
-.count form input[type=button] { background-color: #efefef; 
+.count .countBtn input[type=text] { width: 72px; }
+.count .countBtn input[type=button] { background-color: #efefef; 
     font-size: 16px;
 }
 

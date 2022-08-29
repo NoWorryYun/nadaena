@@ -58,6 +58,15 @@
 		]]>
 	</select>
 	
+	<!-- selected 옵션가격 가져오기 -->
+	<select id="getOptionPrice" resultType="int" parameterType="int">
+		<![CDATA[
+			select optionPrice
+			from options
+			where optionNo = #{optionNo}
+		]]>
+	</select>
+	
 	
 	<!-- 
 	<select id="getProduct" resultType="com.nadaena.vo.ProductVo" parameterType="int">
@@ -192,9 +201,31 @@
 			                from orders o, product p
 			                where o.productNo = p.productNo) p
 			where o.optionNo = p.optionNo
-			and userNo=2
+			and userNo=#{userNo}
 	 	]]>
 	 </select>
+	 
+	 
+	<!--  주문페이지 화면로드 -->
+	<select id="orderForm" parameterType="int" resultType="com.nadaena.vo.ProductVo">
+		<![CDATA[
+			select  productNo,
+			        productName,
+			        thumbnail
+			from product
+			where productNo = #{productNo}
+		]]>
+	</select>
+	
+	<select id="orderFormOption" parameterType="int" resultType="com.nadaena.vo.ProductVo">
+		<![CDATA[
+			select optionNo,
+			        optionName,
+			        optionPrice
+			from options
+			where optionNo = #{optionNo}
+		]]>
+	</select>
 	 
 	 
 </mapper>
