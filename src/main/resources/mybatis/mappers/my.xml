@@ -791,5 +791,32 @@
 		    and u.userNo = #{userNo}
 		]]>
 	</select>	
+
+	<!-- 회원정보 불러오기 - 수정폼 -->
+	<select id="selectUser" parameterType="int" resultType="UserVo">
+		<![CDATA[
+			select  u.userNo,
+					u.email,
+					u.nickName,
+					u.pasword,
+					u.name,
+					u.birth,
+					u.hp,
+					u.postNo,
+					u.address1,
+					u.address2,
+					mi.myinterestNo,
+					mi.interestNo,
+					i.interestName
+			from users u, myinterest mi, interest i
+			where u.userNo = mi.userNo
+			and   mi.interestNo = i.interestNo	
+			and u.userNo = #{userNo}	
+		]]>
+	</select>
+	
+	
+	
+	
 	
 </mapper>

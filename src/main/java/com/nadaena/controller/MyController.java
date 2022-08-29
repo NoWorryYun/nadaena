@@ -23,7 +23,23 @@ public class MyController {
 	
 	@Autowired
 	MyService myService;
-	 
+	
+	//회원정보 및 수정폼
+	@RequestMapping(value="my/main", method = {RequestMethod.GET, RequestMethod.POST})
+	public String mymain(Model model, HttpSession session) {
+		
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		int userNo = authUser.getUserNo();
+		
+		UserVo userVo = myService.getUser(userNo);
+		
+		model.addAttribute("userVo", userVo);
+		
+		System.out.println(userVo);
+		
+		return "my/main"; 
+	} 
+	
 	//참가중 + 종료(전체) 챌린지 리스트
 	@RequestMapping(value = "my/challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list1(Model model, HttpSession session,
@@ -196,10 +212,5 @@ public class MyController {
 		return "my/my-buylist"; 
 	} 
 	
-	@RequestMapping(value="my/main", method = {RequestMethod.GET, RequestMethod.POST})
-	public String mymain() {
-		
-		return "my/main"; 
-	} 
 	
 }

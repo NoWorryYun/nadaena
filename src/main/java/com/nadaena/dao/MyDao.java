@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.MyVo;
 import com.nadaena.vo.ReviewVo;
+import com.nadaena.vo.UserVo;
 
 @Repository
 public class MyDao {
@@ -284,4 +285,11 @@ public class MyDao {
 		
 		return totalpCnt;
 	}	
+	
+	//회원정보 불러오기 수정폼
+	public UserVo selectUser(int userNo) {
+		
+		return sqlSession.selectOne("my.selectUser", userNo);
+	}
+	
 }

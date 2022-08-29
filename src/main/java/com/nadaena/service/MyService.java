@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.nadaena.dao.MyDao;
 import com.nadaena.vo.MyVo;
 import com.nadaena.vo.ReviewVo;
+import com.nadaena.vo.UserVo;
 
 @Service
 public class MyService {
@@ -755,5 +756,13 @@ public class MyService {
 		return pMap;
 	}	
 	
+	//유저정보
+	public UserVo getUser(int userNo) {
+
+		UserVo userVo = myDao.selectUser(userNo);
+		
+		return userVo;
+
+	}	
 	 
 } 
