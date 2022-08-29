@@ -85,8 +85,7 @@ public class ShopController {
 		model.addAttribute("product", orderProduct);
 		
 		ProductVo orderOption = productService.orderFormOption(optionNo);
-		System.out.println(orderOption);
-		
+		model.addAttribute("option", orderOption);
 		
 		return "shop/order";
 	}

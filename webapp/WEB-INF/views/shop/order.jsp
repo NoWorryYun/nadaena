@@ -72,7 +72,7 @@
 				<table class="userChoice">
 					<th>사용자 선택</th>
 					<th>
-						<input type="checkbox" id="check">
+						<input type="checkbox" id="check" checked="checked">
 						<label for="check">구매자 본인</label>
 					</th>
 					
@@ -107,18 +107,19 @@
 							<div class="orderProductImg"><img src="${pageContext.request.contextPath }/assets/img/shop/${product.thumbnail }.jpg" alt=""/></div>
 							<div class="productTextBox">
 								<div class="productText"><span>${product.productName }</div>
-								<div class="productSubText">[문화상품권] 온라인문화상품권 5만원권<span>1개</span></div>
+								<div class="productSubText">${option.optionName }<span>${param.amount }개</span></div>
 								<div class="orderNum">수량변경</div>
 							</div>
 						</td>
-						<td>48,500원</td>
+						<td class="optionPrice"></td>
 						<td>0원</td>
 						<td>-</td>
-						<td>48,500원</td>
+						<td class="optionPrice"></td>
 					</tr>
+					<!-- 
 					<tr class="productPrice">
 						<td></td>
-						<td colspan="4">상품금액<span>48,500원</span></td>
+						<td colspan="4">상품금액<span>${option.optionPrice * param.amount }원</span></td>
 					</tr>
 					<tr class="productSale">
 						<td></td>
@@ -128,9 +129,10 @@
 						<td></td>
 						<td colspan="4">배송비<span>0원</span></td>
 					</tr>
+					 -->
 					<tr class="allPrice">
 						<td>총 주문금액</td>
-						<td colspan="4">48,500원</td>
+						<td colspan="4" class="optionPrice"></td>
 					</tr>
 				</table>
 
@@ -146,9 +148,11 @@
 				<div class="payChoice">
 					<div class="choiceText">결제방법</div>
 					<div class="cash">
-						<div class="payMathod">캐시사용</div>
+						<input id="_point" type="radio" checked="checked">
+						<label for="_point">적립금 사용</label>
+						<!-- <div class="payMathod">캐시사용</div>
 						<div class="keyup"><input type="text" value="0">원</div>
-						<input type="button" value="전액사용"></div>	
+						<input type="button" value="전액사용"></div>	 -->
 					</div>
 				</div>
 
@@ -159,33 +163,31 @@
 				<div class="agreeBox">
 					<div class="leftAgreeBox">
 						<div class="allAgree">
-							<input type="checkbox" id="allAgree">
+							<input type="checkbox" id="allAgree" checked="checked">
 							<label for="allAgree">전체 동의하기</label>
 						</div>
 						<div class="agree agree1">
-							<input type="checkbox" id="agree1">
+							<input type="checkbox" id="agree1" checked="checked">
 							<label for="agree1">개인정보 제3자 제공에 동의합니다. </label>
 						</div>
 						<div class="agree agree2">
-							<input type="checkbox" id="agree2">
+							<input type="checkbox" id="agree2" checked="checked">
 							<label for="agree2">결제대행서비스 이용약관에 동의합니다. </label>
 						</div>
 						<div class="agree agree3">
-							<input type="checkbox" id="agree3">
+							<input type="checkbox" id="agree3" checked="checked">
 							<label for="agree3">주문할 상품설명에 명시된 내용과 사용조건을 확인하였으며, 취소. 환불규정에 동의합니다.s</label>
 						</div>
 
 					</div>
 					<div class="rightAgreeBox">
 						<ul class="productInfo">
-							<li>총 상품금액<span>48,500원</span></li>
+							<li>총 상품금액<span class="optionPrice">48,500원</span></li>
 							<li>배송비<span>0원</span></li>
 							<li>할인 금액<span>0원</span></li>
-							<li>캐시 사용<span>0원</span></li>
-							<li>적립금 사용<span>0원</span></li>
 						</ul>
 						<div class="allProduct">총 결제금액</div>
-						<div class="allProductPrice">48,500원</div>
+						<div class="allProductPrice optionPrice">48,500원</div>
 					</div>
 
 					<div class="cancelBtn">
@@ -232,5 +234,20 @@
 
 
 </body>
-
+<script type="text/javascript">
+	var optPrice = ${option.optionPrice * param.amount };
+	optionPrice = addComma(optPrice);
+	
+	$(function(){
+		$(".optionPrice").text(optionPrice);
+		$(".optionPrice").append("원");
+		
+	});
+	
+	//천단위 콤마 펑션
+	function addComma(value){
+		value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return value; 
+	}
+</script>
 </html>

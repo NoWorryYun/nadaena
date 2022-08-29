@@ -63,8 +63,8 @@
 	                    <div class="option">
 	                        <p>옵션</p>
 	                        <select name="options" id="select">
-	                        	<c:forEach items="${optionList }" var="option">
-	                            	<option value="${option.optionNo }">${option.optionName }</option>
+	                        	<c:forEach items="${optionList }" var="option" varStatus="optno">
+	                            		<option value="${option.optionNo }">${option.optionName }</option>
 	                            </c:forEach>
 	                        </select>
 	                    </div>
@@ -87,7 +87,7 @@
 	                        <p><a href="">찜하기</a></p>
 	                        <p><a href="">장바구니담기</a></p>
 	                         -->
-	                        <p class="buy"><a href="${pageContext.request.contextPath }/shop/order">구매하기</a></p>
+	                        <p class="buy"><a href="">구매하기</a></p>
 	                        <button type="submit"  >
 	                        	<p class="buy">구매하기</p>
 	                        </button>
@@ -195,9 +195,8 @@
 					/*성공시 처리해야될 코드 작성*/
 					console.log(result)
 					
-					result = addComma(result);
-					$("#optionPrice").text(result);
-					
+					optPrice = addComma(result);
+					$("#optionPrice").text(optPrice);
 					
 				},
 				error : function(XHR, status, error) {
@@ -212,12 +211,10 @@
 	/* 합계금액 */
 	
 	var optionPrice = $("#optinPrice").val();
-	var amount = $(".amount").val();
+	var $this = $(this);	
 	
-	
-	$(".sum").on("click",function(){
-		console.log("합계 클릭");
-		console.log(amount);
+	$(".amount").on("click",function(){
+		console.log($this.val());
 		
 	});
 	
