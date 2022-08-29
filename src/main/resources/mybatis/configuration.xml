@@ -9,6 +9,7 @@
     <typeAlias alias="PointVo" type="com.nadaena.vo.PointVo" />
     <typeAlias alias="UserVo" type="com.nadaena.vo.UserVo" />
     <typeAlias alias="MainTitleVo" type="com.nadaena.vo.MainTitleVo" />
+    <typeAlias alias="BoardVo" type="com.nadaena.vo.BoardVo" />
     </typeAliases>
  
     <mappers>
@@ -19,5 +20,6 @@
     	<mapper resource="mybatis/mappers/point.xml" />
     	<mapper resource="mybatis/mappers/users.xml" />
     	<mapper resource="mybatis/mappers/product.xml" />
+    	<mapper resource="mybatis/mappers/board.xml" />
     </mappers>
 </configuration>
