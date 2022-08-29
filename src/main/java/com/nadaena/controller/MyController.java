@@ -24,7 +24,7 @@ public class MyController {
 	@Autowired
 	MyService myService;
 	 
-	//참가중 + 종료중(전체) 챌린지 리스트
+	//참가중 + 종료(전체) 챌린지 리스트
 	@RequestMapping(value = "my/challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list1(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
@@ -39,7 +39,7 @@ public class MyController {
 		return "my/my-challenge";
 	}
 	
-	//참가중 + 종료중(성공) 챌린지 리스트
+	//참가중 + 종료(성공) 챌린지 리스트
 	@RequestMapping(value = "my/challenge/success", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list2(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
@@ -54,7 +54,7 @@ public class MyController {
 		return "my/my-challengeyes";
 	}
 	
-	//참가중 + 종료중(실패) 챌린지 리스트
+	//참가중 + 종료(실패) 챌린지 리스트
 	@RequestMapping(value = "my/challenge/failure", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list3(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
@@ -135,7 +135,7 @@ public class MyController {
 		return "my/my-review";
 	}	
 	
-	//챌린지 - 리뷰 리스트
+	//챌린지게시판 - 리뷰 리스트
 	@RequestMapping(value="my/creview/{challengeNo}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
 					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
@@ -148,7 +148,7 @@ public class MyController {
 		return "challenge/review"; 
 	} 	
 	
-	//리뷰쓰기+상태업데이트
+	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급)
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 
 							  Model model, HttpSession session) {
@@ -175,14 +175,14 @@ public class MyController {
 		return "redirect:/my/my-review";
 	}
 	
-	//포인트 리스트(내역)
+	//포인트 리스트(사용내역)
 	@RequestMapping(value = "my/point", method = { RequestMethod.GET, RequestMethod.POST })
 	public String plist(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		int userNo = authUser.getUserNo();
 		
-		Map<String, Object> pMap = myService.getpList51(crtPage, userNo);
+		Map<String, Object> pMap = myService.getpList(crtPage, userNo);
 		
 		model.addAttribute("pMap", pMap);
 		System.out.println(pMap);
@@ -198,7 +198,6 @@ public class MyController {
 	
 	@RequestMapping(value="my/main", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mymain() {
-		System.out.println("mybookmark");
 		
 		return "my/my-main"; 
 	} 

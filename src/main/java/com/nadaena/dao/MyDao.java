@@ -25,7 +25,7 @@ public class MyDao {
 		return mcList;
 	}
 	
-	//종료 리스트+페이징
+	//종료 리스트(전체) + 페이징
 	public List<MyVo> selectList12(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -90,7 +90,7 @@ public class MyDao {
 		return meList2;
 	}
 	
-	//전체글 갯수
+	//챌린지 전체글 갯수
 	public int selectTotalCnt(int userNo) {
 		
 		int totalCnt = sqlSession.selectOne("my.selectTotalCnt", userNo);
@@ -98,7 +98,7 @@ public class MyDao {
 		return totalCnt;
 	}
 	
-	//성공글 갯수
+	//챌린지 성공글 갯수
 	public int selectTotalCnt2(int userNo) {
 		
 		int totalCnt2 = sqlSession.selectOne("my.selectTotalCnt2", userNo);
@@ -106,7 +106,7 @@ public class MyDao {
 		return totalCnt2;
 	}
 	
-	//실패글 갯수
+	//챌린지 실패글 갯수
 	public int selectTotalCnt3(int userNo) {
 		
 		int totalCnt3 = sqlSession.selectOne("my.selectTotalCnt3", userNo);
@@ -114,7 +114,7 @@ public class MyDao {
 		return totalCnt3;
 	}
 
-	//진행이벤트 갯수
+	//진행 이벤트 갯수
 	public int selectTotalCnt21(int userNo) {
 		
 		int totalCnt21 = sqlSession.selectOne("my.selectTotalCnt21", userNo);
@@ -122,7 +122,7 @@ public class MyDao {
 		return totalCnt21;
 	}
 
-	//종료이벤트 갯수
+	//종료 이벤트 갯수
 	public int selectTotalCnt22(int userNo) {
 		
 		int totalCnt22 = sqlSession.selectOne("my.selectTotalCnt22", userNo);
@@ -178,7 +178,7 @@ public class MyDao {
 		return totalCnt41;
 	}
 	
-	//챌린지리뷰 갯수
+	//챌린지게시판 리뷰 갯수
 	public int selectTotalrCnt(int challengeNo) {
 		
 		int totalrCnt = sqlSession.selectOne("my.selectTotalrCnt", challengeNo);
@@ -199,7 +199,7 @@ public class MyDao {
 		return rList;
 	}	
 	
-	//챌린지리뷰리스트 + 페이징
+	//챌린지게시판 리뷰리스트 + 페이징
 	public List<ReviewVo> selectreview(int startRnum, int endRnum, int challengeNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -222,7 +222,7 @@ public class MyDao {
 		return count;
 	}
 
-	//포인트 정보가져오기
+	//포인트 정보가져오기(난이도별계산)
 	public ReviewVo selectReviewPoint(ReviewVo reviewVo) {
 		
 		System.out.println("포인트담아와라(dao)");
@@ -256,7 +256,7 @@ public class MyDao {
 		
 	}
 	
-	//포인트리스트 + 페이징
+	//포인트리스트(사용내역) + 페이징
 	public List<ReviewVo> selectPoint(int startRnum, int endRnum, int userNo) {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
@@ -278,10 +278,10 @@ public class MyDao {
 	}	
 	
 	//포인트내역 갯수
-	public int selectTotalCnt51(int userNo) {
+	public int selectTotalpCnt(int userNo) {
 		
-		int totalCnt51 = sqlSession.selectOne("my.selectTotalCnt51", userNo);
+		int totalpCnt = sqlSession.selectOne("my.selectTotalpCnt", userNo);
 		
-		return totalCnt51;
+		return totalpCnt;
 	}	
 }

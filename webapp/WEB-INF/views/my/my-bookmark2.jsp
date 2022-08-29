@@ -43,8 +43,8 @@
 				
 				<div class="challenge-header">관심있는 이벤트
 					<ul>
-						<li><a href="${pageContext.request.contextPath }/my/my-bookmark1">챌린지</a></li>
-						<li class="last-list"><a href="${pageContext.request.contextPath }/my/my-bookmark2">이벤트</a></li>
+						<li><a href="${pageContext.request.contextPath }/my/bookmark1">챌린지</a></li>
+						<li class="last-list"><a href="${pageContext.request.contextPath }/my/bookmark2">이벤트</a></li>
 					</ul>
 				</div>					
 				<div class="challenge-images">
@@ -81,21 +81,21 @@
 						<nav>
 							<ul class="pagination pagination-sm">
 								<c:if test="${mbMap.prev}">
-									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-bookmark1?crtPage=${mbMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/bookmark2?crtPage=${mbMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
 								</c:if>
 								<c:forEach begin="${mbMap.startPageBtnNo}" end="${mbMap.endPageBtnNo}" step="1" var="page">	
 									<c:choose>
 										<c:when test="${param.crtPage==page}">
-											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-bookmark1?crtPage=${page}">${page}</a></li>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/bookmark2?crtPage=${page}">${page}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-bookmark1?crtPage=${page}">${page}</a></li>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/bookmark2?crtPage=${page}">${page}</a></li>
 										</c:otherwise>
 									</c:choose>	
 								</c:forEach>
 								
 								<c:if test="${mbMap.next}">
-									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-bookmark1?crtPage=${mbMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/bookmark2?crtPage=${mbMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
 								</c:if>
 							</ul>
 						</nav>

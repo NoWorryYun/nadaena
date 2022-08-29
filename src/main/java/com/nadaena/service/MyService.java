@@ -217,7 +217,7 @@ public class MyService {
 		return mcMap;
 	}
 
-	//진행중 이벤트 리스트(전체)
+	//진행중 이벤트 리스트
 	public Map<String, Object> getmeList21(int crtPage, int userNo) {
 		System.out.println("C > getmcList");
 		
@@ -280,7 +280,7 @@ public class MyService {
 		return mcMap;
 	}	
 	
-	//종료 이벤트 리스트(전체)
+	//종료 이벤트 리스트
 	public Map<String, Object> getmeList22(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
@@ -404,7 +404,7 @@ public class MyService {
 		return mbMap;
 	}	
 	
-	//북마크 이벤트 리스트
+	//북마크 이벤트
 	public Map<String, Object> getmbList2(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
@@ -466,7 +466,7 @@ public class MyService {
 		return mbMap;
 	}
 	
-	//마이리뷰리스트
+	//마이 리뷰리스트
 	public Map<String, Object> getmyrList(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
@@ -529,7 +529,7 @@ public class MyService {
 		return rMap;
 	}		
 	
-	//챌린지리뷰리스트
+	//챌린지게시판 리뷰리스트
 	public Map<String, Object> getrList(int crtPage, int challengeNo) {
 		
 		//////리스트 가져오기
@@ -593,7 +593,7 @@ public class MyService {
 		return rMap;
 	}	
 	
-	//리뷰 쓰기 + 리워드 지급 + 상태업데이트
+	//리뷰 쓰기(리뷰내용 + 상태업데이트 + 포인트지급)
 	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
 
 		String saveDir = "C:\\javaStudy\\upload";
@@ -690,8 +690,8 @@ public class MyService {
 		
 	}
 	
-	//포인트(전체)
-	public Map<String, Object> getpList51(int crtPage, int userNo) {
+	//포인트 리스트(사용내역)
+	public Map<String, Object> getpList(int crtPage, int userNo) {
 		
 		//////리스트 가져오기
 		
@@ -715,7 +715,7 @@ public class MyService {
 		//////////
 		
 		//전체글갯수
-		int totalCnt51 = myDao.selectTotalCnt51(userNo);
+		int totalpCnt = myDao.selectTotalpCnt(userNo);
 		
 		
 		//페이지당버튼갯수
@@ -729,11 +729,11 @@ public class MyService {
 		
 		//다음 화살표 유무
         boolean next = false;
-        if( (listCnt*endPageBtnNo) < totalCnt51  ) {
+        if( (listCnt*endPageBtnNo) < totalpCnt  ) {
         	 next=true;
         
         }else {
-        	endPageBtnNo =(int)Math.ceil(totalCnt51/(double)listCnt);       
+        	endPageBtnNo =(int)Math.ceil(totalpCnt/(double)listCnt);       
         }
        
         //이전 화살표 유무

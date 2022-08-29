@@ -119,21 +119,21 @@
 						<nav>
 							<ul class="pagination pagination-sm">
 								<c:if test="${pMap.prev}">
-									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/my-point?crtPage=${pMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+									<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/my/point?crtPage=${pMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
 								</c:if>
 								<c:forEach begin="${pMap.startPageBtnNo}" end="${pMap.endPageBtnNo}" step="1" var="page">	
 									<c:choose>
 										<c:when test="${param.crtPage==page}">
-											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-point?crtPage=${page}">${page}</a></li>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/point?crtPage=${page}">${page}</a></li>
 										</c:when>
 										<c:otherwise>
-											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/my-point?crtPage=${page}">${page}</a></li>
+											<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/my/point?crtPage=${page}">${page}</a></li>
 										</c:otherwise>
 									</c:choose>	
 								</c:forEach>
 								
 								<c:if test="${pMap.next}">
-									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/my-point?crtPage=${pMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+									<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/my/point?crtPage=${pMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
 								</c:if>
 							</ul>
 						</nav>

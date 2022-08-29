@@ -783,7 +783,7 @@
 	
 	
 	<!-- 포인트내역 갯수 구하기 -->
-	<select id="selectTotalCnt51" resultType="int">
+	<select id="selectTotalpCnt" resultType="int">
 		<![CDATA[
 			select count(*) count
 			from point p, users u
