@@ -316,7 +316,7 @@ var swiper = new Swiper('.swiper-container', {
   });
   
   
-/* $("#search-submit").on("submit", function(){
+$("#search-submit").on("submit", function(){
     var keyword = $("#txt-main-search").val()
 	console.log(keyword);
 	
@@ -327,7 +327,7 @@ var swiper = new Swiper('.swiper-container', {
     
     return true;
   });
- */
+
 
 </script>
 

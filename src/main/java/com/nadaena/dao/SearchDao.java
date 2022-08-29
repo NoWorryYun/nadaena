@@ -1,8 +1,6 @@
 package com.nadaena.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,20 +32,5 @@ public class SearchDao {
 		return totalCnt;
 	}
 
-	
-//	
-//	public List<MainTitleVo> selectList(int startRnum, int endRnum) {
-//		System.out.println("SearchDao>selectList()");
-//
-//		Map<String, Integer> cMap = new HashMap<String, Integer>();
-//		cMap.put("startRnum", startRnum);
-//		cMap.put("endRnum", endRnum);
-//
-//		System.out.println(cMap);
-//		List<MainTitleVo> selectList = sqlSession.selectList("Search.selectList", cMap);
-//		System.out.println(selectList);
-//
-//		return selectList;
-//	}
 
 }

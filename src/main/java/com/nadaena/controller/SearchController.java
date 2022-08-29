@@ -53,38 +53,6 @@ public class SearchController {
 
 	
 	
-	
-	
-	
-	
-	
-//	
-//	
-//
-//	@RequestMapping(value = "/search/searchmain", method = { RequestMethod.GET, RequestMethod.POST })
-//	public String searchmain(@RequestParam(value = "keyword", required = false) String searchbar, Model model) {
-//		System.out.println("SearchController > searchmain");
-//
-//		//List<MainTitleVo> searchList = searchService.searchList(searchbar);
-//
-//		//model.addAttribute("searchList",searchList);
-//
-//		return "search/searchMain";
-//	}
-//
-//	
-	/*
-	@RequestMapping(value = "/search/searcheForm", method = { RequestMethod.GET, RequestMethod.POST }) 
-	public String list4(Model model, @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage ) {
-		 System.out.println("BoardContoller>list4()");
-	  
-		 Map<String, Object> cMap = searchService.selectList(crtPage);
-		 
-		 model.addAttribute("cMap", cMap);
-	  
-		 System.out.println("controller --> " + cMap);
-	  
-	return "search/searchForm"; }
-	*/ 
+
 
 }

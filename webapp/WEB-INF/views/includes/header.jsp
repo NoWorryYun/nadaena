@@ -21,11 +21,11 @@
 				<c:if test="${not empty authUser }">
 					
 					<div id="btn-user" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						<span id="lv-user" class="badge bg-secondary rounded-pill">Lv.999</span>
+						<!-- <span id="lv-user" class="badge bg-secondary rounded-pill">Lv.999</span> -->
 						<span id="txt-nick">${authUser.nickName}님 안녕하세요</span>
 					</div>
 					<ul id="btn-user-list" class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">마이페이지</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/my/main">마이페이지</a></li>
 						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 					</ul>
 					 </c:if>
@@ -67,16 +67,16 @@
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/event">이벤트</a></li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/shop/main">포인트몰</a></li>
 			</ul>
-			<c:if test="${not empty authUser }">
+			<c:if test="${sessionScope.authUser.userNo!=1 }">
 				<div id="btnbox" class="col-2">
 					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="${pageContext.request.contextPath}/challenge/write">챌린지 개설하기</a>
 				</div>
 			</c:if>
-			<%-- <c:if test="${sessionScope.authUser(userNo) == 1 }">
+			<c:if test="${sessionScope.authUser.userNo==1}">
 				<div id="btnbox" class="col-2">
 					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="#">이벤트 개설하기</a>
 				</div>
-			</c:if> --%>
+			</c:if>
 		</nav>
 		<!-- nav -->
 	</div>
