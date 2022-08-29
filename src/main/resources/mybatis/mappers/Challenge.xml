@@ -270,12 +270,15 @@
 			        c.regDate regDate,
 			        recruitment recruitment,
 			        to_char(regDate+recruitment, 'yyyy-mm-dd') recRD,
+			        to_char(regDate+recruitment+(subOn/24), 'hh24:mi:ss') sbo,
+			        to_char(regDate+recruitment+(subOff/24), 'hh24:mi:ss')sbof,
 			        c.period period,
 			        c.upload upload,
 			        cc.subon subOn,
 			        cc.suboff subOff,
-			        cc.certifieddate certifiedDate
-			from challenge c, (select  ct.certifyNo,
+			        cc.certifieddate certifieddate
+			from challenge c, (select  rownum rn,
+			                            ct.certifyNo,
 			                            ct.certifyTitle,
 			                            ct.challengeNo,
 			                            ct.subon,

@@ -324,8 +324,10 @@
 
 
 <script type="text/javascript">
-	var authUser = "${sessionScope.authUser}"
+	var authUser = "${authUser.userNo}"
 
+	console.log(authUser);
+	
 	$("#joinForm").on("submit", function(){
 		var payment = $('select[name="payment"]').val();
 		var clgOutChk = $("[name='clgInOutChk']").val();
@@ -353,13 +355,10 @@
 	})
 	
 	
-	
 	var challengeNo = $("#challengeNo").val();
 	
-	authUser = Number(authUser);
 	challengeNo = Number(challengeNo);
 	
-	console.log(authUser);
 	console.log(challengeNo);
 	
 	var bookMarkData = {

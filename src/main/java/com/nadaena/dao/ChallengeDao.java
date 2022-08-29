@@ -105,8 +105,8 @@ public class ChallengeDao {
 	}
 
 	//달력 계산하기
-	public ChallengeVo calender(ChallengeVo challengeVo) {
-		return sqlSession.selectOne("Challenge.calender", challengeVo);
+	public List<ChallengeVo> calender(ChallengeVo challengeVo) {
+		return sqlSession.selectList("Challenge.calender", challengeVo);
 	}
 	
 	//답 제출하기

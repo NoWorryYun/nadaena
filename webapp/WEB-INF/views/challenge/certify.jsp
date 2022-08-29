@@ -98,7 +98,7 @@
 															<p class="font-14">전체 챌린지 달성률</p>
 															<div class="progress-bar">
 																<div class="progress-all">
-																	<p>72%</p>
+																	<p id="allprogress">72%</p>
 																</div>
 															</div>
 														</div>
@@ -106,7 +106,7 @@
 															<p class="font-14">나의 챌린지 달성률</p>
 															<div class="progress-bar">
 																<div class="progress-mine">
-																	<p>82%</p>
+																	<p id="myprogress">82%</p>
 																</div>
 															</div>
 														</div>
@@ -791,29 +791,89 @@
 							}
 							// 이벤트
 							,
-							events : []
+							events : renderList()
 
-								
 						}); // 캘린더 랜더링
 				calendar.render();
 			});
 		})();
+		
+		
+		var challengeNo = $("#challengeNo").val();
+		var authUser = "${authUser.userNo}";
+		
+		authUser = Number(authUser);
+		console.log(authUser);
+		
+		console.log(typeof(authUser));
+		
+		var dateChkData = {
+			userNo : authUser,
+			challengeNo : challengeNo
+		}
+		
+		console.log(dateChkData);
+		
+		function renderList(){
+			var dataList = [];
+			
+			$.ajax({
+				contentType : 'application/json',
+				data : JSON.stringify(dateChkData),
+				url : '${pageContext.request.contextPath}/challenge/dateChk',
+				type : 'POST',
+
+				
+				async: false,  //동기화
+				dataType : "json",
+				success : function(calDataList) {
+					
+					for(var i=0; i<calDataList.length; i++){
+						var item = {};
+						item.title = calDataList[i].certifyTitle;
+						if(calDataList[i].subOn != -1){
+							item.start = calDataList[i].toDay +'T'+calDataList[i].sbo;
+							item.end = calDataList[i].toDay +'T'+calDataList[i].sbof; 
+						} else{
+							item.start = calDataList[i].toDay +'T'+ '00:00:00';
+							item.end = calDataList[i].toDay +'T'+ '23:00:00'; 
+						}
+						dataList.push(item);
+					}
+
+					console.log(dataList);
+				}
+			})
+			
+			return dataList;
+		}
+		
+		function makeRenderData(calDataList){
+			
+			
+			return dataList;
+			
+			
+		}
+		
 	</script>
 	<script type="text/javascript">
 		var authUser = "${authUser.userNo}";
+		
+		if (authUser == "" || authUser == null) {
+			alert("로그인해주세요");
+			location.href = "${pageContext.request.contextPath}/loginForm"
+		}
+		
 		$(document).ready(function() {
-			if (authUser == "" || authUser == null) {
-				alert("로그인해주세요");
-				location.href = "${pageContext.request.contextPath}/loginForm"
-			}
-
 			bkload();
+			myprogress();
 		})
 
 		var challengeNo = $("#challengeNo").val();
 
 		challengeNo = Number(challengeNo);
-
+		authUser = Number(authUser);
 		console.log(authUser);
 		console.log(challengeNo);
 
@@ -873,8 +933,28 @@
 			})
 		})
 						
-						
-						
+		
+		challengeVo = {
+			userNo : authUser,
+			challengeNo : challengeNo
+		}
+		console.log(challengeVo)
+		
+		function myprogress(){
+			$.ajax({
+				contentType : 'application/json',
+				data : JSON.stringify(challengeVo),
+				url : '${pageContext.request.contextPath}/challenge/myprogress',
+				type : 'post',
+				
+				async: false,  //동기화
+				dataType : "json",
+				success : function(result){
+					$("#myprogress").html(result+'%');
+					$(".progress-mine").css('width', result+'%');
+				}
+			})
+		}				
 						
 						
 	</script>

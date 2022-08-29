@@ -44,8 +44,6 @@ public class ChallengeController {
 			userNo = -1;
 		}
 
-		challengeService.dateChk(challengeNo, userNo);
-		
 		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
 		model.addAttribute("cMap" , cMap);
@@ -53,6 +51,20 @@ public class ChallengeController {
 		return "challenge/intro";
 	}
 
+	//date확인
+	@ResponseBody
+	@RequestMapping(value="/challenge/dateChk", method = {RequestMethod.GET,RequestMethod.POST})
+	public List<ChallengeVo> dateChk(@RequestBody ChallengeVo challengeVo, HttpSession session) throws ParseException {
+		System.out.println("Controller > dateChk");
+		int userNo = challengeVo.getUserNo();
+		int challengeNo = challengeVo.getChallengeNo();
+		
+		List<ChallengeVo> dateChk = challengeService.dateChk(challengeNo, userNo);
+		
+		System.out.println(dateChk);
+		
+		return dateChk;
+	}
 	//북마크 확인
 	@ResponseBody
 	@RequestMapping(value="/challenge/bookMark", method = {RequestMethod.GET, RequestMethod.POST})
@@ -115,6 +127,22 @@ public class ChallengeController {
 		
 		return "challenge/certify";
 	}
+	
+	
+	//진행도 계산하기
+	@ResponseBody
+	@RequestMapping(value="/challenge/myprogress", method= {RequestMethod.GET,RequestMethod.POST})
+	public double calProgress(@RequestBody ChallengeVo challengeVo) throws ParseException {
+		System.out.println("진행도측정");
+		
+		int challengeNo = challengeVo.getChallengeNo();
+		int userNo = challengeVo.getUserNo();
+		
+		double result = challengeService.calProgress(challengeNo, userNo);
+		
+		return result;
+	}
+	
 	
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/certified", method = { RequestMethod.GET, RequestMethod.POST })
