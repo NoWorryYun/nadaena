@@ -155,11 +155,12 @@ public class MyController {
 	@RequestMapping(value="my/creview/{challengeNo}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
 					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
-		System.out.println("review");
 		
 		Map<String, Object> rMap = myService.getrList(crtPage, challengeNo);
 		
 		model.addAttribute("rMap", rMap);
+		
+		System.out.println(rMap);
 		
 		return "challenge/review"; 
 	} 	

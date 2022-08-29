@@ -87,7 +87,7 @@
 											<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 												<li class="list-inline-item">
 													<div class="img-size">
-														<a href="#" class="modal-button" data-clgtitle="${ReviewVo.clgTitle }" data-reviewdate="${ReviewVo.reviewDate }">
+														<a href="#" class="modal-button" data-title="${ReviewVo.clgTitle}" data-reviewdate="${ReviewVo.reviewDate }" data-content="${ReviewVo.reviewContent }">
 														<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
 													</div>
 													<div class="certify-list-info">
@@ -217,43 +217,18 @@
 	<!-- /footer -->
 
 
-<!----------------------------------------------------------------------->	
-<!-- 모달 -->
-<div id="review-modal" class="modal fade show" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<form action="${pageContext.request.contextPath}/my/writeReview" method="post" enctype="multipart/form-data">
-			<div class="modal-header">
-				<div>
-					<h5></h5>
-				</div>
-				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<div class="modal-nicname-box">
-					<p class="modal-upload-date">작성일 : <span class="readday"></span></p>
-				</div>
-				<textarea class="modal-text" id="review-content" name="reviewContent" value="${ReviewVo.reviewContent }"></textarea>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">확인</button>
-			</div>
-				
-			</form>	
-		</div>
-	</div>
-</div>
 
-<!--  모달 끝 -->
 
-<!-- ㄴ
+
+
+
 //리뷰 모달창 
-<div id="review-modal" class="modal fade show" role="dialog" tabindex="-1" style="display: block;">
+<div id="review-modal" class="modal fade show" role="dialog" tabindex="-1">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<div>
-					<h4 class="modal-title">매일 10페이지 책 읽기</h4>
+					<h5 class="modal-title"></h5>
 				</div>
 				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
@@ -267,70 +242,75 @@
 					<div>
 						<p class="bold-underline">후기</p>
 					</div>
-					<p class="font-14">매일 10페이지 읽다가 9페이지 쯤 읽으면 잠듭니다. 대낮에 읽으세요. 가끔 펴자마자 잠듭니다. 리워드도 달달합니다. 두번하세요. 세번하세요.</p>
+					<p class="font-14"></p>
 				</div>
 			</div>
 			<div class="modal-nicname-box">
-				<p class="modal-nickname">작성자 : 배달의기마민족</p>
-				<p class="modal-upload-date">작성일 : 2022-08-31</p>
+				<p class="modal-upload-date">작성일 : <span class="readday"></span></p>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-light" type="button" data-bs-dismiss="modal">닫기</button>
-				<button class="btn btn-primary" type="button">삭제</button>
+				<!-- <button class="btn btn-primary" type="button">삭제</button> -->
 			</div>
 		</div>
 	</div>
 </div>
--->
-
-	<script>
-	//리뷰작성 모달창 호출 했을때
-	$(".modal-button").on("click", function(){
-		
-		//모달창 초기화
-		$("#review-modal h5").html("");
-		$("#review-content").val("");
-		
-		//데이타수집
-		var clgTitle = $(this).data("title");
-		var reviewDate = $(this).data("reviewdate");
-
-		
-		console.log(clgTitle);
-		
-		//챌린지번호 숨기기
-		
-		//첼린지타이틀 출력
-		$("#review-modal h5").html(clgTitle);
-		
-		//리뷰 작성일 출력
-		$("#review-modal .readday").html(reviewDate);
-		
-		//모달 보이기
-		$("#review-modal").modal("show");
-		
-	});	
 
 
-	//리뷰작성 모달창 닫기 했을때
-	$(".btn-close").on("click", function(){
-		
-		$("#review-modal").fadeOut();	
-	});
-	$(".report").on("click", function(){
-		
-		var result = confirm("신고하시겠습니까?");
-		
-		if(result == true) {
-			alert("신고 되었습니다");
-			
-		}
-		else {
-			alert("취소 되었습니다")
-		}
-	});
+<script>
+//리뷰작성 모달창 호출 했을때
+$(".modal-button").on("click", function(){
 	
+	//모달창 초기화
+	$("#review-modal h5").html("");
+	$("#review-content").val("");
 	
+	//데이타수집
+	var clgTitle = $(this).data("title");
+	var reviewDate = $(this).data("reviewdate");
+	var reviewContent = $(this).data("content");
+
+	
+	console.log(clgTitle);
+	console.log(reviewDate);
+	console.log(reviewContent);
+	
+	//첼린지타이틀 출력
+	$("#review-modal h5").html(clgTitle);
+	
+	//리뷰 작성일 출력
+	$("#review-modal .readday").html(reviewDate);
+	
+	//모달 보이기
+	$("#review-modal").modal("show");
+	
+	//모달본문
+	$("#review-modal .font-14").html(reviewContent);
+	
+});	
+
+
+//리뷰작성 모달창 닫기 했을때
+$(".btn-close").on("click", function(){
+	
+	$("#review-modal").fadeOut();	
+});
+
+//신고
+$(".report").on("click", function(){
+	
+	var result = confirm("신고하시겠습니까?");
+	
+	if(result == true) {
+		alert("신고 되었습니다");
+		
+	}
+	else {
+		alert("취소 되었습니다")
+	}
+});
+
+
 	
 	/* 	(function() {
 			$(function() {
@@ -427,14 +407,9 @@
 				calendar.render();
 			});
 		})(); */
-	</script>
+</script>
 
 
 </body>
-
-
-
-
-
 
 </html>
