@@ -53,13 +53,10 @@ public class ChallengeDao {
 
 	//인트로 업로드 상세 받아오기
 	public List<ChallengeVo> certifyList(ChallengeVo challengeVo) {
-
 		List<ChallengeVo> certifyList = sqlSession.selectList("Challenge.certifyList", challengeVo);
-
 		return certifyList;
-
 	}
-
+	
 	//북마크 설정
 	public int bookMark(int userNo) {
 
@@ -100,7 +97,6 @@ public class ChallengeDao {
 	public int chkProgress(ChallengeVo clgVo) {
 
 		int dao = sqlSession.selectOne("Challenge.chkProgress", clgVo);
-		System.out.println("dao, chkProgress int값 : " + dao);
 		return sqlSession.selectOne("Challenge.chkProgress", clgVo);
 	}
 
@@ -120,6 +116,12 @@ public class ChallengeDao {
 	public int certifiedUpdate(ChallengeVo challengeVo) {
 
 		return sqlSession.update("Challenge.certifiedUpdate", challengeVo);
+	}
+	
+	public int joinCount(int userNo) {
+		
+		return sqlSession.selectOne("Challenge.joinCount", userNo);
+		
 	}
 
 }

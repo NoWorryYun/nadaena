@@ -1017,7 +1017,9 @@
 	  			console.log("체크되어있음");
 	  		}
 		}
-	  		
+  		
+  		
+  		
   		/* console.log(upsList); */
   		
   		

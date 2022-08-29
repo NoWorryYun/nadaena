@@ -241,6 +241,7 @@
 			         and userNo = #{userNo}) payment
 			from mychallenge          
 			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
 		]]>
 	</select>
 			
@@ -314,4 +315,19 @@
 			where certifiedNo = #{certifiedNo}
 		]]>
 	</update>
+	
+	<!-- ////////////////////////////////유저 접근 제한 설정 //////////////////////////////////// -->
+	<select id="joinCount" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(challengeNo) joinCount
+			from mychallenge
+			where state = 1
+			and userNo = #{userNo}
+		]]>
+	</select>
+	
+	<!-- 포인트 여부 확인하기 -->
+<!-- 	<select id="pointChk" parameterType="" -->
+	
+	
 </mapper>

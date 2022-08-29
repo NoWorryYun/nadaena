@@ -55,8 +55,10 @@ public class ChallengeVo {
 
 	private String sbo;
 	private String sbof;
-	
+
 	private String toDay;
+
+	private int joinCount;
 
 	//생성자
 	public ChallengeVo() {
@@ -314,11 +316,9 @@ public class ChallengeVo {
 		this.clgInOutChk = clgInOutChk;
 	}
 
-	
-
 	public ChallengeVo(int challengeNo, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3, String tag4, String tag5,
 			int clgLevel, int clgGroup, int certifyNo, String certifyTitle, int subOn, int subOff, String interestName, int userNo, int payment, MultipartFile imgs, List<ChallengeVo> upsList, String recRD, String recRDM, String recRDP, int userCount, int founder, int clgInOutChk,
-			int certCount, String certifieddate, int certifyChk, int certifiedNo, String sbo, String sbof, String toDay) {
+			int certCount, String certifieddate, int certifyChk, int certifiedNo, String sbo, String sbof, String toDay, int joinCount) {
 		super();
 		this.challengeNo = challengeNo;
 		this.interestNo = interestNo;
@@ -362,6 +362,7 @@ public class ChallengeVo {
 		this.sbo = sbo;
 		this.sbof = sbof;
 		this.toDay = toDay;
+		this.joinCount = joinCount;
 	}
 
 	public int getChallengeNo() {
@@ -700,15 +701,22 @@ public class ChallengeVo {
 		this.toDay = toDay;
 	}
 
+	public int getJoinCount() {
+		return joinCount;
+	}
+
+	public void setJoinCount(int joinCount) {
+		this.joinCount = joinCount;
+	}
+
 	@Override
 	public String toString() {
 		return "ChallengeVo [challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", img=" + img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload="
 				+ upload + ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", certifyNo=" + certifyNo
 				+ ", certifyTitle=" + certifyTitle + ", subOn=" + subOn + ", subOff=" + subOff + ", interestName=" + interestName + ", userNo=" + userNo + ", payment=" + payment + ", imgs=" + imgs + ", upsList=" + upsList + ", recRD=" + recRD + ", recRDM=" + recRDM + ", recRDP="
 				+ recRDP + ", userCount=" + userCount + ", founder=" + founder + ", clgInOutChk=" + clgInOutChk + ", certCount=" + certCount + ", certifieddate=" + certifieddate + ", certifyChk=" + certifyChk + ", certifiedNo=" + certifiedNo + ", sbo=" + sbo + ", sbof=" + sbof
-				+ ", toDay=" + toDay + "]";
+				+ ", toDay=" + toDay + ", joinCount=" + joinCount + "]";
 	}
 
-
-
+	
 }

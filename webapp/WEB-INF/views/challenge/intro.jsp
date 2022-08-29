@@ -202,9 +202,9 @@
 																<tr style="border-style: none;">
 																	<td id="enter-challenge-cell" class="type-center" colspan="2">
 																		<c:choose>
-																			<c:when test="${cMap.joinChk.userCount != 0}">
+																			<c:when test="${cMap.joinChk.userCount > 0}">
 																				<c:choose>
-																					<c:when test="${cMap.joinChk.founder} == 2">
+																					<c:when test="${cMap.joinChk.founder == 2}">
 																						<input type="hidden" name="clgInOutChk" value="2">
 																						<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
 																					</c:when>
@@ -328,7 +328,27 @@
 
 	console.log(authUser);
 	
+	function joinCount(){
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(userNo),
+			url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				if(reusult == 3){
+					console.log(result)
+					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
+					return false;
+				}
+			}
+		})
+	}
+	
 	$("#joinForm").on("submit", function(){
+		joinCount();
+		
 		var payment = $('select[name="payment"]').val();
 		var clgOutChk = $("[name='clgInOutChk']").val();
 		
@@ -420,6 +440,7 @@
 			}
 		})
 	})
+	
 	
 
 

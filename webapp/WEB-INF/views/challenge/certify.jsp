@@ -859,23 +859,54 @@
 	</script>
 	<script type="text/javascript">
 		var authUser = "${authUser.userNo}";
+		var challengeNo = $("#challengeNo").val();
+		
+		challengeNo = Number(challengeNo);
+		authUser = Number(authUser);
+		console.log(authUser);
+		console.log(challengeNo);
+
+		challengeVo = {
+			userNo : authUser,
+			challengeNo : challengeNo
+		}
 		
 		if (authUser == "" || authUser == null) {
 			alert("로그인해주세요");
 			location.href = "${pageContext.request.contextPath}/loginForm"
 		}
 		
+		var returnIntro = "${pageContext.request.contextPath}/challenge/"+challengeNo+"/intro";
+		
+		//참여유저 확인
+		function joinChk(){
+		$.ajax({
+			contentType : 'application/json',
+			data : JSON.stringify(challengeVo),
+			url : '${pageContext.request.contextPath}/challenge/joinchk',
+			type : 'POST',
+
+			async: false,  //동기화
+			dataType : "json",
+			success : function(result) {
+				if(result == 0){
+					console.log(result)
+					alert("참여한 유저만 이용 가능한 게시판입니다.")
+					location.href = returnIntro;
+				}
+			
+			}
+		})
+		}
+		
+		
 		$(document).ready(function() {
+			joinChk();
 			bkload();
 			myprogress();
 		})
 
-		var challengeNo = $("#challengeNo").val();
 
-		challengeNo = Number(challengeNo);
-		authUser = Number(authUser);
-		console.log(authUser);
-		console.log(challengeNo);
 
 		var bookMarkData = {
 			userNo : authUser,
@@ -934,10 +965,7 @@
 		})
 						
 		
-		challengeVo = {
-			userNo : authUser,
-			challengeNo : challengeNo
-		}
+		
 		console.log(challengeVo)
 		
 		function myprogress(){

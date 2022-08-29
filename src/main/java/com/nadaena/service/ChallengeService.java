@@ -152,7 +152,17 @@ public class ChallengeService {
 		
 		return cMap;
 	}
-
+	
+	//챌린지 참여 확인하기
+	public int joinChk(ChallengeVo challengeVo) {
+		
+		ChallengeVo clgVo = challengeDao.joinChk(challengeVo);
+		
+		int count = clgVo.getUserCount();
+		System.out.println(count);
+		return count;
+	}
+	
 	//북마크 확인
 	public int bookMark(int challengeNo) {
 		
@@ -350,6 +360,12 @@ public class ChallengeService {
 		}
 		
 		return result;
+	}
+	
+	//유저 참여갯수 확인
+	public int joinCount(int UserNo) {
+		
+		return challengeDao.joinCount(UserNo);
 	}
 	
 }

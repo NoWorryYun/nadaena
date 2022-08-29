@@ -50,7 +50,17 @@ public class ChallengeController {
 		
 		return "challenge/intro";
 	}
-
+	
+	//챌린지 참여 확인하기
+	@ResponseBody
+	@RequestMapping(value="/challenge/joinchk", method= {RequestMethod.GET, RequestMethod.POST})
+	public int joinChk(@RequestBody ChallengeVo challengeVo) {
+		
+		int result = challengeService.joinChk(challengeVo);
+		
+		return result;
+	}
+	
 	//date확인
 	@ResponseBody
 	@RequestMapping(value="/challenge/dateChk", method = {RequestMethod.GET,RequestMethod.POST})
@@ -97,11 +107,21 @@ public class ChallengeController {
 	
 	//챌린지 참여하기
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
-	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
+	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session) {
 		System.out.println("challnege/joinchallenge");
+		UserVo userVo = (UserVo)session.getAttribute("authUser");
+		
+		int userNo;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}  else {
+			userNo = -1;
+		}
+		
+		challengeVo.setUserNo(userNo);
 		
 		challengeService.joinChallenge(challengeVo);
-		
+			
 		return "redirect:/intro";
 	}
 
@@ -204,6 +224,7 @@ public class ChallengeController {
 	}
 
 	
+	
 
 
 	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
@@ -233,6 +254,11 @@ public class ChallengeController {
 		return "challenge/review";
 	}
 	
-	
-	
+	//유저 개인의 참여 갯수 확인
+	@ResponseBody
+	@RequestMapping(value="/joinCount", method= {RequestMethod.GET, RequestMethod.POST})
+	public int joinCount(@RequestBody int UserNo) {
+
+		return challengeService.joinCount(UserNo);
+	}
 }
