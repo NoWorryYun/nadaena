@@ -25,7 +25,7 @@ public class MyController {
 	MyService myService;
 	 
 	//참가중 + 종료중(전체) 챌린지 리스트
-	@RequestMapping(value = "my/my-challenge", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/challenge", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list1(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
@@ -40,7 +40,7 @@ public class MyController {
 	}
 	
 	//참가중 + 종료중(성공) 챌린지 리스트
-	@RequestMapping(value = "my/my-challenge/success", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/challenge/success", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list2(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
@@ -55,7 +55,7 @@ public class MyController {
 	}
 	
 	//참가중 + 종료중(실패) 챌린지 리스트
-	@RequestMapping(value = "my/my-challenge/failure", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/challenge/failure", method = { RequestMethod.GET, RequestMethod.POST })
 	public String list3(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -68,7 +68,7 @@ public class MyController {
 	}
 
 	//참가중 이벤트 리스트
-	@RequestMapping(value = "my/my-event", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/event", method = { RequestMethod.GET, RequestMethod.POST })
 	public String elist1(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -82,7 +82,7 @@ public class MyController {
 	}
 
 	//종료된 이벤트 리스트
-	@RequestMapping(value = "my/my-event/end", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/event/end", method = { RequestMethod.GET, RequestMethod.POST })
 	public String elist2(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -95,7 +95,7 @@ public class MyController {
 	}
 	
 	//북마크 챌린지 리스트
-	@RequestMapping(value = "my/my-bookmark1", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/bookmark1", method = { RequestMethod.GET, RequestMethod.POST })
 	public String blist1(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -108,7 +108,7 @@ public class MyController {
 	}	
 	
 	//북마크 이벤트 리스트
-	@RequestMapping(value = "my/my-bookmark2", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/bookmark2", method = { RequestMethod.GET, RequestMethod.POST })
 	public String blist2(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -121,7 +121,7 @@ public class MyController {
 	}	
 	
 	//마이리뷰 리스트
-	@RequestMapping(value = "my/my-review", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/review", method = { RequestMethod.GET, RequestMethod.POST })
 	public String rlist(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
@@ -136,7 +136,7 @@ public class MyController {
 	}	
 	
 	//챌린지 - 리뷰 리스트
-	@RequestMapping(value="my/review/{challengeNo}", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/creview/{challengeNo}", method = {RequestMethod.GET, RequestMethod.POST})
 	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
 					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		System.out.println("review");
@@ -176,7 +176,7 @@ public class MyController {
 	}
 	
 	//포인트 리스트(내역)
-	@RequestMapping(value = "my/my-point", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "my/point", method = { RequestMethod.GET, RequestMethod.POST })
 	public String plist(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -196,7 +196,7 @@ public class MyController {
 		return "my/my-buylist"; 
 	} 
 	
-	@RequestMapping(value="my/my-main", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/main", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mymain() {
 		System.out.println("mybookmark");
 		
