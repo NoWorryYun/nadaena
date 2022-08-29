@@ -23,11 +23,12 @@ public class MyVo {
 	private String yesterday;
 	private String bookmarkNo;
 	private String bookmarkDate;
+	private String nickname;
 	public MyVo() {
 		super();
 	}
 	public MyVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, int clgGroup, String startday, String endday,
-			String yesterday, String bookmarkNo, String bookmarkDate) {
+			String yesterday, String bookmarkNo, String bookmarkDate, String nickname) {
 		super();
 		this.userClgNo = userClgNo;
 		this.challengeNo = challengeNo;
@@ -49,6 +50,7 @@ public class MyVo {
 		this.yesterday = yesterday;
 		this.bookmarkNo = bookmarkNo;
 		this.bookmarkDate = bookmarkDate;
+		this.nickname = nickname;
 	}
 	public int getUserClgNo() {
 		return userClgNo;
@@ -170,11 +172,17 @@ public class MyVo {
 	public void setBookmarkDate(String bookmarkDate) {
 		this.bookmarkDate = bookmarkDate;
 	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	@Override
 	public String toString() {
 		return "MyVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
 				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + ", bookmarkNo=" + bookmarkNo
-				+ ", bookmarkDate=" + bookmarkDate + "]";
+				+ ", bookmarkDate=" + bookmarkDate + ", nickname=" + nickname + "]";
 	}
 	
 	

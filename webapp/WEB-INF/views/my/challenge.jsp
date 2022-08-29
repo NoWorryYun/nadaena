@@ -60,7 +60,7 @@
 								</div>
 							</div>	 
 							<c:if test="${MyVo.endday >= MyVo.yesterday}">
-								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기 ${MyVo.challengeNo}</button>
+								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }" data-title="${MyVo.nickname }">리워드 받기 ${MyVo.challengeNo}</button>
 							</c:if>	
 						</div>
 						
@@ -163,18 +163,11 @@
 			</div>
 			<div class="modal-body">
 				<div class="modal-nicname-box">
-					<p class="modal-nickname">작성자 : 배달의기마민족</p>
-					<p class="modal-upload-date">작성일 : 2022-08-31</p>
+					<p class="modal-upload-date">작성일 : <span class="writeday"></span></p>
 					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
 				<input type="file" id="modal-upbutton" name="file" value="">
-				
-				<!-- <div class="modal-image-box">
-					<div class="modal-image">
-						<img src="../../../assets/img/bg-navbar-dropdown-themes.png" />
-					</div>
-				</div> -->
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
@@ -202,6 +195,7 @@ $(".modal-button").on("click", function(){
 	//데이타수집
 	var challengeNo = $(this).data("challengeno");
 	var clgTitle = $(this).data("title");
+	var nickname = $(this).data("nickname");
 	
 	//오늘날짜
 	const date = new Date();
@@ -224,6 +218,7 @@ $(".modal-button").on("click", function(){
 	
 	//리뷰 작성일 출력
 	$("#review-modal .writeday").html(today);
+	$("#review-modal .mnickname").html(nickname);
 	
 	//모달 보이기
 	$("#review-modal").modal("show");
