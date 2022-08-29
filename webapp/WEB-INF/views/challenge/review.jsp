@@ -255,6 +255,21 @@
 -->
 
 	<script>
+	$(".report").on("click", function(){
+		
+		var result = confirm("신고하시겠습니까?");
+		
+		if(result == true) {
+			alert("신고 되었습니다");
+			
+		}
+		else {
+			alert("취소 되었습니다")
+		}
+	});
+	
+	
+	
 		(function() {
 			$(function() {
 				// calendar element 취득

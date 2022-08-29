@@ -112,5 +112,36 @@
 
 
 </body>
+<script type="text/javascript">
+$(".report").on("click", function(){
+	
+	var result = confirm("삭제하시겠습니까?");
+	
+	if(result == true) {
+		return true;
+		alert("삭제 되었습니다");
+		
+	}
+	else {
+		return false;
+		alert("취소 되었습니다")
+	}
+});
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
 
 </html>
