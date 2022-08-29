@@ -74,7 +74,7 @@
 			</c:if>
 			<c:if test="${sessionScope.authUser.userNo==1}">
 				<div id="btnbox" class="col-2">
-					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="#">이벤트 개설하기</a>
+					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="${pageContext.request.contextPath}/event/uploadForm">이벤트 개설하기</a>
 				</div>
 			</c:if>
 		</nav>
