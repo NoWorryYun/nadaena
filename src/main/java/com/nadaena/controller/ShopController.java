@@ -41,29 +41,33 @@ public class ShopController {
 		return "shop/product";
 	}
 
-	@RequestMapping(value="shop/mypage")
-	public String mypage() {
+	@RequestMapping(value="shop/mypage2")
+	public String mypage2() {
 		System.out.println(" ShopCtrl > mypage");
 		
 		return "shop/mypage";
 	}
 	
-	@RequestMapping(value="shop/mypage2")
-	public String mypage2(Model model, HttpSession session) {
+	@RequestMapping(value="shop/mypage")
+	public String mypage(Model model, HttpSession session) {
 		System.out.println(" ShopCtrl > orderList");
+
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
 		
-		
-//		UserVo authUser = (UserVo)session.getAttribute("authUser");
-//		int userNo = authUser.getUserNo();
-//		System.out.println("authUser: " + userNo);
-		
-		int userNo = 2;
-		
-		List<OrderVo> orderList = productService.getOrderList(userNo);
-		System.out.println(orderList);
-		
-		model.addAttribute("orderList", orderList);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+
+			
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+
+			List<OrderVo> orderList = productService.getOrderList(userNo);
+			model.addAttribute("orderList", orderList);
+
+		}
+
 		return "shop/orderList";
 	}
 
