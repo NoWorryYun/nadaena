@@ -56,9 +56,8 @@
                     <div class="option">
                         <p>옵션</p>
                         <select id="select">
-                         <option value="fixed">-- 옵션필수선택 --</option>
                         	<c:forEach items="${optionList }" var="option">
-                            <option value="${option.optionNo }">${option.optionName }</option>
+                            	<option value="${option.optionNo }">${option.optionName }</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -66,9 +65,9 @@
                     <div class="count">
                         <p>수량</p>
                         <form>
-                            <input type=button value="-" onClick="javascript:this.form.amount.value--;">
-                            <input class="amout" type=text value=1>
-                            <input type=button value="+" onClick="javascript:this.form.amount.value++;">
+                            <input type=button value="-" class="amountMinus">
+                            <input class="amount" type=text value=1>
+                            <input type=button value="+" class="amountPlus">
                         </form>
                     </div>
 
@@ -143,5 +142,21 @@
 			location.href = "${pageContext.request.contextPath }/loginForm";
 		}; 
 	});
+	
+	/* 수량선택 */
+	
+	/* var amount = $(".amount").val(); */
+
+	
+	var amount = $(".amount").val();
+	var num = amount;
+	
+	$(".amountPlus").on("click",function(){
+		console.log("amountPlus 클릭");
+		
+		num ++ ;
+		$(".amount").val(num);
+	})
+	 
 </script>
 </html>

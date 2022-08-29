@@ -42,6 +42,7 @@
 .option #select { float: right; margin-top: -18px; 
     font-size: 14px;
     padding: 2px 12px;
+    width: 160px;
 }
 
 .count { padding-top: 30px; border-bottom: 1px solid #ccc; 
