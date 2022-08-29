@@ -12,12 +12,12 @@ public class UserVo {
 	private String postNo;
 	private String address1;
 	private String address2;
-	
-	
+	private int interestNo;
+	private String interestName;
 	public UserVo() {
 		super();
 	}
-	public UserVo(int userNo, String email, String nickName, String pasword, String name, String birth, String hp, String postNo, String address1, String address2) {
+	public UserVo(int userNo, String email, String nickName, String pasword, String name, String birth, String hp, String postNo, String address1, String address2, int interestNo, String interestName) {
 		super();
 		this.userNo = userNo;
 		this.email = email;
@@ -29,6 +29,8 @@ public class UserVo {
 		this.postNo = postNo;
 		this.address1 = address1;
 		this.address2 = address2;
+		this.interestNo = interestNo;
+		this.interestName = interestName;
 	}
 	public int getUserNo() {
 		return userNo;
@@ -89,6 +91,23 @@ public class UserVo {
 	}
 	public void setAddress2(String address2) {
 		this.address2 = address2;
+	}
+	public int getInterestNo() {
+		return interestNo;
+	}
+	public void setInterestNo(int interestNo) {
+		this.interestNo = interestNo;
+	}
+	public String getInterestName() {
+		return interestName;
+	}
+	public void setInterestName(String interestName) {
+		this.interestName = interestName;
+	}
+	@Override
+	public String toString() {
+		return "UserVo [userNo=" + userNo + ", email=" + email + ", nickName=" + nickName + ", pasword=" + pasword + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", postNo=" + postNo + ", address1=" + address1 + ", address2=" + address2 + ", interestNo=" + interestNo
+				+ ", interestName=" + interestName + "]";
 	}
 	
 	
