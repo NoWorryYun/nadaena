@@ -32,94 +32,40 @@
 
 <main>
 	<div class="main-box">
-		<h2>이벤트</h2>
-			<div class="container py-5">
-				<div class="row mx-auto" style="/*max-width: 700px;*/">
+		<h3>이벤트 나대나</h3>
+		
+		<div class="event-banner">
+			<img id="banner-img" src="${pageContext.request.contextPath }/assets/img/challenge-img/img/이벤트배너이미지.PNG">
+		</div>
+		
+			<div id="evListArea" class="container py-5">
+				<div class="row mx-auto">
 					<div class="col">
 						<div data-reflow-type="product-list" data-reflow-layout="cards" data-reflow-order="date_desc" data-reflow-product-link="/product.html?product={id}">
 							<div class="reflow-product-list cards">
 								<div class="products">
-									<a class="product" href="${pageContext.request.contextPath }/event/read"><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								                <p class="img_tag">가나다라</p>
+								<c:forEach items="${evMap.eventListForm}" var="MainTitleVo">
+									<a class="product" href="${pageContext.request.contextPath }/${MainTitleVo.challengeNo}/event/read">
+										<img class="image" src="${pageContext.request.contextPath }/assets/img/challenge-img/img/건강2.PNG">
 								        <div class="product-data">
 								            <div class="product-info">
-								                <h5 class="name">몽쉘 신제품 발매!!</h5>
-								                <p class="excerpt">#신제품 #내돈내산 #SNS #후기</p>
+								                <P class="nadaena_name">${MainTitleVo.clgTitle}</P>
+								                <p class="nadaena_period">${MainTitleVo.tag1} ${MainTitleVo.tag2} ${MainTitleVo.tag3} ${MainTitleVo.tag4} ${MainTitleVo.tag5}</p>
 								            </div>
 								        </div>
 								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event2.jpg">
-								                <p class="img_tag">가나다라</p>
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">탑건2 CGV 6,000원 관람!</h5>
-								                <p class="excerpt">#영화 #데이트 #할인권</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
-								    <a class="product" href=""><img class="image" src="${pageContext.request.contextPath }/assets/img/event1.jpg">
-								        <div class="product-data">
-								            <div class="product-info">
-								                <h5 class="name">이벤트 제목</h5>
-								                <p class="excerpt">이벤트 태그</p>
-								            </div>
-								        </div>
-								    </a>
+								 </c:forEach>   
 							    </div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			
+			
 	</div>
+	<!-- //main-box -->
 </main>
 
 
@@ -130,5 +76,23 @@
 
 
 </body>
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
 
 </html>

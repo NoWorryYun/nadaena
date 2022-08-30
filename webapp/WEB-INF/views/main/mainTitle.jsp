@@ -153,7 +153,7 @@
 		          <!-- slides -->
 		          
 			  <!--챌린지 반복영역 -->
-		          <c:forEach var="MainTitleVo" items="${evMap.eventList}">
+		     	 <c:forEach var="MainTitleVo" items="${evMap.eventList}">
 			          <div class="swiper-slide">
 				          <li>
 					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
