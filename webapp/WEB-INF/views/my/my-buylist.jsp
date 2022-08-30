@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/fonts/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/my.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/my/my.css">
 	
 	
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/shop/mypage.css">

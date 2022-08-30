@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/fonts/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/common.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/my.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/my/my.css">
 	
 	<!-- js -->
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
