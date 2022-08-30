@@ -220,7 +220,35 @@
 
 
 
-//리뷰 모달창 
+<!--  리뷰 모달창 
+<div id="review-modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		<div id="modal-nicname-box">
+					<p id="modal-upload-date">작성일 : <span class="readday"></span></p>
+		</div>
+		<div id="modal-image">
+					<img src="">
+		</div>
+		<div class="modal-text" id="review-content">
+					<p id="modal-content"></p>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+
+
+
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -242,12 +270,12 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button id="modal-review-button" class="btn btn-primary">닫기</button>
+				<button id="modal-review-button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
 			</div>
 		</div>
 	</div>
 </div>
-
+ -->
 
 <script>
 //리뷰작성 모달창 호출 했을때
@@ -291,7 +319,12 @@ $(".modal-button").on("click", function(){
 //리뷰작성 모달창 닫기 했을때
 $(".btn-close").on("click", function(){
 	
-	$("#review-modal").fadeOut();	
+	$("#review-modal").modal("fadeOut");	
+});
+
+$("#modal-review-button").on("click", function(){
+	
+	$("#review-modal").modal("fadeOut");	
 });
 
 //신고

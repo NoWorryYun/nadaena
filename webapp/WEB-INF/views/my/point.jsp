@@ -44,13 +44,14 @@
 				
                 <div class="mypoint">
                     <p class="mypoint2">나대나 포인트<span class="mypoint-number">${pMap.sum}P</span></p>
+                    <div class="mypoint-buttons">
+		                <button class="mypoint-button1" type="button">충전하기</button>
+		                <button class="mypoint-button2" type="button">환전하기</button>
+		                <button class="mypoint-button3" type="button">포인트몰</button>
+                	</div>
                 </div>
                 
-                <div class="mypoint-buttons">
-	                <button class="mypoint-button1" type="button">충전하기</button>
-	                <button class="mypoint-button2" type="button">환전하기</button>
-	                <button class="mypoint-button3" type="button">쇼핑몰로 이동</button>
-                </div>
+                
                 <div class="mypoint-header2">
                     상세사용내역
                 </div>
