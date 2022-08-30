@@ -69,11 +69,80 @@
 										<col style="width: 220px;">
 									</colgroup>
 									<tr>
-										<td class="text-left"><label for="fileUpload">사진 선택</label>
-										<input id="fileUpload" type="file" name="file" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml" style="display:none"></td>
+										<td class="text-left"><label for="fileUpload">썸네일 이미지 선택</label>
+										<input id="fileUpload" type="file" name="thumbnail" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml" style="display:none"></td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file1">이미지1</label>
+										<input type="file" name="file1" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file2">이미지2</label>
+										<input type="file" name="file2" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file3">이미지3</label>
+										<input type="file" name="file3" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file4">이미지4</label>
+										<input type="file" name="file4" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file5">이미지5</label>
+										<input type="file" name="file5" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file6">이미지6</label>
+										<input type="file" name="file6" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file7">이미지7</label>
+										<input type="file" name="file7" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file8">이미지8</label>
+										<input type="file" name="file8" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file9">이미지9</label>
+										<input type="file" name="file9" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<label for="file10">이미지10</label>
+										<input type="file" name="file10" multiple="multiple" accept="image/jpeg,image/png,image/webp,image/vnd.mozilla.apng,image/avif,image/svg+xml">
+										</td>
 									</tr>
 								</table>
 						</div>
+								<table>
+									<th>옵션명</th>
+									<th>옵션가격</th>
+									
+									<tr>
+										<td><input type="text" name="optionName"></td>
+										<td><input type="text" name="optionPrice"></td>
+									</tr>
+								</table>
 		      		</tr>
 		      		
 		      	</table>

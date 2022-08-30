@@ -87,9 +87,22 @@ public class ProductService {
 	
 	//기본 구매자정보
 	public UserVo orderUserInfo(int userNo) {
-		System.out.println(" PorudctService > orderUserInfo");
+		System.out.println(" ProductService > orderUserInfo");
 		
 		return productDao.orderUserInfo(userNo);
 	}
+	
+	//!!주문
+	public int order(OrderVo orderVo) {
+		System.out.println(" ProductService > order");
+		
+		//포인트결제
+		productDao.payOrder(orderVo);
+		//주문내역추가
+		productDao.addOrderList(orderVo);
+		
+		return 1;
+	}
+	
 	
 }

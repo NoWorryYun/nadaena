@@ -86,9 +86,26 @@ public class ProductDao {
 	
 	//기본 구매자정보
 	public UserVo orderUserInfo(int userNo) {
-		System.out.println(" PorudctDao > orderUserInfo");
+		System.out.println(" ProductDao > orderUserInfo");
 		
 		return sqlSession.selectOne("product.orderUserInfo", userNo);
 	}
+	
+	
+	//!!주문
+	//포인트결제
+	public int payOrder(OrderVo orderVo) {
+		System.out.println(" ProductDao > payOrder");
+		
+		return sqlSession.insert("product.payOrder", orderVo);
+	}
+	
+	//주문내역 등록
+	public int addOrderList(OrderVo orderVo) {
+		System.out.println(" ProductDao > addOrderList");
+		
+		return sqlSession.insert("product.addOrderList", orderVo);
+	}
+	
 	
 }
