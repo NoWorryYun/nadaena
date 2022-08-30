@@ -63,7 +63,8 @@
 			</div>
 			<!-- 사용자정보 -->
 			<div class="userInfo">
-
+			
+			
 				<!-- 사용자선택 -->
 				<div class="userInfoTextBox">
 					<div class="userInfoText">사용자정보</div>
@@ -72,7 +73,7 @@
 				<table class="userChoice">
 					<th>사용자 선택</th>
 					<th>
-						<input type="checkbox" id="check" checked="checked">
+						<input type="radio" id="check" checked="checked">
 						<label for="check">구매자 본인</label>
 					</th>
 					
@@ -154,6 +155,7 @@
 						<div class="payMathod">보유 적립금</div>
 						<div class="keyup">
 						<input class="totalPoint" type="text" value="" readonly >	
+						<span class="warning" style="color: red"></span>
 						</div>
 					</div>
 					
@@ -194,14 +196,15 @@
 					</div>
 
 					<div class="cancelBtn">
-						<input type="button" value="취소">
+						<button>취소</button>
+						<!-- <input type="button" value="취소"> -->
 					</div>
 					<div class="payBtn active">
-						<input type="button" value="결제하기">
+						<button type="button">구매하기</button>
+						<!-- <input type="button" value="결제하기"> -->
 					</div>
 				
 				</div>
-
 		
 
 				<!-- 알림 -->
@@ -238,7 +241,74 @@
 
 </body>
 <script type="text/javascript">
+	$(function(){
+		if("${authUser}" == ""){
+			alert("로그인 후 이용할 수 있습니다.");
+			location.href = "${pageContext.request.contextPath }/loginForm";
+			return false;
+		}
+	});
+	
+	
+	/* 포인트 */
+	
+	
+	
+</script>
 
+<script type="text/javascript">
+	$(".payBtn button").on("click", function(){
+		
+		if(totPoint < optPrice){
+			alert("포인트가 부족하여 구매할 수 없습니다. 내역을 확인해주세요.")
+			return false;
+		};
+		
+		var productNo = ${product.productNo};
+		var userNo = "${authUser.userNo}";
+		var optionNo = ${option.optionNo};
+		var orderQuantity = ${param.amount};
+		var orderPay = ${option.optionPrice * param.amount };
+		
+		var orderVo = {
+				productNo : productNo,
+				userNo : userNo,
+				optionNo : optionNo,
+				orderQuantity : orderQuantity,
+				orderPay : orderPay
+		}
+		
+		
+		
+		console.log(orderVo);
+		/* 보내자 */
+		$.ajax({
+			
+			url : "${pageContext.request.contextPath }/shop/order",		
+			type : "get",
+			contentType : "application/json",
+			data : orderVo,
+
+			dataType : "json",
+			success : function(result){
+				/*성공시 처리해야될 코드 작성*/
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+		
+		location.href = "${pageContext.request.contextPath }/shop/orderSucces";
+		
+
+	});
+	
+</script>
+
+
+<script type="text/javascript">
+
+	/* 콤마처리 */
 	var optPrice = ${option.optionPrice * param.amount };
 	optionPrice = addComma(optPrice);
 	
@@ -249,8 +319,8 @@
 	});
 	
 	
-	var totalPoint = ${totalPoint };
-	totalPoint = addComma(totalPoint);
+	var totPoint = ${totalPoint };
+	totalPoint = addComma(totPoint);
 	$(function(){
 		$(".totalPoint").val(totalPoint);
 	});
@@ -265,6 +335,12 @@
 	/* //콤마처리 */
 	
 	
+	var warning = "보유 포인트가 부족하여 구매가 어렵습니다.";
+	if(optPrice > totPoint){
+		$(function(){
+			$(".warning").text(warning);
+		});
+	};
 	
 	
 	

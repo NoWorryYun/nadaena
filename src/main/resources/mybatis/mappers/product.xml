@@ -227,7 +227,7 @@
 		]]>
 	</select>
 	 
-	<!-- 기본 ㅗㄹ드 주문자정보 -->
+	<!-- 기본 로드 주문자정보 -->
 	 <select id="orderUserInfo" parameterType="int" resultType="com.nadaena.vo.UserVo">
 	 	<![CDATA[
 	 		select email
@@ -247,8 +247,41 @@
 	</select>	
 	
 	
+	<!-- !!오더 -->
+	<!-- 포인트결제 -->
+	<insert id="payOrder">
+		<![CDATA[
+			insert into point
+			values(
+			    seq_pointNo.nextval,
+			    #{userNo},
+			    4,
+			    0,
+			    #{orderPay}*(-1),
+			    sysDate,
+			    #{productNo},
+			    '상품구매'
+			)
+		]]>
+	</insert>
 	
-	
+	<!-- 주문내역 등록 -->
+	<insert id="addOrderList">
+		<![CDATA[
+			insert into orders
+			values(
+			    seq_orders_No.nextval,
+			    #{productNo},
+			    #{userNo},
+			    #{optionNo},
+			    #{orderQuantity},
+			    #{orderPay},
+			    sysDate,
+			    null,
+			    null
+			)
+		]]>
+	</insert>
 	
 	
 	 

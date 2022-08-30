@@ -82,19 +82,10 @@
 	                        <p>총 합계금액<span>50,000원</span></p>
 	                    </div>
 	
-	                    <div class="button">
-	                   		 <!-- 
-	                        <p><a href="">찜하기</a></p>
-	                        <p><a href="">장바구니담기</a></p>
-	                         -->
-	                        <p class="buy"><a href="">구매하기</a></p>
-	                        <button type="submit"  >
-	                        	<p class="buy">구매하기</p>
-	                        </button>
-	                        <!-- <input type="button" value="구매하기">
-	                        <input type="button" value="장바구니담기">
-	                        <input type="button" value="찜하기"> -->
-	                    </div>
+	                    <div class="payBtn">
+							<button type="submit">구매하기</button>
+							<!-- <input type="button" value="결제하기"> -->
+						</div>
                     </form>
 					<!-- //결제폼 -->
                 </div>
@@ -149,12 +140,24 @@
 	var userNo = $("[name='userNo']").val();
 	
 	$(".addQNA").on("click",function(){
-		 if(userNo == ""){
-			alert("로그인 후 작성할 수 있습니다.");
+		if("${authUser}" == ""){
+			alert("로그인 후 이용할 수 있습니다.");
 			location.href = "${pageContext.request.contextPath }/loginForm";
-		}; 
+			return false;
+		}
 	});
-
+	
+	
+	/* 로그인 후 구매하기버튼 */
+	$(".payBtn").on("click", function(){
+		if("${authUser}" == ""){
+			alert("로그인 후 이용할 수 있습니다.");
+			location.href = "${pageContext.request.contextPath }/loginForm";
+			return false;
+		}
+	});
+	
+	
 	/* 수량선택 */
 	var amount = $(".amount").val();
 	var num = amount;

@@ -7,8 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.ProductService;
 import com.nadaena.vo.OrderVo;
@@ -76,7 +78,7 @@ public class ShopController {
 
 	
 	@RequestMapping(value="shop/orderForm")
-	public String order(@RequestParam("productNo")int productNo
+	public String orderForm(@RequestParam("productNo")int productNo
 			,@RequestParam("options")int optionNo
 			, Model model, HttpSession session) {
 		System.out.println(" ShopCtrl > order");
@@ -105,7 +107,23 @@ public class ShopController {
 		return "shop/order";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="shop/order")
+	public String order(@ModelAttribute OrderVo orderVo) {
+		System.out.println(" 주문 넣기 !! ");
+		
+		System.out.println("orderVo = " + orderVo);
+		productService.order(orderVo);
+		
+		return "";
+	}
 	
+	@RequestMapping(value="shop/orderSucces")
+	public String orderSucess(){
+		System.out.println(" 주문 성공 !!");
+		
+		return "shop/orderSucces";
+	}
 	
 	
 }
