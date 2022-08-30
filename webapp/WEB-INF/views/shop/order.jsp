@@ -78,15 +78,15 @@
 					
 					<tr>
 						<td>이름</td>
-						<td>장성찬</td>
+						<td><input name="name" type="text"></td>
 					</tr>
 					<tr>
 						<td>연락처</td>
-						<td>010-0000-1111</td>
+						<td>${orderUserInfo.hp }</td>
 					</tr>
 					<tr>
 						<td>이메일</td>
-						<td></td>
+						<td>${orderUserInfo.email }</td>
 					</tr>
 
 				</table>
@@ -108,7 +108,7 @@
 							<div class="productTextBox">
 								<div class="productText"><span>${product.productName }</div>
 								<div class="productSubText">${option.optionName }<span>${param.amount }개</span></div>
-								<div class="orderNum">수량변경</div>
+								<!-- <div class="orderNum">수량변경</div> -->
 							</div>
 						</td>
 						<td class="optionPrice"></td>
@@ -150,10 +150,13 @@
 					<div class="cash">
 						<input id="_point" type="radio" checked="checked">
 						<label for="_point">적립금 사용</label>
-						<!-- <div class="payMathod">캐시사용</div>
-						<div class="keyup"><input type="text" value="0">원</div>
-						<input type="button" value="전액사용"></div>	 -->
+						
+						<div class="payMathod">보유 적립금</div>
+						<div class="keyup">
+						<input class="totalPoint" type="text" value="" readonly >	
+						</div>
 					</div>
+					
 				</div>
 
 				<!-- 약관 동의 -->
@@ -176,18 +179,18 @@
 						</div>
 						<div class="agree agree3">
 							<input type="checkbox" id="agree3" checked="checked">
-							<label for="agree3">주문할 상품설명에 명시된 내용과 사용조건을 확인하였으며, 취소. 환불규정에 동의합니다.s</label>
+							<label for="agree3">주문할 상품설명에 명시된 내용과 사용조건을 확인하였으며, 취소. 환불규정에 동의합니다.</label>
 						</div>
 
 					</div>
 					<div class="rightAgreeBox">
 						<ul class="productInfo">
-							<li>총 상품금액<span class="optionPrice">48,500원</span></li>
+							<li>총 상품금액<span class="optionPrice"></span></li>
 							<li>배송비<span>0원</span></li>
 							<li>할인 금액<span>0원</span></li>
 						</ul>
 						<div class="allProduct">총 결제금액</div>
-						<div class="allProductPrice optionPrice">48,500원</div>
+						<div class="allProductPrice optionPrice"></div>
 					</div>
 
 					<div class="cancelBtn">
@@ -235,6 +238,7 @@
 
 </body>
 <script type="text/javascript">
+
 	var optPrice = ${option.optionPrice * param.amount };
 	optionPrice = addComma(optPrice);
 	
@@ -244,10 +248,25 @@
 		
 	});
 	
+	
+	var totalPoint = ${totalPoint };
+	totalPoint = addComma(totalPoint);
+	$(function(){
+		$(".totalPoint").val(totalPoint);
+	});
+	
+	
+	
 	//천단위 콤마 펑션
 	function addComma(value){
 		value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		return value; 
 	}
+	/* //콤마처리 */
+	
+	
+	
+	
+	
 </script>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.nadaena.vo.OrderVo;
 import com.nadaena.vo.ProductReviewVo;
 import com.nadaena.vo.ProductVo;
+import com.nadaena.vo.UserVo;
 
 @Repository
 public class ProductDao {
@@ -73,6 +74,21 @@ public class ProductDao {
 		System.out.println(" ProductDao > orderFormOption");
 		
 		return sqlSession.selectOne("product.orderFormOption", optionNo);
+	}
+	
+	
+	//보유포인트
+	public int totalPoint(int userNo) {
+		System.out.println(" ProductDao > totalPoint");
+		
+		return sqlSession.selectOne("product.totalPoint", userNo);
+	}
+	
+	//기본 구매자정보
+	public UserVo orderUserInfo(int userNo) {
+		System.out.println(" PorudctDao > orderUserInfo");
+		
+		return sqlSession.selectOne("product.orderUserInfo", userNo);
 	}
 	
 }

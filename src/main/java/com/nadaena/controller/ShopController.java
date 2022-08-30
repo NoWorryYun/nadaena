@@ -78,8 +78,23 @@ public class ShopController {
 	@RequestMapping(value="shop/orderForm")
 	public String order(@RequestParam("productNo")int productNo
 			,@RequestParam("options")int optionNo
-			, Model model) {
+			, Model model, HttpSession session) {
 		System.out.println(" ShopCtrl > order");
+		
+		//로그인정보
+//		UserVo userVo = (UserVo)session.getAttribute("authUser");
+//		int userNo = userVo.getUserNo();
+		int userNo = 2;
+		
+		//보유포인트
+		int totalPoint = productService.totalPoint(userNo);
+		model.addAttribute("totalPoint", totalPoint);
+
+		//기본 주문정보
+		UserVo orderUserInfo = productService.orderUserInfo(userNo);
+		model.addAttribute("orderUserInfo", orderUserInfo);
+		
+		
 		
 		ProductVo orderProduct = productService.orderForm(productNo);
 		model.addAttribute("product", orderProduct);

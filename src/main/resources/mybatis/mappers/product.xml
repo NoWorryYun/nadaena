@@ -227,5 +227,29 @@
 		]]>
 	</select>
 	 
+	<!-- 기본 ㅗㄹ드 주문자정보 -->
+	 <select id="orderUserInfo" parameterType="int" resultType="com.nadaena.vo.UserVo">
+	 	<![CDATA[
+	 		select email
+			        ,hp
+			from users
+			where userNo = #{userNo}
+	 	]]>
+	 </select>
+	 
+ 	<!-- 포인트총합 -->
+	<select id="totalPoint" parameterType="int" resultType="int">
+		<![CDATA[	
+			select sum(amount) sum
+			from point
+			where userNo = #{userNo}
+		]]>
+	</select>	
+	
+	
+	
+	
+	
+	
 	 
 </mapper>

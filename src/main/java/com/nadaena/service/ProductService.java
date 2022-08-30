@@ -9,6 +9,7 @@ import com.nadaena.dao.ProductDao;
 import com.nadaena.vo.OrderVo;
 import com.nadaena.vo.ProductReviewVo;
 import com.nadaena.vo.ProductVo;
+import com.nadaena.vo.UserVo;
 
 @Service
 public class ProductService {
@@ -74,6 +75,21 @@ public class ProductService {
 		System.out.println(" ProductService > orderFormOption");
 		
 		return productDao.orderFormOption(optionNo);
+	}
+	
+	//보유포인트
+	public int totalPoint(int userNo) {
+		System.out.println(" ProductService > totalPoint");
+		
+		return productDao.totalPoint(userNo);
+	}
+	
+	
+	//기본 구매자정보
+	public UserVo orderUserInfo(int userNo) {
+		System.out.println(" PorudctService > orderUserInfo");
+		
+		return productDao.orderUserInfo(userNo);
 	}
 	
 }
