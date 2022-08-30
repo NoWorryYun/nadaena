@@ -85,7 +85,8 @@
 												<li class="list-inline-item">
 													<div class="img-size">
 														<a href="#" class="modal-button" data-title="${ReviewVo.clgTitle}" data-reviewdate="${ReviewVo.reviewDate }" data-content="${ReviewVo.reviewContent }">
-														<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
+															<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }">
+														</a>
 													</div>
 													<div class="certify-list-info">
 														<div>
@@ -230,14 +231,18 @@
 				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div id="modal-body">
-				<div class="modal-nicname-box">
+				<div id="modal-nicname-box">
 					<p id="modal-upload-date">작성일 : <span class="readday"></span></p>
 				</div>
+				<div id="modal-image">
+					<img src="">
+				</div>
 				<div class="modal-text" id="review-content">
-				
+					<p id="modal-content"></p>
+				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" id="modal-review-button" class="btn btn-primary">닫기</button>
+				<button id="modal-review-button" class="btn btn-primary">닫기</button>
 			</div>
 		</div>
 	</div>
@@ -256,11 +261,12 @@ $(".modal-button").on("click", function(){
 	var clgTitle = $(this).data("title");
 	var reviewDate = $(this).data("reviewdate");
 	var reviewContent = $(this).data("content");
-
+	var reviewImg = $(this).children(".img-size").attr("src");
 	
 	console.log(clgTitle);
 	console.log(reviewDate);
 	console.log(reviewContent);
+	console.log(reviewImg);
 	
 	//첼린지타이틀 출력
 	$("#review-modal h5").html(clgTitle);
@@ -268,11 +274,16 @@ $(".modal-button").on("click", function(){
 	//리뷰 작성일 출력
 	$("#review-modal .readday").html(reviewDate);
 	
+	//모달본문
+	$("#review-modal #modal-content").html(reviewContent);
+	
+	//이미지
+	$("#modal-image>img").attr("src", reviewImg);
+	
 	//모달 보이기
 	$("#review-modal").modal("show");
 	
-	//모달본문
-	$("#review-modal .font-14").html(reviewContent);
+	
 	
 });	
 
