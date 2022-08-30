@@ -39,7 +39,7 @@
 		
 			
 			<div id="content" class="col-10">
-				<h3>나의 이벤트</h3>
+				<h3 class="mychallenge">나의 이벤트</h3>
 				
 				<div class="challenge-header">
 					진행중 이벤트
@@ -51,9 +51,13 @@
 				<div class="challenge-images">
 					<c:forEach items="${mcMap.meList1}" var="MyVo" varStatus="i">
 					<div class="challenge-box">
-						<div class="challenge-image"><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></div>
+						<div class="challenge-image">
+							<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
+								<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+							</a>
+						</div>
 						<div class="challenge-info">
-							<h4>이벤트</h4>
+							<h4>${MyVo.clgTitle }</h4>
 							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
 							<p>참여 인원 : 15</p>
 							<p>최소 도전비용 : 20000원</p>
@@ -68,10 +72,10 @@
 					<c:forEach begin="1" end="${3-length}" step="1">
 						<div class="challenge-box2">
 							<div class="challenge-image2">
-								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
+								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
 							</div>
 							<div class="none2">
-								<a href="#">이벤트 참여하기</a>
+								<a href="${pageContext.request.contextPath }/main">이벤트 참여하기</a>
 							</div>
 						</div>
 					</c:forEach>					

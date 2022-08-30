@@ -39,7 +39,7 @@
 			
 			 
 			<div id="content" class="col-10">
-				<h3>나의 챌린지</h3>
+				<h3 class="mychallenge">나의 챌린지</h3>
 				
 				<div class="challenge-header">참가중 챌린지</div>
 				
@@ -49,7 +49,9 @@
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
-									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+									<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
+										<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+									</a>
 								</div>
 								<div class="challenge-info">
 									<h4>${MyVo.clgTitle }</h4>
@@ -69,16 +71,16 @@
 					<c:forEach begin="1" end="${3-length}" step="1">
 						<div class="challenge-box2">
 							<div class="challenge-image2">
-								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
+								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
 							</div>
 							<div class="none2">
-								<a href="#">챌린지 참여하기</a>
+								<a href="${pageContext.request.contextPath }/main">챌린지 참여하기</a>
 							</div>
 						</div>
 					</c:forEach>
 				</div>		
 					
-				<div class="challenge-header">
+				<div class="challenge-header2">
 					완료된 챌린지
 					<ul>
 						<li><a href="${pageContext.request.contextPath }/my/challenge">전체</a></li>
@@ -91,7 +93,9 @@
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
-									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+									<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
+										<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+									</a>
 								</div>
 								<div class="challenge-info">
 									<h4>${MyVo.clgTitle }</h4>

@@ -94,7 +94,9 @@
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
-									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+									<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
+										<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+									</a>
 								</div>
 								<div class="challenge-info">
 									<h4>${MyVo.clgTitle }</h4>

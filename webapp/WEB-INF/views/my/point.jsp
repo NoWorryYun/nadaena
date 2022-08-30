@@ -39,7 +39,7 @@
 		
 			
 			<div id="content" class="col-10">
-				<h3>마이 포인트</h3>
+				<h3 class="mychallenge">마이 포인트</h3>
 			
 				
                 <div class="mypoint">

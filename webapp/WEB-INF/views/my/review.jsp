@@ -51,13 +51,15 @@
 		
 			
 			<div id="content" class="col-9">
-				<h3>나의 리뷰</h3>
+				<h3 class="mychallenge">나의 리뷰</h3>
 				
 				<ul class="list-inline">
 					<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
-								<a href="#"><img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }"></a>
+								<a href="">
+									<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }">
+								</a>
 							</div>
 							<div class="certify-list-info">
 								<div>
