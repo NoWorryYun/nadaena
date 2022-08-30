@@ -39,7 +39,7 @@
 			
 			 
 			<div id="content" class="col-10">
-				<h3>나의 챌린지</h3>
+				<h3 class="mychallenge">나의 챌린지</h3>
 				
 				<div class="challenge-header">참가중 챌린지</div>
 				
@@ -49,7 +49,9 @@
 						<div class="challenge-box">
 							<div class="challenge-boxin">
 								<div class="challenge-image">
-									<a href=""><img src="${pageContext.request.contextPath }/assets/img/search-img.jpg"></a>
+									<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
+										<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+									</a>
 								</div>
 								<div class="challenge-info">
 									<h4>${MyVo.clgTitle }</h4>
@@ -60,7 +62,7 @@
 								</div>
 							</div>	 
 							<c:if test="${MyVo.endday >= MyVo.yesterday}">
-								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기 ${MyVo.challengeNo}</button>
+								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기</button>
 							</c:if>	
 						</div>
 						
@@ -71,15 +73,15 @@
 					<c:forEach begin="1" end="${3-length}" step="1">
 						<div class="challenge-box2">
 							<div class="challenge-image2">
-								<a href="#"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
+								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
 							</div>
 							<div class="none2">
-								<a href="#">챌린지 참여하기</a>
+								<a href="${pageContext.request.contextPath }/main">챌린지 참여하기</a>
 							</div>
 						</div>
 					</c:forEach>
 				</div>	
-				<div class="challenge-header">
+				<div class="challenge-header2">
 					완료된 챌린지
 					<ul>
 						<li><a href="${pageContext.request.contextPath }/my/challenge">전체</a></li>
@@ -164,13 +166,13 @@
 			<div class="modal-body">
 				<div class="modal-nicname-box">
 					<p class="modal-upload-date">작성일 : <span class="writeday"></span></p>
-					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
+					<input type="hidden" id="modal-challengeNo" name="challengeNo" value="">
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
 				<input type="file" id="modal-upbutton" name="file" value="">
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
+				<button type="submit" id="modal-review-button" class="btn btn-primary">작성 및 리워드받기</button>
 			</div>
 				
 			</form>	

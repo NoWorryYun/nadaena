@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mymodal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my/mymodal.css">
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/readFormCSS.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Simple-Slider-Simple-Slider.css">
@@ -24,10 +24,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 
-<!-- Full Calender CSS -->
 
-<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/fullCalendar.css">
 
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
@@ -223,34 +220,24 @@
 
 
 //리뷰 모달창 
-<div id="review-modal" class="modal fade show" role="dialog" tabindex="-1">
+<div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<div>
-					<h5 class="modal-title"></h5>
+					<h5></h5>
 				</div>
 				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<div class="modal-body">
-				<div class="modal-image-box">
-					<div class="modal-image">
-						<img src="bg-navbar-dropdown-themes.png" />
-					</div>
+			<div id="modal-body">
+				<div class="modal-nicname-box">
+					<p id="modal-upload-date">작성일 : <span class="readday"></span></p>
 				</div>
-				<div class="review-text">
-					<div>
-						<p class="bold-underline">후기</p>
-					</div>
-					<p class="font-14"></p>
-				</div>
-			</div>
-			<div class="modal-nicname-box">
-				<p class="modal-upload-date">작성일 : <span class="readday"></span></p>
+				<div class="modal-text" id="review-content">
+				
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-light" type="button" data-bs-dismiss="modal">닫기</button>
-				<!-- <button class="btn btn-primary" type="button">삭제</button> -->
+				<button type="submit" id="modal-review-button" class="btn btn-primary">닫기</button>
 			</div>
 		</div>
 	</div>
