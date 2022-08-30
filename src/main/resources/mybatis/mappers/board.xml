@@ -6,7 +6,16 @@
 	<!-- 글쓰기 -->
 	<insert id="insertBoard" parameterType="BoardVo">
 		<![CDATA[
-			
+			insert into board
+			values  (seq_boardNo,
+					null,
+					null,
+					#{category},
+					#{title},
+					#{boardContent},
+					0,
+					sysdate
+					)
 		]]>
 	</insert>
 	

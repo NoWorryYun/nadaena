@@ -241,6 +241,7 @@
 			         and userNo = #{userNo}) payment
 			from mychallenge          
 			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
 		]]>
 	</select>
 			
@@ -270,12 +271,15 @@
 			        c.regDate regDate,
 			        recruitment recruitment,
 			        to_char(regDate+recruitment, 'yyyy-mm-dd') recRD,
+			        to_char(regDate+recruitment+(subOn/24), 'hh24:mi:ss') sbo,
+			        to_char(regDate+recruitment+(subOff/24), 'hh24:mi:ss')sbof,
 			        c.period period,
 			        c.upload upload,
 			        cc.subon subOn,
 			        cc.suboff subOff,
-			        cc.certifieddate certifiedDate
-			from challenge c, (select  ct.certifyNo,
+			        cc.certifieddate certifieddate
+			from challenge c, (select  rownum rn,
+			                            ct.certifyNo,
 			                            ct.certifyTitle,
 			                            ct.challengeNo,
 			                            ct.subon,
@@ -311,4 +315,19 @@
 			where certifiedNo = #{certifiedNo}
 		]]>
 	</update>
+	
+	<!-- ////////////////////////////////유저 접근 제한 설정 //////////////////////////////////// -->
+	<select id="joinCount" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(challengeNo) joinCount
+			from mychallenge
+			where state = 1
+			and userNo = #{userNo}
+		]]>
+	</select>
+	
+	<!-- 포인트 여부 확인하기 -->
+<!-- 	<select id="pointChk" parameterType="" -->
+	
+	
 </mapper>

@@ -152,7 +152,17 @@ public class ChallengeService {
 		
 		return cMap;
 	}
-
+	
+	//챌린지 참여 확인하기
+	public int joinChk(ChallengeVo challengeVo) {
+		
+		ChallengeVo clgVo = challengeDao.joinChk(challengeVo);
+		
+		int count = clgVo.getUserCount();
+		System.out.println(count);
+		return count;
+	}
+	
 	//북마크 확인
 	public int bookMark(int challengeNo) {
 		
@@ -189,7 +199,7 @@ public class ChallengeService {
 	}
 	
 	//날짜 확인하기
-	public ArrayList<ChallengeVo> dateChk(int challengeNo, int userNo) throws ParseException {
+	public List<ChallengeVo> dateChk(int challengeNo, int userNo) throws ParseException {
 		System.out.println("인증 날짜를 계산합니다.");
 		
 		ChallengeVo challengeVo = challengeDao.intro(challengeNo);
@@ -205,23 +215,40 @@ public class ChallengeService {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(calDate);
 
-		ArrayList<ChallengeVo> dateChk = new ArrayList<>();
+		List<ChallengeVo> dateChk = new ArrayList<ChallengeVo>();
 		
+		//챌린지 기간일수 만큼 반복
 		for(int i = 0 ; i < (period*7) ; i++) {
 			cal.add(Calendar.DATE, + 1);
-			String certifieddate = format.format(cal.getTime());
 			
+			String certifieddate = format.format(cal.getTime());
+			String today = format.format(cal.getTime());
+			System.out.println("certifieddate : " + certifieddate);
+		
 			ChallengeVo clgVo = new ChallengeVo();
+			
+			//숙제 조회를 위한 vo
 			clgVo.setCertifieddate(certifieddate);
 			clgVo.setUserNo(userNo);
 			clgVo.setChallengeNo(challengeNo);
 			
-//			ChallengeVo calenderInfo = challengeDao.calender(clgVo);
-//			dateChk.add(calenderInfo);
+			
+			//숙제 가져오기
+			List<ChallengeVo> calendarInfo = challengeDao.calender(clgVo);
+			
+			//가져온 숙제를 전체 리스트에 추가하기
+			for(int j = 0 ; j < calendarInfo.size(); j++) {	
+				ChallengeVo asd= calendarInfo.get(j);
+				asd.setToDay(certifieddate);
+				
+				dateChk.add(asd);
+			}
+			
 		}	
 		System.out.println(dateChk);
 		
-			return dateChk;
+		
+		return dateChk;
 	}
 	
 	//진행도 계산하기
@@ -333,6 +360,12 @@ public class ChallengeService {
 		}
 		
 		return result;
+	}
+	
+	//유저 참여갯수 확인
+	public int joinCount(int UserNo) {
+		
+		return challengeDao.joinCount(UserNo);
 	}
 	
 }

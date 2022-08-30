@@ -44,15 +44,37 @@ public class ChallengeController {
 			userNo = -1;
 		}
 
-		challengeService.dateChk(challengeNo, userNo);
-		
 		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
 		model.addAttribute("cMap" , cMap);
 		
 		return "challenge/intro";
 	}
-
+	
+	//챌린지 참여 확인하기
+	@ResponseBody
+	@RequestMapping(value="/challenge/joinchk", method= {RequestMethod.GET, RequestMethod.POST})
+	public int joinChk(@RequestBody ChallengeVo challengeVo) {
+		
+		int result = challengeService.joinChk(challengeVo);
+		
+		return result;
+	}
+	
+	//date확인
+	@ResponseBody
+	@RequestMapping(value="/challenge/dateChk", method = {RequestMethod.GET,RequestMethod.POST})
+	public List<ChallengeVo> dateChk(@RequestBody ChallengeVo challengeVo, HttpSession session) throws ParseException {
+		System.out.println("Controller > dateChk");
+		int userNo = challengeVo.getUserNo();
+		int challengeNo = challengeVo.getChallengeNo();
+		
+		List<ChallengeVo> dateChk = challengeService.dateChk(challengeNo, userNo);
+		
+		System.out.println(dateChk);
+		
+		return dateChk;
+	}
 	//북마크 확인
 	@ResponseBody
 	@RequestMapping(value="/challenge/bookMark", method = {RequestMethod.GET, RequestMethod.POST})
@@ -85,11 +107,21 @@ public class ChallengeController {
 	
 	//챌린지 참여하기
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
-	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo) {
+	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session) {
 		System.out.println("challnege/joinchallenge");
+		UserVo userVo = (UserVo)session.getAttribute("authUser");
+		
+		int userNo;
+		if(userVo != null) {
+			userNo = userVo.getUserNo();
+		}  else {
+			userNo = -1;
+		}
+		
+		challengeVo.setUserNo(userNo);
 		
 		challengeService.joinChallenge(challengeVo);
-		
+			
 		return "redirect:/intro";
 	}
 
@@ -115,6 +147,22 @@ public class ChallengeController {
 		
 		return "challenge/certify";
 	}
+	
+	
+	//진행도 계산하기
+	@ResponseBody
+	@RequestMapping(value="/challenge/myprogress", method= {RequestMethod.GET,RequestMethod.POST})
+	public double calProgress(@RequestBody ChallengeVo challengeVo) throws ParseException {
+		System.out.println("진행도측정");
+		
+		int challengeNo = challengeVo.getChallengeNo();
+		int userNo = challengeVo.getUserNo();
+		
+		double result = challengeService.calProgress(challengeNo, userNo);
+		
+		return result;
+	}
+	
 	
 	
 	@RequestMapping(value = "/challenge/{challengeNo}/certified", method = { RequestMethod.GET, RequestMethod.POST })
@@ -176,6 +224,7 @@ public class ChallengeController {
 	}
 
 	
+	
 
 
 	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
@@ -205,6 +254,11 @@ public class ChallengeController {
 		return "challenge/review";
 	}
 	
-	
-	
+	//유저 개인의 참여 갯수 확인
+	@ResponseBody
+	@RequestMapping(value="/joinCount", method= {RequestMethod.GET, RequestMethod.POST})
+	public int joinCount(@RequestBody int UserNo) {
+
+		return challengeService.joinCount(UserNo);
+	}
 }

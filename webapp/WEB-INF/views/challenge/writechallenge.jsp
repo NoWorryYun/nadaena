@@ -84,7 +84,7 @@
 										<tbody class="table-none">
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height25">제목</td>
-												<td class="write-table-content" colspan="3"><input id="clgTitle" type="text" name="clgTitle" class="write-title-shape"></td>
+												<td class="write-table-content" colspan="3"><input id="clgTitle" type="text" name="clgTitle" class="write-title-shape" maxlength='30'></td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">대표이미지</td>
@@ -196,7 +196,7 @@
 										<tbody class="table-none">
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height25">소개글</td>
-												<td class="write-table-content" colspan="3"><textarea name="content" id="classic"></textarea></td>
+												<td class="write-table-content" colspan="3"><textarea name="content" id="classic"></textarea><div id="counter"></div></td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">배경색 설정</td>
@@ -230,11 +230,12 @@
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">태그 설정</td>
 												<td class="write-table-content" colspan="3"><div id="tagDiv">
-														<input id="tagbar" type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)" data-value=""><br>
+														<input id="tagbar" type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)" data-value="" maxlength="10" onkeyup="characterCheck()" onkeydown="characterCheck()"><br>
 													</div>
 													<div id="tagLD" class="font-12">
 														<span id="tags"></span>
-													</div></td>
+													</div>
+												</td>
 											</tr>
 										</tbody>
 									</table>
@@ -512,6 +513,17 @@
 	  			
 	  		});
 	 
+			
+	//태그 특수문자 입력제한
+	function characterCheck() {
+	           
+	var RegExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;//정규식 구문
+        var obj = document.getElementsByName("tag")[0]
+     	if (RegExp.test(obj.value)) {
+           alert("특수문자는 입력하실 수 없습니다.");
+           obj.value = obj.value.substring(0, obj.value.length - 1);//특수문자를 지우는 구문
+     	}
+    }
 	
  	<!-------------------------------- 일일 업로드 세부설정 갯수 -------------------------------->
 
@@ -539,7 +551,7 @@
 	 		
 	 		str += '<div class="upload-detail">';
 			str += '<p class="no-margin fw-bold">'+ i +'회차</p>';
-			str += '<input type="text" id="certifyTitle'+ i +'" name="upload-detail'+ i +'" class="write-title-shape txt-subTitle" placeholder="인증해야 하는 내용을 적어주세요.">';
+			str += '<input type="text" id="certifyTitle'+ i +'" name="upload-detail'+ i +'" class="write-title-shape txt-subTitle" placeholder="인증해야 하는 내용을 적어주세요." maxlength="35">';
 			str +='	<div>';
 			str +='		<select name="upload-time'+ i +'-1" class="select-width text-inline select-sTime">';
 			str +='			<option value="0" selected="selected">00시</option>';
@@ -669,6 +681,7 @@
 			$('#weeks').text("3주");
 		}
 		
+		today1 = new Date();
 		today2 = new Date();
 		
 		<!-- 모집기간 설정 눌렀을 때 -->
@@ -680,6 +693,8 @@
 			pec = Number(pec);
 			
 			rDate = new Date(today1.setDate(date + rec));
+			
+			console.log(rec);
 			
 			recDate[0] = rDate.getFullYear();
 			recDate[1] = rDate.getMonth() + 1;
@@ -694,6 +709,7 @@
 			$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
 			$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
 			
+			today1 = new Date();
 			today2 = new Date();
 		})
 		
@@ -719,6 +735,7 @@
 			$(".startDate").text(recDate[0] + '/' + recDate[1] + '/' + recDate[2]);
 			$(".cDate").text(perDate[0] + '/' + perDate[1] + '/' + perDate[2]);
 			
+			today1 = new Date();
 			today2 = new Date();
 			
 			if(pec == 1){
@@ -967,9 +984,10 @@
 		}
 	})
 
-	 <!--------------------- form data ----------------------->
+	
+	
+	<!--------------------- form data ----------------------->
   	$("#MKBtn").on("click", function(){
-  		
   		var ups = $('input:radio[name="upload"]:checked').val();
   		ups=Number(ups);
   		
@@ -988,6 +1006,8 @@
 	  				alert("시간을 설정해주세요.");
 	  				return false;
 	  			} else if(timeS1 >= timeS2){
+	  				console.log("timeS1 : " + timeS1)
+	  				console.log("timeS2 : " + timeS2)
 		  			alert("시작시간이 끝나는 시간보다 크면 안됩니다");
 		  			return false;
 		  		} else{
@@ -997,14 +1017,17 @@
 	  			console.log("체크되어있음");
 	  		}
 		}
-	  		
+  		
+  		
+  		
   		/* console.log(upsList); */
   		
   		
   		var inputFile = $('input[name="img"]');
  		var content = editor.getData();
+ 		
  		var payment = $('select[name="payment"]').val();
- 	  	
+ 		
   		if($("#clgTitle").val() == "" || $("#clgTitle").val() == null){
   			alert("제목을 입력해 주세요");
   			return false;
@@ -1024,7 +1047,14 @@
   			alert("소개글을 적어주세요");
   			return false;
   		}
-  		
+  		var contentLength = editor.getData().length;
+ 		console.log(contentLength);
+ 		
+ 		if(contentLength > 1000){
+ 			alert("소개글은 1000자를 넘길 수 없습니다.");
+ 			return false;
+ 		}
+ 		
   		if(payment == "" || payment == null || payment < 1){
   			alert("금액을 설정해 주세요.");
   			return false;

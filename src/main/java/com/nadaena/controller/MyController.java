@@ -25,7 +25,7 @@ public class MyController {
 	MyService myService;
 	
 	//회원정보 및 수정폼
-	@RequestMapping(value="my/main", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="my/info", method = {RequestMethod.GET, RequestMethod.POST})
 	public String mymain(Model model, HttpSession session) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
@@ -37,7 +37,7 @@ public class MyController {
 		
 		System.out.println(userVo);
 		
-		return "my/main"; 
+		return "my/info"; 
 	} 
 	
 	//참가중 + 종료(전체) 챌린지 리스트
