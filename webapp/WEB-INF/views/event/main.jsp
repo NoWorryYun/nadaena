@@ -35,7 +35,9 @@
 		<h3>이벤트 나대나</h3>
 		
 		<div class="event-banner">
-			<img id="banner-img" src="${pageContext.request.contextPath }/assets/img/challenge-img/img/이벤트배너이미지.PNG">
+			<a href="">
+				<img id="banner-img" src="${pageContext.request.contextPath }/assets/img/challenge-img/img/패스티벌.PNG">
+			</a>
 		</div>
 		
 			<div id="evListArea" class="container py-5">
@@ -49,8 +51,11 @@
 										<img class="image" src="${pageContext.request.contextPath }/assets/img/challenge-img/img/건강2.PNG">
 								        <div class="product-data">
 								            <div class="product-info">
-								                <P class="nadaena_name">${MainTitleVo.clgTitle}</P>
-								                <p class="nadaena_period">${MainTitleVo.tag1} ${MainTitleVo.tag2} ${MainTitleVo.tag3} ${MainTitleVo.tag4} ${MainTitleVo.tag5}</p>
+								                <p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+								           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+								           	 	<p class="nadaena_count_user">참여인원: ${MainTitleVo.count_user}</p>
+								           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
+								                <p class="nadaena_period">${MainTitleVo.tag1} ${MainTitleVo.tag2} ${MainTitleVo.tag3}</p>
 								            </div>
 								        </div>
 								    </a>

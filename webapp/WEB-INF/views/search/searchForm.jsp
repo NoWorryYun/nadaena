@@ -120,22 +120,13 @@
 			<div class="search-type">
 				<div class="search-type-select">
 					<div class="search-type-select-culm">
-						<div class="search-type-select-culm-img">
-							<span class="check-img"></span>
-						</div>
-						<span id="newOrder" class="orderType fw-bolder"  data-ordertype="newOrder">신규등록순</span>
+						<span id="newOrder" class="orderType fw-bolder"  data-ordertype="newOrder">신규등록순 > </span>
 					</div>
 					<div class="search-type-select-culm">
-						<div class="search-type-select-culm-img">
-							<span class="check-img"></span>
-						</div>
-						<span id="likeOrder" class="orderType" data-ordertype="likeOrder" >인기순</span>
+						<span id="likeOrder" class="orderType" data-ordertype="likeOrder" >인기순 > </span>
 					</div>
 					<div class="search-type-select-culm">
-						<div class="search-type-select-culm-img">
-							<span class="check-img"></span>
-						</div>
-						<span id="recruitmentOrder" class="orderType"  data-ordertype="recruitmentOrder">마감일순</span>
+						<span id="recruitmentOrder" class="orderType"  data-ordertype="recruitmentOrder">마감일순 ></span>
 					</div>
 				</div>
 				
