@@ -25,7 +25,7 @@
 						<span id="txt-nick">${authUser.nickName}님 안녕하세요</span>
 					</div>
 					<ul id="btn-user-list" class="dropdown-menu">
-						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/my/main">마이페이지</a></li>
+						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/my/challenge">마이페이지</a></li>
 						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 					</ul>
 					 </c:if>
