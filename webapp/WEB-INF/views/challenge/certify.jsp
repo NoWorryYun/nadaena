@@ -904,6 +904,7 @@
 			joinChk();
 			bkload();
 			myprogress();
+			allprogress();
 		})
 
 
@@ -980,6 +981,22 @@
 				success : function(result){
 					$("#myprogress").html(result+'%');
 					$(".progress-mine").css('width', result+'%');
+				}
+			})
+		}				
+
+		function allprogress(){
+			$.ajax({
+				contentType : 'application/json',
+				data : JSON.stringify(challengeVo),
+				url : '${pageContext.request.contextPath}/challenge/allprogress',
+				type : 'post',
+				
+				async: false,  //동기화
+				dataType : "json",
+				success : function(result){
+					$("#allprogress").html(result+'%');
+					$(".progress-all").css('width', result+'%');
 				}
 			})
 		}				

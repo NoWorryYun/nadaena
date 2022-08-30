@@ -104,6 +104,16 @@ public class ChallengeDao {
 
 		return sqlSession.selectOne("Challenge.chkProgress", clgVo);
 	}
+	
+	//챌린지 인원 리스트
+	public List<Integer> clgUserList(int challengeNo){
+		
+		 List<Integer> userList = sqlSession.selectList("Challenge.clgUserList", challengeNo);
+		
+		 System.out.println("Dao : " + userList);
+		 
+		return userList;
+	}
 
 	//달력 계산하기
 	public List<ChallengeVo> calender(ChallengeVo challengeVo) {

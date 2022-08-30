@@ -158,8 +158,13 @@ public class ChallengeService {
 		
 		ChallengeVo clgVo = challengeDao.joinChk(challengeVo);
 		
-		int count = clgVo.getUserCount();
-		System.out.println(count);
+		int count;
+		if(clgVo != null) {
+			count = clgVo.getUserCount();
+		System.out.println("joinChk : " + count);
+		} else {
+			count = 0;
+		}
 		return count;
 	}
 	
@@ -265,22 +270,22 @@ public class ChallengeService {
 		return dateChk;
 	}
 	
-	//진행도 계산하기
+	//진행도 계산하기(개인)
 	public double calProgress(int challengeNo, int userNo) throws ParseException {
 		
-		System.out.println("진행도를 계산합니다.");
+		System.out.println("개인 진행도를 계산합니다.");
 		
 		int count = 0;
 		
 		ChallengeVo challengeVo = challengeDao.intro(challengeNo);
 		
-		String recRD = challengeVo.getRecRD();
+		String recRDM = challengeVo.getRecRDM();
 		int period = challengeVo.getPeriod();
 		int upload = challengeVo.getUpload();
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
-		Date calDate = format.parse(recRD);
+		Date calDate = format.parse(recRDM);
 		
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(calDate);
@@ -295,17 +300,71 @@ public class ChallengeService {
 			clgVo.setChallengeNo(challengeNo);
 
 			int chkProgress = challengeDao.chkProgress(clgVo);
-			
 			if(chkProgress == upload) {
 				count += 1;
 				
 			} 
 		}
 		double result = (double)Math.round(((double)count/(period*7))*10000)/100;
+		return result;
+		
+	}
+	
+	//진행도 계산하기(챌린지)
+	public double calAllProgress(int challengeNo) throws ParseException {
+		
+		System.out.println("챌린지 진행도를 계산합니다.");
+		
+		int count = 0;
+		
+		ChallengeVo challengeVo = challengeDao.intro(challengeNo);
+		
+		String recRDM = challengeVo.getRecRDM();
+		int period = challengeVo.getPeriod();
+		int upload = challengeVo.getUpload();
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date calDate = format.parse(recRDM);
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(calDate);
+		
+		List<Integer> clgUserList = challengeDao.clgUserList(challengeNo);
+		
+		int size = clgUserList.size();
+		
+		System.out.println("사이즈 : " + clgUserList.size());
+		
+			for(int i = 0 ; i < (period*7) ; i++) {
+			
+				cal.add(Calendar.DATE, + 1);
+				String certifieddate = format.format(cal.getTime());
+				for(int j = 0 ; j < size ; j++) {
+					ChallengeVo clgVo = new ChallengeVo();
+					clgVo.setCertifieddate(certifieddate);
+					clgVo.setChallengeNo(challengeNo);
+					clgVo.setUserNo(clgUserList.get(j));
+					System.out.println("userNo : " + clgUserList.get(j));
+					int chkProgress = challengeDao.chkProgress(clgVo);
+					System.out.println("챌린지 chkProgress : "+ chkProgress);
+					System.out.println(clgVo);
+					if(chkProgress == upload) {
+						count += 1;
+						System.out.println(count);
+					} 
+				}
+			}	
+		
+		System.out.println("챌린지 count : " + count);
+		double result = (double)Math.round(((double)count/(period*7*size))*10000)/100;
+		
+		System.out.println("챌린지 진행도 result : " + result);
 		
 		return result;
 		
 	}
+	
 
 	//인증하기(파일)
 	public int certifyUpload(ChallengeVo challengeVo, int userNo, int ChallengeNo) {

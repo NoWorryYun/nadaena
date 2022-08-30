@@ -1,10 +1,12 @@
 package com.nadaena.controller;
 
 import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,7 +109,7 @@ public class ChallengeController {
 	
 	//챌린지 참여+탈퇴하기
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
-	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session) {
+	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session, HttpServletRequest request) {
 		System.out.println("challnege/joinchallenge");
 		UserVo userVo = (UserVo)session.getAttribute("authUser");
 		
@@ -121,8 +123,9 @@ public class ChallengeController {
 		challengeVo.setUserNo(userNo);
 		
 		challengeService.joinChallenge(challengeVo);
-			
-		return "redirect:/";
+		String referer = request.getHeader("Referer"); // 헤더에서 이전 페이지를 읽는다.
+
+		return "redirect:"+ referer; // 이전 페이지로 리다이렉트
 	}
 
 	//인증페이지
@@ -153,12 +156,23 @@ public class ChallengeController {
 	@ResponseBody
 	@RequestMapping(value="/challenge/myprogress", method= {RequestMethod.GET,RequestMethod.POST})
 	public double calProgress(@RequestBody ChallengeVo challengeVo) throws ParseException {
-		System.out.println("진행도측정");
+		System.out.println("유저 진행도 측정");
 		
 		int challengeNo = challengeVo.getChallengeNo();
 		int userNo = challengeVo.getUserNo();
 		
 		double result = challengeService.calProgress(challengeNo, userNo);
+		
+		return result;
+	}
+
+	@ResponseBody
+	@RequestMapping(value="/challenge/allprogress", method= {RequestMethod.GET,RequestMethod.POST})
+	public double calAllProgress(@RequestBody ChallengeVo challengeVo) throws ParseException {
+		System.out.println("챌린지 진행도 측정");
+		int challengeNo = challengeVo.getChallengeNo();
+		int userNo = challengeVo.getUserNo();
+		double result = challengeService.calAllProgress(challengeNo);
 		
 		return result;
 	}
