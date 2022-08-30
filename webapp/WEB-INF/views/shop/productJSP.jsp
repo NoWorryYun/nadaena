@@ -214,6 +214,7 @@
 	var $this = $(this);	
 	
 	
+	
 	$(".amount").on("click",function(){
 		console.log($this.val());
 		
