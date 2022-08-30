@@ -149,7 +149,7 @@
 	
 	
 	/* 로그인 후 구매하기버튼 */
-	$(".payBtn").on("click", function(){
+	$(".payBtn button").on("click", function(){
 		if("${authUser}" == ""){
 			alert("로그인 후 이용할 수 있습니다.");
 			location.href = "${pageContext.request.contextPath }/loginForm";
@@ -206,7 +206,6 @@
 					console.error(status + " : " + error);
 				}
 			});
-
 		  
 	}); 
 	
@@ -215,11 +214,12 @@
 	
 	var optionPrice = $("#optinPrice").val();
 	var $this = $(this);	
+	var amount = $this.amount;
 	
 	
 	
 	$(".amount").on("click",function(){
-		console.log($this.val());
+		console.log(amount);
 		
 	});
 	
