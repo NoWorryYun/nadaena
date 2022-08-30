@@ -97,7 +97,7 @@ public class ChallengeService {
 			
 			// 챌린지 번호 뽑기
 			int challengeNo = clgVo.getChallengeNo();
-			
+			System.out.println("challengeNo : "+challengeNo);
 			ChallengeVo clgjoinVo = new ChallengeVo(challengeNo, userNo, payment);
 			
 			// 챌린지 참가(방장)
@@ -186,16 +186,31 @@ public class ChallengeService {
 	public int joinChallenge(ChallengeVo challengeVo) {
 		
 		int joinchk = challengeVo.getClgInOutChk();
+		System.out.println("joinchk : " + joinchk);
+		
+		int challengeNo = challengeVo.getChallengeNo();
+		int userNo = challengeVo.getUserNo();
+		int payment = challengeVo.getPayment();
+		
+		System.out.println("Service challengeNo = "+challengeNo);
+		System.out.println("Service UserNo = "+ userNo);
+		System.out.println("Service payment = "+ payment);
+		
+		ChallengeVo clgVo = new ChallengeVo();
+		clgVo.setChallengeNo(challengeNo);
+		clgVo.setUserNo(userNo);
+		clgVo.setAmount(payment);
 		
 		if(joinchk == 1) {
 			challengeDao.joinChallenge(challengeVo);
 		} else if(joinchk == 2){
 			challengeDao.joinCancel(challengeVo);
+			challengeDao.joinPayBack(clgVo);
 		} else {
 			challengeDao.joinCancel(challengeVo);
 			////////추가하기 방폭파//////////
 		}
-		return 1;
+		return joinchk;
 	}
 	
 	//날짜 확인하기
@@ -222,7 +237,6 @@ public class ChallengeService {
 			cal.add(Calendar.DATE, + 1);
 			
 			String certifieddate = format.format(cal.getTime());
-			String today = format.format(cal.getTime());
 			System.out.println("certifieddate : " + certifieddate);
 		
 			ChallengeVo clgVo = new ChallengeVo();
@@ -363,9 +377,18 @@ public class ChallengeService {
 	}
 	
 	//유저 참여갯수 확인
-	public int joinCount(int UserNo) {
+	public int joinCount(int userNo) {
 		
-		return challengeDao.joinCount(UserNo);
+		int count = challengeDao.joinCount(userNo);
+		System.out.println("Service joincount : " + count);
+		return count;
+	}
+	
+	//유저 개인 포인트 확인
+	public int userAmount(int userNo) {
+		
+		return challengeDao.userAmount(userNo);
+	
 	}
 	
 }

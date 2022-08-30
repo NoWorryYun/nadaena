@@ -328,31 +328,60 @@
 
 	console.log(authUser);
 	
+	//회원 참여 갯수 체크하기
 	function joinCount(){
 		$.ajax({
 			contentType : 'application/json',     
 			data : JSON.stringify(userNo),
-			url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+			url : '${pageContext.request.contextPath}/joinCount',
 			type : 'POST',
 			
+			async: false,  //동기화
 			dataType : "json",
 			success : function(result){
-				if(reusult == 3){
-					console.log(result)
+				if(result > 3){
 					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
+					console.log("joinCount" + result);
 					return false;
+				} else{
+					console.log("joinCount" + result);
+					return true;
 				}
 			}
 		})
 	}
 	
+	//회원 포인트 체크하기
+	function pointChk(){
+			var userNo = "${authUser.userNo}";
+			console.log(userNo);
+			var payment = $('select[name="payment"]').val();
+			console.log(payment);
+			$.ajax({
+				contentType : 'application/json',     
+				data : JSON.stringify(userNo),
+				url : '${pageContext.request.contextPath}/pointChk',
+				type : 'POST',
+				async: false,  //동기화
+				dataType : "json",
+				success : function(result){
+					console.log(result);
+					if(result < payment){
+						alert("포인트가 모자랍니다.");
+						return false;
+					} else{
+						return true;
+					}
+				} 
+			})
+		}
+	
+	
 	$("#joinForm").on("submit", function(){
-		joinCount();
-		
 		var payment = $('select[name="payment"]').val();
 		var clgOutChk = $("[name='clgInOutChk']").val();
 		
-		console.log(clgOutChk);
+		console.log("clgOutchk = " + clgOutChk);
 		
 		if(clgOutChk == 1 ){
 			if(authUser == "" || authUser == null){
@@ -365,6 +394,14 @@
 				alert("금액을 설정해 주세요.");
 				return false;
 			}
+			
+	  		//유저 참여 갯수 체크
+	  		return joinCount();
+	  		
+	  		//포인트 체크
+	  		return pointChk();
+	  		
+			
 			
 			alert("참여가 완료되었습니다!");
 		}

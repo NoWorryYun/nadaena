@@ -93,10 +93,15 @@ public class ChallengeDao {
 		return sqlSession.delete("Challenge.joinCancel", challengeVo);
 	}
 
+	//챌린지 환급
+	public int joinPayBack(ChallengeVo challengeVo) {
+		
+		return sqlSession.insert("Challenge.joinPayBack", challengeVo);
+	}
+	
 	//진행바 체크하기
 	public int chkProgress(ChallengeVo clgVo) {
 
-		int dao = sqlSession.selectOne("Challenge.chkProgress", clgVo);
 		return sqlSession.selectOne("Challenge.chkProgress", clgVo);
 	}
 
@@ -120,8 +125,30 @@ public class ChallengeDao {
 	
 	public int joinCount(int userNo) {
 		
-		return sqlSession.selectOne("Challenge.joinCount", userNo);
+		int count = sqlSession.selectOne("Challenge.joinCount", userNo);
+		
+		System.out.println("dao count : " + count);
+		
+		return count;
 		
 	}
+	
+	//유저 포인트 계산하기
+	public int userAmount(int userNo) {
+		
+		List<Integer> userAmount = sqlSession.selectList("Challenge.userAmount", userNo);
 
+		int amount = 0;
+		if(userAmount != null) {
+			for(int i = 0 ; i < userAmount.size() ; i++) {
+				amount += userAmount.get(i);
+			}
+		} else {
+			amount = 0;
+		}
+		
+		return amount;
+	}
+	
+	
 }

@@ -105,7 +105,7 @@ public class ChallengeController {
 		
 	}
 	
-	//챌린지 참여하기
+	//챌린지 참여+탈퇴하기
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
 	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session) {
 		System.out.println("challnege/joinchallenge");
@@ -122,7 +122,7 @@ public class ChallengeController {
 		
 		challengeService.joinChallenge(challengeVo);
 			
-		return "redirect:/intro";
+		return "redirect:/";
 	}
 
 	//인증페이지
@@ -257,8 +257,25 @@ public class ChallengeController {
 	//유저 개인의 참여 갯수 확인
 	@ResponseBody
 	@RequestMapping(value="/joinCount", method= {RequestMethod.GET, RequestMethod.POST})
-	public int joinCount(@RequestBody int UserNo) {
+	public int joinCount(@RequestBody int userNo) {
 
-		return challengeService.joinCount(UserNo);
+		int count = challengeService.joinCount(userNo);
+		
+		System.out.println("Controller Count : " + count);
+		
+		return count;
 	}
+	
+	//유저 포인트 체크하기
+	@ResponseBody
+	@RequestMapping(value="/pointChk", method = {RequestMethod.GET, RequestMethod.POST})
+	public int pointChk(@RequestBody int userNo) {
+		System.out.println("=====================pointChk===================");
+		int pointChk = challengeService.userAmount(userNo);
+		System.out.println("controller pointchk : " + pointChk);
+		
+		return pointChk;
+	}
+	
+	//유저 참여 포인트 제거
 }

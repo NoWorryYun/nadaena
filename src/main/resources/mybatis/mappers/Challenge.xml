@@ -200,6 +200,13 @@
 		]]>
 	</insert>
 	
+	<!-- 챌린지 탈퇴 금액 환전 -->
+	<insert id="joinPayBack" parameterType="ChallengeVo">
+		<![CDATA[
+			insert into point
+			values(seq_pointNo.nextval, #{userNo}, 2, 1, #{amount}, to_char(sysdate, 'yyyy-mm-dd'), #{challengeNo}, '챌린지 취소')
+		]]>
+	</insert>
 	
 	<!-- 북마크 확인 -->
 	<select id="bookMark" parameterType="int" resultType="int">
@@ -327,7 +334,22 @@
 	</select>
 	
 	<!-- 포인트 여부 확인하기 -->
-<!-- 	<select id="pointChk" parameterType="" -->
+	<select id="pointChk" parameterType="int" resultType="int">
+		<![CDATA[
+			select amount
+			from point
+			where userNo = #{userNo}
+		]]>
+	</select>
+	
+	<!-- 유저 amount 계산 -->
+	<select id="userAmount" parameterType="int" resultType="int">
+		<![CDATA[
+			select amount
+			from point
+			where userNo = #{userNo}
+		]]>
+	</select>
 	
 	
 </mapper>

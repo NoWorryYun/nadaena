@@ -44,7 +44,7 @@
 
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 
- <!-- 슬라이드 js -->
+<!-- 슬라이드 js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/Simple-Slider.js"></script>
 
@@ -72,7 +72,7 @@
 				<c:import url="/WEB-INF/views/includes/asideMyPage.jsp"></c:import>
 
 				<div id="content" class="col-7">
-					<!-- 										<form id="MKForm" method="post" enctype="multipart/form-data"> -->
+					<!-- 					<form id="MKForm" method="post" enctype="multipart/form-data" onsubmit="return false;"> -->
 					<div id="write-wrap-content">
 						<h5 class="write-header">챌린지 개설</h5>
 
@@ -196,7 +196,8 @@
 										<tbody class="table-none">
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height25">소개글</td>
-												<td class="write-table-content" colspan="3"><textarea name="content" id="classic"></textarea><div id="counter"></div></td>
+												<td class="write-table-content" colspan="3"><textarea name="content" id="classic"></textarea>
+													<div id="counter"></div></td>
 											</tr>
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">배경색 설정</td>
@@ -230,12 +231,12 @@
 											<tr class="border-white-underline">
 												<td class="write-table-label line-height2">태그 설정</td>
 												<td class="write-table-content" colspan="3"><div id="tagDiv">
-														<input id="tagbar" type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)" data-value="" maxlength="10" onkeyup="characterCheck()" onkeydown="characterCheck()"><br>
+														<input id="tagbar" type="text" class="write-title-shape" name="tag" placeholder="태그를 입력해 주세요 (5개까지 설정 가능)" data-value="" maxlength="10" onkeyup="characterCheck()"
+															onkeydown="characterCheck()"><br> <input type="hidden">
 													</div>
 													<div id="tagLD" class="font-12">
 														<span id="tags"></span>
-													</div>
-												</td>
+													</div></td>
 											</tr>
 										</tbody>
 									</table>
@@ -275,7 +276,7 @@
 					</div>
 					<!-- write-wrap content -->
 
-					<!-- 										</form> -->
+<!-- 					</form> -->
 					<!-- content form -->
 
 
@@ -983,11 +984,69 @@
 			
 		}
 	})
-
 	
+	var userNo = "${authUser.userNo}"
+	
+	console.log(userNo);
+	
+	//회원 참여 갯수 체크하기
+	function joinCount(){
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(userNo),
+			url : '${pageContext.request.contextPath}/joinCount',
+			type : 'POST',
+			
+			async: false,  //동기화
+			dataType : "json",
+			success : function(result){
+				if(result > 3){
+					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
+					return false;
+				} else{
+					return true;
+				}
+			}
+		})
+	}
+	
+	//회원 포인트 체크하기
+	function pointChk(){
+			var userNo = "${authUser.userNo}";
+			console.log(userNo);
+			var payment = $('select[name="payment"]').val();
+			console.log(payment);
+			$.ajax({
+				contentType : 'application/json',     
+				data : JSON.stringify(userNo),
+				url : '${pageContext.request.contextPath}/pointChk',
+				type : 'POST',
+				
+				async: false,  //동기화
+				dataType : "json",
+				success : function(result){
+					if(result < payment){
+						console.log(result);
+						alert("포인트가 모자랍니다.");
+						return false;
+					} else{
+						console.log(result);
+						return true;
+					}
+				} 
+			})
+		}
 	
 	<!--------------------- form data ----------------------->
   	$("#MKBtn").on("click", function(){
+
+  		//유저 참여 갯수 체크
+  		return joinCount();
+  		
+  		//포인트 체크
+//   		return pointChk();
+  		
+  		//
   		var ups = $('input:radio[name="upload"]:checked').val();
   		ups=Number(ups);
   		
@@ -1017,10 +1076,6 @@
 	  			console.log("체크되어있음");
 	  		}
 		}
-  		
-  		
-  		
-  		/* console.log(upsList); */
   		
   		
   		var inputFile = $('input[name="img"]');
@@ -1060,7 +1115,6 @@
   			return false;
   		}
   		
-  		
 		var clgLevel;
 		
 		
@@ -1083,9 +1137,10 @@
   			return false;
   		}
  		
-
 		var userNo = "${authUser.userNo}";
- 		
+		
+		console.log("formdata : "+userNo)
+		
   		var formData = new FormData();
 
   		formData.append('imgs' , inputFile[0].files[0]);
@@ -1165,7 +1220,7 @@
   		  			success : function(result){
   		  				if(result == 1){
 	  		  	  		alert("챌린지가 개설되었습니다!");
-// 	  	 				location.href = "${pageContext.request.contextPath}/main";
+	  	 				location.href = "${pageContext.request.contextPath}/main";
   		  				} else{
   		  					alert("챌린지 개설이 취소되었습니다.");
   		  					return false;
