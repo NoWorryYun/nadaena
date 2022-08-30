@@ -35,7 +35,7 @@ header {
 	border-bottom: 1px solid #c0c0c0; 
 	position: fixed; top: 0; left: 0;
 	background-color: #ffffff;
-	z-index: 9999999;
+	z-index: 999;
 }
 header>.header-box {width: 1113px; margin: 0 auto;}
 header>.header-box>.header-top {height: 74px;}
