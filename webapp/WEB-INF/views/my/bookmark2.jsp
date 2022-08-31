@@ -70,7 +70,7 @@
 					<c:forEach begin="1" end="${3-length}" step="1">
 						<div class="challenge-box2">
 							<div class="challenge-image2">
-								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/pluscircle.svg" class="none"></a>
+								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/sea.jpg" class="none"></a>
 							</div>
 							<div class="none2">
 								<a href="${pageContext.request.contextPath }/main">이벤트 참여하기</a>

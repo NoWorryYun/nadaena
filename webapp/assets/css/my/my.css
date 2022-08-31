@@ -224,7 +224,6 @@
 .challenge-image2{
 	width: 280px;
 	height: 195px;
-	margin: 60px 0px 0px 0px;
 }
 
 .challenge-image img{
@@ -234,14 +233,22 @@
 
 .challenge-image2 img{
 	width: 280px;
-	height: 155px;
+	height: 245px;
 }
 
 .none2 {
-	font-size: 24px;
+	margin-top: 90px;
+	font-size: 20px;
 	text-align: center;
-	margin: 30px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
+}
+.none2>a {
+	background-color: #ff8f42;
+	color:white;
+	border-style: none;
+	text-decoration: none;
+	padding: 10px 15px;
+	border-radius: 4px;
 }
 
 .challenge-box h4{
@@ -343,6 +350,7 @@
 }
 
 .mypoint-buttons {
+	margin-right: 20px;
 	float:right;
 }
 
