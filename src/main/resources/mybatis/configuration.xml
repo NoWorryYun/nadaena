@@ -10,6 +10,8 @@
     <typeAlias alias="UserVo" type="com.nadaena.vo.UserVo" />
     <typeAlias alias="MainTitleVo" type="com.nadaena.vo.MainTitleVo" />
     <typeAlias alias="BoardVo" type="com.nadaena.vo.BoardVo" />
+    <typeAlias alias="InterestVo" type="com.nadaena.vo.InterestVo" />
+    <typeAlias alias="HobbyVo" type="com.nadaena.vo.HobbyVo" />
     </typeAliases>
  
     <mappers>
@@ -22,5 +24,7 @@
     	<mapper resource="mybatis/mappers/users.xml" />
     	<mapper resource="mybatis/mappers/product.xml" />
     	<mapper resource="mybatis/mappers/board.xml" />
+    	<mapper resource="mybatis/mappers/interest.xml" />
+    	<mapper resource="mybatis/mappers/hobby.xml" />
     </mappers>
 </configuration>
