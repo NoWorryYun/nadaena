@@ -47,7 +47,13 @@ public class ChallengeDao {
 
 		return sqlSession.insert("Challenge.joinChallengeHeader", challengeVo);
 	}
-
+	
+	//챌린지 금액 지출(방장)
+	public int joinPayHeader(ChallengeVo challengeVo) {
+		
+		return sqlSession.insert("Challenge.joinPayHeader", challengeVo);
+	}
+	
 	//인트로 내용 받아오기
 	public ChallengeVo intro(int challengeNo) {
 		return sqlSession.selectOne("Challenge.intro", challengeNo);

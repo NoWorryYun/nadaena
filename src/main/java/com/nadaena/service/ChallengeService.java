@@ -102,7 +102,9 @@ public class ChallengeService {
 			
 			// 챌린지 참가(방장)
 			challengeDao.joinChallengeHeader(clgjoinVo);
-
+			// 챌린지 금액 지출
+			challengeDao.joinPayHeader(clgjoinVo);
+			
 			// 파일 저장
 			try {
 				byte[] fileData = challengeVo.getImgs().getBytes();
@@ -229,7 +231,6 @@ public class ChallengeService {
 		//방에 포함되어있는 유저리스트
 		List<Integer> userList = challengeDao.clgUserList(challengeNo);
 		
-		
 		if(joinchk == 1) {
 			//참여 (일반유저)
 			challengeDao.joinChallenge(challengeVo);
@@ -241,22 +242,21 @@ public class ChallengeService {
 			//참여금 환급
 			challengeDao.joinPayBack(clgVo);
 		} else {
-			//전체방 인원 참여금 환급
-			for(int j = 0 ; j < userList.size() ; j++) {
-				ChallengeVo destroy = new ChallengeVo();
-				destroy.setChallengeNo(challengeNo);
-				destroy.setUserNo(userList.get(j));
-				userList.get(j);
-				int userPay = challengeDao.userPay(destroy);
+			//유저별 참여금 환급
+			for(int i = 0 ; i < userList.size() ; i++) {
+				ChallengeVo destroyClgVo = new ChallengeVo();
+				destroyClgVo.setChallengeNo(challengeNo);
+				destroyClgVo.setUserNo(userList.get(i));
+
+				//유저별 참여 금액 확인
+				int userPay = challengeDao.userPay(destroyClgVo);
 				
-				//유저별 참여금 환급
-				for(int i = 0 ; i < userList.size() ; i++) {
-					ChallengeVo destroyClgVo = new ChallengeVo();
-					destroyClgVo.setChallengeNo(challengeNo);
-					destroyClgVo.setAmount(userPay);
-					destroyClgVo.setUserNo(userList.get(j));
-					System.out.println(userList.get(j)+"번 유저의 금액 "+ userPay +"원이 반환되었습니다.");
-				}
+				destroyClgVo.setAmount(userPay);
+				
+				//환급하기
+				challengeDao.joinPayBack(destroyClgVo);
+				
+				System.out.println(userList.get(i)+"번 유저의 금액 "+ userPay +"원이 반환되었습니다.");
 			}
 			
 			//챌린지 인원 내보내기
@@ -275,7 +275,7 @@ public class ChallengeService {
 			challengeDao.deleteClg(challengeNo);
 			System.out.println(challengeNo+"번 챌린지 삭제");
 		}
-		return joinchk;
+		return 1;
 	}
 	
 	//날짜 확인하기

@@ -281,6 +281,8 @@ public class ChallengeController {
 	@RequestMapping(value="/joinCount", method= {RequestMethod.GET, RequestMethod.POST})
 	public int joinCount(@RequestBody int userNo) {
 
+		System.out.println("==================유저 join 체크 =====================");
+		
 		int count = challengeService.joinCount(userNo);
 		
 		System.out.println("Controller Count : " + count);

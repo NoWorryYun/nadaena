@@ -1041,10 +1041,10 @@
   	$("#MKBtn").on("click", function(){
 
   		//유저 참여 갯수 체크
-//   		return joinCount();
+  		return joinCount();
   		
   		//포인트 체크
-//   		return pointChk();
+  		return pointChk();
   		
   		//
   		var ups = $('input:radio[name="upload"]:checked').val();
