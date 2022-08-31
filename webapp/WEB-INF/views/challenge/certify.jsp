@@ -175,9 +175,7 @@
 													<ul class="list-inline text-center">
 														<c:forEach items="${pMap.certifyIMGList}" var="ChallengeVo">
 														<li class="list-inline-item">
-															<div class="swiper-slide">
-																<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-															</div>
+																<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/upload/forNadaeNa/${ChallengeVo.certifiedIMG}"></a>
 															<div class="certify-list-info">
 																<div>
 																	<div>
@@ -464,7 +462,14 @@
 		})
 		}
 		
-		
+		$("#certify-check").on("submit", function(){
+			var inputFile = $(this).$('input[name="imgs"]');
+			
+			if(inputFile[0].files[0] == "" && inputFile[0].files[0] == null){
+	  			alert("대표 사진을 설정해 주세요");
+	  			return false;
+	  		}
+		})
 		$(document).ready(function() {
 			joinChk();
 			bkload();
@@ -489,7 +494,7 @@
 					data : JSON.stringify(authUser),
 					url : '${pageContext.request.contextPath}/challenge/bookMark',
 					type : 'POST',
-	
+					async: false,  //동기화
 					dataType : "json",
 					success : function(result) {
 						if (result == 1) {
@@ -564,8 +569,10 @@
 					$(".progress-all").css('width', result+'%');
 				}
 			})
-		}				
-				
+		}		
+		
+		
+
 	</script>
 
 </body>

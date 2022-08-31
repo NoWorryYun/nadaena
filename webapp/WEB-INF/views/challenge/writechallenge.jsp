@@ -1041,10 +1041,10 @@
   	$("#MKBtn").on("click", function(){
 
   		//유저 참여 갯수 체크
-  		return joinCount();
+//   		return joinCount();
   		
   		//포인트 체크
-  		return pointChk();
+//   		return pointChk();
   		
   		//
   		var ups = $('input:radio[name="upload"]:checked').val();
@@ -1078,7 +1078,7 @@
 		}
   		
   		
-  		var inputFile = $('input[name="img"]');
+  		
  		var content = editor.getData();
  		
  		var payment = $('select[name="payment"]').val();
@@ -1087,7 +1087,7 @@
   			alert("제목을 입력해 주세요");
   			return false;
   		}
-  		
+  		var inputFile = $('input[name="img"]');
   		if(inputFile[0].files[0] == "" || inputFile[0].files[0] == null){
   			alert("대표 사진을 설정해 주세요");
   			return false;
