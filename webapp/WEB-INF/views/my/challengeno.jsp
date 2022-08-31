@@ -74,7 +74,7 @@
 								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/marathon.jpg" class="none"></a>
 							</div>
 							<div class="none2">
-								<a href="${pageContext.request.contextPath }/main">챌린지 참여하기</a>
+								<a href="${pageContext.request.contextPath }/main">다른 챌린지 참가하기</a>
 							</div>
 						</div>
 					</c:forEach>

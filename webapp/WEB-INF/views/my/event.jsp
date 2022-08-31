@@ -75,7 +75,7 @@
 								<a href="${pageContext.request.contextPath }/main"><img src="${pageContext.request.contextPath }/assets/img/sea.jpg" class="none"></a>
 							</div>
 							<div class="none2">
-								<a href="${pageContext.request.contextPath }/main">이벤트 참여하기</a>
+								<a href="${pageContext.request.contextPath }/main">다른 이벤트 참가하기</a>
 							</div>
 						</div>
 					</c:forEach>					
