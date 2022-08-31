@@ -10,7 +10,17 @@
 			        p.productcategory, 
 			        countOption,
 			        p.thumbnail,
-			        c.optionPrice
+			        c.optionPrice,
+			        p.img1,
+			        p.img2,
+			        p.img3,
+			        p.img4,
+			        p.img5,
+			        p.img6,
+			        p.img7,
+			        p.img8,
+			        p.img9,
+			        p.img10
 			from product p, (select count(optionprice) countOption,
 			                        min(optionPrice) optionPrice,
 			                        productNo
@@ -45,7 +55,17 @@
 		        productName,
 		        productContent,
 		        policy,
-		        thumbnail
+		        thumbnail,
+		        img1,
+		        img2,
+		        img3,
+		        img4,
+		        img5,
+		        img6,
+		        img7,
+		        img8,
+		        img9,
+		        img10
 		from product
 		where productNo = #{productNo}
 		]]>

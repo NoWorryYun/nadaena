@@ -63,6 +63,7 @@ public class ProductController {
 		//상품정보 가져오기
 		ProductVo productDetail = productService.getProduct(productNo);
 		model.addAttribute("productDetail", productDetail);
+		System.out.println("productDetail: " + productDetail);
 		
 		//옵션정보 가져오기
 		List<ProductVo> optionList = productService.getOption(productNo);

@@ -44,7 +44,7 @@
 	 <div id="contents_wrap2">
             <div class="contents_2">
                 <div class="product_img">
-                    <img src="${pageContext.request.contextPath }/assets/img/shop/${productDetail.thumbnail }.jpg" alt="">
+                    <img src="${pageContext.request.contextPath }/upload/product/${productDetail.productNo}/${productDetail.thumbnail}" alt="">
                 </div>
                 <div class="ex">
                     <p class="title">${productDetail.productName }</p>
