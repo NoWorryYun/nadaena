@@ -104,7 +104,7 @@ public class UserController {
 	
 	@RequestMapping(value="/findForm", method = {RequestMethod.GET, RequestMethod.POST})
 	public String findForm() {
-		System.out.println("find");
+		System.out.println("올라가나??");
 		
 		return "user/findForm";
 	} 
