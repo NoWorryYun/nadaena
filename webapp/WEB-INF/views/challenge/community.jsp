@@ -76,23 +76,30 @@
 										</div>
 										<div>
 											<div>
-												<select>
-													<optgroup label="카테고리">
-														<option value="12" selected="selected">팁</option>
-														<option value="13">응원</option>
-														<option value="14">질문</option>
+												<form action="${pageContext.request.contextPath}/challenge/communityList" method="get">
+												<select name="category">
+												
+													<optgroup label="카테고리" >
+														<option value="1" selected="selected">팁</option>
+														<option value="2">응원</option>
+														<option value="3">질문</option>
 													</optgroup>
+												
 												</select>
 												<div class="search-container search-board">
-													<input class="search-input board-search-box" type="text" name="search-bar" placeholder="검색어를 입력하세요" />
-													<button class="btn btn-light search-btn board-search-button" type="button">
-														<i class="fa fa-search"></i>
-													</button>
+													
+														<input class="search-input board-search-box" type="text" name="keyword" placeholder="검색어를 입력하세요" />
+														<button class="btn btn-light search-btn board-search-button" type="submit">
+															<i class="fa fa-search"></i>
+														</button>
+													
 												</div>
+												</form>
 												<div id="read-board-main">
 													<div class="table-responsive font-14">
 														<table class="table">
 															<thead>
+															
 																<tr>
 																	<th class="board-category-size">카테고리</th>
 																	<th class="title-size">제목</th>
@@ -102,76 +109,24 @@
 																</tr>
 															</thead>
 															<tbody>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>응원</td>
-																	<td><a href="#">책 잘 못 읽는 분들 와주세요 (4444)</a></td>
-																	<td>보람둥이</td>
-																	<td>423</td>
-																	<td>2022-08-28</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>질문</td>
-																	<td><a href="#">책 12페이지 읽어도 되요? (3)</a></td>
-																	<td>마니아르</td>
-																	<td>241</td>
-																	<td>2022-08-30</td>
-																</tr>
-																<tr>
-																	<td>팁</td>
-																	<td><a href="#">책 빨리 읽는법</a></td>
-																	<td>카드슬래쉬</td>
-																	<td>2222</td>
-																	<td>2022-08-30</td>
-																</tr>
+																<c:forEach var="BoardVo" items="${cuMap.CommunityList}">
+																	<tr>
+																		<c:if test="${BoardVo.category == 1}">
+																			<td>팁</td>
+																		</c:if>
+																		<c:if test="${BoardVo.category == 2}">
+																			<td>응원</td>
+																		</c:if>
+																		<c:if test="${BoardVo.category == 3}">
+																			<td>질문</td>
+																		</c:if>
+																		<td><a href="#">${BoardVo.clgTitle}</a></td>
+																		<td>${BoardVo.nickName}</td>
+																		<td>${BoardVo.hit}</td>
+																		<td>${BoardVo.boardDate2}</td>
+																	</tr>
+																</c:forEach>
+																
 															</tbody>
 														</table>
 														<div id="write-board-regist" class="text-right i-float">

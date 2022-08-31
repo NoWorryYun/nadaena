@@ -5,6 +5,7 @@ public class BoardVo {
 	private int boardNo;
 	private int challengeNo;
 	private int userNo;
+	private String nickName;
 	private int category;
 	private String title;
 	private String boardContent;
@@ -12,7 +13,7 @@ public class BoardVo {
 	private String boardDate;
 	private int commentNo;
 	private String commentDate;
-	private String comment;
+	private String comments;
 	private String email;
 	private String nickname;
 	private String pasword;
@@ -41,16 +42,19 @@ public class BoardVo {
 	private String tag5;
 	private int clgLevel;
 	private int clgGroup;
+	private String boardDate2;
+	private String keyword;
 	public BoardVo() {
 		super();
 	}
-	public BoardVo(int boardNo, int challengeNo, int userNo, int category, String title, String boardContent, int hit, String boardDate, int commentNo, String commentDate, String comment, String email, String nickname, String pasword, String name, String birth, String hp,
-			String postNo, String address1, String address2, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2, String tag3,
-			String tag4, String tag5, int clgLevel, int clgGroup) {
+	public BoardVo(int boardNo, int challengeNo, int userNo, String nickName, int category, String title, String boardContent, int hit, String boardDate, int commentNo, String commentDate, String comments, String email, String nickname2, String pasword, String name, String birth,
+			String hp, String postNo, String address1, String address2, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2,
+			String tag3, String tag4, String tag5, int clgLevel, int clgGroup, String boardDate2, String keyword) {
 		super();
 		this.boardNo = boardNo;
 		this.challengeNo = challengeNo;
 		this.userNo = userNo;
+		this.nickName = nickName;
 		this.category = category;
 		this.title = title;
 		this.boardContent = boardContent;
@@ -58,9 +62,9 @@ public class BoardVo {
 		this.boardDate = boardDate;
 		this.commentNo = commentNo;
 		this.commentDate = commentDate;
-		this.comment = comment;
+		this.comments = comments;
 		this.email = email;
-		this.nickname = nickname;
+		nickname = nickname2;
 		this.pasword = pasword;
 		this.name = name;
 		this.birth = birth;
@@ -87,6 +91,8 @@ public class BoardVo {
 		this.tag5 = tag5;
 		this.clgLevel = clgLevel;
 		this.clgGroup = clgGroup;
+		this.boardDate2 = boardDate2;
+		this.keyword = keyword;
 	}
 	public int getBoardNo() {
 		return boardNo;
@@ -105,6 +111,12 @@ public class BoardVo {
 	}
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
+	}
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 	public int getCategory() {
 		return category;
@@ -148,11 +160,11 @@ public class BoardVo {
 	public void setCommentDate(String commentDate) {
 		this.commentDate = commentDate;
 	}
-	public String getComment() {
-		return comment;
+	public String getComments() {
+		return comments;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 	public String getEmail() {
 		return email;
@@ -322,14 +334,27 @@ public class BoardVo {
 	public void setClgGroup(int clgGroup) {
 		this.clgGroup = clgGroup;
 	}
+	public String getBoardDate2() {
+		return boardDate2;
+	}
+	public void setBoardDate2(String boardDate2) {
+		this.boardDate2 = boardDate2;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	@Override
 	public String toString() {
-		return "BoardVo [boardNo=" + boardNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", category=" + category + ", title=" + title + ", boardContent=" + boardContent + ", hit=" + hit + ", boardDate=" + boardDate + ", commentNo=" + commentNo + ", commentDate="
-				+ commentDate + ", comment=" + comment + ", email=" + email + ", nickname=" + nickname + ", pasword=" + pasword + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", postNo=" + postNo + ", address1=" + address1 + ", address2=" + address2 + ", interestNo="
-				+ interestNo + ", clgTitle=" + clgTitle + ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload=" + upload + ", certifyDay=" + certifyDay + ", content="
-				+ content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + "]";
+		return "BoardVo [boardNo=" + boardNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", nickName=" + nickName + ", category=" + category + ", title=" + title + ", boardContent=" + boardContent + ", hit=" + hit + ", boardDate=" + boardDate + ", commentNo="
+				+ commentNo + ", commentDate=" + commentDate + ", comments=" + comments + ", email=" + email + ", nickname=" + nickname + ", pasword=" + pasword + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", postNo=" + postNo + ", address1=" + address1
+				+ ", address2=" + address2 + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload=" + upload
+				+ ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", boardDate2=" + boardDate2
+				+ ", keyword=" + keyword + "]";
 	}
-
+	
 	
 	
 }

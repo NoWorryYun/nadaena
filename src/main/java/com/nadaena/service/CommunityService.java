@@ -17,10 +17,11 @@ public class CommunityService {
 	private CommunityDao communityDao;
 	
 	//커뮤니티 리스트
-	public Map<String, Object> CommunityList(){
-		System.out.println("CommunityService > CommunityList");
+	public Map<String, Object> CommunityList(BoardVo boardVo){
+		//System.out.println("CommunityService > CommunityList");
 		
-		List<BoardVo> CommunityList = communityDao.communityList();
+		List<BoardVo> CommunityList = communityDao.communityList(boardVo);
+		System.out.println("service" +boardVo);
 		List<BoardVo> comentList = communityDao.comentList();
 		
 		Map<String, Object> cuMap = new HashMap<String, Object>();
@@ -28,9 +29,7 @@ public class CommunityService {
 		cuMap.put("CommunityList", CommunityList);
 		cuMap.put("comentList", comentList);
 		
-		System.out.println("CommunityList > "+CommunityList);
-		System.out.println("comentList > "+comentList);
-		
+		System.out.println(cuMap); 
 		return cuMap;
 	}
 

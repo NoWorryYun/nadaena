@@ -4,10 +4,11 @@
 <mapper namespace="Community">
 
 	<!-- 커뮤니티 리스트 불러오기 -->
-	<select id="comuList" resultType="BoardVo">
+	<select id="comuList" parameterType="BoardVo" resultType="BoardVo">
 		<![CDATA[
 			select  rn,
 			        ort.userNo,
+			        ort.nickName,
 			        ort.boardNo,
 			        ort.challengeNo,
 			        ort.clgTitle,
@@ -15,9 +16,11 @@
 			        ort.title,
 			        ort.boardContent,
 			        ort.hit,
-			        ort.boardDate
+			        ort.boardDate,
+			        boardDate2
 			from(select rownum rn,
 			            ot.userNo,
+			            ot.nickName,
 			            ot.boardNo,
 			            ot.challengeNo,
 			            ot.clgTitle,
@@ -25,8 +28,10 @@
 			            ot.title,
 			            ot.boardContent,
 			            ot.hit,
-			            ot.boardDate boardDate
+			            ot.boardDate boardDate,
+			            boardDate2
 			    from (select    u.userNo userNo,
+			                    u.nickName,
 			                    b.boardNo boardNo,
 			                    c.challengeNo challengeNo,
 			                    c.clgTitle clgTitle,
@@ -34,15 +39,35 @@
 			                    b.title title,
 			                    b.content boardContent,
 			                    b.hit hit,
-			                    b.boardDate boardDate
+			                    b.boardDate boardDate,
+			                    to_char(boardDate,'YYYY-MM-DD') boardDate2
 			         from users u, challenge c, board b
 			         where u.userNo = b.userNo
 			         and c.challengeNo = b.challengeNo
-			         order by boardNo desc) ot
+			         
+		]]>	
+				
+				
+				<if test="keyword != ''  and  keyword != null ">
+					and c.clgTitle like '%'||#{keyword}||'%'
+				</if>
+				
+				<if test="category gt 0 ">
+					and b.category = #{category}
+				</if>
+		
+		
+		
+		<![CDATA[
+			         
+			         
+			         
+			         
+			     order by boardNo desc) ot
 			    )ort
 			where ort.rn >=1
 			and ort.rn <=10
-		
+			
 		]]>
 	</select>
 
@@ -53,6 +78,7 @@
 		<![CDATA[
 			select  rn,
 			        ort.userNo,
+			        ort.nickName,
 			        ort.boardNo,
 			        ort.challengeNo,
 			        ort.clgTitle,
@@ -66,6 +92,7 @@
 			        ort.comments
 			from (select rownum rn,
 			             ot.userNo,
+			             ot.nickName,
 			             ot.boardNo,
 			             ot.challengeNo,
 			             ot.clgTitle,
@@ -78,6 +105,7 @@
 			             ot.commentDate,
 			             ot.comments
 			    from(select u.userNo userNo,
+			    			u.nickName nickName,
 			                b.boardNo boardNo,
 			                c.challengeNo challengeNo,
 			                c.clgTitle clgTitle,
