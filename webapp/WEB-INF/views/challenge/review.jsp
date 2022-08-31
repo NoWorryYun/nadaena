@@ -78,7 +78,7 @@
 									<li class="nav-item read-tab" role="presentation"><a id="community"	  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
 									<li class="nav-item read-tab" role="presentation"><a id="review"	  class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
-								<div id="afterComment-wrap">
+								<div id="afterComment-wrap-review">
 									<div>
 										<ul class="list-inline">
 											<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">

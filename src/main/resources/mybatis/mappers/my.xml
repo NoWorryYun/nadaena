@@ -758,7 +758,7 @@
 								p.pointGroup,
 								p.charge,
 								p.amount,
-								p.pointDate,
+								to_char(p.pointDate, 'yyyy-mm-dd hh24:mi:ss') pointDate,
 								p.challengeSource,
 								p.productSource,
 								p.pointMemo

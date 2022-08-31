@@ -320,6 +320,11 @@ a {
 	padding-top: 25px;
 }
 
+#afterComment-wrap-review {
+	padding-top: 25px;
+	margin-left: 32px;
+}
+
 .img-size {
 	width: 180px;
 	height: 160px;
