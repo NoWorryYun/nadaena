@@ -95,10 +95,38 @@ public class ChallengeDao {
 		return sqlSession.delete("Challenge.joinCancel", challengeVo);
 	}
 
-	//챌린지 환급
+	//챌린지 유저 참여 금액 확인
+	public Integer userPay(ChallengeVo challengeVo) {
+		
+		Integer userPay = sqlSession.selectOne("Challenge.userPay",challengeVo);
+		
+			if(userPay != null) {
+				return userPay;
+			} else {
+				return 0;
+			}
+	}
+	
+	//챌린지 참여 금액 차감
+	public int joinPay(ChallengeVo challengeVo) {
+		return sqlSession.insert("Challenge.joinPay", challengeVo);
+	}
+	
+	//챌린지 참여 금액 환급
 	public int joinPayBack(ChallengeVo challengeVo) {
 		
 		return sqlSession.insert("Challenge.joinPayBack", challengeVo);
+	}
+	
+	//챌린지 삭제하기
+	public int deleteClg(int challengeNo) {
+		return sqlSession.delete("Challenge.deleteClg", challengeNo);
+	}
+	
+	//챌린지 인증 삭제
+	public int deleteClgUpload(int challengeNo) {
+		
+		return sqlSession.delete("Challenge.deleteClgUpload", challengeNo);
 	}
 	
 	//진행바 체크하기

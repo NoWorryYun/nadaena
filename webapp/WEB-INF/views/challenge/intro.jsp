@@ -385,7 +385,7 @@
 		if(clgOutChk == 1 ){
 			if(authUser == "" || authUser == null){
 				alert("로그인 해주세요");
-				location.href = "${pageContext.request.contextPath}/user/login";
+				location.href = "${pageContext.request.contextPath}/loginForm";
 				return false;
 			} 
 			

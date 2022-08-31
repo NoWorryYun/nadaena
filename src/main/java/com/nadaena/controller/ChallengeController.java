@@ -213,6 +213,7 @@ public class ChallengeController {
 		return "redirect:./certify";
 	}
 
+
 	//writeForm으로 이동
 	@RequestMapping(value = "/challenge/write", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challengeWrite() {

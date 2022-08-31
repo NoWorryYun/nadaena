@@ -160,6 +160,16 @@
 		]]>
 	</select>
 		
+	<!-- 챌린지 참여 금액 확인 -->
+	<select id="userPay" parameterType="ChallengeVo" resultType="int">
+		<![CDATA[
+			select payment
+			from mychallenge
+			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
+		]]>
+	</select>
+	
 	<!-- 챌린지 참여(유저) -->
 	<insert id="joinChallenge" parameterType="ChallengeVo">
 		<![CDATA[
@@ -177,6 +187,15 @@
 		]]>
 	</insert>
 	
+	<!-- 챌린지 참여 금액만큼 빼기 -->
+	<insert id="joinPay" parameterType="ChallengeVo">
+		<![CDATA[
+			insert into point
+			values(seq_pointNo.nextval, #{userNo}, 2, 1, -#{amount}, to_char(sysdate, 'yyyy-mm-dd'), null , #{challengeNo}, '챌린지 참여')		
+		]]>
+	</insert>
+	
+	
 	<!-- 챌린지 탈퇴(유저) -->
 	<insert id="joinCancel" parameterType="ChallengeVo">
 		<![CDATA[
@@ -185,17 +204,6 @@
 			and userNo = #{userNo}
 		]]>
 	</insert>
-	
-	<!-- 챌린지 참여 금액 확인 -->
-	<select id="userPay" parameterType="ChallengeVo" resultType="int">
-		<![CDATA[
-			select payment
-			from mychallenge
-			where challengeNo = #{challengeNo}
-			and userNo = #{userNo}
-		]]>
-	</select>
-	
 	
 	<!-- 챌린지 탈퇴 금액 환전 -->
 	<insert id="joinPayBack" parameterType="ChallengeVo">
@@ -214,6 +222,23 @@
 		]]>
 	</select>
 
+	<!-- 챌린지 정보 삭제 -->
+	<select id="deleteClg" parameterType="int">
+		<![CDATA[
+			delete from challenge
+			where challengeNo = #{challengeNo}
+		]]>
+	</select>
+	
+	<!-- 챌린지 인증 삭제 -->
+	<select id="deleteClgUpload" parameterType="int">
+		<![CDATA[
+			delete from certify
+			where challengeNo = #{challengeNo};
+			
+		]]>
+	</select>
+	
 	<!-- 북마크 설정 -->
 	<insert id="chkBM" parameterType="ChallengeVo">
 		<![CDATA[
