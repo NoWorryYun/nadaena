@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.CommunityDao;
 import com.nadaena.vo.BoardVo;
 
+@Service
 public class CommunityService {
 	
 	@Autowired
