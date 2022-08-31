@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hobby">
+<resultMap id="resultMapHobbyVo" type="HobbyVo">
+		<result column="myinterestNo" property="myinterestNo" />
+		<result column="userNo" property="userNo" />
+		<result column="interestNo" property="interestNo" />
+	</resultMap>
+
+<insert id="insertHobby" parameterType="HobbyVo">
+	<![CDATA[
+			insert into myinterest
+			values(SEQ_myinterestNo.nextval,
+			       #{userNo},
+			       #{interestNo}
+			       )		
+		]]>
+</insert>
+<select id="selectlist" parameterType="int" resultType="HobbyVo">
+	<![CDATA[
+	SELECT 
+	    * 
+	FROM
+		myinterest
+		where userNo =#{no}
+	]]>
+</select>
+
+<delete id="delete" parameterType="int">
+	<![CDATA[
+		delete from myinterest
+		where
+		userNo = #{userNo}
+	]]>
+</delete>
+</mapper>
