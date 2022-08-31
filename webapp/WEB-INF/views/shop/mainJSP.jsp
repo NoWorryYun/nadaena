@@ -67,7 +67,9 @@
     			<c:forEach items="${productList }" var="product">
 	                <div class="box_1">
 	                    <div class="scale">
-	                        <a href="${pageContext.request.contextPath }/shop/product/${product.productNo}"><img src="${pageContext.request.contextPath }/assets/img/shop/${product.thumbnail }.jpg" alt=""></a>
+	                        <a href="${pageContext.request.contextPath }/shop/product/${product.productNo}">
+	                        	<img src="${pageContext.request.contextPath }/upload/product/${product.productNo}/${product.thumbnail}" alt="">
+	                        </a>
 	                    </div>
 	                    <p class="b_name">${product.productName }</p>
 	                    <p class="price">

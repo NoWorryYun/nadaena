@@ -3,19 +3,23 @@
 
 <mapper namespace="product">
  
-	<!-- <select id="getProductList" resultType="com.nadaena.vo.ProductVo" parameterType="int">
+	<select id="getProductList" resultType="com.nadaena.vo.ProductVo" parameterType="int">
 		<![CDATA[
-			select productNo,
-			        productName,
-			        productCategory,
-			        productContent,
-			        policy,
-			        thumbnail
-			from product
-			where productCategory = #{cate}
+			select  p.productNo,
+			        p.productName, 
+			        p.productcategory, 
+			        countOption,
+			        p.thumbnail,
+			        c.optionPrice
+			from product p, (select count(optionprice) countOption,
+			                        min(optionPrice) optionPrice,
+			                        productNo
+			                 from options group by productNo)c
+			where p.productNo = c.productNo
+			and productCategory = #{cate}
 		]]>
-	</select> -->
-	
+	</select>
+	<!-- 
 	<select id="getProductList" resultType="com.nadaena.vo.ProductVo" parameterType="int">
 		<![CDATA[
 			select  p.productNo,
@@ -31,7 +35,7 @@
 			where p.productNo = c.productNo
 		]]>
 	</select>
-	
+	 -->
 	
 	
 	<!-- 상품정보 -->

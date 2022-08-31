@@ -53,7 +53,7 @@
                     <ul class="price_list">
                         <li>판매가격 
                         <div class="priceWrap">
-                        	<span id="optionPrice">50,000</span><span>원</span>
+                        	<span id="optionPrice"></span><span>원</span>
                         	</div>
                        	</li>
                     </ul>
@@ -64,7 +64,17 @@
 	                        <p>옵션</p>
 	                        <select name="options" id="select">
 	                        	<c:forEach items="${optionList }" var="option" varStatus="optno">
-	                            		<option value="${option.optionNo }">${option.optionName }</option>
+	                           		 <option value="${option.optionNo }" <c:if test="${optno.count ==1 }">selected="selected"</c:if>>${option.optionName }</option>
+	                           		 
+	                           		 <!-- selectd -->
+	                           		 <%-- 
+	                           		 <c:if test=" ${optno.count == 1}">
+	                           			<option value="${option.optionNo }" selected="selected">${option.optionName }</option>
+	                           		 </c:if>
+	                           		 <c:if test=" ${optno.count != 1}">
+	                           		 	<option value="${option.optionNo }">${option.optionName }</option>
+	                           		 </c:if>
+	                           		  --%>
 	                            </c:forEach>
 	                        </select>
 	                    </div>
@@ -73,13 +83,13 @@
 	                        <p>수량</p>
 	                        	<div class="countBtn">
 		                            <input type=button value="-" class="amountMinus">
-		                            <input name="amount" class="amount" type=text value=1>
+		                            <input name="amount" class="amount" type=text value=1 readonly="readonly">
 		                            <input type=button value="+" class="amountPlus">
 	                            </div>
 	                    </div>
 					
 	                    <div class="sum">
-	                        <p>총 합계금액<span>50,000원</span></p>
+	                        <p>총 합계금액<span id="totalPrice"></span></p>
 	                    </div>
 	
 	                    <div class="payBtn">
@@ -159,30 +169,81 @@
 	
 	
 	/* 수량선택 */
-	var amount = $(".amount").val();
+	var amount = $("input.amount").val();
 	var num = amount;
 	
 		/* 플러스 */
 	$(".amountPlus").on("click",function(){
-		num ++ ;
-		$(".amount").val(num);
+		if(num >= 99){
+			alert("수량이 너무 많습니다.");
+		}else{
+			num ++ ;
+			$("input.amount").val(num);
+			price();
+		}
 	});
 	
 		/* 마이너스 */
 	$(".amountMinus").on("click",function(){
-		num -- ;
-		$(".amount").val(num);
+		if(num <= 1){
+			alert("수량이 너무적습니다.");
+		}else{
+			num -- ;
+			$("input.amount").val(num);
+			price();
+		}
 	});
 
 		
-		
-		
-		
-		
+
+	
+	/*******************************/
+	
+	
+	/* 합계금액 */
+	function price(){
+		var totalPrice = optP * $("input.amount").val();
+		totalPrice = addComma(totalPrice);
+		$("#totalPrice").text(totalPrice + "원");
+	};
+
+	
+	
+	
+	
+	/* 처음 옵션가격 */
+	$(function(){
+		var optionNo = $("#select").val();
+		$.ajax({
+			
+			url : "${pageContext.request.contextPath }/shop/product/getOptionPrice",		
+			type : "post",
+			contentType : "application/json",
+			data : optionNo,
+
+			dataType : "json",
+			success : function(result){
+				/*성공시 처리해야될 코드 작성*/
+				
+				
+				optPrice = addComma(result);
+				$("#optionPrice").text(optPrice);
+				
+				
+				/* 처음 옵션값 optP 설정*/
+				optP = result;
+				price();
+				
+			},
+			error : function(XHR, status, error) {
+				console.error(status + " : " + error);
+			}
+		});
+	  
+	});
 		
 	/* 옵션 선택하면 가격 불러오기 */
 	$("#select").change(function(){
-		  console.log($(this).val()); //value값 가져오기
 		  var optionNo = $(this).val();
 		  
 		  /* 옵션가격불러오기 */
@@ -196,10 +257,12 @@
 				dataType : "json",
 				success : function(result){
 					/*성공시 처리해야될 코드 작성*/
-					console.log(result)
-					
 					optPrice = addComma(result);
 					$("#optionPrice").text(optPrice);
+
+					/* 옵션 변경했을 때 옵션값 optP 설정*/
+					optP = result;
+					price();
 					
 				},
 				error : function(XHR, status, error) {
@@ -208,20 +271,6 @@
 			});
 		  
 	}); 
-	
-	
-	/* 합계금액 */
-	
-	var optionPrice = $("#optinPrice").val();
-	var $this = $(this);	
-	var amount = $this.amount;
-	
-	
-	
-	$(".amount").on("click",function(){
-		console.log(amount);
-		
-	});
 	
 	
 	

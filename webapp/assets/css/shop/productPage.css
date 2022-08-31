@@ -66,8 +66,10 @@
 
 
 .sum { padding-top: 50px; padding-right: 100px; }
-.sum span { float: right;  font-size: 20px; font-weight: 300; 
+.sum span {   font-size: 20px; font-weight: 600; 
     color: #111;
+    float: right;
+    
 }
 
 input .button { clear: both; padding-top: 70px; }
