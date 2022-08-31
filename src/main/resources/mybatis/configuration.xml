@@ -13,6 +13,7 @@
     </typeAliases>
  
     <mappers>
+    	<mapper resource="mybatis/mappers/Community.xml" />
     	<mapper resource="mybatis/mappers/mainTitle.xml" />
     	<mapper resource="mybatis/mappers/Search.xml" />
     	<mapper resource="mybatis/mappers/Challenge.xml" />

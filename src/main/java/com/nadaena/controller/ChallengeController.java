@@ -1,12 +1,10 @@
 package com.nadaena.controller;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,9 +105,9 @@ public class ChallengeController {
 		
 	}
 	
-	//챌린지 참여+탈퇴하기
+	//챌린지 참여하기
 	@RequestMapping(value = "/challenge/clginout", method = { RequestMethod.GET, RequestMethod.POST })
-	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session, HttpServletRequest request) {
+	public String joinchallenge(@ModelAttribute ChallengeVo challengeVo, HttpSession session) {
 		System.out.println("challnege/joinchallenge");
 		UserVo userVo = (UserVo)session.getAttribute("authUser");
 		
@@ -123,9 +121,8 @@ public class ChallengeController {
 		challengeVo.setUserNo(userNo);
 		
 		challengeService.joinChallenge(challengeVo);
-		String referer = request.getHeader("Referer"); // 헤더에서 이전 페이지를 읽는다.
-
-		return "redirect:"+ referer; // 이전 페이지로 리다이렉트
+			
+		return "redirect:/intro";
 	}
 
 	//인증페이지
@@ -156,23 +153,12 @@ public class ChallengeController {
 	@ResponseBody
 	@RequestMapping(value="/challenge/myprogress", method= {RequestMethod.GET,RequestMethod.POST})
 	public double calProgress(@RequestBody ChallengeVo challengeVo) throws ParseException {
-		System.out.println("유저 진행도 측정");
+		System.out.println("진행도측정");
 		
 		int challengeNo = challengeVo.getChallengeNo();
 		int userNo = challengeVo.getUserNo();
 		
 		double result = challengeService.calProgress(challengeNo, userNo);
-		
-		return result;
-	}
-
-	@ResponseBody
-	@RequestMapping(value="/challenge/allprogress", method= {RequestMethod.GET,RequestMethod.POST})
-	public double calAllProgress(@RequestBody ChallengeVo challengeVo) throws ParseException {
-		System.out.println("챌린지 진행도 측정");
-		int challengeNo = challengeVo.getChallengeNo();
-		int userNo = challengeVo.getUserNo();
-		double result = challengeService.calAllProgress(challengeNo);
 		
 		return result;
 	}
@@ -271,25 +257,8 @@ public class ChallengeController {
 	//유저 개인의 참여 갯수 확인
 	@ResponseBody
 	@RequestMapping(value="/joinCount", method= {RequestMethod.GET, RequestMethod.POST})
-	public int joinCount(@RequestBody int userNo) {
+	public int joinCount(@RequestBody int UserNo) {
 
-		int count = challengeService.joinCount(userNo);
-		
-		System.out.println("Controller Count : " + count);
-		
-		return count;
+		return challengeService.joinCount(UserNo);
 	}
-	
-	//유저 포인트 체크하기
-	@ResponseBody
-	@RequestMapping(value="/pointChk", method = {RequestMethod.GET, RequestMethod.POST})
-	public int pointChk(@RequestBody int userNo) {
-		System.out.println("=====================pointChk===================");
-		int pointChk = challengeService.userAmount(userNo);
-		System.out.println("controller pointchk : " + pointChk);
-		
-		return pointChk;
-	}
-	
-	//유저 참여 포인트 제거
 }
