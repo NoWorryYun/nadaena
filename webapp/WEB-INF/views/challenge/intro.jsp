@@ -330,29 +330,30 @@
 	
 	//회원 참여 갯수 체크하기
 	function joinCount(){
+		var value = true;
+		var userNo = "${authUser.userNo}";
 		$.ajax({
 			contentType : 'application/json',     
 			data : JSON.stringify(userNo),
 			url : '${pageContext.request.contextPath}/joinCount',
 			type : 'POST',
 			
-			async: false,  //동기화
 			dataType : "json",
+			async: false,  //동기화
 			success : function(result){
-				if(result > 3){
+				if(result >= 3){
 					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
-					console.log("joinCount" + result);
-					return false;
-				} else{
-					console.log("joinCount" + result);
-					return true;
+					value =  false;
 				}
 			}
 		})
+		
+		return value;
 	}
 	
 	//회원 포인트 체크하기
 	function pointChk(){
+		var value = true;
 			var userNo = "${authUser.userNo}";
 			console.log(userNo);
 			var payment = $('select[name="payment"]').val();
@@ -365,15 +366,13 @@
 				async: false,  //동기화
 				dataType : "json",
 				success : function(result){
-					console.log(result);
 					if(result < payment){
 						alert("포인트가 모자랍니다.");
-						return false;
-					} else{
-						return true;
+						value = false;
 					}
 				} 
 			})
+			return value;
 		}
 	
 	
@@ -400,10 +399,9 @@
 	  		
 	  		//포인트 체크
 	  		return pointChk();
+			
+	  		alert("참여가 완료되었습니다!");
 	  		
-			
-			
-			alert("참여가 완료되었습니다!");
 		}
 		
 	
@@ -424,12 +422,15 @@
 	}
 	
 	$(document).ready(function(){
+		clgChk();
+		
 		bkload();
+		
 	})
 	
 	//북마크 확인하기
 	function bkload(){
-	if(authUser == "" || authUser == null){
+	if(authUser == "" && authUser == null){
 			$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
 		} else{
 			$.ajax({
@@ -451,6 +452,7 @@
 	}
 	
 	$("#bookMark").on("click", "#unCheckbookMark", function(){
+		if(authUser != null && authUser != ""){
 		$.ajax({
 			contentType : 'application/json',     
 			data : JSON.stringify(bookMarkData),
@@ -462,24 +464,52 @@
 				$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
 			}
 		})
+		} else{
+			alert("로그인해 주세요");
+			location.href = "${pageContext.request.contextPath}/loginForm";
+			return false;
+		}
 	})
 	
 	$("#bookMark").on("click", "#checkbookMark", function(){
-		$.ajax({
-			contentType : 'application/json',     
-			data : JSON.stringify(bookMarkData),
-			url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
-			type : 'POST',
-			
-			dataType : "json",
-			success : function(result){
-				$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
-			}
-		})
+		if(authUser != null || authUser != ""){
+			$.ajax({
+				contentType : 'application/json',     
+				data : JSON.stringify(bookMarkData),
+				url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+				type : 'POST',
+				
+				dataType : "json",
+				success : function(result){
+					$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+				}
+			})
+		} else {
+			alert("로그인해 주세요");
+			location.href = "${pageContext.request.contextPath}/loginForm";
+			return false;
+		}
 	})
 	
 	
-
+	function clgChk(){
+	$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(challengeNo),
+			url : '${pageContext.request.contextPath}/clgChk',
+			type : 'POST',
+			
+			async: false,  //동기화
+			dataType : "json",
+			success : function(result){
+				if(result < 1){
+					console.log(result);
+					alert("존재하지 않는 챌린지입니다.");
+					location.href = "${pageContext.request.contextPath}/main";
+				}
+			}
+		})
+	}
 
 </script>
 

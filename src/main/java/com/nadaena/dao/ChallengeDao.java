@@ -1,6 +1,8 @@
 package com.nadaena.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -156,9 +158,42 @@ public class ChallengeDao {
 		} else {
 			amount = 0;
 		}
-		
+		System.out.println(amount);
 		return amount;
 	}
 	
+	
+	//챌리지 존재 여부 확인
+	public Integer clgChk(int challengeNo) {
+		
+		Integer clg = sqlSession.selectOne("Challenge.clgChk",challengeNo);
+		
+		int clgChk;
+		if(clg != null) {
+			clgChk = clg;
+		} else {
+			clgChk = 0;
+		}
+		
+		return clgChk;
+	}
+	
+	//인증리스트
+	public List<ChallengeVo> certifyIMGList(int startRnum, int endRnum, int challengeNo){
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startRnum", startRnum);
+		map.put("endRnum", endRnum);
+		map.put("challengeNo", challengeNo);
+		
+		return sqlSession.selectList("Challenge.certifyIMGList", map);
+	}
+	
+	//전체글갯수
+	public int selectTotatlCnt(int challengeNo) {
+		int totalCnt = sqlSession.selectOne("Challenge.selectTotalCnt", challengeNo);
+		
+		return totalCnt;
+	}
 	
 }

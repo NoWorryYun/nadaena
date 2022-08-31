@@ -173,482 +173,47 @@
 												</div>
 												<div id="certify-list">
 													<ul class="list-inline text-center">
+														<c:forEach items="${pMap.certifyIMGList}" var="ChallengeVo">
 														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
+															<div class="swiper-slide">
+																<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
 															</div>
 															<div class="certify-list-info">
 																<div>
 																	<div>
 																		<a class="report" href="#">신고</a>
 																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
+																	<p class="upload-date">인증제목 : ${ChallengeVo.certifyTitle}</p>
+																	<p class="upload-date">업로드일 : ${ChallengeVo.certifieddate}</p>
+																	<p class="nickname">${ChallengeVo.nickname} 님</p>
 																</div>
 															</div>
 														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
-														<li class="list-inline-item">
-															<div class="simple-slider">
-																<div class="swiper-container">
-																	<div class="swiper-wrapper">
-																		<div class="swiper-slide">
-																			<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/bg-navbar-dropdown-themes.png"></a>
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																		<div class="swiper-slide">
-																			<img class="certify-img-size" src="${pageContext.request.contextPath}/assets/img/즐겨찾기%20별2.png">
-																		</div>
-																	</div>
-																	<div class="swiper-pagination"></div>
-																	<div class="swiper-button-prev"></div>
-																	<div class="swiper-button-next"></div>
-																</div>
-															</div>
-															<div class="certify-list-info">
-																<div>
-																	<div>
-																		<a class="report" href="#">신고</a>
-																	</div>
-																	<p class="upload-date">업로드일 : 2022-08-01</p>
-																	<p class="nickname">피자만두</p>
-																</div>
-															</div>
-														</li>
+														</c:forEach>
 													</ul>
 													<div class="paging-box">
 														<nav>
-															<ul class="pagination pagination-sm">
-																<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-																<li class="page-item"><a class="page-link" href="#">1</a></li>
-																<li class="page-item"><a class="page-link" href="#">2</a></li>
-																<li class="page-item"><a class="page-link" href="#">3</a></li>
-																<li class="page-item"><a class="page-link" href="#">4</a></li>
-																<li class="page-item"><a class="page-link" href="#">5</a></li>
-																<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-															</ul>
+															<nav>
+																<ul class="pagination pagination-sm">
+																	<c:if test="${pMap.prev}">
+																		<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/certify?crtPage=${pMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+																	</c:if>
+																	<c:forEach begin="${pMap.startPageBtnNo}" end="${pMap.endPageBtnNo}" step="1" var="page">	
+																		<c:choose>
+																			<c:when test="${param.crtPage==page}">
+																				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?crtPage=${page}">${page}</a></li>
+																			</c:when>
+																			<c:otherwise>
+																				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?crtPage=${page}">${page}</a></li>
+																			</c:otherwise>
+																		</c:choose>	
+																	</c:forEach>
+																	
+																	<c:if test="${pMap.next}">
+																		<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?crtPage=${pMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+																	</c:if>
+																</ul>
+															</nav>
 														</nav>
 													</div>
 												</div>
@@ -890,8 +455,8 @@
 			dataType : "json",
 			success : function(result) {
 				if(result == 0){
-					console.log(result)
-					alert("참여한 유저만 이용 가능한 게시판입니다.")
+					console.log(result);
+					alert("참여한 유저만 이용 가능한 게시판입니다.");
 					location.href = returnIntro;
 				}
 			
@@ -1000,8 +565,7 @@
 				}
 			})
 		}				
-						
-						
+				
 	</script>
 
 </body>

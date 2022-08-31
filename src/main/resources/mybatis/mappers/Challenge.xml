@@ -4,27 +4,13 @@
 <mapper namespace="Challenge">
 
 	<resultMap id="resultChallengeVo" type="ChallengeVo">
-		<result column="challengeNo" property="challengeNo" />
-		<result column="interestNo" property="interestNo" />
-		<result column="clgTitle" property="clgTitle" />
-		<result column="img" property="img" />
-		<result column="regDate" property="regDate" />
-		<result column="recruitment" property="recruitment" />
-		<result column="period" property="period" />
-		<result column="certify" property="certify" />
-		<result column="minigame" property="minigame" />
-		<result column="upload" property="upload" />
-		<result column="certifyDay" property="certifyDay" />
-		<result column="content" property="content" />
-		<result column="color" property="color" />
-		<result column="tag1" property="tag1" />
-		<result column="tag2" property="tag2" />
-		<result column="tag3" property="tag3" />
-		<result column="tag4" property="tag4" />
-		<result column="tag5" property="tag5" />
-		<result column="clgLevel" property="clgLevel" />
-		<result column="clgGroup" property="clgGroup" />
+		<result column="certifiedNo" property="certifiedNo" />
+		<result column="certifyNo" property="certifyNo" />
+		<result column="nickname" property="nickname" />
+		<result column="certifiedIMG" property="certifiedIMG" />
+		<result column="certifieddate" property="certifieddate" />
 	</resultMap>
+
 
 	<!-- /////////////////////////////// 챌린지 개설 관련 xml /////////////////////////////// -->	
 	<!-- 일반 챌린지만들기 -->
@@ -68,7 +54,7 @@
             seq_certifyNo.nextval,
             #{challengeNo}, 
             #{certifyTitle }, 
-            #{subOn },
+            #{subOn},
 			#{subOff}
 			)
        ]]>
@@ -200,11 +186,22 @@
 		]]>
 	</insert>
 	
+	<!-- 챌린지 참여 금액 확인 -->
+	<select id="userPay" parameterType="ChallengeVo" resultType="int">
+		<![CDATA[
+			select payment
+			from mychallenge
+			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
+		]]>
+	</select>
+	
+	
 	<!-- 챌린지 탈퇴 금액 환전 -->
 	<insert id="joinPayBack" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into point
-			values(seq_pointNo.nextval, #{userNo}, 2, 1, #{amount}, to_char(sysdate, 'yyyy-mm-dd'), #{challengeNo}, '챌린지 취소')
+			values(seq_pointNo.nextval, #{userNo}, 2, 1, #{amount}, to_char(sysdate, 'yyyy-mm-dd'), null , #{challengeNo}, '챌린지 취소')
 		]]>
 	</insert>
 	
@@ -259,7 +256,7 @@
 			from certify fy, (select certifiedNo,
 			                         certifyNo,
 			                         userNo,
-			                         certifiedDate                         
+			                         certifieddate                         
 			                  from certified
 			                  where certifieddate = #{certifieddate}
 			                  and userNo = #{userNo}) ed, (select  challengeNo
@@ -279,7 +276,49 @@
 		]]>
 	</select>
 
-
+	<!-- 인증 리스트 뽑기 -->
+	<select id="certifyIMGList" parameterType="map" resultMap="resultChallengeVo">
+		<![CDATA[
+			select ot.rn rn,
+			       ot.certifiedNo certifiedNo,
+			       ot.certifyNo certifyNo,
+			       ot.certifyTitle certifyTitle,
+			       ot.nickname nickname,
+			       ot.certifiedIMG certifiedIMG,
+			       to_char(ot.certifieddate, 'yy-mm-dd') certifieddate
+			from (  select  rownum rn,
+			                ct.certifiedNo certifiedNo,
+			                ct.certifyNo certifyNo,
+			                ct.certifyTitle certifyTitle,
+			                ct.nickname nickname,
+			                ct.certifiedIMG certifiedIMG,
+			                ct.certifieddate certifieddate
+			        from (  select  c.certifiedNo certifiedNo,
+			                        c.certifyNo certifyNo,
+			                        cc.certifyTitle certifyTitle,
+			                        u.nickname nickname,
+			                        c.certifiedIMG certifiedIMG,
+			                        c.certifieddate certifieddate
+			                from certified c, users u, certify cc
+			                where c.userNo = u.userNo
+			                and c.certifyNo = cc.certifyno
+			                and challengeNo = 1
+			                order by certifieddate desc ) ct
+			    ) ot
+			where rn>=#{startRnum}
+			and rn<=#{endRnum}
+		]]>	
+	</select>
+	
+	<!-- 전체 인증 갯수 뽑기 -->
+	<select id="selectTotalCnt" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(certifiedNo) count
+			from certified c, certify cc
+			where challengeNo = #{challengeNo}
+			and c.certifyNo = cc.certifyNo
+		]]>
+	</select>
 	<!-- 캘린더 날짜계산 -->
 	
 	<select id="calender" parameterType="ChallengeVo" resultType="ChallengeVo">
@@ -334,6 +373,16 @@
 	</update>
 	
 	<!-- ////////////////////////////////유저 접근 제한 설정 //////////////////////////////////// -->
+	<!-- 챌린지 존재 여부 확인 -->
+	<select id="clgChk" parameterType="int" resultType="int">
+		<![CDATA[
+			select challengeNo
+			from challenge
+			where challengeNo = #{challengeNo}
+		]]>
+	</select>
+	
+	<!-- 참여 여부 확인 -->
 	<select id="joinCount" parameterType="int" resultType="int">
 		<![CDATA[
 			select count(challengeNo) joinCount
@@ -360,6 +409,7 @@
 			where userNo = #{userNo}
 		]]>
 	</select>
+	
 	
 	
 </mapper>

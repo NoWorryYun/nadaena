@@ -206,6 +206,10 @@ public class ChallengeService {
 		clgVo.setUserNo(userNo);
 		clgVo.setAmount(payment);
 		
+		System.out.println("payment : " + payment);
+		
+		System.out.println(clgVo);
+		
 		if(joinchk == 1) {
 			challengeDao.joinChallenge(challengeVo);
 		} else if(joinchk == 2){
@@ -365,7 +369,55 @@ public class ChallengeService {
 		
 	}
 	
+	//인증게시판 페이징
+	public Map<String, Object> certifyList(int crtPage, int challengeNo){
+		System.out.println("certifyList를 불러옵니다.");
+		System.out.println(crtPage);
+		
+		int listCnt = 16;
+		
+		crtPage = (crtPage>0) ? crtPage : (crtPage=1);
+		
+		int startRnum = (crtPage - 1) * listCnt+1;
+		
+		int endRnum = (startRnum + listCnt) - 1;
+		
+		List<ChallengeVo> certifyIMGList = challengeDao.certifyIMGList(startRnum, endRnum, challengeNo);
+		
+		int totalCnt = challengeDao.selectTotatlCnt(challengeNo);
+		
+		int pageBtnCount = 5;
+		
+		int endPageBtnNo = (int)Math.ceil(crtPage / (double) pageBtnCount) * pageBtnCount;
+		
+		int startPageBtnNo = (endPageBtnNo - pageBtnCount) + 1;
+		
+		boolean next = false;
+		
+		if((listCnt*endPageBtnNo) < totalCnt) {
+			next=true;
+		} else {
+			endPageBtnNo = (int)Math.ceil(totalCnt/(double)listCnt);
+		}
 
+		boolean prev = false;
+		if(startPageBtnNo != 1) {
+			prev = true;
+		}
+		
+		Map<String, Object> pMap = new HashMap<String, Object>();
+		
+		pMap.put("certifyIMGList", certifyIMGList);
+		pMap.put("prev", prev);
+		pMap.put("startPageBtnNo", startPageBtnNo);
+		pMap.put("endPageBtnNo", endPageBtnNo);
+		pMap.put("next", next);
+		
+		return pMap;
+	}
+	
+	
+	
 	//인증하기(파일)
 	public int certifyUpload(ChallengeVo challengeVo, int userNo, int ChallengeNo) {
 		System.out.println("인증중입니다. (Service)");
@@ -448,6 +500,13 @@ public class ChallengeService {
 		
 		return challengeDao.userAmount(userNo);
 	
+	}
+	
+	//챌린지 존재 유무 확인
+	public int clgChk(int challegeNo) {
+		
+		return challengeDao.clgChk(challegeNo);
+		
 	}
 	
 }
