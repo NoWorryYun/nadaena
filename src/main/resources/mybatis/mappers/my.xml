@@ -14,14 +14,14 @@
 					m.founder,
 					m.achievement,
 					m.state,
-			        to_char(c.regdate, 'yy/mm/dd') regDate,
+			        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 			        c.recruitment,
 			        c.period,
 			        c.clgGroup,
-			        to_char(c.regdate + c.recruitment) startday,
-			        to_char(c.regdate + c.recruitment + c.period) endday,
+			        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+			        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 			        m.payment,
-			        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+			        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 			        c.clglevel
 			from challenge c, mychallenge m
 			where c.challengeNo = m.challengeNo
@@ -78,14 +78,14 @@
 								m.founder,
 								m.achievement,
 								m.state,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
@@ -145,14 +145,14 @@
 								m.founder,
 								m.achievement,
 								m.state,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
@@ -214,14 +214,14 @@
 								m.founder,
 								m.achievement,
 								m.state,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
@@ -282,14 +282,14 @@
 								m.founder,
 								m.achievement,
 								m.state,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
@@ -348,14 +348,14 @@
 								m.founder,
 								m.achievement,
 								m.state,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel
 					    from challenge c, mychallenge m
 					    where c.challengeNo = m.challengeNo
@@ -467,16 +467,16 @@
 				  from (select  b.bookmarkNo,
 								b.userNo,
 								c.challengeNo,
-								to_char(b.bookmarkDate, 'yy/mm/dd') bookmarkDate,
+								to_char(b.bookmarkDate, 'yyyy-mm-dd') bookmarkDate,
 								c.clgTitle,
 								c.Img,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel					
 						from bookmark b, users u, challenge c
 						where b.bookmarkno = c.challengeNo
@@ -525,16 +525,16 @@
 				  from (select  b.bookmarkNo,
 								b.userNo,
 								c.challengeNo,
-								to_char(b.bookmarkDate, 'yy/mm/dd') bookmarkDate,
+								to_char(b.bookmarkDate, 'yyyy-mm-dd') bookmarkDate,
 								c.clgTitle,
 								c.Img,
-						        to_char(c.regdate, 'yy/mm/dd') regDate,
+						        to_char(c.regdate, 'yyyy-mm-dd') regDate,
 						        c.recruitment,
 						        c.period,
 						        c.clgGroup,
-						        to_char(c.regdate + c.recruitment) startday,
-						        to_char(c.regdate + c.recruitment + c.period) endday,
-						        to_char(sysdate-1, 'yy/mm/dd') yesterday,
+						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
+						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
+						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel					
 						from bookmark b, users u, challenge c
 						where b.bookmarkno = c.challengeNo

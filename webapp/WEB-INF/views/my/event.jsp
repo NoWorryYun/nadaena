@@ -58,7 +58,7 @@
 						</div>
 						<div class="challenge-info">
 							<h4>${MyVo.clgTitle }</h4>
-							<p class="c-inpo">챌린지 기간 : 2022.10.15 ~ 2022.11.13</p>
+							<p class="c-inpo">진행기간 : <span>${MyVo.startday }</span> ~ <span>${MyVo.endday }</span> </p>
 							<p>참여 인원 : 15</p>
 							<p>최소 도전비용 : 20000원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
@@ -130,13 +130,13 @@
 			<div class="modal-body">
 				<div class="modal-nicname-box">
 					<p class="modal-upload-date">작성일 : <span class="writeday"></span></p>
-					<input type="text" id="modal-challengeNo" name="challengeNo" value="">
+					<input type="hidden" id="modal-challengeNo" name="challengeNo" value="">
 				</div>
 				<textarea class="modal-text" id="review-content" name="reviewContent" value=""></textarea>
 				<input type="file" id="modal-upbutton" name="file" value="">
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary">작성 및 리워드받기</button>
+				<button type="submit" id="modal-review-button" class="btn btn-primary">작성 및 리워드받기</button>
 			</div>
 				
 			</form>	
