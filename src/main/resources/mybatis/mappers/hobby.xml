@@ -10,7 +10,7 @@
 <insert id="insertHobby" parameterType="HobbyVo">
 	<![CDATA[
 			insert into myinterest
-			values(SEQ_myinterestNo.nextval,
+			values(SEQ_myinterestNo.nextval, 
 			       #{userNo},
 			       #{interestNo}
 			       )		

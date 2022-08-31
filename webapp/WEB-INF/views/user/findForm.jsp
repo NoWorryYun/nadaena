@@ -43,18 +43,17 @@
 							</div>
 
 							<div class="card-body">
-								<form>
+								<form id="findId" action="${pageContext.request.contextPath}/findId" method="post" >
 									<div class="mb-3">
-										<input id="exampleFirstName" class="form-control form-control-user" type="text" placeholder="이름" name="first_name" />
+										<input id="exampleFirstName" class="form-control form-control-user" type="text" placeholder="이름" name="name" />
 									</div>
 
 
 									<div class="mb-3">
-										<input id="phoneNumber" class="form-control form-control-user" type="text" placeholder="휴대폰번호 (-) 없이 입력해주세요" name="phn" />
+										<input id="phoneNumber" class="form-control form-control-user" type="text" placeholder="휴대폰번호 (-) 없이 입력해주세요" name="hp" />
 									</div>
-									<span class="idpw-text">본인인증 받으신 정보를 입력해 주세요.</span>
 
-									<button id="" class="id-btn btn   btn-user w-100" type="submit">아이디 찾기</button>
+									<button id="" class="id-btn btn   btn-user w-100" type="submit" id="btnSubmit">아이디 찾기</button>
 									<br>
 
 
@@ -73,12 +72,17 @@
 							</div>
 
 							<div class="card-body">
-								<form>
+								<form id="findPw" action="${pageContext.request.contextPath}/findPw" method="post" >
 									<div class="mb-3">
 										<input id="exampleInputEmail" class="form-control form-control-user" type="email" aria-describedby="emailHelp" placeholder="이메일" name="email" />
 									</div>
+									<div class="mb-3">
+										<input id="exampleInputEmail" class="form-control form-control-user" type="text"  placeholder="이름" name="name" />
+									</div>
+									<div class="mb-3">
+										<input id="exampleInputEmail" class="form-control form-control-user" type="text"  placeholder="휴대폰번호 (-) 없이 입력해주세요" name="hp" />
+									</div>
 
-									<span class="idpw-text">본인인증 받으신 정보를 입력해 주세요.</span>
 									<button id="password-btn" class="id-btn btn   btn-user w-100" type="submit">비밀번호 찾기</button>
 
 
@@ -114,5 +118,26 @@
 
 
 </body>
+<!-- <script type="text/javascript">
+$("#btnSubmit").on("click", function(){
+	console.log("회원버튼 클릭");
+	
+	var frm = document.idfindscreen;
+	
+	if (frm.name.value.length < 1) {
+		  alert("이름을 입력해주세요");
+		  return;
+		 }
 
+		 if (frm.hp.value.length != 13) {
+			  alert("핸드폰번호를 정확하게 입력해주세요");
+			  return;
+		 }
+
+		 frm.method = "post";
+		 frm.action = "findIdResult.jsp"; //넘어간화면
+		 frm.submit();  
+}); 
+</script>
+ -->
 </html>
