@@ -841,27 +841,30 @@
 	<!-- 회원정보 불러오기 - 수정폼 -->
 	<select id="selectUser" parameterType="int" resultType="UserVo">
 		<![CDATA[
-			select  u.userNo,
-					u.email,
-					u.nickName,
-					u.pasword,
-					u.name,
-					u.birth,
-					u.hp,
-					u.postNo,
-					u.address1,
-					u.address2,
-					mi.myinterestNo,
-					mi.interestNo,
-					i.interestName
-			from users u, myinterest mi, interest i
-			where u.userNo = mi.userNo
-			and   mi.interestNo = i.interestNo	
-			and u.userNo = #{userNo}	
+			select  userNo,
+					email,
+					nickName,
+					pasword,
+					name,
+					birth,
+					hp,
+					postNo,
+					address1,
+					address2
+			from users
+			where userNo = #{userNo}	
 		]]>
 	</select>
-	
-	
+<!-- 회원정보(관심분야) 불러오기 - 수정폼
+	<select id="selectInterest" parameterType="int" resultType="UserVo">
+		<![CDATA[
+			select  mi.interestNo,
+					i.interestName
+			from	interest i, myinterest mi
+			where	i.interestNo = mi.interestNo
+			and		userNo = #{userNo}		
+		]]>
+	</select> -->
 	
 	
 	
