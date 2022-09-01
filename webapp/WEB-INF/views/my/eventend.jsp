@@ -59,8 +59,8 @@
 						<div class="challenge-info">
 							<h4>${MyVo.clgTitle }</h4>
 							<p class="c-inpo">진행기간 : <span>${MyVo.startday }</span> ~ <span>${MyVo.endday }</span> </p>
-							<p>참여 인원 : 15</p>
-							<p>최소 도전비용 : 20000원</p>
+							<p>참여 인원 : ${MyVo.clgCnt }</p>
+							<p>최소 도전비용 : ${MyVo.payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 					</div>
