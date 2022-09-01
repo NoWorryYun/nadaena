@@ -206,7 +206,7 @@ public class MyController {
 	}	
 	
 	//챌린지게시판 - 리뷰 리스트
-	@RequestMapping(value="my/creview/{challengeNo}", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/challenge/{challengeNo}/review", method = {RequestMethod.GET, RequestMethod.POST})
 	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
 					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
