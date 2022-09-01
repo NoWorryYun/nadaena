@@ -270,6 +270,22 @@ public class ChallengeService {
 			}
 			
 			//챌린지 정보 삭제
+			//챌린지 인증 여부 확인
+			int ClguUerUploadCheck = challengeDao.ClguUerUploadCheck(challengeNo);
+			
+			//챌린지 북바크 여부 확인
+			int chkBookmark = challengeDao.chkBookmark(challengeNo);
+			
+			if(ClguUerUploadCheck > 0) {
+				challengeDao.deleteClgUserUpload(challengeNo);
+				System.out.println(challengeNo +"번 챌린지 유저 인증 삭제");
+			}
+			
+			if(chkBookmark > 0) {
+				challengeDao.deleteBookMark(challengeNo);
+				System.out.println(challengeNo +"번 챌린지 북마크를 삭제");
+			}
+			
 			challengeDao.deleteClgUpload(challengeNo);
 			System.out.println(challengeNo+"번 챌린지 인증 삭제");
 			challengeDao.deleteClg(challengeNo);
@@ -439,7 +455,7 @@ public class ChallengeService {
 		int endRnum = (startRnum + listCnt) - 1;
 		
 		List<ChallengeVo> certifyIMGList = challengeDao.certifyIMGList(startRnum, endRnum, challengeNo);
-		
+		System.out.println("cert : "+certifyIMGList);
 		int totalCnt = challengeDao.selectTotatlCnt(challengeNo);
 		
 		int pageBtnCount = 5;
@@ -468,6 +484,8 @@ public class ChallengeService {
 		pMap.put("startPageBtnNo", startPageBtnNo);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("next", next);
+		System.out.println("==========================pMap============================");
+		System.out.println(pMap);
 		
 		return pMap;
 	}
@@ -479,7 +497,7 @@ public class ChallengeService {
 		System.out.println("인증중입니다. (Service)");
 		System.out.println(challengeVo.getImgs().getOriginalFilename());
 		
-		String saveDir = "C:\\javaStudy\\upload";
+		String saveDir = "C:\\javaStudy\\upload\\forNaDaeNa";
 		
 		//인증여부확인
 		int certifyChk = challengeVo.getCertifyChk();
@@ -530,6 +548,7 @@ public class ChallengeService {
 		// (2)파일(하드디스크) 저장
 		try {
 			byte[] fileData = challengeVo.getImgs().getBytes();
+			System.out.println("fileData : " + fileData);
 			OutputStream os = new FileOutputStream(filePath);
 			BufferedOutputStream bos = new BufferedOutputStream(os);
 			

@@ -465,6 +465,9 @@
 		$("#certify-check").on("submit", function(){
 			var inputFile = $(this).$('input[name="imgs"]');
 			
+			console.log(inputFile);
+			return false;
+			
 			if(inputFile[0].files[0] == "" && inputFile[0].files[0] == null){
 	  			alert("대표 사진을 설정해 주세요");
 	  			return false;

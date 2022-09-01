@@ -240,10 +240,49 @@
 		]]>
 	</delete>
 	
-	<!-- 챌린지 인증 삭제 -->
+	<!-- 챌린지 인증리스트 삭제 -->
 	<delete id="deleteClgUpload" parameterType="int">
 		<![CDATA[
 			delete from certify
+			where challengeNo = #{challengeNo}
+		]]>
+	</delete>
+	
+	<!-- 챌린지 유저인증리스트 여부 확인 -->
+	<select id="ClguUerUploadCheck" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(certifiedNo) certifiedNo
+			from certify c, certified cc
+			where c.certifyNo = cc.certifyNo
+			and challengeNo = #{challengeNo}
+		]]>
+	</select>
+	<!-- 챌린지 유저인증리스트 삭제 -->
+	<delete id="deleteClgUserUpload" parameterType="int">
+		<![CDATA[
+			delete from certified c
+			where exists(
+			select challengeNo
+			from certify cc
+			where c.certifyNo = cc.certifyNo
+			and challengeNo = #{challengeNo}
+            )
+		]]>
+	</delete>
+	
+	<!-- 챌린지 북마크 여부 확인 -->
+	<select id="chkBookmark" parameterType="int" resultType="int">
+		<![CDATA[
+			select count(bookmarkNo) certCount
+			from bookmark
+			where challengeNo = #{challengeNo} 
+		]]>
+	</select>
+	
+	<!-- 챌린지삭제시 북마크 삭제 -->
+	<delete id="deleteBookMark" parameterType="int">
+		<![CDATA[
+			delete from bookmark
 			where challengeNo = #{challengeNo}
 		]]>
 	</delete>
@@ -336,7 +375,7 @@
 			                from certified c, users u, certify cc
 			                where c.userNo = u.userNo
 			                and c.certifyNo = cc.certifyno
-			                and challengeNo = 1
+			                and challengeNo = #{challengeNo}
 			                order by certifieddate desc ) ct
 			    ) ot
 			where rn>=#{startRnum}

@@ -991,6 +991,8 @@
 	
 	//회원 참여 갯수 체크하기
 	function joinCount(){
+		var reVal = true;
+		
 		$.ajax({
 			contentType : 'application/json',     
 			data : JSON.stringify(userNo),
@@ -1002,50 +1004,66 @@
 			success : function(result){
 				if(result > 3){
 					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
-					return false;
+					reVal = false;
 				} else{
-					return true;
+					reVal = true;
 				}
 			}
 		})
+		
+		return reVal;
 	}
 	
 	//회원 포인트 체크하기
 	function pointChk(){
-			var userNo = "${authUser.userNo}";
-			console.log(userNo);
-			var payment = $('select[name="payment"]').val();
-			console.log(payment);
-			$.ajax({
-				contentType : 'application/json',     
-				data : JSON.stringify(userNo),
-				url : '${pageContext.request.contextPath}/pointChk',
-				type : 'POST',
-				
-				async: false,  //동기화
-				dataType : "json",
-				success : function(result){
-					if(result < payment){
-						console.log(result);
-						alert("포인트가 모자랍니다.");
-						return false;
-					} else{
-						console.log(result);
-						return true;
-					}
-				} 
-			})
-		}
+		var reVal = true;
+		
+		var userNo = "${authUser.userNo}";
+		console.log(userNo);
+		var payment = $('select[name="payment"]').val();
+		console.log(payment);
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(userNo),
+			url : '${pageContext.request.contextPath}/pointChk',
+			type : 'POST',
+			
+			async: false,  //동기화
+			dataType : "json",
+			success : function(result){
+				if(result < payment){
+					console.log(result);
+					alert("포인트가 모자랍니다.");
+					reVal = false;
+				} else{
+					console.log(result);
+					reVal = true;
+				}
+			} 
+		})
+		
+		return reVal;
+	}
 	
 	<!--------------------- form data ----------------------->
   	$("#MKBtn").on("click", function(){
 
   		//유저 참여 갯수 체크
-//   		return joinCount();
+  		if( joinCount() == false) {
+  			return false;
+  		}
+  		
+  		if( pointChk() == false) {
+  			
+  			return false;
+  		}
+  		
+  		/* 
+  		return joinCount();
   		
   		//포인트 체크
-//   		return pointChk();
-  		
+  		return pointChk();
+  		 */
   		//
   		var ups = $('input:radio[name="upload"]:checked').val();
   		ups=Number(ups);

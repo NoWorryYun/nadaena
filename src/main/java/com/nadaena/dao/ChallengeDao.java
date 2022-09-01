@@ -135,6 +135,29 @@ public class ChallengeDao {
 		return sqlSession.delete("Challenge.deleteClgUpload", challengeNo);
 	}
 	
+	//챌린지 유지 인증 있는지 확인
+	public int ClguUerUploadCheck(int challengeNo){
+		
+		return sqlSession.selectOne("Challenge.ClguUerUploadCheck", challengeNo);
+	}
+	
+	//챌린지 유저 인증 삭제
+	public int deleteClgUserUpload(int challengeNo) {
+		
+		return sqlSession.delete("Challenge.deleteClgUserUpload", challengeNo);
+	}
+	
+	//챌린지 북마크 여부 확인
+	public int chkBookmark(int challengeNo) {
+		
+		return sqlSession.selectOne("Challenge.chkBookmark", challengeNo);
+	}
+	
+	//챌린지 북마크 지워버리기
+	public int deleteBookMark(int challengeNo) {
+		return sqlSession.delete("Challenge.deleteBookMark", challengeNo);
+	}
+	
 	//진행바 체크하기
 	public int chkProgress(ChallengeVo clgVo) {
 
