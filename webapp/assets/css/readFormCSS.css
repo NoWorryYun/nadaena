@@ -215,6 +215,14 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	font-weight: bold;
 }
 
+.failError{
+	text-align: center;
+	font-size:12px;
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 .report {
 	float: right;
 	font-size: 9px;

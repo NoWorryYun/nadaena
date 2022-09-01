@@ -376,7 +376,7 @@
 			                where c.userNo = u.userNo
 			                and c.certifyNo = cc.certifyno
 			                and challengeNo = #{challengeNo}
-			                order by certifieddate desc ) ct
+			                order by certifieddate asc ) ct
 			    ) ot
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}

@@ -207,9 +207,12 @@ public class ChallengeController {
 		System.out.println("인증내용을 보냈습니다.");
 		System.out.println(challengeVo);
 		
-		challengeService.certifyUpload(challengeVo, userNo, challengeNo);
-		
+		int result = challengeService.certifyUpload(challengeVo, userNo, challengeNo);
+			if(result == 1) {
 		return "redirect:./certify";
+		} else {
+			return "redirect:./certify?result=fail";
+		}
 	}
 
 

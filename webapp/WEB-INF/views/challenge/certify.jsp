@@ -114,6 +114,11 @@
 												</div>
 												<div>
 													<p class="certify-upload-header">인증업로드</p>
+													
+													<c:if test="${param.result == 'fail'}">
+														<p class="failError">인증에 실패하셨습니다. <br>인증 사진을 확인해주세요</p>
+													</c:if>
+													
 													<div class="table-responsive table-certify-form">
 														<table class="table">
 															<tbody>

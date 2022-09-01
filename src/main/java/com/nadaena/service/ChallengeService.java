@@ -507,59 +507,64 @@ public class ChallengeService {
 		//오리지날파일명, 저장경로+파일(랜덤)명, 파일사이즈
 		String orgName = challengeVo.getImgs().getOriginalFilename();
 	
-		//확장자(.jpg)
-		String exName = orgName.substring(orgName.lastIndexOf("."));
+		if(orgName != null && orgName !="") {
 		
-		//저장파일명(현재시간 + 이름 난수)
-		String saveName =  System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
-		
-		//파일경로(디렉토리+저장파일명)
-		String filePath = saveDir + "\\" + saveName;
-		
-		//필요 정보 추출
-		int certifyNo = challengeVo.getCertifyNo();
-		System.out.println("certifyNo : "+certifyNo);
-		int certifiedNo = challengeVo.getCertifiedNo();
-		System.out.println("certifiedNo" + certifiedNo);
-
-		//Vo로 묶기
-		ChallengeVo clgVo = new ChallengeVo();
-		
-		clgVo.setImg(saveName);
-		clgVo.setUserNo(userNo);
-		clgVo.setCertifyNo(certifyNo);
-		clgVo.setCertifiedNo(certifiedNo);
-		
-		System.out.println(clgVo);
+			//확장자(.jpg)
+			String exName = orgName.substring(orgName.lastIndexOf("."));
+			
+			//저장파일명(현재시간 + 이름 난수)
+			String saveName =  System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
+			
+			//파일경로(디렉토리+저장파일명)
+			String filePath = saveDir + "\\" + saveName;
+			
+			//필요 정보 추출
+			int certifyNo = challengeVo.getCertifyNo();
+			System.out.println("certifyNo : "+certifyNo);
+			int certifiedNo = challengeVo.getCertifiedNo();
+			System.out.println("certifiedNo" + certifiedNo);
 	
-		int result;
-		// (1)Dao DB에 저장
-		
-		if(certifyChk == 1) {
-			//인증저장
-			result = challengeDao.certifiedSubmit(clgVo);
-			System.out.println("인증저장완료");
-		} else {
-			//인증수정
-			result = challengeDao.certifiedUpdate(clgVo);
-			System.out.println("인증수정완료");
-		}
-		
-		// (2)파일(하드디스크) 저장
-		try {
-			byte[] fileData = challengeVo.getImgs().getBytes();
-			System.out.println("fileData : " + fileData);
-			OutputStream os = new FileOutputStream(filePath);
-			BufferedOutputStream bos = new BufferedOutputStream(os);
+			//Vo로 묶기
+			ChallengeVo clgVo = new ChallengeVo();
 			
-			os.write(fileData);
-			bos.close();
+			clgVo.setImg(saveName);
+			clgVo.setUserNo(userNo);
+			clgVo.setCertifyNo(certifyNo);
+			clgVo.setCertifiedNo(certifiedNo);
 			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+			System.out.println(clgVo);
 		
+			int result;
+			// (1)Dao DB에 저장
+			
+			if(certifyChk == 1) {
+				//인증저장
+				result = challengeDao.certifiedSubmit(clgVo);
+				System.out.println("인증저장완료");
+			} else {
+				//인증수정
+				result = challengeDao.certifiedUpdate(clgVo);
+				System.out.println("인증수정완료");
+			}
+			
+			// (2)파일(하드디스크) 저장
+			try {
+				byte[] fileData = challengeVo.getImgs().getBytes();
+				System.out.println("fileData : " + fileData);
+				OutputStream os = new FileOutputStream(filePath);
+				BufferedOutputStream bos = new BufferedOutputStream(os);
+				
+				os.write(fileData);
+				bos.close();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		return result;
+		} else {
+			return 0;
+		}
 	}
 	
 	//유저 참여갯수 확인

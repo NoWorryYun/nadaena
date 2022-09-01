@@ -1054,17 +1054,9 @@
   		}
   		
   		if( pointChk() == false) {
-  			
   			return false;
   		}
-  		
-  		/* 
-  		return joinCount();
-  		
-  		//포인트 체크
-  		return pointChk();
-  		 */
-  		//
+
   		var ups = $('input:radio[name="upload"]:checked').val();
   		ups=Number(ups);
   		

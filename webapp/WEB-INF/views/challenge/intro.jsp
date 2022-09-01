@@ -330,50 +330,59 @@
 	
 	//회원 참여 갯수 체크하기
 	function joinCount(){
-		var value = true;
-		var userNo = "${authUser.userNo}";
+		var reVals = true;
+		
 		$.ajax({
 			contentType : 'application/json',     
 			data : JSON.stringify(userNo),
 			url : '${pageContext.request.contextPath}/joinCount',
 			type : 'POST',
 			
-			dataType : "json",
 			async: false,  //동기화
+			dataType : "json",
 			success : function(result){
-				if(result >= 3){
+				if(result > 3){
 					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
-					value =  false;
+					reVals = false;
+				} else{
+					reVals = true;
 				}
 			}
 		})
-		
-		return value;
+		return reVals;
+		console.log(reVals);
 	}
 	
 	//회원 포인트 체크하기
 	function pointChk(){
-		var value = true;
-			var userNo = "${authUser.userNo}";
-			console.log(userNo);
-			var payment = $('select[name="payment"]').val();
-			console.log(payment);
-			$.ajax({
-				contentType : 'application/json',     
-				data : JSON.stringify(userNo),
-				url : '${pageContext.request.contextPath}/pointChk',
-				type : 'POST',
-				async: false,  //동기화
-				dataType : "json",
-				success : function(result){
-					if(result < payment){
-						alert("포인트가 모자랍니다.");
-						value = false;
-					}
-				} 
-			})
-			return value;
-		}
+		var reVal = true;
+		
+		var userNo = "${authUser.userNo}";
+		console.log(userNo);
+		var payment = $('select[name="payment"]').val();
+		console.log(payment);
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(userNo),
+			url : '${pageContext.request.contextPath}/pointChk',
+			type : 'POST',
+			
+			async: false,  //동기화
+			dataType : "json",
+			success : function(result){
+				if(result < payment){
+					console.log(result);
+					alert("포인트가 모자랍니다.");
+					reVal = false;
+				} else{
+					console.log(result);
+					reVal = true;
+				}
+			} 
+		})
+		return reVal;
+		console.log(reVal);
+	}
 	
 	
 	$("#joinForm").on("submit", function(){
@@ -394,19 +403,22 @@
 				return false;
 			}
 			
-	  		//유저 참여 갯수 체크
-// 	  		return joinCount();
+			//유저 참여 갯수 체크
+	  		if( joinCount() == false) {
+	  			return false;
+	  		}
 	  		
-	  		//포인트 체크
-	  		return pointChk();
-			
+	  		if( pointChk() == false) {
+	  			return false;
+	  		}
+	  		
 	  		alert("참여가 완료되었습니다!");
 	  		
+		} else{
+			
+			alert("참여가 취소되었습니다!");
 		}
-		
-	
-		
-		
+  		
 	})
 	
 	
