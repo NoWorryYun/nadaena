@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nadaena.dao.CommunityDao;
 import com.nadaena.vo.BoardVo;
+import com.nadaena.vo.CommentVo;
 
 @Service
 public class CommunityService {
@@ -33,13 +34,21 @@ public class CommunityService {
 
 		return cuMap;
 	}
+	
 
-	public List<BoardVo> comuInfo(int challengeNo){
-		System.out.println("CommunityService > comentList");
+	public Map<String, Object> comuInfo(BoardVo boardVo){
+		System.out.println("CommunityService > comuInfo");
 		
-		List<BoardVo> comuInfo = communityDao.comuInfo(challengeNo);
+		BoardVo boardInfo = communityDao.boardInfo(boardVo);
+		List<CommentVo> commentList = communityDao.comment(boardVo);
 		
-		return comuInfo;
+		
+		Map<String, Object> boardMap = new HashMap<String, Object>();
+		
+		boardMap.put("boardInfo", boardInfo);
+		boardMap.put("commentList", commentList);
+		
+		return boardMap;
 	}
 	
 }

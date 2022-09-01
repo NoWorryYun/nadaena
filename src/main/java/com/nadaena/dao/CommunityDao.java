@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.BoardVo;
+import com.nadaena.vo.CommentVo;
 
 @Repository
 public class CommunityDao {
@@ -32,13 +33,21 @@ public class CommunityDao {
 
 	}
 	
-	public List<BoardVo> comuInfo(int challengeNo) {
-		//System.out.println("CommunityDao > comentList()");
+	public BoardVo boardInfo(BoardVo boardVo) {
+		System.out.println("CommunityDao > comuInfo");
 		
-		List<BoardVo> comuInfo = sqlSession.selectList("Community.comentList");
+		BoardVo boardInfo = sqlSession.selectOne("Community.comuInfo", boardVo);
 		
-		return comuInfo;
+		return boardInfo;
 
 	}
 	
+	public List<CommentVo> comment(BoardVo boardVo) {
+		System.out.println("CommunityDao > comuInfo");
+		
+		List<CommentVo> comment = sqlSession.selectList("Community.comment", boardVo);
+		
+		return comment;
+
+	}
 }

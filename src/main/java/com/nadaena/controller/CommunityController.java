@@ -42,14 +42,20 @@ public class CommunityController {
 		return "challenge/community";
 	}
 	
-	
-	@RequestMapping(value = "/challenge/board/{challengeNo}", method = { RequestMethod.GET, RequestMethod.POST })
-	public String readBoard(Model model, @PathVariable("challengeNo") int challengeNo) {
-		System.out.println("communityService > readBoard");
+
+	@RequestMapping(value = "/challenge/{challengeNo}/board/{boardNo}", method = { RequestMethod.GET, RequestMethod.POST })
+	public String readBoard(Model model, @PathVariable("challengeNo") int challengeNo,
+										 @PathVariable("boardNo") int boardNo) {
 		
-		List<BoardVo> comuInfo = communityService.comuInfo(challengeNo);
+		BoardVo boardVo = new BoardVo();
+		boardVo.setChallengeNo(challengeNo);
+		boardVo.setBoardNo(boardNo);
 		
-		model.addAttribute("comuInfo", comuInfo);
+		Map<String, Object> boardMap = communityService.comuInfo(boardVo);
+		
+		model.addAttribute("boardMap", boardMap);
+		
+		System.out.println("boardMap " +boardMap);
 		
 		return "challenge/readboard";
 	}

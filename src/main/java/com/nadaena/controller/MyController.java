@@ -205,20 +205,20 @@ public class MyController {
 		return "my/review";
 	}	
 	
-	//챌린지게시판 - 리뷰 리스트
-	@RequestMapping(value = "/challenge/{challengeNo}/review", method = {RequestMethod.GET, RequestMethod.POST})
-	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
-					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
-		
-		Map<String, Object> rMap = myService.getrList(crtPage, challengeNo);
-		
-		model.addAttribute("rMap", rMap);
-		
-		System.out.println(rMap);
-		
-		return "challenge/review"; 
-	} 	
-	
+//	//챌린지게시판 - 리뷰 리스트
+//	@RequestMapping(value = "/challenge/{challengeNo}/review", method = {RequestMethod.GET, RequestMethod.POST})
+//	public String review(Model model, @PathVariable("challengeNo") int challengeNo,
+//					    @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+//		
+//		Map<String, Object> rMap = myService.getrList(crtPage, challengeNo);
+//		
+//		model.addAttribute("rMap", rMap);
+//		
+//		System.out.println(rMap);
+//		
+//		return "challenge/review"; 
+//	} 	
+//	
 	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급) - 챌린지
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 

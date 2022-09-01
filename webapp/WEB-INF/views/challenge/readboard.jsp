@@ -82,22 +82,22 @@
 															<tbody class="table-top-bottom">
 																<tr class="border-white-underline">
 																	<td class="board-read-cell10" style="">작성자</td>
-																	<td class="board-read-cell">${BoardVo.nickName}</td>
+																	<td class="board-read-cell">${boardMap.boardInfo.nickName}</td>
 																	<td class="board-read-cell10">조회수</td>
-																	<td class="board-read-cell">${BoardVo.hit}</td>
+																	<td class="board-read-cell">${boardMap.boardInfo.hit}</td>
 																	<td class="board-read-cell10">작성일</td>
-																	<td class="board-read-cell">${BoardVo.boardDate2}</td>
+																	<td class="board-read-cell">${boardMap.boardInfo.boardDate}</td>
 																</tr>
 																<tr>
 																	<td class="board-read-cell10">제목</td>
-																	<td class="board-read-cell" colspan="5">${BoardVo.title}</td>
+																	<td class="board-read-cell" colspan="5">${boardMap.boardInfo.title}</td>
 																</tr>
 															</tbody>
 														</table>
 													</div>
 													<div class="border-content">
 														<p>
-															${BoardVo.boardContent}
+															${boardMap.boardInfo.boardContent}
 														</p>
 													</div>
 												</div>
@@ -111,19 +111,19 @@
 													<div class="table-responsive" style="font-size: 12px;">
 														<table class="table">
 															<tbody style="border: none;">
-																<c:forEach var="BoardVo" items="${comuInfo.comuInfo}">
+																<c:forEach var="commentVo" items="${boardMap.commentList}">
 																	<tr>
-																		<td class="board-read-label">${BoardVo.nickName}
+																		<td class="board-read-label">${commentVo.nickName}
 																			<div>
 																				<a class="report2" href="#">신고</a>
 																				<p class="upload-date">
-																					<span style="color: rgb(33, 37, 41);">${BoardVo.comments}</span><br>
+																					<span style="color: rgb(33, 37, 41);">${commentVo.commentDate}</span><br>
 																				</p>
 																			</div>
 																		</td>
-																		<td class="board-read-cell">${BoardVo.commentDate2}<br></td>
+																		<td class="board-read-cell">${commentVo.comments}<br></td>
 																	</tr>
-																</c:forEach>	
+																</c:forEach>
 															</tbody>
 														</table>
 													</div>

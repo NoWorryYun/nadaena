@@ -134,9 +134,39 @@
 	</select>
 
 
+	<select id="comuInfo" parameterType="BoardVo" resultType="BoardVo">
+		<![CDATA[
+			select  u.userNo userNo,
+                    u.nickName nickName,
+                    b.boardNo boardNo,
+                    b.title title,
+                    b.content boardContent,
+                    b.hit hit,
+                    to_char(boardDate,'YYYY-MM-DD') boardDate,
+                    b.boarPass boarPass
+	        from users u, board b
+	        where u.userNo = b.userNo
+	        and b.challengeNo = #{challengeNo}
+            and b.boardNo = #{boardNo}
+        
+		
+		]]>
+	</select>
 
-
-
+	<select id="comment" parameterType="BoardVo" resultType="com.nadaena.vo.CommentVo">
+		<![CDATA[
+			select  commentNo,
+			        to_char(commentDate,'YYYY-MM-DD') commentDate,
+			        comments,
+			        u.nickName,
+			        u.userNo
+			from users u, comments c
+			where u.userNo = c.userNo
+			and c.boardNo = #{boardNo}
+			order by commentNo desc
+       	
+		]]>
+	</select>
 
 
 
