@@ -22,12 +22,16 @@
 			        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 			        m.payment,
 			        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-			        c.clglevel
-			from challenge c, mychallenge m
+			        c.clglevel,
+			        cc.cnt clgCnt
+			from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
+                                              from myChallenge
+                                              group by challengeNo)cc
 			where c.challengeNo = m.challengeNo
 			and   m.state = 1
 			and   c.clgGroup=1
 			and   m.userNo= #{userNo}
+			and   m.challengeNo = cc.challengeNo
 		]]>
 	</select>	
 	
@@ -51,7 +55,8 @@
 			        ort.endday,
 			        ort.payment,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -69,7 +74,8 @@
 			        	 ot.endday,
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
-			       	  	 ot.clglevel
+			       	  	 ot.clglevel,
+			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -86,12 +92,16 @@
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel
-					    from challenge c, mychallenge m
+						        c.clglevel,
+						        cc.cnt clgCnt
+					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
+			                                              from myChallenge
+			                                              group by challengeNo)cc
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
 					    and   m.userNo = #{userNo}
-					    and   c.clgGroup=1)ot
+					    and   c.clgGroup=1
+					    and   m.challengeNo = cc.challengeNo)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -118,7 +128,8 @@
 			        ort.endday,
 			        ort.payment,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -136,7 +147,8 @@
 			        	 ot.endday,
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
-			       	  	 ot.clglevel
+			       	  	 ot.clglevel,
+			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -153,13 +165,17 @@
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel
-					    from challenge c, mychallenge m
+						        c.clglevel,
+						        cc.cnt clgCnt
+					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
+			                                              from myChallenge
+			                                              group by challengeNo)cc
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
-					    and   m.achievement >= 90
 					    and   m.userNo = #{userNo}
-					    and   c.clgGroup=1)ot
+					    and   c.clgGroup=1
+					    and   m.challengeNo = cc.challengeNo
+					    and   m.achievement >= 90)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -187,7 +203,8 @@
 			        ort.endday,
 			        ort.payment,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -205,7 +222,8 @@
 			        	 ot.endday,
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
-			       	  	 ot.clglevel
+			       	  	 ot.clglevel,
+			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -222,13 +240,17 @@
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel
-					    from challenge c, mychallenge m
+						        c.clglevel,
+						        cc.cnt clgCnt
+					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
+			                                              from myChallenge
+			                                              group by challengeNo)cc
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
-					    and   m.achievement < 90
-					    and m.userNo = #{userNo}
-					    and   c.clgGroup=1)ot
+					    and   m.userNo = #{userNo}
+					    and   c.clgGroup=1
+					    and   m.challengeNo = cc.challengeNo
+					    and   m.achievement < 90)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -255,7 +277,8 @@
 			        ort.endday,
 			        ort.payment,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -273,7 +296,8 @@
 			        	 ot.endday,
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
-			       	  	 ot.clglevel
+			       	  	 ot.clglevel,
+			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -290,12 +314,16 @@
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel
-					    from challenge c, mychallenge m
+						        c.clglevel,
+						        cc.cnt clgCnt
+					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
+			                                              from myChallenge
+			                                              group by challengeNo)cc
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 1
-					    and m.userNo = #{userNo}
-					    and   c.clgGroup=2)ot
+					    and   m.userNo = #{userNo}
+					    and   c.clgGroup=2
+					    and   m.challengeNo = cc.challengeNo)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -321,7 +349,8 @@
 			        ort.endday,
 			        ort.payment,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
 						 ot.userClgNo,
@@ -339,7 +368,8 @@
 			        	 ot.endday,
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
-			       	  	 ot.clglevel
+			       	  	 ot.clglevel,
+			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
 								c.challengeNo,
@@ -356,12 +386,16 @@
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel
-					    from challenge c, mychallenge m
+						        c.clglevel,
+						        cc.cnt clgCnt
+					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
+			                                              from myChallenge
+			                                              group by challengeNo)cc
 					    where c.challengeNo = m.challengeNo
 					    and   m.state = 2
-					    and m.userNo = #{userNo}
-					    and   c.clgGroup=2)ot
+					    and   m.userNo = #{userNo}
+					    and   c.clgGroup=2
+					    and   m.challengeNo = cc.challengeNo)ot
 				  )ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
@@ -448,7 +482,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.bookmarkNo,
 						 ot.userNo,
@@ -463,7 +498,8 @@
 				         ot.startday,
 				         ot.endday,
 				         ot.yesterday,
-				         ot.clglevel
+				         ot.clglevel,
+				         ot.clgCnt
 				  from (select  b.bookmarkNo,
 								b.userNo,
 								c.challengeNo,
@@ -477,12 +513,16 @@
 						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel					
-						from bookmark b, users u, challenge c
-						where b.bookmarkno = c.challengeNo
+						        c.clglevel,
+						        cc.cnt clgCnt					
+						from bookmark b, users u, challenge c, (select challengeNo, count(challengeNo) cnt
+					                                            from myChallenge
+					                                            group by challengeNo)cc
+						where b.challengeNo = c.challengeNo
 						and b.userno = u.userno
 						and u.userNo = #{userNo}
-						and c.clgGroup = 1)ot
+						and c.clgGroup = 1
+						and b.challengeNo = cc.challengeNo)ot
 						)ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  		
@@ -506,7 +546,8 @@
 			        ort.startday,
 			        ort.endday,
 			        ort.yesterday,
-			        ort.clglevel
+			        ort.clglevel,
+			        ort.clgCnt
 			from (select rownum rn,
 						 ot.bookmarkNo,
 						 ot.userNo,
@@ -521,7 +562,8 @@
 				         ot.startday,
 				         ot.endday,
 				         ot.yesterday,
-				         ot.clglevel
+				         ot.clglevel,
+				         ot.clgCnt
 				  from (select  b.bookmarkNo,
 								b.userNo,
 								c.challengeNo,
@@ -535,12 +577,16 @@
 						        to_char(c.regdate + c.recruitment, 'yyyy-mm-dd') startday,
 						        to_char(c.regdate + c.recruitment + c.period, 'yyyy-mm-dd') endday,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
-						        c.clglevel					
-						from bookmark b, users u, challenge c
-						where b.bookmarkno = c.challengeNo
+						        c.clglevel,
+						        cc.cnt clgCnt					
+						from bookmark b, users u, challenge c, (select challengeNo, count(challengeNo) cnt
+					                                            from myChallenge
+					                                            group by challengeNo)cc
+						where b.challengeNo = c.challengeNo
 						and b.userno = u.userno
 						and u.userNo = #{userNo}
-						and c.clgGroup = 2)ot
+						and c.clgGroup = 2
+						and b.challengeNo = cc.challengeNo)ot
 						)ort
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}
@@ -552,7 +598,7 @@
 		<![CDATA[
 			select  count(*) count
 			from bookmark b, users u, challenge c
-			where b.bookmarkno = c.challengeNo
+			where b.challengeNo = c.challengeNo
 			and b.userno = u.userno
 			and u.userNo = #{userNo}
 			and c.clgGroup = 1
@@ -564,7 +610,7 @@
 		<![CDATA[
 			select  count(*) count
 			from bookmark b, users u, challenge c
-			where b.bookmarkno = c.challengeNo
+			where b.challengeno = c.challengeNo
 			and b.userno = u.userno
 			and u.userNo = #{userNo}
 			and c.clgGroup = 2
