@@ -21,16 +21,25 @@ public class CommunityService {
 		//System.out.println("CommunityService > CommunityList");
 		
 		List<BoardVo> CommunityList = communityDao.communityList(boardVo);
-		System.out.println("service" +boardVo);
-		List<BoardVo> comentList = communityDao.comentList();
-		
+
+		List<BoardVo> comentList = communityDao.comentList(boardVo);
+		System.out.println("service  " +boardVo);
 		Map<String, Object> cuMap = new HashMap<String, Object>();
 		
 		cuMap.put("CommunityList", CommunityList);
 		cuMap.put("comentList", comentList);
 		
-		System.out.println(cuMap); 
+		System.out.println("CommunityService > CommunityList "+cuMap);
+
 		return cuMap;
 	}
 
+	public List<BoardVo> comuInfo(int challengeNo){
+		System.out.println("CommunityService > comentList");
+		
+		List<BoardVo> comuInfo = communityDao.comuInfo(challengeNo);
+		
+		return comuInfo;
+	}
+	
 }

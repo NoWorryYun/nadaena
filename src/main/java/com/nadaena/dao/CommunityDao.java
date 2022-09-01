@@ -18,17 +18,26 @@ public class CommunityDao {
 		//System.out.println("CommunityDao > communityList()");
 		
 		List<BoardVo> communityList = sqlSession.selectList("Community.comuList", boardVo);
-		System.out.println("dao" +boardVo);
+		System.out.println("dao communityList " +boardVo);
 		return communityList;
 
 	}
 	
-	public List<BoardVo> comentList() {
+	public List<BoardVo> comentList(BoardVo boardVo) {
 		//System.out.println("CommunityDao > comentList()");
 		
-		List<BoardVo> comentList = sqlSession.selectList("Community.comentList");
-		
+		List<BoardVo> comentList = sqlSession.selectList("Community.comentList",boardVo);
+		System.out.println("dao comentList " +comentList);
 		return comentList;
+
+	}
+	
+	public List<BoardVo> comuInfo(int challengeNo) {
+		//System.out.println("CommunityDao > comentList()");
+		
+		List<BoardVo> comuInfo = sqlSession.selectList("Community.comentList");
+		
+		return comuInfo;
 
 	}
 	

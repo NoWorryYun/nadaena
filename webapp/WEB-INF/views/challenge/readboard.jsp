@@ -82,22 +82,22 @@
 															<tbody class="table-top-bottom">
 																<tr class="border-white-underline">
 																	<td class="board-read-cell10" style="">작성자</td>
-																	<td class="board-read-cell">바라쿠다(Lv.3)</td>
+																	<td class="board-read-cell">${BoardVo.nickName}</td>
 																	<td class="board-read-cell10">조회수</td>
-																	<td class="board-read-cell">999999</td>
+																	<td class="board-read-cell">${BoardVo.hit}</td>
 																	<td class="board-read-cell10">작성일</td>
-																	<td class="board-read-cell">2022-08-06</td>
+																	<td class="board-read-cell">${BoardVo.boardDate2}</td>
 																</tr>
 																<tr>
 																	<td class="board-read-cell10">제목</td>
-																	<td class="board-read-cell" colspan="5">같은 책 또 읽어도 됩니까</td>
+																	<td class="board-read-cell" colspan="5">${BoardVo.title}</td>
 																</tr>
 															</tbody>
 														</table>
 													</div>
 													<div class="border-content">
 														<p>
-															<span>난 너를 믿었던만큼 난 내 친구도 믿었기에</span><br> <span>난 아무런 부담없이 널 내 친구에게 소개시켜 줬고</span><br> <span>그런 만남이 있은 후부터 우리는 자주 함께 만나며</span><br> <span>즐거운 시간을 보내며 함께 어울렸던 것뿐인데</span><br>
+															${BoardVo.boardContent}
 														</p>
 													</div>
 												</div>
@@ -111,39 +111,19 @@
 													<div class="table-responsive" style="font-size: 12px;">
 														<table class="table">
 															<tbody style="border: none;">
-																<tr>
-																	<td class="board-read-label">마니아르(Lv.32)
-																		<div>
-																			<a class="report2" href="#">신고</a>
-																			<p class="upload-date">
-																				<span style="color: rgb(33, 37, 41);">2022-08-03</span><br>
-																			</p>
-																		</div>
-																	</td>
-																	<td class="board-read-cell">댓글쓰기를 생활화합시다.<br></td>
-																</tr>
-																<tr>
-																	<td class="board-read-label">마니아르(Lv.32)
-																		<div>
-																			<a class="report2" href="#">신고</a>
-																			<p class="upload-date">
-																				<span style="color: rgb(33, 37, 41);">2022-08-03</span><br>
-																			</p>
-																		</div>
-																	</td>
-																	<td class="board-read-cell">댓글쓰기를 생활화합시다.<br>댓글쓰기를 생활화합시다.<br></td>
-																</tr>
-																<tr>
-																	<td class="board-read-label">마니아르(Lv.32)
-																		<div>
-																			<a class="report2" href="#">신고</a>
-																			<p class="upload-date">
-																				<span style="color: rgb(33, 37, 41);">2022-08-03</span><br>
-																			</p>
-																		</div>
-																	</td>
-																	<td class="board-read-cell">댓글쓰기를 생활화합시다.&nbsp;댓글쓰기를 생활화 합시다.댓글쓰기를 생활화 합시다.댓글쓰기를 생활화 합시다. 댓글쓰기를 생활화 합시다.댓글쓰기를 생활화 합시다.댓글쓰기를 생활화 합시다.댓글쓰기를 생활화 합시다.<br> <br></td>
-																</tr>
+																<c:forEach var="BoardVo" items="${comuInfo.comuInfo}">
+																	<tr>
+																		<td class="board-read-label">${BoardVo.nickName}
+																			<div>
+																				<a class="report2" href="#">신고</a>
+																				<p class="upload-date">
+																					<span style="color: rgb(33, 37, 41);">${BoardVo.comments}</span><br>
+																				</p>
+																			</div>
+																		</td>
+																		<td class="board-read-cell">${BoardVo.commentDate2}<br></td>
+																	</tr>
+																</c:forEach>	
 															</tbody>
 														</table>
 													</div>

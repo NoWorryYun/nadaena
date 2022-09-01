@@ -110,7 +110,7 @@
 															</thead>
 															<tbody>
 																<c:forEach var="BoardVo" items="${cuMap.CommunityList}">
-																	<tr>
+																	<tr style="cursor:pointer;" onclick="location.href='/challenge/board/${cuMap.CommunityList.challengeNo}'">
 																		<c:if test="${BoardVo.category == 1}">
 																			<td>팁</td>
 																		</c:if>
@@ -120,7 +120,7 @@
 																		<c:if test="${BoardVo.category == 3}">
 																			<td>질문</td>
 																		</c:if>
-																		<td><a href="#">${BoardVo.clgTitle}</a></td>
+																		<td>${BoardVo.title}</td>
 																		<td>${BoardVo.nickName}</td>
 																		<td>${BoardVo.hit}</td>
 																		<td>${BoardVo.boardDate2}</td>
