@@ -165,16 +165,7 @@ public class MyController {
 		return "challenge/review"; 
 	} 	
 	
-	//챌린지게시판 - 커뮤니티
-	
-	
-	
-	
-	
-	
-	
-	
-	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급)
+	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급) - 챌린지
 	@RequestMapping(value= "my/writeReview", method = {RequestMethod.GET, RequestMethod.POST})
 	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 
 							  Model model, HttpSession session) {
@@ -186,6 +177,20 @@ public class MyController {
 		myService.writeReview(file, reviewVo);
 		
 		return "redirect:/my/challenge";
+	}
+
+	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급) - 이벤트
+	@RequestMapping(value= "my/writeReview2", method = {RequestMethod.GET, RequestMethod.POST})
+	public String writeReview2(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, 
+							  Model model, HttpSession session) {
+		
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		reviewVo.setUserNo(authUser.getUserNo());
+		reviewVo.setNickname(authUser.getNickName());
+		
+		myService.writeReview(file, reviewVo);
+		
+		return "redirect:/my/event";
 	}
 	
 	//리뷰삭제

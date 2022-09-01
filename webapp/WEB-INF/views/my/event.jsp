@@ -59,7 +59,7 @@
 						<div class="challenge-info">
 							<h4>${MyVo.clgTitle }</h4>
 							<p class="c-inpo">진행기간 : <span>${MyVo.startday }</span> ~ <span>${MyVo.endday }</span> </p>
-							<p>참여 인원 : {MyVo.clgCnt}</p>
+							<p>참여 인원 : ${MyVo.clgCnt}</p>
 							<p>최소 도전비용 : ${MyVo.payment }원</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
@@ -122,7 +122,7 @@
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form action="${pageContext.request.contextPath}/my/writeReview" method="post" enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/my/writeReview2" method="post" enctype="multipart/form-data">
 			<div class="modal-header">
 				<div>
 					<h5></h5>
