@@ -11,7 +11,6 @@
 			        ort.nickName,
 			        ort.boardNo,
 			        ort.challengeNo,
-			        ort.clgTitle,
 			        ort.category,
 			        ort.title,
 			        ort.boardContent,
@@ -23,7 +22,6 @@
 			            ot.nickName,
 			            ot.boardNo,
 			            ot.challengeNo,
-			            ot.clgTitle,
 			            ot.category,
 			            ot.title,
 			            ot.boardContent,
@@ -34,7 +32,6 @@
 			                    u.nickName,
 			                    b.boardNo boardNo,
 			                    c.challengeNo challengeNo,
-			                    c.clgTitle clgTitle,
 			                    b.category category,
 			                    b.title title,
 			                    b.content boardContent,
@@ -44,7 +41,7 @@
 			         from users u, challenge c, board b
 			         where u.userNo = b.userNo
 			         and c.challengeNo = b.challengeNo
-			         
+			         and c.challengeNo = #{challengeNo}
 		]]>	
 				
 				
@@ -81,46 +78,53 @@
 			        ort.nickName,
 			        ort.boardNo,
 			        ort.challengeNo,
-			        ort.clgTitle,
 			        ort.category,
 			        ort.title,
 			        ort.boardContent,
 			        ort.hit,
 			        ort.boardDate,
+			        ort.boarPass,
 			        ort.commentNo,
 			        ort.commentDate,
-			        ort.comments
+			        ort.comments,
+			        ort.boardDate2,
+			        ort.commentDate2
 			from (select rownum rn,
 			             ot.userNo,
 			             ot.nickName,
 			             ot.boardNo,
 			             ot.challengeNo,
-			             ot.clgTitle,
 			             ot.category,
 			             ot.title,
 			             ot.boardContent,
 			             ot.hit,
 			             ot.boardDate,
+			             ot.boarPass,
 			             ot.commentNo,
 			             ot.commentDate,
-			             ot.comments
+			             ot.comments,
+			             ot.boardDate2,
+			             ot.commentDate2
 			    from(select u.userNo userNo,
-			    			u.nickName nickName,
+			                u.nickName nickName,
 			                b.boardNo boardNo,
 			                c.challengeNo challengeNo,
-			                c.clgTitle clgTitle,
 			                b.category category,
 			                b.title title,
 			                b.content boardContent,
 			                b.hit hit,
 			                b.boardDate boardDate,
+			                b.boarPass boarPass,
 			                cm.commentNo commentNo,
 			                cm.commentDate commentDate,
-			                cm.comments comments
+			                cm.comments comments,
+			                to_char(boardDate,'YYYY-MM-DD') boardDate2,
+			                to_char(commentDate,'YYYY-MM-DD') commentDate2
 			        from users u, challenge c, board b, comments cm
 			        where u.userNo = b.userNo
 			        and c.challengeNo = b.challengeNo
 			        and cm.boardNo = b.boardNo
+			        and c.challengeNo = #{challengeNo}
 			        order by commentNo desc) ot
 			    )ort
 			where ort.rn >=1

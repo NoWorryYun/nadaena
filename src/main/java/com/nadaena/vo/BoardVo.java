@@ -44,12 +44,14 @@ public class BoardVo {
 	private int clgGroup;
 	private String boardDate2;
 	private String keyword;
+	private int boarPass;
+	private String commentDate2;
 	public BoardVo() {
 		super();
 	}
 	public BoardVo(int boardNo, int challengeNo, int userNo, String nickName, int category, String title, String boardContent, int hit, String boardDate, int commentNo, String commentDate, String comments, String email, String nickname2, String pasword, String name, String birth,
 			String hp, String postNo, String address1, String address2, int interestNo, String clgTitle, String img, String regDate, int recruitment, int period, int certify, int minigame, int upload, int certifyDay, String content, String color, String tag1, String tag2,
-			String tag3, String tag4, String tag5, int clgLevel, int clgGroup, String boardDate2, String keyword) {
+			String tag3, String tag4, String tag5, int clgLevel, int clgGroup, String boardDate2, String keyword, int boarPass, String commentDate2) {
 		super();
 		this.boardNo = boardNo;
 		this.challengeNo = challengeNo;
@@ -93,6 +95,8 @@ public class BoardVo {
 		this.clgGroup = clgGroup;
 		this.boardDate2 = boardDate2;
 		this.keyword = keyword;
+		this.boarPass = boarPass;
+		this.commentDate2 = commentDate2;
 	}
 	public int getBoardNo() {
 		return boardNo;
@@ -346,14 +350,29 @@ public class BoardVo {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
+	public int getBoarPass() {
+		return boarPass;
+	}
+	public void setBoarPass(int boarPass) {
+		this.boarPass = boarPass;
+	}
+	public String getCommentDate2() {
+		return commentDate2;
+	}
+	public void setCommentDate2(String commentDate2) {
+		this.commentDate2 = commentDate2;
+	}
 	@Override
 	public String toString() {
 		return "BoardVo [boardNo=" + boardNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", nickName=" + nickName + ", category=" + category + ", title=" + title + ", boardContent=" + boardContent + ", hit=" + hit + ", boardDate=" + boardDate + ", commentNo="
 				+ commentNo + ", commentDate=" + commentDate + ", comments=" + comments + ", email=" + email + ", nickname=" + nickname + ", pasword=" + pasword + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", postNo=" + postNo + ", address1=" + address1
 				+ ", address2=" + address2 + ", interestNo=" + interestNo + ", clgTitle=" + clgTitle + ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", certify=" + certify + ", minigame=" + minigame + ", upload=" + upload
 				+ ", certifyDay=" + certifyDay + ", content=" + content + ", color=" + color + ", tag1=" + tag1 + ", tag2=" + tag2 + ", tag3=" + tag3 + ", tag4=" + tag4 + ", tag5=" + tag5 + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", boardDate2=" + boardDate2
-				+ ", keyword=" + keyword + "]";
+				+ ", keyword=" + keyword + ", boarPass=" + boarPass + ", commentDate2=" + commentDate2 + "]";
 	}
+	
+	
+	
 	
 	
 	
