@@ -7,9 +7,10 @@
 	<insert id="insertBoard" parameterType="BoardVo">
 		<![CDATA[
 			insert into board
-			values  (seq_boardNo,
-					null,
-					null,
+			values  (seq_boardNo.nextval,
+					#{challengeNo},
+					#{boarPass},
+					#{userNo},
 					#{category},
 					#{title},
 					#{boardContent},

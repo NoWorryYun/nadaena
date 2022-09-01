@@ -75,37 +75,39 @@
 										<div>
 											<p class="fw-bold font-20">게시판</p>
 											<div class="table-responsive table-writeform">
+											
 												<form action="${pageContext.request.contextPath}/challenge/cwrite" method="get">
-												<table class="table">
-													<tbody class="table-none">
-														<tr class="border-white-underline">
-															<td class="line-height25 write-board-label">제목</td>
-															<td class="write-table-content" colspan="3">
-																<input type="text" class="write-title-shape" name="title" value="">
-															</td>
-														</tr>
-														<tr class="border-white-underline">
-															<td class="write-board-label">카테고리 설정</td>
-															<td class="write-board-content">
-															<input type="hidden" id="changeInput"/>
-															<select class="select-width">
-																	<option value="1" selected="">팁</option>
-																	<option value="2">응원</option>
-																	<option value="3">질문</option>
-															</select>
-															&nbsp;</td>
-															<td class="write-board-label">비밀번호 설정</td>
-															<td class="write-board-content">
-																<!-- <input type="text" class="board-password" name="boardpasword" value=""> -->
-															</td>
-														</tr>
-													</tbody>
-												</table>
-												
-												<textarea class="write-table-content-text" name="boardContent" value=""></textarea>
-												<div id="write-board-regist" class="text-right">
-												<button type="submit" class="make-challenge certify" value=""></button>
-												<a class="return-challenge certify" href="">목록</a>
+													<table class="table">
+														<tbody class="table-none">
+															<tr class="border-white-underline">
+																<td class="line-height25 write-board-label">제목</td>
+																<td class="write-table-content" colspan="3">
+																	<input type="text" class="write-title-shape" name="title" value="">
+																</td>
+															</tr>
+															<tr class="border-white-underline">
+																<td class="write-board-label">카테고리 설정</td>
+																<td class="write-board-content">
+																<select class="select-width" name="category">
+																		<option value="1" selected="">팁</option>
+																		<option value="2">응원</option>
+																		<option value="3">질문</option>
+																</select>
+																&nbsp;</td>
+																<td class="write-board-label">비밀번호 설정</td>
+																<td class="write-board-content">
+																	<input type="password" class="board-password" name="boarPass" value="">
+																</td>
+																<input type="text" name="challengeNo" value="${boardVo.challengeNo}">
+															</tr>
+														</tbody>
+													</table>
+													
+													<textarea class="write-table-content-text" name="boardContent" value=""></textarea>
+													<div id="write-board-regist" class="text-right">
+													<input type="submit" class="make-challenge certify" value="등록">
+													<a class="return-challenge certify" href="">목록</a>
+													
 												</form>
 											</div>
 											</div>
@@ -205,16 +207,6 @@
 
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
-	$(".select-width").change(function(){
-		
-		$("#changeinput").val($(this).val));		
-		
-	});
-	
-	
-	
-});
 
 
 

@@ -15,5 +15,6 @@ public class BoardService {
 	public int write(BoardVo boardVo) {
 		
 		return boardDao.write(boardVo);
+		
 	}
 }
