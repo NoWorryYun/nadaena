@@ -16,7 +16,7 @@ public class MyVo {
 	private String regDate;
 	private int recruitment;
 	private int period;
-	private int level;
+	private int clgLevel;
 	private int clgGroup;
 	private String startday;
 	private String endday;
@@ -28,7 +28,7 @@ public class MyVo {
 	public MyVo() {
 		super();
 	}
-	public MyVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int level, int clgGroup, String startday, String endday,
+	public MyVo(int userClgNo, int challengeNo, int userNo, String myChallengeDate, int payment, int founder, int state, int achievement, String clgTitle, String img, String regDate, int recruitment, int period, int clgLevel, int clgGroup, String startday, String endday,
 			String yesterday, String bookmarkNo, String bookmarkDate, String nickname, int clgCnt) {
 		super();
 		this.userClgNo = userClgNo;
@@ -44,7 +44,7 @@ public class MyVo {
 		this.regDate = regDate;
 		this.recruitment = recruitment;
 		this.period = period;
-		this.level = level;
+		this.clgLevel = clgLevel;
 		this.clgGroup = clgGroup;
 		this.startday = startday;
 		this.endday = endday;
@@ -132,11 +132,11 @@ public class MyVo {
 	public void setPeriod(int period) {
 		this.period = period;
 	}
-	public int getLevel() {
-		return level;
+	public int getClgLevel() {
+		return clgLevel;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+	public void setClgLevel(int clgLevel) {
+		this.clgLevel = clgLevel;
 	}
 	public int getClgGroup() {
 		return clgGroup;
@@ -189,8 +189,9 @@ public class MyVo {
 	@Override
 	public String toString() {
 		return "MyVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
-				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", level=" + level + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + ", bookmarkNo=" + bookmarkNo
+				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + ", bookmarkNo=" + bookmarkNo
 				+ ", bookmarkDate=" + bookmarkDate + ", nickname=" + nickname + ", clgCnt=" + clgCnt + "]";
 	}
+
 	
 }

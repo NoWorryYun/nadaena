@@ -59,7 +59,7 @@
 							<h4>${MyVo.clgTitle }</h4>
 							<p class="c-inpo">진행기간 : <span>${MyVo.startday }</span> ~ <span>${MyVo.endday }</span> </p>
 							<p>참여 인원 : ${MyVo.clgCnt }</p>
-							<p>최소 도전비용 : ${MyVo.payment }원</p>
+							<p>난이도 : ${MyVo.clgLevel }</p>
 							<p class="last-p">기대 성공금액 : 2~3%</p>
 						</div>
 					</div>	
@@ -124,5 +124,16 @@
 
 
 </body>
+<script type="text/javascript">
+$(function(){
+	   if("${authUser}" == ""){
+	      alert("로그인 후 이용할 수 있습니다.");
+	      location.href = "${pageContext.request.contextPath }/loginForm";
+	   }
+	});
 
+
+
+
+</script>
 </html>
