@@ -125,6 +125,7 @@
 
 </body>
 <script type="text/javascript">
+
 $(function(){
 	   if("${authUser}" == ""){
 	      alert("로그인 후 이용할 수 있습니다.");

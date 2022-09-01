@@ -29,13 +29,22 @@ public class MyController {
 	public String mymain(Model model, HttpSession session) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
 		
-		UserVo userVo = myService.getUser(userNo);
-		
-		model.addAttribute("userVo", userVo);
-		
-		System.out.println(userVo);
+		if(authUser == null) {
+			//로그인 안되어있을 때
+
+			
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			UserVo userVo = myService.getUser(userNo);
+			
+			model.addAttribute("userVo", userVo);
+			
+			System.out.println(userVo);
+		}
 		
 		return "my/info"; 
 	} 
@@ -46,12 +55,18 @@ public class MyController {
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
 		
-		Map<String, Object> mcMap = myService.getmcList(crtPage, userNo);
-		
-		model.addAttribute("mcMap", mcMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mcMap = myService.getmcList(crtPage, userNo);
+			
+			model.addAttribute("mcMap", mcMap);
+		}		
 		return "my/challenge";
 	}
 	
@@ -61,12 +76,17 @@ public class MyController {
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		
-		Map<String, Object> mcMap = myService.getmcList2(crtPage, userNo);
-		
-		model.addAttribute("mcMap", mcMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mcMap = myService.getmcList2(crtPage, userNo);
+			
+			model.addAttribute("mcMap", mcMap);
+		}
 		return "my/challengeyes";
 	}
 	
@@ -75,11 +95,17 @@ public class MyController {
 	public String list3(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		Map<String, Object> mcMap = myService.getmcList3(crtPage, userNo);
-		
-		model.addAttribute("mcMap", mcMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mcMap = myService.getmcList3(crtPage, userNo);
+			
+			model.addAttribute("mcMap", mcMap);
+		}
 		return "my/challengeno";
 	}
 
@@ -88,12 +114,17 @@ public class MyController {
 	public String elist1(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		
-		Map<String, Object> mcMap = myService.getmeList21(crtPage, userNo);
-		
-		model.addAttribute("mcMap", mcMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mcMap = myService.getmeList21(crtPage, userNo);
+			
+			model.addAttribute("mcMap", mcMap);
+		}
 		return "my/event";
 	}
 
@@ -102,11 +133,17 @@ public class MyController {
 	public String elist2(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		Map<String, Object> mcMap = myService.getmeList22(crtPage, userNo);
-		
-		model.addAttribute("mcMap", mcMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mcMap = myService.getmeList22(crtPage, userNo);
+			
+			model.addAttribute("mcMap", mcMap);
+		}
 		return "my/eventend";
 	}
 	
@@ -115,11 +152,17 @@ public class MyController {
 	public String blist1(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		Map<String, Object> mbMap = myService.getmbList1(crtPage, userNo);
-		
-		model.addAttribute("mbMap", mbMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mbMap = myService.getmbList1(crtPage, userNo);
+			
+			model.addAttribute("mbMap", mbMap);
+		}
 		return "my/bookmark1";
 	}	
 	
@@ -128,11 +171,17 @@ public class MyController {
 	public String blist2(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		Map<String, Object> mbMap = myService.getmbList2(crtPage, userNo);
-		
-		model.addAttribute("mbMap", mbMap);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> mbMap = myService.getmbList2(crtPage, userNo);
+			
+			model.addAttribute("mbMap", mbMap);
+		}
 		return "my/bookmark2";
 	}	
 	
@@ -142,12 +191,17 @@ public class MyController {
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		
-		Map<String, Object> rMap = myService.getmyrList(crtPage, userNo);
-		
-		model.addAttribute("rMap", rMap);
-		System.out.println(rMap);
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> rMap = myService.getmyrList(crtPage, userNo);
+			
+			model.addAttribute("rMap", rMap);
+		}
 		return "my/review";
 	}	
 	
@@ -171,11 +225,15 @@ public class MyController {
 							  Model model, HttpSession session) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		reviewVo.setUserNo(authUser.getUserNo());
-		reviewVo.setNickname(authUser.getNickName());
-		
-		myService.writeReview(file, reviewVo);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			reviewVo.setUserNo(authUser.getUserNo());
+			reviewVo.setNickname(authUser.getNickName());
+			
+			myService.writeReview(file, reviewVo);
+		}
 		return "redirect:/my/challenge";
 	}
 
@@ -185,11 +243,15 @@ public class MyController {
 							  Model model, HttpSession session) {
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		reviewVo.setUserNo(authUser.getUserNo());
-		reviewVo.setNickname(authUser.getNickName());
-		
-		myService.writeReview(file, reviewVo);
-		
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			reviewVo.setUserNo(authUser.getUserNo());
+			reviewVo.setNickname(authUser.getNickName());
+			
+			myService.writeReview(file, reviewVo);
+		}
 		return "redirect:/my/event";
 	}
 	
@@ -199,10 +261,14 @@ public class MyController {
 		System.out.println("MyCON / delete");
 
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		reviewVo.setUserNo(authUser.getUserNo());
-		
-		myService.removeReview(reviewVo);
-
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			reviewVo.setUserNo(authUser.getUserNo());
+			
+			myService.removeReview(reviewVo);
+		}
 		return "redirect:/my/review";
 	}
 	
@@ -211,12 +277,16 @@ public class MyController {
 	public String plist(Model model, HttpSession session,
 						@RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		int userNo = authUser.getUserNo();
-		
-		Map<String, Object> pMap = myService.getpList(crtPage, userNo);
-		
-		model.addAttribute("pMap", pMap);
-		System.out.println(pMap);
+		if(authUser == null) {
+			//로그인 안되어있을 때
+		}else if(authUser != null) {
+			//로그인 되어있을 때
+			int userNo = authUser.getUserNo();
+			Map<String, Object> pMap = myService.getpList(crtPage, userNo);
+			
+			model.addAttribute("pMap", pMap);
+			System.out.println(pMap);
+		}
 		return "my/point";
 	}	
 	
