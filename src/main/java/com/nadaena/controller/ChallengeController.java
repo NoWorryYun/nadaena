@@ -246,35 +246,6 @@ public class ChallengeController {
 
 	
 	
-
-
-	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge3(@PathVariable("challengeNo") int challengeNo) {
-		System.out.println("challnege/community");
-
-		return "challenge/community";
-	}
-	
-	@RequestMapping(value = "/challenge/{challengeNo}/board", method = { RequestMethod.GET, RequestMethod.POST })
-	public String readBoard() {
-
-		return "challenge/readboard";
-	}
-
-	@RequestMapping(value = "/challenge/{challengeNo}/writeboard", method = { RequestMethod.GET, RequestMethod.POST })
-	public String writeBoard() {
-		System.out.println("challenge/writeboard");
-
-		return "challenge/writeboard";
-	}
-
-	@RequestMapping(value = "/challenge/{challengeNo}/review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge4(@PathVariable("challengeNo") int challengeNo) {
-		System.out.println("challnege/review");
-
-		return "challenge/review";
-	}
-	
 	//유저 개인의 참여 갯수 확인
 	@ResponseBody
 	@RequestMapping(value="/joinCount", method= {RequestMethod.GET, RequestMethod.POST})
