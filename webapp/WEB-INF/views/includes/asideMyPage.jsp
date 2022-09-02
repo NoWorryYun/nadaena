@@ -10,7 +10,7 @@
 					<li class="list-group-item"><a class="fw-bold" href="${pageContext.request.contextPath }/my/bookmark1">북마크</a></li>
 					<li class="list-group-item"><a class="fw-bold" href="${pageContext.request.contextPath }/my/review">나의 리뷰</a></li>
 					<li class="list-group-item"><a class="fw-bold" href="${pageContext.request.contextPath }/my/point">포인트</a></li>
-					<li class="list-group-item"><a class="fw-bold" href="${pageContext.request.contextPath }/my/my-buylist">구매내역</a></li>
+					<li class="list-group-item"><a class="fw-bold" href="${pageContext.request.contextPath }/my/orderList">구매내역</a></li>
 					<li class="list-group-item"><a class="fw-bold" href="${pageContext.request.contextPath }/my/info">나의 정보</a></li>
 				</ul>
 			</div>

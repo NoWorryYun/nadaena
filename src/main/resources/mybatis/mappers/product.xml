@@ -27,6 +27,7 @@
 			                 from options group by productNo)c
 			where p.productNo = c.productNo
 			and productCategory = #{cate}
+			order by productNo
 		]]>
 	</select>
 	<!-- 
