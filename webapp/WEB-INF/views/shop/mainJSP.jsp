@@ -48,7 +48,7 @@
                     <li><a href="?cate=1">상품권</a></li>
                     <li><a href="?cate=2">기프티콘</a></li>
                     <li><a href="?cate=3">기타</a></li> 
-                    <li><a href="mypage">MY</a></li>  
+                    <li><a href="${pageContext.request.contextPath }/my/orderList">MY</a></li>  
                 </ul>
 
                 <ul class="search_list">

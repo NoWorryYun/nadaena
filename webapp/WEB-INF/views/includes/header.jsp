@@ -28,7 +28,7 @@
 						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/my/challenge">마이페이지</a></li>
 						<li><a class="dropdown-item" href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 					</ul>
-					 </c:if>
+				</c:if>
 					
 				<c:if test="${empty authUser }">
 				<a id="btn-login" class="btn btn-light btn-sm" href="${pageContext.request.contextPath }/loginForm">로그인</a>
@@ -67,7 +67,7 @@
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/event">이벤트</a></li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/shop">포인트몰</a></li>
 			</ul>
-			<c:if test="${sessionScope.authUser.userNo!=1 }">
+			<c:if test="${sessionScope.authUser.userNo!=null }">
 				<div id="btnbox" class="col-2">
 					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="${pageContext.request.contextPath}/challenge/write">챌린지 개설하기</a>
 				</div>

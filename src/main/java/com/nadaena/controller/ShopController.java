@@ -52,7 +52,7 @@ public class ShopController {
 		return "shop/mypage";
 	}
 	
-	@RequestMapping(value="shop/mypage")
+	@RequestMapping(value="my/orderList")
 	public String mypage(Model model, HttpSession session) {
 		System.out.println(" ShopCtrl > orderList");
 

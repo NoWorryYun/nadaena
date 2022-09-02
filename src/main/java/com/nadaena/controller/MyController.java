@@ -246,7 +246,6 @@ public class MyController {
 	//리뷰삭제
 	@RequestMapping(value = "my/deleteReview", method = { RequestMethod.GET, RequestMethod.POST })
 	public String deleteReview(@ModelAttribute ReviewVo reviewVo, HttpSession session) {
-		System.out.println("MyCON / delete");
 
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		if (authUser == null) {
@@ -263,7 +262,6 @@ public class MyController {
 	//포인트 리스트(사용내역)
 	@RequestMapping(value = "my/point", method = { RequestMethod.GET, RequestMethod.POST })
 	public String plist(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
-		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		
 		if (authUser == null) {

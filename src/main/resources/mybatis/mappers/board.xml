@@ -20,11 +20,93 @@
 		]]>
 	</insert>
 	
+	<!-- 챌린지 intro -->
+	<select id="intro"  parameterType="int" resultType="ChallengeVo">
+		<![CDATA[
+			select challengeNo,
+			       c.interestNo interestNo,
+			       i.interestName interestName,
+			       clgTitle, 
+			       img,
+			       to_char(regDate, 'yyyy-mm-dd') regDate, 
+			       to_char(regDate+recruitment, 'yyyy-mm-dd') recRD,
+			       to_char(regDate+recruitment-1, 'yyyy-mm-dd') recRDM,
+			       to_char(regDate+recruitment-1+(period*7), 'yyyy-mm-dd') recRDP,
+			       recruitment, 
+			       period, 
+			       certify,
+			       minigame, 
+			       upload, 
+			       certifyDay,
+			       content,
+			       tag1,
+			       tag2,
+			       tag3,
+			       tag4,
+			       tag5,
+			       clgLevel,
+			       clgGroup
+			from challenge c, interest i
+			where c.interestno = i.interestno(+)
+			and c.challengeNo = #{challengeNo}
+		]]>
+	</select>
 	
+	<!-- 챌린지 참여 여부 확인 -->
+	<select id="joinChk" parameterType="ChallengeVo" resultType="ChallengeVo">
+		<![CDATA[
+			select  ( select count(userNo)
+			          from mychallenge
+			          where challengeNo = #{challengeNo}
+			          and userNo = #{userNo}) userCount,
+	        		founder,
+	        		(select payment
+			         from mychallenge
+			         where challengeNo = #{challengeNo}
+			         and userNo = #{userNo}) payment
+			from mychallenge          
+			where challengeNo = #{challengeNo}
+			and userNo = #{userNo}
+		]]>
+	</select>
 	
-	
-	
-	
+	<!-- certifyList 가져오기 -->
+	<select id="certifyList" parameterType="ChallengeVo" resultType="ChallengeVo">
+	<![CDATA[
+		select  cc.rn rn,
+		        cc.certifyNo certifyNo,
+		        cc.challengeNo challengeNo,
+		        cc.certifyTitle certifyTitle,
+		        cc.subOn subOn,
+		        cc.subOff subOff,
+		        cc.certifyChk certifyChk,
+		        cc.certifiedNo certifiedNo
+		from (  select  rownum rn,
+		                c.certifyNo,
+		                c.challengeNo,
+		                c.certifyTitle,
+		                c.subOn,
+		                c.subOff,
+		                c.certifyChk,
+		                c.certifiedNo
+		        from (  select  q.certifyNo certifyNo,
+		                        q.challengeNo challengeNo,
+		                        q.certifyTitle certifyTitle,
+		                        q.subOn subOn,
+		                        q.subOff subOff,
+		                        d.certifyNo certifyChk,
+		                        d.certifiedNo certifiedNo
+		                from certify q,  (select certifyNo,
+		                                         certifiedNo
+		                                    from certified
+		                                    where certifieddate = to_char(sysdate, 'yy-mm-dd')
+		                                    and userNo = #{userNo}) d
+		                where challengeNo = #{challengeNo}
+		                and q.certifyNo = d.certifyNo(+)
+		                order by q.certifyNo asc) c
+		     ) cc
+		]]>
+	</select>	
 	
 	
 	
