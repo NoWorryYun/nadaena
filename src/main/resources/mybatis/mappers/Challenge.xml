@@ -144,7 +144,9 @@
 			       tag4,
 			       tag5,
 			       clgLevel,
-			       clgGroup
+			       clgGroup,
+			       to_char(regDate+recruitment, 'mmdd') startDate,
+			       to_char(regDate+recruitment-1+(period*7), 'mmdd') endDate
 			from challenge c, interest i
 			where c.interestno = i.interestno(+)
 			and c.challengeNo = #{challengeNo}

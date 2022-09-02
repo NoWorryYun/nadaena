@@ -210,7 +210,7 @@
 																					</c:when>
 																					<c:otherwise>
 																						<input type="hidden" name="clgInOutChk" value="3">
-																						<button id="btnSubmit" class="font-12" type="submit">챌린지 삭제하기</button>
+																						<button id="btnSubmit" class="font-12 deleteClg" type="submit">챌린지 삭제하기</button>
 																					</c:otherwise>
 																				</c:choose>
 																			</c:when>
@@ -523,6 +523,37 @@
 		})
 	}
 
+	
+	
+	var Now = new Date(); // 현재 날짜 및 시간
+    var nowMonth = Now.getMonth() + 1; // 월
+    var nowDay = Now.getDate(); // 일
+    var nowHour = Now.getHours(); // 시
+    var nowMins = Now.getMinutes(); // 분
+
+ 
+    function pluszero(time){
+        var time = time.toString(); // 시간을 숫자에서 문자로 바꿈
+        if(time.length < 2){ //2자리 보다 작다면
+            time = '0' + time; //숫자앞 0을 붙여줌
+            return time; //값을 내보냄
+    }else{
+        return time; //2자리라면 값을 내보냄
+    }
+    }
+    nowMonth = pluszero(nowMonth); //만들었던 함수 적용
+    nowDay = pluszero(nowDay);
+    nowHour = pluszero(nowHour);
+    nowMins = pluszero(nowMins);
+ 
+    var nowtime = nowMonth + nowDay; // 월+일+시+분
+	
+	var startDate = "${cMap.intro.startDate}"
+	var endDate = "${cMap.intro.endDate}"
+	
+    if(startDate < nowtime){ //지금이 시작시간보다 작거나, 종류시간보다 크면         $('.call_btn img').attr('src', 'icon_off.png');  //이미지 주소 변경    }
+	   $('.deleteClg').css('display', 'none');  //이미지 주소 변경   
+	}
 </script>
 
 </body>
