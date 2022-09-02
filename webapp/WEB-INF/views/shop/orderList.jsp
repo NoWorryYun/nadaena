@@ -68,7 +68,7 @@
 	                        	<c:forEach items="${orderList }" var="order">
 		                            <tr>
 		                                <td>${order.orderDate }</td>
-		                                <td><img src="${pageContext.request.contextPath }/assets/img/shop/${order.thumbnail }.jpg" alt="주문상품" width="96px" height="96px"></td>
+		                                <td><img src="${pageContext.request.contextPath }/upload/product/${order.productNo}/${order.thumbnail}" alt="주문상품" width="96px" height="96px"></td>
 		                                <td>${order.productName }</td>
 		                                <td>
 			                                <c:choose>
