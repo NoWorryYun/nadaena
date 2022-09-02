@@ -76,7 +76,7 @@
 											<p class="fw-bold font-20">게시판</p>
 											<div class="table-responsive table-writeform">
 											
-												<form action="${pageContext.request.contextPath}/challenge/cwrite" method="get">
+												<form action="${pageContext.request.contextPath}/challenge/writeboard" method="get">
 													<table class="table">
 														<tbody class="table-none">
 															<tr class="border-white-underline">
@@ -98,7 +98,7 @@
 																<td class="write-board-content">
 																	<input type="password" class="board-password" name="boarPass" value="">
 																</td>
-																<input type="text" name="challengeNo" value="${boardVo.challengeNo}">
+																<input type="hidden" name="challengeNo" value="${boardVo.challengeNo}">
 															</tr>
 														</tbody>
 													</table>

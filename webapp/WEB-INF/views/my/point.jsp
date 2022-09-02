@@ -150,7 +150,6 @@
 	</div>
 </main>
 
-
 <!-- footer -->
 <c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 <!-- //footer -->
@@ -327,12 +326,11 @@
 </body>
 <script type="text/javascript">
 $(function(){
-	   if("${authUser}" == ""){
-	      alert("로그인 후 이용할 수 있습니다.");
-	      location.href = "${pageContext.request.contextPath }/loginForm";
-	   }
-	});
-
+   if("${authUser}" == ""){
+      alert("로그인 후 이용할 수 있습니다.");
+      location.href = "${pageContext.request.contextPath }/loginForm";
+   }
+});
 
 //충전 모달창 띄우기
 $("#btnChargeModal").on("click", function(){
@@ -369,7 +367,7 @@ $("#txt-charge-price").on("propertychange change keyup paste input", function(){
 //충전 모달창 충전 버튼을 눌렀을때 
 $("#btn-modalCharge").on("click", function(){
 	
-	var havePoint = ${pMap.sum};
+	var havePoint = "${pMap.sum}";
 	var minMoney = 10000;
 	
 	var inputMoney = $("#txt-charge-price").val();
@@ -392,7 +390,7 @@ $("#btn-modalCharge").on("click", function(){
 $("#txt-exchange-amount").on("propertychange change keyup paste input", function(){
 	$(this).val($(this).val().replace(/[^0-9]/g,""));
 	
-	var havePoint = ${pMap.sum};
+	var havePoint = "${pMap.sum}";
 	var point = $("#txt-exchange-amount").val();
 	$("#txt-exchange-charge").val(point);
 	
@@ -403,7 +401,7 @@ $("#txt-exchange-amount").on("propertychange change keyup paste input", function
 $("#form-exchange").on("submit", function(){
 	
 	//포인트 체크
-	var havePoint = ${pMap.sum};
+	var havePoint = "${pMap.sum}";
 	var point = $("#txt-exchange-amount").val();
 	
 	if(point == null || point == '' || point == 0){
