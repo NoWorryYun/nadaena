@@ -21,6 +21,23 @@
 	
 	
 	
+		
+	<!-- 포인트 사용내역(충전) -->
+	<insert id="insertPoint" parameterType="PointVo">
+		<![CDATA[
+			insert into point
+			values (seq_pointNo.nextval,
+					#{userNo},
+					#{pointGroup},
+					#{charge},
+					#{amount},
+					sysdate,
+					#{challengeSource},
+					#{productSource},
+					#{pointMemo}
+			)
+		]]>
+	</insert>
 	
 	
 	

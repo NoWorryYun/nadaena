@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+
+/*모달창 사이즈(공통)*/
+.modal-dialog {
+	width: 1140px;
+}
+
+/*모달창 메인버튼(공통)*/
+.btn-modal-main, 
+.btn-modal-main:hover  {
+	background-color: #ff8f42;
+	color: #ffffff;
+}
+
+
+
+
+
+/* 충전하기 모달창 */
+#modalCharge .modal-body .txt1{
+	margin: 0px 0px 30px 0px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+
+#modalCharge .modal-body .txt1 .point{
+	color: #ff8f42;
+	font-size: 20px;
+}
+
+
+#modalCharge .modal-body .txt2{
+	margin: 0px 0px 0px 0px;
+	font-size: 16px;
+}
+
+
+#modalCharge .modal-body #txt-charge-price{
+	width: 400px;
+	display: inline;
+	text-align: right;
+}
+
+#modalCharge .modal-body .txt3{
+	margin: 2px 0px 40px 0px;
+	font-size: 12px;
+	color: #FF0000;
+}
+
+
+/* PG사 모달창 (임시) */
+#modalPGImg .modal-dialog .modal-content {
+	width: 852px;
+}
+
+
+
+/* 환전하기 모달창 */
+#modalExchange .modal-body .txt1{
+	margin: 0px 0px 30px 0px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+
+#modalExchange .modal-body .txt1 .point{
+	color: #ff8f42;
+	font-size: 20px;
+}
+
+#modalExchange .modal-body .txt2{
+	margin: 0px 0px 0px 0px;
+	font-size: 16px;
+}
+
+#modalExchange .modal-body #txt-exchange-amount{
+	width: 200px;
+	display: inline;
+	text-align: right;
+}
+
+
+#modalExchange .modal-body #txt-exchange-charge{
+	width: 200px;
+	display: inline;
+	text-align: right;
+}
+
+
+
+
+#modalExchange .modal-body .txt3{
+	margin: 2px 0px 40px 0px;
+	font-size: 10px;
+	color: #FF0000;
+}
+
+
+#modalExchange .modal-body .bankInfoBox{
+	margin: 20px 0px 50px 0px;
+	padding: 10px 5px 10px 5px;
+	border: 1px solid #595959;
+}
+
+#modalExchange .modal-body .bankInfoBox .fgroup{
+	margin: 5px 0px 0px 0px;	
+}
+
+
+#modalExchange .modal-body .bankInfoBox .fgroup label{
+	width: 70px;
+}
+
+#modalExchange .modal-body .bankInfoBox .fgroup #sel-exchange-bank,
+#modalExchange .modal-body .bankInfoBox .fgroup #txt-exchange-account,
+#modalExchange .modal-body .bankInfoBox .fgroup #txt-exchange-name {
+	display: inline-block;
+	width: 355px;
+}
+
+
