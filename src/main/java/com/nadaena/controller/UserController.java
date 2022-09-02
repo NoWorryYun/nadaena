@@ -47,7 +47,7 @@ public class UserController {
 			System.out.println("로그인 성공");
 			session.setAttribute("authUser", authUser);
 			
-			return "redirect:/modifyForm"; //joinForm";
+			return "redirect:/main"; //joinForm";
 		} else {
 			System.out.println("로그인 실패");
 			return "redirect:/user/loginForm?result=fail";
