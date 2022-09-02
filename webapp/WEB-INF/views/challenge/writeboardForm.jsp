@@ -55,7 +55,7 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
+								${cMap.intro.clgTitle }<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
 
 							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
@@ -98,7 +98,7 @@
 																<td class="write-board-content">
 																	<input type="password" class="board-password" name="boarPass" value="">
 																</td>
-																<input type="hidden" name="challengeNo" value="${boardVo.challengeNo}">
+																<input type="hidden" name="challengeNo" value="${cMap.intro.challengeNo}">
 															</tr>
 														</tbody>
 													</table>
