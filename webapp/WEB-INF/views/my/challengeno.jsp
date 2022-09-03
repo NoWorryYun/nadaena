@@ -60,8 +60,10 @@
 									<p>도전비용 : ${MyVo.payment }원</p>
 									<p class="last-p">기대 성공금액 : 2~3%</p>
 								</div>
-							</div>	 
-							<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기 ${MyVo.challengeNo}</button>
+							</div>
+							<c:if test="${MyVo.endday <= MyVo.yesterday}">
+								<button class="modal-button"  data-challengeno="${MyVo.challengeNo}" data-title="${MyVo.clgTitle }">리워드 받기</button>
+							</c:if>		 
 						</div>
 							
 					</c:forEach>

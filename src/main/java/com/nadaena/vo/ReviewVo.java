@@ -218,8 +218,6 @@ public class ReviewVo {
 				+ ", pointMemo=" + pointMemo + ", rn=" + rn + ", clgLevel=" + clgLevel + ", achievement=" + achievement + ", payment=" + payment + ", sum=" + sum + ", clgCnt=" + clgCnt + "]";
 	}
 	
-
 	
-
 	
 }

@@ -57,7 +57,7 @@
 					<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
 						<li class="list-inline-item">
 							<div class="img-size">
-								<a href="${pageContext.request.contextPath }/my/creview/${ReviewVo.challengeNo}">
+								<a href="${pageContext.request.contextPath }/challenge/${ReviewVo.challengeNo}/review">
 									<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }">
 								</a>
 							</div>

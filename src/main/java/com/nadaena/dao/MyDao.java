@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.nadaena.vo.ChallengeVo;
 import com.nadaena.vo.MyVo;
 import com.nadaena.vo.ReviewVo;
 import com.nadaena.vo.UserVo;
@@ -211,6 +212,22 @@ public class MyDao {
 		List<ReviewVo> rList = sqlSession.selectList("my.selectreview", map);
 		
 		return rList;
+	}
+	//인트로 내용 받아오기
+	public ChallengeVo intro(int challengeNo) {
+		return sqlSession.selectOne("board.intro", challengeNo);
+	}
+
+	//인트로 업로드 상세 받아오기
+	public List<ChallengeVo> certifyList(ChallengeVo challengeVo) {
+		List<ChallengeVo> certifyList = sqlSession.selectList("board.certifyList", challengeVo);
+		return certifyList;
+	}
+
+	//챌린지 참여 확인
+	public ChallengeVo joinChk(ChallengeVo challengeVo) {
+
+		return sqlSession.selectOne("board.joinChk", challengeVo);
 	}
 	
 	//리뷰쓰기

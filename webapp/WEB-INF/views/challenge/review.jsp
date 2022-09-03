@@ -64,7 +64,7 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
+								${rMap.intro.clgTitle }<br>${rMap.intro.recRD}~${rMap.intro.recRDP}<br>
 							</h2>
 
 							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
@@ -73,10 +73,10 @@
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a id="introForm"   class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="community"	  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="review"	  class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm"   class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${rMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${rMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community"	  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${rMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review"	  class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${rMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
 								<div id="afterComment-wrap-review">
 									<div>
@@ -131,6 +131,7 @@
 						</div>
 					</div>
 				</div>
+
 
 <!-- ========================================================================================================================================================================================== -->
 
@@ -278,6 +279,17 @@
  -->
 
 <script>
+$(function(){
+	   if("${authUser}" == ""){
+	      alert("로그인 후 이용할 수 있습니다.");
+	      location.href = "${pageContext.request.contextPath }/loginForm";
+	   }
+	});
+
+
+
+
+
 //리뷰작성 모달창 호출 했을때
 $(".modal-button").on("click", function(){
 	

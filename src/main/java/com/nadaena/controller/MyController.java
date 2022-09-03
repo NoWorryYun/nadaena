@@ -198,14 +198,22 @@ public class MyController {
 
 	//챌린지게시판 - 리뷰 리스트
 	@RequestMapping(value = "/challenge/{challengeNo}/review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String review(Model model, @PathVariable("challengeNo") int challengeNo, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
+	public String review(Model model, @PathVariable("challengeNo") int challengeNo, HttpSession session,
+						@RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
+		
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		if (authUser == null) {
+			//로그인 안되어있을 때
+		} else if (authUser != null) {
+			//로그인 되어있을 때
+			int userNo = authUser.getUserNo();
+			
+			Map<String, Object> rMap = myService.getrList(crtPage, challengeNo, userNo);
+			
+			model.addAttribute("rMap", rMap);
 
-		Map<String, Object> rMap = myService.getrList(crtPage, challengeNo);
-
-		model.addAttribute("rMap", rMap);
-
-		System.out.println(rMap);
-
+			System.out.println(rMap);
+		}
 		return "challenge/review";
 	}
 

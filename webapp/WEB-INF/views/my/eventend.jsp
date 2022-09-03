@@ -42,7 +42,7 @@
 				<h3 class="mychallenge">나의 이벤트</h3>
 				
 				<div class="challenge-header">
-					진행중 이벤트
+					종료된 이벤트
 					<ul>
 						<li><a href="${pageContext.request.contextPath }/my/event">진행중</a></li>
 						<li class="last-list"><a href="${pageContext.request.contextPath }/my/event/end">종료된</a></li>
