@@ -50,7 +50,7 @@
 							<div class="challenge-boxin">
 								<div class="challenge-image">
 									<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
-										<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+										<img src="${pageContext.request.contextPath }/upload/forNaDaeNa/${MyVo.img }">
 									</a>
 								</div>
 								<div class="challenge-info">
@@ -95,7 +95,7 @@
 							<div class="challenge-boxin">
 								<div class="challenge-image">
 									<a href="${pageContext.request.contextPath }/challenge/${MyVo.challengeNo}/intro">
-										<img src="${pageContext.request.contextPath }/assets/img/search-img.jpg">
+										<img src="${pageContext.request.contextPath }/upload/forNaDaeNa/${MyVo.img }">
 									</a>
 								</div>
 								<div class="challenge-info">

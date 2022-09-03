@@ -12,7 +12,7 @@ public class MyVo {
 	private int state;
 	private int achievement;
 	private String clgTitle;
-	private String Img;
+	private String img;
 	private String regDate;
 	private int recruitment;
 	private int period;
@@ -40,7 +40,7 @@ public class MyVo {
 		this.state = state;
 		this.achievement = achievement;
 		this.clgTitle = clgTitle;
-		Img = img;
+		this.img = img;
 		this.regDate = regDate;
 		this.recruitment = recruitment;
 		this.period = period;
@@ -109,10 +109,10 @@ public class MyVo {
 		this.clgTitle = clgTitle;
 	}
 	public String getImg() {
-		return Img;
+		return img;
 	}
 	public void setImg(String img) {
-		Img = img;
+		this.img = img;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -189,7 +189,7 @@ public class MyVo {
 	@Override
 	public String toString() {
 		return "MyVo [userClgNo=" + userClgNo + ", challengeNo=" + challengeNo + ", userNo=" + userNo + ", myChallengeDate=" + myChallengeDate + ", payment=" + payment + ", founder=" + founder + ", state=" + state + ", achievement=" + achievement + ", clgTitle=" + clgTitle
-				+ ", Img=" + Img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + ", bookmarkNo=" + bookmarkNo
+				+ ", img=" + img + ", regDate=" + regDate + ", recruitment=" + recruitment + ", period=" + period + ", clgLevel=" + clgLevel + ", clgGroup=" + clgGroup + ", startday=" + startday + ", endday=" + endday + ", yesterday=" + yesterday + ", bookmarkNo=" + bookmarkNo
 				+ ", bookmarkDate=" + bookmarkDate + ", nickname=" + nickname + ", clgCnt=" + clgCnt + "]";
 	}
 

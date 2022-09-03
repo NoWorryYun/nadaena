@@ -64,6 +64,7 @@ public class MyController {
 			Map<String, Object> mcMap = myService.getmcList(crtPage, userNo);
 
 			model.addAttribute("mcMap", mcMap);
+			System.out.println(mcMap);
 		}
 		return "my/challenge";
 	}

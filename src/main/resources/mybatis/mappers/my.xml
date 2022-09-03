@@ -23,7 +23,7 @@
 			        m.payment,
 			        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 			        c.clglevel,
-			        c.Img,
+			        c.img,
 			        cc.cnt clgCnt
 			from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
                                               from myChallenge
@@ -57,7 +57,7 @@
 			        ort.payment,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
@@ -77,7 +77,7 @@
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
 			       	  	 ot.clglevel,
-			       	  	 ot.Img,
+			       	  	 ot.img,
 			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
@@ -96,7 +96,7 @@
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt
 					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
 			                                              from myChallenge
@@ -133,7 +133,7 @@
 			        ort.payment,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
@@ -153,7 +153,7 @@
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
 			       	  	 ot.clglevel,
-			       	  	 ot.Img,
+			       	  	 ot.img,
 			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
@@ -172,7 +172,7 @@
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt
 					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
 			                                              from myChallenge
@@ -211,7 +211,7 @@
 			        ort.payment,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
@@ -231,7 +231,7 @@
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
 			       	  	 ot.clglevel,
-			       	  	 ot.Img,
+			       	  	 ot.img,
 			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
@@ -250,7 +250,7 @@
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt
 					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
 			                                              from myChallenge
@@ -288,7 +288,7 @@
 			        ort.payment,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
@@ -308,7 +308,7 @@
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
 			       	  	 ot.clglevel,
-			       	  	 ot.Img,
+			       	  	 ot.img,
 			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
@@ -327,7 +327,7 @@
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt
 					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
 			                                              from myChallenge
@@ -363,7 +363,7 @@
 			        ort.payment,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.userNo,
@@ -383,7 +383,7 @@
 			       	  	 ot.payment,
 			       	  	 ot.yesterday,
 			       	  	 ot.clglevel,
-			       	  	 ot.Img,
+			       	  	 ot.img,
 			       	  	 ot.clgCnt
 				  from (select  m.userNo,
 								m.userClgNo,
@@ -402,7 +402,7 @@
 						        m.payment,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt
 					    from challenge c, mychallenge m, (select challengeNo, count(challengeNo) cnt
 			                                              from myChallenge
@@ -498,7 +498,7 @@
 			        ort.endday,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.bookmarkNo,
@@ -514,7 +514,7 @@
 				         ot.endday,
 				         ot.yesterday,
 				         ot.clglevel,
-				         ot.Img,
+				         ot.img,
 				         ot.clgCnt
 				  from (select  b.bookmarkNo,
 								b.userNo,
@@ -529,7 +529,7 @@
 						        to_char(c.regdate + c.recruitment + (c.period*7) - 1, 'yyyy-mm-dd') endday,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt					
 						from bookmark b, users u, challenge c, (select challengeNo, count(challengeNo) cnt
 					                                            from myChallenge
@@ -562,7 +562,7 @@
 			        ort.endday,
 			        ort.yesterday,
 			        ort.clglevel,
-			        ort.Img,
+			        ort.img,
 			        ort.clgCnt
 			from (select rownum rn,
 						 ot.bookmarkNo,
@@ -578,7 +578,7 @@
 				         ot.endday,
 				         ot.yesterday,
 				         ot.clglevel,
-				         ot.Img,
+				         ot.img,
 				         ot.clgCnt
 				  from (select  b.bookmarkNo,
 								b.userNo,
@@ -593,7 +593,7 @@
 						        to_char(c.regdate + c.recruitment + (c.period*7) - 1 , 'yyyy-mm-dd') endday,
 						        to_char(sysdate-1, 'yyyy-mm-dd') yesterday,
 						        c.clglevel,
-						        c.Img,
+						        c.img,
 						        cc.cnt clgCnt					
 						from bookmark b, users u, challenge c, (select challengeNo, count(challengeNo) cnt
 					                                            from myChallenge
