@@ -763,13 +763,16 @@ public class MyService {
 
 		Map<String, Object> pMap = new HashMap<String, Object>();
 
-		pMap.put("pList", pList);
+		
 		pMap.put("prev", prev);
 		pMap.put("startPageBtnNo", startPageBtnNo);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("next", next);
 		pMap.put("sum", sum);
-
+		pMap.put("totalpCnt", totalpCnt);
+		pMap.put("crtPage", crtPage);
+		pMap.put("pList", pList);
+		
 		return pMap;
 	}
 

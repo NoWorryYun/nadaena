@@ -249,7 +249,6 @@
 
 
 
-
 <div id="review-modal" class="modal fade show" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -285,9 +284,6 @@ $(function(){
 	      location.href = "${pageContext.request.contextPath }/loginForm";
 	   }
 	});
-
-
-
 
 
 //리뷰작성 모달창 호출 했을때

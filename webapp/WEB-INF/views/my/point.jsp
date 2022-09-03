@@ -73,9 +73,9 @@
                     <c:set var="length" value="${fn:length(pMap.pList)}" />
                     
                     <c:forEach items="${pMap.pList}" var="ReviewVo" varStatus="i">
-                    
+                    	
                         <tr>
-                            <td class="column1">${ReviewVo.rn }</td>
+                            <td class="column1">${pMap.totalpCnt - (pMap.crtPage-1) * 7 - i.index}</td>
                             <td class="column2">${ReviewVo.pointDate }</td>
                             <td class="column3">
                             	<c:choose>
@@ -98,7 +98,6 @@
                             </c:if>
                            
                         </tr>
-	                      
                     </c:forEach> 
                     
 					<c:set var="length" value="${fn:length(pMap.pList)}" />
