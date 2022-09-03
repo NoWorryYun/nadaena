@@ -67,7 +67,7 @@
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/event">이벤트</a></li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/shop">포인트몰</a></li>
 			</ul>
-			<c:if test="${sessionScope.authUser.userNo!=null }">
+			<c:if test="${sessionScope.authUser.userNo != 1}">
 				<div id="btnbox" class="col-2">
 					<a id="btn-makeChallenge" class="btn btn-danger btn-lg pull-right" href="${pageContext.request.contextPath}/challenge/write">챌린지 개설하기</a>
 				</div>
