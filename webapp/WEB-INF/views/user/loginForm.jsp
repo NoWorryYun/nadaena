@@ -84,7 +84,7 @@
 											<button class="btn btn-primary d-block btn-user w-100"
 												type="submit">로그인</button>
 												</form>
-											<div class="hr-sect">또는</div>
+											<%-- <div class="hr-sect">또는</div>
 											
 								
 											 
@@ -106,7 +106,7 @@
 										<div class="mb-3">
 											<div></div>
 
-										</div>
+										</div> --%>
 									</div>
 								</div>
 							</div>
