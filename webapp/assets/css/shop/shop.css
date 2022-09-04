@@ -26,7 +26,7 @@ img { border:0; vertical-align:middle; }
 }
 
 #contents_wrap1 { width: 100%; }
-.contents_1 { width: 1200px; margin: 0 auto; }
+.contents_1 { width: 1113px; margin: 0 auto; }
 
 .home_btn ul { float: left; }
 .home_btn ul li { float: left; }
@@ -68,17 +68,17 @@ img { border:0; vertical-align:middle; }
 }
 
 
-.contents_2 { width: 1200px; margin: 0 auto; padding-top: 120px;
+.contents_2 { width: 1113px; margin: 0 auto; padding-top: 120px;
     
 }
 
 
 
 .box_1 { float: left; margin-right: 14px; padding-bottom: 80px;}
-.scale { width: 386px; height: 286px; overflow: hidden;
+.scale { width: 357px; height: 286px; overflow: hidden;
     transform: scale(1); margin-bottom: 30px; }
 .scale img { position: relative; 
-	width: 386px; height: 296px;
+	width: 357px; height: 296px;
 }
 .scale img:hover { transform: scale(1.1); 
     transition: all 0.5s;

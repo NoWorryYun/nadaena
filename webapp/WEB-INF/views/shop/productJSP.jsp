@@ -41,6 +41,7 @@
 
 
 <main>
+<div class="main-box">
 	 <div id="contents_wrap2">
             <div class="contents_2">
                 <div class="product_img">
@@ -134,7 +135,7 @@
                 
             </div>
         </div>
-        
+</div>       
 </main>
 
 
