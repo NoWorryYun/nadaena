@@ -403,17 +403,12 @@
 	  	
 		//태그 append  	
 	  	$("#tagbar").on("keyup", function(key){
-
 	  		if(key.keyCode == 13){
 	  			//태그 value 가져오기
 	  	  		var text = $("#tagbar").val();
-	  			
 	  	  		if(text == "" || text == null){
-	  	  			
 	  	  			alert("텍스트를 입력해 주세요")
-	  	  			
 	  	  		} else if(count <= 5){
-	  	  			
 	  	  			//태그 배열에 추가
 		  	  		tagList.push(text);
 		  	  		
@@ -429,42 +424,26 @@
 		  	  		for(var i = 0 ; i < tagList.length ; i++){
 						$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
 		  	  		}
-		  	  		
 				} else{
 					alert("최대 설정 가능한 태그입니다.");
 				}
-			  	  		
 	  		}
-	  		
 	  	});
-	  	
 	  	
 	  	//태그 1~5 삭제
 	  		$("#tagLD").on("click", "#tag1", function(){
-	  			
 	  			tagList.shift();
-	  			
 	  			$("#tags *").remove();
-	  			
 	  			count -= 1;
-	  			
 	  			for(var i = 0 ; i < tagList.length ; i++){
-	  				
 					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
 	  	  		}
-	  			
 	  		})
-	  	
 			$("#tagLD").on("click", "#tag2", function(){
-	  			
 	  			tagList.splice(1, 1);
-	  			
 	  			$("#tags *").remove();
-	  			
 	  			count -= 1;
-	  			
 	  			for(var i = 0 ; i < tagList.length ; i++){
-	  				
 					$("#tags").append('<span id="tag'+ (i+1) +'" class="tag">' + tagList[i] +'</span>');
 	  	  		}
 	  		});
@@ -543,7 +522,6 @@
 			$("#upload-here *").remove();
 			$("#upload-here").html(upsList(3));
 		}
- 		
 	})
 	
 	function upsList(n){
@@ -640,8 +618,6 @@
  	
 	
 	<!-------------------------------- 시간 설정 -------------------------------->
-	
-	
 		var today1 = new Date();  
 		var today2 = new Date();
 		var rDate = new Date();
@@ -651,7 +627,6 @@
 		var date2 = today2.getDate();
 
 		var recDate = [];
-
 		var perDate = [];
 
 		var rec = $('select[name="recruitment"]').val();
@@ -687,15 +662,12 @@
 		
 		<!-- 모집기간 설정 눌렀을 때 -->
 		$('select[name="recruitment"]').on("change", function(){
-			
 			var rec = $('select[name="recruitment"]').val();
 			rec = Number(rec);
 			var pec = $('select[name="period"]').val();
 			pec = Number(pec);
 			
 			rDate = new Date(today1.setDate(date + rec));
-			
-			console.log(rec);
 			
 			recDate[0] = rDate.getFullYear();
 			recDate[1] = rDate.getMonth() + 1;
@@ -1059,17 +1031,17 @@
 
   		var ups = $('input:radio[name="upload"]:checked').val();
   		ups=Number(ups);
-  		
-  		for (var i = 1 ; i < (ups+1) ; i++){
+  		for (var i = 1 ; i <= ups ; i++){
   			var title = $("#certifyTitle"+ i +"").val();
   			if(title == "" || title == null){
   				alert("인증할 내용을 적어주세요");
   				return false;
   			}
-  			
   			var timestop = $('input:checkbox[name="timestop' + i + '"]');
 	  		var timeS1 = $('select[name="upload-time' + i + '-1"]').val();
 	  		var timeS2 = $('select[name="upload-time' + i + '-2"]').val();
+	  		timeS1 = Number(timeS1);
+	  		timeS2 = Number(timeS2);
 	  		if(timestop.is(":checked") == false){
 	  			if( timeS1 == "" || timeS1 == null || timeS2 == "" || timeS2 == null ){
 	  				alert("시간을 설정해주세요.");
@@ -1077,20 +1049,18 @@
 	  			} else if(timeS1 >= timeS2){
 	  				console.log("timeS1 : " + timeS1)
 	  				console.log("timeS2 : " + timeS2)
-		  			alert("시작시간이 끝나는 시간보다 크면 안됩니다");
+		  			alert("종료 시간을 시작 시간 이후로 설정해주세요");
 		  			return false;
 		  		} else{
+		  			console.log("timeS1 : " + timeS1)
+	  				console.log("timeS2 : " + timeS2)
 		  			console.log("시간맞음");
 		  		}
 	  		} else{
 	  			console.log("체크되어있음");
 	  		}
 		}
-  		
-  		
-  		
  		var content = editor.getData();
- 		
  		var payment = $('select[name="payment"]').val();
  		
   		if($("#clgTitle").val() == "" || $("#clgTitle").val() == null){

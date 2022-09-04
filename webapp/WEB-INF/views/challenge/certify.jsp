@@ -380,8 +380,6 @@
 			challengeNo : challengeNo
 		}
 		
-		console.log(dateChkData);
-		
 		function renderList(){
 			var dataList = [];
 			
@@ -411,23 +409,15 @@
 
 					console.log(dataList);
 					
-					
 					var cList = [];
 					
 					var today = new Date();
 					today = today.toString();
 					today = today.substring(4,15);
 					
-					console.log(today);
-					
 					for (var i = 0; i < dataList.length; i++) {
 						cList[i] = dataList[i].start.substring(11,13) + dataList[i].start.substring(14,16);
-						
 					}
-					
-					console.log(cList);
-					
-					
 				}
 			})
 			
