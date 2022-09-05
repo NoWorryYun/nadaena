@@ -974,7 +974,7 @@
 			async: false,  //동기화
 			dataType : "json",
 			success : function(result){
-				if(result > 3){
+				if(result >= 3){
 					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
 					reVal = false;
 				} else{
@@ -1023,14 +1023,10 @@
   		//유저 참여 갯수 체크
   		if( joinCount() == false) {
   			return false;
-  		} else {
-  			return true;
   		}
   		
   		if( pointChk() == false) {
   			return false;
-  		} else{
-  			return true;
   		}
 
   		var ups = $('input:radio[name="upload"]:checked').val();
@@ -1047,7 +1043,7 @@
 	  		timeS1 = Number(timeS1);
 	  		timeS2 = Number(timeS2);
 	  		if(timestop.is(":checked") == false){
-	  			if( timeS1 == "" || timeS1 == null || timeS2 == "" || timeS2 == null ){
+	  			if( timeS1 == "" && timeS1 == null && timeS2 == "" && timeS2 == null ){
 	  				alert("시간을 설정해주세요.");
 	  				return false;
 	  			} else if(timeS1 >= timeS2){

@@ -64,7 +64,7 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
+								${rMap.intro.clgTitle }<br>${rMap.intro.recRD}~${rMap.intro.recRDP}<br>
 							</h2>
 							<div id="bookMark" class="i-float"></div>
 						</div>
@@ -447,6 +447,7 @@ $(".report").on("click", function(){
 		})(); */
 		
 		//북마크 확인하기
+		var authUser = "${authUser.userNo}"
 		function bkload(){
 		if(authUser == "" && authUser == null){
 				$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		

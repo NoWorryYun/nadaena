@@ -169,8 +169,6 @@ public class ChallengeDao {
 		
 		 List<Integer> userList = sqlSession.selectList("Challenge.clgUserList", challengeNo);
 		
-		 System.out.println("Dao : " + userList);
-		 
 		return userList;
 	}
 
@@ -194,9 +192,13 @@ public class ChallengeDao {
 	
 	public int joinCount(int userNo) {
 		
-		int count = sqlSession.selectOne("Challenge.joinCount", userNo);
+		Integer count = sqlSession.selectOne("Challenge.joinCount", userNo);
 		
-		System.out.println("dao count : " + count);
+		if(count != null && count > 0) {
+			count = sqlSession.selectOne("Challenge.joinCount", userNo);
+		} else {
+			count = 0;
+		}
 		
 		return count;
 		
@@ -215,7 +217,6 @@ public class ChallengeDao {
 		} else {
 			amount = 0;
 		}
-		System.out.println(amount);
 		return amount;
 	}
 	
