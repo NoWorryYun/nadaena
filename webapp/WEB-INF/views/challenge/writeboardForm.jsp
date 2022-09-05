@@ -133,7 +133,7 @@
 					</div>
 				</div>
 
-								<div id="rside" class="col-3">
+				<div id="rside" class="col-3">
 					<div id="challenge-recommand">
 						<div>
 							<p>현재 인기의 챌린지</p>
