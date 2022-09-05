@@ -89,4 +89,49 @@ public class SearchService {
 
 	
 
+	//bestList
+	public Map<String, List<MainTitleVo>> getBestClgList() {
+		System.out.println("SearchService > searchList()");
+
+		SearchVo searchVo = new SearchVo();
+		/////////////////////// // 리스트가져오기 /////////////////////////////////////////////
+		//시작글번호 
+		int startRnum = 1;
+
+		//끝글번호 
+		int endRnum = 3;
+
+		//시작글번호 끝글번호 적용
+		searchVo.setStartRnum(startRnum);
+		searchVo.setEndRnum(endRnum);
+		
+		
+		
+		///////////////////////최신챌린지/////////////////////////////////////////////
+		searchVo.setOrderType("newOrder");
+		List<MainTitleVo> newOrderList = searchDao.searchList(searchVo);
+
+		
+		///////////////////////최신챌린지/////////////////////////////////////////////
+		searchVo.setOrderType("likeOrder");
+		List<MainTitleVo> likeOrderList = searchDao.searchList(searchVo);
+
+		///////////////////////마감  임박 챌린지/////////////////////////////////////////////
+		searchVo.setOrderType("recruitmentOrder");
+		List<MainTitleVo> recruitmentOrderList = searchDao.searchList(searchVo);
+		
+		
+
+		Map<String, List<MainTitleVo>> bestListMap = new HashMap<String, List<MainTitleVo>>();
+		
+		bestListMap.put("newOrderList", newOrderList);
+		bestListMap.put("likeOrderList", likeOrderList);
+		bestListMap.put("recruitmentOrderList", recruitmentOrderList);
+		
+		return bestListMap;
+
+	}
+
+	
+	
 }

@@ -133,7 +133,7 @@
 					</div>
 				</div>
 
-				<div id="rside" class="col-3">
+								<div id="rside" class="col-3">
 					<div id="challenge-recommand">
 						<div>
 							<p>현재 인기의 챌린지</p>
@@ -141,13 +141,21 @@
 								<li class="list-inline-item">
 									<div class="simple-slider">
 										<div class="swiper-container">
-											<div class="swiper-wrapper">
-												<div class="swiper-slide"></div>
-												<div class="swiper-slide">
-													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png">
-													</a>
-												</div>
-												<div class="swiper-slide"></div>
+											<div id="newOrderList" class="swiper-wrapper">
+											
+												<c:forEach items="${bestListMap.newOrderList}" var="item">
+													<div class=" swiper-slide" style="position: relative;">
+														<a href="${pageContext.request.contextPath}/challenge/${citem.challengeNo}/intro"> 
+															<img src="${pageContext.request.contextPath}/${item.img}">
+														</a>
+														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
+															<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
+																${item.clgTitle}
+															</a>
+														</p>														
+													</div>
+												</c:forEach>
+											
 											</div>
 											<div class="swiper-pagination"></div>
 											<div class="swiper-button-prev"></div>
@@ -158,18 +166,26 @@
 							</ul>
 						</div>
 						<div>
-							<p>같은 태그의 챌린지</p>
+							<p>최근 등록된 챌린지</p>
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
 									<div class=" simple-slider">
 										<div class=" swiper-container">
-											<div class=" swiper-wrapper">
-												<div class=" swiper-slide"></div>
-												<div class=" swiper-slide">
-													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png">
-													</a>
-												</div>
-												<div class=" swiper-slide"></div>
+											<div id="likeOrderList" class="swiper-wrapper">
+											
+												<c:forEach items="${bestListMap.likeOrderList}" var="item">
+													<div class=" swiper-slide" style="position: relative;">
+														<a href="${pageContext.request.contextPath}/challenge/${citem.challengeNo}/intro"> 
+															<img src="${pageContext.request.contextPath}/${item.img}">
+														</a>
+														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
+															<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
+																${item.clgTitle}
+															</a>
+														</p>														
+													</div>
+												</c:forEach>
+											
 											</div>
 											<div class="swiper-pagination"></div>
 											<div class="swiper-button-prev"></div>
@@ -180,18 +196,26 @@
 							</ul>
 						</div>
 						<div>
-							<p>챌린지</p>
+							<p>마감  임박 챌린지</p>
 							<ul class="list-inline text-center">
 								<li class="list-inline-item">
 									<div class=" simple-slider">
 										<div class=" swiper-container">
-											<div class=" swiper-wrapper">
-												<div class=" swiper-slide">
-													<a href="#"> <img src="${pageContext.request.contextPath}/assets/img/logo.png">
-													</a>
-												</div>
-												<div class=" swiper-slide"></div>
-												<div class=" swiper-slide"></div>
+											<div id="recruitmentOrderList" class="swiper-wrapper">
+											
+												<c:forEach items="${bestListMap.recruitmentOrderList}" var="item">
+													<div class=" swiper-slide" style="position: relative;">
+														<a href="${pageContext.request.contextPath}/challenge/${citem.challengeNo}/intro"> 
+															<img src="${pageContext.request.contextPath}/${item.img}">
+														</a>
+														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
+															<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
+																${item.clgTitle}
+															</a>
+														</p>														
+													</div>
+												</c:forEach>
+											
 											</div>
 											<div class="swiper-pagination"></div>
 											<div class="swiper-button-prev"></div>
@@ -203,6 +227,8 @@
 						</div>
 					</div>
 				</div>
+				
+				
 			</div>
 		</div>
 	</main>

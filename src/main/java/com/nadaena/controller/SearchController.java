@@ -53,6 +53,21 @@ public class SearchController {
 
 	
 	
+//	//best리스트(ajax)
+//	@ResponseBody
+//	@RequestMapping(value = "/search/getBestClgList", method = { RequestMethod.GET, RequestMethod.POST })
+//	public List<MainTitleVo> getBestClgList(@ModelAttribute SearchVo searchVo) {
+//		System.out.println("SearchController > getBestClgList");
+//		
+//		System.out.println("====================================================");
+//		System.out.println(searchVo);
+//		System.out.println("====================================================");
+//		
+//		//List<MainTitleVo> bestList = searchService.getBestClgList(searchVo);
+//
+//		return bestList;
+//	}
+//	
 
 
 }

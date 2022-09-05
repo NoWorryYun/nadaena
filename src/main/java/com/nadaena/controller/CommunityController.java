@@ -1,5 +1,6 @@
 package com.nadaena.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.CommunityService;
+import com.nadaena.service.SearchService;
 import com.nadaena.vo.BoardVo;
 import com.nadaena.vo.ChallengeVo;
 import com.nadaena.vo.CommentVo;
+import com.nadaena.vo.MainTitleVo;
 import com.nadaena.vo.SearchVo;
 import com.nadaena.vo.UserVo;
 
@@ -26,6 +29,9 @@ public class CommunityController {
 	@Autowired
 	private CommunityService communityService;
 	
+	
+	@Autowired
+	private SearchService searchService;
 	
 	//챌린지 커뮤니티 게시판 리스트
 	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
@@ -57,8 +63,12 @@ public class CommunityController {
 		
 		//조인체크, intro, 글 리스트
 		Map<String, Object> cMap = communityService.getCommunity(serchVo, challengeVo);
-		
 		model.addAttribute("cMap", cMap);
+		
+		//best 글 가져오기
+		Map<String, List<MainTitleVo>> bestListMap = searchService.getBestClgList();
+		model.addAttribute("bestListMap", bestListMap);
+		System.out.println(bestListMap);
 		
 		return "challenge/community";
 	}
@@ -82,6 +92,12 @@ public class CommunityController {
 		Map<String, Object> cMap = communityService.intro(challengeNo);
 
 		model.addAttribute("cMap", cMap);
+		
+		
+		//best 글 가져오기
+		Map<String, List<MainTitleVo>> bestListMap = searchService.getBestClgList();
+		model.addAttribute("bestListMap", bestListMap);
+		System.out.println(bestListMap);
 
 		return "challenge/writeboardForm";
 	}
@@ -122,6 +138,11 @@ public class CommunityController {
 		
 		model.addAttribute("cMap", cMap);
 		
+		
+		//best 글 가져오기
+		Map<String, List<MainTitleVo>> bestListMap = searchService.getBestClgList();
+		model.addAttribute("bestListMap", bestListMap);
+		System.out.println(bestListMap);
 		
 		return "challenge/readboard";
 	}
