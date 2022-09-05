@@ -202,3 +202,14 @@ footer>.footer-box {width: 1113px; margin: 0 auto; padding: 20px 20px 10px 20px;
 /******************************************/
 
 
+
+.bestTitle {
+	display:block;
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	margin: 0px;
+	text-align: left;
+}
+
