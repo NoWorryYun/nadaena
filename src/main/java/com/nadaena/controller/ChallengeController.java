@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.ChallengeService;
+import com.nadaena.service.SearchService;
 import com.nadaena.vo.ChallengeSubVo;
 import com.nadaena.vo.ChallengeVo;
+import com.nadaena.vo.MainTitleVo;
 import com.nadaena.vo.UserVo;
 
 /*테스트*/
@@ -31,7 +33,9 @@ public class ChallengeController {
 
 	@Autowired
 	private ChallengeService challengeService;
-	
+	@Autowired
+	private SearchService searchService;
+
 	//intro
 	@RequestMapping(value = "/challenge/{challengeNo}/intro", method = { RequestMethod.GET, RequestMethod.POST })
 	public String challenge(@PathVariable("challengeNo") int challengeNo, HttpSession session, Model model) throws ParseException {
@@ -49,6 +53,10 @@ public class ChallengeController {
 		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
 		model.addAttribute("cMap" , cMap);
+		
+		//best 글 가져오기
+		Map<String, List<MainTitleVo>> bestListMap = searchService.getBestClgList();
+		model.addAttribute("bestListMap", bestListMap);
 		
 		return "challenge/intro";
 	}

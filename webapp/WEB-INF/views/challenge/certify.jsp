@@ -155,7 +155,7 @@
 																						</c:when>
 																						<c:otherwise>
 																							<button class="make-challenge certify" type="submit">인증하기</button>
-																							<span id="noDate"></span>
+																							<span class="noDate"></span>
 																							<input type="hidden" name="certifyChk" value="1">
 																						</c:otherwise>
 																					</c:choose>
@@ -642,7 +642,7 @@
 		
 	    if(startDate > nowtime || endDate < nowtime ){ //지금이 시작시간보다 작거나, 종류시간보다 크면         $('.call_btn img').attr('src', 'icon_off.png');  //이미지 주소 변경    }
 		   $('.make-challenge').css('display', 'none');  //이미지 주소 변경   
-			$("#noDate").text("인증이 가능한 시간이 아닙니다");
+			$(".noDate").text("인증이 가능한 시간이 아닙니다");
 		}
 		
 		
