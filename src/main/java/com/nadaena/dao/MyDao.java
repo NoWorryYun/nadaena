@@ -248,6 +248,13 @@ public class MyDao {
 		return sqlSession.selectOne("my.selectReviewPoint", reviewVo);
 		
 	}	
+	//전체 진행율
+	public double avg(int challengeNo) {
+		
+		double avg = sqlSession.selectOne("my.avg", challengeNo);
+		
+		return avg;
+	}	
 	
 	//포인트 지급
 	public int writeReviewPoint(ReviewVo rVo) {
