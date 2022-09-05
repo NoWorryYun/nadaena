@@ -156,7 +156,7 @@
 					</div>
 				</div>
 
-								<!-- 오른쪽 베스트 코너 -->
+				<!-- 오른쪽 베스트 코너 -->
 				<div id="rside" class="col-3">
 					<div id="challenge-recommand">
 						<div>
