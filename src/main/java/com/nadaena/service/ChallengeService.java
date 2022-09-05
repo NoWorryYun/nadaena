@@ -192,8 +192,6 @@ public class ChallengeService {
 	//챌린지 참여/탈퇴하기(유저)
 	public int joinChallenge(ChallengeVo challengeVo) {
 		
-		System.out.println("challengeVo = "+ challengeVo);
-		
 		//챌린지 참여/탈퇴/삭제 번호 확인
 		int joinchk = challengeVo.getClgInOutChk();
 		System.out.println("joinchk : " + joinchk);
@@ -207,26 +205,17 @@ public class ChallengeService {
 		
 		//유저 참여 금액 확인
 		int payment = challengeDao.userPay(challengeVo);
-		
-		System.out.println("Service challengeNo = "+challengeNo);
-		System.out.println("Service UserNo = "+ userNo);
-		System.out.println("Service payment = "+ payment);
-		
 		//참여용 금액차감 Vo 생성
 		ChallengeVo chVo = new ChallengeVo();
 		chVo.setChallengeNo(challengeNo);
 		chVo.setUserNo(userNo);
 		chVo.setAmount(pay);
 		
-		System.out.println("chVo : "+ chVo);
-		
 		//탈퇴용 금액환급 Vo 생성
 		ChallengeVo clgVo = new ChallengeVo();
 		clgVo.setChallengeNo(challengeNo);
 		clgVo.setUserNo(userNo);
 		clgVo.setAmount(payment);
-		
-		System.out.println("clgVo : " + clgVo);
 		
 		//방에 포함되어있는 유저리스트
 		List<Integer> userList = challengeDao.clgUserList(challengeNo);
@@ -300,7 +289,7 @@ public class ChallengeService {
 		
 		ChallengeVo challengeVo = challengeDao.intro(challengeNo);
 		
-		String recRD = challengeVo.getRecRD();
+		String recRD = challengeVo.getRecRDM();
 		int period = challengeVo.getPeriod();
 		int upload = challengeVo.getUpload();
 

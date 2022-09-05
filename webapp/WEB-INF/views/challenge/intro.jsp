@@ -154,7 +154,8 @@
 
 																	<td class="write-table-label">참가비용</td>
 																	<td class="font-12 table-none">
-																	
+																		<div class="textPay">
+																		<div class="removeSelect">
 																		<c:choose>
 																			<c:when test="${cMap.joinChk.payment > 500}">
 																				${cMap.joinChk.payment} &nbsp;원
@@ -197,6 +198,8 @@
 																				</c:choose> &nbsp;원
 																			</c:otherwise>
 																		</c:choose>
+																		</div>
+																		</div>
 																	</td>
 																</tr>
 																<tr style="border-style: none;">
@@ -206,17 +209,17 @@
 																				<c:choose>
 																					<c:when test="${cMap.joinChk.founder == 2}">
 																						<input type="hidden" name="clgInOutChk" value="2">
-																						<button id="btnSubmit" class="font-12" type="submit">참여 취소하기</button>
+																						<button id="btnSubmit" class="font-12 btnjoin" type="submit">참여 취소하기</button>
 																					</c:when>
 																					<c:otherwise>
 																						<input type="hidden" name="clgInOutChk" value="3">
-																						<button id="btnSubmit" class="font-12 deleteClg" type="submit">챌린지 삭제하기</button>
+																						<button id="btnSubmit" class="font-12 btnjoin" type="submit">챌린지 삭제하기</button>
 																					</c:otherwise>
 																				</c:choose>
 																			</c:when>
 																			<c:otherwise>
 																				<input type="hidden" name="clgInOutChk" value="1">
-																				<button id="btnSubmit" class="font-12" type="submit">챌린지 참여하기</button>
+																				<button id="btnSubmit" class="font-12 btnjoin" type="submit">챌린지 참여하기</button>
 																			</c:otherwise>
 																		</c:choose>
 																		
@@ -325,11 +328,12 @@
 
 <script type="text/javascript">
 	var authUser = "${authUser.userNo}"
-
+		
 	console.log(authUser);
 	
 	//회원 참여 갯수 체크하기
 	function joinCount(){
+		var userNo = "${authUser.userNo}";
 		var reVals = true;
 		
 		$.ajax({
@@ -341,10 +345,11 @@
 			async: false,  //동기화
 			dataType : "json",
 			success : function(result){
-				if(result > 3){
+				if(result >= 3){
 					alert("참여 가능한 챌린지 갯수가 초과하였습니다. (3개까지 가능)");
 					reVals = false;
 				} else{
+					console.log(result);
 					reVals = true;
 				}
 			}
@@ -437,6 +442,8 @@
 		
 		bkload();
 		
+		display();
+		
 	})
 	
 	//북마크 확인하기
@@ -525,6 +532,7 @@
 	
 	
 	var Now = new Date(); // 현재 날짜 및 시간
+    var nowYear = Now.getFullYear(); // 월
     var nowMonth = Now.getMonth() + 1; // 월
     var nowDay = Now.getDate(); // 일
     var nowHour = Now.getHours(); // 시
@@ -540,19 +548,30 @@
         return time; //2자리라면 값을 내보냄
     }
     }
+    nowYear = pluszero(nowYear); //만들었던 함수 적용
     nowMonth = pluszero(nowMonth); //만들었던 함수 적용
     nowDay = pluszero(nowDay);
     nowHour = pluszero(nowHour);
     nowMins = pluszero(nowMins);
  
-    var nowtime = nowMonth + nowDay; // 월+일+시+분
+    var nowtime = nowYear + nowMonth + nowDay; // 월+일+시+분
+	
+	nowtime = Number(nowtime);
+	console.log(nowtime);
 	
 	var startDate = "${cMap.intro.startDate}"
 	var endDate = "${cMap.intro.endDate}"
+	startDate = Number(startDate);
+	console.log(startDate);
 	
-    if(startDate < nowtime){ //지금이 시작시간보다 작거나, 종류시간보다 크면         $('.call_btn img').attr('src', 'icon_off.png');  //이미지 주소 변경    }
-	   $('.deleteClg').css('display', 'none');  //이미지 주소 변경   
+	function display(){
+	  if(startDate <= nowtime){ //지금이 시작시간보다 작거나, 종류시간보다 크면      
+		    $('.btnjoin').css('display', 'none'); 
+			$(".removeSelect").remove();
+			$('.textPay').append('<span>이미 시작된 채린지입니다.</span>');
+		}
 	}
+  
 </script>
 
 </body>

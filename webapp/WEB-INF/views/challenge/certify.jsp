@@ -155,6 +155,7 @@
 																						</c:when>
 																						<c:otherwise>
 																							<button class="make-challenge certify" type="submit">인증하기</button>
+																							<span id="noDate"></span>
 																							<input type="hidden" name="certifyChk" value="1">
 																						</c:otherwise>
 																					</c:choose>
@@ -169,6 +170,7 @@
 												</div>
 											</div>
 											<div class="certify-board">
+												<form action="" method="">
 												<div class="certify-board-header">
 													<p class="certify-header">인증게시판</p>
 													<ul class="list-inline" id="certify-all-mine">
@@ -176,6 +178,7 @@
 														<li class="list-inline-item"><a href="#">내인증글</a></li>
 													</ul>
 												</div>
+												</form>
 												<div id="certify-list">
 													<ul class="list-inline text-center">
 														<c:forEach items="${pMap.certifyIMGList}" var="ChallengeVo">
@@ -409,15 +412,6 @@
 
 					console.log(dataList);
 					
-					var cList = [];
-					
-					var today = new Date();
-					today = today.toString();
-					today = today.substring(4,15);
-					
-					for (var i = 0; i < dataList.length; i++) {
-						cList[i] = dataList[i].start.substring(11,13) + dataList[i].start.substring(14,16);
-					}
 				}
 			})
 			
@@ -617,17 +611,10 @@
 		var startDate = "${cMap.intro.startDate}"
 		var endDate = "${cMap.intro.endDate}"
 		
-		console.log("startDate");
-		console.log(startDate);
-		console.log(typeof(startDate));
-		console.log("endDate");
-		console.log(endDate);
-		console.log(typeof(endDate));
-		
-
 		
 	    if(startDate > nowtime || endDate < nowtime ){ //지금이 시작시간보다 작거나, 종류시간보다 크면         $('.call_btn img').attr('src', 'icon_off.png');  //이미지 주소 변경    }
 		   $('.make-challenge').css('display', 'none');  //이미지 주소 변경   
+			$("#noDate").text("인증이 가능한 시간이 아닙니다");
 		}
 		
 		

@@ -26,7 +26,7 @@
 					#{interestNo}, 
 					#{clgTitle}, 
 					#{img},
-					to_char(sysdate, 'yy-mm-dd'), 
+					sysdate, 
 					#{recruitment}, 
 					#{period}, 
 					#{certify},
@@ -145,8 +145,8 @@
 			       tag5,
 			       clgLevel,
 			       clgGroup,
-			       to_char(regDate+recruitment, 'mmdd') startDate,
-			       to_char(regDate+recruitment-1+(period*7), 'mmdd') endDate
+			       to_char(regDate+recruitment, 'yyyymmdd') startDate,
+			       to_char(regDate+recruitment-1+(period*7), 'yyyymmdd') endDate
 			from challenge c, interest i
 			where c.interestno = i.interestno(+)
 			and c.challengeNo = #{challengeNo}
@@ -193,7 +193,7 @@
 	<insert id="joinPayHeader" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into point
-			values(seq_pointNo.nextval, #{userNo}, 2, 1, -#{payment}, to_char(sysdate, 'yyyy-mm-dd'), null , #{challengeNo}, '챌린지 개설')		
+			values(seq_pointNo.nextval, #{userNo}, 2, 1, -#{payment}, sysdate, null , #{challengeNo}, '챌린지 개설')		
 		]]>
 	</insert>
 	
@@ -202,7 +202,7 @@
 	<insert id="joinPay" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into point
-			values(seq_pointNo.nextval, #{userNo}, 2, 1, -#{amount}, to_char(sysdate, 'yyyy-mm-dd'), null , #{challengeNo}, '챌린지 참여')		
+			values(seq_pointNo.nextval, #{userNo}, 2, 1, -#{amount}, sysdate, null , #{challengeNo}, '챌린지 참여')		
 		]]>
 	</insert>
 
@@ -221,7 +221,7 @@
 	<insert id="joinPayBack" parameterType="ChallengeVo">
 		<![CDATA[
 			insert into point
-			values(seq_pointNo.nextval, #{userNo}, 2, 1, #{amount}, to_char(sysdate, 'yyyy-mm-dd'), null , #{challengeNo}, '챌린지 취소')
+			values(seq_pointNo.nextval, #{userNo}, 2, 1, #{amount}, sysdate, null , #{challengeNo}, '챌린지 취소')
 		]]>
 	</insert>
 	
