@@ -174,7 +174,7 @@
 													<p class="certify-header">인증게시판</p>
 													<ul class="list-inline" id="certify-all-mine">
 														<li class="list-inline-item"><a href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">전체</a></li>
-														<li class="list-inline-item"><a href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify?upload=mine">내인증글</a></li>
+														<li class="list-inline-item"><a href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify?upload=mine&crtPage=${param.crtPage}">내인증글</a></li>
 													</ul>
 												</div>
 												<div id="certify-list">
@@ -200,21 +200,21 @@
 															<nav>
 																<ul class="pagination pagination-sm">
 																	<c:if test="${pMap.prev}">
-																		<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/certify?crtPage=${pMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
+																		<li class="page-item"><a class="page-link" aria-label="Previous" href="${pageContext.request.contextPath }/certify?upload=${param.upload}&crtPage=${pMap.startPageBtnNo-1}"><span aria-hidden="true">«</span></a></li>
 																	</c:if>
 																	<c:forEach begin="${pMap.startPageBtnNo}" end="${pMap.endPageBtnNo}" step="1" var="page">	
 																		<c:choose>
 																			<c:when test="${param.crtPage==page}">
-																				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?crtPage=${page}">${page}</a></li>
+																				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?upload=${param.upload}&crtPage=${page}">${page}</a></li>
 																			</c:when>
 																			<c:otherwise>
-																				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?crtPage=${page}">${page}</a></li>
+																				<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?upload=${param.upload}&crtPage=${page}">${page}</a></li>
 																			</c:otherwise>
 																		</c:choose>	
 																	</c:forEach>
 																	
 																	<c:if test="${pMap.next}">
-																		<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?crtPage=${pMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
+																		<li class="page-item"><a class="page-link" aria-label="Next" href="${pageContext.request.contextPath }/challenge/${cMap.intro.challengeNo}/certify?upload=${param.upload}&crtPage=${pMap.endPageBtnNo+1}"><span aria-hidden="true">»</span></a></li>
 																	</c:if>
 																</ul>
 															</nav>
