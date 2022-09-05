@@ -160,13 +160,13 @@
 						<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${cMap.startPageBtnNo-1}">◀</a></li>
 					</c:if>
 					
-					<c:forEach begin="${cMap.startPageBtnNo}" end="${cMap.endPageBtnNo}" step="1" varStatus="page">							
+					<c:forEach begin="${cMap.startPageBtnNo}" end="${cMap.endPageBtnNo}" step="1" var="page">							
 						<c:choose>
 							<c:when test="${param.crtPage==page}">
-								<li class="active"><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
+								<li class="active"><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page}">${page}</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page.count}">${page.count}</a></li>
+								<li><a href="${pageContext.request.contextPath }/search/searchForm?crtPage=${page}">${page}</a></li>
 							</c:otherwise>
 						</c:choose>	
 					</c:forEach>

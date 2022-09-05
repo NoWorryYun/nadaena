@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community.css">
 
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
@@ -55,32 +56,34 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
+								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
+							<div id="bookMark" class="i-float"></div>
 
-							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
 						</div>
 
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a id="introForm" 	class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="community"	 class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="review"	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab"
+										href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community" class="nav-link  active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
-								<div id="read-board">
-									<div>
+								<div id="board-list" class="tab-content">
+									
+									<div id="board-write-box">
 										<div class="certify-board-header">
 											<p class="certify-header">게시판</p>
 										</div>
 										<div>
 											<div>
-												<form action="${pageContext.request.contextPath}/challenge/communityList" method="get">
+												<form action="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community" method="get">
 												<select name="category">
-												
 													<optgroup label="카테고리" >
-														<option value="1" selected="selected">팁</option>
+														<option value="" selected="selected">전체</option>
+														<option value="1">팁</option>
 														<option value="2">응원</option>
 														<option value="3">질문</option>
 													</optgroup>
@@ -88,18 +91,25 @@
 												</select>
 												<div class="search-container search-board">
 													
-														<input class="search-input board-search-box" type="text" name="keyword" placeholder="검색어를 입력하세요" />
-														<button class="btn btn-light search-btn board-search-button" type="submit">
-															<i class="fa fa-search"></i>
-														</button>
-													
+													<input class="search-input board-search-box" type="text" name="keyword" placeholder="검색어를 입력하세요" />
+													<button class="btn btn-light search-btn board-search-button" type="submit">
+														<i class="fa fa-search"></i>
+													</button>
+												
 												</div>
 												</form>
+												
 												<div id="read-board-main">
-													<div class="table-responsive font-14">
+													<div class="font-14">
 														<table class="table">
+															<colgroup>
+																<col style="width: 10%;">
+																<col >
+																<col style="width: 10%;">
+																<col style="width: 10%;">
+																<col style="width: 15%;">
+															</colgroup>
 															<thead>
-															
 																<tr>
 																	<th class="board-category-size">카테고리</th>
 																	<th class="title-size">제목</th>
@@ -109,7 +119,7 @@
 																</tr>
 															</thead>
 															<tbody>
-																<c:forEach var="BoardVo" items="${cuMap.CommunityList}">
+																<c:forEach var="BoardVo" items="${cMap.boardList}">
 																	<tr style="cursor:pointer;">
 																		<c:if test="${BoardVo.category == 1}">
 																			<td>팁</td>
@@ -120,7 +130,8 @@
 																		<c:if test="${BoardVo.category == 3}">
 																			<td>질문</td>
 																		</c:if>
-																		<td><a href="${pageContext.request.contextPath}/challenge/${BoardVo.challengeNo}/board/${BoardVo.boardNo}">${BoardVo.title}</a></td>
+																		
+																		<td><a href="${pageContext.request.contextPath}/challenge/${BoardVo.challengeNo}/community/readboard/${BoardVo.boardNo}">${BoardVo.title}</a></td>
 																		<td>${BoardVo.nickName}</td>
 																		<td>${BoardVo.hit}</td>
 																		<td>${BoardVo.boardDate2}</td>
@@ -130,27 +141,47 @@
 															</tbody>
 														</table>
 														<div id="write-board-regist" class="text-right i-float">
-															<input type="button" class="make-challenge certify" value="글쓰기">
+															<c:if test="${cMap.joinChk.userCount > 0}">
+																<a id="btn-goWriteForm" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community/writeboardForm" class="make-challenge certify" >글쓰기</a>
+															</c:if>
 														</div>
 													</div>
 												</div>
 											</div>
+											
+											
 											<div class="paging-box">
 												<nav>
 													<ul class="pagination pagination-sm">
-														<li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-														<li class="page-item"><a class="page-link" href="#">1</a></li>
-														<li class="page-item"><a class="page-link" href="#">2</a></li>
-														<li class="page-item"><a class="page-link" href="#">3</a></li>
-														<li class="page-item"><a class="page-link" href="#">4</a></li>
-														<li class="page-item"><a class="page-link" href="#">5</a></li>
-														<li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+														<c:if test="${cMap.prev}">
+															<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community?crtPage=${cMap.startPageBtnNo-1}">◀</a></li>
+														</c:if>
+														
+														<c:forEach begin="${cMap.startPageBtnNo}" end="${cMap.endPageBtnNo}" step="1" var="page">							
+															<c:choose>
+																<c:when test="${param.crtPage==page}">
+																	<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community?crtPage=${page}">${page}</a></li>
+																</c:when>
+																<c:otherwise>
+																	<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community?crtPage=${page}">${page}</a></li>
+																</c:otherwise>
+															</c:choose>	
+														</c:forEach>
+														
+														<c:if test="${cMap.next}">
+															<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community?crtPage=${cMap.endPageBtnNo+1}">▶</a></li>
+														</c:if>
 													</ul>
 												</nav>
 											</div>
+											
+											
 										</div>
 									</div>
 								</div>
+								
+								
+								
 							</div>
 						</div>
 					</div>
@@ -237,10 +268,7 @@
 	<!-- /footer -->
 
 
-
 </body>
-
-
 
 
 

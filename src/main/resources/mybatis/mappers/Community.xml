@@ -4,7 +4,7 @@
 <mapper namespace="Community">
 
 	<!-- 커뮤니티 리스트 불러오기 -->
-	<select id="comuList" parameterType="BoardVo" resultType="BoardVo">
+	<select id="getBordList" parameterType="com.nadaena.vo.SearchVo" resultType="BoardVo">
 		<![CDATA[
 			select  rn,
 			        ort.userNo,
@@ -53,88 +53,60 @@
 					and b.category = #{category}
 				</if>
 		
-		
-		
 		<![CDATA[
-			         
-			         
-			         
 			         
 			     order by boardNo desc) ot
 			    )ort
-			where ort.rn >=1
-			and ort.rn <=10
+			where ort.rn >= #{startRnum}
+			and ort.rn <= #{endRnum}
 			
 		]]>
 	</select>
 
 
 
-
-	<select id="comentList" resultType="BoardVo">
+	<!-- 글쓰기 -->
+	<insert id="insertBoard" parameterType="BoardVo">
 		<![CDATA[
-			select  rn,
-			        ort.userNo,
-			        ort.nickName,
-			        ort.boardNo,
-			        ort.challengeNo,
-			        ort.category,
-			        ort.title,
-			        ort.boardContent,
-			        ort.hit,
-			        ort.boardDate,
-			        ort.boarPass,
-			        ort.commentNo,
-			        ort.commentDate,
-			        ort.comments,
-			        ort.boardDate2,
-			        ort.commentDate2
-			from (select rownum rn,
-			             ot.userNo,
-			             ot.nickName,
-			             ot.boardNo,
-			             ot.challengeNo,
-			             ot.category,
-			             ot.title,
-			             ot.boardContent,
-			             ot.hit,
-			             ot.boardDate,
-			             ot.boarPass,
-			             ot.commentNo,
-			             ot.commentDate,
-			             ot.comments,
-			             ot.boardDate2,
-			             ot.commentDate2
-			    from(select u.userNo userNo,
-			                u.nickName nickName,
-			                b.boardNo boardNo,
-			                c.challengeNo challengeNo,
-			                b.category category,
-			                b.title title,
-			                b.content boardContent,
-			                b.hit hit,
-			                b.boardDate boardDate,
-			                b.boarPass boarPass,
-			                cm.commentNo commentNo,
-			                cm.commentDate commentDate,
-			                cm.comments comments,
-			                to_char(boardDate,'YYYY-MM-DD') boardDate2,
-			                to_char(commentDate,'YYYY-MM-DD') commentDate2
-			        from users u, challenge c, board b, comments cm
-			        where u.userNo = b.userNo
-			        and c.challengeNo = b.challengeNo
-			        and cm.boardNo = b.boardNo
-			        and c.challengeNo = #{challengeNo}
-			        order by commentNo desc) ot
-			    )ort
-			where ort.rn >=1
-			and ort.rn <=10
-		
+			insert into board
+			values  (seq_boardNo.nextval,
+					#{challengeNo},
+					#{boardPass},
+					#{userNo},
+					#{category},
+					#{title},
+					#{boardContent},
+					0,
+					sysdate
+					)
 		]]>
+	</insert>
+
+
+
+	<!-- 커뮤니티의 전체 글갯수 구하기 -->
+	<select id="selectTotalCnt" parameterType="com.nadaena.vo.SearchVo" resultType="int">
+		<![CDATA[
+			select count(*)
+			from users u, challenge c, board b
+			where u.userNo = b.userNo
+			and c.challengeNo = b.challengeNo
+			and c.challengeNo = #{challengeNo}
+		]]>	
+				
+		<if test="keyword != ''  and  keyword != null ">
+			and c.clgTitle like '%'||#{keyword}||'%'
+		</if>
+			
+		<if test="category gt 0 ">
+			and b.category = #{category}
+		</if>
+		
 	</select>
 
 
-	<select id="comuInfo" parameterType="BoardVo" resultType="BoardVo">
+	<!-- 글1개 가져오기 (읽기) -->
+	<select id="selectBoard" parameterType="int" resultType="BoardVo">
 		<![CDATA[
 			select  u.userNo userNo,
                     u.nickName nickName,
@@ -146,12 +118,88 @@
                     b.boarPass boarPass
 	        from users u, board b
 	        where u.userNo = b.userNo
-	        and b.challengeNo = #{challengeNo}
             and b.boardNo = #{boardNo}
-        
-		
 		]]>
 	</select>
+
+
+
+	<!-- 댓글 전체 가져오기 -->
+	<select id="getReplyList" parameterType="int" resultType="com.nadaena.vo.CommentVo">
+		<![CDATA[
+			select   ort.rn,
+			         ort.userNo,
+			         ort.nickName,
+			         ort.boardNo,
+			         ort.commentNo,
+			         ort.commentDate,
+			         ort.comments
+			from (select rownum rn,
+			             ot.userNo,
+			             ot.nickName,
+			             ot.boardNo,
+			             ot.commentNo,
+			             ot.commentDate,
+			             ot.comments
+			      from(select u.userNo userNo,
+			                  u.nickName nickName,
+			                  cm.boardNo boardNo,
+			                  cm.commentNo commentNo,
+			                  to_char(cm.commentDate,'YYYY-MM-DD') commentDate,
+			                  cm.comments comments
+			           from comments cm, users u
+			           where cm.userNo = u.userNo
+			           and cm.boardNo = #{boardNo}
+			           order by commentNo desc) ot
+			      )ort
+			where ort.rn >=1
+			and ort.rn <=10000
+		]]>
+	</select>
+
+
+
+
+	<!-- 댓글 쓰기 -->
+	<insert id="insertReply" parameterType="com.nadaena.vo.CommentVo">
+		<selectKey keyProperty="commentNo" resultType="int" order="BEFORE">
+			select seq_commentNo.nextval from dual
+		</selectKey>
+		
+		<![CDATA[
+			insert into comments
+			values  (#{commentNo},
+					#{boardNo},
+					#{userNo},
+					sysdate,
+					#{comments}
+					)
+		]]>
+	</insert>
+
+
+
+	<!-- 댓글1개 가져오기 (읽기) -->
+	<select id="getReplyByNo" parameterType="int" resultType="com.nadaena.vo.CommentVo">
+		<![CDATA[
+			select u.userNo userNo,
+			       u.nickName nickName,
+			       cm.boardNo boardNo,
+			       cm.commentNo commentNo,
+			       to_char(cm.commentDate,'YYYY-MM-DD') commentDate,
+			       cm.comments comments
+			from comments cm, users u
+			where cm.userNo = u.userNo
+			and cm.commentNo = #{commentNo}
+		]]>
+	</select>
+	
+	
+	
+	
+
+
+
 
 	<select id="comment" parameterType="BoardVo" resultType="com.nadaena.vo.CommentVo">
 		<![CDATA[

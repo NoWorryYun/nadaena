@@ -1,18 +1,24 @@
 package com.nadaena.controller;
 
-import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nadaena.service.CommunityService;
 import com.nadaena.vo.BoardVo;
+import com.nadaena.vo.ChallengeVo;
+import com.nadaena.vo.CommentVo;
+import com.nadaena.vo.SearchVo;
+import com.nadaena.vo.UserVo;
 
 @Controller
 public class CommunityController {
@@ -21,62 +27,131 @@ public class CommunityController {
 	private CommunityService communityService;
 	
 	
-	@RequestMapping(value = "/challenge/{challengeNo}/communityList", method = { RequestMethod.GET, RequestMethod.POST })
-	public String communityList(Model model,
-			@RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
-			@RequestParam(value = "category", required = false, defaultValue = "0") Integer category,
-			@PathVariable("challengeNo") int challengeNo) {
-		//System.out.println("CommunityController > communityList");
+	//챌린지 커뮤니티 게시판 리스트
+	@RequestMapping(value = "/challenge/{challengeNo}/community", method = { RequestMethod.GET, RequestMethod.POST })
+	public String community(@ModelAttribute SearchVo serchVo, 
+								@ModelAttribute ChallengeVo challengeVo,
+								@PathVariable("challengeNo") int challengeNo,
+								Model model, 
+								HttpSession session) {
 		
-		BoardVo boardVo = new BoardVo();
-		boardVo.setKeyword(keyword);
-		boardVo.setCategory(category);
-		boardVo.setChallengeNo(challengeNo);
+		System.out.println("CommunityController > community");
 		
-		Map<String, Object> cuMap = communityService.CommunityList(boardVo);
+		//세션은 통해 로그인 유무 확인
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		
+		int userNo;
+		if(authUser != null) {
+			userNo = authUser.getUserNo();
+		}  else {
+			userNo = -1;
+		}
 
-		model.addAttribute("cuMap", cuMap);
 		
-		System.out.println("controller" +cuMap);
+		//키워드 카테고리 챌린지번호 세팅
+		serchVo.setChallengeNo(challengeNo);
+		
+		challengeVo.setChallengeNo(challengeNo);
+		challengeVo.setUserNo(userNo);
+		
+		
+		//조인체크, intro, 글 리스트
+		Map<String, Object> cMap = communityService.getCommunity(serchVo, challengeVo);
+		
+		model.addAttribute("cMap", cMap);
 		
 		return "challenge/community";
 	}
 	
 
-	@RequestMapping(value = "/challenge/{challengeNo}/board/{boardNo}", method = { RequestMethod.GET, RequestMethod.POST })
+	
+	//글쓰기 폼
+	@RequestMapping(value = "/challenge/{challengeNo}/community/writeboardForm", method = { RequestMethod.GET, RequestMethod.POST })
+	public String writeboardForm(@PathVariable("challengeNo") int challengeNo, Model model, HttpSession session) {
+		System.out.println("CommunityController > writeboardForm");
+
+		UserVo userVo = (UserVo) session.getAttribute("authUser");
+
+		int userNo;
+		if (userVo != null) {
+			userNo = userVo.getUserNo();
+		} else {
+			userNo = -1;
+		}
+
+		Map<String, Object> cMap = communityService.intro(challengeNo);
+
+		model.addAttribute("cMap", cMap);
+
+		return "challenge/writeboardForm";
+	}
+	
+	
+	//글쓰기
+	@RequestMapping(value = "/challenge/{challengeNo}/community/writeboard", method = { RequestMethod.GET, RequestMethod.POST })
+	public String writeboard(@ModelAttribute BoardVo boardVo, HttpSession session) {
+		System.out.println("CommunityController > writeboard");
+		
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+
+		if (authUser == null) {
+			//로그인 안되어있을 때
+		} else if (authUser != null) {
+			//로그인 되어있을 때
+			boardVo.setUserNo(authUser.getUserNo());
+
+			communityService.writeBoard(boardVo);
+		}
+		
+		return "redirect:/challenge/"+boardVo.getChallengeNo()+"/community";
+	}
+	
+	
+	
+	
+	//글읽기
+	@RequestMapping(value = "/challenge/{challengeNo}/community/readboard/{boardNo}", method = { RequestMethod.GET, RequestMethod.POST })
 	public String readBoard(Model model, @PathVariable("challengeNo") int challengeNo,
 										 @PathVariable("boardNo") int boardNo) {
+		System.out.println("CommunityController > readBoard");
 		
-		BoardVo boardVo = new BoardVo();
-		boardVo.setChallengeNo(challengeNo);
-		boardVo.setBoardNo(boardNo);
 		
-		Map<String, Object> boardMap = communityService.comuInfo(boardVo);
+		Map<String, Object> cMap = communityService.boardRead(challengeNo, boardNo);
+		System.out.println(cMap);
 		
-		model.addAttribute("boardMap", boardMap);
 		
-		System.out.println("boardMap " +boardMap);
+		model.addAttribute("cMap", cMap);
+		
 		
 		return "challenge/readboard";
 	}
+
 	
-	/*
-	@RequestMapping(value = "/challenge/{challengeNo}/writeboard", method = { RequestMethod.GET, RequestMethod.POST })
-	public String writeBoard() {
-		System.out.println("challenge/writeboard");
+	
+	//ajax 댓글등록
+	@ResponseBody
+	@RequestMapping(value = "/api/community/replyWrite", method = { RequestMethod.GET, RequestMethod.POST })
+	public CommentVo replyWrite(@ModelAttribute CommentVo commentVo, HttpSession session) {
+		System.out.println("CommunityController > replyWrite");
+		CommentVo reVo =  null;
+		
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		
+		if (authUser == null) {
+			//로그인 안되어있을 때
+		} else if (authUser != null) {
+			//로그인 되어있을 때
+			commentVo.setUserNo(authUser.getUserNo());
 
-		return "challenge/writeboard";
+			reVo = communityService.replyWrite(commentVo);
+		}
+		
+		return reVo;
+		
 	}
 
-	@RequestMapping(value = "/challenge/{challengeNo}/review", method = { RequestMethod.GET, RequestMethod.POST })
-	public String challenge4(@PathVariable("challengeNo") int challengeNo) {
-		System.out.println("challnege/review");
-
-		return "challenge/review";
-	}
-	///{challengeNo}
-	//@PathVariable("challengeNo") int challengeNo
-	 
-	 */
+	
+	
+	
 }
 

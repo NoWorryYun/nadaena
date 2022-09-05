@@ -3,10 +3,13 @@ package com.nadaena.vo;
 public class SearchVo {
 
 	private String keyword;
+	private String category;
+
+	private int challengeNo;
 	private int interestNo;
 	private String orderType;
 
-	private int crtPage=1;
+	private int crtPage = 1;
 	private int startRnum;
 	private int endRnum;
 
@@ -14,9 +17,11 @@ public class SearchVo {
 		super();
 	}
 
-	public SearchVo(String keyword, int interestNo, String orderType, int crtPage, int startRnum, int endRnum) {
+	public SearchVo(String keyword, String category, int challengeNo, int interestNo, String orderType, int crtPage, int startRnum, int endRnum) {
 		super();
 		this.keyword = keyword;
+		this.category = category;
+		this.challengeNo = challengeNo;
 		this.interestNo = interestNo;
 		this.orderType = orderType;
 		this.crtPage = crtPage;
@@ -30,6 +35,22 @@ public class SearchVo {
 
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public int getChallengeNo() {
+		return challengeNo;
+	}
+
+	public void setChallengeNo(int challengeNo) {
+		this.challengeNo = challengeNo;
 	}
 
 	public int getInterestNo() {
@@ -74,7 +95,7 @@ public class SearchVo {
 
 	@Override
 	public String toString() {
-		return "SearchVo [keyword=" + keyword + ", interestNo=" + interestNo + ", orderType=" + orderType + ", crtPage=" + crtPage + ", startRnum=" + startRnum + ", endRnum=" + endRnum + "]";
+		return "SearchVo [keyword=" + keyword + ", category=" + category + ", challengeNo=" + challengeNo + ", interestNo=" + interestNo + ", orderType=" + orderType + ", crtPage=" + crtPage + ", startRnum=" + startRnum + ", endRnum=" + endRnum + "]";
 	}
 
 }

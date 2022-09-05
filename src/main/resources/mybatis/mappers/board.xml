@@ -52,18 +52,34 @@
 		]]>
 	</select>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- 챌린지 참여 여부 확인 -->
 	<select id="joinChk" parameterType="ChallengeVo" resultType="ChallengeVo">
 		<![CDATA[
-			select  ( select count(userNo)
-			          from mychallenge
-			          where challengeNo = #{challengeNo}
-			          and userNo = #{userNo}) userCount,
+			select (select count(userNo)
+			        from mychallenge
+			        where challengeNo = #{challengeNo}
+			        and userNo = #{userNo}) userCount,
 	        		founder,
-	        		(select payment
-			         from mychallenge
-			         where challengeNo = #{challengeNo}
-			         and userNo = #{userNo}) payment
+	        	   (select payment
+			        from mychallenge
+			        where challengeNo = #{challengeNo}
+			        and userNo = #{userNo}) payment
 			from mychallenge          
 			where challengeNo = #{challengeNo}
 			and userNo = #{userNo}

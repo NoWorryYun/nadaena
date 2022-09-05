@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.nadaena.vo.BoardVo;
 import com.nadaena.vo.CommentVo;
+import com.nadaena.vo.SearchVo;
 
 @Repository
 public class CommunityDao {
@@ -15,32 +16,80 @@ public class CommunityDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<BoardVo> communityList(BoardVo boardVo) {
-		//System.out.println("CommunityDao > communityList()");
+	//커뮤니티의 게시글 가져오기
+	public List<BoardVo> getBoardList(SearchVo searchVo) {
+		System.out.println("CommunityDao > getBoardList()");
 		
-		List<BoardVo> communityList = sqlSession.selectList("Community.comuList", boardVo);
-		System.out.println("dao communityList " +boardVo);
-		return communityList;
+		List<BoardVo> boardList = sqlSession.selectList("Community.getBordList", searchVo);
+		return boardList;
 
 	}
 	
-	public List<BoardVo> comentList(BoardVo boardVo) {
-		//System.out.println("CommunityDao > comentList()");
+	
+	//커뮤니티의 게시글 저장
+	public int insertBoard(BoardVo boardVo) {
+		System.out.println("CommunityDao > insertBoard()");
 		
-		List<BoardVo> comentList = sqlSession.selectList("Community.comentList",boardVo);
-		System.out.println("dao comentList " +comentList);
-		return comentList;
+		System.out.println(boardVo);
+		int count = sqlSession.insert("Community.insertBoard", boardVo);
 
+		return count;
 	}
 	
-	public BoardVo boardInfo(BoardVo boardVo) {
-		System.out.println("CommunityDao > comuInfo");
+	
+	//커뮤니티의 전체 글갯수 구하기
+	public int selectTotalCnt(SearchVo searchVo) {
+		System.out.println("CommunityDao > selectTotalCnt()");
+		System.out.println(searchVo);
+		int totalCnt = sqlSession.selectOne("Community.selectTotalCnt", searchVo);
+
+		return totalCnt;
+	}
+	
+	
+	//글1개 가져오기 (읽기)
+	public BoardVo selectBoard(int boardNo) {
+		System.out.println("CommunityDao > selectBoard");
 		
-		BoardVo boardInfo = sqlSession.selectOne("Community.comuInfo", boardVo);
+		BoardVo boardInfo = sqlSession.selectOne("Community.selectBoard", boardNo);
 		
 		return boardInfo;
 
 	}
+	
+	
+	//댓글 가져오기
+	public List<CommentVo> getReplyList(int boardNo) {
+		System.out.println("CommunityDao > getReplyList");
+		
+		List<CommentVo> replyList = sqlSession.selectList("Community.getReplyList", boardNo);
+		return replyList;
+
+	}
+
+	
+	//댓글 등록하기
+	public int insertReply(CommentVo commentVo) {
+		System.out.println("CommunityDao > insertReply");
+		
+		return sqlSession.insert("Community.insertReply", commentVo);
+
+	}
+	
+	//댓글 1개 가져오기
+	public CommentVo getReplyByNo(int commentNo) {
+		System.out.println("CommunityDao > getReplyByNo");
+		
+		return sqlSession.selectOne("Community.getReplyByNo", commentNo);
+
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public List<CommentVo> comment(BoardVo boardVo) {
 		System.out.println("CommunityDao > comuInfo");

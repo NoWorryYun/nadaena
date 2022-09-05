@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community.css">
 
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
@@ -55,28 +55,29 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								${cMap.intro.clgTitle }<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
+								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
-
-							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
+							<div id="bookMark" class="i-float"></div>
 						</div>
 
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a id="introForm" 	 class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="community"	  class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="review"	  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab"
+										href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community" class="nav-link  active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
-								<div class="tab-content">
+								<div id="board-writeForm" class="tab-content">
 
 									<div id="board-write-box">
-										<div>
+										<div class="certify-board-header">
 											<p class="fw-bold font-20">게시판</p>
-											<div class="table-responsive table-writeform">
-											
-												<form action="${pageContext.request.contextPath}/challenge/writeboard" method="get">
+										</div>
+										<div>
+											<div>
+												<form action="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community/writeboard" method="post">
 													<table class="table">
 														<tbody class="table-none">
 															<tr class="border-white-underline">
@@ -85,40 +86,48 @@
 																	<input type="text" class="write-title-shape" name="title" value="">
 																</td>
 															</tr>
+
 															<tr class="border-white-underline">
-																<td class="write-board-label">카테고리 설정</td>
+																<td class="line-height25 write-board-label">카테고리 설정</td>
 																<td class="write-board-content">
-																<select class="select-width" name="category">
-																		<option value="1" selected="">팁</option>
-																		<option value="2">응원</option>
-																		<option value="3">질문</option>
-																</select>
-																&nbsp;</td>
-																<td class="write-board-label">비밀번호 설정</td>
-																<td class="write-board-content">
-																	<input type="password" class="board-password" name="boarPass" value="">
+																	<select class="select-width" name="category">
+																			<option value="1" selected="selected">팁</option>
+																			<option value="2">응원</option>
+																			<option value="3">질문</option>
+																	</select>
 																</td>
-																<input type="hidden" name="challengeNo" value="${cMap.intro.challengeNo}">
+																<td class="line-height25 write-board-label">비밀번호 설정</td>
+																<td class="write-board-content">
+																	<input type="password" class="board-password" name="boardPass" value="">
+																</td>
+																
 															</tr>
+
+
 														</tbody>
 													</table>
 													
-													<textarea class="write-table-content-text" name="boardContent" value=""></textarea>
-													<div id="write-board-regist" class="text-right">
-													<input type="submit" class="make-challenge certify" value="등록">
-													<a class="return-challenge certify" href="">목록</a>
+												
+													<textarea class="write-table-content-text" name="boardContent"></textarea>	
 													
+													<div class="pull-right">
+														<button type="submit" class="make-challenge certify">등록</button>
+														<a class="btn-nomal certify" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">목록</a>
+													</div>
+													
+													<input type="hidden" class="board-password" name="challengeNo" value="${cMap.intro.challengeNo}">	
 												</form>
 											</div>
-											</div>
+											
 											
 										</div>
-
+											
 									</div>
 
-
-
 								</div>
+
+
+
 							</div>
 						</div>
 					</div>
@@ -207,6 +216,10 @@
 
 </body>
 <script type="text/javascript">
+
+
+
+
 
 
 

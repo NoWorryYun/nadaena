@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/community.css">
 
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
@@ -55,21 +55,21 @@
 					<div id="read-main">
 						<div id="read-header-box">
 							<h2 class="read-header">
-								매일 10페이지 책 읽기<br>2022-08-06~2022-08-27<br>
+								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
-
-							<i class="fa fa-star fa-2x i-float"></i> <i class="fa fa-star fa-star-o fa-2x i-float"></i>
+							<div id="bookMark" class="i-float"></div>
 						</div>
 
 						<div id="read-content">
 							<div id="read-tab">
 								<ul class="nav nav-tabs" role="tablist">
-									<li class="nav-item read-tab" role="presentation"><a id="introForm"  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="community"	  class="nav-link active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
-									<li class="nav-item read-tab" role="presentation"><a id="review"	  class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="introForm" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/intro">소개글</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="certifyForm" class="nav-link" role="tab"
+										href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">인증하기</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="community" class="nav-link  active" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">커뮤니티</a></li>
+									<li class="nav-item read-tab" role="presentation"><a id="review" class="nav-link" role="tab" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/review">후기글</a></li>
 								</ul>
-								<div class="tab-content">
+								<div id="board-read" class="tab-content">
 									<div id="board-read-box">
 										<div>
 											<div class="board-read-header">
@@ -79,39 +79,50 @@
 												<div class="board-content-box">
 													<div class="table-responsive">
 														<table class="table">
+															<colgroup>
+																<col style="width: 10%;">
+																<col style="width: 30%;">
+																<col style="width: 10%;">
+																<col style="width: 10%;">
+																<col style="width: 10%;">
+																<col style="width: 30%;">
+															</colgroup>
 															<tbody class="table-top-bottom">
 																<tr class="border-white-underline">
 																	<td class="board-read-cell10" style="">작성자</td>
-																	<td class="board-read-cell">${boardMap.boardInfo.nickName}</td>
+																	<td class="board-read-cell">${cMap.boardVo.nickName}</td>
 																	<td class="board-read-cell10">조회수</td>
-																	<td class="board-read-cell">${boardMap.boardInfo.hit}</td>
+																	<td class="board-read-cell">${cMap.boardVo.hit}</td>
 																	<td class="board-read-cell10">작성일</td>
-																	<td class="board-read-cell">${boardMap.boardInfo.boardDate}</td>
+																	<td class="board-read-cell">${cMap.boardVo.boardDate}</td>
 																</tr>
 																<tr>
 																	<td class="board-read-cell10">제목</td>
-																	<td class="board-read-cell" colspan="5">${boardMap.boardInfo.title}</td>
+																	<td class="board-read-cell" colspan="5">${cMap.boardVo.title}</td>
 																</tr>
 															</tbody>
 														</table>
 													</div>
 													<div class="border-content">
 														<p>
-															${boardMap.boardInfo.boardContent}
+															${cMap.boardVo.boardContent}
 														</p>
 													</div>
 												</div>
+												
 												<div id="write-board-regist" class="text-right">
-													<input type="button" class="make-challenge certify" value="수정"> <a class="return-challenge certify" href="">목록</a>
+													<a id="btn-goEditForm" class="make-challenge certify" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community/modiboard/${BoardVo.boardNo}">수정</a>
+													<a class="btn-nomal certify" href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/community">목록</a>
 												</div>
+												
 												<div>
 													<div class="fw-bold font-20">
 														<p>댓글</p>
 													</div>
 													<div class="table-responsive" style="font-size: 12px;">
-														<table class="table">
+														<table id="reply-area" class="table">
 															<tbody style="border: none;">
-																<c:forEach var="commentVo" items="${boardMap.commentList}">
+																<c:forEach var="commentVo" items="${cMap.replyList}">
 																	<tr>
 																		<td class="board-read-label">${commentVo.nickName}
 																			<div>
@@ -129,10 +140,10 @@
 													</div>
 													<div class="board-read-comment-box">
 														<div class="board-read-comment-textbox">
-															<input type="text" class="comment-text">
+															<input type="text" class="comment-text" name="replyContent">
 														</div>
 														<div class="button-area">
-															<button class="btn btn-primary comment-button" type="button">댓글등록</button>
+															<button id="btn-replyWrite" class="btn btn-primary comment-button" type="button">댓글등록</button>
 														</div>
 													</div>
 												</div>
@@ -269,7 +280,74 @@
 
 </body>
 
+<script>
 
+$("#btn-replyWrite").on("click", function(){
+	
+	var commentVo = {};
+	commentVo.comments = $("[name='replyContent']").val();
+	commentVo.boardNo = "${cMap.boardVo.boardNo}";
+		
+	$.ajax({
+		url : "${pageContext.request.contextPath }/api/community/replyWrite",		
+		type : "post",
+		//contentType : "application/json",
+		data : commentVo,
+		dataType : "json",
+		success : function(commentVo){
+			console.log(commentVo);
+			render(commentVo, "up");
+			$("[name='replyContent']").val("");
+			
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+	
+	
+});
+
+
+
+
+
+/* 리스트 그리기 1개씩*/
+function render(commentVo, opt){
+	
+	console.log("render()");
+	
+	var str = '';
+	
+	str += '<tr>' ;
+	str += '    <td class="board-read-label">'+ commentVo.nickName ;
+	str += '        <div>' ;
+	
+	str += '            <a class="report2" href="#">신고</a>' ;
+	str += '            <p class="upload-date">' ;
+	str += '                <span style="color: rgb(33, 37, 41);">'+ commentVo.commentDate + '</span><br>' ;
+	str += '            <p>' ;
+	
+	str += '        </div>' ;
+	str += '    </td>' ;
+	str += '    <td class="board-read-cell">'+ commentVo.comments  + '<br></td>' ;
+	str += '<tr>' ;
+	
+	if(opt == "down"){
+		$("#reply-area tbody").append(str);	
+	
+	}else if(opt == "up"){
+		$("#reply-area tbody").prepend(str);
+	
+	}else {
+		console.log("opt오류");
+	}
+}
+	
+	
+
+
+</script>
 
 
 
