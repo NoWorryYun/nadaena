@@ -67,6 +67,15 @@ public class CommunityDao {
 
 	}
 
+	//조회수 올리기
+	public int updateHit(int boardNo) {
+		System.out.println("CommunityDao > updateHit");
+		
+		return sqlSession.update("Community.updateHit", boardNo);
+
+	}
+	
+	
 	
 	//댓글 등록하기
 	public int insertReply(CommentVo commentVo) {
@@ -83,7 +92,6 @@ public class CommunityDao {
 		return sqlSession.selectOne("Community.getReplyByNo", commentNo);
 
 	}
-	
 	
 	
 	

@@ -145,12 +145,17 @@ public class CommunityService {
 		//intro
 		ChallengeVo intro = challengeDao.intro(challengeNo);
 		
+		//조회수 올리기
+		int count = communityDao.updateHit(boardNo);
+		
 		//글 가져오기
 		BoardVo boardVo = communityDao.selectBoard(boardNo);
 	   
 		//댓글리스트
 		List<CommentVo> replyList = communityDao.getReplyList(boardNo);
 
+		
+		
 		Map<String, Object> boardMap = new HashMap<String, Object>();
 		
 		boardMap.put("intro", intro);

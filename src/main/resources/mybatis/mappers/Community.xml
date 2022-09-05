@@ -121,7 +121,18 @@
             and b.boardNo = #{boardNo}
 		]]>
 	</select>
-
+	
+	
+	
+	<!-- 조회수 올리기 -->
+	<update id="updateHit" parameterType="int">
+		<![CDATA[
+			update board 
+			set hit = hit+1
+			where boardNo = #{boardNo}
+		]]>
+	</update>
+	
 
 
 	<!-- 댓글 전체 가져오기 -->
