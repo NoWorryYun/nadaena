@@ -139,55 +139,6 @@
 <main>
     <div class="main-box">
         
-        <h3>이벤트 나대나</h3>
-        <div class="more"><a href="${pageContext.request.contextPath}/event">더보기 > </a></div>
-    	<div class="lunchbox">
-    	
-			<!-- slider main container -->
-		  <div id="swiper1" class="swiper-container"> 
-		  
-		
-		      <!-- additional required wrapper -->
-		      <div class="swiper-wrapper">
-		
-		          <!-- slides -->
-		          
-			  <!--챌린지 반복영역 -->
-		     	 <c:forEach var="MainTitleVo" items="${evMap.eventList}">
-			          <div class="swiper-slide">
-				          <li>
-					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
-						          <div class="product">
-						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
-						             <div>
-						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
-						           	 	<p class="nadaena_count_user">참여인원: ${MainTitleVo.count_user}</p>
-						           	 	<c:if test="${MainTitleVo.clgLevel == 1}">
-						           	 	<p class="nadaena_payment">난이도: 하</p>
-						           	 	</c:if>
-						           	 	<c:if test="${MainTitleVo.clgLevel == 2}">
-						           	 	<p class="nadaena_payment">난이도: 중</p>
-						           	 	</c:if>
-						           	 	<c:if test="${MainTitleVo.clgLevel == 3}">
-						           	 	<p class="nadaena_payment">난이도: 상</p>
-						           	 	</c:if>
-						           	 </div>
-						          </div>
-						      </a>
-						  </li>  
-			          </div>
-				</c:forEach>
-	          <!--챌린지 반복영역 -->
-		  	</div>
-			<!-- pagination -->
-	      	<div class="swiper-pagination"></div>
-      		<!-- navigation buttons -->
-			<div id="js-prev1" class="swiper-button-prev col-1"></div>
-			<div id="js-next1" class="swiper-button-next col-1"></div>
-	</div>
-	</div>
-	
 
 
 	<h3>인기 나대나</h3>
@@ -210,7 +161,7 @@
 				          <li>
 					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
 						          <div class="product">
-						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
+						             <img class="photograph" src="${pageContext.request.contextPath}/upload/forNadaeNa/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
 						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
@@ -261,7 +212,7 @@
 				          <li>
 					          <a href="${pageContext.request.contextPath}/challenge/${MainTitleVo.challengeNo}/intro">
 						          <div class="product">
-						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
+						             <img class="photograph" src="${pageContext.request.contextPath}/upload/forNadaeNa/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
 						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>

@@ -313,7 +313,7 @@ function render(clgVo, opt){
 	str += '    <a href="${pageContext.request.contextPath}/challenge/'+clgVo.challengeNo+'/intro">' ;
 	str += '        <div class="inner-box">' ;
 	str += '        	<div class="image-box">' ;
-	str += '        		<img class="clg-image img-responsive" src="${pageContext.request.contextPath}/assets/img/search-img.jpg" alt="" />' ;
+	str += '        		<img class="clg-image img-responsive" src="${pageContext.request.contextPath}/upload/forNadaeNa/'+ clgVo.img +'" alt="" />' ;
 	str += '        	</div>' ;
 	str += '    		<div class="info-box">' ;
 	str += '    			<p class="nadaena_name">'+clgVo.clgTitle+'</p>' ;

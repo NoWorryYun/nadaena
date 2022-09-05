@@ -244,7 +244,7 @@
 												<c:forEach items="${bestListMap.newOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
 														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
-															<img src="${pageContext.request.contextPath}/${item.img}">
+															<img src="${pageContext.request.contextPath}/upload/forNaDaeNa/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
 															<a class="bestTitle" href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
@@ -274,7 +274,7 @@
 												<c:forEach items="${bestListMap.likeOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
 														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
-															<img src="${pageContext.request.contextPath}/${item.img}">
+															<img src="${pageContext.request.contextPath}/upload/forNaDaeNa/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
 															<a class="bestTitle" href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
@@ -304,7 +304,7 @@
 												<c:forEach items="${bestListMap.recruitmentOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
 														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
-															<img src="${pageContext.request.contextPath}/${item.img}">
+															<img src="${pageContext.request.contextPath}/upload/forNaDaeNa/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
 															<a class="bestTitle" href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
@@ -611,7 +611,8 @@
 		
 		
 		var Now = new Date(); // 현재 날짜 및 시간
-	    var nowMonth = Now.getMonth() + 1; // 월
+	    var nowYear = Now.getFullYear(); // 년
+		var nowMonth = Now.getMonth() + 1; // 월
 	    var nowDay = Now.getDate(); // 일
 	    var nowHour = Now.getHours(); // 시
 	    var nowMins = Now.getMinutes(); // 분
@@ -631,14 +632,19 @@
 	    nowHour = pluszero(nowHour);
 	    nowMins = pluszero(nowMins);
 	 
-	    var nowtime = nowMonth + nowDay + nowHour + nowMins; // 월+일+시+분
-		
-	
-	
-		
+	    var nowtime = nowYear + nowMonth + nowDay; // 월+일+시+분
 		var startDate = "${cMap.intro.startDate}"
 		var endDate = "${cMap.intro.endDate}"
 		
+		var nowhour = nowHour;
+		
+		nowtime = Number(nowtime);
+		startDate = Number(startDate);
+		endDate = Number(endDate);
+		
+		console.log(startDate);
+		console.log(nowtime);
+		console.log(endDate);
 		
 	    if(startDate > nowtime || endDate < nowtime ){ //지금이 시작시간보다 작거나, 종류시간보다 크면         $('.call_btn img').attr('src', 'icon_off.png');  //이미지 주소 변경    }
 		   $('.make-challenge').css('display', 'none');  //이미지 주소 변경   

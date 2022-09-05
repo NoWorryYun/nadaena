@@ -148,7 +148,7 @@
 												<c:forEach items="${bestListMap.newOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
 														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
-															<img src="${pageContext.request.contextPath}/${item.img}">
+															<img src="${pageContext.request.contextPath}/upload/forNaDaeNa/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
 															<a class="bestTitle" href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
@@ -178,7 +178,7 @@
 												<c:forEach items="${bestListMap.likeOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
 														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
-															<img src="${pageContext.request.contextPath}/${item.img}">
+															<img src="${pageContext.request.contextPath}/upload/forNaDaeNa/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
 															<a class="bestTitle" href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">
@@ -208,7 +208,7 @@
 												<c:forEach items="${bestListMap.recruitmentOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
 														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
-															<img src="${pageContext.request.contextPath}/${item.img}">
+															<img src="${pageContext.request.contextPath}/upload/forNaDaeNa/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
 															<a class="bestTitle" href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro">

@@ -245,6 +245,9 @@
 </body>
 <script type="text/javascript">
 
+
+authUser = "${authUser.userNo}";
+
 //북마크 확인하기
 function bkload(){
 if(authUser == "" && authUser == null){
