@@ -621,7 +621,7 @@ public class MyService {
 	//리뷰 쓰기(리뷰내용 + 상태업데이트 + 포인트지급)
 	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
 
-		String saveDir = "C:\\javaStudy\\upload";
+		String saveDir = "C:\\javaStudy\\upload\\forNaDaeNa";
 
 		// -원파일이름
 

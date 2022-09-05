@@ -1,5 +1,6 @@
 package com.nadaena.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.nadaena.service.MyService;
+import com.nadaena.service.SearchService;
+import com.nadaena.vo.MainTitleVo;
 import com.nadaena.vo.ReviewVo;
 import com.nadaena.vo.UserVo;
 
@@ -23,7 +26,9 @@ public class MyController {
 
 	@Autowired
 	MyService myService;
-
+	@Autowired
+	SearchService searchService;
+	
 	//회원정보 및 수정폼
 	@RequestMapping(value = "my/info", method = { RequestMethod.GET, RequestMethod.POST })
 	public String mymain(Model model, HttpSession session) {
@@ -214,6 +219,9 @@ public class MyController {
 			model.addAttribute("rMap", rMap);
 
 			System.out.println(rMap);
+			//best 글 가져오기
+			Map<String, List<MainTitleVo>> bestListMap = searchService.getBestClgList();
+			model.addAttribute("bestListMap", bestListMap);
 		}
 		return "challenge/review";
 	}
