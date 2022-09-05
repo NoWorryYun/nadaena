@@ -120,13 +120,13 @@
 			<div class="search-type">
 				<div class="search-type-select">
 					<div class="search-type-select-culm">
-						<span id="newOrder" class="orderType fw-bolder"  data-ordertype="newOrder">신규등록순 > </span>
+						<span id="newOrder" class="orderType fw-bolder"  data-ordertype="newOrder">신규등록순&nbsp&nbsp </span>
 					</div>
 					<div class="search-type-select-culm">
-						<span id="likeOrder" class="orderType" data-ordertype="likeOrder" >인기순 > </span>
+						<span id="likeOrder" class="orderType" data-ordertype="likeOrder" >인기순&nbsp&nbsp  </span>
 					</div>
 					<div class="search-type-select-culm">
-						<span id="recruitmentOrder" class="orderType"  data-ordertype="recruitmentOrder">마감일순 ></span>
+						<span id="recruitmentOrder" class="orderType"  data-ordertype="recruitmentOrder">마감일순&nbsp&nbsp</span>
 					</div>
 				</div>
 				
@@ -313,10 +313,12 @@ function render(clgVo, opt){
 	str += '    <a href="${pageContext.request.contextPath}/challenge/'+clgVo.challengeNo+'/intro">' ;
 	str += '        <div class="inner-box">' ;
 	str += '        	<div class="image-box">' ;
-	str += '        		<img class="clg-image img-responsive" src="${pageContext.request.contextPath}/upload/forNadaeNa/'+ clgVo.img +'" alt="" />' ;
+	str += '        		<img class="clg-image img-responsive photograph" src="${pageContext.request.contextPath}/upload/forNadaeNa/'+ clgVo.img +'" alt="" />' ;
 	str += '        	</div>' ;
 	str += '    		<div class="info-box">' ;
+	str += '    		<div class="title-size">' ;
 	str += '    			<p class="nadaena_name">'+clgVo.clgTitle+'</p>' ;
+	str += '    		</div>' ;
 	str += '        		<p class="nadaena_period">도전기한: ' + clgVo.recRD + ' ~ ' + clgVo.recRDP +'</p>' ;
 	str += '        		<p class="nadaena_count_user">참여인원: '+clgVo.count_user+'</p>' ;
 	if(clgVo.clgLevel == 1){

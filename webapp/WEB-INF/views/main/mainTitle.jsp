@@ -163,7 +163,9 @@
 						          <div class="product">
 						             <img class="photograph" src="${pageContext.request.contextPath}/upload/forNadaeNa/${MainTitleVo.img}" alt="">
 						             <div>
-						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						           	 	<div class="title-size">
+						           	 		<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						           	 	</div>
 						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
 						           	 	<p class="nadaena_count_user">신청인원: ${MainTitleVo.count_user}</p>
 						           	 	<c:if test="${MainTitleVo.clgLevel == 1}">
@@ -214,7 +216,9 @@
 						          <div class="product">
 						             <img class="photograph" src="${pageContext.request.contextPath}/upload/forNadaeNa/${MainTitleVo.img}" alt="">
 						             <div>
-						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						             	<div class="title-size">
+						           	 		<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
+						           	 	</div>
 						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
 						           	 	<p class="nadaena_count_user">신청인원: ${MainTitleVo.count_user}</p>
 						           	 	<c:if test="${MainTitleVo.clgLevel == 1}">

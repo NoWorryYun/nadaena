@@ -297,6 +297,10 @@
 	object-fit: cover;
 }
 
+.title-size{
+	height : 70px;
+}
+
 .carousel-control-prev-icon{
 	color: blue;
 }
