@@ -1023,10 +1023,14 @@
   		//유저 참여 갯수 체크
   		if( joinCount() == false) {
   			return false;
+  		} else {
+  			return true;
   		}
   		
   		if( pointChk() == false) {
   			return false;
+  		} else{
+  			return true;
   		}
 
   		var ups = $('input:radio[name="upload"]:checked').val();

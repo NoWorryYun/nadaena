@@ -215,7 +215,7 @@
 				
 				
 				<div class="modal-footer">
-					<input type="text" id="txt-charge" class="form-control" placeholder="" name="charge" value="">
+					<input type="hidden" id="txt-charge" class="form-control" placeholder="" name="charge" value="">
 					<div class="d-grid gap-2 col-6 mx-auto">
 						<button id="btn-modalPGImg" type="submit" class="btn btn-modal-main">충전하기</button>
 					</div>

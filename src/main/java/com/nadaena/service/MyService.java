@@ -676,28 +676,52 @@ public class MyService {
 		System.out.println("포인트 정보 가져오라 시킴");
 
 		ReviewVo rVo = myDao.selectReviewPoint(reviewVo);
-
+		
 		System.out.println("담아왔다 서비스로");
-
 		System.out.println("담아온Vo" + rVo);
-
-		int pay = rVo.getPayment();
+		
+		double pay = rVo.getPayment();
 		int level = rVo.getClgLevel();
 		int source = rVo.getChallengeNo();
-
-		rVo.setChallengeSource(source);
-		rVo.setAmount(pay + level);
-
+		double achieve = rVo.getAchievement(); // 개인달성율
+		
+		
+		//챌린지번호 주고 전체 달성율 가져오기
+		
+		double avg = myDao.avg(source);
+		double bonus = 0;
+		double extrabonus = 0;
+		
+		if (achieve >= 90 && level == 3) {
+			bonus = pay * 0.05;
+		} else if(achieve >=90 && level == 2) {
+			bonus = pay * 0.03;
+		} else if(achieve >=90 && level == 1) {
+			bonus = pay * 0.02;
+		} else if(achieve < 90) {
+			bonus = 0;
+			pay = pay*achieve/100;
+		}
+		
+		if(avg == 100) {
+			extrabonus = bonus*0.3;
+		} else if(avg >= 90 && avg<100) {
+			extrabonus = bonus*0.1;
+		} else if(avg < 90) {
+			extrabonus = 0;
+		}
+			
+		double totalamount = pay + bonus + extrabonus;
+		rVo.setAmount(totalamount);
+		
+		//포인트 지급
 		myDao.writeReviewPoint(rVo);
-
+		
+		System.out.println(rVo);
 		//달성률 -->함수로계산
 		//persent = makePersent()
 
 		//난이도 참가비용 달성률 --> 받을 포인트 계산
-
-		//포인트 저장
-
-		/* myDao.writeReviewPoint(reviewVo); */
 
 		return filePath;
 	}

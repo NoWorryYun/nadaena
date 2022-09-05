@@ -18,22 +18,22 @@ public class ReviewVo {
 	private int pointNo;
 	private int pointGroup;
 	private int charge;
-	private int amount;
+	private double amount;
 	private String pointDate;
 	private int challengeSource;
 	private int productSource;
 	private String pointMemo;
 	private int rn;
 	private int clgLevel;
-	private int achievement;
-	private int payment;
-	private int sum;
+	private double achievement;
+	private double payment;
+	private double sum;
 	private int clgCnt;
 	public ReviewVo() {
 		super();
 	}
-	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName, int pointNo, int pointGroup, int charge, int amount, String pointDate,
-			int challengeSource, int productSource, String pointMemo, int rn, int clgLevel, int achievement, int payment, int sum, int clgCnt) {
+	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName, int pointNo, int pointGroup, int charge, double amount, String pointDate,
+			int challengeSource, int productSource, String pointMemo, int rn, int clgLevel, double achievement, double payment, double sum, int clgCnt) {
 		super();
 		this.reviewNo = reviewNo;
 		this.challengeNo = challengeNo;
@@ -145,10 +145,10 @@ public class ReviewVo {
 	public void setCharge(int charge) {
 		this.charge = charge;
 	}
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	public String getPointDate() {
@@ -187,22 +187,22 @@ public class ReviewVo {
 	public void setClgLevel(int clgLevel) {
 		this.clgLevel = clgLevel;
 	}
-	public int getAchievement() {
+	public double getAchievement() {
 		return achievement;
 	}
-	public void setAchievement(int achievement) {
+	public void setAchievement(double achievement) {
 		this.achievement = achievement;
 	}
-	public int getPayment() {
+	public double getPayment() {
 		return payment;
 	}
-	public void setPayment(int payment) {
+	public void setPayment(double payment) {
 		this.payment = payment;
 	}
-	public int getSum() {
+	public double getSum() {
 		return sum;
 	}
-	public void setSum(int sum) {
+	public void setSum(double sum) {
 		this.sum = sum;
 	}
 	public int getClgCnt() {
@@ -217,7 +217,6 @@ public class ReviewVo {
 				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + ", pointNo=" + pointNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", challengeSource=" + challengeSource + ", productSource=" + productSource
 				+ ", pointMemo=" + pointMemo + ", rn=" + rn + ", clgLevel=" + clgLevel + ", achievement=" + achievement + ", payment=" + payment + ", sum=" + sum + ", clgCnt=" + clgCnt + "]";
 	}
-	
 	
 	
 }

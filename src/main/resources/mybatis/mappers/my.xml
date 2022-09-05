@@ -767,7 +767,8 @@
 			select  c.challengeNo,
 			        m.userNo,
 			        c.clgLevel,  
-			        m.payment
+			        m.payment,
+			        m.achievement
 			from challenge c, mychallenge m
 			where c.challengeNo = m.challengeNo
 			and c.challengeNo = #{challengeNo}
@@ -842,6 +843,16 @@
 			where userNo=#{userNo}
 		]]>
 	</select>	
+	
+	<!-- 전체진행률 -->
+	<select id="avg" resultType="double">
+		<![CDATA[	
+			select  avg(achievement)
+			from mychallenge
+			where challengeNo=#{challengeNo}
+		]]>
+	</select>
+	
 	
 	
 	<!-- 포인트내역 갯수 구하기 -->
