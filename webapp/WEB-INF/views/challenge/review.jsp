@@ -304,6 +304,14 @@
  -->
 
 <script>
+
+$(function(){
+	   if("${rMap.intro.challengeNo}" == ""){
+	      alert("존재하지 않는 챌린지입니다.");
+	      location.href = "${pageContext.request.contextPath }/main";
+	   }
+	});
+
 $(function(){
 	   if("${authUser}" == ""){
 	      alert("로그인 후 이용할 수 있습니다.");
@@ -312,6 +320,7 @@ $(function(){
 	});
 
 
+	
 //리뷰작성 모달창 호출 했을때
 $(".modal-button").on("click", function(){
 	

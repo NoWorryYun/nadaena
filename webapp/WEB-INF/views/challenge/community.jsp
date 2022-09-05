@@ -301,6 +301,20 @@
 </body>
 <script type="text/javascript">
 
+$(function(){
+	   if("${cMap.intro.challengeNo}" == ""){
+	      alert("존재하지 않는 챌린지입니다.");
+	      location.href = "${pageContext.request.contextPath }/main";
+	   }
+	});
+	
+$(function(){
+	   if("${authUser}" == ""){
+	      alert("로그인 후 이용할 수 있습니다.");
+	      location.href = "${pageContext.request.contextPath }/loginForm";
+	   }
+	});
+
 
 //북마크 확인하기
 function bkload(){
