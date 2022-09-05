@@ -48,6 +48,7 @@
 		<![CDATA[
 		SELECT  
 			      userNo,
+			      name,
 			       nickName,
 			       pasword,
 			       birth,
