@@ -24,7 +24,7 @@ public class MyService {
 
 	@Autowired
 	MyDao myDao;
-
+	
 	//참가+종료 리스트(전체)
 	public Map<String, Object> getmcList(int crtPage, int userNo) {
 
@@ -679,7 +679,6 @@ public class MyService {
 		
 		System.out.println("담아왔다 서비스로");
 		System.out.println("담아온Vo" + rVo);
-		
 		double pay = rVo.getPayment();
 		int level = rVo.getClgLevel();
 		int source = rVo.getChallengeNo();
@@ -710,9 +709,9 @@ public class MyService {
 		} else if(avg < 90) {
 			extrabonus = 0;
 		}
-			
 		double totalamount = pay + bonus + extrabonus;
-		rVo.setAmount(totalamount);
+		int i = (int)Math.round(totalamount);
+		rVo.setAmount(i);
 		
 		//포인트 지급
 		myDao.writeReviewPoint(rVo);
