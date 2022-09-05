@@ -59,7 +59,6 @@
 								${cMap.intro.clgTitle}<br>${cMap.intro.recRD}~${cMap.intro.recRDP}<br>
 							</h2>
 							<div id="bookMark" class="i-float"></div>
-
 						</div>
 
 						<div id="read-content">
@@ -268,8 +267,80 @@
 	<!-- /footer -->
 
 
-</body>
 
+
+</body>
+<script type="text/javascript">
+
+
+//북마크 확인하기
+function bkload(){
+if(authUser == "" && authUser == null){
+		$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
+	} else{
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(authUser),
+			url : '${pageContext.request.contextPath}/challenge/bookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				if(result == 1){
+					$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');		
+				} else{
+					$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+				}
+			}
+		})
+	}
+}
+
+$("#bookMark").on("click", "#unCheckbookMark", function(){
+	if(authUser != null && authUser != ""){
+	$.ajax({
+		contentType : 'application/json',     
+		data : JSON.stringify(bookMarkData),
+		url : '${pageContext.request.contextPath}/challenge/chkBookMark',
+		type : 'POST',
+		
+		dataType : "json",
+		success : function(result){
+			$("#bookMark").html('<button id="checkbookMark" class="btnNone i-float"><i class="fa fa-star fa-2x"></i></button>');
+		}
+	})
+	} else{
+		alert("로그인해 주세요");
+		location.href = "${pageContext.request.contextPath}/loginForm";
+		return false;
+	}
+})
+
+$("#bookMark").on("click", "#checkbookMark", function(){
+	if(authUser != null || authUser != ""){
+		$.ajax({
+			contentType : 'application/json',     
+			data : JSON.stringify(bookMarkData),
+			url : '${pageContext.request.contextPath}/challenge/unChkBookMark',
+			type : 'POST',
+			
+			dataType : "json",
+			success : function(result){
+				$("#bookMark").html('<button id="unCheckbookMark" class="btnNone i-float"><i class="fa fa-star fa-star-o fa-2x"></i></button>');
+			}
+		})
+	} else {
+		alert("로그인해 주세요");
+		location.href = "${pageContext.request.contextPath}/loginForm";
+		return false;
+	}
+})
+
+$(document).ready(function(){
+	bkload();
+})
+
+</script>
 
 
 

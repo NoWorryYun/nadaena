@@ -403,7 +403,6 @@
 				return false;
 			}
 			
-			//유저 참여 갯수 체크
 	  		if( joinCount() == false) {
 	  			return false;
 	  		}
