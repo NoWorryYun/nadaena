@@ -146,7 +146,7 @@
 											
 												<c:forEach items="${bestListMap.newOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
-														<a href="${pageContext.request.contextPath}/challenge/${citem.challengeNo}/intro"> 
+														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
 															<img src="${pageContext.request.contextPath}/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
@@ -174,9 +174,9 @@
 										<div class=" swiper-container">
 											<div id="likeOrderList" class="swiper-wrapper">
 											
-												<c:forEach items="${bestListMap.likeOrderList}" var="item">
+												<c:forEach items="${bestListMap.newOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
-														<a href="${pageContext.request.contextPath}/challenge/${citem.challengeNo}/intro"> 
+														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
 															<img src="${pageContext.request.contextPath}/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
@@ -204,9 +204,9 @@
 										<div class=" swiper-container">
 											<div id="recruitmentOrderList" class="swiper-wrapper">
 											
-												<c:forEach items="${bestListMap.recruitmentOrderList}" var="item">
+												<c:forEach items="${bestListMap.newOrderList}" var="item">
 													<div class=" swiper-slide" style="position: relative;">
-														<a href="${pageContext.request.contextPath}/challenge/${citem.challengeNo}/intro"> 
+														<a href="${pageContext.request.contextPath}/challenge/${item.challengeNo}/intro"> 
 															<img src="${pageContext.request.contextPath}/${item.img}">
 														</a>
 														<p class="s-title" style="position: absolute; top:20px; left: 16px; font-size: 16px">
