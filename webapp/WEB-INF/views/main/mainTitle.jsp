@@ -161,9 +161,17 @@
 						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
 						           	 	<p class="nadaena_count_user">참여인원: ${MainTitleVo.count_user}</p>
-						           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 1}">
+						           	 	<p class="nadaena_payment">난이도: 하</p>
+						           	 	</c:if>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 2}">
+						           	 	<p class="nadaena_payment">난이도: 중</p>
+						           	 	</c:if>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 3}">
+						           	 	<p class="nadaena_payment">난이도: 상</p>
+						           	 	</c:if>
 						           	 </div>
 						          </div>
 						      </a>
@@ -205,9 +213,17 @@
 						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
 						           	 	<p class="nadaena_count_user">신청인원: ${MainTitleVo.count_user}</p>
-						           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 1}">
+						           	 	<p class="nadaena_payment">난이도: 하</p>
+						           	 	</c:if>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 2}">
+						           	 	<p class="nadaena_payment">난이도: 중</p>
+						           	 	</c:if>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 3}">
+						           	 	<p class="nadaena_payment">난이도: 상</p>
+						           	 	</c:if>
 						           	 </div>
 						          </div>
 						      </a>
@@ -248,9 +264,17 @@
 						             <img class="photograph" src="${pageContext.request.contextPath}/${MainTitleVo.img}" alt="">
 						             <div>
 						           	 	<p class="nadaena_name">${MainTitleVo.clgTitle}</p>
-						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.period}</p>
+						           	 	<p class="nadaena_period">도전기한: ${MainTitleVo.recRD} ~ ${MainTitleVo.recRDP} </p>
 						           	 	<p class="nadaena_count_user">신청인원: ${MainTitleVo.count_user}</p>
-						           	 	<p class="nadaena_payment">도전금액: ${MainTitleVo.payment}</p>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 1}">
+						           	 	<p class="nadaena_payment">난이도: 하</p>
+						           	 	</c:if>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 2}">
+						           	 	<p class="nadaena_payment">난이도: 중</p>
+						           	 	</c:if>
+						           	 	<c:if test="${MainTitleVo.clgLevel == 3}">
+						           	 	<p class="nadaena_payment">난이도: 상</p>
+						           	 	</c:if>
 						           	 </div>
 						          </div>
 						      </a>

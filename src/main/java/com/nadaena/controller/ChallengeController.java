@@ -133,7 +133,8 @@ public class ChallengeController {
 	public String certify(@PathVariable("challengeNo") int challengeNo,
 						  HttpSession session,
 						  Model model,
-						  @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage) {
+						  @RequestParam(value="crtPage", required = false, defaultValue = "1") int crtPage,
+						  @RequestParam(value="upload", required = false, defaultValue="") String upload) {
 		
 		System.out.println("challnege/certify");
 
@@ -148,12 +149,9 @@ public class ChallengeController {
 		
 		Map<String, Object> cMap = challengeService.intro(challengeNo, userNo);
 		
-		Map<String, Object> pMap = challengeService.certifyList(crtPage, challengeNo);
-		
+		Map<String, Object> pMap = challengeService.certifyList(crtPage, challengeNo, userNo, upload);
 		model.addAttribute("cMap" , cMap);
 		model.addAttribute("pMap", pMap);
-		
-		System.out.println("chk : " + cMap);
 		
 		return "challenge/certify";
 	}

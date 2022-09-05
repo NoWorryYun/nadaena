@@ -431,7 +431,7 @@ public class ChallengeService {
 	}
 	
 	//인증게시판 페이징
-	public Map<String, Object> certifyList(int crtPage, int challengeNo){
+	public Map<String, Object> certifyList(int crtPage, int challengeNo, int userNo, String upload){
 		System.out.println("certifyList를 불러옵니다.");
 		System.out.println(crtPage);
 		
@@ -443,7 +443,7 @@ public class ChallengeService {
 		
 		int endRnum = (startRnum + listCnt) - 1;
 		
-		List<ChallengeVo> certifyIMGList = challengeDao.certifyIMGList(startRnum, endRnum, challengeNo);
+		List<ChallengeVo> certifyIMGList = challengeDao.certifyIMGList(startRnum, endRnum, challengeNo, userNo, upload);
 		System.out.println("cert : "+certifyIMGList);
 		int totalCnt = challengeDao.selectTotatlCnt(challengeNo);
 		

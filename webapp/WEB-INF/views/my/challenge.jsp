@@ -57,8 +57,14 @@
 									<h4>${MyVo.clgTitle }</h4>
 									<p class="c-inpo">진행기간 : <span>${MyVo.startday }</span> ~ <span>${MyVo.endday }</span> </p>
 									<p>참여 인원 : ${MyVo.clgCnt }</p>
-									<p>도전비용 : ${MyVo.payment }원</p>
-									<p class="last-p">기대 성공금액 : 2~3%</p>
+									<p>챌린지 난이도 : 
+										<c:choose>
+											<c:when test="${MyVo.clgLevel == 1 }">하</c:when>
+											<c:when test="${MyVo.clgLevel == 2 }">중</c:when>
+											<c:when test="${MyVo.clgLevel == 3 }">상</c:when>
+										</c:choose>
+									</p>
+									<p>도전비용 : ${MyVo.payment }P</p>
 								</div>
 							</div>	 
 							<c:if test="${MyVo.endday <= MyVo.yesterday}">
