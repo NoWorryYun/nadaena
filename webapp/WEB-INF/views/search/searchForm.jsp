@@ -317,9 +317,15 @@ function render(clgVo, opt){
 	str += '        	</div>' ;
 	str += '    		<div class="info-box">' ;
 	str += '    			<p class="nadaena_name">'+clgVo.clgTitle+'</p>' ;
-	str += '        		<p class="nadaena_period">도전기한: '+clgVo.period+'</p>' ;
+	str += '        		<p class="nadaena_period">도전기한: ' + clgVo.recRD + ' ~ ' + clgVo.recRDP +'</p>' ;
 	str += '        		<p class="nadaena_count_user">참여인원: '+clgVo.count_user+'</p>' ;
-	str += '        		<p class="nadaena_payment">도전금액: '+clgVo.payment+' 원</p>' ;
+	if(clgVo.clgLevel == 1){
+		str += '        		<p class="nadaena_payment">난이도: 하</p>' ;
+	} else if(clgVo.clgLevel == 2){
+		str += '        		<p class="nadaena_payment">난이도: 중</p>' ;
+	} else{
+		str += '        		<p class="nadaena_payment">난이도: 상</p>' ;
+	}
 	str += '        	</div>' ;
 	str += '    	</div>' ;
 	str += '    </a>' ;

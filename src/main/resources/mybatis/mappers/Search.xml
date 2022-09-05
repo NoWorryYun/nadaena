@@ -26,7 +26,10 @@
 			       ort.tag5,
 			       regDate2,
 	               recruitment2,
-	               period2
+	               period2,
+		           to_char(ort.regDate+ort.recruitment, 'yyyy-mm-dd') recRD,
+		           to_char(ort.regDate+ort.recruitment-1, 'yyyy-mm-dd') recRDM,
+		           to_char(ort.regDate+ort.recruitment-1+(period*7), 'yyyy-mm-dd') recRDP
 			from 
 			     (select rownum rn,
 			             ot.challengeNo,
