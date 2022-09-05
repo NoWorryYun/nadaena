@@ -52,15 +52,15 @@
 							</div>
 
 
-							<div class="mb-3">
+							<!-- <div class="mb-3">
 								<input id="examplePasswordInput" class="form-control form-control-user" type="password" placeholder="비밀번호" name="pasword" />
-							</div>
+							</div> -->
 
 							<!-- <div class="mb-3">
 							<input id="exampleRepeatPasswordInput"
 								class="form-control form-control-user" type="password"
 								placeholder="비밀번호 확인" name="password_repeat" />
-						</div> -->
+							</div> -->
 							<div class=" mb-3">
 								<input id="exbirth" class="form-control form-control-user" type="text" placeholder="생년월일" name="birth" value="${userVo.birth }" />
 							</div>
@@ -88,9 +88,9 @@
 
 					<div class="hobby-check">
 
-						<h4 class="hobby-head">관심분야</h4>
+						<!-- <h4 class="hobby-head">관심분야</h4> -->
 
-						<ul class="">
+						<%-- <ul class="">
 							<li class="cata"><input type="checkbox" id="cb1" /> <label for="cb1"><p class="istp">건강</p> <img src="${pageContext.request.contextPath}/assets/img/interest/건강.jpg" /></label></li>
 							<li class="cata"><input type="checkbox" id="cb2" /> <label for="cb2"><p class="istp">공부</p> <img src="${pageContext.request.contextPath}/assets/img/interest/공부.jpg" /></label></li>
 							<li class="cata"><input type="checkbox" id="cb3" /> <label for="cb3"><p class="istp">그림</p> <img src="${pageContext.request.contextPath}/assets/img/interest/그림.jpg" /></label></li>
@@ -103,7 +103,7 @@
 							<li class="cata"><input type="checkbox" id="cb10" /> <label for="cb10"><p class="istp">운동</p> <img src="${pageContext.request.contextPath}/assets/img/interest/운동.jpg" /></label></li>
 							<li class="cata"><input type="checkbox" id="cb11" /> <label for="cb11"><p class="istp">음악</p> <img src="${pageContext.request.contextPath}/assets/img/interest/음악.jpg" /></label></li>
 							<li class="cata"><input type="checkbox" id="cb12" /> <label for="cb12"><p class="istp">취미</p> <img src="${pageContext.request.contextPath}/assets/img/interest/취미.jpg" /></label></li>
-						</ul>
+						</ul> --%>
 						<button class="membership-btn" type="submit">회원정보수정</button>
 
 					</div>
@@ -132,7 +132,9 @@ $(function(){
 	      location.href = "${pageContext.request.contextPath }/loginForm";
 	   }
 	});
-
-
+$(".membership-btn").on("click", function(){
+	location.href = "${pageContext.request.contextPath }/modifyForm";
+	
+});
 </script>
 </html>
