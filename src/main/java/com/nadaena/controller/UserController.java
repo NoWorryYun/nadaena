@@ -126,7 +126,7 @@ public class UserController {
 
 			authUser.setName(userVo.getName());
 			
-			return "redirect:/user/joinForm";
+			return "redirect:/my/info";
 		}
 	
 	@RequestMapping(value="/findForm", method = {RequestMethod.GET, RequestMethod.POST})
