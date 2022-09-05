@@ -18,7 +18,7 @@ public class ReviewVo {
 	private int pointNo;
 	private int pointGroup;
 	private int charge;
-	private double amount;
+	private int amount;
 	private String pointDate;
 	private int challengeSource;
 	private int productSource;
@@ -32,7 +32,7 @@ public class ReviewVo {
 	public ReviewVo() {
 		super();
 	}
-	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName, int pointNo, int pointGroup, int charge, double amount, String pointDate,
+	public ReviewVo(int reviewNo, int challengeNo, int userNo, MultipartFile file, String reviewContent, String reviewDate, String nickname, String clgTitle, int state, String reviewImg, String saveName, int pointNo, int pointGroup, int charge, int amount, String pointDate,
 			int challengeSource, int productSource, String pointMemo, int rn, int clgLevel, double achievement, double payment, double sum, int clgCnt) {
 		super();
 		this.reviewNo = reviewNo;
@@ -145,10 +145,10 @@ public class ReviewVo {
 	public void setCharge(int charge) {
 		this.charge = charge;
 	}
-	public double getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 	public String getPointDate() {
@@ -217,6 +217,5 @@ public class ReviewVo {
 				+ ", reviewImg=" + reviewImg + ", saveName=" + saveName + ", pointNo=" + pointNo + ", pointGroup=" + pointGroup + ", charge=" + charge + ", amount=" + amount + ", pointDate=" + pointDate + ", challengeSource=" + challengeSource + ", productSource=" + productSource
 				+ ", pointMemo=" + pointMemo + ", rn=" + rn + ", clgLevel=" + clgLevel + ", achievement=" + achievement + ", payment=" + payment + ", sum=" + sum + ", clgCnt=" + clgCnt + "]";
 	}
-	
 	
 }
