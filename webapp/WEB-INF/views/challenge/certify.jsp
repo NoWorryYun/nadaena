@@ -170,15 +170,13 @@
 												</div>
 											</div>
 											<div class="certify-board">
-												<form action="" method="">
 												<div class="certify-board-header">
 													<p class="certify-header">인증게시판</p>
 													<ul class="list-inline" id="certify-all-mine">
-														<li class="list-inline-item"><a href="#">전체</a></li>
-														<li class="list-inline-item"><a href="#">내인증글</a></li>
+														<li class="list-inline-item"><a href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify">전체</a></li>
+														<li class="list-inline-item"><a href="${pageContext.request.contextPath}/challenge/${cMap.intro.challengeNo}/certify?upload=mine">내인증글</a></li>
 													</ul>
 												</div>
-												</form>
 												<div id="certify-list">
 													<ul class="list-inline text-center">
 														<c:forEach items="${pMap.certifyIMGList}" var="ChallengeVo">

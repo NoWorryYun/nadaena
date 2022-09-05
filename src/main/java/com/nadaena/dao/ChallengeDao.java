@@ -237,13 +237,15 @@ public class ChallengeDao {
 	}
 	
 	//인증리스트
-	public List<ChallengeVo> certifyIMGList(int startRnum, int endRnum, int challengeNo){
+	public List<ChallengeVo> certifyIMGList(int startRnum, int endRnum, int challengeNo, int userNo, String upload){
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startRnum", startRnum);
 		map.put("endRnum", endRnum);
 		map.put("challengeNo", challengeNo);
-		
+		if(upload.equals("mine")) {
+			map.put("userNo", userNo);
+		}
 		return sqlSession.selectList("Challenge.certifyIMGList", map);
 	}
 	

@@ -380,6 +380,12 @@
 			                where c.userNo = u.userNo
 			                and c.certifyNo = cc.certifyno
 			                and challengeNo = #{challengeNo}
+			                ]]>
+			                <if test="userNo gt 0">
+			                	and c.userNo = #{userNo}
+			                </if>
+        <![CDATA[
+			                
 			                order by certifieddate asc ) ct
 			    ) ot
 			where rn>=#{startRnum}
