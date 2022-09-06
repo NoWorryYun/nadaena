@@ -377,12 +377,11 @@
 	width: 923.5px;
 	height: 450px;
 	text-align: center;
-	border:5px solid;
-	border-color:#ff8f42;
+	border:1px solid;
 }
 .mypoint-table-header {
 	height: 50px;
-	background-color: cornsilk;
+	background-color: rgba(248, 248, 248, 1.0);;
 	border-bottom: 1px solid;
 }
 .mypoint-table-body {
