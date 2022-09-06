@@ -113,4 +113,29 @@ select count(*) from users where email = #{email}
 			and name = #{name}
 		]]>
 	</select>
+	
+	<select id="findKakao" parameterType="java.util.HashMap" resultType="UserVo">
+		select userNo,
+				   email,
+       			   nickName
+       			    from users
+       			    where nickName=#{nickname} and email=#{email}
+	</select>
+
+	<!-- 정보 저장 -->
+	<insert id="kakaoInsert" parameterType="java.util.HashMap">
+		insert into users (userNo,email,nickname)
+			values(SEQ_userNo.nextval,
+                #{email},
+                  #{nickname}
+			       )
+	</insert>
+	
+	<select id="idCheck" resultType="int" parameterType="String">
+		<![CDATA[
+			select count(email)
+			from users
+			where email = #{email}
+		]]>
+	</select>
 	</mapper>

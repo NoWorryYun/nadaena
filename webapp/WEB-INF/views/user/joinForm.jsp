@@ -18,6 +18,18 @@
 <!-- js -->
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/assets/bootstrap/js/bootstrap.min.js"></script>
+<style>
+.id_ok{
+color:#008000;
+display: none;
+}
+
+.id_already{
+color:#6A82FB; 
+display: none;
+}
+</style>
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 
 
@@ -50,8 +62,10 @@
 							<div class="row mb-3">
 
 								<div class="mb-3">
-									<input id="exampleInputEmail" class="form-control form-control-user" type="email" aria-describedby="emailHelp" placeholder="사용할 이메일" name="email" />
+									<input id="exampleInputEmail" class="form-control form-control-user" type="email" aria-describedby="emailHelp" placeholder="사용할 이메일" name="email" id="email"  required />
+						<input type="button" class="addbtn" id="emailcheck" value="중복체크">
 								</div>
+							
 
 								<div class="mb-3">
 									<input id="exampleInputId" class="form-control form-control-user" type="text" placeholder="닉네임" name="nickName" />
@@ -228,49 +242,68 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 
-/*
-var id = document.querySelector('#id');
-var pw1 = document.querySelector('#pasword');
-var pw2 = document.querySelector('#password_repeat');
-var pwMsg = document.querySelector('#pwtext');
+			$("#emailcheck").on("click",function(){
+				console.log("체크버튼클릭");
+				var email = $("[name='email']").val();
+				$.ajax({
+					url : "${pageContext.request.contextPath }/emailcheck",		
+					type : "post",
+					contentType : "application/json",
+					data : JSON.stringify(email),
+					dataType : "json",
+					success : function(result){
+						console.log(result)
+						if(result == 1){
+							alert("중복된 아이디입니다.");
+						}else if(result == 0){
+							$("#idChk").attr("value", "Y");
+							alert("사용가능한 아이디입니다.");
+						}
+					},
+					error : function(XHR, status, error) {
+						console.error(status + " : " + error);
+					}
+				});
+				 
+			});
+/* $("#joinForm").on("submit", function(){
+	
+	//아이디 null 체크
+	var id = $("#email").val();
+	if(email== '' || email == null){
+		alert("아이디를 입력해 주세요");
+		return false;
+	}
+	
+	//아이디 중복 체크
+	if(isIdCheck == false){
+		alert("아이디 중복체크를 해주세요");
+		return false;
+	}
+	
+	//패스워드 null 체크
+	var password = $("#pssword").val();
+	console.log(password);
+	if(password == '' || password == null){
+		alert("패스워드를 입력해주세요");
+		return false;
+	}
+	
+	//이름 null 체크
+	var userName = $("#name").val();
+	console.log(userName);
+	if(userName == '' || userName == null){
+		alert("이름을 입력해주세요");
+		return false;
+	}
+	
+	//약관동의
 
-//이벤트
-pw1.addEventListener("focusout", checkPw);
-pw2.addEventListener("focusout", repeatPw);
-
-function checkPw() {
-    var pwPattern = /[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{8,16}/;
-    if(pw1.value === "") {
-        error[1].innerHTML = "입력해주세요";
-        error[1].style.display = "block";
-    } else if(!pwPattern.test(pw1.value)) {
-        error[1].innerHTML = "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
-        pwMsg.innerHTML = "사용불가";
-        pwMsgArea.style.paddingRight = "93px";
-        error[1].style.display = "block";
-        
-        pwMsg.style.display = "block";
-    } else {
-        error[1].style.display = "none";
-        pwMsg.innerHTML = "사용가능";
-        pwMsg.style.display = "block";
-        pwMsg.style.color = "#03c75a";
-    }
-}
-
-function repeatPW() {
-    if(pw2.value === pw1.value && pw2.value != "") {
-        error[2].style.display = "none";
-    } else if(pw2.value !== pw1.value) {
-        error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
-        error[2].style.display = "block";
-    } 
-
-    if(pw2.value === "") {
-        error[2].innerHTML = "입력해주세요.";
-        error[2].style.display = "block";
-    }
-}
-*/
+	
+	//모든 if문을 만족하면 submit 진행
+	return true;
+	
+	
+}); */
 </script>
 </html>

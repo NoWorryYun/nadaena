@@ -1,5 +1,6 @@
 package com.nadaena.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -70,4 +71,14 @@ public class UserDao {
 			System.out.println("비번 찾기");
 			return sqlSession.selectOne("users.findPw", userVo);
 		}
+		
+
+		public int emailCheck(String email) {
+			System.out.println(email);
+			int echk = sqlSession.selectOne("users.idCheck", email);
+			return echk;
+		}
+		
+		
+		
 }
