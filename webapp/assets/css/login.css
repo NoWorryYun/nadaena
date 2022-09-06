@@ -98,6 +98,13 @@ form.user .form-control-user {
   margin: 0px 16px;
 }
 
+#msg{
+	color : red;
+	margin : 10px;
+	font-size : 13px;
+	text-align: center;
+}
+
 .container {
   /*padding: 50%;*/
   /*padding-top: 10px;*/

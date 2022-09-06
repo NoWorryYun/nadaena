@@ -29,6 +29,19 @@ textarea {
 	height: 200px !important;
 }
 
+  .photograph {
+    /* if parent is flex it will stretch this image */
+    align-self: center;
+    display: block;
+    height: auto;
+    width: 90%;
+    width:206.6px;
+    height: 207.7px;
+    object-fit: cover;
+    margin-right: 40px;
+    border-radius: 10px;
+  }
+  
 .picture-size{
 	width : 200px;
 	height : 240px;

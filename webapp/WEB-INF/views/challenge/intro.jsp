@@ -81,7 +81,9 @@
 									<div id="introduce-wrap">
 										<div>
 											<div class="float-l">
-												<div class="picture-size" style="background-image: url(${pageContext.request.contextPath}/upload/forNaDaeNa/${cMap.intro.img});"></div>
+												<div>
+													<img class="photograph" alt="" src="${pageContext.request.contextPath}/upload/forNaDaeNa/${cMap.intro.img}">
+												</div>
 												<div>
 													<div>
 														<p class="font-12 fw-bold">카테고리 : ${cMap.intro.interestName}</p>
