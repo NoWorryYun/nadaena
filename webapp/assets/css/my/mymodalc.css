@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+.modal {
+        text-align: center;
+}
+#review-comment {
+	margin: 0px;
+	height: 35px;
+	width: 180px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+#lii {
+	height: 230px;
+}
+@media screen and (min-width: 768px) { 
+	.modal:before {
+	        display: inline-block;
+	        vertical-align: middle;
+	        content: " ";
+	        height: 100%;
+	}
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+}
+.modal-content {
+	width: 500px;
+	height: 522px;
+	
+}	
+#modal-nicname-box {
+	padding:0px;
+}	
+	
+#modal-body {
+	width: 498px;
+	height:418px;
+	padding: 16px;
+}
+
+.modal-header {
+	display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+}
+#review-modal h5{
+	font-size: 1.25rem;
+}
+
+#review-modal {
+	display: none;
+}
+
+#review-modal h5 {
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+
+.modal-text {
+	width: 466px;
+	height: 210px;
+	border: 1px solid;
+	margin-top: 10px;
+	border-radius: 4px;
+}
+
+#modal-upbutton{
+	font-size: 14px;
+	height: 34px;
+	padding:2px;
+	float:left;
+}
+
+#modal-review-button {
+	background-color:#ff8f42;
+	margin-left: 360px;
+	margin-right: 16px;
+}
+
+.btn-close {
+	font-size:14px;
+}
+
+.review-button {
+	width: 60px;
+	border: 1px solid;
+	font-size:15px;
+	height:32px;
+	padding:0px 3px 0px 3px;
+}
+.modal-footer {
+	padding: 12px 0px 12px 0px;
+}
+.readday {
+	font-size: 16px;
+}
+#modal-image {
+	width: 466px;
+	height: 300px;
+	border-radius: 4px;
+}
+#modal-image > img {
+	width: 466px;
+	height: 300px;
+	border-radius: 4px;
+}

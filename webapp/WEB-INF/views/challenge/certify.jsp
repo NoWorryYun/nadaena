@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/fonts/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/my/mymodalc.css">
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/readFormCSS.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Simple-Slider-Simple-Slider.css">
@@ -181,7 +182,11 @@
 													<ul class="list-inline text-center">
 														<c:forEach items="${pMap.certifyIMGList}" var="ChallengeVo">
 														<li class="list-inline-item">
-																<a href="#"><img class="certify-img-size" src="${pageContext.request.contextPath}/upload/forNadaeNa/${ChallengeVo.certifiedIMG}"></a>
+															<div class="img-size">
+																<a href="#" class="modal-button" data-title="${ChallengeVo.certifyTitle}" data-reviewdate="${ChallengeVo.certifieddate}" data-content="${ChallengeVo.nickname}">
+																	<img class="img-size" src="${pageContext.request.contextPath}/upload/forNadaeNa/${ChallengeVo.certifiedIMG}">
+																</a>
+															</div>	
 															<div class="certify-list-info">
 																<div>
 																	<div>
@@ -343,7 +348,41 @@
 	<!-- /footer -->
 
 	<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
+
+<!-- 모달 ------------------------------------------------------------------------------------------------------------>	
+<div id="review-modal" class="modal fade show" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div>
+					<h5></h5>
+				</div>
+				<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div id="modal-body">
+				<div id="modal-nicname-box">
+					<p id="modal-upload-date">작성일 : <span class="readday"></span></p>
+					<p id="modal-upload-date">작성자 : <span class="cnickname"></span></p>
+					
+				</div>
+				<div id="modal-image">
+					<img src="">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button id="modal-review-button" class="btn btn-primary" data-bs-dismiss="modal">닫기</button>
+			</div>
+		</div>
+	</div>
+</div>	
+	
+	
+	
+	
+	
 	<script>
+	
+
 		(function() {
 			$(function() {
 				// calendar element 취득
@@ -458,6 +497,58 @@
 		
 	</script>
 	<script type="text/javascript">
+	
+	//리뷰작성 모달창 호출 했을때
+	$(".modal-button").on("click", function(){
+		
+		//모달창 초기화
+		$("#review-modal h5").html("");
+		$("#review-content").val("");
+		
+		//데이타수집
+		var clgTitle = $(this).data("title");
+		var reviewDate = $(this).data("reviewdate");
+		var reviewContent = $(this).data("content");
+		var certifyImg = $(this).children(".img-size").attr("src");
+		var nickname = $(this).data("content");
+		
+		console.log(clgTitle);
+		console.log(reviewDate);
+		console.log(reviewContent);
+		console.log(certifyImg);
+		console.log(nickname);
+		
+		//첼린지타이틀 출력
+		$("#review-modal h5").html(clgTitle);
+		
+		//리뷰 작성일 출력
+		$("#review-modal .readday").html(reviewDate);
+		$("#review-modal .cnickname").html(nickname);
+		
+		//모달본문
+		$("#review-modal #modal-content").html(reviewContent);
+		
+		//이미지
+		$("#modal-image>img").attr("src", certifyImg);
+		
+		//모달 보이기
+		$("#review-modal").modal("show");
+		
+		
+		
+	});	
+
+
+	//리뷰작성 모달창 닫기 했을때
+	$(".btn-close").on("click", function(){
+		
+		$("#review-modal").modal("fadeOut");	
+	});
+
+	$("#modal-review-button").on("click", function(){
+		
+		$("#review-modal").modal("fadeOut");	
+	});	
 		var authUser = "${authUser.userNo}";
 		var challengeNo = $("#challengeNo").val();
 		
