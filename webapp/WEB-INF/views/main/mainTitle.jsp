@@ -142,7 +142,7 @@
 
 
 	<h3>인기 나대나</h3>
-	<div class="more"><a href="">더보기 > </a></div>
+	<div class="more"><a href="${pageContext.request.contextPath}/search/searchForm">더보기 > </a></div>
 	
     	<div class="lunchbox">
     	
@@ -196,7 +196,7 @@
 
 
 	<h3>마감임박 나대나</h3>
-	<div class="more"><a href="">더보기 > </a></div>
+	<div class="more"><a href="${pageContext.request.contextPath}/search/searchForm">더보기 > </a></div>
     	<div class="lunchbox">
     	
 			<!-- slider main container -->
