@@ -619,7 +619,7 @@ public class MyService {
 //	}
 
 	//리뷰 쓰기(리뷰내용 + 상태업데이트 + 포인트지급)
-	public String writeReview(MultipartFile file, ReviewVo reviewVo) {
+	public String writeReview(MultipartFile file, ReviewVo reviewVo, double myResult, double allResult) {
 
 		String saveDir = "C:\\javaStudy\\upload\\forNaDaeNa";
 
@@ -682,7 +682,6 @@ public class MyService {
 		double pay = rVo.getPayment();
 		int level = rVo.getClgLevel();
 		int source = rVo.getChallengeNo();
-		double achieve = rVo.getAchievement(); // 개인달성율
 		
 		
 		//챌린지번호 주고 전체 달성율 가져오기
@@ -691,15 +690,15 @@ public class MyService {
 		double bonus = 0;
 		double extrabonus = 0;
 		
-		if (achieve >= 90 && level == 3) {
+		if (myResult >= 90 && level == 3) {
 			bonus = pay * 0.05;
-		} else if(achieve >=90 && level == 2) {
+		} else if(myResult >=90 && level == 2) {
 			bonus = pay * 0.03;
-		} else if(achieve >=90 && level == 1) {
+		} else if(myResult >=90 && level == 1) {
 			bonus = pay * 0.02;
-		} else if(achieve < 90) {
+		} else if(myResult < 90) {
 			bonus = 0;
-			pay = pay*achieve/100;
+			pay = pay*myResult/100;
 		}
 		
 		if(avg == 100) {

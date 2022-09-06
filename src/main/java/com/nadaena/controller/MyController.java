@@ -1,5 +1,6 @@
 package com.nadaena.controller;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.nadaena.service.ChallengeService;
 import com.nadaena.service.MyService;
 import com.nadaena.service.SearchService;
 import com.nadaena.vo.MainTitleVo;
@@ -28,6 +30,9 @@ public class MyController {
 	MyService myService;
 	@Autowired
 	SearchService searchService;
+	@Autowired
+	ChallengeService challengeService;
+	
 	
 	//회원정보 및 수정폼
 	@RequestMapping(value = "my/info", method = { RequestMethod.GET, RequestMethod.POST })
@@ -228,7 +233,7 @@ public class MyController {
 
 	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급) - 챌린지
 	@RequestMapping(value = "my/writeReview", method = { RequestMethod.GET, RequestMethod.POST })
-	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, HttpSession session) {
+	public String writeReview(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, HttpSession session) throws ParseException {
 
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		if (authUser == null) {
@@ -238,7 +243,13 @@ public class MyController {
 			reviewVo.setUserNo(authUser.getUserNo());
 			reviewVo.setNickname(authUser.getNickName());
 
-			myService.writeReview(file, reviewVo);
+			int challengeNo = reviewVo.getChallengeNo();
+			int userNo = authUser.getUserNo();
+			
+			double myResult = challengeService.calProgress(challengeNo, userNo);
+			double allResult = challengeService.calAllProgress(challengeNo);
+			
+			myService.writeReview(file, reviewVo, myResult, allResult);
 		}
 		return "redirect:/my/challenge";
 	}
