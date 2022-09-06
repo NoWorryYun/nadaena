@@ -68,11 +68,11 @@ display: none;
 							
 
 								<div class="mb-3">
-									<input id="exampleInputId" class="form-control form-control-user" type="text" placeholder="닉네임" name="nickName" />
+									<input id="exampleInputId" class="form-control form-control-user " type="text" placeholder="닉네임" name="nickName" required/>
 								</div>
 
 								<div class="mb-3">
-									<input id="examplePasswordInput" class="form-control form-control-user" type="password" placeholder="비밀번호" name="pasword" />
+									<input id="examplePasswordInput" class="form-control form-control-user" type="password" placeholder="비밀번호" name="pasword" required/>
 									<!-- <span id="pwtext">사용불가</span> -->
 								</div>
 
@@ -81,11 +81,12 @@ display: none;
 								</div> -->
 
 								<div class=" mb-3">
-									<input id="exampleFirstName" class="form-control form-control-user" type="text" placeholder="이름" name="name" />
+									<input id="exampleFirstName" class="form-control form-control-user" type="text" placeholder="이름" name="name" required/>
+									
 								</div>
 								
 								<div class=" mb-3">
-									<input id="exbirth" class="form-control form-control-user" type="text" placeholder="생년월일" name="birth" />
+									<input id="exbirth" class="form-control form-control-user" type="text" placeholder="생년월일" name="birth" required/>
 								</div>
 
 							<!-- 	<div class="info" id="info__birth">
@@ -99,19 +100,19 @@ display: none;
 								</div> -->
 
 								<div class=" mb-3">
-									<input id="phoneNumber" class="form-control form-control-user" type="text" placeholder="휴대폰번호 (-) 없이 입력해주세요" name="hp" />
+									<input id="phoneNumber" class="form-control form-control-user" type="text" placeholder="휴대폰번호 (-) 없이 입력해주세요" name="hp" required/>
 								</div>
 
 								<div class=" mb-3">
-									<input id="sample6_postcode" class="form-control-user form-control" type="text" placeholder="우편번호" name="postNo" />
+									<input id="sample6_postcode" class="form-control-user form-control" type="text" placeholder="우편번호" name="postNo" required/>
 									 <input type="button" class="addbtn"onclick="sample6_execDaumPostcode()"value="주소찾기">
 								</div>
 								<div class=" mb-3">
-									<input id="sample6_address" class="form-control form-control-user" type="text" placeholder="주소" name="address1" />
+									<input id="sample6_address" class="form-control form-control-user" type="text" placeholder="주소" name="address1" required/>
 								</div>
 
 								<div class=" mb-3">
-									<input id="sample6_detailAddress" class="form-control form-control-user" type="text" placeholder="상세주소" name="address2" />
+									<input id="sample6_detailAddress" class="form-control form-control-user" type="text" placeholder="상세주소" name="address2" required/>
 								</div>
 								
 
@@ -243,7 +244,6 @@ function sample6_execDaumPostcode() {
 }
 
 			$("#emailcheck").on("click",function(){
-				console.log("체크버튼클릭");
 				var email = $("[name='email']").val();
 				$.ajax({
 					url : "${pageContext.request.contextPath }/emailcheck",		
@@ -266,44 +266,9 @@ function sample6_execDaumPostcode() {
 				});
 				 
 			});
-/* $("#joinForm").on("submit", function(){
-	
-	//아이디 null 체크
-	var id = $("#email").val();
-	if(email== '' || email == null){
-		alert("아이디를 입력해 주세요");
-		return false;
-	}
-	
-	//아이디 중복 체크
-	if(isIdCheck == false){
-		alert("아이디 중복체크를 해주세요");
-		return false;
-	}
-	
-	//패스워드 null 체크
-	var password = $("#pssword").val();
-	console.log(password);
-	if(password == '' || password == null){
-		alert("패스워드를 입력해주세요");
-		return false;
-	}
-	
-	//이름 null 체크
-	var userName = $("#name").val();
-	console.log(userName);
-	if(userName == '' || userName == null){
-		alert("이름을 입력해주세요");
-		return false;
-	}
-	
-	//약관동의
+			
+		
+		
 
-	
-	//모든 if문을 만족하면 submit 진행
-	return true;
-	
-	
-}); */
 </script>
 </html>
