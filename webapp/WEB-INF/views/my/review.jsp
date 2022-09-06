@@ -58,7 +58,7 @@
 						<li class="list-inline-item">
 							<div class="img-size">
 								<a href="${pageContext.request.contextPath }/challenge/${ReviewVo.challengeNo}/review">
-									<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }">
+									<img class="img-size" src="${pageContext.request.contextPath }/upload/forNaDaeNa/${ReviewVo.reviewImg }">
 								</a>
 							</div>
 							<div class="certify-list-info">
@@ -67,7 +67,7 @@
 										<a class="report" href="${pageContext.request.contextPath}/my/deleteReview?reviewNo=${ReviewVo.reviewNo}">삭제</a>
 									</div>
 									<p class="review-uploader">${ReviewVo.nickname }</p>
-									<p class="review-comment">${ReviewVo.reviewContent }</p>
+									<p id="review-comment" class="review-comment">${ReviewVo.reviewContent }</p>
 								</div>
 							</div>
 						</li>

@@ -81,10 +81,10 @@
 									<div>
 										<ul class="list-inline">
 											<c:forEach items="${rMap.rList}" var="ReviewVo" varStatus="i">
-												<li class="list-inline-item">
+												<li class="list-inline-item" id="lii">
 													<div class="img-size">
 														<a href="#" class="modal-button" data-title="${ReviewVo.clgTitle}" data-reviewdate="${ReviewVo.reviewDate }" data-content="${ReviewVo.reviewContent }">
-															<img class="img-size" src="${pageContext.request.contextPath }/upload/${ReviewVo.reviewImg }">
+															<img class="img-size" src="${pageContext.request.contextPath }/upload/forNaDaeNa/${ReviewVo.reviewImg }">
 														</a>
 													</div>
 													<div class="certify-list-info">
@@ -93,7 +93,7 @@
 																<a class="report" href="">신고</a>
 															</div>
 															<p class="review-uploader">${ReviewVo.nickname }</p>
-															<p class="review-comment">${ReviewVo.reviewContent }</p>
+															<p id="review-comment" class="review-comment">${ReviewVo.reviewContent }</p>
 														</div>
 													</div>
 												</li>
@@ -549,6 +549,8 @@ $(".report").on("click", function(){
 		$(document).ready(function(){
 			bkload();
 		})
+		
+
 </script>
 
 

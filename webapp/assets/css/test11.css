@@ -4,6 +4,15 @@
 	box-sizing: border-box;
 }
 
+#review-comment {
+	margin: 0px;
+	height: 35px;
+	width: 180px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
 article, aside, details, figcaption, figure, footer, header, main, nav, section, summary {
 	display: block;
 }

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 /* my2 */
 .modal {
         text-align: center;
@@ -257,7 +258,7 @@
 	color: black;
 	text-align: center;
 	width: 280px;
-	
+	height: 48px;	
 }
 
 .challenge-box > button {
@@ -279,7 +280,7 @@
 	height: 190px;
 }
 .challenge-info p{
-	margin-bottom: 12px;
+	margin-bottom: 8px;
 }
 
 #modal-review-button {
