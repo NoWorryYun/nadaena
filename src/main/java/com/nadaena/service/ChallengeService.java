@@ -291,7 +291,6 @@ public class ChallengeService {
 		
 		String recRD = challengeVo.getRecRDM();
 		int period = challengeVo.getPeriod();
-		int upload = challengeVo.getUpload();
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -316,7 +315,6 @@ public class ChallengeService {
 			clgVo.setUserNo(userNo);
 			clgVo.setChallengeNo(challengeNo);
 			
-			
 			//숙제 가져오기
 			List<ChallengeVo> calendarInfo = challengeDao.calender(clgVo);
 			
@@ -327,11 +325,7 @@ public class ChallengeService {
 				
 				dateChk.add(asd);
 			}
-			
 		}	
-		System.out.println(dateChk);
-		
-		
 		return dateChk;
 	}
 	

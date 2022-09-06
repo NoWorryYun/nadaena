@@ -187,7 +187,9 @@
 																	<div>
 																		<a class="report" href="#">신고</a>
 																	</div>
+																	<div class="upload-date-box">
 																	<p class="upload-date">인증제목 : ${ChallengeVo.certifyTitle}</p>
+																	</div>
 																	<p class="upload-date">업로드일 : ${ChallengeVo.certifieddate}</p>
 																	<p class="nickname">${ChallengeVo.nickname} 님</p>
 																</div>
