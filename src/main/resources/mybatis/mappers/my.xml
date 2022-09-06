@@ -267,7 +267,7 @@
 		]]>
 	</select>	
 	
-	<!-- 진행 이벤트(전체) + 페이징 -->
+<!-- 	 진행 이벤트(전체) + 페이징 
 	<select id="selectList21" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
@@ -342,7 +342,7 @@
 			and rn<=#{endRnum}	  
 		]]>
 	</select>
-	<!-- 종료 이벤트(전체) + 페이징 -->
+	종료 이벤트(전체) + 페이징
 	<select id="selectList22" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
@@ -416,7 +416,7 @@
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}	  
 		]]>
-	</select>	
+	</select>	 -->
 	
 	<!-- 전체글갯수 구하기 -->
 	<select id="selectTotalCnt" resultType="int">
@@ -457,7 +457,7 @@
 	</select>
 
 
-	<!-- 이벤트 진행중 갯수 구하기 -->
+<!-- 	 이벤트 진행중 갯수 구하기 
 	<select id="selectTotalCnt21" resultType="int">
 		<![CDATA[
 			select count(*) count
@@ -469,7 +469,7 @@
 		]]>
 	</select>	
 	
-	<!-- 종료 이벤트 갯수 구하기 -->
+	종료 이벤트 갯수 구하기
 	<select id="selectTotalCnt22" resultType="int">
 		<![CDATA[
 			select count(*) count
@@ -479,7 +479,7 @@
 		    and   c.clgGroup=2
 		    and m.userNo = #{userNo}
 		]]>
-	</select>	
+	</select>	 -->
 	
 	<!-- 북마크 챌린지 리스트 페이징 -->	
 	<select id="selectbList1" parameterType= "Map" resultType="MyVo">
@@ -545,7 +545,7 @@
 		]]>
 	</select>	
 	
-	<!-- 북마크 이벤트 리스트 페이징 -->
+<!-- 	 북마크 이벤트 리스트 페이징 
 	<select id="selectbList2" parameterType= "Map" resultType="MyVo">
 		<![CDATA[
 			select  ort.rn,
@@ -607,7 +607,7 @@
 			where rn>=#{startRnum}
 			and rn<=#{endRnum}
 		]]>
-	</select>	
+	</select>	 -->
 	
 	<!-- 북마크 챌린지 갯수-->
 	<select id="selectTotalCntb1" resultType="int">
@@ -621,7 +621,7 @@
 		]]>
 	</select>	
 	
-	<!-- 북마크 이벤트 갯수-->
+<!-- 	 북마크 이벤트 갯수
 	<select id="selectTotalCntb2" resultType="int">
 		<![CDATA[
 			select  count(*) count
@@ -631,7 +631,7 @@
 			and u.userNo = #{userNo}
 			and c.clgGroup = 2
 		]]>
-	</select>	
+	</select>	 -->
 	
 	<!-- 리뷰불러오기 + 페이징 -->
 	<select id="selectreviewList" parameterType= "Map" resultType="ReviewVo">

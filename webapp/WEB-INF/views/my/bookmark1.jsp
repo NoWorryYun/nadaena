@@ -42,10 +42,10 @@
 				<h3 class="mychallenge">즐겨찾기</h3>
 				
 				<div class="challenge-header">관심있는 챌린지
-					<ul>
+					<%-- <ul>
 						<li><a href="${pageContext.request.contextPath }/my/bookmark1">챌린지</a></li>
 						<li class="last-list"><a href="${pageContext.request.contextPath }/my/bookmark2">이벤트</a></li>
-					</ul>		
+					</ul>	 --%>	
 				</div>			
 				<div class="challenge-images">
 					<c:forEach items="${mbMap.mbList1}" var="MyVo" varStatus="i">

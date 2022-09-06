@@ -111,41 +111,41 @@ public class MyController {
 		return "my/challengeno";
 	}
 
-	//참가중 이벤트 리스트
-	@RequestMapping(value = "my/event", method = { RequestMethod.GET, RequestMethod.POST })
-	public String elist1(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		if (authUser == null) {
-			//로그인 안되어있을 때
-		} else if (authUser != null) {
-			//로그인 되어있을 때
+//	//참가중 이벤트 리스트
+//	@RequestMapping(value = "my/event", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String elist1(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
+//		UserVo authUser = (UserVo) session.getAttribute("authUser");
+//		if (authUser == null) {
+//			//로그인 안되어있을 때
+//		} else if (authUser != null) {
+//			//로그인 되어있을 때
+//
+//			int userNo = authUser.getUserNo();
+//
+//			Map<String, Object> mcMap = myService.getmeList21(crtPage, userNo);
+//
+//			model.addAttribute("mcMap", mcMap);
+//		}
+//		return "my/event";
+//	}
 
-			int userNo = authUser.getUserNo();
-
-			Map<String, Object> mcMap = myService.getmeList21(crtPage, userNo);
-
-			model.addAttribute("mcMap", mcMap);
-		}
-		return "my/event";
-	}
-
-	//종료된 이벤트 리스트
-	@RequestMapping(value = "my/event/end", method = { RequestMethod.GET, RequestMethod.POST })
-	public String elist2(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		if (authUser == null) {
-			//로그인 안되어있을 때
-		} else if (authUser != null) {
-			//로그인 되어있을 때
-
-			int userNo = authUser.getUserNo();
-
-			Map<String, Object> mcMap = myService.getmeList22(crtPage, userNo);
-
-			model.addAttribute("mcMap", mcMap);
-		}
-		return "my/eventend";
-	}
+//	//종료된 이벤트 리스트
+//	@RequestMapping(value = "my/event/end", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String elist2(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
+//		UserVo authUser = (UserVo) session.getAttribute("authUser");
+//		if (authUser == null) {
+//			//로그인 안되어있을 때
+//		} else if (authUser != null) {
+//			//로그인 되어있을 때
+//
+//			int userNo = authUser.getUserNo();
+//
+//			Map<String, Object> mcMap = myService.getmeList22(crtPage, userNo);
+//
+//			model.addAttribute("mcMap", mcMap);
+//		}
+//		return "my/eventend";
+//	}
 
 	//북마크 챌린지 리스트
 	@RequestMapping(value = "my/bookmark1", method = { RequestMethod.GET, RequestMethod.POST })
@@ -165,23 +165,23 @@ public class MyController {
 		return "my/bookmark1";
 	}
 
-	//북마크 이벤트 리스트
-	@RequestMapping(value = "my/bookmark2", method = { RequestMethod.GET, RequestMethod.POST })
-	public String blist2(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		if (authUser == null) {
-			//로그인 안되어있을 때
-		} else if (authUser != null) {
-			//로그인 되어있을 때
-
-			int userNo = authUser.getUserNo();
-
-			Map<String, Object> mbMap = myService.getmbList2(crtPage, userNo);
-
-			model.addAttribute("mbMap", mbMap);
-		}
-		return "my/bookmark2";
-	}
+//	//북마크 이벤트 리스트
+//	@RequestMapping(value = "my/bookmark2", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String blist2(Model model, HttpSession session, @RequestParam(value = "crtPage", required = false, defaultValue = "1") int crtPage) {
+//		UserVo authUser = (UserVo) session.getAttribute("authUser");
+//		if (authUser == null) {
+//			//로그인 안되어있을 때
+//		} else if (authUser != null) {
+//			//로그인 되어있을 때
+//
+//			int userNo = authUser.getUserNo();
+//
+//			Map<String, Object> mbMap = myService.getmbList2(crtPage, userNo);
+//
+//			model.addAttribute("mbMap", mbMap);
+//		}
+//		return "my/bookmark2";
+//	}
 
 	//마이리뷰 리스트
 	@RequestMapping(value = "my/review", method = { RequestMethod.GET, RequestMethod.POST })
@@ -243,22 +243,22 @@ public class MyController {
 		return "redirect:/my/challenge";
 	}
 
-	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급) - 이벤트
-	@RequestMapping(value = "my/writeReview2", method = { RequestMethod.GET, RequestMethod.POST })
-	public String writeReview2(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, Model model, HttpSession session) {
-
-		UserVo authUser = (UserVo) session.getAttribute("authUser");
-		if (authUser == null) {
-			//로그인 안되어있을 때
-		} else if (authUser != null) {
-			//로그인 되어있을 때
-			reviewVo.setUserNo(authUser.getUserNo());
-			reviewVo.setNickname(authUser.getNickName());
-
-			myService.writeReview(file, reviewVo);
-		}
-		return "redirect:/my/event";
-	}
+//	//리뷰쓰기(리뷰내용+상태업데이트+포인트지급) - 이벤트
+//	@RequestMapping(value = "my/writeReview2", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String writeReview2(@RequestParam("file") MultipartFile file, @ModelAttribute ReviewVo reviewVo, Model model, HttpSession session) {
+//
+//		UserVo authUser = (UserVo) session.getAttribute("authUser");
+//		if (authUser == null) {
+//			//로그인 안되어있을 때
+//		} else if (authUser != null) {
+//			//로그인 되어있을 때
+//			reviewVo.setUserNo(authUser.getUserNo());
+//			reviewVo.setNickname(authUser.getNickName());
+//
+//			myService.writeReview(file, reviewVo);
+//		}
+//		return "redirect:/my/event";
+//	}
 
 	//리뷰삭제
 	@RequestMapping(value = "my/deleteReview", method = { RequestMethod.GET, RequestMethod.POST })
