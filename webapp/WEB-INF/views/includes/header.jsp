@@ -64,7 +64,7 @@
 					</ul>
 				</li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/search/searchForm">챌린지</a></li>
-				<li class="nav-item"><a href="${pageContext.request.contextPath}/event">이벤트</a></li>
+				<%-- <li class="nav-item"><a href="${pageContext.request.contextPath}/event">이벤트</a></li> --%>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/shop">포인트몰</a></li>
 			</ul>
 			<c:if test="${sessionScope.authUser.userNo != 1}">
