@@ -59,7 +59,7 @@
 										</div>
 										<form class="user" method="post" action="${pageContext.request.contextPath}/login">
 											<div class="mb-3">
-												<input id="ex   ampleInputEmail"
+												<input id="exampleInputEmail"
 													class="form-control form-control-user" type="email"
 													aria-describedby="emailHelp" placeholder="이메일" name="email" />
 											</div>
@@ -73,16 +73,26 @@
 												<div class="custom-control custom-checkbox small">
 													<div class="form-check">
 														<input id="formCheck-1" name ="formCheck-1"class="form-check-input custom-control-input" type="checkbox" />
-														<label class="form-check-label custom-control-label" for="formCheck-1">아이디저장</label>
+														<label class="form-check-label custom-control-label" id="chk_save_id">아이디저장</label>
 															<a class="find" href="${pageContext.request.contextPath}/findForm">아이디/비밀번호찾기</a> 
 													</div>
 										
 												</div>
 
 											</div>
-											
+											<!-- <a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=2c8beabeb5e52e1d8bff6f7e057da2cf&redirect_uri=http://localhost:8088/nadaena/kakaologin&response_type=code">
+											<img src="/resources/icon/kakao_login_large_narrow.png" style="height:60px">
+											</a> -->
 											<button class="btn btn-primary d-block btn-user w-100"
 												type="submit">로그인</button>
+												
+												<c:if test="${msg=='failLogin' }">
+												<div id ="msg">
+												아이디 또는 비밀번호가 일치하지 않습니다.
+												</div>
+												</c:if>
+												
+												
 												</form>
 											<%-- <div class="hr-sect">또는</div>
 											
@@ -154,32 +164,8 @@ $(document).ready(function(){
     });
 });
  
-function setCookie(cookieName, value, exdays){
-    var exdate = new Date();
-    exdate.setDate(exdate.getDate() + exdays);
-    var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
-    document.cookie = cookieName + "=" + cookieValue;
-}
- 
-function deleteCookie(cookieName){
-    var expireDate = new Date();
-    expireDate.setDate(expireDate.getDate() - 1);
-    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
-}
- 
-function getCookie(cookieName) {
-    cookieName = cookieName + '=';
-    var cookieData = document.cookie;
-    var start = cookieData.indexOf(cookieName);
-    var cookieValue = '';
-    if(start != -1){
-        start += cookieName.length;
-        var end = cookieData.indexOf(';', start);
-        if(end == -1)end = cookieData.length;
-        cookieValue = cookieData.substring(start, end);
-    }
-    return unescape(cookieValue);
-}
+
+
   </script>
  
 </html>

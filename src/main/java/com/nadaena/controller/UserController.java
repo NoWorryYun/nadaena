@@ -1,8 +1,5 @@
 package com.nadaena.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.nadaena.dao.UserDao;
 import com.nadaena.service.HobbyService;
 import com.nadaena.service.UserService;
 import com.nadaena.vo.UserVo;
@@ -26,8 +22,6 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private HobbyService hobbyService;
-	@Autowired
-	private UserDao userDao;
 	
 	
 	@RequestMapping(value="/loginForm", method = {RequestMethod.GET, RequestMethod.POST})
@@ -37,7 +31,7 @@ public class UserController {
 		return "user/loginForm";
 	} 
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login(@ModelAttribute UserVo userVo, HttpSession session) {
+	public String login(@ModelAttribute UserVo userVo, HttpSession session ) {
 		System.out.println("login test");
 		System.out.println(userVo);
 
@@ -50,7 +44,8 @@ public class UserController {
 			return "redirect:/main"; //joinForm";
 		} else {
 			System.out.println("로그인 실패");
-			return "redirect:/user/loginForm?result=fail";
+			session.setAttribute("msg", "failLogin");
+			return "user/loginForm";
 		}
 	}
 	@RequestMapping(value = "/logout", method = { RequestMethod.GET, RequestMethod.POST })
@@ -97,18 +92,7 @@ public class UserController {
 		return "user/modifyForm";
 	} 
 
-	/*
-	 * @RequestMapping(value="/modifyForm", method = {RequestMethod.GET, RequestMethod.POST}) public String modifyForm(Model model, HttpSession
-	 * session) {
-	 * 
-	 * System.out.println("modifyForm");
-	 * 
-	 * int userNo = ((UserVo) session.getAttribute("authUser")).getUserNo();
-	 * 
-	 * UserVo userVo = userService.getUserInfo(userNo);
-	 * 
-	 * model.addAttribute("userVo", userVo); return "user/modifyForm"; }
-	 */
+
 	//회원정보수정
 		@RequestMapping(value="/modify", method = {RequestMethod.GET, RequestMethod.POST})
 		public String modify(@ModelAttribute UserVo userVo, HttpSession session) {
@@ -162,4 +146,35 @@ public class UserController {
 		
 		return "user/findPw";
 	}
+	
+	@RequestMapping(value="/kakaologin", method = {RequestMethod.GET, RequestMethod.POST})
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, HttpSession session, UserVo userVo) {
+		System.out.println("#########" + code);
+		
+		/*
+		 * 리턴값의 testPage는 아무 페이지로 대체해도 괜찮습니다.
+		 * 없는 페이지를 넣어도 무방합니다.
+		 * 404가 떠도 제일 중요한건 #########인증코드 가 잘 출력이 되는지가 중요하므로 너무 신경 안쓰셔도 됩니다.
+		 */
+		String access_Token = userService.getAccessToken(code);
+		System.out.println("###access_Token#### : " + access_Token);
+		
+		// 위 코드는 session객체에 담긴 정보를 초기화 하는 코드.
+		session.setAttribute("kakaoN", userVo.getNickName());
+		session.setAttribute("kakaoE", userVo.getEmail());
+		
+		UserVo userInfo = userService.kakaogetUserInfo(access_Token);
+		
+		
+		
+		/*
+		 * if (userInfo != null) { System.out.println("로그인 성공"); session.setAttribute("authUser", authUser);
+		 * 
+		 * return "redirect:/main"; //joinForm"; } else { System.out.println("로그인 실패"); session.setAttribute("msg", "failLogin"); return
+		 * "user/loginForm"; }
+		 */
+		 
+		return "user/findId";
+    	}
+
 }
