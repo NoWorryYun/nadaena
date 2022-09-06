@@ -371,6 +371,7 @@ public class ChallengeService {
 			} 
 		}
 		double result = (double)Math.round(((double)count/(period*7))*10000)/100;
+		System.out.println(result);
 		return result;
 		
 	}
@@ -397,10 +398,10 @@ public class ChallengeService {
 		
 		List<Integer> clgUserList = challengeDao.clgUserList(challengeNo);
 		
+		System.out.println("clgUserList : " + clgUserList);
+		
 		int size = clgUserList.size();
-		
-		System.out.println("사이즈 : " + clgUserList.size());
-		
+		System.out.println("size : " + size);
 			for(int i = 0 ; i < (period*7) ; i++) {
 			
 				cal.add(Calendar.DATE, + 1);
@@ -410,18 +411,16 @@ public class ChallengeService {
 					clgVo.setCertifieddate(certifieddate);
 					clgVo.setChallengeNo(challengeNo);
 					clgVo.setUserNo(clgUserList.get(j));
-					System.out.println("userNo : " + clgUserList.get(j));
 					int chkProgress = challengeDao.chkProgress(clgVo);
-					System.out.println("챌린지 chkProgress : "+ chkProgress);
-					System.out.println(clgVo);
+					System.out.println("chkProgress : " + chkProgress);
+					
 					if(chkProgress == upload) {
 						count += 1;
-						System.out.println(count);
 					} 
+					System.out.println("count : " + count);
 				}
 			}	
 		
-		System.out.println("챌린지 count : " + count);
 		double result = (double)Math.round(((double)count/(period*7*size))*10000)/100;
 		
 		System.out.println("챌린지 진행도 result : " + result);

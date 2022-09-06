@@ -602,7 +602,7 @@
 	  if(startDate <= nowtime){ //지금이 시작시간보다 작거나, 종류시간보다 크면      
 		    $('.btnjoin').css('display', 'none'); 
 			$(".removeSelect").remove();
-			$('.textPay').append('<span>이미 시작된 채린지입니다.</span>');
+			$('.textPay').append('<span>이미 시작된 챌린지입니다.</span>');
 		}
 	}
   
