@@ -79,7 +79,7 @@
 								</ul>
 								<div class="tab-content">
 									<div id="introduce-wrap">
-										<div>
+										<div class="introduce-size">
 											<div class="float-l">
 												<div>
 													<img class="photograph" alt="" src="${pageContext.request.contextPath}/upload/forNaDaeNa/${cMap.intro.img}">

@@ -139,6 +139,10 @@ address, dl, fieldset, figure, ol, p, pre, ul {
 	z-index: -1;
 }
 
+.introduce-size{
+	height : 330px;
+}
+
 .table-certify {
 	padding: 10px;
 	border: 1px solid #9f9f9f;
