@@ -126,13 +126,13 @@
 														<input class="form-check-input" type="radio" id="upload-picture" name="certify" checked="checked" value="1"><label class="form-check-label" for="upload-picture">사진</label>
 													</div>
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="upload-video" name="certify" value="2"><label class="form-check-label" for="upload-video">비디오</label>
+<!-- 														<input class="form-check-input" type="radio" id="upload-video" name="certify" value="2"><label class="form-check-label" for="upload-video">비디오</label> -->
 													</div>
 												</td>
 												<td class="write-table-label">추가인증설정</td>
 												<td class="write-table-content">
 													<div class="form-check">
-														<input class="form-check-input" type="checkbox" name="minigame" id="minigame" value="0"><label class="form-check-label" for="minigame">미니게임</label>
+<!-- 														<input class="form-check-input" type="checkbox" name="minigame" id="minigame" value="0"><label class="form-check-label" for="minigame">미니게임</label> -->
 													</div>
 												</td>
 											</tr>
@@ -152,10 +152,10 @@
 												<td class="write-table-label">주당 인증 일수</td>
 												<td class="write-table-content">
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="week-five" name="certifyDay" value="5" checked="checked"><label class="form-check-label" for="week-five">주5일 (평일만)</label>
+														<input class="form-check-input" type="radio" id="week-five" name="certifyDay" value="5"><label class="form-check-label" for="week-five">주5일 (평일만)</label>
 													</div>
 													<div class="form-check radio-with-label">
-														<input class="form-check-input" type="radio" id="week-seven" name="certifyDay" value="7"><label class="form-check-label" for="week-seven">주7일 (주말포함)</label>
+														<input class="form-check-input" type="radio" id="week-seven" name="certifyDay" value="7" checked="checked"><label class="form-check-label" for="week-seven">주7일 (주말포함)</label>
 													</div>
 												</td>
 											</tr>

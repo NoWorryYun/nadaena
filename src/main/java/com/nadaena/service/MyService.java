@@ -672,17 +672,11 @@ public class MyService {
 
 		//포인트계산
 		//난이도, 참가비용 <-- reviewVo<--챌린지번호 유저번호
-		System.out.println("상태업데이트 후 서비스로 옴");
-		System.out.println("포인트 정보 가져오라 시킴");
-
 		ReviewVo rVo = myDao.selectReviewPoint(reviewVo);
 		
-		System.out.println("담아왔다 서비스로");
-		System.out.println("담아온Vo" + rVo);
 		double pay = rVo.getPayment();
 		int level = rVo.getClgLevel();
 		int source = rVo.getChallengeNo();
-		
 		
 		//챌린지번호 주고 전체 달성율 가져오기
 		
@@ -690,11 +684,11 @@ public class MyService {
 		double bonus = 0;
 		double extrabonus = 0;
 		
-		if (myResult >= 90 && level == 3) {
+		if (myResult == 100 && level == 3) {
 			bonus = pay * 0.05;
-		} else if(myResult >=90 && level == 2) {
+		} else if(myResult ==100 && level == 2) {
 			bonus = pay * 0.03;
-		} else if(myResult >=90 && level == 1) {
+		} else if(myResult ==100 && level == 1) {
 			bonus = pay * 0.02;
 		} else if(myResult < 90) {
 			bonus = 0;
