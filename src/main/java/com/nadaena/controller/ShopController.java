@@ -84,9 +84,9 @@ public class ShopController {
 		System.out.println(" ShopCtrl > order");
 		
 		//로그인정보
-//		UserVo userVo = (UserVo)session.getAttribute("authUser");
-//		int userNo = userVo.getUserNo();
-		int userNo = 2;
+		UserVo userVo = (UserVo)session.getAttribute("authUser");
+		int userNo = userVo.getUserNo();
+//		int userNo = 2;
 		
 		//보유포인트
 		int totalPoint = productService.totalPoint(userNo);
