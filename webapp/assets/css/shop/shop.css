@@ -68,13 +68,13 @@ img { border:0; vertical-align:middle; }
 }
 
 
-.contents_2 { width: 1113px; margin: 0 auto; padding-top: 120px;
+.contents_2 { width: 1113px; margin: 0; padding-top: 80px;
     
 }
 
 
 
-.box_1 { float: left; margin-right: 14px; padding-bottom: 80px;}
+.box_1 { float: left; margin-right: 14px; padding-bottom: 40px;}
 .scale { width: 357px; height: 286px; overflow: hidden;
     transform: scale(1); margin-bottom: 30px; }
 .scale img { position: relative; 

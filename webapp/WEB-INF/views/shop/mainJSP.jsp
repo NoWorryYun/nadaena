@@ -72,10 +72,10 @@
 	                        </a>
 	                    </div>
 	                    <p class="b_name">${product.productName }</p>
-	                    <p class="price">
+<%--                 			<input name="optionPrice" type="hidden" value="${product.optionPrice }"> --%>
                     		<c:choose>
-                    			<c:when test="${product.countOption == 1 }"><p class="sale">${product.optionPrice } 원</p></c:when>
-                    			<c:when test="${product.countOption > 1 }"><p class="sale">${product.optionPrice } 원 ~ </p></c:when>
+                    			<c:when test="${product.countOption == 1 }"><p class="sale">${product.optionPrice }</p><p> 원</p></c:when>
+                    			<c:when test="${product.countOption > 1 }"><p class="sale">${product.optionPrice }</p><p> 원 ~ </p></c:when>
                     		</c:choose>
 	                            
 	                            
@@ -107,5 +107,21 @@
 
 
 </body>
+<script type="text/javascript">
 
+// var optionPrice = $("[name='optionPrice']").val();
+// optionPrice = addComma(optionPrice);
+
+// $(function(){
+// 	console.log(optionPrice)
+// 	$(".sale").text(optionPrice);
+// });
+
+
+//천단위 콤마 펑션
+function addComma(value){
+	value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	return value; 
+}
+</script>
 </html>
