@@ -229,14 +229,14 @@
 					</div>
 				</div>
 				<!-- //오른쪽 베스트 코너 -->
-				
+				<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 				
 			</div>
 		</div>
 	</main>
 
 
-
+<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 	<!-- footer -->
 	<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 	<!-- /footer -->
@@ -255,7 +255,7 @@ if(authUser == "" && authUser == null){
 	} else{
 		$.ajax({
 			contentType : 'application/json',     
-			data : JSON.stringify(authUser),
+			data : JSON.stringify(bookMarkData),
 			url : '${pageContext.request.contextPath}/challenge/bookMark',
 			type : 'POST',
 			
@@ -270,7 +270,16 @@ if(authUser == "" && authUser == null){
 		})
 	}
 }
+var challengeNo = $("#challengeNo").val();
 
+challengeNo = Number(challengeNo);
+
+console.log(challengeNo);
+
+var bookMarkData = {
+		userNo : authUser,
+		challengeNo : challengeNo
+}
 $("#bookMark").on("click", "#unCheckbookMark", function(){
 	if(authUser != null && authUser != ""){
 	$.ajax({

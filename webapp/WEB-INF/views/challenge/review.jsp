@@ -302,7 +302,7 @@
 	</div>
 </div>
  -->
-
+<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 <script>
 
 $(function(){
@@ -481,6 +481,18 @@ $(".report").on("click", function(){
 				calendar.render();
 			});
 		})(); */
+		
+		
+		var challengeNo = $("#challengeNo").val();
+		
+		challengeNo = Number(challengeNo);
+		
+		console.log(challengeNo);
+		
+		var bookMarkData = {
+				userNo : authUser,
+				challengeNo : challengeNo
+		}
 		
 		//북마크 확인하기
 		var authUser = "${authUser.userNo}"

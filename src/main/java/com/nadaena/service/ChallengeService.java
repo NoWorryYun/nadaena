@@ -171,9 +171,9 @@ public class ChallengeService {
 	}
 	
 	//북마크 확인
-	public int bookMark(int challengeNo) {
+	public int bookMark(ChallengeVo bookMarkData) {
 		
-		return challengeDao.bookMark(challengeNo);
+		return challengeDao.bookMark(bookMarkData);
 	}
 
 	//북마크 설정

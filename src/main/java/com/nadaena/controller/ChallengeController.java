@@ -89,10 +89,10 @@ public class ChallengeController {
 	//북마크 확인
 	@ResponseBody
 	@RequestMapping(value = "/challenge/bookMark", method = { RequestMethod.GET, RequestMethod.POST })
-	public int Bookmark(@RequestBody int userNo) {
+	public int Bookmark(@RequestBody ChallengeVo bookMarkData) {
 		System.out.println("북마크 확인중");
 
-		return challengeService.bookMark(userNo);
+		return challengeService.bookMark(bookMarkData);
 
 	}
 

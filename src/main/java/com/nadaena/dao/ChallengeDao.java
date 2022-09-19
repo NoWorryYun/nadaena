@@ -148,9 +148,9 @@ public class ChallengeDao {
 	}
 	
 	//챌린지 북마크 여부 확인
-	public int chkBookmark(int challengeNo) {
+	public int chkBookmark(ChallengeVo bookMarkData) {
 		
-		return sqlSession.selectOne("Challenge.chkBookmark", challengeNo);
+		return sqlSession.selectOne("Challenge.chkBookmark", bookMarkData);
 	}
 	
 	//챌린지 북마크 지워버리기

@@ -622,7 +622,7 @@
 			} else {
 				$.ajax({
 					contentType : 'application/json',
-					data : JSON.stringify(authUser),
+					data : JSON.stringify(bookMarkData),
 					url : '${pageContext.request.contextPath}/challenge/bookMark',
 					type : 'POST',
 					async: false,  //동기화

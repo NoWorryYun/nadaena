@@ -305,7 +305,7 @@
 	</div>
  -->
 
-
+<input type="hidden" id="challengeNo" name="challengeNo" value="${cMap.intro.challengeNo}">
 
 </body>
 
@@ -376,6 +376,17 @@ function render(commentVo, opt){
 
 authUser = "${authUser.userNo}";
 
+var challengeNo = $("#challengeNo").val();
+
+challengeNo = Number(challengeNo);
+
+console.log(challengeNo);
+
+var bookMarkData = {
+		userNo : authUser,
+		challengeNo : challengeNo
+}
+
 //북마크 확인하기
 function bkload(){
 if(authUser == "" && authUser == null){
@@ -383,7 +394,7 @@ if(authUser == "" && authUser == null){
 	} else{
 		$.ajax({
 			contentType : 'application/json',     
-			data : JSON.stringify(authUser),
+			data : JSON.stringify(bookMarkData),
 			url : '${pageContext.request.contextPath}/challenge/bookMark',
 			type : 'POST',
 			
