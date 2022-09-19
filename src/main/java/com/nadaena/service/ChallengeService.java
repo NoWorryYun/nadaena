@@ -203,6 +203,11 @@ public class ChallengeService {
 		//유저 참여 금액 추출
 		int pay = challengeVo.getPayment();
 		
+		//북마크 번호 만들기
+		ChallengeVo bookMarkData = new ChallengeVo();
+		bookMarkData.setChallengeNo(challengeNo);
+		bookMarkData.setUserNo(userNo);
+		
 		//유저 참여 금액 확인
 		int payment = challengeDao.userPay(challengeVo);
 		//참여용 금액차감 Vo 생성
@@ -263,7 +268,7 @@ public class ChallengeService {
 			int ClguUerUploadCheck = challengeDao.ClguUerUploadCheck(challengeNo);
 			
 			//챌린지 북바크 여부 확인
-			int chkBookmark = challengeDao.chkBookmark(challengeNo);
+			int chkBookmark = challengeDao.chkBookmark(bookMarkData);
 			
 			if(ClguUerUploadCheck > 0) {
 				challengeDao.deleteClgUserUpload(challengeNo);

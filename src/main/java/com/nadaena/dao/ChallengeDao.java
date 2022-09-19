@@ -66,9 +66,9 @@ public class ChallengeDao {
 	}
 	
 	//북마크 설정
-	public int bookMark(int userNo) {
+	public int bookMark(ChallengeVo bookMarkData) {
 
-		return sqlSession.selectOne("Challenge.bookMark", userNo);
+		return sqlSession.selectOne("Challenge.chkBookmark", bookMarkData);
 	}
 
 	//북마크 설정
