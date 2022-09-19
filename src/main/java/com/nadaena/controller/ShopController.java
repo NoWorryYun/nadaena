@@ -35,7 +35,7 @@ public class ShopController {
 		System.out.println(" ShopCtrl > main");
 		
 		return "shop/main2";
-	}
+	} 
 	
 	
 	@RequestMapping(value="shop/product")
