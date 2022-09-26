@@ -471,8 +471,6 @@ public class ChallengeService {
 		pMap.put("startPageBtnNo", startPageBtnNo);
 		pMap.put("endPageBtnNo", endPageBtnNo);
 		pMap.put("next", next);
-		System.out.println("==========================pMap============================");
-		System.out.println(pMap);
 		
 		return pMap;
 	}
